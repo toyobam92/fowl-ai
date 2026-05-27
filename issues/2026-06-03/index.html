@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+body{width:680px;background:#f2ede3;font-family:Georgia,serif;-webkit-font-smoothing:antialiased;}
+.card{background:#fff;margin:8px 0;padding:32px 44px;}
+.card-dark{background:#0f3d30;margin:8px 0;padding:32px 44px;}
+.card-amber{background:#f7eedc;margin:0;padding:34px 44px 36px;border-left:6px solid #f2a12b;}
+.card-mint{background:#e8f4ee;margin:8px 0;padding:28px 44px;}
+.card-coral{background:#fff4ef;margin:8px 0;padding:24px 44px;border-left:6px solid #d4541e;}
+
+/* masthead */
+.mast{background:#0d3f31;padding:36px 44px 34px;margin:0;}
+.mast-meta{display:flex;justify-content:space-between;margin-bottom:14px;}
+.mast-meta span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;}
+.brand-lockup{display:flex;align-items:center;gap:18px;margin:20px 0 28px;}
+.brand-dot{width:42px;height:42px;border-radius:50%;background:#78ddb4;box-shadow:0 6px 18px rgba(0,0,0,.2);}
+.brand-fowl{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;letter-spacing:9px;color:#f47f18;text-transform:uppercase;}
+.brand-divider{width:1px;height:48px;background:rgba(255,255,255,.65);}
+.brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
+.brand-name span{display:block;color:#7fd9b8;}
+.mast-title{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-style:italic;font-weight:800;font-size:58px;line-height:1.06;letter-spacing:-2px;color:#fff;margin-top:8px;}
+.mast-title span{color:#35bfa2;display:block;}
+.mast-sub{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:19px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:560px;}
+.mast-cta{display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;font-weight:800;text-decoration:none;padding:15px 28px;border-radius:999px;}
+.mast-rule{height:1px;background:linear-gradient(90deg,#7fd9b8,rgba(127,217,184,.08));margin:28px 0 18px;}
+.mast-foot{display:flex;justify-content:space-between;align-items:center;}
+.mast-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#9fe3c8;text-transform:uppercase;}
+.mast-freq{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#d99c2b;}
+.brand-strip{display:flex;gap:16px;margin-top:26px;border-top:1px solid rgba(127,217,184,.25);padding-top:18px;}
+.brand-item{flex:1;border-left:1px solid rgba(255,255,255,.38);padding-left:14px;}
+.brand-item:first-child{border-left:none;padding-left:0;}
+.brand-item b{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:5px;}
+.brand-item span{display:block;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;line-height:1.45;color:#f4fbf8;}
+
+/* section labels */
+.sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
+.sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
+.sec.ember{background:#1a0a05;}
+.sec.ember .sec-tag{color:#f0a87a;}
+.sec.ember .sec-line{background:#d4541e;opacity:.4;}
+
+/* tldr */
+.tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
+.tldr-text{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:26px;line-height:1.65;color:#0f3d30;font-style:italic;}
+
+/* intro */
+.intro-text{font-size:16px;line-height:1.8;color:#222;border-left:4px solid #0f3d30;padding-left:18px;}
+.editor-note{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.75;color:#1f332b;background:#e8f4ee;border-left:4px solid #35bfa2;padding:16px 18px;margin-bottom:22px;border-radius:0 6px 6px 0;}
+.editor-note b{color:#0f3d30;}
+
+/* story */
+.story{padding:28px 44px;background:#fff;border-bottom:1px solid #e8e4de;}
+.story-badge{display:inline-flex;align-items:center;gap:8px;margin-bottom:12px;}
+.story-n{font-family:'Fraunces',serif;font-size:52px;line-height:1;color:#e8e4dc;font-weight:700;}
+.story-title{font-family:'Fraunces',serif;font-weight:700;font-size:23px;line-height:1.2;color:#0a140a;margin-bottom:14px;}
+.story-body{font-size:15px;line-height:1.75;color:#333;margin-bottom:14px;}
+.meta{display:flex;gap:6px;font-family:-apple-system,sans-serif;font-size:13px;line-height:1.65;color:#555;padding:3px 0;}
+.meta b{color:#1a5f4a;flex-shrink:0;}
+.inside{background:#fffbf0;border-left:4px solid #d99c2b;padding:12px 16px;font-size:14px;font-style:italic;line-height:1.65;color:#4a4030;margin-top:14px;border-radius:0 6px 6px 0;}
+.inside b{font-style:normal;color:#0f3d30;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* signal */
+.sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
+.sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
+.sig:last-of-type{border-bottom:none;}
+.sig-dot{width:20px;height:20px;background:#d99c2b;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;}
+.sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
+
+/* reddit card */
+.reddit-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#d4541e;text-transform:uppercase;font-weight:500;margin-bottom:4px;}
+.reddit-sub{font-style:italic;font-size:12px;color:#b07060;margin-bottom:14px;}
+.reddit-item{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.68;color:#3a2a24;padding:8px 0;border-bottom:1px solid rgba(212,84,30,.1);}
+.reddit-item:last-of-type{border-bottom:none;padding-bottom:0;}
+.reddit-inside{font-size:13px;font-style:italic;color:#8a6a5c;margin-top:14px;padding-top:14px;border-top:1px solid rgba(212,84,30,.2);}
+.reddit-inside b{font-style:normal;color:#d4541e;}
+
+/* career */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
+
+/* platforms */
+table.pt{width:100%;border-collapse:collapse;}
+table.pt th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;padding:10px 8px;border-bottom:3px solid #0f3d30;text-align:left;}
+table.pt td{font-family:-apple-system,sans-serif;font-size:13.5px;padding:11px 8px;border-bottom:1px solid #e8e4de;color:#2a2a2a;vertical-align:top;}
+table.pt td b{color:#0f3d30;font-size:14px;}
+table.pt tr:last-child td{border-bottom:none;}
+
+/* jobs */
+.jobs-h{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;padding:16px 0 8px;border-bottom:2px solid #1a5f4a;margin-bottom:4px;}
+.jobs-h.ember{color:#d4541e;border-color:#d4541e;}
+.job{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #e8e4de;}
+.job:last-child{border-bottom:none;}
+.job b{color:#0a140a;font-family:-apple-system,sans-serif;font-size:13.5px;}
+.job span{color:#999;font-family:-apple-system,sans-serif;font-size:13px;}
+.bdg{display:inline-block;background:#d4541e;color:#fff;font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.5px;padding:3px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;}
+.jobs-note{font-style:italic;font-size:13px;color:#666;margin-top:14px;border-left:4px solid #d99c2b;padding:10px 14px;background:#fffbf0;line-height:1.65;}
+
+/* closing */
+.closing-text{font-size:16px;line-height:1.8;color:#1a1a1a;}
+
+/* stamp */
+.stamp-text{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.6;color:#fff;text-align:center;}
+.stamp-text span{color:#7fd9b8;}
+
+/* reply */
+.reply-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:#1a5f4a;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.reply-text{font-style:italic;font-size:15.5px;line-height:1.75;color:#1a3a2a;}
+
+/* footer */
+.footer{background:#13241e;padding:26px 44px;text-align:center;margin:0;}
+.footer-brand{font-family:'Fraunces',serif;font-size:14px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:6px;}
+.footer-fine{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#3a5248;}
+.footer-fine a{color:#7fd9b8;text-decoration:underline;}
+</style></head><body>
+
+<!-- MASTHEAD -->
+<div class="mast">
+  <div class="mast-meta"><span>Vol. 1 · Issue 1</span><span>May 27, 2026</span></div>
+  <div class="brand-lockup">
+    <div class="brand-dot"></div>
+    <div class="brand-fowl">FOWL AI</div>
+    <div class="brand-divider"></div>
+    <div class="brand-name">Future of<span>Work Lab</span></div>
+  </div>
+  <div class="mast-title">AI is quietly rewriting<span>career leverage.</span></div>
+  <div class="mast-sub">The people pulling ahead are not just using AI. They are pairing AI fluency with domain judgment, and that combination is becoming expensive.</div>
+  <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Read this week's signals</a>
+  <div class="mast-rule"></div>
+  <div class="mast-foot">
+    <div class="mast-tag">AI · Careers · The Hidden Economy</div>
+    <div class="mast-freq">Weekly</div>
+  </div>
+  <div class="brand-strip">
+    <div class="brand-item"><b>AI</b><span>Tools, workflows, and adoption signals shaping tomorrow.</span></div>
+    <div class="brand-item"><b>Careers</b><span>Guidance for staying valuable as modern work changes.</span></div>
+    <div class="brand-item"><b>Hidden Economy</b><span>Platforms, roles, and paid opportunities most people miss.</span></div>
+  </div>
+</div>
+
+<!-- TLDR -->
+<div class="card-amber">
+  <div class="tldr-label">If you read nothing else</div>
+  <div class="tldr-text">The AI job market is splitting in two: people who use AI for tasks, and people who can judge where AI is wrong. The second group will have more leverage.</div>
+</div>
+
+<!-- INTRO -->
+<div class="card">
+  <div class="editor-note"><b>Hi Africans in Data community,</b><br><br>It has been two years, and I have felt bad about how quiet things became here. This is the first iteration of something new: we are migrating into FOWL AI, a sharper home for the work, career signals, AI opportunities, and practical resources this community was always meant to share. Thank you for still being here. I am excited to build this next version with you.</div>
+  <div class="intro-text">Welcome to <strong>Issue 1 from FOWL AI</strong> — a calm, analytical read for data scientists, analysts, consultants, and knowledge workers navigating the AI transition. No hype. No fear-mongering. Just the signal worth your time, every week.<br><br>There's a narrative running through enterprise AI right now: learn to prompt, stay current, you'll be fine. The data says something more specific — and more useful. The professionals pulling away aren't generalists who use AI. They're specialists who've combined years of domain knowledge with a working understanding of AI workflows. That intersection is where the premiums are.</div>
+</div>
+
+<!-- STORIES HEADER -->
+<div class="sec"><span class="sec-tag">This Week — 5 Developments</span><span class="sec-line"></span></div>
+
+<!-- STORY 01 -->
+<div class="story">
+  <div class="story-n">01</div>
+  <div class="story-title">The highest-paid AI professionals are domain specialists, not AI generalists</div>
+  <div class="story-body">Over 75% of AI job listings in 2026 specifically seek domain experts — not generalists who "know AI." McKinsey data shows workers in AI-fluency-required roles grew sevenfold in two years — from ~1M in 2023 to ~7M in 2025. Upwork's 2026 report: AI annotation demand +154% YoY, AI integration +178%. Nearly half of business leaders say they'll pay a premium for talent that is <em>creative and innovative</em> — human expertise alongside AI fluency, not instead of it.</div>
+  <div class="meta"><b>Why it matters ·</b> "I use AI" is no longer a differentiator. Can you apply AI to a specific problem where mistakes have real consequences?</div>
+  <div class="meta"><b>Who benefits ·</b> Mid-career professionals in finance, healthcare, legal, engineering, and data who've been building domain knowledge for years.</div>
+  <div class="meta"><b>The signal ·</b> "Learn AI skills" is incomplete without anchoring them to a domain. A generalist prompt engineer is replaceable. A data scientist who understands credit risk and builds AI workflows around it is not.</div>
+  <div class="inside"><b>From the inside —</b> The platforms paying the highest rates aren't looking for people who can use the tools. They're looking for people who can tell when the tools are wrong — in a specific domain, with specific language. That's not a skill you can download.</div>
+</div>
+
+<!-- STORY 02 -->
+<div class="story">
+  <div class="story-n">02</div>
+  <div class="story-title">ServiceNow shipped an autonomous workforce. Here's what it actually means.</div>
+  <div class="story-body">At Knowledge 2026 in Las Vegas, ServiceNow unveiled AI "specialists" completing end-to-end business processes without human intervention — across IT, CRM, HR, finance, legal, procurement, security, and risk. The L1 IT Service Desk AI Specialist is live now, handling 90%+ of employee IT requests internally. Jensen Huang joined the keynote. ServiceNow's CPO: "Advisory AI has run its course. Enterprises need AI that senses, decides, and securely acts."</div>
+  <div class="meta"><b>Why it matters ·</b> Agentic AI as a Q2 2026 product, not a future promise. 90% of IT support automated is workflow replacement, not augmentation.</div>
+  <div class="meta"><b>The signal ·</b> New roles forming: agent orchestration, oversight and strategy. The career question is which side of the automation line you're building toward.</div>
+  <div class="inside"><b>From the inside —</b> The 90% stat is the one to hold onto. The repetitive 90% gets automated. The ambiguous, high-stakes 10% stays human. Make yourself indispensable in the 10%.</div>
+</div>
+
+<!-- STORY 03 -->
+<div class="story">
+  <div class="story-n">03</div>
+  <div class="story-title">"AI-free skills" are becoming a compliance requirement</div>
+  <div class="story-body">Gartner projects half of organizations will require AI-free skills assessments by 2026. Simultaneously, the EU AI Act requires employers to ensure staff have sufficient AI literacy. Article 14 enforcement deadline: <strong>August 2, 2026</strong> — ten weeks away. Enterprises are simultaneously mandating AI fluency and protecting against AI dependence.</div>
+  <div class="meta"><b>Why it matters ·</b> Calibrated judgment — knowing when an AI output is subtly wrong, and why — atrophies if you never exercise it.</div>
+  <div class="meta"><b>The signal ·</b> Judgment is becoming a compliance asset. Critical AI evaluation is moving from a soft preference to an auditable requirement in regulated industries.</div>
+  <div class="inside"><b>From the inside —</b> "AI-free skills" gets framed as resistance to AI. It's the opposite — recognition that AI is only as reliable as the humans who can catch its mistakes. In evaluation work, this is the entire job.</div>
+</div>
+
+<!-- STORY 04 -->
+<div class="story">
+  <div class="story-n">04</div>
+  <div class="story-title">Upwork's 2026 data: fractional AI talent is replacing full-time headcount</div>
+  <div class="story-body">Upwork's 2026 In-Demand Skills report: AI-referenced skills grew 109% YoY. More significant: 77% of business leaders say AI is increasing their need for specialized, fractional talent over full-time roles. Enterprises use AI for steady-state work, then bring in specialized contractors for the high-judgment work AI can't do.</div>
+  <div class="meta"><b>Why it matters ·</b> Structural tailwind for domain-deep contractors. Structural headwind for generalists in full-time steady-state roles.</div>
+  <div class="meta"><b>The signal ·</b> The portfolio career model — several specialized engagements in parallel — is moving from fringe preference to economically rational default.</div>
+  <div class="inside"><b>From the inside —</b> "I'm a data scientist who uses AI tools" is a job description. "I'm a data scientist who understands fraud detection in fintech" is a value proposition.</div>
+</div>
+
+<!-- STORY 05 -->
+<div class="story" style="border-bottom:none;">
+  <div class="story-n">05</div>
+  <div class="story-title">AI trainer job postings are up 150% — but the market is stratifying fast</div>
+  <div class="story-body">AI trainer postings surged 150% in two years. Frontier labs collectively spend ~$1B/year on human-generated training data. The market is splitting: entry-level annotation ($15–20/hr) faces automation pressure. Domain-expert evaluation — medical, legal, financial, quantitative — pays $20–200+/hr and faces a genuine supply shortage.</div>
+  <div class="meta"><b>The signal ·</b> Expert evaluation is becoming a professional services category. The highest-leverage move may be registering the domain expertise you already have on the right platforms.</div>
+  <div class="inside"><b>From the inside —</b> The hardest thing to find isn't people who can label data. It's people who can tell a frontier model that its financial analysis is subtly wrong — and explain the failure mode in structured terms. If you can do that in your field, you have something genuinely scarce.</div>
+</div>
+
+<!-- SIGNAL & CHATTER -->
+<div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="sig-intro">What AI professionals are tracking this week.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>"Domain expert" is replacing "AI fluent" as the hiring signal.</b> Over 75% of AI listings now specifically seek domain expertise, not general AI familiarity.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Agent orchestration is the new DevOps.</b> Managing fleets of AI agents is emerging as a distinct discipline — not ML engineering, not project management. Something genuinely new.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The freelance premium is getting quantifiable.</b> 77% of business leaders shifting toward fractional, specialized talent over full-time hires for AI-adjacent work.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>EU AI Act anxiety is peaking.</b> Ten weeks to August 2. Organizations that built HITL architecture in Q1 are fine. The ones that didn't are scrambling.</div></div>
+</div>
+
+<!-- REDDIT -->
+<div class="card-coral">
+  <div class="reddit-label">👾 Here's the chatter on Reddit</div>
+  <div class="reddit-sub">From r/WorkOnline, r/datannotation, r/beermoney and similar.</div>
+  <div class="reddit-item"><b>"How do I prove domain expertise to a platform?"</b> Workaround: note your background explicitly in your profile, apply directly to domain-specific projects rather than open task queues.</div>
+  <div class="reddit-item"><b>Payout speed is the new sorting criterion.</b> Community shifted from rating platforms on pay rate to payment reliability. Mercor and DataAnnotation come up most as consistent.</div>
+  <div class="reddit-item"><b>"I made $1,200 in 6 weeks treating this like a second job."</b> Outlier + DataAnnotation in parallel, 15 hrs/week. Quality scores unlock better task queues — that's where the higher-paying work lives.</div>
+  <div class="reddit-item"><b>The Mercor AI interview is real and rigorous.</b> 20-minute screen that genuinely tests domain knowledge. Treat it like a real interview, not an onboarding form.</div>
+  <div class="reddit-inside"><b>From the inside —</b> Platform tiers exist, quality scores matter, and the professionals earning real money treat this with the same discipline they'd bring to a consulting engagement.</div>
+</div>
+
+<!-- EMERGING CAREER -->
+<div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
+<div class="card-dark">
+  <div class="career-eye">This week</div>
+  <div class="career-title">AI Agent Orchestration Specialist</div>
+  <div class="career-body">As enterprises deploy fleets of autonomous AI agents — ServiceNow's launch being the clearest example — a new discipline is forming around managing them. This role sits at the intersection of ML engineering, workflow design, and governance. The job: design how agents interact, set escalation rules, monitor performance, route edge cases to humans.<br><br>The problem of a single AI agent is an engineering problem. The problem of 50 agents with overlapping permissions and inconsistent audit trails is an operational problem. That's a different discipline.</div>
+  <div class="career-why"><b>How to position:</b> Build experience with agentic frameworks (LangGraph, CrewAI, Microsoft Agent 365). Pair with NIST AI RMF or EU AI Act Article 14 knowledge. The audit trail and permission-scoping expertise is the differentiator.</div>
+</div>
+
+<!-- PLATFORMS -->
+<div class="sec"><span class="sec-tag">🧭 AI Trainer Platforms</span><span class="sec-line"></span></div>
+<div class="card">
+  <div style="font-style:italic;font-size:13px;color:#999;margin-bottom:12px;">No developer background required. Apply once, opt into projects that match your domain.</div>
+  <table class="pt">
+    <tr><th>Platform</th><th>Best for</th><th>Pay range</th></tr>
+    <tr><td><b>DataAnnotation</b></td><td>Strong writers, generalists</td><td>$20+/hr</td></tr>
+    <tr><td><b>Outlier</b> (Scale AI)</td><td>STEM, medicine, law, coding</td><td>$20–50/hr</td></tr>
+    <tr><td><b>Mercor</b></td><td>Domain experts, frontier lab eval</td><td>$25–200+/hr</td></tr>
+    <tr><td><b>Mindrift</b></td><td>RLHF, red-teaming, evaluation</td><td>Varies</td></tr>
+    <tr><td><b>OpenTrain AI</b></td><td>Global network, 110+ countries</td><td>Varies</td></tr>
+    <tr><td><b>Alignerr / micro1</b></td><td>Expert-tier evaluation</td><td>$30–100+/hr</td></tr>
+  </table>
+</div>
+
+<!-- JOBS -->
+<div class="sec ember"><span class="sec-tag">🆕 New This Week — AI Jobs</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="jobs-h ember">AI Trainer &amp; Evaluation Roles</div>
+  <div class="job"><span class="bdg">24h</span><div><b>Quantitative AI Evaluator</b> — Remote (US/CA/UK/IE/AU/NZ) · <span>forecasting &amp; statistical reasoning</span></div></div>
+  <div class="job"><span class="bdg">24h</span><div><b>Data Science AI Trainer</b> — Remote · freelance · <span>Mindrift</span></div></div>
+  <div class="job"><span class="bdg">24h</span><div><b>Freelance Annotator — AI Projects</b> — Remote · <span>Toloka</span></div></div>
+  <div class="job"><span class="bdg">24h</span><div><b>GenAI Evaluation Specialist</b> — Phoenix, AZ · full-time · <span>Mercor</span></div></div>
+  <div class="job"><span class="bdg">24h</span><div><b>AI Research Evaluation Lead</b> — Martinez, CA · full-time · <span>Mercor</span></div></div>
+  <div class="job"><span class="bdg">24h</span><div><b>Generalist Data Annotation Expert</b> — Remote (US) · $45/hr · <span>Mercor via RippleMatch</span></div></div>
+  <div class="jobs-h" style="margin-top:16px;">Conventional AI &amp; Data Roles</div>
+  <div class="job"><div><b>AI Agent Orchestration Lead</b> — enterprise agentic systems · <span>demand accelerating post-ServiceNow</span></div></div>
+  <div class="job"><div><b>AI Corporate Trainer</b> — Remote (USA) · 12-month contract</div></div>
+  <div class="job"><div><b>AI Engineer</b> — LinkedIn's #1 fastest-growing US title · <span>postings +143% YoY</span></div></div>
+  <div class="job"><div><b>AI Operations / MLOps Lead</b> — production model deployment &amp; monitoring</div></div>
+  <div class="job"><div><b>Director of AI Governance &amp; Risk</b> — EU AI Act / NIST · <span>hiring accelerating</span></div></div>
+  <div class="job"><div><b>Cloud AI Solutions Architect</b> — ~$209K base · <span>AWS/GCP ML certs valued</span></div></div>
+  <div class="jobs-note">The "AI Agent Orchestration Lead" category barely existed six months ago. ServiceNow's Knowledge 2026 launch just gave it a product surface to attach to. Watch this title multiply through Q3.</div>
+</div>
+
+<!-- CLOSING -->
+<div class="card" style="padding-bottom:0;">
+  <div class="closing-text">The AI economy has a consistent pattern: it rewards people who know something deeply enough to evaluate it, not just use it. The domain expert who can tell a model it's wrong — specifically, structurally, in the language of their field — is doing something that scales poorly, is genuinely hard to replicate, and is increasingly what the whole system depends on. That's a durable position. Build toward it.</div>
+</div>
+
+<!-- STAMP -->
+<div class="card-dark" style="margin-top:0;text-align:center;">
+  <div class="stamp-text">"AI is increasingly rewarding people who can combine<br><span>domain expertise, judgment, and adaptability."</span></div>
+</div>
+
+<!-- REPLY CTA -->
+<div class="card-mint">
+  <div class="reply-label">💬 One question — reply and tell us</div>
+  <div class="reply-text">What's your primary domain? Data science, finance, healthcare, law, engineering, something else?<br><br>We're mapping which domains are most represented in this community — it shapes how we cover the AI trainer market and emerging roles. Hit reply with your field. Takes 10 seconds.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">FOWL AI</div>
+  <div class="footer-fine">Intelligence for knowledge workers · <a href="https://fowlai.eo.page/vmk69">fowlai.eo.page/vmk69</a> · Weekly<br>{{SenderInfoLine}}<br><a href="{{UnsubscribeURL}}">Unsubscribe</a> · <a href="{{RewardsURL}}">Powered by EmailOctopus</a></div>
+</div>
+
+</body></html>
