@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOWL AI</title>
+  <meta name="description" content="FOWL AI: weekly signals on AI, careers, data, and the hidden economy of work.">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;}
+    .site{min-height:100vh;}
+    .hero{background:#0d3f31;color:#fff;padding:34px 24px 56px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:58px;}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;text-decoration:none;}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:38px;align-items:end;}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:16px;}
+    h1{font-size:clamp(44px,7vw,78px);line-height:1.02;letter-spacing:0;font-weight:800;max-width:760px;}
+    h1 span{display:block;color:#35bfa2;font-family:Fraunces,Georgia,serif;}
+    .lede{font-size:19px;line-height:1.8;color:#e2f2eb;max-width:660px;margin-top:24px;}
+    .hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px;}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 22px;border-radius:999px;font-weight:800;text-decoration:none;}
+    .btn.primary{background:#f2a12b;color:#0d3f31;}
+    .btn.secondary{border:1px solid rgba(127,217,184,.45);color:#e2f2eb;}
+    .latest-card{background:#fff;color:#13241e;padding:24px;border-radius:8px;border-left:6px solid #f2a12b;box-shadow:0 18px 50px rgba(0,0,0,.18);}
+    .latest-kicker{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:12px;}
+    .latest-card h2{font-family:Fraunces,Georgia,serif;font-size:30px;line-height:1.1;margin-bottom:12px;}
+    .latest-card p{color:#46524c;font-size:15px;margin-bottom:18px;}
+    .issue-meta{display:flex;flex-wrap:wrap;gap:10px;color:#63736b;font-size:13px;margin-bottom:18px;}
+    .pill{background:#e8f4ee;border-radius:999px;padding:6px 10px;}
+    .main{padding:42px 24px 64px;}
+    .section-head{display:flex;align-items:end;justify-content:space-between;gap:18px;margin-bottom:18px;}
+    .section-head h2{font-family:Fraunces,Georgia,serif;font-size:34px;}
+    .section-head p{color:#6a6258;max-width:520px;}
+    .archive{display:grid;gap:14px;}
+    .issue-row{display:grid;grid-template-columns:120px minmax(0,1fr) auto;gap:20px;align-items:center;background:#fff;padding:20px;border-left:5px solid #0f3d30;text-decoration:none;border-radius:0 8px 8px 0;}
+    .issue-row:hover{background:#fffbf0;}
+    .date{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;}
+    .issue-title{font-weight:800;font-size:18px;margin-bottom:4px;}
+    .issue-desc{color:#665f56;font-size:14px;}
+    .status{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#d4541e;white-space:nowrap;}
+    .status.live{color:#1a5f4a;}
+    .disabled{opacity:.62;pointer-events:none;}
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
+    @media (max-width:760px){
+      .hero{padding:26px 18px 38px;}
+      .nav{margin-bottom:42px;}
+      .hero-grid{grid-template-columns:1fr;align-items:start;}
+      .main{padding:32px 18px 48px;}
+      .section-head{display:block;}
+      .section-head p{margin-top:8px;}
+      .issue-row{grid-template-columns:1fr;gap:8px;}
+      .status{white-space:normal;}
+    }
+  </style>
+</head>
+<body>
+  <div class="site">
+    <header class="hero">
+      <div class="wrap">
+        <nav class="nav">
+          <a class="brand" href="./index.html" aria-label="FOWL AI home">
+            <span class="brand-mark"></span>
+            <span class="brand-word">FOWL AI</span>
+          </a>
+          <a class="nav-link" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </nav>
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">FOWL AI</div>
+            <h1>Weekly AI career signals<span>for Africans in Data.</span></h1>
+            <p class="lede">A public home for each issue: AI shifts, career leverage, trainer platforms, jobs, and practical signals for knowledge workers navigating the next version of work.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="./issues/2026-06-03/">Read latest issue</a>
+              <a class="btn secondary" href="https://fowlai.eo.page/vmk69">Join the list</a>
+            </div>
+          </div>
+          <aside class="latest-card">
+            <div class="latest-kicker">Latest issue</div>
+            <h2>AI is quietly rewriting career leverage.</h2>
+            <div class="issue-meta">
+              <span class="pill">Vol. 1</span>
+              <span class="pill">Issue 1</span>
+              <span class="pill">May 27, 2026</span>
+            </div>
+            <p>The AI job market is splitting between people who use AI for tasks and people who can judge where AI is wrong.</p>
+            <a class="btn primary" href="./issues/2026-06-03/">Open issue</a>
+          </aside>
+        </div>
+      </div>
+    </header>
+
+    <main class="main">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Issue Archive</h2>
+          <p>Each week can live here as a separate shareable page. Add the next issue to the archive when it is ready.</p>
+        </div>
+        <div class="archive">
+          <a class="issue-row" href="./issues/2026-06-03/">
+            <div class="date">May 27</div>
+            <div>
+              <div class="issue-title">Issue 1: AI is quietly rewriting career leverage</div>
+              <div class="issue-desc">Domain expertise, AI trainer platforms, agent orchestration, and the career premium for judgment.</div>
+            </div>
+            <div class="status live">Live</div>
+          </a>
+          <a class="issue-row" href="https://fowlai.eo.page/vmk69">
+            <div class="date">Issue 2</div>
+            <div>
+              <div class="issue-title">Subscribe to not miss Issue 2</div>
+              <div class="issue-desc">Join FOWL AI and get the next issue when it drops.</div>
+            </div>
+            <div class="status">Subscribe</div>
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      FOWL AI · <a href="https://fowlai.eo.page/vmk69">Subscribe</a>
+    </footer>
+  </div>
+</body>
+</html>
