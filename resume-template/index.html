@@ -6,11 +6,19 @@
   <title>AI Work Resume Template — FOWL AI</title>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    *{box-sizing:border-box;margin:0;padding:0;}
+    *{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
     body{font-family:Inter,sans-serif;background:#fff;color:#13241e;line-height:1.65;font-size:15px;}
-    .page{width:794px;min-height:1123px;margin:0 auto;padding:72px 80px;page-break-after:always;position:relative;}
+    .page{width:794px;margin:0 auto;padding:48px 80px 56px;position:relative;break-before:page;}
     @media screen{.page{border-bottom:2px dashed #e0dbd3;}}
     @media print{body{background:#fff;}.page{margin:0;padding:60px 72px;border:none;}.no-print{display:none;}}
+    /* ── Prevent section cutoffs ── */
+    .callout, .compare, .compare-box, .resume-job,
+    .ai-section, .skills-grid, .skill-group,
+    .resume-section, table, tr, .chapter-header {
+      break-inside: avoid;
+    }
+    h2, h3, h4, .resume-section-title { break-after: avoid; }
+    .page-footer { break-inside: avoid; }
 
     h1{font-family:Fraunces,Georgia,serif;font-size:52px;line-height:1.05;font-weight:900;}
     h2{font-family:Fraunces,Georgia,serif;font-size:30px;line-height:1.15;font-weight:700;margin-bottom:16px;}
@@ -22,7 +30,8 @@
     strong{color:#13241e;}
 
     /* Cover */
-    .cover{background:#1a5f4a;color:#fff;padding:80px;}
+    .cover{background:#1a5f4a;color:#fff;padding:80px;min-height:1122px;display:flex;flex-direction:column;}
+    @media print{.page.cover{height:297mm;}}
     .cover-eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#78ddb4;margin-bottom:28px;}
     .cover h1{color:#fff;font-size:52px;margin-bottom:16px;}
     .cover h1 span{color:#f2a12b;display:block;}

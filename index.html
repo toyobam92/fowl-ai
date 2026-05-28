@@ -172,16 +172,44 @@
 
     /* ── Responsive ── */
     @media (max-width:760px){
-      .hero{padding:26px 18px 38px;}
-      .nav{margin-bottom:42px;}
+      /* Nav — brand + subscribe on top row, links below */
+      .hero{padding:22px 18px 36px;}
+      .nav{flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+      .brand-word{font-size:14px;letter-spacing:4px;}
+      .nav-bounce{font-size:10px;letter-spacing:1px;margin-right:6px;}
+      .sub-btn.sm{padding:9px 16px;font-size:11px;}
+
+      /* Hero */
       .hero-grid{grid-template-columns:1fr;align-items:start;}
-      .main{padding:32px 18px 48px;}
+      .lede{font-size:16px;line-height:1.7;}
+      .hero-actions{width:100%;}
+      .sub-btn.lg{width:100%;font-size:15px;padding:15px 20px;justify-content:center;}
+      .hero-sub-link{text-align:center;width:100%;display:block;}
+
+      /* Latest card */
+      .latest-card h2{font-size:22px;}
+
+      /* Main / archive */
+      .main{padding:28px 18px 44px;}
       .section-head{display:block;}
-      .section-head p{margin-top:8px;}
-      .issue-row{grid-template-columns:1fr;gap:8px;}
+      .section-head p{margin-top:8px;font-size:14px;}
+      .issue-row{grid-template-columns:1fr;gap:6px;padding:16px;}
+      .issue-title{font-size:16px;}
       .status{white-space:normal;}
+
+      /* Products teaser */
+      .products-teaser{padding:36px 18px 32px;}
+      .teaser-title{font-size:26px;}
+      .teaser-grid{grid-template-columns:1fr;}
+      .teaser-head{flex-direction:column;align-items:flex-start;gap:8px;}
+
+      /* Subscribe strip */
+      .subscribe-strip{padding:40px 18px;}
+      .subscribe-strip h3{font-size:24px;}
+
+      /* Sticky bar */
+      .sticky-bar{padding:10px 14px;gap:10px;}
       .sticky-bar span{display:none;}
-      .sub-btn.lg{font-size:16px;padding:16px 32px;}
     }
   </style>
 </head>
