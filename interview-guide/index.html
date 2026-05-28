@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Pass Your AI Interview — FOWL AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,sans-serif;background:#fff;color:#13241e;line-height:1.65;font-size:15px;}
+    .page{width:794px;min-height:1123px;margin:0 auto;padding:72px 80px;page-break-after:always;position:relative;}
+    @media screen{.page{border-bottom:2px dashed #e0dbd3;}}
+    @media print{body{background:#fff;}.page{margin:0;padding:60px 72px;border:none;}.no-print{display:none;}}
+
+    h1{font-family:Fraunces,Georgia,serif;font-size:52px;line-height:1.05;font-weight:900;}
+    h2{font-family:Fraunces,Georgia,serif;font-size:30px;line-height:1.15;font-weight:700;margin-bottom:16px;}
+    h3{font-size:17px;font-weight:800;margin-bottom:10px;color:#0d3f31;}
+    h4{font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#1a5f4a;margin-bottom:8px;font-family:"DM Mono",monospace;}
+    p{margin-bottom:14px;color:#2a3830;}
+    ul,ol{padding-left:20px;margin-bottom:14px;}
+    li{margin-bottom:8px;color:#2a3830;}
+    strong{color:#13241e;}
+
+    /* Cover */
+    .cover{background:#13241e;color:#fff;padding:80px;}
+    .cover-eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#78ddb4;margin-bottom:28px;}
+    .cover h1{color:#fff;font-size:54px;margin-bottom:16px;}
+    .cover h1 span{color:#f2a12b;display:block;}
+    .cover-sub{font-size:19px;color:#a9e8cf;line-height:1.65;max-width:500px;margin-bottom:48px;}
+    .cover-proof{background:rgba(255,255,255,.07);border-left:4px solid #78ddb4;padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:48px;max-width:480px;}
+    .cover-proof p{color:#e2f2eb;font-size:15px;margin:0;font-style:italic;}
+    .cover-proof cite{display:block;margin-top:8px;font-size:11px;color:#78ddb4;font-style:normal;font-family:"DM Mono",monospace;letter-spacing:1px;}
+    .cover-logo span{font-family:"DM Mono",monospace;font-size:20px;letter-spacing:8px;color:#f47f18;}
+    .cover-meta{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-top:48px;}
+
+    /* Chapter */
+    .chapter-num{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#78ddb4;background:#0d3f31;display:inline-block;padding:5px 12px;border-radius:4px;margin-bottom:12px;}
+    .chapter-header{margin-bottom:32px;}
+    .divider{height:3px;background:linear-gradient(90deg,#13241e,#78ddb4,transparent);margin:32px 0;}
+    .divider-sm{height:1px;background:#e0ebe5;margin:20px 0;}
+
+    /* Callouts */
+    .callout{border-left:4px solid #f2a12b;background:#fffbf0;padding:18px 20px;border-radius:0 8px 8px 0;margin:20px 0;}
+    .callout.green{border-left-color:#0d3f31;background:#f0f8f4;}
+    .callout.red{border-left-color:#d4541e;background:#fff5f0;}
+    .callout.blue{border-left-color:#1a5f9a;background:#f0f6ff;}
+    .callout p{margin:0;font-size:14px;}
+    .callout-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c07000;margin-bottom:6px;}
+    .callout.green .callout-label{color:#1a5f4a;}
+    .callout.red .callout-label{color:#d4541e;}
+    .callout.blue .callout-label{color:#1a5f9a;}
+
+    /* Q&A boxes */
+    .qa-block{background:#f8faf9;border:1.5px solid #d5e8df;border-radius:10px;padding:22px;margin-bottom:18px;}
+    .qa-block.featured{border-color:#f2a12b;background:#fffcf5;}
+    .qa-q{font-weight:800;font-size:15px;color:#0d3f31;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid #e0ebe5;}
+    .qa-q::before{content:"Q: ";font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;color:#78ddb4;display:block;margin-bottom:4px;}
+    .qa-a{font-size:14px;color:#2a3830;line-height:1.75;}
+    .qa-a::before{content:"A: ";font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;color:#f2a12b;display:block;margin-bottom:4px;font-weight:700;}
+    .qa-tip{margin-top:10px;font-size:12px;color:#1a5f4a;font-style:italic;padding-top:10px;border-top:1px solid #e0ebe5;}
+
+    /* Steps */
+    .steps{counter-reset:step;list-style:none;padding:0;}
+    .steps li{counter-increment:step;padding-left:44px;position:relative;margin-bottom:18px;}
+    .steps li::before{content:counter(step);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;background:#13241e;color:#78ddb4;font-family:"DM Mono",monospace;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+    .steps li strong{display:block;margin-bottom:4px;}
+
+    /* Scoring table */
+    table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+    th{background:#13241e;color:#a9e8cf;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 14px;text-align:left;}
+    td{padding:10px 14px;border-bottom:1px solid #e8f0ec;}
+    tr:nth-child(even) td{background:#f5faf7;}
+
+    /* Score pill */
+    .score{display:inline-block;padding:3px 10px;border-radius:999px;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;font-weight:700;}
+    .score.high{background:#e8f4ee;color:#1a5f4a;}
+    .score.mid{background:#fff3de;color:#b36b00;}
+    .score.low{background:#fff0ee;color:#d4541e;}
+
+    /* Before/after */
+    .compare{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:20px 0;}
+    .compare-box{border-radius:8px;padding:18px;}
+    .compare-box.before{background:#fff0ee;border:1.5px solid #f5c5bb;}
+    .compare-box.after{background:#e8f4ee;border:1.5px solid #a8d9bc;}
+    .compare-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:10px;font-weight:700;}
+    .compare-box.before .compare-label{color:#d4541e;}
+    .compare-box.after .compare-label{color:#1a5f4a;}
+    .compare-box p{font-size:13px;margin:0;line-height:1.6;}
+
+    /* Timeline */
+    .timeline{list-style:none;padding:0;}
+    .timeline li{display:flex;gap:16px;margin-bottom:20px;}
+    .timeline-day{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;background:#13241e;color:#78ddb4;padding:6px 12px;border-radius:6px;white-space:nowrap;align-self:flex-start;margin-top:2px;}
+    .timeline-content strong{display:block;margin-bottom:4px;}
+    .timeline-content p{font-size:14px;margin:0;}
+
+    .page-footer{position:absolute;bottom:32px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;color:#9aada5;border-top:1px solid #e0ebe5;padding-top:10px;}
+    .print-bar{background:#13241e;color:#fff;text-align:center;padding:16px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:1px;position:sticky;top:0;z-index:50;}
+    .print-bar button{background:linear-gradient(135deg,#ffbe30,#f2631a);color:#fff;border:none;padding:9px 24px;border-radius:999px;font-weight:800;font-size:12px;cursor:pointer;margin-left:12px;}
+  </style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  To save as PDF: File → Print → Save as PDF &nbsp;
+  <button onclick="window.print()">Save as PDF</button>
+</div>
+
+<!-- COVER -->
+<div class="page cover">
+  <div class="cover-logo"><span>FOWL AI</span></div>
+  <div class="cover-eyebrow">Future of Work Lab · Digital Guide</div>
+  <h1>How to Pass<span>Your AI Interview</span></h1>
+  <p class="cover-sub">The exact framework for clearing AI platform screenings — from Mercor's AI video interview to Outlier's skills assessment — and landing the rates your background deserves.</p>
+  <div class="cover-proof">
+    <p>"I passed the Mercor AI interview and landed $70–80/hr projects. The difference wasn't my skills — it was how I framed them."</p>
+    <cite>— FOWL AI, Issue 4</cite>
+  </div>
+  <div class="cover-meta">FOWL AI · fowl-ai.com · 2026 Edition</div>
+</div>
+
+<!-- PAGE 2 — WHAT AI INTERVIEWS ACTUALLY TEST -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Introduction</div>
+    <h2>What AI platform interviews are actually testing</h2>
+  </div>
+
+  <p>Most people approach AI platform interviews the way they approach job interviews — trying to seem impressive. That is the wrong frame. AI platforms are not evaluating your resume. They are evaluating one thing: <strong>can you reliably judge whether AI output is correct, useful, and safe in your domain?</strong></p>
+
+  <p>That changes everything about how you should prepare and what you should say.</p>
+
+  <div class="callout green">
+    <div class="callout-label">The core insight</div>
+    <p>You are not competing for a job. You are being calibrated as a measuring instrument. The interview is asking: how precise are you, and in which domain? The more precisely you can answer that, the higher you score.</p>
+  </div>
+
+  <h3>The three things every AI platform interview measures</h3>
+
+  <ul>
+    <li><strong>Domain precision</strong> — Can you identify errors in your field that a generalist would miss? The narrower and deeper your expertise, the better.</li>
+    <li><strong>Reasoning quality</strong> — Can you explain why something is wrong, not just that it is wrong? Platforms need annotators who can provide useful feedback, not just labels.</li>
+    <li><strong>Communication clarity</strong> — Can you articulate your judgment clearly and consistently? Vague feedback is not useful for AI training. Precise feedback is.</li>
+  </ul>
+
+  <div class="divider-sm"></div>
+
+  <h3>Which platforms have which interview types</h3>
+
+  <table>
+    <thead>
+      <tr><th>Platform</th><th>Interview Type</th><th>Difficulty</th><th>What to Focus On</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Mercor</td><td>AI video screening + technical task</td><td>High</td><td>Domain specificity, past projects</td></tr>
+      <tr><td>Invisible AI</td><td>Application + skills review</td><td>High</td><td>Senior expertise, judgment examples</td></tr>
+      <tr><td>Outlier AI</td><td>Skills assessment</td><td>Medium</td><td>Accuracy over speed</td></tr>
+      <tr><td>DataAnnotation</td><td>Coding/writing task</td><td>Medium</td><td>Technical precision</td></tr>
+      <tr><td>Scale AI</td><td>Onboarding quiz</td><td>Low–Medium</td><td>Following instructions exactly</td></tr>
+      <tr><td>Appen</td><td>Application only</td><td>Low</td><td>Profile completeness</td></tr>
+    </tbody>
+  </table>
+
+  <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>fowl-ai.com</span></div>
+</div>
+
+<!-- PAGE 3 — MERCOR INTERVIEW -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 01</div>
+    <h2>The Mercor AI video screening: a complete walkthrough</h2>
+  </div>
+
+  <p>Mercor uses an AI interviewer — a video call with no human on the other end. This makes most people nervous. It should not. The AI is consistent, does not judge nervousness, and rewards clear, specific answers.</p>
+
+  <h3>Before you start: the 15-minute prep ritual</h3>
+  <p>Write out these three things before you open the Mercor link:</p>
+  <ol class="steps">
+    <li><strong>Your domain in one sentence</strong> — "I am a data scientist with 5 years in financial services predictive modeling." Not "I work in data." Specific industry, specific function, specific years.</li>
+    <li><strong>Three projects with numbers</strong> — For each: what was the problem, what did you build, what was the measurable outcome. Have these ready to reference.</li>
+    <li><strong>Your technical stack</strong> — List the specific tools, languages, and frameworks you use. Mercor's AI responds well to named technologies.</li>
+  </ol>
+
+  <h3>The most common questions — and exactly how to answer them</h3>
+
+  <div class="qa-block featured">
+    <div class="qa-q">Tell me about your background and experience.</div>
+    <div class="qa-a">Lead with domain, then tools, then impact. "I am a data scientist specializing in predictive modeling for financial services. I work primarily in Python and SQL, building models that drive customer retention and credit decisioning. Most recently I built an uplift model that improved campaign ROI by 23%." That is the template.</div>
+    <div class="qa-tip">Do not start with where you went to school. Start with what you do professionally and what it produces.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">What kind of AI-related work have you done?</div>
+    <div class="qa-a">Be specific about models, tools, and judgment. "I have built and deployed ML models using scikit-learn and XGBoost. I regularly evaluate model output for bias and accuracy before production. I also review AI-generated code as part of my current team's workflow." If you have not used AI in your job directly, pivot to judgment: "I evaluate analytical outputs for correctness, which maps directly to AI evaluation work."</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">How would you rate your expertise in [your domain] on a scale of 1–10?</div>
+    <div class="qa-a">Never say 10. Say 7–8 and explain. "I would say 7 or 8. I have strong depth in [specific area] but I am always learning, particularly in [adjacent area]. In [specific area] I am confident I can catch errors a generalist would miss." This signals honest calibration — exactly what AI platforms want.</div>
+    <div class="qa-tip">Platforms specifically want people who know the boundaries of their expertise. Overconfidence is a red flag.</div>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>Chapter 01</span></div>
+</div>
+
+<!-- PAGE 4 — MORE Q&A + TECHNICAL TASK -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 01 continued</div>
+    <h2>More Mercor questions — and the technical task</h2>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">Can you describe a time you identified an error in someone else's work?</div>
+    <div class="qa-a">"In my role, I regularly review model outputs before they go to stakeholders. In one case I caught a data leakage issue in a colleague's feature set that would have caused the model to overfit — the validation accuracy looked great but it would have failed in production. I flagged it, explained the issue, and we rebuilt the pipeline correctly." Use a real example with real stakes. The more concrete the better.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">Why do you want to do AI evaluation work?</div>
+    <div class="qa-a">"My background in [domain] means I can evaluate AI outputs at a level most generalists cannot. I find the judgment work genuinely interesting — I am not just labeling data, I am helping AI systems reason better in my field. The flexibility also fits well with my schedule." Keep it practical and honest. Avoid sounding like you memorized a sales pitch.</div>
+  </div>
+
+  <div class="divider-sm"></div>
+
+  <h3>The Mercor technical task</h3>
+  <p>After the video screening, Mercor typically sends a task matching your stated domain. For data and ML backgrounds this usually involves:</p>
+  <ul>
+    <li>Reviewing a piece of Python or SQL code and identifying bugs or inefficiencies</li>
+    <li>Evaluating an AI-generated analysis and noting where the reasoning is wrong</li>
+    <li>Answering a domain-specific problem (statistics, modeling approach, data interpretation)</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-label">How to approach the technical task</div>
+    <p>Take your time. There is no benefit to rushing. Explain your reasoning in writing, not just your conclusion. "The model is wrong because X, which leads to Y problem in this context" scores higher than "the model is wrong." They are evaluating your thinking process, not just the answer.</p>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-label">After you submit</div>
+    <p>Response time from Mercor varies from 24 hours to 2 weeks. If you hear nothing after 10 days, reapply with a slightly more specific profile. Many successful candidates applied 2–3 times before being matched to a project.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>Chapter 01</span></div>
+</div>
+
+<!-- PAGE 5 — OUTLIER & DATAANNOTATION ASSESSMENTS -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 02</div>
+    <h2>Outlier AI &amp; DataAnnotation: passing the skills assessment</h2>
+  </div>
+
+  <h3>How Outlier's assessment works</h3>
+  <p>Outlier does not do a video interview. Instead they run you through a series of tasks to calibrate your ability. These typically include evaluating AI-generated writing, rating code quality, or answering domain questions. Your scores on these tasks determine which task categories you are offered — and what those tasks pay.</p>
+
+  <div class="callout red">
+    <div class="callout-label">Critical mistake to avoid</div>
+    <p>Do not rush through the onboarding assessment to start earning faster. Your score on the first 10–15 tasks is the single most important factor in determining your earning ceiling on Outlier. A bad start is very hard to recover from. Slow down.</p>
+  </div>
+
+  <h3>What Outlier's scoring system rewards</h3>
+
+  <table>
+    <thead><tr><th>Behavior</th><th>Score Impact</th></tr></thead>
+    <tbody>
+      <tr><td>Detailed, specific written feedback</td><td><span class="score high">High positive</span></td></tr>
+      <tr><td>Correct ratings with reasoning</td><td><span class="score high">High positive</span></td></tr>
+      <tr><td>Fast but accurate completions</td><td><span class="score mid">Moderate positive</span></td></tr>
+      <tr><td>Ratings without explanation</td><td><span class="score mid">Neutral</span></td></tr>
+      <tr><td>Rushed or inconsistent ratings</td><td><span class="score low">Negative</span></td></tr>
+      <tr><td>High disagreement with consensus</td><td><span class="score low">Negative</span></td></tr>
+    </tbody>
+  </table>
+
+  <h3>DataAnnotation: the coding task</h3>
+  <p>DataAnnotation's entry process usually involves completing a sample coding or writing task. For the coding task:</p>
+  <ul>
+    <li>Write clean, commented code — not just working code</li>
+    <li>If asked to evaluate AI code, explain what is wrong and why, not just mark it incorrect</li>
+    <li>Show your thinking in any explanatory fields provided</li>
+  </ul>
+
+  <div class="callout green">
+    <div class="callout-label">Tip</div>
+    <p>On DataAnnotation, explicitly mention Python, SQL, or JavaScript in your profile if those are your languages. Platform task matching is heavily keyword-driven — the right words on your profile unlock the right (better-paying) task categories.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>Chapter 02</span></div>
+</div>
+
+<!-- PAGE 6 — LANGUAGE THAT SCORES HIGH -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 03</div>
+    <h2>The language that scores high — and the language that doesn't</h2>
+  </div>
+
+  <p>Across all AI platform interviews, there is a consistent pattern in what scores well and what does not. Here are the most important before/after comparisons.</p>
+
+  <div class="compare">
+    <div class="compare-box before"><div class="compare-label">Weak answer</div><p>"I have a lot of experience in data science and I'm familiar with machine learning."</p></div>
+    <div class="compare-box after"><div class="compare-label">Strong answer</div><p>"I have 5 years in financial services data science, primarily building propensity and uplift models in Python. I work with scikit-learn, XGBoost, and SQL daily."</p></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-box before"><div class="compare-label">Weak answer</div><p>"This answer from the AI seems wrong to me."</p></div>
+    <div class="compare-box after"><div class="compare-label">Strong answer</div><p>"The AI's statistical conclusion is incorrect because it conflates correlation with causation in step 3. The correct approach would be to control for X variable before drawing that inference."</p></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-box before"><div class="compare-label">Weak profile</div><p>"Data professional with experience in analytics and AI tools."</p></div>
+    <div class="compare-box after"><div class="compare-label">Strong profile</div><p>"Data scientist with 5 years in fintech. Python, SQL, scikit-learn, XGBoost. Predictive modeling, A/B testing, uplift modeling for credit and retention products."</p></div>
+  </div>
+
+  <div class="compare">
+    <div class="compare-box before"><div class="compare-label">Weak answer</div><p>"I would rate my expertise as 9 out of 10."</p></div>
+    <div class="compare-box after"><div class="compare-label">Strong answer</div><p>"I would say 7 or 8. I have deep expertise in predictive modeling and financial data, but I am still developing my knowledge of large language model evaluation specifically."</p></div>
+  </div>
+
+  <div class="callout green">
+    <div class="callout-label">The rule</div>
+    <p>Every answer should answer two implicit questions: <em>what domain?</em> and <em>how specifically?</em> If your answer does not answer both, rewrite it before you say it.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>Chapter 03</span></div>
+</div>
+
+<!-- PAGE 7 — 7-DAY PREP PLAN -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 04</div>
+    <h2>The 7-day interview prep plan</h2>
+  </div>
+
+  <ul class="timeline">
+    <li>
+      <div class="timeline-day">Day 1</div>
+      <div class="timeline-content">
+        <strong>Write your expertise statement</strong>
+        <p>One paragraph: your domain, your tools, your years of experience, and one specific project outcome. This becomes the foundation of every answer you give.</p>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-day">Day 2</div>
+      <div class="timeline-content">
+        <strong>Prepare 3 project stories</strong>
+        <p>For each project: problem → approach → tools used → measurable result. Write these out in full. Practice saying them out loud until they sound natural, not memorized.</p>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-day">Day 3</div>
+      <div class="timeline-content">
+        <strong>Practice the core Q&A out loud</strong>
+        <p>Record yourself answering: background, expertise rating, AI work experience, error identification example, why AI evaluation. Watch it back. Fix anything vague.</p>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-day">Day 4</div>
+      <div class="timeline-content">
+        <strong>Update all platform profiles</strong>
+        <p>Use your expertise statement language. Add specific tools and technologies. Remove vague phrases. Make sure your domain and industry are stated clearly on every profile.</p>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-day">Day 5</div>
+      <div class="timeline-content">
+        <strong>Apply to Mercor</strong>
+        <p>Set aside 45 uninterrupted minutes. Good lighting, quiet background, no phone. Treat it like a real interview even though the other side is an AI.</p>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-day">Day 6</div>
+      <div class="timeline-content">
+        <strong>Complete Outlier and DataAnnotation onboarding</strong>
+        <p>Take the skills assessment slowly. Write detailed feedback. Do not rush. Your early scores determine your earning ceiling.</p>
+      </div>
+    </li>
+    <li>
+      <div class="timeline-day">Day 7</div>
+      <div class="timeline-content">
+        <strong>Apply to Invisible AI + review and adjust</strong>
+        <p>Submit your Invisible AI application with your strongest domain framing. Review how the week went and refine your profile language based on any feedback received.</p>
+      </div>
+    </li>
+  </ul>
+
+  <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>Chapter 04</span></div>
+</div>
+
+<!-- PAGE 8 — CLOSING -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Final Word</div>
+    <h2>What separates people who pass from people who don't</h2>
+  </div>
+
+  <p>After going through this process across multiple platforms, the pattern is consistent. The people who pass AI platform screenings are not necessarily the most technically skilled. They are the most precisely self-aware.</p>
+
+  <p>They know exactly what they are good at, they can say it clearly, and they can demonstrate it in their answers and their feedback quality. That is the skill these platforms are buying.</p>
+
+  <div class="callout green">
+    <div class="callout-label">The single most important thing</div>
+    <p>Before any interview or assessment, write your expertise statement. One paragraph: domain, tools, years, one real outcome. If you cannot write it clearly, you cannot say it clearly. The writing comes first.</p>
+  </div>
+
+  <div class="divider-sm"></div>
+
+  <h3>If you get rejected</h3>
+  <p>Rejection from Mercor or Invisible AI is not permanent. Wait 2–3 weeks, refine your profile language to be more specific, and reapply. Many people who now earn $70/hr on these platforms were rejected on their first attempt. The difference was specificity and framing, not skill.</p>
+
+  <h3>After you pass</h3>
+  <p>Once you are active on a platform, your rating and consistency determine everything. Deliver careful, well-explained work consistently. Ask for higher-tier tasks as your score builds. Treat the first 30 days as your audition for the rates you actually want.</p>
+
+  <div class="divider"></div>
+
+  <div class="callout">
+    <div class="callout-label">Stay current</div>
+    <p>Platform interview processes change. New platforms emerge. Subscribe to FOWL AI at <strong>fowl-ai.com</strong> for weekly updates on what is actually working right now.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>fowl-ai.com</span></div>
+</div>
+
+<!-- Disclaimer -->
+<div class="page" style="min-height:auto;padding:40px 80px;">
+  <p style="font-size:11px;color:#9aada5;line-height:1.8;font-family:'DM Mono',monospace;letter-spacing:.3px;">
+    <strong style="color:#6a6258;">Disclaimer:</strong> This guide is provided for informational and educational purposes only. Interview questions, assessment formats, and platform processes described are based on real experience and community observation — they are not official documentation from any platform and may change at any time. No specific outcome (platform acceptance, rate, or income) is guaranteed. Results depend on individual background, communication, platform availability, and policies outside our control. FOWL AI is not affiliated with Mercor, Outlier AI, DataAnnotation, or any other platform mentioned. Always verify current processes directly with each platform. Nothing in this guide constitutes career, legal, or professional advice.
+  </p>
+</div>
+
+</body>
+</html>

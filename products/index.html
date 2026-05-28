@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products — FOWL AI</title>
+  <meta name="description" content="Guides, templates and playbooks for knowledge workers building income with AI.">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;text-decoration:none;}
+
+    /* Nav */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:20px;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;}
+    .nav-link:hover{color:#fff;}
+    @keyframes nav-bounce{0%,70%,100%{transform:translateY(0);}74%{transform:translateY(-4px);}78%{transform:translateY(0);}82%{transform:translateY(-2px);}86%{transform:translateY(0);}}
+    .nav-link.bounce{display:inline-block;animation:nav-bounce 4s ease-in-out infinite;}
+    .nav-link.bounce:hover{color:#fff;animation:none;transform:translateY(-2px);}
+
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65),0 4px 16px rgba(255,100,10,.3);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0),0 4px 28px rgba(255,100,10,.6);}}
+    @keyframes wiggle{0%,80%,100%{transform:rotate(0deg) scale(1);}83%{transform:rotate(-2deg) scale(1.04);}86%{transform:rotate(2deg) scale(1.04);}89%{transform:rotate(-1deg) scale(1.02);}92%{transform:rotate(1deg) scale(1.01);}}
+    .sub-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;}
+    .sub-btn:hover{transform:scale(1.06);box-shadow:0 8px 36px rgba(242,100,26,.7);animation:none;}
+
+    /* Hero */
+    .page-hero{background:#0d3f31;color:#fff;padding:52px 24px 60px;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
+    .page-hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(34px,5vw,54px);line-height:1.08;margin-bottom:14px;}
+    .page-hero h1 span{color:#f2a12b;}
+    .page-hero p{font-size:17px;color:#e2f2eb;max-width:560px;line-height:1.75;}
+
+    /* Bundle banner */
+    .bundle-bar{background:#f2a12b;padding:18px 24px;text-align:center;}
+    .bundle-bar p{font-size:15px;font-weight:700;color:#0d3f31;}
+    .bundle-bar span{font-family:"DM Mono",monospace;font-size:13px;font-weight:400;}
+    .bundle-link{display:inline-block;margin-left:16px;background:#0d3f31;color:#f2a12b;font-weight:800;font-size:13px;padding:6px 18px;border-radius:999px;}
+
+    /* Products grid */
+    .products-section{padding:52px 24px 80px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+
+    .product-card{background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:box-shadow .2s;}
+    .product-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.13);}
+    .card-top{padding:28px 28px 20px;flex:1;}
+    .card-number{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#78ddb4;background:#0d3f31;display:inline-block;padding:4px 10px;border-radius:4px;margin-bottom:16px;}
+    .card-title{font-family:Fraunces,Georgia,serif;font-size:24px;line-height:1.2;margin-bottom:10px;}
+    .card-desc{font-size:14px;color:#46524c;line-height:1.7;margin-bottom:16px;}
+    .card-bullets{list-style:none;padding:0;margin-bottom:0;}
+    .card-bullets li{font-size:13px;color:#3a4a43;padding-left:18px;position:relative;margin-bottom:7px;}
+    .card-bullets li::before{content:'→';position:absolute;left:0;color:#1a5f4a;font-size:11px;top:1px;}
+    .card-bottom{padding:20px 28px;border-top:1px solid #f0ede8;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .price{font-family:Fraunces,Georgia,serif;font-size:28px;font-weight:700;color:#13241e;}
+    .price-note{font-size:12px;color:#8a8278;font-family:"DM Mono",monospace;}
+    .buy-btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:999px;background:#0d3f31;color:#fff;font-weight:800;font-size:14px;transition:background .15s;}
+    .buy-btn:hover{background:#1a5f4a;}
+    .preview-link{font-size:12px;color:#8a8278;font-family:"DM Mono",monospace;text-decoration:underline;text-underline-offset:3px;}
+    .preview-link:hover{color:#13241e;}
+
+    /* Coming soon */
+    .coming-soon{opacity:.55;pointer-events:none;}
+    .soon-badge{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;background:#e8f4ee;color:#1a5f4a;padding:4px 10px;border-radius:999px;display:inline-block;margin-bottom:16px;}
+
+    /* Footer */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
+    .footer a{color:#78ddb4;}
+
+    @media(max-width:640px){.grid{grid-template-columns:1fr;}.page-hero{padding:36px 18px 44px;}.products-section{padding:36px 18px 60px;}}
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark"></span>
+          <span class="brand-word">FOWL AI</span>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link bounce" href="/platforms/">Platforms</a>
+          <a class="nav-link bounce" style="animation-delay:.6s" href="/products/">Products</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">FOWL AI · Products</div>
+      <h1>Tools to help you <span>earn with AI.</span></h1>
+      <p>Practical guides and templates built from real experience — not theory. Each product is designed to get you earning faster on AI platforms.</p>
+    </div>
+  </div>
+
+  <div class="bundle-bar">
+    <div class="wrap">
+      <p>Get all 3 for $47 — save $32. <span>The full AI Income Stack.</span> <a class="bundle-link" href="#">Get the bundle →</a></p>
+    </div>
+  </div>
+
+  <section class="products-section">
+    <div class="wrap">
+      <div class="grid">
+
+        <!-- Product 1 -->
+        <div class="product-card">
+          <div class="card-top">
+            <div class="card-number">Product 01</div>
+            <div class="card-title">AI Platform Income Guide</div>
+            <p class="card-desc">The exact platforms, strategies, and positioning moves to earn $2,000–$5,000/month using your existing skills.</p>
+            <ul class="card-bullets">
+              <li>8 platforms ranked by pay and accessibility</li>
+              <li>Mercor interview playbook ($70–$150/hr)</li>
+              <li>Rate benchmarks by skill level</li>
+              <li>30-day action plan week by week</li>
+              <li>5 mistakes that slow most people down</li>
+            </ul>
+          </div>
+          <div class="card-bottom">
+            <div>
+              <div class="price">$27</div>
+              <div class="price-note">One-time · Instant download</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+              <a class="buy-btn" href="#">Buy now →</a>
+              <a class="preview-link" href="/guide/">Preview guide</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 2 -->
+        <div class="product-card">
+          <div class="card-top">
+            <div class="card-number">Product 02</div>
+            <div class="card-title">How to Pass Your AI Interview</div>
+            <p class="card-desc">The exact framework for clearing AI platform screenings — from Mercor's AI video interview to Outlier's skills assessment.</p>
+            <ul class="card-bullets">
+              <li>Full Mercor AI screening walkthrough</li>
+              <li>Real Q&amp;A with high-scoring example answers</li>
+              <li>Language that scores high vs. language that doesn't</li>
+              <li>Outlier &amp; DataAnnotation assessment strategies</li>
+              <li>7-day interview prep plan</li>
+            </ul>
+          </div>
+          <div class="card-bottom">
+            <div>
+              <div class="price">$19</div>
+              <div class="price-note">One-time · Instant download</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+              <a class="buy-btn" href="#">Buy now →</a>
+              <a class="preview-link" href="/interview-guide/">Preview guide</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Product 3 -->
+        <div class="product-card">
+          <div class="card-top">
+            <div class="card-number">Product 03</div>
+            <div class="card-title">AI Work Resume Template</div>
+            <p class="card-desc">A professional resume template built for AI platform applications — with a real completed example from a working data scientist.</p>
+            <ul class="card-bullets">
+              <li>Blank template ready to fill in</li>
+              <li>Real completed example (data science / fintech)</li>
+              <li>The AI Evaluation section most applicants miss</li>
+              <li>Before/after rewrites for every section</li>
+              <li>Keyword guide for Mercor, Outlier &amp; Scale AI</li>
+            </ul>
+          </div>
+          <div class="card-bottom">
+            <div>
+              <div class="price">$15</div>
+              <div class="price-note">One-time · Instant download</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
+              <a class="buy-btn" href="#">Buy now →</a>
+              <a class="preview-link" href="/resume-template/">Preview template</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div style="padding:24px;background:#f2ede3;border-top:1px solid #ddd8cc;">
+    <div class="wrap">
+      <p style="font-size:11px;color:#9aada5;line-height:1.75;font-family:'DM Mono',monospace;max-width:760px;">
+        <strong style="color:#6a6258;">Disclaimer:</strong> All FOWL AI products are for informational and educational purposes only. Income figures, platform details, and strategies reflect real-world experience and general market observation — not guarantees of results. Individual outcomes vary based on skill, availability, and platform policies. FOWL AI is not affiliated with any platform mentioned. Nothing here constitutes financial, legal, or career advice.
+      </p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    FOWL AI · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/">Home</a> · <a href="/platforms/">Platforms</a>
+  </footer>
+
+</body>
+</html>

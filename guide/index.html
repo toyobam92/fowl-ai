@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Platform Income Guide — FOWL AI</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700;900&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ── Reset ── */
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,sans-serif;background:#fff;color:#13241e;line-height:1.65;font-size:15px;}
+
+    /* ── Page layout for print ── */
+    .page{
+      width:794px;min-height:1123px;margin:0 auto;padding:72px 80px;
+      page-break-after:always;position:relative;
+    }
+    @media screen{.page{border-bottom:2px dashed #e0dbd3;margin-bottom:0;}}
+    @media print{
+      body{background:#fff;}
+      .page{margin:0;padding:60px 72px;border:none;}
+      .no-print{display:none;}
+    }
+
+    /* ── Typography ── */
+    h1{font-family:Fraunces,Georgia,serif;font-size:52px;line-height:1.05;font-weight:900;}
+    h2{font-family:Fraunces,Georgia,serif;font-size:30px;line-height:1.15;font-weight:700;margin-bottom:16px;}
+    h3{font-size:17px;font-weight:800;margin-bottom:10px;color:#0d3f31;}
+    h4{font-size:14px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;color:#1a5f4a;margin-bottom:8px;font-family:"DM Mono",monospace;}
+    p{margin-bottom:14px;color:#2a3830;}
+    ul,ol{padding-left:20px;margin-bottom:14px;}
+    li{margin-bottom:7px;color:#2a3830;}
+    strong{color:#13241e;}
+
+    /* ── Brand colors ── */
+    .green{color:#0d3f31;}
+    .orange{color:#f2631a;}
+    .mint{color:#1a5f4a;}
+
+    /* ── Cover page ── */
+    .cover{background:#0d3f31;color:#fff;padding:80px;}
+    .cover-eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#78ddb4;margin-bottom:28px;}
+    .cover h1{color:#fff;font-size:58px;margin-bottom:16px;}
+    .cover h1 span{color:#f2a12b;display:block;}
+    .cover-sub{font-size:20px;color:#a9e8cf;line-height:1.6;max-width:520px;margin-bottom:48px;}
+    .cover-proof{
+      background:rgba(255,255,255,.08);border-left:4px solid #f2a12b;
+      padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:48px;max-width:480px;
+    }
+    .cover-proof p{color:#e2f2eb;font-size:16px;margin:0;font-style:italic;}
+    .cover-proof cite{display:block;margin-top:8px;font-size:12px;color:#78ddb4;font-style:normal;font-family:"DM Mono",monospace;letter-spacing:1px;}
+    .cover-meta{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;}
+    .cover-logo{margin-bottom:48px;}
+    .cover-logo span{font-family:"DM Mono",monospace;font-size:22px;letter-spacing:8px;color:#f47f18;}
+
+    /* ── Section divider ── */
+    .divider{height:3px;background:linear-gradient(90deg,#0d3f31,#78ddb4,transparent);margin:32px 0;}
+    .divider-sm{height:1px;background:#e0ebe5;margin:20px 0;}
+
+    /* ── Chapter header ── */
+    .chapter-header{margin-bottom:32px;}
+    .chapter-num{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#78ddb4;background:#0d3f31;display:inline-block;padding:5px 12px;border-radius:4px;margin-bottom:12px;}
+
+    /* ── Callout boxes ── */
+    .callout{border-left:4px solid #f2a12b;background:#fffbf0;padding:18px 20px;border-radius:0 8px 8px 0;margin:20px 0;}
+    .callout.green{border-left-color:#0d3f31;background:#f0f8f4;}
+    .callout.red{border-left-color:#d4541e;background:#fff5f0;}
+    .callout p{margin:0;font-size:14px;}
+    .callout-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#c07000;margin-bottom:6px;}
+    .callout.green .callout-label{color:#1a5f4a;}
+    .callout.red .callout-label{color:#d4541e;}
+
+    /* ── Platform cards ── */
+    .platform-card{background:#f8faf9;border:1.5px solid #d5e8df;border-radius:10px;padding:24px;margin-bottom:20px;}
+    .platform-card.featured{border-color:#f2a12b;background:#fffcf5;}
+    .platform-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;}
+    .platform-name{font-size:20px;font-weight:800;}
+    .platform-badges{display:flex;gap:6px;flex-wrap:wrap;}
+    .badge{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:999px;}
+    .badge.top{background:#fff3de;color:#b36b00;}
+    .badge.mid{background:#e8f4ee;color:#1a5f4a;}
+    .badge.entry{background:#f0f0f0;color:#555;}
+    .platform-meta{display:flex;gap:20px;margin-bottom:12px;flex-wrap:wrap;}
+    .meta-item{font-size:13px;}
+    .meta-item span{font-weight:700;color:#0d3f31;}
+    .platform-desc{font-size:14px;color:#3a4a43;line-height:1.7;}
+
+    /* ── Stats highlight ── */
+    .stat-row{display:flex;gap:24px;margin:24px 0;flex-wrap:wrap;}
+    .stat{flex:1;min-width:140px;background:#0d3f31;color:#fff;border-radius:10px;padding:20px;text-align:center;}
+    .stat-num{font-family:Fraunces,Georgia,serif;font-size:38px;font-weight:900;color:#f2a12b;line-height:1;}
+    .stat-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#a9e8cf;margin-top:6px;}
+
+    /* ── Step list ── */
+    .steps{counter-reset:step;list-style:none;padding:0;}
+    .steps li{counter-increment:step;padding-left:44px;position:relative;margin-bottom:18px;}
+    .steps li::before{
+      content:counter(step);
+      position:absolute;left:0;top:0;
+      width:30px;height:30px;border-radius:50%;
+      background:#0d3f31;color:#78ddb4;
+      font-family:"DM Mono",monospace;font-size:13px;font-weight:700;
+      display:flex;align-items:center;justify-content:center;
+    }
+    .steps li strong{display:block;margin-bottom:4px;}
+
+    /* ── Table ── */
+    table{width:100%;border-collapse:collapse;margin:20px 0;font-size:13px;}
+    th{background:#0d3f31;color:#a9e8cf;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 14px;text-align:left;}
+    td{padding:10px 14px;border-bottom:1px solid #e8f0ec;}
+    tr:nth-child(even) td{background:#f5faf7;}
+    td:first-child{font-weight:700;}
+
+    /* ── Footer on pages ── */
+    .page-footer{position:absolute;bottom:32px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;color:#9aada5;border-top:1px solid #e0ebe5;padding-top:10px;}
+
+    /* ── Print button (screen only) ── */
+    .print-bar{
+      background:#13241e;color:#fff;text-align:center;padding:16px;
+      font-family:"DM Mono",monospace;font-size:12px;letter-spacing:1px;
+      position:sticky;top:0;z-index:50;
+    }
+    .print-bar button{
+      background:linear-gradient(135deg,#ffbe30,#f2631a);color:#fff;
+      border:none;padding:9px 24px;border-radius:999px;font-weight:800;
+      font-size:12px;cursor:pointer;margin-left:12px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="print-bar no-print">
+  To save as PDF: File → Print → Save as PDF &nbsp;
+  <button onclick="window.print()">Save as PDF</button>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 1 — COVER
+════════════════════════════════════════════ -->
+<div class="page cover">
+  <div class="cover-logo"><span>FOWL AI</span></div>
+  <div class="cover-eyebrow">Future of Work Lab · Digital Guide</div>
+  <h1>AI Platform<span>Income Guide</span></h1>
+  <p class="cover-sub">The exact platforms, strategies, and positioning moves to earn $2,000–$5,000/month using your existing skills — no CS degree required.</p>
+  <div class="cover-proof">
+    <p>"The AI job market is splitting between people who use AI for tasks and people who can judge where AI is wrong. The second group earns more."</p>
+    <cite>— FOWL AI, Issue 1</cite>
+  </div>
+  <div class="cover-meta">FOWL AI · fowl-ai.com · 2026 Edition</div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 2 — ABOUT THIS GUIDE
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Introduction</div>
+    <h2>Who this guide is for — and what you'll walk away with</h2>
+  </div>
+
+  <p>This guide is for knowledge workers who want to earn real income from the AI economy — not by learning to code from scratch, not by chasing hype, but by using the expertise they already have.</p>
+
+  <p>If you are a writer, analyst, researcher, data professional, consultant, or specialist in any domain — there is a growing market that needs your judgment. This guide shows you exactly where that market is and how to get in.</p>
+
+  <div class="divider-sm"></div>
+
+  <h3>What you'll find inside</h3>
+  <ul>
+    <li><strong>The 8 highest-value AI income platforms</strong> — ranked by pay, accessibility, and earning ceiling</li>
+    <li><strong>A step-by-step entry plan for each platform</strong> — what to expect, how to apply, and what to say</li>
+    <li><strong>The Mercor interview playbook</strong> — how to pass the AI screening and land $70–80/hr projects</li>
+    <li><strong>Rate benchmarks by skill level</strong> — so you know when you are being underpaid</li>
+    <li><strong>Your first 30-day action plan</strong> — exactly what to do week by week</li>
+    <li><strong>The mistakes that slow most people down</strong> — and how to skip them entirely</li>
+  </ul>
+
+  <div class="callout">
+    <div class="callout-label">A note on the numbers</div>
+    <p>The income figures in this guide are based on real experience across these platforms. Results vary based on your domain, skill level, and availability. The point is not to promise a specific number — it is to show you what is realistic and how to position yourself for it.</p>
+  </div>
+
+  <p>The opportunity right now is genuine. AI companies need human judgment at scale. They are paying for it. This guide shows you how to be one of the people they pay.</p>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>fowl-ai.com</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 3 — THE LANDSCAPE
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 01</div>
+    <h2>The AI income landscape right now</h2>
+  </div>
+
+  <p>AI companies are in a race to make their models better. To do that, they need humans to do three things: generate training data, evaluate model outputs, and catch errors that AI cannot catch itself.</p>
+
+  <p>This has created an entirely new category of work. It is not traditional freelancing. It is not a 9-to-5. It sits in between — flexible, remote, and increasingly well-paid for people with the right background.</p>
+
+  <div class="stat-row">
+    <div class="stat">
+      <div class="stat-num">$70</div>
+      <div class="stat-label">avg hourly, Mercor top tier</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$2.8k</div>
+      <div class="stat-label">earned in 5 days, real example</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">platforms actively hiring now</div>
+    </div>
+  </div>
+
+  <h3>The three tiers of AI income work</h3>
+
+  <p><strong>Tier 1 — High judgment, high pay ($50–$150/hr):</strong> Platforms like Mercor and Invisible AI that need genuine domain expertise. You are not clicking labels — you are evaluating whether an AI's reasoning is correct in your field. Entry is harder but the rates reflect it.</p>
+
+  <p><strong>Tier 2 — Skilled evaluation ($20–$50/hr):</strong> Platforms like Outlier AI and DataAnnotation where you assess AI outputs across writing, coding, and reasoning tasks. Good starting point if you have a strong background in any knowledge domain.</p>
+
+  <p><strong>Tier 3 — Volume annotation ($8–$20/hr):</strong> Platforms like Appen and Remotasks. Lower barrier to entry, lower pay. Useful for getting started and building a track record, but not where you want to stay.</p>
+
+  <div class="callout green">
+    <div class="callout-label">The key insight</div>
+    <p>The difference between Tier 1 and Tier 3 is not how hard you work — it is how you position your existing expertise. This guide shows you how to move up.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>Chapter 01</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 4 — PLATFORM RANKINGS TABLE
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 02</div>
+    <h2>The 8 platforms ranked</h2>
+  </div>
+
+  <p>Here is how the major platforms compare across the metrics that actually matter for your time and income.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Platform</th>
+        <th>Pay Range</th>
+        <th>Entry Difficulty</th>
+        <th>Best For</th>
+        <th>Tier</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Mercor</td>
+        <td>$70–$150/hr</td>
+        <td>High</td>
+        <td>Technical / domain experts</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Invisible AI</td>
+        <td>$30–$80/hr</td>
+        <td>High</td>
+        <td>Senior domain experts</td>
+        <td>1</td>
+      </tr>
+      <tr>
+        <td>Outlier AI</td>
+        <td>$20–$50/hr</td>
+        <td>Medium</td>
+        <td>Writers, coders, researchers</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>DataAnnotation</td>
+        <td>$20–$45/hr</td>
+        <td>Medium</td>
+        <td>Developers, engineers</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Scale AI</td>
+        <td>$15–$40/hr</td>
+        <td>Medium</td>
+        <td>High-volume annotators</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Handshake Move</td>
+        <td>Varies</td>
+        <td>Low–Medium</td>
+        <td>Career transition into AI roles</td>
+        <td>2</td>
+      </tr>
+      <tr>
+        <td>Appen</td>
+        <td>$10–$25/hr</td>
+        <td>Low</td>
+        <td>Flexible part-time</td>
+        <td>3</td>
+      </tr>
+      <tr>
+        <td>Remotasks</td>
+        <td>$8–$20/hr</td>
+        <td>Low</td>
+        <td>Beginners building track record</td>
+        <td>3</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <div class="callout-label">Strategy</div>
+    <p>Apply to Tier 1 and Tier 2 platforms simultaneously. Use a Tier 3 platform only to fill income gaps while waiting for higher-tier approvals. Never treat Tier 3 as your main platform.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>Chapter 02</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 5 — MERCOR DEEP DIVE
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 03</div>
+    <h2>Mercor: the Tier 1 playbook</h2>
+  </div>
+
+  <div class="platform-card featured">
+    <div class="platform-header">
+      <div class="platform-name">Mercor</div>
+      <div class="platform-badges">
+        <span class="badge top">Top Pay</span>
+        <span class="badge top">Hardest Entry</span>
+      </div>
+    </div>
+    <div class="platform-meta">
+      <div class="meta-item">Pay: <span>$70–$150/hr</span></div>
+      <div class="meta-item">Type: <span>AI Evaluation & Technical Projects</span></div>
+      <div class="meta-item">Best for: <span>Engineers, data scientists, domain experts</span></div>
+    </div>
+  </div>
+
+  <p>Mercor uses AI to match technical talent to high-value projects. The interview process is more rigorous than most platforms — but that is exactly why it pays more. Most people who get rejected do so because they treat it like a job application instead of a technical screening.</p>
+
+  <h3>How the Mercor interview works</h3>
+  <ol class="steps">
+    <li><strong>AI screening call</strong> — Mercor's AI interviews you via video. It asks about your background, experience, and technical skills. Speak clearly, be specific, and name real tools and frameworks you have used.</li>
+    <li><strong>Technical assessment</strong> — Depending on your domain, you will receive a task to complete. For data roles, expect SQL, Python, or ML problem-solving. For other domains, expect domain-specific reasoning tasks.</li>
+    <li><strong>Project matching</strong> — Once cleared, Mercor matches you to active projects. Response time matters — projects fill quickly.</li>
+  </ol>
+
+  <h3>What the AI screening actually wants to hear</h3>
+  <p>The AI is calibrating your level. Use specific language: mention real projects, real outcomes, real tools. Vague answers ("I have experience in data analysis") score lower than specific ones ("I built uplift models in Python using scikit-learn to optimize credit card retention campaigns").</p>
+
+  <div class="callout green">
+    <div class="callout-label">Tip that works</div>
+    <p>Before your Mercor screening, write out 3 specific projects you have worked on: what the problem was, what tools you used, and what the measurable outcome was. Use that language in the interview. Specificity is what separates $70/hr candidates from rejected ones.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>Chapter 03</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 6 — OUTLIER & DATAANNOTATION
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 04</div>
+    <h2>Outlier AI &amp; DataAnnotation: the Tier 2 entry points</h2>
+  </div>
+
+  <div class="platform-card">
+    <div class="platform-header">
+      <div class="platform-name">Outlier AI</div>
+      <div class="platform-badges"><span class="badge mid">Best Entry Point</span></div>
+    </div>
+    <div class="platform-meta">
+      <div class="meta-item">Pay: <span>$20–$50/hr</span></div>
+      <div class="meta-item">Best for: <span>Writers, coders, researchers, STEM professionals</span></div>
+    </div>
+    <p class="platform-desc">Outlier is the most accessible Tier 2 platform and a strong starting point. Work is flexible — you pick up tasks when available. The most valuable tasks involve rating AI-generated code, evaluating creative writing, and answering domain-specific questions.</p>
+  </div>
+
+  <h3>Getting the best tasks on Outlier</h3>
+  <p>Outlier segments its workforce by expertise. When you sign up, list your strongest domains prominently — data science, finance, medicine, law, engineering. The higher-value tasks (coding review, STEM evaluation) are only offered to profiles that signal relevant expertise.</p>
+
+  <div class="callout">
+    <div class="callout-label">Important</div>
+    <p>On Outlier, your rating score determines future task access. Take the first few tasks slowly. A strong early score unlocks higher-paying task categories. Speed matters less than accuracy in the beginning.</p>
+  </div>
+
+  <div class="divider-sm"></div>
+
+  <div class="platform-card">
+    <div class="platform-header">
+      <div class="platform-name">DataAnnotation</div>
+      <div class="platform-badges"><span class="badge mid">Best for Developers</span></div>
+    </div>
+    <div class="platform-meta">
+      <div class="meta-item">Pay: <span>$20–$45/hr</span></div>
+      <div class="meta-item">Best for: <span>Software engineers, data professionals</span></div>
+    </div>
+    <p class="platform-desc">DataAnnotation focuses heavily on RLHF tasks for code. If you write or review code professionally, this platform pays well and provides steady work. The tasks are mentally engaging compared to standard annotation.</p>
+  </div>
+
+  <h3>How to maximize earnings on DataAnnotation</h3>
+  <p>Focus on the coding and reasoning tasks — they pay significantly more than the basic annotation tasks. Indicate your programming languages and technical background clearly during onboarding. Python, SQL, and JavaScript specialists consistently access higher-value task queues.</p>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>Chapter 04</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 7 — REMAINING PLATFORMS
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 05</div>
+    <h2>The remaining platforms: where each one fits</h2>
+  </div>
+
+  <div class="platform-card">
+    <div class="platform-header">
+      <div class="platform-name">Scale AI</div>
+      <div class="platform-badges"><span class="badge mid">High Volume</span></div>
+    </div>
+    <div class="platform-meta">
+      <div class="meta-item">Pay: <span>$15–$40/hr</span></div>
+    </div>
+    <p class="platform-desc">Scale is best for people who want consistent volume. Task availability is high. Pay is middle-tier. Domain experts can access Scale RLHF projects which pay closer to Outlier rates.</p>
+  </div>
+
+  <div class="platform-card">
+    <div class="platform-header">
+      <div class="platform-name">Invisible AI</div>
+      <div class="platform-badges"><span class="badge top">Highest Ceiling</span></div>
+    </div>
+    <div class="platform-meta">
+      <div class="meta-item">Pay: <span>$30–$80/hr</span></div>
+    </div>
+    <p class="platform-desc">Harder to get into than Mercor. Requires genuine senior expertise. If you have 5+ years in a domain and can demonstrate it clearly, apply. The income ceiling is among the highest available.</p>
+  </div>
+
+  <div class="platform-card">
+    <div class="platform-header">
+      <div class="platform-name">Handshake Move</div>
+      <div class="platform-badges"><span class="badge mid">Career Transition</span></div>
+    </div>
+    <div class="platform-meta">
+      <div class="meta-item">Pay: <span>Varies by role</span></div>
+    </div>
+    <p class="platform-desc">Best for those pursuing full-time AI-adjacent roles rather than project income. A strong path for knowledge workers looking to make a formal career move into AI roles.</p>
+  </div>
+
+  <div class="platform-card">
+    <div class="platform-header">
+      <div class="platform-name">Appen &amp; Remotasks</div>
+      <div class="platform-badges"><span class="badge entry">Beginner Friendly</span></div>
+    </div>
+    <div class="platform-meta">
+      <div class="meta-item">Pay: <span>$8–$25/hr</span></div>
+    </div>
+    <p class="platform-desc">Use these to build a baseline income while waiting for Tier 1 and 2 approvals. Do not anchor here long-term. Remotasks provides free training which is useful if you are completely new to AI annotation work.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>Chapter 05</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 8 — RATE BENCHMARKS
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 06</div>
+    <h2>Rate benchmarks: know what you should be earning</h2>
+  </div>
+
+  <p>One of the most common mistakes on AI platforms is accepting the first rate offered without context. Here is what the market actually looks like by background.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Background</th>
+        <th>Realistic Starting Rate</th>
+        <th>Ceiling with Experience</th>
+        <th>Best Platform</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Data Scientist / ML Engineer</td>
+        <td>$50–$70/hr</td>
+        <td>$120–$150/hr</td>
+        <td>Mercor, Invisible AI</td>
+      </tr>
+      <tr>
+        <td>Software Engineer</td>
+        <td>$40–$60/hr</td>
+        <td>$100–$130/hr</td>
+        <td>Mercor, DataAnnotation</td>
+      </tr>
+      <tr>
+        <td>Finance / Analyst</td>
+        <td>$25–$45/hr</td>
+        <td>$70–$90/hr</td>
+        <td>Outlier, Scale RLHF</td>
+      </tr>
+      <tr>
+        <td>Writer / Researcher</td>
+        <td>$20–$35/hr</td>
+        <td>$55–$75/hr</td>
+        <td>Outlier AI</td>
+      </tr>
+      <tr>
+        <td>Healthcare / Legal</td>
+        <td>$35–$55/hr</td>
+        <td>$80–$120/hr</td>
+        <td>Invisible AI, Scale RLHF</td>
+      </tr>
+      <tr>
+        <td>No specific domain (entry)</td>
+        <td>$10–$18/hr</td>
+        <td>$25–$35/hr</td>
+        <td>Appen, Remotasks</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>When to push back on a rate</h3>
+  <p>If a platform's offered rate is significantly below your benchmark, two things are happening: either your profile is not signalling your expertise clearly enough, or the platform is not the right fit for your background. Adjust your profile language before accepting a lower rate — it is often a positioning problem, not a skills problem.</p>
+
+  <div class="callout green">
+    <div class="callout-label">Positioning tip</div>
+    <p>Your rate on AI platforms is directly tied to how specifically you describe your domain expertise during onboarding. "Data professional" earns less than "data scientist with 5 years in fintech predictive modeling." Be specific. Always.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>Chapter 06</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 9 — 30-DAY PLAN
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 07</div>
+    <h2>Your first 30 days: the exact action plan</h2>
+  </div>
+
+  <h4>Week 1 — Apply and position</h4>
+  <ol class="steps">
+    <li><strong>Write your expertise statement</strong> — One paragraph that describes your domain, your tools, and your measurable outcomes. This is what you will use on every platform profile.</li>
+    <li><strong>Apply to Mercor</strong> — Use your expertise statement. Be specific in the AI screening call. Do not rush.</li>
+    <li><strong>Apply to Outlier AI</strong> — Sign up, complete the skills assessment, and list all relevant domains.</li>
+    <li><strong>Apply to DataAnnotation</strong> — Apply if you have a coding or technical background.</li>
+  </ol>
+
+  <h4>Week 2 — Start earning while waiting</h4>
+  <ol class="steps">
+    <li><strong>Start on Appen or Remotasks</strong> — Begin building baseline income while Tier 1 and 2 approvals process.</li>
+    <li><strong>Complete Outlier onboarding tasks</strong> — Focus on accuracy, not speed. Build your score.</li>
+    <li><strong>Follow up on Mercor</strong> — If no response after 7 days, reapply with a refined profile.</li>
+  </ol>
+
+  <h4>Week 3 — Optimize and stack</h4>
+  <ol class="steps">
+    <li><strong>Identify your highest-paying active platform</strong> — Allocate 70% of your available hours here.</li>
+    <li><strong>Apply to Invisible AI</strong> — If you have senior domain expertise, add this to your pipeline.</li>
+    <li><strong>Track hours and income</strong> — Know your effective hourly rate across all platforms.</li>
+  </ol>
+
+  <h4>Week 4 — Scale what works</h4>
+  <ol class="steps">
+    <li><strong>Double down on your top 2 platforms</strong> — Drop any platform paying below your average rate.</li>
+    <li><strong>Increase availability on your best platform</strong> — More hours on the highest-paying source.</li>
+    <li><strong>Review and adjust your profile</strong> — Update language based on what tasks you are being matched to.</li>
+  </ol>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>Chapter 07</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 10 — MISTAKES & CLOSING
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Chapter 08</div>
+    <h2>The mistakes that slow most people down</h2>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-label">Mistake 1</div>
+    <p><strong>Being vague on your profile.</strong> "Experience in data" earns less than "5 years building ML pipelines in Python for financial services." Specificity is your rate multiplier.</p>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-label">Mistake 2</div>
+    <p><strong>Anchoring on one platform.</strong> Approvals take time. Apply to 3–4 simultaneously so income starts as soon as possible instead of weeks later.</p>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-label">Mistake 3</div>
+    <p><strong>Prioritizing speed over quality on early tasks.</strong> Your rating on Outlier and DataAnnotation determines future access. A low score on your first 10 tasks can lock you out of higher-paying work permanently.</p>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-label">Mistake 4</div>
+    <p><strong>Staying on Tier 3 platforms too long.</strong> Appen and Remotasks are entry points, not destinations. Move up as soon as Tier 2 approvals arrive.</p>
+  </div>
+
+  <div class="callout red">
+    <div class="callout-label">Mistake 5</div>
+    <p><strong>Not tracking income by platform.</strong> Without tracking, you cannot see which platforms deserve more of your time. A simple spreadsheet with date, platform, hours, and payout is enough.</p>
+  </div>
+
+  <div class="divider"></div>
+
+  <h2>Final word</h2>
+  <p>The AI income opportunity is real and it is now. The platforms are hiring, the rates are strong for the right profiles, and the barrier is not technical skill — it is positioning. Know your expertise, state it clearly, apply to the right platforms, and protect your rating in the early weeks.</p>
+
+  <p>That is the whole game.</p>
+
+  <div class="callout green">
+    <div class="callout-label">Stay updated</div>
+    <p>Platform rates, task availability, and new opportunities change weekly. Subscribe to FOWL AI at <strong>fowl-ai.com</strong> for ongoing signals — free, every week.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — AI Platform Income Guide</span><span>fowl-ai.com</span></div>
+</div>
+
+<!-- Disclaimer -->
+<div class="page" style="min-height:auto;padding:40px 80px;">
+  <p style="font-size:11px;color:#9aada5;line-height:1.8;font-family:'DM Mono',monospace;letter-spacing:.3px;">
+    <strong style="color:#6a6258;">Disclaimer:</strong> This guide is provided for informational and educational purposes only. The income figures, platform details, and strategies described reflect real-world examples and general market observations — they are not guarantees of results. Individual outcomes will vary based on skill level, domain expertise, availability, platform policies, and market conditions. FOWL AI does not guarantee any specific income, employment, or platform acceptance. Platform rates, availability, and processes change frequently — always verify current terms directly with each platform. Nothing in this guide constitutes financial, legal, or professional advice. Use this information as a starting point for your own research and decisions.
+  </p>
+</div>
+
+</body>
+</html>
