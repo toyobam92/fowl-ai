@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Platforms Directory — FOWL AI</title>
+  <meta name="description" content="Curated AI income platforms for knowledge workers. Vetted, ranked, and updated by FOWL AI.">
+  <meta property="og:title" content="AI Platforms Directory — FOWL AI" />
+  <meta property="og:description" content="The best platforms to earn income using AI skills. Curated by FOWL AI." />
+  <meta property="og:url" content="https://www.fowl-ai.com/platforms/" />
+  <meta property="og:type" content="website" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;}
+
+    /* ── Nav ── */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:20px;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;text-decoration:none;}
+    .nav-link:hover{color:#fff;}
+
+    @keyframes pulse-glow {
+      0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65),0 4px 16px rgba(255,100,10,.3);}
+      50%{box-shadow:0 0 0 10px rgba(255,138,30,0),0 4px 28px rgba(255,100,10,.6);}
+    }
+    @keyframes wiggle {
+      0%,80%,100%{transform:rotate(0deg) scale(1);}
+      83%{transform:rotate(-2deg) scale(1.04);}
+      86%{transform:rotate(2deg) scale(1.04);}
+      89%{transform:rotate(-1deg) scale(1.02);}
+      92%{transform:rotate(1deg) scale(1.01);}
+    }
+    .sub-btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 22px;border-radius:999px;
+      background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);
+      color:#fff;font-weight:800;font-size:13px;text-decoration:none;
+      font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;
+      border:none;cursor:pointer;white-space:nowrap;
+      animation:pulse-glow 2.2s ease-in-out infinite, wiggle 5s ease-in-out infinite;
+    }
+    .sub-btn:hover{transform:scale(1.06);box-shadow:0 8px 36px rgba(242,100,26,.7);animation:none;}
+
+    /* ── Page header ── */
+    .page-hero{background:#0d3f31;color:#fff;padding:48px 24px 56px;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
+    .page-hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(34px,5vw,56px);line-height:1.08;margin-bottom:16px;}
+    .page-hero h1 span{color:#35bfa2;}
+    .page-hero p{font-size:17px;color:#e2f2eb;max-width:600px;line-height:1.75;}
+
+    /* ── Filters ── */
+    .filters{padding:28px 24px 0;}
+    .filter-row{display:flex;gap:8px;flex-wrap:wrap;}
+    .filter-btn{
+      font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+      padding:7px 14px;border-radius:999px;border:1.5px solid #c8c0b4;
+      background:transparent;color:#665f56;cursor:pointer;
+    }
+    .filter-btn.active,.filter-btn:hover{background:#0d3f31;color:#fff;border-color:#0d3f31;}
+
+    /* ── Platform grid ── */
+    .platforms{padding:28px 24px 72px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;}
+
+    .card{
+      background:#fff;border-radius:10px;padding:24px;
+      border-top:4px solid #0d3f31;
+      display:flex;flex-direction:column;gap:14px;
+      transition:box-shadow .18s;
+    }
+    .card:hover{box-shadow:0 12px 40px rgba(0,0,0,.1);}
+    .card.featured{border-top-color:#f2a12b;}
+
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+    .card-name{font-weight:800;font-size:20px;}
+    .badge-row{display:flex;gap:6px;flex-wrap:wrap;}
+    .badge{
+      font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+      padding:4px 10px;border-radius:999px;
+    }
+    .badge.referral{background:#fff3de;color:#c07000;}
+    .badge.cat{background:#e8f4ee;color:#1a5f4a;}
+
+    .card-desc{font-size:14px;color:#46524c;line-height:1.7;flex:1;}
+
+    .card-meta{display:flex;gap:16px;flex-wrap:wrap;}
+    .meta-item{font-size:13px;color:#665f56;}
+    .meta-item strong{color:#13241e;font-weight:700;}
+
+    .card-cta{
+      display:inline-flex;align-items:center;gap:6px;
+      padding:11px 20px;border-radius:999px;font-weight:800;font-size:14px;
+      text-decoration:none;align-self:flex-start;
+    }
+    .card-cta.ref{background:#f2a12b;color:#0d3f31;}
+    .card-cta.plain{background:#e8f4ee;color:#0d3f31;}
+    .card-cta:hover{opacity:.88;}
+
+    /* ── Footer ── */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
+    .footer a{color:#78ddb4;}
+
+    @media(max-width:640px){
+      .grid{grid-template-columns:1fr;}
+      .page-hero{padding:36px 18px 40px;}
+      .platforms,.filters{padding-left:18px;padding-right:18px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/" aria-label="FOWL AI home">
+          <span class="brand-mark"></span>
+          <span class="brand-word">FOWL AI</span>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/platforms/">Platforms</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">FOWL AI · Platform Directory</div>
+      <h1>Get paid to work <span>with AI.</span></h1>
+      <p>The platforms worth your time — vetted, ranked, and updated. Start with the ones marked with a referral link for a smoother onboarding.</p>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="wrap">
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="filterCards('all',this)">All</button>
+        <button class="filter-btn" onclick="filterCards('evaluation',this)">AI Evaluation</button>
+        <button class="filter-btn" onclick="filterCards('annotation',this)">Data Annotation</button>
+        <button class="filter-btn" onclick="filterCards('jobs',this)">Jobs & Hiring</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="platforms">
+    <div class="wrap">
+      <div class="grid" id="grid">
+
+        <!-- Mercor -->
+        <div class="card featured" data-cat="evaluation">
+          <div class="card-top">
+            <div class="card-name">Mercor</div>
+            <div class="badge-row">
+              <span class="badge referral">Referral link</span>
+              <span class="badge cat">AI Evaluation</span>
+            </div>
+          </div>
+          <p class="card-desc">AI-powered hiring platform that matches technical talent to high-paying AI projects. Strong for engineers, data scientists, and domain experts. Interview process is rigorous but rates reflect it.</p>
+          <div class="card-meta">
+            <div class="meta-item"><strong>Pay range</strong> $70–150/hr</div>
+            <div class="meta-item"><strong>Best for</strong> Technical roles</div>
+          </div>
+          <a class="card-cta ref" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Join via referral →</a>
+        </div>
+
+        <!-- Outlier -->
+        <div class="card featured" data-cat="evaluation">
+          <div class="card-top">
+            <div class="card-name">Outlier AI</div>
+            <div class="badge-row">
+              <span class="badge referral">Referral link</span>
+              <span class="badge cat">AI Evaluation</span>
+            </div>
+          </div>
+          <p class="card-desc">Train and evaluate AI models across coding, creative writing, STEM, and reasoning tasks. Flexible hours, no set schedule. Good entry point for knowledge workers new to AI income.</p>
+          <div class="card-meta">
+            <div class="meta-item"><strong>Pay range</strong> $20–50/hr</div>
+            <div class="meta-item"><strong>Best for</strong> Writers, coders, researchers</div>
+          </div>
+          <a class="card-cta ref" href="https://app.outlier.ai/expert/referrals/link/tMAelTC5NHmc-huLgd4sm2s79uE" target="_blank" rel="noopener">Join via referral →</a>
+        </div>
+
+        <!-- Handshake -->
+        <div class="card featured" data-cat="jobs">
+          <div class="card-top">
+            <div class="card-name">Handshake Move</div>
+            <div class="badge-row">
+              <span class="badge referral">Referral link</span>
+              <span class="badge cat">Jobs & Hiring</span>
+            </div>
+          </div>
+          <p class="card-desc">Handshake's Move program connects professionals to AI-adjacent roles and opportunities. Good for those transitioning into AI-focused careers or looking for full-time AI roles.</p>
+          <div class="card-meta">
+            <div class="meta-item"><strong>Pay range</strong> Varies by role</div>
+            <div class="meta-item"><strong>Best for</strong> Career transitions</div>
+          </div>
+          <a class="card-cta ref" href="https://joinhandshake.com/move-program/referral?referralCode=0EBF05&utm_source=referral" target="_blank" rel="noopener">Join via referral →</a>
+        </div>
+
+        <!-- Scale AI -->
+        <div class="card" data-cat="annotation">
+          <div class="card-top">
+            <div class="card-name">Scale AI</div>
+            <div class="badge-row">
+              <span class="badge cat">Data Annotation</span>
+            </div>
+          </div>
+          <p class="card-desc">One of the largest AI data platforms. Offers a range of annotation and evaluation tasks. Competitive on volume; domain experts can access higher-value projects via Scale RLHF.</p>
+          <div class="card-meta">
+            <div class="meta-item"><strong>Pay range</strong> $15–40/hr</div>
+            <div class="meta-item"><strong>Best for</strong> High-volume annotators</div>
+          </div>
+          <a class="card-cta plain" href="https://scale.com" target="_blank" rel="noopener">Visit Scale AI →</a>
+        </div>
+
+        <!-- Appen -->
+        <div class="card" data-cat="annotation">
+          <div class="card-top">
+            <div class="card-name">Appen</div>
+            <div class="badge-row">
+              <span class="badge cat">Data Annotation</span>
+            </div>
+          </div>
+          <p class="card-desc">Long-standing data collection and annotation platform. Wide variety of tasks including search evaluation, audio, and image annotation. Good for flexible part-time work.</p>
+          <div class="card-meta">
+            <div class="meta-item"><strong>Pay range</strong> $10–25/hr</div>
+            <div class="meta-item"><strong>Best for</strong> Flexible / part-time</div>
+          </div>
+          <a class="card-cta plain" href="https://appen.com" target="_blank" rel="noopener">Visit Appen →</a>
+        </div>
+
+        <!-- DataAnnotation -->
+        <div class="card" data-cat="evaluation">
+          <div class="card-top">
+            <div class="card-name">DataAnnotation</div>
+            <div class="badge-row">
+              <span class="badge cat">AI Evaluation</span>
+            </div>
+          </div>
+          <p class="card-desc">Focuses on coding and RLHF tasks. Higher pay than most annotation platforms, especially for engineers and developers. Projects are more technical and mentally engaging.</p>
+          <div class="card-meta">
+            <div class="meta-item"><strong>Pay range</strong> $20–45/hr</div>
+            <div class="meta-item"><strong>Best for</strong> Developers, engineers</div>
+          </div>
+          <a class="card-cta plain" href="https://www.dataannotation.tech" target="_blank" rel="noopener">Visit DataAnnotation →</a>
+        </div>
+
+        <!-- Remotasks -->
+        <div class="card" data-cat="annotation">
+          <div class="card-top">
+            <div class="card-name">Remotasks</div>
+            <div class="badge-row">
+              <span class="badge cat">Data Annotation</span>
+            </div>
+          </div>
+          <p class="card-desc">Beginner-friendly annotation platform with free training included. Good starting point to learn AI data work before moving to higher-paying platforms.</p>
+          <div class="card-meta">
+            <div class="meta-item"><strong>Pay range</strong> $8–20/hr</div>
+            <div class="meta-item"><strong>Best for</strong> Beginners</div>
+          </div>
+          <a class="card-cta plain" href="https://www.remotasks.com" target="_blank" rel="noopener">Visit Remotasks →</a>
+        </div>
+
+        <!-- Invisible AI -->
+        <div class="card" data-cat="evaluation">
+          <div class="card-top">
+            <div class="card-name">Invisible AI</div>
+            <div class="badge-row">
+              <span class="badge cat">AI Evaluation</span>
+            </div>
+          </div>
+          <p class="card-desc">High-complexity AI tasks requiring genuine domain expertise. Harder to get in but pays significantly more. Suited to experienced professionals with strong analytical backgrounds.</p>
+          <div class="card-meta">
+            <div class="meta-item"><strong>Pay range</strong> $30–80/hr</div>
+            <div class="meta-item"><strong>Best for</strong> Domain experts</div>
+          </div>
+          <a class="card-cta plain" href="https://invisible.ai" target="_blank" rel="noopener">Visit Invisible AI →</a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    FOWL AI · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/">Home</a>
+  </footer>
+
+  <script>
+    function filterCards(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.card').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
