@@ -20,8 +20,6 @@
 
     /* ── Consistent page margins on every physical PDF page ── */
     
-    @page{margin:56px 72px 96px;}
-    @page cover{margin:0;}
     /* ── Page layout for print ── */
     .page{
       width:794px;margin:0 auto;padding:56px 72px 72px;
@@ -31,7 +29,7 @@
     @media print{
       body{background:#fff;}
       .page{margin:0;padding:56px 72px 96px;border:none;}
-      .page.cover{width:100%;height:297mm;padding:80px;page:cover;}
+      .page.cover{width:100%;height:297mm;padding:80px;}
       .page-footer{left:0;right:0;bottom:0;}
       .no-print{display:none;}
     }
