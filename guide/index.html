@@ -123,6 +123,25 @@
     /* ── Footer on pages ── */
     .page-footer{position:absolute;bottom:32px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;color:#9aada5;border-top:1px solid #e0ebe5;padding-top:10px;}
 
+    /* ── Quick-start checklist ── */
+    .qs-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:20px 0;}
+    .qs-block{background:#f8faf9;border:1.5px solid #d5e8df;border-radius:10px;padding:20px;}
+    .qs-block.urgent{border-color:#f2a12b;background:#fffcf5;}
+    .qs-block-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:12px;font-weight:700;}
+    .qs-block.urgent .qs-block-label{color:#c07000;}
+    .qs-list{list-style:none;padding:0;margin:0;}
+    .qs-list li{padding:8px 0 8px 24px;position:relative;font-size:13px;color:#2a3830;border-bottom:1px solid #e8f0ec;line-height:1.55;}
+    .qs-list li:last-child{border-bottom:none;}
+    .qs-list li::before{content:'□';position:absolute;left:0;color:#1a5f4a;font-size:14px;top:7px;}
+    .qs-list li strong{display:block;color:#13241e;margin-bottom:2px;}
+
+    /* ── Background table ── */
+    .bg-table{width:100%;border-collapse:collapse;margin:16px 0;font-size:13px;}
+    .bg-table th{background:#1a5f4a;color:#a9e8cf;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:8px 12px;text-align:left;}
+    .bg-table td{padding:9px 12px;border-bottom:1px solid #e8f0ec;vertical-align:top;}
+    .bg-table tr:nth-child(even) td{background:#f5faf7;}
+    .bg-table td:first-child{font-weight:700;white-space:nowrap;}
+
     /* ── Print button (screen only) ── */
     .print-bar{
       background:#13241e;color:#fff;text-align:center;padding:16px;
@@ -159,7 +178,63 @@
 </div>
 
 <!-- ═══════════════════════════════════════════
-     PAGE 2 — ABOUT THIS GUIDE
+     PAGE 2 — QUICK START
+════════════════════════════════════════════ -->
+<div class="page">
+  <div class="chapter-header">
+    <div class="chapter-num">Start Here</div>
+    <h2>What to do in the next 48 hours</h2>
+  </div>
+
+  <p>Before you read anything else — open three browser tabs and apply to these platforms right now. Approvals take 1–3 weeks. The sooner you apply, the sooner income starts. You can read the guide while you wait.</p>
+
+  <div class="qs-grid">
+    <div class="qs-block urgent">
+      <div class="qs-block-label">Do today — first 2 hours</div>
+      <ul class="qs-list">
+        <li><strong>Apply to Mercor</strong> Referral link at fowl-ai.com/platforms. Write your domain statement before you start the profile — specific industry, tools, years.</li>
+        <li><strong>Apply to Outlier AI</strong> Referral link at fowl-ai.com/platforms. List every domain you can evaluate — writing, coding, STEM. More domains = more task access.</li>
+        <li><strong>Apply to Handshake AI</strong> US residents only. Referral at fowl-ai.com/platforms. Low barrier, consistent work while Mercor approves.</li>
+        <li><strong>Write your expertise statement</strong> One paragraph: domain + industry + tools + one measurable outcome. You will use this on every platform profile.</li>
+      </ul>
+    </div>
+    <div class="qs-block">
+      <div class="qs-block-label">This week — days 2–7</div>
+      <ul class="qs-list">
+        <li><strong>Complete Outlier onboarding tasks</strong> Accuracy over speed. Your first 10–15 tasks set your earning ceiling permanently.</li>
+        <li><strong>Apply to DataAnnotation</strong> If you have a coding or technical background, apply here too. Good for filling gaps.</li>
+        <li><strong>Apply to Surge AI</strong> If you have a PhD, MD, or senior specialist background — this is your highest-ceiling platform. Apply at surgehq.ai.</li>
+        <li><strong>Start CrowdGen for baseline income</strong> While Tier 1 approvals process, CrowdGen (by Appen) provides immediate low-stakes income and task familiarity.</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Apply in this order based on your background</h3>
+
+  <table class="bg-table">
+    <thead>
+      <tr><th>Your Background</th><th>Apply First</th><th>Apply Second</th><th>Apply Third</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Data Scientist / ML</td><td>Mercor</td><td>Outlier AI</td><td>DataAnnotation</td></tr>
+      <tr><td>Software Engineer</td><td>Mercor</td><td>DataAnnotation</td><td>Outlier AI</td></tr>
+      <tr><td>Finance / Analyst</td><td>Mercor</td><td>Outlier AI</td><td>Handshake AI</td></tr>
+      <tr><td>Writer / Researcher</td><td>Outlier AI</td><td>Handshake AI</td><td>Scale AI</td></tr>
+      <tr><td>Healthcare / Legal (PhD or MD)</td><td>Surge AI</td><td>Mercor</td><td>Meridial</td></tr>
+      <tr><td>General / No specific domain</td><td>Handshake AI</td><td>Outlier AI</td><td>CrowdGen</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout green">
+    <div class="callout-label">The rule</div>
+    <p>Do not wait for one approval before applying to the next. Apply to all three in your stack on the same day. If you apply sequentially, you could be 6–8 weeks from any income. Parallel applications mean you choose the best-paying active work instead of having no choice.</p>
+  </div>
+
+  <div class="page-footer"><span>FOWL AI — AI Expert Platform Blueprint</span><span>Start Here</span></div>
+</div>
+
+<!-- ═══════════════════════════════════════════
+     PAGE 3 — ABOUT THIS GUIDE
 ════════════════════════════════════════════ -->
 <div class="page">
   <div class="chapter-header">

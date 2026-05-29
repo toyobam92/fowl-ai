@@ -102,6 +102,17 @@
     .timeline-content strong{display:block;margin-bottom:4px;}
     .timeline-content p{font-size:14px;margin:0;}
 
+    /* ── Code block ── */
+    .code-block{background:#13241e;border-radius:8px;padding:20px 24px;margin:16px 0;overflow:auto;}
+    .code-block pre{font-family:"DM Mono",monospace;font-size:12px;line-height:1.7;color:#a9e8cf;margin:0;white-space:pre;}
+    .code-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;}
+    .issue-list{list-style:none;padding:0;margin:12px 0;}
+    .issue-list li{padding:10px 12px 10px 36px;position:relative;font-size:13px;border-bottom:1px solid #e8f0ec;line-height:1.6;}
+    .issue-list li:last-child{border-bottom:none;}
+    .issue-num{position:absolute;left:0;top:9px;width:24px;height:24px;border-radius:50%;background:#d4541e;color:#fff;font-family:"DM Mono",monospace;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;}
+    .issue-num.warn{background:#c07000;}
+    .issue-num.low{background:#1a5f4a;}
+
     .page-footer{position:absolute;bottom:32px;left:80px;right:80px;display:flex;justify-content:space-between;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;color:#9aada5;border-top:1px solid #e0ebe5;padding-top:10px;}
     .print-bar{background:#13241e;color:#fff;text-align:center;padding:16px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:1px;position:sticky;top:0;z-index:50;}
     .print-bar button{background:linear-gradient(135deg,#ffbe30,#f2631a);color:#fff;border:none;padding:9px 24px;border-radius:999px;font-weight:800;font-size:12px;cursor:pointer;margin-left:12px;}
@@ -247,6 +258,56 @@
     <div class="qa-q">Live code review — "Here is some code. What issues do you see?"</div>
     <div class="qa-a">Mercor may show you a code snippet during the interview and ask you to find the problem. This is not a trick — they want to see how you think out loud, not just whether you spot the bug. Walk through it step by step: "I am reading through this and I can see it is trying to [purpose]. On line X, there is [issue] — this would cause [specific problem] because [reason]. I would fix it by [approach]." Structure matters. Saying "there is a bug on line 12" without explanation is a weak answer. Explaining the bug, why it fails, and how to fix it is a strong one.</div>
     <div class="qa-tip">If you genuinely cannot spot the issue, say what you do see and where you would look next. "I am not seeing an obvious bug, but I would check [X] because [reason]" is better than silence or a guess.</div>
+  </div>
+
+  <div class="divider-sm"></div>
+
+  <h3>Worked example — a real code review question</h3>
+  <p>Here is the type of code Mercor may show you. Read through it, then see how a weak answer and a strong answer differ.</p>
+
+  <div class="code-block">
+    <div class="code-label">Python — spot the issues</div>
+    <pre>import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LogisticRegression
+
+df = pd.read_csv('customer_data.csv')
+
+X = df.drop('churn', axis=1)
+y = df['churn']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+model = LogisticRegression()
+model.fit(X_train, y_train)
+
+accuracy = model.score(X_test, y_test)
+print(f"Model accuracy: {accuracy}")
+
+df['predicted_churn'] = model.predict(X)
+df.to_csv('predictions.csv', index=False)</pre>
+  </div>
+
+  <div class="compare">
+    <div class="compare-box before">
+      <div class="compare-label">Weak answer</div>
+      <p>"There are a few issues with this code. The model might not be accurate and there could be a data leakage problem. Also it should probably scale the features."</p>
+    </div>
+    <div class="compare-box after">
+      <div class="compare-label">Strong answer</div>
+      <p>"I can see three issues. I'll go in order of severity."</p>
+    </div>
+  </div>
+
+  <ul class="issue-list">
+    <li><span class="issue-num">1</span><strong>Data leakage on line 17 — critical.</strong> <code style="background:#f0f8f4;padding:1px 5px;border-radius:3px;font-size:12px;">model.predict(X)</code> runs predictions on the full dataset including the training data. This means the saved CSV mixes train and test predictions — any downstream analysis treating this as holdout performance will be wrong. Fix: run <code style="background:#f0f8f4;padding:1px 5px;border-radius:3px;font-size:12px;">model.predict(X_test)</code> and save only the test set predictions, or keep track of the indices separately.</li>
+    <li><span class="issue-num warn">2</span><strong>No random_state on train_test_split — reproducibility issue.</strong> Without a fixed seed, every run produces a different train/test split. You cannot reproduce this result or compare it fairly against a future run. Fix: add <code style="background:#f0f8f4;padding:1px 5px;border-radius:3px;font-size:12px;">random_state=42</code>.</li>
+    <li><span class="issue-num low">3</span><strong>No feature scaling — model performance issue.</strong> Logistic Regression is sensitive to feature scale. If <code style="background:#f0f8f4;padding:1px 5px;border-radius:3px;font-size:12px;">customer_data.csv</code> has mixed-scale columns (e.g. age vs annual income), the model will underweight small-scale features. A StandardScaler or MinMaxScaler should be applied to X_train and then used to transform X_test — not fit on X_test separately, which would be a second leakage point.</li>
+  </ul>
+
+  <div class="callout green">
+    <div class="callout-label">The pattern that scores</div>
+    <p>State how many issues you see upfront, then go in order of severity. For each issue: name it, say which line, explain why it is a problem in production (not just "it is wrong"), and give the specific fix. This is what separates a $95/hr answer from a $25/hr answer.</p>
   </div>
 
   <div class="divider-sm"></div>
