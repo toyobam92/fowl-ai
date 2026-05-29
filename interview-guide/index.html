@@ -32,16 +32,17 @@
     strong{color:#13241e;}
 
     /* Cover */
-    .cover{background:#13241e;color:#fff;padding:80px;}
+    .cover{background:#13241e;color:#fff;padding:80px;display:flex;flex-direction:column;min-height:1123px;}
     .cover-eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#78ddb4;margin-bottom:28px;}
     .cover h1{color:#fff;font-size:54px;margin-bottom:16px;}
     .cover h1 span{color:#f2a12b;display:block;}
-    .cover-sub{font-size:19px;color:#a9e8cf;line-height:1.65;max-width:500px;margin-bottom:48px;}
+    .cover-sub{font-size:19px;color:#a9e8cf;line-height:1.65;max-width:500px;margin-bottom:0;}
+    .cover-spacer{flex:1;}
     .cover-proof{background:rgba(255,255,255,.07);border-left:4px solid #78ddb4;padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:48px;max-width:480px;}
     .cover-proof p{color:#e2f2eb;font-size:15px;margin:0;font-style:italic;}
     .cover-proof cite{display:block;margin-top:8px;font-size:11px;color:#78ddb4;font-style:normal;font-family:"DM Mono",monospace;letter-spacing:1px;}
     .cover-logo span{font-family:"DM Mono",monospace;font-size:20px;letter-spacing:8px;color:#f47f18;}
-    .cover-meta{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-top:48px;}
+    .cover-meta{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;}
 
     /* Chapter */
     .chapter-num{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#78ddb4;background:#0d3f31;display:inline-block;padding:5px 12px;border-radius:4px;margin-bottom:12px;}
@@ -134,6 +135,7 @@
   <div class="cover-eyebrow">Future of Work Lab · Field Guide · Updated May 2026</div>
   <h1>How to Pass<span>Your AI Interview</span></h1>
   <p class="cover-sub">Real questions, field-tested answers, and the exact framework for clearing AI platform screenings — written from first-hand experience passing Mercor, Handshake AI &amp; Outlier — and landing the rates your background deserves.</p>
+  <div class="cover-spacer"></div>
   <div class="cover-proof">
     <p>"I passed the Mercor AI interview and landed $70–$95/hr projects. The difference wasn't my skills — it was how I framed them."</p>
     <cite>— FOWL AI, Issue 4</cite>

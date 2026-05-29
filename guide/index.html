@@ -52,11 +52,12 @@
     .mint{color:#1a5f4a;}
 
     /* ── Cover page ── */
-    .cover{background:#0d3f31;color:#fff;padding:80px;}
+    .cover{background:#0d3f31;color:#fff;padding:80px;display:flex;flex-direction:column;min-height:1123px;}
     .cover-eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#78ddb4;margin-bottom:28px;}
     .cover h1{color:#fff;font-size:58px;margin-bottom:16px;}
     .cover h1 span{color:#f2a12b;display:block;}
-    .cover-sub{font-size:20px;color:#a9e8cf;line-height:1.6;max-width:520px;margin-bottom:48px;}
+    .cover-sub{font-size:20px;color:#a9e8cf;line-height:1.6;max-width:520px;margin-bottom:0;}
+    .cover-spacer{flex:1;}
     .cover-proof{
       background:rgba(255,255,255,.08);border-left:4px solid #f2a12b;
       padding:20px 24px;border-radius:0 8px 8px 0;margin-bottom:48px;max-width:480px;
@@ -175,6 +176,7 @@
   <div class="cover-eyebrow">Future of Work Lab · Field Guide · Updated May 2026</div>
   <h1>AI Expert Platform<span>Blueprint</span></h1>
   <p class="cover-sub">The exact platforms, strategies, and positioning moves to earn $2,000–$5,000/month — built from first-hand experience earning on Mercor, Handshake AI &amp; Outlier, plus research across the full market.</p>
+  <div class="cover-spacer"></div>
   <div class="cover-proof">
     <p>"The AI job market is splitting between people who use AI for tasks and people who can judge where AI is wrong. The second group earns more."</p>
     <cite>— FOWL AI, Issue 1</cite>
