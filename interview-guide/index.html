@@ -103,7 +103,8 @@
     .timeline-content p{font-size:14px;margin:0;}
 
     /* ── Code block ── */
-    .code-block{background:#13241e;border-radius:8px;padding:20px 24px;margin:16px 0;overflow:auto;}
+    .code-block{background:#13241e;border-radius:8px;padding:20px 24px;margin:16px 0;overflow:hidden;break-inside:avoid;page-break-inside:avoid;}
+    .break-before{break-before:page;page-break-before:always;}
     .code-block pre{font-family:"DM Mono",monospace;font-size:12px;line-height:1.7;color:#a9e8cf;margin:0;white-space:pre;}
     .code-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;}
     .issue-list{list-style:none;padding:0;margin:12px 0;}
@@ -262,7 +263,7 @@
 
   <div class="divider-sm"></div>
 
-  <h3>Worked example — a real code review question</h3>
+  <h3 class="break-before">Worked example — a real code review question</h3>
   <p>Here is the type of code Mercor may show you. Read through it, then see how a weak answer and a strong answer differ.</p>
 
   <div class="code-block">
@@ -474,8 +475,8 @@ df.to_csv('predictions.csv', index=False)</pre>
     <li>
       <div class="timeline-day">Day 3</div>
       <div class="timeline-content">
-        <strong>Practice the core Q&A out loud</strong>
-        <p>Record yourself answering: background, expertise rating, AI work experience, error identification example, why AI evaluation. Watch it back. Fix anything vague.</p>
+        <strong>Practice your answers out loud — on camera</strong>
+        <p>Record yourself answering: your background, your most challenging project (full STAR), and your domain expertise rating (1–10 with explanation). Watch it back. Anything vague or over 90 seconds — rewrite it. Also do a code review warm-up: find a buggy snippet in your domain and practice explaining the issue out loud.</p>
       </div>
     </li>
     <li>
@@ -502,8 +503,8 @@ df.to_csv('predictions.csv', index=False)</pre>
     <li>
       <div class="timeline-day">Day 7</div>
       <div class="timeline-content">
-        <strong>Apply to Invisible AI + review and adjust</strong>
-        <p>Submit your Invisible AI application with your strongest domain framing. Review how the week went and refine your profile language based on any feedback received.</p>
+        <strong>Apply to Meridial + review and adjust</strong>
+        <p>If you have 5+ years of senior expertise, submit your Meridial application (invisible.co/marketplace) with your strongest domain framing. Review the week — refine profile language based on any feedback received, and check your Mercor and Outlier dashboards for any task invitations.</p>
       </div>
     </li>
   </ul>
