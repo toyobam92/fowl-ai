@@ -19,9 +19,7 @@
     body{font-family:Inter,sans-serif;background:#fff;color:#13241e;line-height:1.65;font-size:15px;}
 
     /* ── Consistent page margins on every physical PDF page ── */
-    @page{margin:56px 72px 96px;}
-    @page :first{margin:0;}
-
+    
     /* ── Page layout for print ── */
     .page{
       width:794px;margin:0 auto;padding:56px 72px 72px;
@@ -30,7 +28,7 @@
     @media screen{.page{border-bottom:2px dashed #e0dbd3;margin-bottom:0;}}
     @media print{
       body{background:#fff;}
-      .page{margin:0;padding:0 0 52px;border:none;}
+      .page{margin:0;padding:56px 72px 96px;border:none;}
       .page.cover{width:100%;height:297mm;padding:80px;}
       .page-footer{left:0;right:0;bottom:0;}
       .no-print{display:none;}
@@ -189,7 +187,7 @@
     <p>"The AI job market is splitting between people who use AI for tasks and people who can judge where AI is wrong. The second group earns more."</p>
     <cite>— FOWL AI, Issue 1</cite>
   </div>
-  <div class="cover-meta">FOWL AI · fowl-ai.com · For domain experts, analysts &amp; consultants</div>
+  <div class="cover-meta">FOWL AI</div>
 </div>
 
 <!-- ═══════════════════════════════════════════
