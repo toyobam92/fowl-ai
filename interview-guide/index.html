@@ -8,7 +8,7 @@
   <style>
     *{box-sizing:border-box;margin:0;padding:0;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
     body{font-family:Inter,sans-serif;background:#fff;color:#13241e;line-height:1.65;font-size:15px;}
-    .page{width:794px;margin:0 auto;padding:48px 80px 56px;position:relative;break-before:page;}
+    .page{width:794px;margin:0 auto;padding:48px 72px 64px;position:relative;break-before:page;}
     @media screen{.page{border-bottom:2px dashed #e0dbd3;}}
     @media print{body{background:#fff;}.page{margin:0;padding:60px 72px;border:none;}.page.cover{width:100%;height:297mm;padding:80px;}.no-print{display:none;}}
     /* ── Prevent section cutoffs ── */
@@ -214,6 +214,23 @@
     <div class="qa-tip">Platforms specifically want people who know the boundaries of their expertise. Overconfidence is a red flag.</div>
   </div>
 
+  <div class="qa-block featured">
+    <div class="qa-q">What makes you specifically qualified to evaluate AI outputs in your domain?</div>
+    <div class="qa-a">"My qualification is that I do this work professionally every day — I evaluate [type of output] for [purpose] and have done so for [X] years. I know what correct looks like in my field from experience, not from reading about it. When an AI produces a [domain] answer, I can identify exactly where and why it is wrong because I have seen the same class of errors in real work. That is different from general intelligence — it is domain-calibrated judgment."</div>
+    <div class="qa-tip">This is the most important question in the interview. They are asking whether you are a measuring instrument or just a smart generalist. The answer must ground your capability in professional, not academic, experience.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">Walk me through your most technically challenging project.</div>
+    <div class="qa-a">Use the STAR structure: Situation (1–2 sentences on context and the problem), Action (3–4 sentences on exactly what you built, the tools you used, and the non-obvious decisions you made), Result (1–2 sentences with a specific measurable outcome). Example: "I was tasked with improving credit card retention. I built an uplift model using Python and XGBoost to identify persuadable customers versus those likely to churn regardless of intervention. The non-obvious part was correctly handling the counterfactual — most models at the time were predicting churn, not persuadability. The result was a 23% improvement in campaign ROI across 4 million cardholders." That is a complete STAR answer in under 60 seconds.</div>
+  </div>
+
+  <div class="qa-block">
+    <div class="qa-q">How do you approach a task where you are only partially certain of the answer?</div>
+    <div class="qa-a">"I separate what I know confidently from what I am uncertain about, and I label that distinction explicitly in my response. I will say something like: 'I am confident that [X] is incorrect because [reason]. I am less certain about [Y] — my best judgment is [answer] based on [reasoning], but I would flag this for a second expert review.' Platforms value calibrated confidence. A clearly labeled uncertain answer is more useful to them than a confidently wrong one."</div>
+    <div class="qa-tip">This is a test of epistemic honesty. Saying "I don't know" with a reasoned explanation scores higher than a fluent but incorrect answer.</div>
+  </div>
+
   <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>Chapter 01</span></div>
 </div>
 
@@ -249,10 +266,27 @@
     <p>Take your time. There is no benefit to rushing. Explain your reasoning in writing, not just your conclusion. "The model is wrong because X, which leads to Y problem in this context" scores higher than "the model is wrong." They are evaluating your thinking process, not just the answer.</p>
   </div>
 
+  <div class="qa-block">
+    <div class="qa-q">What domains do you feel most — and least — confident evaluating?</div>
+    <div class="qa-a">"I am most confident evaluating [your specific domain and sub-domain] — that is where I have the deepest professional experience and where I can spot errors that a generalist would not catch. I am less confident in [adjacent field where you have some but not expert knowledge], though I have enough background to provide useful evaluation there. I would not feel qualified to evaluate [clearly outside your domain] — and I would not want to, because my value to the platform is in the accuracy of my assessments, not the volume."</div>
+    <div class="qa-tip">Admitting limits is a strength here, not a weakness. Platforms that specialize in expert evaluation specifically distrust candidates who claim to be confident in everything.</div>
+  </div>
+
   <div class="callout green">
     <div class="callout-label">After you submit</div>
-    <p>Response time from Mercor varies from 24 hours to 2 weeks. If you hear nothing after 10 days, reapply with a slightly more specific profile. Many successful candidates applied 2–3 times before being matched to a project.</p>
+    <p>Response time from Mercor varies from 24 hours to 2 weeks. If you hear nothing after 10 days, reapply with a slightly more specific profile. Many successful candidates applied 2–3 times before being matched to a project. You officially have up to 3 retakes.</p>
   </div>
+
+  <div class="divider-sm"></div>
+
+  <h3>What happens the first week after you pass</h3>
+  <p>Passing the Mercor screening does not mean projects immediately appear. Here is what the first week actually looks like:</p>
+  <ul>
+    <li><strong>Day 1–2:</strong> You receive a confirmation email. Your profile is now visible to Mercor's matching system. No projects yet — you are in the queue.</li>
+    <li><strong>Day 3–5:</strong> If your profile matches an active project, you will receive an invitation to review project details and accept. Response speed matters — accept or decline within 24 hours or it moves to the next candidate.</li>
+    <li><strong>Day 5–10:</strong> First tasks appear. Treat the first 5 tasks as your extended audition. Your quality score on these tasks determines whether you are matched to higher-value projects or lower-value ones. Do not rush them.</li>
+    <li><strong>If no project in 2 weeks:</strong> This usually means your stated domain is not currently matched to active projects — not that you failed. Update your profile to add adjacent skills or domains, and check back. New projects are onboarded regularly.</li>
+  </ul>
 
   <div class="page-footer"><span>FOWL AI — How to Pass Your AI Interview</span><span>Chapter 01</span></div>
 </div>
