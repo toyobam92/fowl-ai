@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Job Board — FOWL AI</title>
+  <meta name="description" content="Weekly curated AI jobs, evaluation roles, and knowledge worker opportunities. Updated every week by FOWL AI.">
+  <meta property="og:title" content="AI Job Board — FOWL AI" />
+  <meta property="og:description" content="Weekly curated AI jobs for knowledge workers. Evaluation, product, research, and remote-first roles." />
+  <meta property="og:url" content="https://www.fowl-ai.com/jobs/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;text-decoration:none;}
+
+    /* Nav */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:20px;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;}
+    .nav-link:hover{color:#fff;}
+    @keyframes nav-bounce{0%,70%,100%{transform:translateY(0);}74%{transform:translateY(-4px);}78%{transform:translateY(0);}82%{transform:translateY(-2px);}86%{transform:translateY(0);}}
+    .nav-link.bounce{display:inline-block;animation:nav-bounce 4s ease-in-out infinite;}
+    .nav-link.bounce:hover{color:#fff;animation:none;}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0);}}
+    @keyframes wiggle{0%,80%,100%{transform:rotate(0deg) scale(1);}83%{transform:rotate(-2deg) scale(1.04);}86%{transform:rotate(2deg) scale(1.04);}89%{transform:rotate(-1deg) scale(1.02);}}
+    .sub-btn{display:inline-flex;align-items:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;}
+    .sub-btn:hover{transform:scale(1.06);animation:none;}
+
+    /* Hero */
+    .page-hero{background:#0d3f31;color:#fff;padding:48px 24px 56px;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
+    .page-hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(34px,5vw,54px);line-height:1.08;margin-bottom:14px;}
+    .page-hero h1 span{color:#f2a12b;}
+    .page-hero p{font-size:17px;color:#e2f2eb;max-width:580px;line-height:1.75;}
+    .updated-badge{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#78ddb4;background:rgba(255,255,255,.08);padding:6px 14px;border-radius:999px;border:1px solid rgba(120,221,180,.2);}
+    .updated-dot{width:7px;height:7px;border-radius:50%;background:#78ddb4;animation:pulse-dot 2s ease-in-out infinite;}
+    @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+    /* Filters */
+    .filters{padding:28px 24px 0;}
+    .filter-row{display:flex;gap:8px;flex-wrap:wrap;}
+    .filter-btn{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;border-radius:999px;border:1.5px solid #c8c0b4;background:transparent;color:#665f56;cursor:pointer;transition:all .15s;}
+    .filter-btn.active,.filter-btn:hover{background:#0d3f31;color:#fff;border-color:#0d3f31;}
+
+    /* Jobs grid */
+    .jobs-section{padding:28px 24px 72px;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;}
+
+    /* Job card */
+    .job-card{background:#fff;border-radius:10px;padding:24px;border-top:4px solid #0d3f31;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s;}
+    .job-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.1);}
+    .job-card.featured{border-top-color:#f2a12b;}
+    .job-card.new{border-top-color:#78ddb4;}
+
+    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
+    .job-title{font-weight:800;font-size:17px;color:#13241e;line-height:1.3;}
+    .badge-row{display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0;}
+    .badge{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;}
+    .badge.new{background:#e8f9f2;color:#0d7a52;}
+    .badge.featured{background:#fff3de;color:#c07000;}
+    .badge.remote{background:#f0f0ff;color:#4040a0;}
+    .badge.freelance{background:#e8f4ee;color:#1a5f4a;}
+    .badge.fulltime{background:#f0f4ff;color:#2a4a9a;}
+
+    .job-company{font-size:14px;font-weight:700;color:#1a5f4a;}
+    .job-desc{font-size:14px;color:#46524c;line-height:1.65;flex:1;}
+    .job-meta{display:flex;gap:16px;flex-wrap:wrap;}
+    .meta-item{font-size:13px;color:#665f56;}
+    .meta-item strong{color:#13241e;font-weight:700;}
+    .job-cta{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:999px;font-weight:800;font-size:14px;align-self:flex-start;transition:opacity .15s;}
+    .job-cta.apply{background:#0d3f31;color:#fff;}
+    .job-cta.apply:hover{opacity:.85;}
+    .job-cta.referral{background:#f2a12b;color:#0d3f31;}
+    .job-cta.referral:hover{opacity:.85;}
+
+    /* Empty state */
+    .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:#9aada5;font-family:"DM Mono",monospace;font-size:13px;letter-spacing:1px;}
+
+    /* Newsletter CTA */
+    .newsletter-cta{background:#0d3f31;padding:48px 24px;text-align:center;margin-top:0;}
+    .newsletter-cta h2{font-family:Fraunces,Georgia,serif;font-size:32px;color:#fff;margin-bottom:12px;}
+    .newsletter-cta p{font-size:16px;color:#a9e8cf;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+    /* Footer */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
+    .footer a{color:#78ddb4;}
+    .footer div{margin-top:10px;font-size:10px;opacity:.6;}
+
+    @media(max-width:640px){
+      .grid{grid-template-columns:1fr;}
+      .nav{flex-wrap:wrap;gap:10px;}
+      .nav-links{gap:12px;}
+      .nav-link{font-size:10px;}
+      .sub-btn{padding:9px 14px;font-size:11px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark"></span>
+          <span class="brand-word">FOWL AI</span>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link bounce" href="/platforms/">Platforms</a>
+          <a class="nav-link bounce" style="animation-delay:.4s" href="/jobs/">Jobs</a>
+          <a class="nav-link bounce" style="animation-delay:.8s" href="/products/">Products</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">FOWL AI · Job Board</div>
+      <h1>AI roles worth <span>your time.</span></h1>
+      <p>Curated weekly — evaluation gigs, AI product roles, remote knowledge worker positions. No noise, no volume plays. Only roles that pay well for real expertise.</p>
+      <div class="updated-badge">
+        <span class="updated-dot"></span>
+        Updated week of May 26, 2026
+      </div>
+    </div>
+  </div>
+
+  <div class="filters">
+    <div class="wrap">
+      <div class="filter-row">
+        <button class="filter-btn active" onclick="filterJobs('all',this)">All</button>
+        <button class="filter-btn" onclick="filterJobs('evaluation',this)">AI Evaluation</button>
+        <button class="filter-btn" onclick="filterJobs('product',this)">Product &amp; Strategy</button>
+        <button class="filter-btn" onclick="filterJobs('engineering',this)">Engineering</button>
+        <button class="filter-btn" onclick="filterJobs('research',this)">Research</button>
+      </div>
+    </div>
+  </div>
+
+  <section class="jobs-section">
+    <div class="wrap">
+      <div class="grid" id="jobs-grid">
+
+        <!-- ═══════════════════════════════
+             PASTE NEW JOBS BELOW THIS LINE
+             Copy a job-card block, fill in the details, done.
+             data-cat options: evaluation | product | engineering | research
+        ════════════════════════════════ -->
+
+        <div class="job-card featured" data-cat="evaluation">
+          <div class="card-top">
+            <div class="job-title">AI Domain Expert — Data Science & ML</div>
+            <div class="badge-row">
+              <span class="badge new">New</span>
+              <span class="badge freelance">Freelance</span>
+              <span class="badge remote">Remote</span>
+            </div>
+          </div>
+          <div class="job-company">Mercor</div>
+          <p class="job-desc">Evaluate AI outputs, review code, and provide structured feedback on model reasoning across data science and ML tasks. High-paying, flexible hours.</p>
+          <div class="job-meta">
+            <div class="meta-item"><strong>Pay</strong> $70–$150/hr</div>
+            <div class="meta-item"><strong>Type</strong> Project-based</div>
+            <div class="meta-item"><strong>Where</strong> Global</div>
+          </div>
+          <a class="job-cta referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply via referral →</a>
+        </div>
+
+        <div class="job-card" data-cat="evaluation">
+          <div class="card-top">
+            <div class="job-title">AI Trainer — Coding & STEM</div>
+            <div class="badge-row">
+              <span class="badge new">New</span>
+              <span class="badge freelance">Freelance</span>
+              <span class="badge remote">Remote</span>
+            </div>
+          </div>
+          <div class="job-company">Outlier AI</div>
+          <p class="job-desc">Train and evaluate AI models across coding, STEM, and reasoning tasks. Flexible hours, no set schedule. Strong starting point for knowledge workers entering AI income.</p>
+          <div class="job-meta">
+            <div class="meta-item"><strong>Pay</strong> $20–$60/hr</div>
+            <div class="meta-item"><strong>Type</strong> Flexible/hourly</div>
+            <div class="meta-item"><strong>Where</strong> Global</div>
+          </div>
+          <a class="job-cta referral" href="https://app.outlier.ai/expert/referrals/link/tMAelTC5NHmc-huLgd4sm2s79uE" target="_blank" rel="noopener">Apply via referral →</a>
+        </div>
+
+        <div class="job-card" data-cat="evaluation">
+          <div class="card-top">
+            <div class="job-title">AI Fellowship — Expert Track</div>
+            <div class="badge-row">
+              <span class="badge new">New</span>
+              <span class="badge freelance">Freelance</span>
+              <span class="badge remote">Remote</span>
+            </div>
+          </div>
+          <div class="job-company">Handshake AI</div>
+          <p class="job-desc">Paid fellowship training AI models using domain expertise. Lower barrier than Mercor, consistent work availability. PhD/Masters earns more via expert track.</p>
+          <div class="job-meta">
+            <div class="meta-item"><strong>Pay</strong> Up to $100/hr</div>
+            <div class="meta-item"><strong>Type</strong> Fellowship</div>
+            <div class="meta-item"><strong>Where</strong> US only</div>
+          </div>
+          <a class="job-cta referral" href="https://joinhandshake.com/move-program/referral?referralCode=0EBF05&utm_source=referral" target="_blank" rel="noopener">Apply via referral →</a>
+        </div>
+
+        <div class="job-card" data-cat="evaluation">
+          <div class="card-top">
+            <div class="job-title">AI Evaluator — Medical / Legal / Finance</div>
+            <div class="badge-row">
+              <span class="badge featured">High Pay</span>
+              <span class="badge freelance">Freelance</span>
+              <span class="badge remote">Remote</span>
+            </div>
+          </div>
+          <div class="job-company">Surge AI</div>
+          <p class="job-desc">Domain expert evaluator for frontier AI models. Highest rates in the market for PhD-level and senior specialists. Medical fellows earn $250–$450/hr.</p>
+          <div class="job-meta">
+            <div class="meta-item"><strong>Pay</strong> $80–$450/hr</div>
+            <div class="meta-item"><strong>Type</strong> Project-based</div>
+            <div class="meta-item"><strong>Where</strong> Global</div>
+          </div>
+          <a class="job-cta apply" href="https://surgehq.ai/workforce" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-card" data-cat="engineering">
+          <div class="card-top">
+            <div class="job-title">AI Code Evaluator — Python / JavaScript</div>
+            <div class="badge-row">
+              <span class="badge freelance">Freelance</span>
+              <span class="badge remote">Remote</span>
+            </div>
+          </div>
+          <div class="job-company">DataAnnotation</div>
+          <p class="job-desc">Review and evaluate AI-generated code for correctness, efficiency, and safety. RLHF tasks for code. Strong pay for engineers with real production experience.</p>
+          <div class="job-meta">
+            <div class="meta-item"><strong>Pay</strong> $20–$45/hr</div>
+            <div class="meta-item"><strong>Type</strong> Hourly</div>
+            <div class="meta-item"><strong>Where</strong> Global</div>
+          </div>
+          <a class="job-cta apply" href="https://www.dataannotation.tech" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-card" data-cat="engineering">
+          <div class="card-top">
+            <div class="job-title">AI Training — Frontier Models</div>
+            <div class="badge-row">
+              <span class="badge featured">High Pay</span>
+              <span class="badge freelance">Freelance</span>
+              <span class="badge remote">Remote</span>
+            </div>
+          </div>
+          <div class="job-company">micro1</div>
+          <p class="job-desc">Remote contracts training frontier AI models. Tasks include code annotation, red-teaming, and structured reasoning evaluation. No prior AI experience required.</p>
+          <div class="job-meta">
+            <div class="meta-item"><strong>Pay</strong> $30–$135/hr</div>
+            <div class="meta-item"><strong>Type</strong> Contract</div>
+            <div class="meta-item"><strong>Where</strong> Global</div>
+          </div>
+          <a class="job-cta apply" href="https://www.micro1.ai/experts/opportunities" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <!-- ═══════════════════════════════
+             PASTE NEW JOBS ABOVE THIS LINE
+        ════════════════════════════════ -->
+
+      </div>
+    </div>
+  </section>
+
+  <div class="newsletter-cta">
+    <div class="wrap">
+      <h2>New roles added every week.</h2>
+      <p>Subscribe to FOWL AI and get the best AI income opportunities delivered to your inbox — free, every week.</p>
+      <a class="sub-btn" href="https://fowlai.eo.page/vmk69" style="display:inline-flex;">Subscribe free →</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    FOWL AI · <a href="/">Home</a> · <a href="/platforms/">Platforms</a> · <a href="/jobs/">Jobs</a> · <a href="/products/">Products</a> · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/privacy/">Privacy</a>
+    <div>Some links are referral links — FOWL AI may receive a commission at no cost to you. Not affiliated with any employer listed.</div>
+  </footer>
+
+  <script>
+    function filterJobs(cat, btn) {
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('.job-card').forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      });
+    }
+  </script>
+
+</body>
+</html>
