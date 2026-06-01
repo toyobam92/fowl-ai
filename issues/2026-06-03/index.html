@@ -1,20 +1,323 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-1K9HKRJ6ZV');
-  </script>
-  <meta charset="UTF-8">
-  <meta http-equiv="refresh" content="0; url=/issues/2026-05-27/">
-  <link rel="canonical" href="/issues/2026-05-27/">
-  <title>Redirecting — FOWL AI</title>
-</head>
-<body>
-  <script>window.location.replace("/issues/2026-05-27/");</script>
-</body>
-</html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The quality score is everything — FOWL AI Issue 2</title>
+<meta name="description" content="Most people sign up for AI trainer platforms and never hear back. The ones earning real money know something the others don't." />
+<meta property="og:title" content="The quality score is everything — FOWL AI Issue 2" />
+<meta property="og:description" content="The difference between $15/hr and $150/hr on AI evaluation platforms isn't your credentials. It's your quality score." />
+<meta property="og:image" content="https://www.fowl-ai.com/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:secure_url" content="https://www.fowl-ai.com/og-image.png" />
+<meta property="og:url" content="https://www.fowl-ai.com/issues/2026-06-10/" />
+<meta property="og:type" content="article" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:#f2ede3;}
+body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia,serif;-webkit-font-smoothing:antialiased;}
+.card{background:#fff;margin:8px 0;padding:32px 44px;}
+.card-dark{background:#0f3d30;margin:8px 0;padding:32px 44px;}
+.card-amber{background:#f7eedc;margin:0;padding:34px 44px 36px;border-left:6px solid #f2a12b;}
+.card-mint{background:#e8f4ee;margin:8px 0;padding:28px 44px;}
+.card-coral{background:#fff4ef;margin:8px 0;padding:24px 44px;border-left:6px solid #d4541e;}
+
+/* masthead */
+.mast{background:#0d3f31;padding:36px 44px 34px;margin:0;}
+.mast-meta{display:flex;justify-content:space-between;margin-bottom:14px;}
+.mast-meta span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;}
+.brand-lockup{display:flex;align-items:center;gap:18px;margin:20px 0 28px;}
+.brand-dot{width:42px;height:42px;border-radius:50%;background:#78ddb4;box-shadow:0 6px 18px rgba(0,0,0,.2);}
+.brand-fowl{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;letter-spacing:9px;color:#f47f18;text-transform:uppercase;}
+.brand-divider{width:1px;height:48px;background:rgba(255,255,255,.65);}
+.brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
+.brand-name span{display:block;color:#7fd9b8;}
+.mast-title{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-style:italic;font-weight:800;font-size:58px;line-height:1.06;letter-spacing:-2px;color:#fff;margin-top:8px;}
+.mast-title span{color:#35bfa2;display:block;}
+.mast-sub{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:19px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:560px;}
+.mast-cta{display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;font-weight:800;text-decoration:none;padding:15px 28px;border-radius:999px;}
+.mast-rule{height:1px;background:linear-gradient(90deg,#7fd9b8,rgba(127,217,184,.08));margin:28px 0 18px;}
+.mast-foot{display:flex;justify-content:space-between;align-items:center;}
+.mast-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#9fe3c8;text-transform:uppercase;}
+.mast-freq{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#d99c2b;}
+.brand-strip{display:flex;gap:16px;margin-top:26px;border-top:1px solid rgba(127,217,184,.25);padding-top:18px;}
+.brand-item{flex:1;border-left:1px solid rgba(255,255,255,.38);padding-left:14px;}
+.brand-item:first-child{border-left:none;padding-left:0;}
+.brand-item b{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:5px;}
+.brand-item span{display:block;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;line-height:1.45;color:#f4fbf8;}
+
+/* section labels */
+.sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
+.sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
+.sec.ember{background:#1a0a05;}
+.sec.ember .sec-tag{color:#f0a87a;}
+.sec.ember .sec-line{background:#d4541e;opacity:.4;}
+
+/* tldr */
+.tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
+.tldr-text{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:26px;line-height:1.65;color:#0f3d30;font-style:italic;}
+
+/* intro */
+.intro-text{font-size:16px;line-height:1.8;color:#222;border-left:4px solid #0f3d30;padding-left:18px;}
+.editor-note{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.75;color:#1f332b;background:#e8f4ee;border-left:4px solid #35bfa2;padding:16px 18px;margin-bottom:22px;border-radius:0 6px 6px 0;}
+.editor-note b{color:#0f3d30;}
+
+/* story */
+.story{padding:28px 44px;background:#fff;border-bottom:1px solid #e8e4de;}
+.story-n{font-family:'Fraunces',serif;font-size:52px;line-height:1;color:#e8e4dc;font-weight:700;}
+.story-title{font-family:'Fraunces',serif;font-weight:700;font-size:23px;line-height:1.2;color:#0a140a;margin-bottom:14px;}
+.story-body{font-size:15px;line-height:1.75;color:#333;margin-bottom:14px;}
+.meta{display:flex;gap:6px;font-family:-apple-system,sans-serif;font-size:13px;line-height:1.65;color:#555;padding:3px 0;}
+.meta b{color:#1a5f4a;flex-shrink:0;}
+.inside{background:#fffbf0;border-left:4px solid #d99c2b;padding:12px 16px;font-size:14px;font-style:italic;line-height:1.65;color:#4a4030;margin-top:14px;border-radius:0 6px 6px 0;}
+.inside b{font-style:normal;color:#0f3d30;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* signal */
+.sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
+.sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
+.sig:last-of-type{border-bottom:none;}
+.sig-dot{width:20px;height:20px;background:#d99c2b;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;}
+.sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
+
+/* reddit card */
+.reddit-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#d4541e;text-transform:uppercase;font-weight:500;margin-bottom:4px;}
+.reddit-sub{font-style:italic;font-size:12px;color:#b07060;margin-bottom:14px;}
+.reddit-item{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.68;color:#3a2a24;padding:8px 0;border-bottom:1px solid rgba(212,84,30,.1);}
+.reddit-item:last-of-type{border-bottom:none;padding-bottom:0;}
+.reddit-inside{font-size:13px;font-style:italic;color:#8a6a5c;margin-top:14px;padding-top:14px;border-top:1px solid rgba(212,84,30,.2);}
+.reddit-inside b{font-style:normal;color:#d4541e;}
+
+/* career */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
+
+/* platforms */
+table.pt{width:100%;border-collapse:collapse;}
+table.pt th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;padding:10px 8px;border-bottom:3px solid #0f3d30;text-align:left;}
+table.pt td{font-family:-apple-system,sans-serif;font-size:13.5px;padding:11px 8px;border-bottom:1px solid #e8e4de;color:#2a2a2a;vertical-align:top;}
+table.pt td b{color:#0f3d30;font-size:14px;}
+table.pt tr:last-child td{border-bottom:none;}
+
+/* jobs */
+.jobs-h{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;padding:16px 0 8px;border-bottom:2px solid #1a5f4a;margin-bottom:4px;}
+.jobs-h.ember{color:#d4541e;border-color:#d4541e;}
+.job{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #e8e4de;}
+.job:last-child{border-bottom:none;}
+.job b{color:#0a140a;font-family:-apple-system,sans-serif;font-size:13.5px;}
+.job span{color:#999;font-family:-apple-system,sans-serif;font-size:13px;}
+.bdg{display:inline-block;background:#d4541e;color:#fff;font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.5px;padding:3px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;}
+.jobs-note{font-style:italic;font-size:13px;color:#666;margin-top:14px;border-left:4px solid #d99c2b;padding:10px 14px;background:#fffbf0;line-height:1.65;}
+
+/* closing */
+.closing-text{font-size:16px;line-height:1.8;color:#1a1a1a;}
+
+/* stamp */
+.stamp-text{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.6;color:#fff;text-align:center;}
+.stamp-text span{color:#7fd9b8;}
+
+/* reply */
+.reply-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:#1a5f4a;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.reply-text{font-style:italic;font-size:15.5px;line-height:1.75;color:#1a3a2a;}
+
+/* footer */
+.footer{background:#13241e;padding:26px 44px;text-align:center;margin:0;}
+.footer-brand{font-family:'Fraunces',serif;font-size:14px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:6px;}
+.footer-fine{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#3a5248;}
+.footer-fine a{color:#7fd9b8;text-decoration:underline;}
+
+@media(max-width:680px){
+  .mast,.card,.card-dark,.card-amber,.card-mint,.card-coral,.sec,.story,.footer{padding-left:20px;padding-right:20px;}
+  .mast-title{font-size:38px;}
+  .tldr-text{font-size:20px;}
+  .brand-strip{flex-direction:column;gap:12px;}
+  .brand-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.2);padding-top:10px;}
+  .brand-item:first-child{border-top:none;padding-top:0;}
+}
+</style></head><body>
+
+<!-- MASTHEAD -->
+<div class="mast">
+  <div class="mast-meta"><span>Vol. 1 · Issue 2</span><span>June 10, 2026</span></div>
+  <div class="brand-lockup">
+    <div class="brand-dot"></div>
+    <div class="brand-fowl">FOWL AI</div>
+    <div class="brand-divider"></div>
+    <div class="brand-name">Future of<span>Work Lab</span></div>
+  </div>
+  <div class="mast-title">The quality score<span>is everything.</span></div>
+  <div class="mast-sub">Most people sign up for AI evaluation platforms and never hear back. The ones earning real money know something the others don't — and it has nothing to do with credentials.</div>
+  <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Read this week's signals</a>
+  <div class="mast-rule"></div>
+  <div class="mast-foot">
+    <div class="mast-tag">AI · Careers · The Hidden Economy</div>
+    <div class="mast-freq">Weekly</div>
+  </div>
+  <div class="brand-strip">
+    <div class="brand-item"><b>AI</b><span>Tools, workflows, and adoption signals shaping tomorrow.</span></div>
+    <div class="brand-item"><b>Careers</b><span>Guidance for staying valuable as modern work changes.</span></div>
+    <div class="brand-item"><b>Hidden Economy</b><span>Platforms, roles, and paid opportunities most people miss.</span></div>
+  </div>
+</div>
+
+<!-- TLDR -->
+<div class="card-amber">
+  <div class="tldr-label">If you read nothing else</div>
+  <div class="tldr-text">The difference between $15/hr and $150/hr on AI evaluation platforms isn't your credentials — it's your quality score. Most applicants don't know it exists. Here's how it works.</div>
+</div>
+
+<!-- INTRO -->
+<div class="card">
+  <div class="editor-note"><b>From last week's replies —</b><br><br>The most common domains in this community: data science, finance, healthcare, and engineering. That tracks. These are exactly the fields where domain expertise commands a premium on evaluation platforms — and where AI is creating the most structural career tension. This week goes deeper on the practical side: how the hidden economy of AI evaluation actually works, and where the next wave of roles is forming.</div>
+  <div class="intro-text">Issue 1 ended with a claim: domain experts who can tell a model it's wrong have something genuinely scarce. Several of you replied asking the same question — <em>how do I actually get paid for that?</em><br><br>The answer involves understanding infrastructure most people never see. AI evaluation platforms run on quality scores. Those scores determine which tasks you access, what you earn, and whether you stay active on the platform at all. This week is about that infrastructure — and five other signals worth your attention.</div>
+</div>
+
+<!-- STORIES HEADER -->
+<div class="sec"><span class="sec-tag">This Week — 5 Developments</span><span class="sec-line"></span></div>
+
+<!-- STORY 01 -->
+<div class="story">
+  <div class="story-n">01</div>
+  <div class="story-title">The quality score is a hidden credit score for AI work — and most people don't know it exists</div>
+  <div class="story-body">Every major AI evaluation platform — Outlier, Mercor, DataAnnotation, Mindrift — runs an internal quality scoring system. Your score is calculated from accuracy, consistency, and reasoning quality on completed tasks. It determines which task queues you're eligible for. High scorers access domain-expert queues paying $50–200+/hr. Low scorers stay in the generic annotation queue at $15–20/hr — or get quietly deprioritised. The score is rarely visible to the worker. Most people who "applied and never heard back" have a low score, not a rejection.</div>
+  <div class="meta"><b>Why it matters ·</b> The platform is always evaluating you. Even onboarding tasks are scored. The professionals earning serious money treat every task as an audition.</div>
+  <div class="meta"><b>Who benefits ·</b> Anyone who approaches the work with the same discipline they'd bring to a client deliverable. Speed and volume are not the signal. Accuracy and reasoning quality are.</div>
+  <div class="meta"><b>The signal ·</b> Your quality score is more important than your CV on these platforms. A verifiable track record of high-accuracy domain evaluation is a professional asset — and it compounds.</div>
+  <div class="inside"><b>From the inside —</b> The workers earning $100+/hr on Mercor are not the ones with the most impressive LinkedIn profiles. They're the ones who understood, early, that every task was a test — and treated it as one.</div>
+</div>
+
+<!-- STORY 02 -->
+<div class="story">
+  <div class="story-n">02</div>
+  <div class="story-title">AI-powered hiring is creating an invisible ceiling for mid-career professionals</div>
+  <div class="story-body">Data from LinkedIn and Indeed shows that AI-assisted resume screening is systematically filtering out professionals with 8–15 years of experience. The models are optimised on recent hire data — which skews toward candidates who explicitly list AI tool keywords. Domain expertise built over a decade doesn't register. Senior professionals are being screened out before a human sees their application, then wondering why response rates have collapsed.</div>
+  <div class="meta"><b>Why it matters ·</b> The ATS keyword problem isn't new. But AI-assisted screening has amplified it and extended it into interview scheduling and take-home assessment ranking. The filter is earlier and harder to see.</div>
+  <div class="meta"><b>Who benefits ·</b> Professionals who update their positioning — not just their skills. "10 years in financial risk management" needs to become "financial risk management with AI workflow integration" before the screen, not after.</div>
+  <div class="meta"><b>The signal ·</b> The resume is now a document written for a model, not a human. The model reads for keywords and recency. Optimise accordingly — without sacrificing the depth that makes you valuable once you're in the room.</div>
+  <div class="inside"><b>From the inside —</b> The irony: the professionals getting filtered out by AI hiring tools are often the most qualified to evaluate AI outputs. The fix isn't to pretend the tools don't exist — it's to speak their language in the document, and your own language in the conversation.</div>
+</div>
+
+<!-- STORY 03 -->
+<div class="story">
+  <div class="story-n">03</div>
+  <div class="story-title">EU AI Act: 8 weeks to August 2 — what "AI literacy" actually requires employers to do</div>
+  <div class="story-body">Article 4 of the EU AI Act requires organisations to ensure all staff who interact with AI systems have "a sufficient level of AI literacy." The law doesn't define sufficient. HR and legal teams across regulated industries are now writing that definition themselves — in audit-ready language. Early movers are building assessments that test calibrated judgment (can you tell when an AI output is wrong?) rather than tool familiarity. That distinction matters for what gets hired for and what gets trained for.</div>
+  <div class="meta"><b>Why it matters ·</b> "AI literacy" is becoming a compliance checkbox — but the organisations doing it seriously are defining it as critical evaluation capacity, not prompt familiarity. That's a hiring signal worth watching.</div>
+  <div class="meta"><b>The signal ·</b> The first wave of "AI Literacy Lead" roles is appearing on job boards. These are the people defining what the standard means inside their organisation. Not a technical role. A judgment role.</div>
+  <div class="inside"><b>From the inside —</b> The companies scrambling right now are the ones who spent 2025 deploying AI tools and skipped the governance layer. The ones ahead built Human-in-the-Loop checkpoints early. The audit question isn't "do your staff use AI?" — it's "can they tell when it's wrong, and do you have a record of them doing so?"</div>
+</div>
+
+<!-- STORY 04 -->
+<div class="story">
+  <div class="story-n">04</div>
+  <div class="story-title">Microsoft's Copilot data reveals a productivity split — and it's widening</div>
+  <div class="story-body">Microsoft's 2026 Work Trend Index: 70% of Copilot users report time savings. But only 32% report using that saved time for higher-value work. The majority are using AI to do the same tasks faster. The professionals pulling ahead are using AI to take on work they previously couldn't — expanding scope, not just compressing time. The productivity gap between these two groups is measurable and growing.</div>
+  <div class="meta"><b>Why it matters ·</b> Speed is table stakes. The leverage comes from what you do with the time AI creates. Most people are optimising the wrong variable.</div>
+  <div class="meta"><b>Who benefits ·</b> Professionals who are deliberately redirecting AI-freed time toward high-judgment, high-visibility work — not just clearing their inbox faster.</div>
+  <div class="meta"><b>The signal ·</b> "I use Copilot to save time" is a feature, not a differentiator. "I use Copilot to take on engagements I previously couldn't" is a career strategy.</div>
+  <div class="inside"><b>From the inside —</b> The 32% are not necessarily more skilled. They're more intentional. They decided in advance what the freed time was for. That's a decision, not a circumstance.</div>
+</div>
+
+<!-- STORY 05 -->
+<div class="story" style="border-bottom:none;">
+  <div class="story-n">05</div>
+  <div class="story-title">Agent escalation is becoming a job category — and it doesn't have a name yet</div>
+  <div class="story-body">Following ServiceNow's autonomous workforce launch, enterprise job boards are showing a new posting pattern: roles built around managing the edge cases that AI agents escalate to humans. These are not orchestration roles (Issue 1). They're human-in-the-loop escalation specialists — people who handle the ambiguous, high-stakes 10% that agents can't resolve. The job: receive an escalation, make a decision with limited context, document the reasoning, send it back. It's a new workflow, and organisations are building headcount around it.</div>
+  <div class="meta"><b>Why it matters ·</b> This is what "staying on the human side of the automation line" looks like in practice. The role doesn't require building AI — it requires being reliably right when the AI is wrong.</div>
+  <div class="meta"><b>The signal ·</b> Watch for titles like "AI Exception Handler," "Escalation Review Specialist," and "Human Review Lead" multiplying through Q3 and Q4. The ServiceNow launch is a starting gun, not a peak.</div>
+  <div class="inside"><b>From the inside —</b> The skills that matter here are domain depth and decision quality under uncertainty — not technical. The professionals who've spent years making judgment calls in high-stakes environments are structurally well-positioned for this. They just need to see it as a category.</div>
+</div>
+
+<!-- SIGNAL & CHATTER -->
+<div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="sig-intro">What AI professionals are tracking this week.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Quality scores are the new portfolio.</b> On AI evaluation platforms, your score history matters more than your CV. Treat every task as a scored submission.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>AI hiring filters are penalising seniority.</b> Mid-career professionals need to update their positioning before the screen, not in the interview. Keywords first, depth second.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The EU AI Act audit question is shifting.</b> "Do staff use AI?" is out. "Can staff evaluate AI, and is it documented?" is in. Eight weeks to August 2.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Agent escalation is becoming headcount.</b> The "human-in-the-loop" is no longer an abstract principle — it's a job description forming in real time across enterprise org charts.</div></div>
+</div>
+
+<!-- REDDIT -->
+<div class="card-coral">
+  <div class="reddit-label">👾 Here's the chatter on Reddit</div>
+  <div class="reddit-sub">From r/WorkOnline, r/datannotation, r/beermoney and similar.</div>
+  <div class="reddit-item"><b>"I applied to Outlier three months ago and never heard back."</b> Almost always a quality score issue from onboarding tasks, not a capacity hold. Reapply after 90 days and treat the first 10 tasks as a formal assessment — slow down, cite your reasoning.</div>
+  <div class="reddit-item"><b>"How do I get into the expert queue?"</b> Consistency beats speed. Platforms track variance — workers who score 95% consistently outperform workers who score 100% on half and 70% on half. Steady and accurate beats brilliant and erratic.</div>
+  <div class="reddit-item"><b>The parallel platform strategy is real.</b> Community consensus: run DataAnnotation as your baseline (reliable payout, steady volume), qualify for Mercor as the upside (slower to onboard, higher ceiling). Don't wait for one before starting the other.</div>
+  <div class="reddit-item"><b>"Is the Mercor technical screen actually hard?"</b> Yes, but not in the way people expect. It's not testing tool knowledge — it's testing whether you can identify where an AI output went wrong and articulate the failure mode clearly. Domain knowledge is the differentiator.</div>
+  <div class="reddit-inside"><b>From the inside —</b> The community has figured out what the platforms haven't made explicit: quality score mechanics, optimal task pacing, parallel platform strategy. The people sharing this information are the ones earning the most. Pay attention to them.</div>
+</div>
+
+<!-- EMERGING CAREER -->
+<div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
+<div class="card-dark">
+  <div class="career-eye">This week</div>
+  <div class="career-title">AI Literacy Lead</div>
+  <div class="career-body">The EU AI Act's Article 4 enforcement deadline is creating a new internal role: the person responsible for defining what "sufficient AI literacy" means inside their organisation, building the assessment framework, and ensuring the standard holds up under audit. This is not an engineering role. It's a governance and judgment role sitting at the intersection of HR, legal, and operations.<br><br>The job: translate a vague legal standard into a testable, auditable competency framework. Then build the training and assessment infrastructure around it. Organisations that do this well will have a defensible compliance position and a workforce that can actually evaluate AI outputs. The ones who do it poorly will have a checkbox.</div>
+  <div class="career-why"><b>How to position:</b> Relevant background includes learning &amp; development, compliance, AI evaluation experience, or domain expertise in a regulated industry. The differentiator is being able to write the competency standard itself — specific, testable, defensible. Pair with EU AI Act Article 4 knowledge and NIST AI RMF literacy. The role doesn't require building AI — it requires understanding it well enough to assess others on it.</div>
+</div>
+
+<!-- PLATFORMS -->
+<div class="sec"><span class="sec-tag">🧭 AI Trainer Platforms — Getting In</span><span class="sec-line"></span></div>
+<div class="card">
+  <div style="font-style:italic;font-size:13px;color:#999;margin-bottom:12px;">This week: what actually moves your quality score on each platform.</div>
+  <table class="pt">
+    <tr><th>Platform</th><th>Score driver</th><th>Common mistake</th></tr>
+    <tr><td><b>DataAnnotation</b></td><td>Reasoning quality on written tasks — justify your edits</td><td>Editing for style instead of accuracy</td></tr>
+    <tr><td><b>Outlier</b> (Scale AI)</td><td>Domain accuracy on STEM/specialist tasks</td><td>Rushing onboarding tasks to get to paid work</td></tr>
+    <tr><td><b>Mercor</b></td><td>Structured failure analysis — name the error type, not just the error</td><td>Vague feedback ("this is wrong") with no explanation</td></tr>
+    <tr><td><b>Mindrift</b></td><td>Consistency across similar tasks in the same session</td><td>High variance between early and late tasks in a batch</td></tr>
+    <tr><td><b>Alignerr / micro1</b></td><td>Calibration — your scores should match expert consensus</td><td>Overconfidence on tasks outside your core domain</td></tr>
+  </table>
+</div>
+
+<!-- JOBS -->
+<div class="sec ember"><span class="sec-tag">🆕 New This Week — AI Jobs</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="jobs-h ember">AI Trainer &amp; Evaluation Roles</div>
+  <div class="job"><span class="bdg">New</span><div><b>Senior AI Evaluator — Finance &amp; Risk</b> — Remote (Global) · <span>Mercor · domain expertise required</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>Healthcare AI Reviewer</b> — Remote · <span>Outlier · clinical background preferred · $40–80/hr</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>Legal AI Evaluation Specialist</b> — Remote · freelance · <span>Mindrift · bar admission or equivalent</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>Quantitative Model Evaluator</b> — Remote (US/UK) · <span>DataAnnotation · stats &amp; forecasting background</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>AI Red Teamer — Financial Services</b> — Remote · <span>Alignerr · fintech or banking domain</span></div></div>
+  <div class="jobs-h" style="margin-top:16px;">Conventional AI &amp; Data Roles</div>
+  <div class="job"><div><b>AI Literacy Lead</b> — EU AI Act compliance · <span>regulated industries · emerging fast</span></div></div>
+  <div class="job"><div><b>Human Review Lead — Agentic Systems</b> — enterprise · <span>escalation management · post-ServiceNow wave</span></div></div>
+  <div class="job"><div><b>AI Governance Analyst</b> — Remote · <span>NIST AI RMF · $90–130K</span></div></div>
+  <div class="job"><div><b>ML Operations Lead</b> — production model monitoring · <span>DataBricks / Vertex AI</span></div></div>
+  <div class="job"><div><b>Responsible AI Program Manager</b> — enterprise · <span>cross-functional · compliance-adjacent</span></div></div>
+  <div class="jobs-note">The "Human Review Lead" category is forming quietly. Watch for it to formalise into a standard title by Q4 — the same way "AI Agent Orchestration Lead" went from invisible to everywhere in six months.</div>
+</div>
+
+<!-- CLOSING -->
+<div class="card" style="padding-bottom:0;">
+  <div class="closing-text">The AI economy keeps revealing the same pattern: the infrastructure is what matters. Quality scores. Compliance frameworks. Escalation workflows. Audit trails. These aren't glamorous. But they're where the durable positions are forming — roles that require human judgment, carry real accountability, and can't be easily replicated. Understanding the infrastructure before most people know it exists is an advantage. That's what this newsletter is for.</div>
+</div>
+
+<!-- STAMP -->
+<div class="card-dark" style="margin-top:0;text-align:center;">
+  <div class="stamp-text">"The professionals earning the most aren't the ones<br><span>who know the most tools — they know the system."</span></div>
+</div>
+
+<!-- REPLY CTA -->
+<div class="card-mint">
+  <div class="reply-label">💬 One question — reply and tell us</div>
+  <div class="reply-text">Have you applied to any AI evaluation platforms? What happened — did you get in, get stuck, or is it still on your list?<br><br>We're building a clearer picture of where the friction actually is for this community. Two sentences is enough. Hit reply.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">FOWL AI</div>
+  <div class="footer-fine">Intelligence for knowledge workers · <a href="https://fowlai.eo.page/vmk69">fowlai.eo.page/vmk69</a> · Weekly<br>{{SenderInfoLine}}<br><a href="{{UnsubscribeURL}}">Unsubscribe</a> · <a href="{{RewardsURL}}">Powered by EmailOctopus</a></div>
+</div>
+
+</body></html>
