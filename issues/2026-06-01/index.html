@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:#f2ede3;}
+body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia,serif;-webkit-font-smoothing:antialiased;}
+.card{background:#fff;margin:8px 0;padding:32px 44px;}
+.card-dark{background:#0f3d30;margin:8px 0;padding:32px 44px;}
+.card-amber{background:#f7eedc;margin:0;padding:34px 44px 36px;border-left:6px solid #f2a12b;}
+.card-mint{background:#e8f4ee;margin:8px 0;padding:28px 44px;}
+.card-coral{background:#fff4ef;margin:8px 0;padding:24px 44px;border-left:6px solid #d4541e;}
+
+/* masthead */
+.mast{background:#0d3f31;padding:36px 44px 34px;margin:0;}
+.mast-meta{display:flex;justify-content:space-between;margin-bottom:14px;}
+.mast-meta span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;}
+.brand-lockup{display:flex;align-items:center;gap:18px;margin:20px 0 28px;}
+.brand-dot{width:42px;height:42px;border-radius:50%;background:#78ddb4;box-shadow:0 6px 18px rgba(0,0,0,.2);}
+.brand-fowl{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;letter-spacing:9px;color:#f47f18;text-transform:uppercase;}
+.brand-divider{width:1px;height:48px;background:rgba(255,255,255,.65);}
+.brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
+.brand-name span{display:block;color:#7fd9b8;}
+.mast-title{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-style:italic;font-weight:800;font-size:58px;line-height:1.06;letter-spacing:-2px;color:#fff;margin-top:8px;}
+.mast-title span{color:#35bfa2;display:block;}
+.mast-sub{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:19px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:560px;}
+.mast-cta{display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;font-weight:800;text-decoration:none;padding:15px 28px;border-radius:999px;}
+.mast-rule{height:1px;background:linear-gradient(90deg,#7fd9b8,rgba(127,217,184,.08));margin:28px 0 18px;}
+.mast-foot{display:flex;justify-content:space-between;align-items:center;}
+.mast-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#9fe3c8;text-transform:uppercase;}
+.mast-freq{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#d99c2b;}
+.brand-strip{display:flex;gap:16px;margin-top:26px;border-top:1px solid rgba(127,217,184,.25);padding-top:18px;}
+.brand-item{flex:1;border-left:1px solid rgba(255,255,255,.38);padding-left:14px;}
+.brand-item:first-child{border-left:none;padding-left:0;}
+.brand-item b{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:5px;}
+.brand-item span{display:block;font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:13px;line-height:1.45;color:#f4fbf8;}
+
+/* section labels */
+.sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
+.sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
+.sec.ember{background:#1a0a05;}
+.sec.ember .sec-tag{color:#f0a87a;}
+.sec.ember .sec-line{background:#d4541e;opacity:.4;}
+
+/* tldr */
+.tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
+.tldr-text{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:26px;line-height:1.65;color:#0f3d30;font-style:italic;}
+
+/* intro */
+.intro-text{font-size:16px;line-height:1.8;color:#222;border-left:4px solid #0f3d30;padding-left:18px;}
+.editor-note{font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;font-size:15px;line-height:1.75;color:#1f332b;background:#e8f4ee;border-left:4px solid #35bfa2;padding:16px 18px;margin-bottom:22px;border-radius:0 6px 6px 0;}
+.editor-note b{color:#0f3d30;}
+
+/* story */
+.story{padding:28px 44px;background:#fff;border-bottom:1px solid #e8e4de;}
+.story-n{font-family:'Fraunces',serif;font-size:52px;line-height:1;color:#e8e4dc;font-weight:700;}
+.story-title{font-family:'Fraunces',serif;font-weight:700;font-size:23px;line-height:1.2;color:#0a140a;margin-bottom:14px;}
+.story-body{font-size:15px;line-height:1.75;color:#333;margin-bottom:14px;}
+.meta{display:flex;gap:6px;font-family:-apple-system,sans-serif;font-size:13px;line-height:1.65;color:#555;padding:3px 0;}
+.meta b{color:#1a5f4a;flex-shrink:0;}
+.inside{background:#fffbf0;border-left:4px solid #d99c2b;padding:12px 16px;font-size:14px;font-style:italic;line-height:1.65;color:#4a4030;margin-top:14px;border-radius:0 6px 6px 0;}
+.inside b{font-style:normal;color:#0f3d30;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* earnings chart visual */
+.earnings-visual{margin:20px 0;background:#f9f6f0;border:1px solid #e8e4de;border-radius:8px;padding:24px;}
+.ev-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:16px;}
+.ev-bars{display:flex;align-items:flex-end;gap:10px;height:100px;}
+.ev-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.ev-bar{width:100%;border-radius:4px 4px 0 0;background:#0d3f31;}
+.ev-bar.light{background:#78ddb4;}
+.ev-week{font-family:'DM Mono',monospace;font-size:9px;color:#9aada5;text-align:center;letter-spacing:.5px;}
+.ev-amount{font-family:'DM Mono',monospace;font-size:10px;color:#1a5f4a;font-weight:500;}
+.ev-total{margin-top:16px;padding-top:14px;border-top:1px solid #e8e4de;display:flex;justify-content:space-between;align-items:center;}
+.ev-total-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;}
+.ev-total-num{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#0d3f31;}
+
+/* signal */
+.sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
+.sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
+.sig:last-of-type{border-bottom:none;}
+.sig-dot{width:20px;height:20px;background:#d99c2b;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;}
+.sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
+
+/* reddit card */
+.reddit-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#d4541e;text-transform:uppercase;font-weight:500;margin-bottom:4px;}
+.reddit-sub{font-style:italic;font-size:12px;color:#b07060;margin-bottom:14px;}
+.reddit-item{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.68;color:#3a2a24;padding:8px 0;border-bottom:1px solid rgba(212,84,30,.1);}
+.reddit-item:last-of-type{border-bottom:none;padding-bottom:0;}
+.reddit-inside{font-size:13px;font-style:italic;color:#8a6a5c;margin-top:14px;padding-top:14px;border-top:1px solid rgba(212,84,30,.2);}
+.reddit-inside b{font-style:normal;color:#d4541e;}
+
+/* career */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
+
+/* two-col split */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 6px;}
+.split-col{padding:18px 20px;background:#f9f6f0;border:1px solid #e8e4de;}
+.split-col:first-child{border-radius:8px 0 0 8px;border-right:none;}
+.split-col:last-child{border-radius:0 8px 8px 0;}
+.split-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:8px;}
+.split-label.ember{color:#d4541e;}
+.split-body{font-family:-apple-system,sans-serif;font-size:13.5px;line-height:1.65;color:#2a2a2a;}
+
+/* platforms */
+table.pt{width:100%;border-collapse:collapse;}
+table.pt th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;padding:10px 8px;border-bottom:3px solid #0f3d30;text-align:left;}
+table.pt td{font-family:-apple-system,sans-serif;font-size:13.5px;padding:11px 8px;border-bottom:1px solid #e8e4de;color:#2a2a2a;vertical-align:top;}
+table.pt td b{color:#0f3d30;font-size:14px;}
+table.pt tr:last-child td{border-bottom:none;}
+
+/* jobs */
+.jobs-h{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;padding:16px 0 8px;border-bottom:2px solid #1a5f4a;margin-bottom:4px;}
+.jobs-h.ember{color:#d4541e;border-color:#d4541e;}
+.job{display:flex;align-items:flex-start;gap:10px;padding:10px 0;border-bottom:1px solid #e8e4de;}
+.job:last-child{border-bottom:none;}
+.job b{color:#0a140a;font-family:-apple-system,sans-serif;font-size:13.5px;}
+.job span{color:#999;font-family:-apple-system,sans-serif;font-size:13px;}
+.bdg{display:inline-block;background:#d4541e;color:#fff;font-family:'DM Mono',monospace;font-size:9px;font-weight:500;letter-spacing:.5px;padding:3px 7px;border-radius:4px;flex-shrink:0;margin-top:2px;}
+.jobs-note{font-style:italic;font-size:13px;color:#666;margin-top:14px;border-left:4px solid #d99c2b;padding:10px 14px;background:#fffbf0;line-height:1.65;}
+
+/* closing */
+.closing-text{font-size:16px;line-height:1.8;color:#1a1a1a;}
+
+/* stamp */
+.stamp-text{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.6;color:#fff;text-align:center;}
+.stamp-text span{color:#7fd9b8;}
+
+/* reply */
+.reply-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:#1a5f4a;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.reply-text{font-style:italic;font-size:15.5px;line-height:1.75;color:#1a3a2a;}
+
+/* footer */
+.footer{background:#13241e;padding:26px 44px;text-align:center;margin:0;}
+.footer-brand{font-family:'Fraunces',serif;font-size:14px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:6px;}
+.footer-fine{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#3a5248;}
+.footer-fine a{color:#7fd9b8;text-decoration:underline;}
+
+@media(max-width:680px){
+  .split{grid-template-columns:1fr;}
+  .split-col:first-child{border-radius:8px 8px 0 0;border-right:1px solid #e8e4de;border-bottom:none;}
+  .split-col:last-child{border-radius:0 0 8px 8px;}
+  .mast-title{font-size:38px;}
+  .card,.card-dark,.card-amber,.card-mint,.card-coral,.mast,.sec,.story,.footer{padding-left:22px;padding-right:22px;}
+}
+</style></head><body>
+
+<!-- MASTHEAD -->
+<div class="mast">
+  <div class="mast-meta"><span>Vol. 1 · Issue 2</span><span>Jun 1, 2026</span></div>
+  <div class="brand-lockup">
+    <div class="brand-dot"></div>
+    <div class="brand-fowl">FOWL AI</div>
+    <div class="brand-divider"></div>
+    <div class="brand-name">Future of<span>Work Lab</span></div>
+  </div>
+  <div class="mast-title">14 hours a week. $4k last month.<span>Your domain skills have an AI market.</span></div>
+  <div class="mast-sub">Job or no job — the knowledge you've built in your field is exactly what AI evaluation platforms pay for. Here's what that looks like in practice.</div>
+  <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Read this week's signals</a>
+  <div class="mast-rule"></div>
+  <div class="mast-foot">
+    <div class="mast-tag">AI · Careers · The Hidden Economy</div>
+    <div class="mast-freq">Weekly</div>
+  </div>
+  <div class="brand-strip">
+    <div class="brand-item"><b>AI</b><span>Tools, workflows, and adoption signals shaping tomorrow.</span></div>
+    <div class="brand-item"><b>Careers</b><span>Guidance for staying valuable as modern work changes.</span></div>
+    <div class="brand-item"><b>Hidden Economy</b><span>Platforms, roles, and paid opportunities most people miss.</span></div>
+  </div>
+</div>
+
+<!-- TLDR -->
+<div class="card-amber">
+  <div class="tldr-label">If you read nothing else</div>
+  <div class="tldr-text">AI evaluation doesn't care about your employment status. It pays for what you know — at your level, in your field. The 40-hour cap exists. Most people never get close to it.</div>
+</div>
+
+<!-- INTRO -->
+<div class="card">
+  <div class="editor-note"><b>A quick note before we get into it —</b><br><br>This issue is different. No market data, no trend reports. Just one month of real numbers, a real schedule, and what it took to get there. If you've been sitting on the idea of testing AI evaluation, this is the breakdown you've been waiting for.</div>
+  <div class="intro-text">There are two types of professionals reading this. The first has a job and a salary — and is curious whether AI evaluation is actually worth the time. The second is between roles, watching their options, and wondering whether this can actually bridge the gap.<br><br>The answer to both questions is the same: yes, and the playbook is identical.<br><br>Last month: $4,422. Roughly 14 hours a week. Flexible schedule. Never hit the platform's 40-hour weekly cap. This issue is the honest breakdown of how that happened — week by week, what changed, and what anyone with domain knowledge in any field can take from it.</div>
+</div>
+
+<!-- STORIES HEADER -->
+<div class="sec"><span class="sec-tag">This Week — 5 Developments</span><span class="sec-line"></span></div>
+
+<!-- STORY 01 -->
+<div class="story">
+  <div class="story-n">01</div>
+  <div class="story-title">AI evaluation is not data labelling — and the difference is everything</div>
+  <div class="story-body">Most people hear "AI evaluation" and picture clicking buttons or tagging images at $8/hr. That's data annotation — a different category entirely. AI evaluation at the expert level means reading a model's output in your specific domain and explaining precisely why it is wrong, where the reasoning breaks down, and what the correct answer looks like. Medical evaluators catch subtly incorrect diagnoses. Finance evaluators identify flawed risk models. Data scientists spot statistical errors in AI-generated analyses. The harder the domain, the higher the rate — and the less competition.</div>
+  <div class="meta"><b>Why it matters ·</b> The skill being paid for is not AI familiarity. It's domain depth — the thing you already have.</div>
+  <div class="meta"><b>The rate signal ·</b> Entry-level annotation: $8–15/hr. Expert domain evaluation: $40–150/hr. The gap is your years of experience.</div>
+  <div class="inside"><b>From the inside —</b> The Mercor AI interview tests whether you actually know your field — not whether you can use AI tools. A data scientist who understands credit risk and can spot a model's blind spots in that domain will pass. A generalist who "knows AI" probably won't.</div>
+</div>
+
+<!-- STORY 02 -->
+<div class="story">
+  <div class="story-n">02</div>
+  <div class="story-title">The May breakdown — week by week, what actually happened</div>
+  <div class="story-body">May 4–Jun 1. Four and a half weeks. $4,422.36 total. Here is how it moved:</div>
+
+  <div class="earnings-visual">
+    <div class="ev-label">May 2026 — Mercor earnings dashboard</div>
+    <img src="./earnings.png" alt="Mercor earnings dashboard showing $4,422.36 from May 4–Jun 1, 2026 with weekly breakdown" style="width:100%;border-radius:6px;display:block;">
+    <div class="ev-total">
+      <div class="ev-total-label">Month total · May 4–Jun 1</div>
+      <div class="ev-total-num">$4,422.36</div>
+    </div>
+  </div>
+
+  <div class="story-body">Week 1: onboarding, getting familiar with task queues, zero earnings. Weeks 2 and 3: consistent work, ~$800/week, roughly 10–12 hours each. Week 4: a new contract opened, quality score had been building — the better queue became accessible and the rate per task jumped. That single week accounts for half the month's total. The partial final week continued at the higher rate.</div>
+  <div class="meta"><b>The pattern ·</b> The first week costs you nothing but time. After that, consistency compounds — quality score unlocks better work, not more hours.</div>
+  <div class="inside"><b>From the inside —</b> The week 4 spike wasn't luck. Quality scores are the algorithm — they determine which task queues you can access. The professionals earning at the top end aren't working more hours. They've built quality scores that put them in front of higher-value tasks automatically.</div>
+  <div style="margin-top:18px;">
+    <a href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:#f2a12b;color:#0d3f31;font-family:'Inter',sans-serif;font-weight:800;font-size:14px;padding:13px 24px;border-radius:999px;text-decoration:none;">Apply to Mercor via my referral →</a>
+    <div style="font-family:-apple-system,sans-serif;font-size:12px;color:#999;margin-top:8px;">Referral link — gets your application reviewed faster.</div>
+  </div>
+</div>
+
+<!-- STORY 03 -->
+<div class="story">
+  <div class="story-n">03</div>
+  <div class="story-title">The 40-hour cap — and why not hitting it is the point</div>
+  <div class="story-body">Platforms like Mercor operate with a weekly hours ceiling — typically 40 hours. The cap exists to manage task supply across their evaluator network. In May, the average was around 14 hours a week. The cap was never reached. That is not a failure — it's the model working as intended. AI evaluation is designed to run alongside whatever else you have going on. The flexibility is structural, not a marketing promise.</div>
+  <div class="meta"><b>What this means practically ·</b> You can treat this as 5 hours a week or 35. The rate stays the same. Your quality score travels with you regardless of how many hours you log.</div>
+  <div class="meta"><b>The ceiling signal ·</b> For anyone wanting to scale: the path is quality score first, hours second. A higher score at 20 hours beats a lower score at 40.</div>
+  <div class="inside"><b>From the inside —</b> "Flexible" is an overloaded word in the gig economy. Here it means something specific: no schedule, no minimums, weekly pay, and a ceiling you can approach or ignore. That's a different contract than most employment arrangements offer.</div>
+</div>
+
+<!-- STORY 04 -->
+<div class="story">
+  <div class="story-n">04</div>
+  <div class="story-title">Job or no job — the playbook is identical</div>
+  <div class="story-body">The platform does not ask for your employment status. It asks about your domain expertise and then tests it. Whether you are currently employed, between roles, consulting, or searching — the onboarding, the task queues, and the payment structure are the same.</div>
+
+  <div class="split">
+    <div class="split-col">
+      <div class="split-label">If you have a job</div>
+      <div class="split-body">Your expertise earns twice — once from your employer, once from evaluation work. The 14-hour average fits around a full-time schedule without friction. Your employer's opinion is not required.</div>
+    </div>
+    <div class="split-col">
+      <div class="split-label ember">If you're between roles</div>
+      <div class="split-body">$4,422 in May is above UK median monthly income and close to US median. This is a bridge that doesn't require a CV submission, a recruiter, or a three-week notice period. It starts when you pass the interview.</div>
+    </div>
+  </div>
+
+  <div class="meta"><b>The shared requirement ·</b> Domain expertise in a field where AI outputs can be wrong — finance, healthcare, law, data science, engineering, research. If you've spent years in a discipline, you qualify.</div>
+  <div class="inside"><b>From the inside —</b> The professionals earning the most from evaluation work are not treating it as a fallback. They're treating it as a parallel track — a second income stream that runs independently of whatever else is happening in their career.</div>
+</div>
+
+<!-- STORY 05 -->
+<div class="story" style="border-bottom:none;">
+  <div class="story-n">05</div>
+  <div class="story-title">Month two looks different from month one — and month five is different again</div>
+  <div class="story-body">The first month is the lowest earning month. Onboarding takes time, quality scores need to build, and task queues open up gradually. By month two, the pattern is more predictable. By month four or five, quality scores have compounded — the better queues are accessible, higher-value contracts appear, and the hourly effective rate climbs without the hours increasing. The Feb–May arc from the full five-month chart shows exactly this: February was ~$2,200, April was near zero, May was $4,422. Same skills throughout. The difference was the score and the contracts it unlocked.</div>
+  <div class="meta"><b>The compounding signal ·</b> This is not linear. Month one is an investment. The return shows up in months three through six.</div>
+  <div class="meta"><b>What to track ·</b> Quality score above everything. Hours are secondary. The score is the only number that changes what's available to you.</div>
+  <div class="inside"><b>From the inside —</b> The dip in April is normal — task supply fluctuates, contracts end and new ones open. The professionals who stay consistent through the quiet months are the ones positioned when the high-value contracts come back. April's $0 built the score that unlocked May's $2,200 week.</div>
+</div>
+
+<!-- SIGNAL & CHATTER -->
+<div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="sig-intro">What AI professionals are tracking this week.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Quality score is the only metric that matters.</b> Platform earnings aren't about hours logged — they're about which task queues your score gives you access to. Treat the score like a credit rating.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The Mercor interview is harder than most job interviews.</b> It tests actual domain knowledge — not AI tool familiarity. Professionals who pass it tend to be genuinely senior in their field.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Multiple platforms, diversified income.</b> Running Mercor and DataAnnotation or Outlier in parallel is becoming the standard approach for professionals treating this seriously. Different task types, different payout cycles.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The quiet months are load-bearing.</b> Task supply fluctuates. The evaluators earning consistently aren't the ones who sprint — they're the ones who stay on the platform through the slow weeks.</div></div>
+</div>
+
+<!-- REDDIT -->
+<div class="card-coral">
+  <div class="reddit-label">👾 Here's the chatter on Reddit</div>
+  <div class="reddit-sub">From r/WorkOnline, r/datannotation, r/overemployed and similar.</div>
+  <div class="reddit-item"><b>"I've been doing this alongside my full-time job for 3 months and nobody at work knows."</b> Common thread. The flexibility means there's no scheduling conflict — tasks are asynchronous, deadlines are generous, and payouts are weekly.</div>
+  <div class="reddit-item"><b>"Lost my job in March. Mercor paid my rent in April."</b> Multiple posts in this pattern — AI evaluation as an income bridge during job searches. The timeline from application to first payout is typically 2–3 weeks once you pass the interview.</div>
+  <div class="reddit-item"><b>"My quality score dropped and my earnings halved. Nobody warned me about this."</b> The platform is unforgiving about consistency. Rushing tasks to hit volume kills the score. Slow, accurate work compounds. Fast, sloppy work decays it.</div>
+  <div class="reddit-item"><b>"Applied to 6 platforms. Only Mercor and Outlier actually paid well for my background."</b> Platform fit matters. Domain experts consistently report better economics on platforms with a rigorous interview — the barrier filters out lower-value task queues.</div>
+  <div class="reddit-inside"><b>From the inside —</b> The people struggling are treating this like a volume game. The people earning well are treating it like consulting — careful work, domain-specific, quality-first. The platform rewards that distinction explicitly.</div>
+</div>
+
+<!-- EMERGING CAREER -->
+<div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
+<div class="card-dark">
+  <div class="career-eye">This week</div>
+  <div class="career-title">AI Domain Evaluator — Professional Track</div>
+  <div class="career-body">What started as a side gig category is developing a professional track. Platforms like Mercor are creating tiered evaluator programs — with quality-based progression, domain-specific contracts, and rates that reflect senior expertise. The role: apply deep field knowledge to evaluate frontier AI outputs, flag failure modes, and provide structured feedback that trains the next model iteration.<br><br>This is not the same as freelance annotation work. It requires genuine seniority in a field, structured written reasoning, and the ability to identify subtle errors — not obvious ones. The professionals building careers here are treating their quality score the way a consultant treats their reputation: slowly, carefully, with long-term thinking.</div>
+  <div class="career-why"><b>How to position:</b> Register your domain expertise explicitly on your platform profile. Apply to domain-specific projects rather than open queues. Treat the Mercor interview as a senior consulting pitch — not an onboarding form. Your CV credential is your domain years, not your AI tool familiarity.</div>
+</div>
+
+<!-- PLATFORMS -->
+<div class="sec"><span class="sec-tag">🧭 AI Trainer Platforms</span><span class="sec-line"></span></div>
+<div class="card">
+  <div style="font-style:italic;font-size:13px;color:#999;margin-bottom:12px;">Apply once. Work when you want. Your domain expertise is the qualification — not your coding skills.</div>
+  <table class="pt">
+    <tr><th>Platform</th><th>Best for</th><th>Pay range</th></tr>
+    <tr><td><b>DataAnnotation</b></td><td>Strong writers, generalists</td><td>$20+/hr</td></tr>
+    <tr><td><b>Outlier</b> (Scale AI)</td><td>STEM, medicine, law, coding</td><td>$20–50/hr</td></tr>
+    <tr><td><b>Mercor</b></td><td>Domain experts, frontier lab eval</td><td>$25–200+/hr</td></tr>
+    <tr><td><b>Mindrift</b></td><td>RLHF, red-teaming, evaluation</td><td>Varies</td></tr>
+    <tr><td><b>OpenTrain AI</b></td><td>Global network, 110+ countries</td><td>Varies</td></tr>
+    <tr><td><b>Alignerr / micro1</b></td><td>Expert-tier evaluation</td><td>$30–100+/hr</td></tr>
+  </table>
+</div>
+
+<!-- JOBS -->
+<div class="sec ember"><span class="sec-tag">🆕 New This Week — AI Jobs</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="jobs-h ember">AI Trainer &amp; Evaluation Roles</div>
+  <div class="job"><span class="bdg">New</span><div><b>AI Domain Expert — Data Science &amp; ML</b> — Remote · Global · <span>Mercor · $70–150/hr · referral available</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>AI Trainer — Coding &amp; STEM</b> — Remote · Global · <span>Outlier AI · $20–60/hr</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>Healthcare AI Reviewer</b> — Remote · <span>Outlier · clinical background preferred · $40–80/hr</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>Legal AI Evaluation Specialist</b> — Remote · freelance · <span>Mindrift · bar admission or equivalent</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>Senior AI Evaluator — Finance &amp; Risk</b> — Remote · Global · <span>Mercor · domain expertise required</span></div></div>
+  <div class="job"><span class="bdg">New</span><div><b>AI Red Teamer — Financial Services</b> — Remote · <span>Alignerr · $30–100/hr</span></div></div>
+  <div class="jobs-h" style="margin-top:16px;">Emerging &amp; Conventional AI Roles</div>
+  <div class="job"><div><b>AI Literacy Lead</b> — EU AI Act compliance · <span>regulated industries · emerging fast</span></div></div>
+  <div class="job"><div><b>Human Review Lead — Agentic Systems</b> — enterprise · <span>escalation management · post-ServiceNow wave</span></div></div>
+  <div class="job"><div><b>AI Governance Analyst</b> — Remote · <span>NIST AI RMF · $90–130K</span></div></div>
+  <div class="job"><div><b>Responsible AI Program Manager</b> — enterprise · <span>cross-functional · $120–160K</span></div></div>
+  <div class="job"><div><b>ML Operations Lead</b> — production model monitoring · <span>DataBricks / Vertex AI · $140–190K</span></div></div>
+  <div class="jobs-note">The pattern this week: domain-specific evaluation roles are posting faster than generalist ones. Finance, healthcare, and legal evaluators are seeing the widest supply gap — and the highest rates. If that's your background, now is the time to be on the platforms.</div>
+</div>
+
+<!-- CLOSING -->
+<div class="card" style="padding-bottom:0;">
+  <div class="closing-text">The income from AI evaluation is a side effect of something you've already done — spending years getting good at a field. The platforms aren't looking for people who learned AI last year. They're looking for people who can tell when AI is wrong, in language that only a practitioner would use. That expertise exists in this community. The only question is whether it's registered somewhere that pays for it.</div>
+</div>
+
+<!-- STAMP -->
+<div class="card-dark" style="margin-top:0;text-align:center;">
+  <div class="stamp-text">"A second income source doesn't just change your bank account.<br><span>It changes how you show up to the first one."</span></div>
+</div>
+
+<!-- REPLY CTA -->
+<div class="card-mint">
+  <div class="reply-label">💬 One question — reply and tell us</div>
+  <div class="reply-text">Employed, between roles, or building something new — which one are you right now?<br><br>One word is enough. We're building a clearer picture of where this community is so we can make the coverage more useful. Hit reply.</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">FOWL AI</div>
+  <div class="footer-fine">Intelligence for knowledge workers · <a href="https://fowlai.eo.page/vmk69">fowlai.eo.page/vmk69</a> · Weekly</div>
+</div>
+
+</body></html>
