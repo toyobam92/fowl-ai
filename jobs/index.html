@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI Job Board — FOWL AI</title>
-  <meta name="description" content="Weekly curated AI jobs, evaluation roles, and knowledge worker opportunities. Updated every week by FOWL AI.">
-  <meta property="og:title" content="AI Job Board — FOWL AI" />
-  <meta property="og:description" content="Weekly curated AI jobs for knowledge workers. Evaluation, product, research, and remote-first roles." />
+  <title>Job Hunting? — FOWL AI</title>
+  <meta name="description" content="Weekly curated AI evaluation gigs and emerging career opportunities for knowledge workers. Updated every week by FOWL AI.">
+  <meta property="og:title" content="Job Hunting? — FOWL AI" />
+  <meta property="og:description" content="Weekly curated AI jobs for knowledge workers. Evaluation, emerging careers, and remote-first roles." />
   <meta property="og:url" content="https://www.fowl-ai.com/jobs/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -32,7 +32,7 @@
     .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
     .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
     .nav-links{display:flex;align-items:center;gap:20px;}
-    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;white-space:nowrap;}
     .nav-link:hover{color:#fff;}
     @keyframes nav-bounce{0%,70%,100%{transform:translateY(0);}74%{transform:translateY(-4px);}78%{transform:translateY(0);}82%{transform:translateY(-2px);}86%{transform:translateY(0);}}
     .nav-link.bounce{display:inline-block;animation:nav-bounce 4s ease-in-out infinite;}
@@ -47,7 +47,7 @@
     .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
     .page-hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(34px,5vw,54px);line-height:1.08;margin-bottom:14px;}
     .page-hero h1 span{color:#f2a12b;}
-    .page-hero p{font-size:17px;color:#e2f2eb;max-width:580px;line-height:1.75;}
+    .page-hero p{font-size:17px;color:#e2f2eb;max-width:620px;line-height:1.75;}
     .updated-badge{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#78ddb4;background:rgba(255,255,255,.08);padding:6px 14px;border-radius:999px;border:1px solid rgba(120,221,180,.2);}
     .updated-dot{width:7px;height:7px;border-radius:50%;background:#78ddb4;animation:pulse-dot 2s ease-in-out infinite;}
     @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.3;}}
@@ -58,39 +58,50 @@
     .filter-btn{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 14px;border-radius:999px;border:1.5px solid #c8c0b4;background:transparent;color:#665f56;cursor:pointer;transition:all .15s;}
     .filter-btn.active,.filter-btn:hover{background:#0d3f31;color:#fff;border-color:#0d3f31;}
 
-    /* Jobs grid */
+    /* Jobs list */
     .jobs-section{padding:28px 24px 72px;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:18px;}
+    .cat-section{margin-bottom:40px;}
 
-    /* Job card */
-    .job-card{background:#fff;border-radius:10px;padding:24px;border-top:4px solid #0d3f31;display:flex;flex-direction:column;gap:12px;transition:box-shadow .18s;}
-    .job-card:hover{box-shadow:0 12px 40px rgba(0,0,0,.1);}
-    .job-card.featured{border-top-color:#f2a12b;}
-    .job-card.new{border-top-color:#78ddb4;}
+    /* Category header row */
+    .cat-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#0d3f31;margin-bottom:0;}
+    .cat-header.ember{background:#1a0a05;}
+    .cat-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;font-weight:500;}
+    .cat-header.ember .cat-label{color:#f0a87a;}
+    .cat-count{font-family:"DM Mono",monospace;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:1px;}
 
-    .card-top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;}
-    .job-title{font-weight:800;font-size:17px;color:#13241e;line-height:1.3;}
-    .badge-row{display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0;}
-    .badge{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;}
+    /* Column header */
+    .col-head{display:grid;grid-template-columns:1fr 130px 140px 110px 120px;gap:16px;align-items:center;padding:9px 20px;background:#f2ede3;border-bottom:1.5px solid #d5cfc5;}
+    .col-head span{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;}
+
+    /* Job row */
+    .job-row{display:grid;grid-template-columns:1fr 130px 140px 110px 120px;gap:16px;align-items:center;background:#fff;border-bottom:1px solid #ece8e1;padding:14px 20px;transition:background .15s;}
+    .job-row:hover{background:#f9f6f0;}
+    .job-row:last-child{border-bottom:none;}
+
+    .jr-main{}
+    .jr-title{font-weight:700;font-size:14.5px;color:#13241e;line-height:1.3;margin-bottom:3px;}
+    .jr-company{font-size:13px;color:#1a5f4a;font-weight:600;}
+
+    .jr-loc{font-size:13px;color:#665f56;line-height:1.4;}
+
+    .jr-badges{display:flex;gap:5px;flex-wrap:wrap;}
+    .badge{font-family:"DM Mono",monospace;font-size:9.5px;letter-spacing:1px;text-transform:uppercase;padding:3px 8px;border-radius:999px;white-space:nowrap;}
     .badge.new{background:#e8f9f2;color:#0d7a52;}
-    .badge.featured{background:#fff3de;color:#c07000;}
+    .badge.hot{background:#fff0e0;color:#c07000;}
     .badge.remote{background:#f0f0ff;color:#4040a0;}
     .badge.freelance{background:#e8f4ee;color:#1a5f4a;}
     .badge.fulltime{background:#f0f4ff;color:#2a4a9a;}
+    .badge.emerging{background:#fdf0fb;color:#8a2a8a;}
 
-    .job-company{font-size:14px;font-weight:700;color:#1a5f4a;}
-    .job-desc{font-size:14px;color:#46524c;line-height:1.65;flex:1;}
-    .job-meta{display:flex;gap:16px;flex-wrap:wrap;}
-    .meta-item{font-size:13px;color:#665f56;}
-    .meta-item strong{color:#13241e;font-weight:700;}
-    .job-cta{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:999px;font-weight:800;font-size:14px;align-self:flex-start;transition:opacity .15s;}
+    .jr-pay{font-family:"DM Mono",monospace;font-size:12px;color:#0d3f31;font-weight:500;line-height:1.4;}
+
+    .job-cta{display:inline-flex;align-items:center;padding:8px 16px;border-radius:999px;font-weight:700;font-size:12.5px;transition:opacity .15s;white-space:nowrap;}
     .job-cta.apply{background:#0d3f31;color:#fff;}
-    .job-cta.apply:hover{opacity:.85;}
+    .job-cta.apply:hover{opacity:.82;}
     .job-cta.referral{background:#f2a12b;color:#0d3f31;}
-    .job-cta.referral:hover{opacity:.85;}
-
-    /* Empty state */
-    .empty{grid-column:1/-1;text-align:center;padding:60px 20px;color:#9aada5;font-family:"DM Mono",monospace;font-size:13px;letter-spacing:1px;}
+    .job-cta.referral:hover{opacity:.82;}
+    .job-cta.search{background:transparent;color:#0d3f31;border:1.5px solid #0d3f31;}
+    .job-cta.search:hover{background:#0d3f31;color:#fff;}
 
     /* Newsletter CTA */
     .newsletter-cta{background:#0d3f31;padding:48px 24px;text-align:center;margin-top:0;}
@@ -102,12 +113,22 @@
     .footer a{color:#78ddb4;}
     .footer div{margin-top:10px;font-size:10px;opacity:.6;}
 
+    @media(max-width:860px){
+      .col-head{display:none;}
+      .job-row{grid-template-columns:1fr auto;grid-template-rows:auto auto auto;gap:8px 12px;padding:16px;}
+      .jr-main{grid-column:1;grid-row:1;}
+      .jr-loc{grid-column:1;grid-row:2;font-size:12px;}
+      .jr-badges{grid-column:1;grid-row:3;}
+      .jr-pay{grid-column:2;grid-row:1;text-align:right;}
+      .job-cta{grid-column:2;grid-row:2/4;align-self:center;}
+    }
     @media(max-width:640px){
-      .grid{grid-template-columns:1fr;}
       .nav{flex-wrap:wrap;gap:10px;}
-      .nav-links{gap:12px;}
-      .nav-link{font-size:10px;}
+      .nav-links{gap:10px;flex-wrap:wrap;}
+      .nav-link{font-size:10px;letter-spacing:1px;}
       .sub-btn{padding:9px 14px;font-size:11px;}
+      .job-row{grid-template-columns:1fr;grid-template-rows:auto;}
+      .jr-pay,.job-cta{grid-column:1;grid-row:auto;text-align:left;}
     }
   </style>
 </head>
@@ -123,7 +144,7 @@
         <div class="nav-links">
           <a class="nav-link" href="/">Home</a>
           <a class="nav-link bounce" href="/platforms/">Platforms</a>
-          <a class="nav-link bounce" style="animation-delay:.4s" href="/jobs/">Jobs</a>
+          <a class="nav-link bounce" style="animation-delay:.4s" href="/jobs/">Job Hunting?</a>
           <a class="nav-link bounce" style="animation-delay:.8s" href="/products/">Products</a>
           <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
         </div>
@@ -133,12 +154,12 @@
 
   <div class="page-hero">
     <div class="wrap">
-      <div class="eyebrow">FOWL AI · Job Board</div>
-      <h1>AI roles worth <span>your time.</span></h1>
-      <p>Curated weekly — evaluation gigs, AI product roles, remote knowledge worker positions. No noise, no volume plays. Only roles that pay well for real expertise.</p>
+      <div class="eyebrow">FOWL AI · Job Hunting?</div>
+      <h1>AI evaluation &amp; <span>emerging careers.</span></h1>
+      <p>Two categories worth watching: roles that pay you to judge AI — and the new job titles forming around agentic systems, governance, and human-in-the-loop workflows. Curated weekly, no noise.</p>
       <div class="updated-badge">
         <span class="updated-dot"></span>
-        Updated week of May 26, 2026
+        Updated week of June 2, 2026
       </div>
     </div>
   </div>
@@ -146,156 +167,505 @@
   <div class="filters">
     <div class="wrap">
       <div class="filter-row">
-        <button class="filter-btn active" onclick="filterJobs('all',this)">All</button>
+        <button class="filter-btn active" onclick="filterJobs('all',this)">All roles</button>
         <button class="filter-btn" onclick="filterJobs('evaluation',this)">AI Evaluation</button>
-        <button class="filter-btn" onclick="filterJobs('product',this)">Product &amp; Strategy</button>
-        <button class="filter-btn" onclick="filterJobs('engineering',this)">Engineering</button>
-        <button class="filter-btn" onclick="filterJobs('research',this)">Research</button>
+        <button class="filter-btn" onclick="filterJobs('emerging',this)">Emerging Careers</button>
       </div>
     </div>
   </div>
 
   <section class="jobs-section">
     <div class="wrap">
-      <div class="grid" id="jobs-grid">
 
-        <!-- ═══════════════════════════════
-             PASTE NEW JOBS BELOW THIS LINE
-             Copy a job-card block, fill in the details, done.
-             data-cat options: evaluation | product | engineering | research
-        ════════════════════════════════ -->
-
-        <div class="job-card featured" data-cat="evaluation">
-          <div class="card-top">
-            <div class="job-title">AI Domain Expert — Data Science & ML</div>
-            <div class="badge-row">
-              <span class="badge new">New</span>
-              <span class="badge freelance">Freelance</span>
-              <span class="badge remote">Remote</span>
-            </div>
-          </div>
-          <div class="job-company">Mercor</div>
-          <p class="job-desc">Evaluate AI outputs, review code, and provide structured feedback on model reasoning across data science and ML tasks. High-paying, flexible hours.</p>
-          <div class="job-meta">
-            <div class="meta-item"><strong>Pay</strong> $70–$150/hr</div>
-            <div class="meta-item"><strong>Type</strong> Project-based</div>
-            <div class="meta-item"><strong>Where</strong> Global</div>
-          </div>
-          <a class="job-cta referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply via referral →</a>
+      <!-- ═══════════════════════════════════════
+           CATEGORY 1: AI EVALUATION
+      ════════════════════════════════════════ -->
+      <div class="cat-section" id="section-evaluation" data-cat="evaluation">
+        <div class="cat-header">
+          <span class="cat-label">AI Evaluation Roles</span>
+          <span class="cat-count">20 roles · updated weekly</span>
+        </div>
+        <div class="col-head">
+          <span>Role</span>
+          <span>Location</span>
+          <span>Type</span>
+          <span>Pay</span>
+          <span></span>
         </div>
 
-        <div class="job-card" data-cat="evaluation">
-          <div class="card-top">
-            <div class="job-title">AI Trainer — Coding & STEM</div>
-            <div class="badge-row">
-              <span class="badge new">New</span>
-              <span class="badge freelance">Freelance</span>
-              <span class="badge remote">Remote</span>
-            </div>
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Domain Expert — Data Science &amp; ML</div>
+            <div class="jr-company">Mercor</div>
           </div>
-          <div class="job-company">Outlier AI</div>
-          <p class="job-desc">Train and evaluate AI models across coding, STEM, and reasoning tasks. Flexible hours, no set schedule. Strong starting point for knowledge workers entering AI income.</p>
-          <div class="job-meta">
-            <div class="meta-item"><strong>Pay</strong> $20–$60/hr</div>
-            <div class="meta-item"><strong>Type</strong> Flexible/hourly</div>
-            <div class="meta-item"><strong>Where</strong> Global</div>
-          </div>
-          <a class="job-cta referral" href="https://app.outlier.ai/expert/referrals/link/tMAelTC5NHmc-huLgd4sm2s79uE" target="_blank" rel="noopener">Apply via referral →</a>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$70–$150/hr</div>
+          <a class="job-cta referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply →</a>
         </div>
 
-        <div class="job-card" data-cat="evaluation">
-          <div class="card-top">
-            <div class="job-title">AI Fellowship — Expert Track</div>
-            <div class="badge-row">
-              <span class="badge new">New</span>
-              <span class="badge freelance">Freelance</span>
-              <span class="badge remote">Remote</span>
-            </div>
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Trainer — Coding &amp; STEM</div>
+            <div class="jr-company">Outlier AI</div>
           </div>
-          <div class="job-company">Handshake AI</div>
-          <p class="job-desc">Paid fellowship training AI models using domain expertise. Lower barrier than Mercor, consistent work availability. PhD/Masters earns more via expert track.</p>
-          <div class="job-meta">
-            <div class="meta-item"><strong>Pay</strong> Up to $100/hr</div>
-            <div class="meta-item"><strong>Type</strong> Fellowship</div>
-            <div class="meta-item"><strong>Where</strong> US only</div>
-          </div>
-          <a class="job-cta referral" href="https://joinhandshake.com/move-program/referral?referralCode=0EBF05&utm_source=referral" target="_blank" rel="noopener">Apply via referral →</a>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$20–$60/hr</div>
+          <a class="job-cta referral" href="https://app.outlier.ai/expert/referrals/link/tMAelTC5NHmc-huLgd4sm2s79uE" target="_blank" rel="noopener">Apply →</a>
         </div>
 
-        <div class="job-card" data-cat="evaluation">
-          <div class="card-top">
-            <div class="job-title">AI Evaluator — Medical / Legal / Finance</div>
-            <div class="badge-row">
-              <span class="badge featured">High Pay</span>
-              <span class="badge freelance">Freelance</span>
-              <span class="badge remote">Remote</span>
-            </div>
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Evaluator — Medical / Legal / Finance</div>
+            <div class="jr-company">Surge AI</div>
           </div>
-          <div class="job-company">Surge AI</div>
-          <p class="job-desc">Domain expert evaluator for frontier AI models. Highest rates in the market for PhD-level and senior specialists. Medical fellows earn $250–$450/hr.</p>
-          <div class="job-meta">
-            <div class="meta-item"><strong>Pay</strong> $80–$450/hr</div>
-            <div class="meta-item"><strong>Type</strong> Project-based</div>
-            <div class="meta-item"><strong>Where</strong> Global</div>
-          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$80–$450/hr</div>
           <a class="job-cta apply" href="https://surgehq.ai/workforce" target="_blank" rel="noopener">Apply →</a>
         </div>
 
-        <div class="job-card" data-cat="engineering">
-          <div class="card-top">
-            <div class="job-title">AI Code Evaluator — Python / JavaScript</div>
-            <div class="badge-row">
-              <span class="badge freelance">Freelance</span>
-              <span class="badge remote">Remote</span>
-            </div>
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Fellowship — Expert Track</div>
+            <div class="jr-company">Handshake AI</div>
           </div>
-          <div class="job-company">DataAnnotation</div>
-          <p class="job-desc">Review and evaluate AI-generated code for correctness, efficiency, and safety. RLHF tasks for code. Strong pay for engineers with real production experience.</p>
-          <div class="job-meta">
-            <div class="meta-item"><strong>Pay</strong> $20–$45/hr</div>
-            <div class="meta-item"><strong>Type</strong> Hourly</div>
-            <div class="meta-item"><strong>Where</strong> Global</div>
+          <div class="jr-loc">Remote · US only</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Fellowship</span></div>
+          <div class="jr-pay">Up to $100/hr</div>
+          <a class="job-cta referral" href="https://joinhandshake.com/move-program/referral?referralCode=0EBF05&utm_source=referral" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Senior AI Evaluator — Finance &amp; Risk</div>
+            <div class="jr-company">Mercor</div>
           </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$60–$130/hr</div>
+          <a class="job-cta referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Healthcare AI Reviewer</div>
+            <div class="jr-company">Outlier AI</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$40–$80/hr</div>
+          <a class="job-cta referral" href="https://app.outlier.ai/expert/referrals/link/tMAelTC5NHmc-huLgd4sm2s79uE" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Legal AI Evaluation Specialist</div>
+            <div class="jr-company">Mindrift</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge freelance">Freelance</span><span class="badge remote">Remote</span></div>
+          <div class="jr-pay">$30–$80/hr</div>
+          <a class="job-cta apply" href="https://mindrift.ai" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Red Teamer — Financial Services</div>
+            <div class="jr-company">Alignerr</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$30–$100/hr</div>
+          <a class="job-cta apply" href="https://alignerr.com" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Code Evaluator — Python / JavaScript</div>
+            <div class="jr-company">DataAnnotation</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge freelance">Freelance</span><span class="badge remote">Remote</span></div>
+          <div class="jr-pay">$20–$45/hr</div>
           <a class="job-cta apply" href="https://www.dataannotation.tech" target="_blank" rel="noopener">Apply →</a>
         </div>
 
-        <div class="job-card" data-cat="engineering">
-          <div class="card-top">
-            <div class="job-title">AI Training — Frontier Models</div>
-            <div class="badge-row">
-              <span class="badge featured">High Pay</span>
-              <span class="badge freelance">Freelance</span>
-              <span class="badge remote">Remote</span>
-            </div>
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Training — Frontier Models</div>
+            <div class="jr-company">micro1</div>
           </div>
-          <div class="job-company">micro1</div>
-          <p class="job-desc">Remote contracts training frontier AI models. Tasks include code annotation, red-teaming, and structured reasoning evaluation. No prior AI experience required.</p>
-          <div class="job-meta">
-            <div class="meta-item"><strong>Pay</strong> $30–$135/hr</div>
-            <div class="meta-item"><strong>Type</strong> Contract</div>
-            <div class="meta-item"><strong>Where</strong> Global</div>
-          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge freelance">Contract</span></div>
+          <div class="jr-pay">$30–$135/hr</div>
           <a class="job-cta apply" href="https://www.micro1.ai/experts/opportunities" target="_blank" rel="noopener">Apply →</a>
         </div>
 
-        <!-- ═══════════════════════════════
-             PASTE NEW JOBS ABOVE THIS LINE
-        ════════════════════════════════ -->
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Quantitative Model Evaluator</div>
+            <div class="jr-company">DataAnnotation</div>
+          </div>
+          <div class="jr-loc">Remote · US/UK</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$35–$65/hr</div>
+          <a class="job-cta apply" href="https://www.dataannotation.tech" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">RLHF Specialist — Advanced Reasoning</div>
+            <div class="jr-company">Scale AI</div>
+          </div>
+          <div class="jr-loc">Remote · US/CA/UK</div>
+          <div class="jr-badges"><span class="badge freelance">Freelance</span><span class="badge remote">Remote</span></div>
+          <div class="jr-pay">$25–$55/hr</div>
+          <a class="job-cta apply" href="https://scale.com/spellbook" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Model QA Tester</div>
+            <div class="jr-company">Toloka</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge freelance">Freelance</span><span class="badge remote">Remote</span></div>
+          <div class="jr-pay">$15–$35/hr</div>
+          <a class="job-cta apply" href="https://toloka.ai/tolokers/" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">GenAI Evaluation Specialist</div>
+            <div class="jr-company">Mercor</div>
+          </div>
+          <div class="jr-loc">Phoenix, AZ · Hybrid</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$75K–$110K</div>
+          <a class="job-cta referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Generalist Data Annotation Expert</div>
+            <div class="jr-company">Mercor via RippleMatch</div>
+          </div>
+          <div class="jr-loc">Remote · US</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$45/hr</div>
+          <a class="job-cta referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Content Reviewer — Writing &amp; Creativity</div>
+            <div class="jr-company">Outlier AI</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$18–$40/hr</div>
+          <a class="job-cta referral" href="https://app.outlier.ai/expert/referrals/link/tMAelTC5NHmc-huLgd4sm2s79uE" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Response Rater — General Knowledge</div>
+            <div class="jr-company">Appen</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge freelance">Freelance</span><span class="badge remote">Remote</span></div>
+          <div class="jr-pay">$14–$25/hr</div>
+          <a class="job-cta apply" href="https://connect.appen.com/qrp/public/jobs" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Creative Writing AI Trainer</div>
+            <div class="jr-company">Mindrift</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$20–$50/hr</div>
+          <a class="job-cta apply" href="https://mindrift.ai" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Generalist AI Evaluator — No PhD Required</div>
+            <div class="jr-company">Mercor</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge freelance">Freelance</span></div>
+          <div class="jr-pay">$25–$60/hr</div>
+          <a class="job-cta referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Conversation Quality Tester</div>
+            <div class="jr-company">Telus International AI</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge freelance">Freelance</span><span class="badge remote">Remote</span></div>
+          <div class="jr-pay">$14–$22/hr</div>
+          <a class="job-cta apply" href="https://www.telusinternational.com/solutions/ai-data/ai-community" target="_blank" rel="noopener">Apply →</a>
+        </div>
 
       </div>
+
+      <!-- ═══════════════════════════════════════
+           CATEGORY 2: EMERGING NEW CAREERS
+      ════════════════════════════════════════ -->
+      <div class="cat-section" id="section-emerging" data-cat="emerging">
+        <div class="cat-header ember">
+          <span class="cat-label">Emerging New Career Roles</span>
+          <span class="cat-count">20 roles · titles forming in real time</span>
+        </div>
+        <div class="col-head">
+          <span>Role</span>
+          <span>Location</span>
+          <span>Type</span>
+          <span>Pay</span>
+          <span></span>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Agent Orchestration Lead</div>
+            <div class="jr-company">Enterprise · post-ServiceNow wave</div>
+          </div>
+          <div class="jr-loc">Remote/Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$130–$180K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Agent+Orchestration" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Literacy Lead — EU AI Act Compliance</div>
+            <div class="jr-company">Regulated Industries</div>
+          </div>
+          <div class="jr-loc">Various · EU/UK/US</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$90–$130K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Literacy+Lead" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Human Review Lead — Agentic Systems</div>
+            <div class="jr-company">Enterprise Operations</div>
+          </div>
+          <div class="jr-loc">Remote/Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$95–$140K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=Human+Review+Lead+AI" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Governance Analyst</div>
+            <div class="jr-company">NIST AI RMF · Compliance</div>
+          </div>
+          <div class="jr-loc">Remote</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$90–$130K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Governance+Analyst" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Responsible AI Program Manager</div>
+            <div class="jr-company">Enterprise · Cross-functional</div>
+          </div>
+          <div class="jr-loc">Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$120–$160K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=Responsible+AI+Program+Manager" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Director of AI Governance &amp; Risk</div>
+            <div class="jr-company">EU AI Act / NIST · C-suite adjacent</div>
+          </div>
+          <div class="jr-loc">Hybrid</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$150–$220K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=Director+AI+Governance+Risk" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Agent Escalation Specialist</div>
+            <div class="jr-company">Enterprise Agentic Workflows</div>
+          </div>
+          <div class="jr-loc">Remote/Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$75–$110K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+escalation+specialist" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">ML Operations Lead</div>
+            <div class="jr-company">DataBricks / Vertex AI · Production</div>
+          </div>
+          <div class="jr-loc">Remote/Hybrid</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$140–$190K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=ML+Operations+Lead" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Cloud AI Solutions Architect</div>
+            <div class="jr-company">AWS / GCP · ML-certified</div>
+          </div>
+          <div class="jr-loc">Hybrid · US</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">~$209K base</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=Cloud+AI+Solutions+Architect" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Prompt Engineer — Enterprise Systems</div>
+            <div class="jr-company">Fortune 500</div>
+          </div>
+          <div class="jr-loc">Remote</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$100–$150K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=Prompt+Engineer+Enterprise" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Corporate Trainer</div>
+            <div class="jr-company">Enterprise L&amp;D · 12-month contract</div>
+          </div>
+          <div class="jr-loc">Remote · US</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Contract</span></div>
+          <div class="jr-pay">$75–$110K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Corporate+Trainer" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Curriculum Designer</div>
+            <div class="jr-company">EdTech / Enterprise Training</div>
+          </div>
+          <div class="jr-loc">Remote</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$85–$120K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Curriculum+Designer" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Human-AI Workflow Specialist</div>
+            <div class="jr-company">Operations · Knowledge-intensive orgs</div>
+          </div>
+          <div class="jr-loc">Remote/Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$80–$120K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=Human+AI+Workflow+Specialist" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Audit Lead</div>
+            <div class="jr-company">Compliance / Big 4 Consulting</div>
+          </div>
+          <div class="jr-loc">Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$120–$170K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Audit+Lead" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Engineer</div>
+            <div class="jr-company">LinkedIn's #1 fastest-growing title · +143% YoY</div>
+          </div>
+          <div class="jr-loc">Various</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$160–$250K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Engineer" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Change Management Specialist</div>
+            <div class="jr-company">HR / Transformation · Enterprise</div>
+          </div>
+          <div class="jr-loc">Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$85–$125K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Change+Management" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Communications Manager</div>
+            <div class="jr-company">PR / Comms · Tech firms &amp; consultancies</div>
+          </div>
+          <div class="jr-loc">Remote/Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$90–$130K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Communications+Manager" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Ethics &amp; Policy Analyst</div>
+            <div class="jr-company">Policy / Think tanks / Government</div>
+          </div>
+          <div class="jr-loc">Various</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$80–$120K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Ethics+Policy+Analyst" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Content Strategist</div>
+            <div class="jr-company">Marketing / Brand · Mid-to-large orgs</div>
+          </div>
+          <div class="jr-loc">Remote</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$75–$110K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Content+Strategist" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Product Strategist</div>
+            <div class="jr-company">Product / Strategy · SaaS &amp; Platform teams</div>
+          </div>
+          <div class="jr-loc">Remote/Hybrid</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$110–$160K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Product+Strategist" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+      </div>
+
     </div>
   </section>
 
   <div class="newsletter-cta">
     <div class="wrap">
       <h2>New roles added every week.</h2>
-      <p>Subscribe to FOWL AI and get the best AI income opportunities delivered to your inbox — free, every week.</p>
+      <p>Subscribe to FOWL AI and get the best AI evaluation gigs and emerging career signals delivered to your inbox — free, every week.</p>
       <a class="sub-btn" href="https://fowlai.eo.page/vmk69" style="display:inline-flex;">Subscribe free →</a>
     </div>
   </div>
 
   <footer class="footer">
-    FOWL AI · <a href="/">Home</a> · <a href="/platforms/">Platforms</a> · <a href="/jobs/">Jobs</a> · <a href="/products/">Products</a> · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/privacy/">Privacy</a>
+    FOWL AI · <a href="/">Home</a> · <a href="/platforms/">Platforms</a> · <a href="/jobs/">Job Hunting?</a> · <a href="/products/">Products</a> · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/privacy/">Privacy</a>
     <div>Some links are referral links — FOWL AI may receive a commission at no cost to you. Not affiliated with any employer listed.</div>
   </footer>
 
@@ -303,8 +673,12 @@
     function filterJobs(cat, btn) {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
       btn.classList.add('active');
-      document.querySelectorAll('.job-card').forEach(card => {
-        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      document.querySelectorAll('.cat-section').forEach(section => {
+        if (cat === 'all') {
+          section.style.display = '';
+        } else {
+          section.style.display = section.dataset.cat === cat ? '' : 'none';
+        }
       });
     }
   </script>
