@@ -2,8 +2,8 @@
 <html><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOWL AI · Issue 3 · AI isn't just answering your questions anymore.</title>
-<meta name="description" content="Multi-agent AI is already inside enterprise workflows. Here's what it means for your career — and what it doesn't.">
+<title>FOWL AI · Issue 3 · The Rise of the AI Manager</title>
+<meta name="description" content="The highest-paying jobs of the next five years may not involve doing the work. They may involve managing the AI agents that do it for you.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box;}
@@ -43,9 +43,6 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
 .sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
 .sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
-.sec.ember{background:#1a0a05;}
-.sec.ember .sec-tag{color:#f0a87a;}
-.sec.ember .sec-line{background:#d4541e;opacity:.4;}
 
 /* tldr */
 .tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
@@ -72,31 +69,24 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;}
 .sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
 
-/* hiring signal */
-.mkt-wrap{background:#13241e;margin:8px 0;padding:24px 44px;}
-.mkt-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:10px;}
-.mkt-headline{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:#fff;line-height:1.2;margin-bottom:10px;}
-.mkt-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.7;color:#a9e8cf;}
-.mkt-signal{font-family:'DM Mono',monospace;font-size:11px;color:#7fd9b8;margin-top:12px;padding-top:12px;border-top:1px solid rgba(127,217,184,.2);}
-.mkt-signal b{color:#f2a12b;}
-.mkt-stat{display:flex;gap:24px;margin:16px 0;flex-wrap:wrap;}
-.mkt-stat-item{background:rgba(255,255,255,.06);border:1px solid rgba(127,217,184,.2);border-radius:8px;padding:14px 18px;flex:1;min-width:140px;}
-.mkt-stat-num{font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#f2a12b;line-height:1;}
-.mkt-stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#7fd9b8;text-transform:uppercase;margin-top:6px;}
+/* lead story — Stanford */
+.lead-wrap{background:#13241e;margin:8px 0;padding:32px 44px;}
+.lead-kicker{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;}
+.lead-headline{font-family:'Fraunces',serif;font-weight:700;font-size:30px;color:#fff;line-height:1.15;margin-bottom:14px;}
+.lead-body{font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#a9e8cf;margin-bottom:14px;}
+.lead-stat-row{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
+.lead-stat{background:rgba(255,255,255,.06);border:1px solid rgba(127,217,184,.2);border-radius:8px;padding:16px 20px;flex:1;min-width:130px;}
+.lead-stat-num{font-family:'Fraunces',serif;font-size:30px;font-weight:700;color:#f2a12b;line-height:1;}
+.lead-stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#7fd9b8;text-transform:uppercase;margin-top:6px;line-height:1.4;}
+.lead-signal{font-family:'DM Mono',monospace;font-size:11px;color:#7fd9b8;margin-top:16px;padding-top:16px;border-top:1px solid rgba(127,217,184,.2);line-height:1.6;}
+.lead-signal b{color:#f2a12b;}
 
-/* nova video section */
-.nova-wrap{background:#0a0f0d;margin:8px 0;padding:28px 44px;}
+/* nova card */
+.nova-wrap{background:#0a0f0d;margin:0;padding:24px 44px;}
 .nova-eyebrow{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:10px;}
-.nova-headline{font-family:'Fraunces',serif;font-weight:700;font-size:20px;color:#fff;line-height:1.3;margin-bottom:8px;}
-.nova-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.7;color:#a9e8cf;margin-bottom:20px;}
+.nova-headline{font-family:'Fraunces',serif;font-weight:700;font-size:18px;color:#fff;line-height:1.3;margin-bottom:8px;}
+.nova-body{font-family:-apple-system,sans-serif;font-size:13px;line-height:1.7;color:#7fd9b8;margin-bottom:18px;}
 .nova-embed{display:flex;justify-content:center;}
-
-/* career */
-.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
-.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
-.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
-.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
-.career-why b{color:#fff;}
 
 /* two-col split */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:20px 0 6px;}
@@ -106,6 +96,26 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .split-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:8px;}
 .split-label.ember{color:#d4541e;}
 .split-body{font-family:-apple-system,sans-serif;font-size:13.5px;line-height:1.65;color:#2a2a2a;}
+
+/* prediction block */
+.predict{background:#0d3f31;border-radius:8px;padding:26px 30px;margin:20px 0;}
+.predict-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;}
+.predict-text{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.4;}
+.predict-sub{font-family:-apple-system,sans-serif;font-size:14px;color:#7fd9b8;margin-top:10px;line-height:1.65;}
+
+/* action items */
+.action-wrap{background:#f7eedc;border-left:6px solid #f2a12b;padding:24px 28px;margin:20px 0;border-radius:0 8px 8px 0;}
+.action-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#0f3d30;margin-bottom:14px;font-weight:500;}
+.action-item{display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;line-height:1.65;padding:8px 0;border-bottom:1px solid rgba(242,161,43,.2);}
+.action-item:last-child{border-bottom:none;padding-bottom:0;}
+.action-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#f2a12b;flex-shrink:0;margin-top:2px;background:#0f3d30;padding:2px 7px;border-radius:4px;}
+
+/* career */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
 
 /* closing */
 .closing-text{font-size:16px;line-height:1.8;color:#1a1a1a;}
@@ -128,18 +138,17 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   .split{grid-template-columns:1fr;}
   .split-col:first-child{border-radius:8px 8px 0 0;border-right:1px solid #e8e4de;border-bottom:none;}
   .split-col:last-child{border-radius:0 0 8px 8px;}
-  .mast-title{font-size:38px;}
-  .card,.card-dark,.card-amber,.card-mint,.card-coral,.mast,.sec,.story,.footer,.mkt-wrap,.nova-wrap{padding-left:22px;padding-right:22px;}
+  .mast-title{font-size:36px;}
+  .card,.card-dark,.card-amber,.card-mint,.card-coral,.mast,.sec,.story,.footer,.lead-wrap,.nova-wrap{padding-left:22px;padding-right:22px;}
   .mast-meta{flex-direction:column;gap:6px;margin-bottom:18px;}
   .brand-lockup{gap:12px;margin:16px 0 22px;}
   .brand-dot{width:36px;height:36px;flex-shrink:0;}
   .brand-fowl{font-size:22px;letter-spacing:6px;}
   .brand-divider{height:36px;}
   .brand-name{font-size:22px;}
-  .sig{align-items:flex-start;}
-  .sig-dot{flex-shrink:0;margin-top:3px;}
-  .mkt-stat{gap:12px;}
-  .mkt-stat-item{min-width:120px;}
+  .lead-stat-row{gap:10px;}
+  .lead-stat{min-width:110px;}
+  .lead-headline{font-size:24px;}
 }
 </style></head><body>
 
@@ -152,59 +161,64 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
     <div class="brand-divider"></div>
     <div class="brand-name">Future of<span>Work Lab</span></div>
   </div>
-  <div class="mast-title">AI isn't just answering your questions anymore.<span>It's holding meetings without you.</span></div>
-  <div class="mast-sub">Multi-agent AI is already inside enterprise workflows. Teams of AI agents are coordinating, delegating, and completing complex work — no human in the loop. Here's what that actually means for your career.</div>
+  <div class="mast-title">The Rise of the<span>AI Manager.</span></div>
+  <div class="mast-sub">The highest-paying jobs of the next five years may not involve doing the work. They may involve managing the AI agents that do it for you. Here's what's already happening — and who wins.</div>
   <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Subscribe free</a>
   <div class="mast-rule"></div>
   <div class="mast-foot">
-    <div class="mast-tag">AI · Careers · The Future of Work</div>
+    <div class="mast-tag">Career Signals · AI Economy</div>
     <span style="background:rgba(127,217,184,.14);color:#7fd9b8;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid rgba(127,217,184,.3);white-space:nowrap;">📡 Industry Signal</span>
     <div class="mast-freq">Weekly</div>
   </div>
   <div class="brand-strip">
-    <div class="brand-item"><b>AI</b><span>Tools, workflows, and adoption signals shaping tomorrow.</span></div>
-    <div class="brand-item"><b>Careers</b><span>Guidance for staying valuable as modern work changes.</span></div>
-    <div class="brand-item"><b>Hidden Economy</b><span>Platforms, roles, and paid opportunities most people miss.</span></div>
+    <div class="brand-item"><b>What's changing</b><span>The AI shifts already inside enterprise and hiring.</span></div>
+    <div class="brand-item"><b>Who wins</b><span>The roles, skills, and positions gaining leverage now.</span></div>
+    <div class="brand-item"><b>What to do</b><span>Specific actions for the week — not vague advice.</span></div>
   </div>
 </div>
 
 <!-- TLDR -->
 <div class="card-amber">
   <div class="tldr-label">If you read nothing else</div>
-  <div class="tldr-text">Teams of AI agents are now coordinating on complex tasks with no human in the loop. The knowledge workers winning aren't trying to compete with agents — they're the ones deciding what the agents work on.</div>
+  <div class="tldr-text">AI hiring tools just got caught rejecting millions of qualified candidates automatically. Meanwhile, the workers positioned to win aren't using AI — they're managing it. Both stories are about the same shift. Here's what it means for you.</div>
 </div>
 
-<!-- HIRING SIGNAL -->
-<div class="mkt-wrap">
-  <div class="mkt-tag">⚠️ Hiring Signal</div>
-  <div class="mkt-headline">Stanford study: AI hiring tools are systematically rejecting Black and Asian applicants — across millions of applications.</div>
-  <div class="mkt-body">Researchers from Stanford, Chapman, and Northeastern analysed over 4 million job applications submitted by 3 million applicants across 156 employers — mostly Fortune 100 companies — all screened by the same AI hiring vendor, Pymetrics. The findings are hard to ignore.</div>
+<!-- LEAD STORY — STANFORD -->
+<div class="lead-wrap">
+  <div class="lead-kicker">🚨 Lead Story · Hiring Signal</div>
+  <div class="lead-headline">Stanford found that AI hiring tools may be rejecting you across every company — simultaneously.</div>
+  <div class="lead-body">Researchers from Stanford, Chapman, and Northeastern just published the largest study of AI hiring algorithms to date. They analysed over 4 million job applications across 156 employers — mostly Fortune 100 companies — all screened by the same AI hiring vendor. What they found should change how you approach every job application from here.</div>
 
-  <div class="mkt-stat">
-    <div class="mkt-stat-item">
-      <div class="mkt-stat-num">25.87%</div>
-      <div class="mkt-stat-label">of Black applicants' submissions flagged for discriminatory outcomes</div>
+  <div class="lead-stat-row">
+    <div class="lead-stat">
+      <div class="lead-stat-num">25.87%</div>
+      <div class="lead-stat-label">of Black applicants' submissions flagged for discriminatory outcomes</div>
     </div>
-    <div class="mkt-stat-item">
-      <div class="mkt-stat-num">14.74%</div>
-      <div class="mkt-stat-label">of Asian applicants' submissions similarly affected</div>
+    <div class="lead-stat">
+      <div class="lead-stat-num">14.74%</div>
+      <div class="lead-stat-label">of Asian applicants' submissions similarly affected</div>
     </div>
-    <div class="mkt-stat-item">
-      <div class="mkt-stat-num">4M+</div>
-      <div class="mkt-stat-label">applications analysed across 156 employers</div>
+    <div class="lead-stat">
+      <div class="lead-stat-num">4M+</div>
+      <div class="lead-stat-label">applications analysed across 156 employers</div>
+    </div>
+    <div class="lead-stat">
+      <div class="lead-stat-num">10%</div>
+      <div class="lead-stat-label">of applicants rejected from every role they apply to — automatically</div>
     </div>
   </div>
 
-  <div class="mkt-body">The most troubling finding isn't just bias — it's what the researchers call <strong style="color:#fff;">"algorithmic monoculture."</strong> When multiple companies use the same AI vendor to screen candidates, a rejection from one doesn't stay isolated. Applicants rejected by the algorithm at one company are rejected across every company using the same vendor. Apply to four roles screened by the same system? There's a 10% chance you're rejected from all four automatically — regardless of your actual qualifications.</div>
+  <div class="lead-body">The most dangerous finding isn't just bias — it's what the researchers call <strong style="color:#fff;">"algorithmic monoculture."</strong> When multiple companies use the same AI vendor to screen applicants, rejections compound. If the algorithm flags you at one company, it flags you at every company using the same system. Apply to four roles screened by the same vendor? There's a 10% chance you're rejected from all four before a human ever sees your name.</div>
+  <div class="lead-body" style="color:#e2f2eb;">This isn't a fringe case. The companies in this study are some of the largest employers in the world. And the vendor at the centre — Pymetrics — is one of dozens operating the same way.</div>
 
-  <div class="mkt-signal"><b>The signal ·</b> AI is simultaneously opening new career paths and quietly closing others for specific groups. If you're navigating the job market right now, knowing whether a company uses algorithmic screening — and which vendor — is becoming as important as the application itself. The paper will be presented at the ACM Conference on Fairness, Accountability, and Transparency. This conversation is only getting louder.</div>
+  <div class="lead-signal"><b>What this means for you right now ·</b> Before applying to any role, search whether the company uses AI screening tools (LinkedIn, Glassdoor reviews, and the company's own careers page often reveal this). If multiple companies on your list use the same vendor, you may be getting rejected across all of them from a single data point. The paper will be presented at the ACM Conference on Fairness, Accountability, and Transparency. This conversation is going to get much louder.</div>
 </div>
 
-<!-- NOVA VIDEO — Stanford story -->
+<!-- NOVA -->
 <div class="nova-wrap">
   <div class="nova-eyebrow">🎙️ FOWL AI News · Nova</div>
-  <div class="nova-headline">Nova covers the Stanford story — listen to the full breakdown</div>
-  <div class="nova-body">FOWL AI's news anchor Nova breaks down the Stanford hiring bias study in full — what the researchers found, what algorithmic monoculture actually means, and why this matters for anyone applying for jobs right now.</div>
+  <div class="nova-headline">Nova covers the full Stanford story</div>
+  <div class="nova-body">The numbers, what algorithmic monoculture actually means, and why this changes how you should approach your job search — right now.</div>
   <div class="nova-embed">
     <blockquote
       class="instagram-media"
@@ -235,109 +249,117 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 
 <!-- INTRO -->
 <div class="card">
-  <div class="intro-text">Something shifted in enterprise AI this year — quietly, without a press release. The headline products — ChatGPT, Claude, Copilot — are still there. But underneath them, a new layer has activated: multi-agent systems. AI that doesn't just respond to prompts, but coordinates, delegates, and executes across complex workflows without a human directing every step.<br><br>This is not a future scenario. It's running in production inside 57% of software companies right now, and it's accelerating into healthcare, finance, legal, and every other domain where knowledge work happens at scale.<br><br>This issue is the practical breakdown — what multi-agent AI actually is, what it's doing to the shape of knowledge work, and specifically what it means for the people reading this.</div>
+  <div class="intro-text">The Stanford study is the most visible sign of a much larger shift. AI isn't just changing how companies operate — it's changing who gets hired, who gets managed out, and who gets to set the agenda.<br><br>While algorithmic tools quietly filter applicants at the bottom of the funnel, a different transformation is happening at the top: the emergence of a new kind of worker. Not the person who uses AI tools. The person who manages the AI agents that use tools. This issue is the breakdown of both — the threat and the opportunity, side by side.</div>
 </div>
 
 <!-- STORIES HEADER -->
-<div class="sec"><span class="sec-tag">This Week — 5 Developments</span><span class="sec-line"></span></div>
+<div class="sec"><span class="sec-tag">5 Signals This Week</span><span class="sec-line"></span></div>
 
 <!-- STORY 01 -->
 <div class="story">
   <div class="story-n">01</div>
-  <div class="story-title">What multi-agent AI actually is — plain English</div>
-  <div class="story-body">Here's the clearest way to understand it: instead of one AI assistant answering your question, a multi-agent system is a team of specialised AI models coordinating on a task. An orchestrator AI receives the goal, breaks it into subtasks, and assigns each to a specialist subagent. One researches. One writes. One checks the output. One formats and sends. They hand work between each other. No human in the loop for any individual step.</div>
-  <div class="story-body">Microsoft's AutoGen, Anthropic's multi-agent frameworks, and OpenAI's Swarm architecture are all variants of the same pattern — an orchestrator plus isolated worker agents, each with a defined role, specific tools, and limited context. The 2026 industry consensus has landed on this architecture precisely because it handles complexity that overwhelms a single AI's context window.</div>
-  <div class="meta"><b>Why it matters ·</b> When people say "AI is taking jobs," most of them are imagining a single chatbot replacing a single person. The more accurate picture is a coordinated team of specialist agents replacing a coordinated team of people. That's a different threat — and a different opportunity.</div>
-  <div class="inside"><b>From the data —</b> 57% of organisations report multi-agent systems are already deployed in software development. 55% in customer service. Healthcare, legal, and finance are following close behind. This is not a pilot phase.</div>
+  <div class="story-title">AI agents are holding meetings without you. Here's what that actually looks like.</div>
+  <div class="story-body">Multi-agent AI isn't a concept anymore — it's running in production. An orchestrator AI receives a goal, breaks it into subtasks, and assigns each to a specialist subagent. One researches. One writes. One checks the output. One sends. No human in the loop for any individual step. This is already deployed inside 57% of software companies and 55% of customer service operations in 2026.</div>
+  <div class="story-body">The performance gap is already measurable: tasks complete 3–5x faster at 90% lower cost compared to single-agent approaches. And productivity in AI-exposed industries grew 27% annually since 2022 — compared to 7% before. That gap compounds every year.</div>
+  <div class="meta"><b>Why it matters ·</b> When "a team handling this" could mean a team of agents with no salary, the question shifts from "how do I do this work?" to "what work should I be setting up?"</div>
+  <div class="inside"><b>The signal —</b> 40% of enterprise AI budgets in 2026 are allocated to agentic workflows — up from near zero in 2023. The infrastructure is being built right now.</div>
 </div>
 
 <!-- STORY 02 -->
 <div class="story">
   <div class="story-n">02</div>
-  <div class="story-title">The production numbers: 3–5x faster, 90% lower cost</div>
-  <div class="story-body">These aren't projections — they're 2026 enterprise deployment data. When companies coordinate teams of specialised agents instead of running a single general-purpose AI, the performance gap is consistent: tasks complete 3 to 5 times faster, and at roughly 90% lower cost than single-agent approaches on the same workflow.</div>
-  <div class="story-body">The compounding effect on productivity is already visible in macro data. In industries with high AI adoption, revenue per employee grew 27% annually between 2018 and 2024 — compared to 7% in the same industries before generative AI became widespread. That's nearly a quadrupling of productivity growth, and it's accelerating.</div>
+  <div class="story-title">The AI Manager is emerging — and it follows the exact arc of Product Manager.</div>
+  <div class="story-body">Twenty years ago, "Product Manager" wasn't a standard job. Then software teams needed someone who could sit between engineering and the business — and a career ladder appeared almost overnight. The same pattern is forming now around AI agent management.</div>
 
-  <div class="split">
-    <div class="split-col">
-      <div class="split-label">Before multi-agent</div>
-      <div class="split-body">One AI, one task at a time. Complex workflows required human coordination between steps. Errors compounded without oversight at each stage.</div>
-    </div>
-    <div class="split-col">
-      <div class="split-label ember">With multi-agent</div>
-      <div class="split-body">Specialist agents run in parallel. Each checks the next. Complex workflows execute end-to-end. Human input shifts to defining the goal — not managing the process.</div>
+  <div style="margin:18px 0;background:#f9f6f0;border:1px solid #e8e4de;border-radius:8px;padding:20px 24px;">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:14px;">Appearing in 2026 job listings</div>
+    <div style="display:flex;flex-direction:column;gap:10px;">
+      <div style="display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;border-bottom:1px solid #e8e4de;padding-bottom:10px;"><span style="background:#0d3f31;color:#78ddb4;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">NEW</span><div><b>AI Agent Manager</b> — sets goals, monitors outputs, and owns outcomes for multi-agent deployments</div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;border-bottom:1px solid #e8e4de;padding-bottom:10px;"><span style="background:#0d3f31;color:#78ddb4;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">NEW</span><div><b>Workflow Orchestrator</b> — designs the pipelines that agents run on; decides what agents handle and where humans stay in</div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;border-bottom:1px solid #e8e4de;padding-bottom:10px;"><span style="background:#0d3f31;color:#78ddb4;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">NEW</span><div><b>Agent Governance Specialist</b> — builds the policies and oversight mechanisms for when agents go wrong</div></div>
+      <div style="display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;"><span style="background:#0d3f31;color:#78ddb4;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">NEW</span><div><b>Human-AI Collaboration Lead</b> — defines where human judgment stays in, and where the agent runs</div></div>
     </div>
   </div>
 
-  <div class="meta"><b>Why it matters ·</b> When the cost of executing a complex task drops by 90%, the number of tasks companies attempt expands dramatically. That's not fewer jobs — it's a different shape of work. Volume goes up. Human involvement per task goes down. The premium shifts to the people setting the tasks.</div>
-  <div class="inside"><b>From the data —</b> 40% of enterprise AI budgets in 2026 are allocated to agentic workflows — up from near zero in 2023. This is where the investment is landing.</div>
+  <div class="meta"><b>The pattern ·</b> Product Manager appeared → formalised → built a salary ladder → became a standard org chart entry. The people who positioned for it early ran departments. That arc is happening again, faster.</div>
+  <div class="inside"><b>The signal —</b> 1 in 4 companies now have a Chief AI Officer. 66% expect to hire one within two years. The same acceleration is likely for the roles above — they're 18 months behind the CAIO on the same curve.</div>
 </div>
 
 <!-- STORY 03 -->
 <div class="story">
   <div class="story-n">03</div>
-  <div class="story-title">6 hours a week back — but the work is changing shape</div>
-  <div class="story-body">Knowledge workers in companies deploying agent workflows are reclaiming an average of 6+ hours per week by offloading routine execution to AI systems. That sounds straightforwardly good — and for many people it is. But the redistribution of work isn't uniform, and understanding where value is moving matters more than the headline number.</div>
-  <div class="story-body">The skills being compressed: research as a standalone capability, first-draft writing, data compilation, routine analysis, scheduling coordination. These are tasks where agent systems are now faster and cheaper than humans. The research ability that once justified a hire is becoming table stakes for the systems doing the hiring.</div>
-  <div class="story-body">The skills gaining premium: judgment on ambiguous problems, domain expertise that catches what agents get subtly wrong, the ability to ask the right question of a complex system, governance of agent behaviour at scale. These are things agents can execute around but cannot originate.</div>
-  <div class="meta"><b>Why it matters ·</b> 6 hours back per week is only good news if you fill them with the things that are gaining value. If those hours go to more of what agents are already doing — the gap closes faster than you'd expect.</div>
-  <div class="inside"><b>From the data —</b> PwC identifies 2026 as the inflection point for the "AI generalist" knowledge worker — one person using agent orchestration to produce what previously required a team. The workers building this capability now are compounding an advantage that's hard to close later.</div>
+  <div class="story-title">Workers with AI skills earn 56% more. Here's which skills are actually driving that.</div>
+  <div class="story-body">The 56% wage premium for AI-skilled workers is real — but it's not for using ChatGPT. The premium is for the work that happens around and above AI systems: directing them, governing them, catching what they get subtly wrong, and owning the outcome when they don't.</div>
+
+  <div class="split">
+    <div class="split-col">
+      <div class="split-label">Skills being compressed</div>
+      <div class="split-body">Research as a standalone task. First-draft writing. Data compilation. Routine analysis. Scheduling. These are faster and cheaper for agents than humans — and getting faster every quarter.</div>
+    </div>
+    <div class="split-col">
+      <div class="split-label ember">Skills gaining premium</div>
+      <div class="split-body">Judgment on ambiguous problems. Domain expertise that catches agent errors. Asking the right question of a complex system. Governance. Accountability. Owning the outcome.</div>
+    </div>
+  </div>
+
+  <div class="meta"><b>Why it matters ·</b> The 6+ hours a week knowledge workers are reclaiming from routine work is only valuable if those hours go to the skills gaining premium — not more of what agents are already doing better.</div>
+  <div class="inside"><b>The signal —</b> AI skill mentions in job postings are up 297% over the past decade. The roles paying the most aren't labelled "AI user" — they're labelled with the domain first, AI second. Finance + AI. Legal + AI. Medicine + AI. Domain depth is still the moat.</div>
 </div>
 
 <!-- STORY 04 -->
 <div class="story">
   <div class="story-n">04</div>
-  <div class="story-title">The job titles appearing right now — and what they tell you</div>
-  <div class="story-body">New roles are forming in real time around the multi-agent layer. None of these existed as standard titles three years ago. All of them are now in active job postings:</div>
-
-  <div style="margin:18px 0;background:#f9f6f0;border:1px solid #e8e4de;border-radius:8px;padding:20px 24px;">
-    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:14px;">Emerging roles — appearing in 2026 job listings</div>
-    <div style="display:flex;flex-direction:column;gap:10px;">
-      <div style="display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;border-bottom:1px solid #e8e4de;padding-bottom:10px;"><span style="background:#0d3f31;color:#78ddb4;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">NEW</span><div><b>AI Agent Manager</b> — oversees multi-agent deployments, monitors for failure modes and unexpected coordination behaviour</div></div>
-      <div style="display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;border-bottom:1px solid #e8e4de;padding-bottom:10px;"><span style="background:#0d3f31;color:#78ddb4;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">NEW</span><div><b>Workflow Orchestrator</b> — designs and optimises agent pipelines for complex business processes</div></div>
-      <div style="display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;border-bottom:1px solid #e8e4de;padding-bottom:10px;"><span style="background:#0d3f31;color:#78ddb4;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">NEW</span><div><b>Agent Governance Specialist</b> — builds policy frameworks and oversight mechanisms for autonomous AI systems</div></div>
-      <div style="display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;"><span style="background:#0d3f31;color:#78ddb4;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;padding:3px 8px;border-radius:4px;flex-shrink:0;margin-top:2px;">NEW</span><div><b>Human-AI Collaboration Lead</b> — defines how human and agent workflows interface, escalation protocols, and accountability structures</div></div>
-    </div>
-  </div>
-
-  <div class="meta"><b>The pattern ·</b> These titles are following the same arc as Chief AI Officer — a role that appeared, then formalised, then built a salary ladder, then became a standard org chart entry. The people who positioned for it early are running departments now.</div>
-  <div class="inside"><b>From the data —</b> 1 in 4 companies now have a Chief AI Officer. 66% expect most companies to hire one within two years. The same acceleration is likely for the roles above — they're one or two years behind the CAIO on the same curve.</div>
+  <div class="story-title">Who loses — and the entry-level problem nobody's solving.</div>
+  <div class="story-body">The hardest hit group in the AI transition isn't who most people expect. It's early-career professionals. Entry-level pathways are narrowing because the tasks that used to justify a junior hire — research, drafting, formatting, coordination — are the exact tasks agents are cheapest at. The ladder is getting shorter at the bottom.</div>
+  <div class="story-body">At the same time, critical senior roles are harder than ever to fill. The supply gap is widest in healthcare AI review, legal AI evaluation, and finance AI oversight — precisely because these require genuine domain seniority that takes years to develop and can't be replicated by a system trained on patterns.</div>
+  <div class="meta"><b>The double signal ·</b> Entry-level paths are contracting. Senior domain expert paths are expanding. The investment decision for anyone currently junior is clear: go deeper into the domain, faster.</div>
+  <div class="inside"><b>From the data —</b> IBM is tripling entry-level hiring. Salesforce is recruiting 1,000 AI-native graduates. The companies that are hiring juniors are specifically hiring for AI fluency + domain awareness — not one without the other.</div>
 </div>
 
-<!-- STORY 05 -->
+<!-- STORY 05 — PREDICTION -->
 <div class="story" style="border-bottom:none;">
   <div class="story-n">05</div>
-  <div class="story-title">What's left for humans — and why it pays 56% more</div>
-  <div class="story-body">When agents can execute, coordinate, and deliver — what's the irreducible human contribution? The answer is consistent across every study on agentic AI adoption: judgment, context, and the question itself.</div>
-  <div class="story-body">Agents are extraordinary executors. They cannot decide whether the goal was right to begin with. They cannot weigh an ethical ambiguity that sits outside their training. They cannot read an organisational dynamic that was never written down. They cannot own the outcome. These are not temporary limitations — they are structural ones, and companies are building accountability frameworks around them that require humans at the centre.</div>
+  <div class="story-title">The prediction: by 2028, managing at least one AI agent is a baseline job requirement.</div>
+  <div class="story-body">In 2005, not having email wasn't an option for a knowledge worker. In 2015, not being on LinkedIn cost you professionally. In 2028, not knowing how to direct, monitor, and take responsibility for an AI agent workflow will carry the same career cost. The window for positioning ahead of that expectation is right now.</div>
 
-  <div style="margin:20px 0;background:#0d3f31;border-radius:8px;padding:24px 28px;display:flex;gap:40px;align-items:center;flex-wrap:wrap;">
-    <div>
-      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;margin-bottom:8px;">Wage premium — AI-skilled workers</div>
-      <div style="font-family:'Fraunces',serif;font-size:42px;font-weight:700;color:#f2a12b;line-height:1;">+56%</div>
-      <div style="font-family:'DM Mono',monospace;font-size:11px;color:#7fd9b8;margin-top:6px;">vs peers in the same role without AI skills</div>
-    </div>
-    <div style="width:1px;height:60px;background:rgba(127,217,184,.25);flex-shrink:0;"></div>
-    <div>
-      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;margin-bottom:8px;">AI skill mentions in job postings</div>
-      <div style="font-family:'Fraunces',serif;font-size:42px;font-weight:700;color:#fff;line-height:1;">+297%</div>
-      <div style="font-family:'DM Mono',monospace;font-size:11px;color:#7fd9b8;margin-top:6px;">increase over the past decade</div>
-    </div>
+  <div class="predict">
+    <div class="predict-label">📍 The FOWL AI Forecast · 2028</div>
+    <div class="predict-text">"Managing an AI team becomes as standard as managing a project. The knowledge worker who can't orchestrate agents is the knowledge worker who can't use a spreadsheet."</div>
+    <div class="predict-sub">The 90%+ of organisations that say culture — not technology — is their primary AI adoption barrier means the bottleneck is human. That's exactly where leverage lives for the professionals who move first.</div>
   </div>
 
-  <div class="meta"><b>The human premium ·</b> Workers with advanced AI skills earn 56% more than peers in the same roles without those skills. That premium is not for knowing how to use a chatbot — it's for understanding how to direct, govern, and take responsibility for agent-driven systems.</div>
-  <div class="meta"><b>What this means practically ·</b> The career move is not to become an AI tool user. It's to become the person who decides what the tools are doing — and who answers for it when something goes wrong.</div>
-  <div class="inside"><b>From the data —</b> 90% of organisations say culture and change management — not technology — is the primary barrier to AI adoption. The bottleneck is human. That's where the leverage is.</div>
+  <div class="meta"><b>The career signal ·</b> The workers building this capability in 2026 are compounding an advantage that will be very hard to close from behind in 2028. Early positioning in an emerging category almost always pays more than catching up late.</div>
+  <div class="inside"><b>The timing —</b> PwC calls 2026 the inflection point for the "AI generalist" knowledge worker. Not someone who uses AI tools. Someone who uses agent orchestration to produce what previously required a team. That person is being hired right now, at the 56% wage premium, while most professionals are still working out whether to care.</div>
+</div>
+
+<!-- ACTION ITEMS -->
+<div class="sec"><span class="sec-tag">✅ 3 Things to Do This Month</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="action-wrap">
+    <div class="action-label">Based on this issue — concrete moves, this month</div>
+    <div class="action-item">
+      <span class="action-num">01</span>
+      <div><b>Check if companies you're applying to use AI screening.</b> Search "[company name] + Pymetrics" or "[company name] + AI hiring." Glassdoor reviews and LinkedIn comments often surface this. If multiple target companies use the same vendor, your rejections may be correlated — not independent.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">02</span>
+      <div><b>Map the repeatable workflows in your current role.</b> Any process that involves: research → draft → review → send is a candidate for agent automation. The person who understands these workflows at the process level is the natural orchestrator when the tooling arrives. Document them now.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">03</span>
+      <div><b>Position your domain expertise explicitly — not your AI tool usage.</b> On your LinkedIn, CV, and platform profiles: the skill being paid the 56% premium is domain depth + AI governance, not "I use ChatGPT." Lead with your field. Add AI second. That's the combination the market is paying for.</div>
+    </div>
+  </div>
 </div>
 
 <!-- SIGNAL & CHATTER -->
 <div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
 <div class="card">
-  <div class="sig-intro">What the research and the community are saying — and what it maps to.</div>
-  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The coordination problem is real.</b> Multiple studies flag that when agents optimise independently — one for speed, one for accuracy, one for cost — they can conflict without flagging it. Human oversight at the orchestration layer is not optional. It's the reason the "AI Agent Manager" role exists.</div></div>
-  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>"Algorithmic monoculture" is the phrase to know.</b> The Stanford hiring study introduced it. One vendor, multiple companies, one rejected applicant — rejected everywhere simultaneously. As AI systems consolidate around a small number of vendors, this risk compounds beyond hiring into credit, insurance, and other high-stakes decisions.</div></div>
-  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The B2B AI funding story is the real signal.</b> B2B AI startups raised 4x more than consumer-focused ones in 2026. The money is going to companies building workflow automation, agent orchestration, and enterprise knowledge layers — not consumer apps. That's where the hiring is following.</div></div>
-  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Entry-level pathways are narrowing — but not closing.</b> IBM is tripling entry-level hiring. Salesforce is recruiting 1,000 AI-native graduates. The path is changing, not disappearing. The new entry point is AI fluency + domain awareness. Not just one of the two.</div></div>
+  <div class="sig-intro">What the research and community are saying — mapped to this week's signals.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The algorithmic monoculture problem extends beyond hiring.</b> The same vendor concentration that produces correlated rejections in hiring is emerging in credit decisions, insurance underwriting, and performance management. One system, many companies, one outcome. The Stanford paper is the start of a much bigger conversation.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>B2B AI funding is 4x consumer AI in 2026.</b> The investment is going to workflow automation, agent orchestration, and enterprise knowledge layers. That's where hiring follows. Consumer AI apps are the visible surface — the B2B agent infrastructure underneath is where the jobs are forming.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The coordination problem is the overlooked risk.</b> When agents optimise independently — one for speed, one for accuracy, one for cost — they can conflict without flagging it. The human role in multi-agent systems isn't going away. It's moving to a different layer: governance, oversight, and the call when agents disagree.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>90% of organisations say culture — not technology — is the barrier.</b> The bottleneck to AI adoption isn't the tools. It's the people who know how to work with them. That's a window for anyone building this capability now — and it closes as the tools get easier and the supply of capable people catches up.</div></div>
 </div>
 
 <!-- EMERGING CAREER -->
@@ -345,24 +367,24 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <div class="card-dark">
   <div class="career-eye">This week</div>
   <div class="career-title">AI Workflow Orchestrator</div>
-  <div class="career-body">The role that sits between business strategy and agentic execution. An AI Workflow Orchestrator designs the pipelines that multi-agent systems run on — deciding which tasks go to which agents, where human checkpoints sit, and what happens when the system produces an output no one expected.<br><br>This is not a purely technical role. The best orchestrators combine process design thinking with enough technical literacy to understand agent constraints, and enough domain knowledge to catch when an agent's output is subtly wrong. They are the translators between what organisations want and what agent systems can reliably deliver.<br><br>Companies deploying agent workflows at scale are finding that the orchestration layer — the decisions about what agents work on and how — is where the most value is created and the most risk sits. That's the role being built out now.</div>
-  <div class="career-why"><b>How to position now:</b> Start mapping the repeatable, multi-step workflows in your current role — the ones that involve research, drafting, review, and handoff. These are the first candidates for agent automation, and the person who knows them best is the natural orchestrator. Document them. Understand them at the process level. That's the foundation the role is built on.</div>
+  <div class="career-body">The role that sits between business strategy and agentic execution. An AI Workflow Orchestrator decides what agent systems work on, how the pipeline is structured, where human judgment stays in the loop, and what happens when something goes wrong. They don't build the agents — they direct them.<br><br>This is not a purely technical role. It requires process design thinking, enough technical literacy to understand what agents can and can't reliably do, and domain knowledge deep enough to catch when an output is subtly wrong. The people building this skill set now are doing so ahead of a formalised job title — which means they're early in exactly the right way.</div>
+  <div class="career-why"><b>How to position now:</b> Map your workflows. Understand what a multi-agent system would need to replicate them. Learn one orchestration tool — n8n, AutoGen, or CrewAI are accessible entry points. The combination of domain knowledge + orchestration literacy is the profile. You likely already have the first half.</div>
 </div>
 
 <!-- CLOSING -->
 <div class="card" style="padding-bottom:0;">
-  <div class="closing-text">The conversation about AI and work has been dominated by two frames: replacement and augmentation. The multi-agent picture is more specific than either. Execution is being handed to coordinated systems. What remains — and what compounds in value — is the work that requires a human to own the outcome. Setting the goal. Catching the error. Making the judgment call. Answering for the result.<br><br>The 56% wage premium exists because that work is genuinely harder to automate than anyone expected. The people earning it aren't fighting the agents. They're directing them.</div>
+  <div class="closing-text">Two stories. One shift.<br><br>AI hiring tools are making it harder for qualified people to get in the room. And AI agent systems are changing what happens once you're inside. The workers who understand both — who know how to navigate the algorithmic gatekeeping and position for the roles that emerge on the other side — are the ones building the most durable career positions right now.<br><br>The AI Manager isn't a job title yet. In three years, it will be standard. The window between those two moments is where career leverage is built.</div>
 </div>
 
 <!-- STAMP -->
 <div class="card-dark" style="margin-top:0;text-align:center;">
-  <div class="stamp-text">"The agents are doing the work.<br><span>Someone still has to decide what work is worth doing."</span></div>
+  <div class="stamp-text">"The highest-paid person in the room<br><span>may soon be the one managing the agents — not doing the work."</span></div>
 </div>
 
 <!-- REPLY CTA -->
 <div class="card-mint">
   <div class="reply-label">💬 One question — reply and tell us</div>
-  <div class="reply-text">What's one task in your job right now that you think a team of AI agents could handle end-to-end — and does that thought free you or scare you?<br><br>Hit reply. One sentence is enough. We read every one.</div>
+  <div class="reply-text">Are you more concerned about AI affecting how you get hired — or how your job looks once you're in it?<br><br>One line is enough. We read every reply and it shapes what we cover next.</div>
 </div>
 
 <!-- SHARE -->
@@ -376,7 +398,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <!-- FOOTER -->
 <div class="footer">
   <div class="footer-brand">FOWL AI</div>
-  <div class="footer-fine">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
+  <div class="footer-fine">Career signals for the AI economy.</div>
   <div class="footer-fine" style="margin-top:6px;">Weekly · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="https://www.fowl-ai.com">fowl-ai.com</a></div>
 </div>
 
