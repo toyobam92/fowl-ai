@@ -75,7 +75,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .lead-headline{font-family:'Fraunces',serif;font-weight:700;font-size:30px;color:#fff;line-height:1.15;margin-bottom:14px;}
 .lead-body{font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#a9e8cf;margin-bottom:14px;}
 .lead-stat-row{display:flex;gap:12px;margin:20px 0;flex-wrap:wrap;}
-.lead-stat{background:rgba(255,255,255,.06);border:1px solid rgba(127,217,184,.2);border-radius:8px;padding:16px 20px;flex:1;min-width:130px;}
+.lead-stat{background:rgba(255,255,255,.06);border:1px solid rgba(127,217,184,.2);border-radius:8px;padding:16px 20px;flex:1;min-width:130px;display:flex;flex-direction:column;}
 .lead-stat-num{font-family:'Fraunces',serif;font-size:30px;font-weight:700;color:#f2a12b;line-height:1;}
 .lead-stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#7fd9b8;text-transform:uppercase;margin-top:6px;line-height:1.4;}
 .lead-signal{font-family:'DM Mono',monospace;font-size:11px;color:#7fd9b8;margin-top:16px;padding-top:16px;border-top:1px solid rgba(127,217,184,.2);line-height:1.6;}
@@ -135,20 +135,47 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .footer-fine a{color:#7fd9b8;text-decoration:underline;}
 
 @media(max-width:680px){
+  /* layout */
   .split{grid-template-columns:1fr;}
   .split-col:first-child{border-radius:8px 8px 0 0;border-right:1px solid #e8e4de;border-bottom:none;}
   .split-col:last-child{border-radius:0 0 8px 8px;}
-  .mast-title{font-size:36px;}
-  .card,.card-dark,.card-amber,.card-mint,.card-coral,.mast,.sec,.story,.footer,.lead-wrap,.nova-wrap{padding-left:22px;padding-right:22px;}
+
+  /* padding */
+  .card,.card-dark,.card-amber,.card-mint,.card-coral,.mast,.sec,.story,.footer,.lead-wrap,.nova-wrap{padding-left:20px;padding-right:20px;}
+
+  /* masthead */
+  .mast-title{font-size:34px;letter-spacing:-1.5px;}
+  .mast-sub{font-size:16px;}
   .mast-meta{flex-direction:column;gap:6px;margin-bottom:18px;}
-  .brand-lockup{gap:12px;margin:16px 0 22px;}
-  .brand-dot{width:36px;height:36px;flex-shrink:0;}
-  .brand-fowl{font-size:22px;letter-spacing:6px;}
-  .brand-divider{height:36px;}
-  .brand-name{font-size:22px;}
-  .lead-stat-row{gap:10px;}
-  .lead-stat{min-width:110px;}
-  .lead-headline{font-size:24px;}
+  .brand-lockup{gap:10px;margin:14px 0 20px;}
+  .brand-dot{width:34px;height:34px;flex-shrink:0;}
+  .brand-fowl{font-size:20px;letter-spacing:5px;}
+  .brand-divider{height:32px;}
+  .brand-name{font-size:20px;}
+
+  /* brand strip — stack to 1 column */
+  .brand-strip{flex-direction:column;gap:0;margin-top:20px;}
+  .brand-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:12px;margin-top:12px;}
+  .brand-item:first-child{border-top:none;padding-top:0;margin-top:0;}
+  .brand-item b{font-size:10px;letter-spacing:1.5px;}
+  .brand-item span{font-size:13px;}
+
+  /* lead story stats — stack full width */
+  .lead-stat-row{flex-direction:column;gap:10px;}
+  .lead-stat{min-width:100%;width:100%;}
+  .lead-stat-num{font-size:32px;}
+  .lead-stat-label{font-size:11px;letter-spacing:1px;}
+  .lead-headline{font-size:22px;}
+  .lead-body{font-size:14px;}
+
+  /* action items — ensure badge doesn't squash */
+  .action-item{gap:10px;}
+  .action-num{font-size:10px;padding:2px 6px;flex-shrink:0;}
+
+  /* stories */
+  .story-n{font-size:40px;}
+  .story-title{font-size:20px;}
+  .tldr-text{font-size:20px;}
 }
 </style></head><body>
 
