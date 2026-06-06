@@ -79,6 +79,44 @@
     .soon-badge{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:#0d3f31;color:#78ddb4;padding:6px 14px;border-radius:999px;display:inline-block;margin-bottom:16px;}
     .buy-btn.soon{background:#9aada5;cursor:default;}
 
+    /* Tabs */
+    .tabs-wrap{padding:0 24px;background:#0d3f31;border-bottom:1px solid rgba(255,255,255,.1);}
+    .tabs{display:flex;gap:0;width:min(1120px,100%);margin:0 auto;}
+    .tab-btn{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;padding:16px 24px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;}
+    .tab-btn:hover{color:#fff;}
+    .tab-btn.active{color:#f2a12b;border-bottom-color:#f2a12b;}
+    .tab-panel{display:none;}
+    .tab-panel.active{display:block;}
+
+    /* Intelligence report cards */
+    .report-card{background:#13241e;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(0,0,0,.18);border:1px solid rgba(127,217,184,.12);transition:box-shadow .2s,border-color .2s;}
+    .report-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.3);border-color:rgba(127,217,184,.3);}
+    .report-top{padding:28px 28px 20px;flex:1;}
+    .report-number{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;background:rgba(242,161,43,.12);border:1px solid rgba(242,161,43,.25);display:inline-block;padding:4px 10px;border-radius:4px;margin-bottom:16px;}
+    .report-title{font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1.2;margin-bottom:10px;color:#fff;}
+    .report-desc{font-size:14px;color:#7fd9b8;line-height:1.7;margin-bottom:16px;}
+    .report-bullets{list-style:none;padding:0;margin-bottom:0;}
+    .report-bullets li{font-size:13px;color:#a9e8cf;padding-left:18px;position:relative;margin-bottom:7px;}
+    .report-bullets li::before{content:'→';position:absolute;left:0;color:#f2a12b;font-size:11px;top:1px;}
+    .report-bottom{padding:20px 28px;border-top:1px solid rgba(127,217,184,.12);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+    .report-price{font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:700;color:#fff;}
+    .report-note{font-size:11px;color:#7fd9b8;font-family:"DM Mono",monospace;margin-top:2px;}
+    .report-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:999px;background:rgba(127,217,184,.12);border:1px solid rgba(127,217,184,.3);color:#78ddb4;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;}
+
+    /* Intel section intro */
+    .intel-intro{background:#13241e;padding:32px 24px;border-bottom:1px solid rgba(127,217,184,.1);}
+    .intel-intro-inner{width:min(1120px,100%);margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;}
+    .intel-tag{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;}
+    .intel-heading{font-family:Fraunces,Georgia,serif;font-size:26px;color:#fff;line-height:1.2;margin-bottom:8px;}
+    .intel-body{font-size:14px;color:#7fd9b8;line-height:1.7;max-width:560px;}
+
+    @media(max-width:640px){
+      .tab-btn{font-size:10px;letter-spacing:1px;padding:14px 16px;}
+      .report-bottom{flex-direction:column;align-items:flex-start;gap:14px;}
+      .report-btn{width:100%;justify-content:center;}
+      .intel-intro-inner{flex-direction:column;}
+    }
+
     /* Footer */
     .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
     .footer a{color:#78ddb4;}
@@ -130,96 +168,241 @@
     </div>
   </div>
 
-  <div class="bundle-bar">
-    <div class="wrap">
-      <p>All 3 guides launching soon. <span>The full AI Income Stack.</span> <span style="font-family:'DM Mono',monospace;font-size:12px;background:#0d3f31;color:#78ddb4;padding:4px 14px;border-radius:999px;margin-left:12px;">Coming soon</span></p>
+  <!-- TABS -->
+  <div class="tabs-wrap">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="switchTab('guides', this)">Guides &amp; Templates</button>
+      <button class="tab-btn" onclick="switchTab('reports', this)">Intelligence Reports</button>
     </div>
   </div>
 
-  <section class="products-section">
-    <div class="wrap">
-      <div class="grid">
-
-        <!-- Product 1 -->
-        <div class="product-card">
-          <div class="card-top">
-            <div class="card-number">Product 01</div>
-            <div class="card-title">AI Expert Platform Blueprint</div>
-            <div class="card-authority">Updated May 2026 · Based on 500+ hours across platforms · For domain experts, analysts &amp; consultants</div>
-            <p class="card-desc">The exact platforms, strategies, and positioning moves to earn $2,000–$5,000/month using your existing skills — built from real experience, not theory.</p>
-            <ul class="card-bullets">
-              <li>8 platforms ranked by pay and accessibility</li>
-              <li>Mercor interview playbook ($70–$150/hr)</li>
-              <li>Rate benchmarks by skill level</li>
-              <li>30-day action plan week by week</li>
-              <li>5 mistakes that slow most people down</li>
-            </ul>
-          </div>
-          <div class="card-bottom">
-            <div>
-              <div class="price">$27</div>
-              <div class="price-note">One-time · Instant download</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
-              <span class="buy-btn soon">Coming soon</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 2 -->
-        <div class="product-card">
-          <div class="card-top">
-            <div class="card-number">Product 02</div>
-            <div class="card-title">How to Pass Your AI Interview</div>
-            <div class="card-authority">Updated May 2026 · Field-tested across Mercor, Outlier &amp; Handshake AI · Real Q&amp;A with scored examples</div>
-            <p class="card-desc">The exact framework for clearing AI platform screenings — from Mercor's AI video interview to Outlier's skills assessment — and landing the rates your background deserves.</p>
-            <ul class="card-bullets">
-              <li>Full Mercor AI screening walkthrough</li>
-              <li>Real Q&amp;A with high-scoring example answers</li>
-              <li>Language that scores high vs. language that doesn't</li>
-              <li>Outlier &amp; DataAnnotation assessment strategies</li>
-              <li>7-day interview prep plan</li>
-            </ul>
-          </div>
-          <div class="card-bottom">
-            <div>
-              <div class="price">$19</div>
-              <div class="price-note">One-time · Instant download</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
-              <span class="buy-btn soon">Coming soon</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Product 3 -->
-        <div class="product-card">
-          <div class="card-top">
-            <div class="card-number">Product 03</div>
-            <div class="card-title">AI Work Resume Template</div>
-            <p class="card-desc">A professional resume template built for AI platform applications — with a real completed example from a working data scientist.</p>
-            <ul class="card-bullets">
-              <li>Blank template ready to fill in</li>
-              <li>Real completed example (data science / fintech)</li>
-              <li>The AI Evaluation section most applicants miss</li>
-              <li>Before/after rewrites for every section</li>
-              <li>Keyword guide for Mercor, Outlier &amp; Scale AI</li>
-            </ul>
-          </div>
-          <div class="card-bottom">
-            <div>
-              <div class="price">$15</div>
-              <div class="price-note">One-time · Instant download</div>
-            </div>
-            <div style="display:flex;flex-direction:column;align-items:flex-end;gap:8px;">
-              <span class="buy-btn soon">Coming soon</span>
-            </div>
-          </div>
-        </div>
-
+  <!-- TAB 1: GUIDES -->
+  <div id="tab-guides" class="tab-panel active">
+    <div class="bundle-bar">
+      <div class="wrap">
+        <p>All 3 guides launching soon. <span>The full AI Income Stack.</span> <span style="font-family:'DM Mono',monospace;font-size:12px;background:#0d3f31;color:#78ddb4;padding:4px 14px;border-radius:999px;margin-left:12px;">Coming soon</span></p>
       </div>
     </div>
-  </section>
+    <section class="products-section">
+      <div class="wrap">
+        <div class="grid">
+
+          <!-- Product 1 -->
+          <div class="product-card">
+            <div class="card-top">
+              <div class="card-number">Product 01</div>
+              <div class="card-title">AI Expert Platform Blueprint</div>
+              <div class="card-authority">Updated May 2026 · Based on 500+ hours across platforms · For domain experts, analysts &amp; consultants</div>
+              <p class="card-desc">The exact platforms, strategies, and positioning moves to earn $2,000–$5,000/month using your existing skills — built from real experience, not theory.</p>
+              <ul class="card-bullets">
+                <li>8 platforms ranked by pay and accessibility</li>
+                <li>Mercor interview playbook ($70–$150/hr)</li>
+                <li>Rate benchmarks by skill level</li>
+                <li>30-day action plan week by week</li>
+                <li>5 mistakes that slow most people down</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div>
+                <div class="price">$27</div>
+                <div class="price-note">One-time · Instant download</div>
+              </div>
+              <span class="buy-btn soon">Coming soon</span>
+            </div>
+          </div>
+
+          <!-- Product 2 -->
+          <div class="product-card">
+            <div class="card-top">
+              <div class="card-number">Product 02</div>
+              <div class="card-title">How to Pass Your AI Interview</div>
+              <div class="card-authority">Updated May 2026 · Field-tested across Mercor, Outlier &amp; Handshake AI · Real Q&amp;A with scored examples</div>
+              <p class="card-desc">The exact framework for clearing AI platform screenings — from Mercor's AI video interview to Outlier's skills assessment — and landing the rates your background deserves.</p>
+              <ul class="card-bullets">
+                <li>Full Mercor AI screening walkthrough</li>
+                <li>Real Q&amp;A with high-scoring example answers</li>
+                <li>Language that scores high vs. language that doesn't</li>
+                <li>Outlier &amp; DataAnnotation assessment strategies</li>
+                <li>7-day interview prep plan</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div>
+                <div class="price">$19</div>
+                <div class="price-note">One-time · Instant download</div>
+              </div>
+              <span class="buy-btn soon">Coming soon</span>
+            </div>
+          </div>
+
+          <!-- Product 3 -->
+          <div class="product-card">
+            <div class="card-top">
+              <div class="card-number">Product 03</div>
+              <div class="card-title">AI Work Resume Template</div>
+              <p class="card-desc">A professional resume template built for AI platform applications — with a real completed example from a working data scientist.</p>
+              <ul class="card-bullets">
+                <li>Blank template ready to fill in</li>
+                <li>Real completed example (data science / fintech)</li>
+                <li>The AI Evaluation section most applicants miss</li>
+                <li>Before/after rewrites for every section</li>
+                <li>Keyword guide for Mercor, Outlier &amp; Scale AI</li>
+              </ul>
+            </div>
+            <div class="card-bottom">
+              <div>
+                <div class="price">$15</div>
+                <div class="price-note">One-time · Instant download</div>
+              </div>
+              <span class="buy-btn soon">Coming soon</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- TAB 2: INTELLIGENCE REPORTS -->
+  <div id="tab-reports" class="tab-panel">
+    <div class="intel-intro">
+      <div class="intel-intro-inner">
+        <div>
+          <div class="intel-tag">FOWL AI · Intelligence Reports</div>
+          <div class="intel-heading">Data-led reports on the AI economy.</div>
+          <div class="intel-body">Deep-dive reports tracking the signals that matter for knowledge workers — startups, agents, jobs, funding, and tools. Updated regularly. Built for people making career and income decisions in the AI era.</div>
+        </div>
+        <div style="background:rgba(242,161,43,.1);border:1px solid rgba(242,161,43,.25);border-radius:10px;padding:16px 22px;flex-shrink:0;">
+          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:6px;">Early access</div>
+          <div style="font-family:Fraunces,Georgia,serif;font-size:18px;color:#fff;line-height:1.3;">Subscribe free to get<br>first access when live.</div>
+          <a href="https://fowlai.eo.page/vmk69" style="display:inline-block;margin-top:12px;background:#f2a12b;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;text-decoration:none;">Subscribe free →</a>
+        </div>
+      </div>
+    </div>
+
+    <section class="products-section" style="background:#0f1a14;">
+      <div class="wrap">
+        <div class="grid">
+
+          <!-- Report 1 -->
+          <div class="report-card">
+            <div class="report-top">
+              <div class="report-number">Report 01</div>
+              <div class="report-title">AI Startup Radar</div>
+              <p class="report-desc">The fastest-growing AI startups ranked by hiring velocity, funding trajectory, and domain focus — updated quarterly.</p>
+              <ul class="report-bullets">
+                <li>50+ startups tracked by growth signal</li>
+                <li>Hiring role breakdowns per company</li>
+                <li>Funding rounds and valuation milestones</li>
+                <li>Domain focus: legal, healthcare, finance, dev tools</li>
+                <li>FOWL AI verdict: watch, apply, or ignore</li>
+              </ul>
+            </div>
+            <div class="report-bottom">
+              <div>
+                <div class="report-price">Coming soon</div>
+                <div class="report-note">Quarterly report · Subscriber early access</div>
+              </div>
+              <span class="report-btn">Notify me</span>
+            </div>
+          </div>
+
+          <!-- Report 2 -->
+          <div class="report-card">
+            <div class="report-top">
+              <div class="report-number">Report 02</div>
+              <div class="report-title">AI Agent Landscape</div>
+              <p class="report-desc">A structured map of the multi-agent AI ecosystem — platforms, frameworks, enterprise deployments, and the roles being created around them.</p>
+              <ul class="report-bullets">
+                <li>Agent platforms ranked by enterprise adoption</li>
+                <li>Frameworks: AutoGen, CrewAI, n8n and more</li>
+                <li>Job titles emerging around agent management</li>
+                <li>Salary data for agent-adjacent roles</li>
+                <li>Which industries are deploying fastest</li>
+              </ul>
+            </div>
+            <div class="report-bottom">
+              <div>
+                <div class="report-price">Coming soon</div>
+                <div class="report-note">Bi-annual report · Subscriber early access</div>
+              </div>
+              <span class="report-btn">Notify me</span>
+            </div>
+          </div>
+
+          <!-- Report 3 -->
+          <div class="report-card">
+            <div class="report-top">
+              <div class="report-number">Report 03</div>
+              <div class="report-title">AI Jobs Report</div>
+              <p class="report-desc">The state of AI-adjacent hiring — what roles are growing, what's contracting, where the salary premiums are, and what skills are driving them.</p>
+              <ul class="report-bullets">
+                <li>Top 20 fastest-growing AI job titles</li>
+                <li>Salary benchmarks by role and domain</li>
+                <li>Skills commanding the highest premiums</li>
+                <li>Entry-level vs. senior market analysis</li>
+                <li>Which companies are hiring most aggressively</li>
+              </ul>
+            </div>
+            <div class="report-bottom">
+              <div>
+                <div class="report-price">Coming soon</div>
+                <div class="report-note">Quarterly report · Subscriber early access</div>
+              </div>
+              <span class="report-btn">Notify me</span>
+            </div>
+          </div>
+
+          <!-- Report 4 -->
+          <div class="report-card">
+            <div class="report-top">
+              <div class="report-number">Report 04</div>
+              <div class="report-title">AI Funding Pulse</div>
+              <p class="report-desc">Where the money is moving in the AI economy — deals, valuations, and what each funding round signals for the knowledge worker market.</p>
+              <ul class="report-bullets">
+                <li>Top 30 funded AI companies tracked</li>
+                <li>B2B vs. consumer funding split analysis</li>
+                <li>Domain-level investment heat map</li>
+                <li>What funding signals about hiring 6–12 months out</li>
+                <li>FOWL AI career implication for each major round</li>
+              </ul>
+            </div>
+            <div class="report-bottom">
+              <div>
+                <div class="report-price">Coming soon</div>
+                <div class="report-note">Quarterly report · Subscriber early access</div>
+              </div>
+              <span class="report-btn">Notify me</span>
+            </div>
+          </div>
+
+          <!-- Report 5 -->
+          <div class="report-card">
+            <div class="report-top">
+              <div class="report-number">Report 05</div>
+              <div class="report-title">AI Tools Database</div>
+              <p class="report-desc">A curated, rated database of AI tools for knowledge workers — ranked by actual productivity impact, learning curve, and career signal value.</p>
+              <ul class="report-bullets">
+                <li>100+ tools reviewed and rated</li>
+                <li>Categorised by use case and domain</li>
+                <li>Learning curve vs. career signal score</li>
+                <li>Free vs. paid tier breakdown</li>
+                <li>Updated monthly as new tools launch</li>
+              </ul>
+            </div>
+            <div class="report-bottom">
+              <div>
+                <div class="report-price">Coming soon</div>
+                <div class="report-note">Living database · Monthly updates</div>
+              </div>
+              <span class="report-btn">Notify me</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </div>
 
   <div style="padding:24px;background:#f2ede3;border-top:1px solid #ddd8cc;">
     <div class="wrap">
@@ -235,5 +418,13 @@
     <div style="margin-top:6px;font-size:10px;opacity:.6;">Digital products are non-refundable. Income figures represent outcomes achievable by well-positioned domain experts and are not typical results. FOWL AI is not affiliated with any platform mentioned.</div>
   </footer>
 
+  <script>
+    function switchTab(name, btn) {
+      document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
 </body>
 </html>
