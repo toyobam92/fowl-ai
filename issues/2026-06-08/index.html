@@ -186,6 +186,17 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <!-- LEAD STORY — STANFORD -->
 <div class="lead-wrap">
   <div class="lead-kicker">🚨 Lead Story · Hiring Signal</div>
+
+  <!-- Nova flags the signal -->
+  <div style="display:flex;align-items:flex-start;gap:16px;background:rgba(255,255,255,.05);border:1px solid rgba(242,161,43,.25);border-radius:10px;padding:16px 20px;margin-bottom:22px;">
+    <div style="width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:16px;">🎙️</div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:5px;">Nova flagged this signal</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:12px;color:#7fd9b8;margin-bottom:6px;line-height:1.4;">Nova is FOWL AI's news anchor — she tracks the signals every week and breaks them down in under 60 seconds.</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#e2f2eb;line-height:1.6;">"Stanford just analysed 4 million job applications. What they found should change how every knowledge worker applies for their next job." — <a href="https://www.instagram.com/p/DZNZ6_AOSWF/" target="_blank" rel="noopener noreferrer" style="color:#f2a12b;text-decoration:underline;">Watch Nova's full breakdown →</a></div>
+    </div>
+  </div>
+
   <div class="lead-headline">Stanford found that AI hiring tools may be rejecting you across every company — simultaneously.</div>
   <div class="lead-body">Researchers from Stanford, Chapman, and Northeastern just published the largest study of AI hiring algorithms to date. They analysed over 4 million job applications across 156 employers — mostly Fortune 100 companies — all screened by the same AI hiring vendor. What they found should change how you approach every job application from here.</div>
 
@@ -214,39 +225,6 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   <div class="lead-signal"><b>What this means for you right now ·</b> Before applying to any role, search whether the company uses AI screening tools (LinkedIn, Glassdoor reviews, and the company's own careers page often reveal this). If multiple companies on your list use the same vendor, you may be getting rejected across all of them from a single data point. The paper will be presented at the ACM Conference on Fairness, Accountability, and Transparency. This conversation is going to get much louder.</div>
 </div>
 
-<!-- NOVA -->
-<div class="nova-wrap">
-  <div class="nova-eyebrow">🎙️ FOWL AI News · Nova</div>
-  <div class="nova-headline">Nova covers the full Stanford story</div>
-  <div class="nova-body">The numbers, what algorithmic monoculture actually means, and why this changes how you should approach your job search — right now.</div>
-  <div class="nova-embed">
-    <blockquote
-      class="instagram-media"
-      data-instgrm-permalink="https://www.instagram.com/p/DZNZ6_AOSWF/"
-      data-instgrm-version="14"
-      style="background:#fff;border:0;border-radius:12px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:0;max-width:540px;min-width:326px;padding:0;width:100%;">
-      <div style="padding:16px;">
-        <a href="https://www.instagram.com/p/DZNZ6_AOSWF/" style="background:#fff;line-height:0;padding:0;text-align:center;text-decoration:none;width:100%;" target="_blank" rel="noopener noreferrer">
-          <div style="display:flex;flex-direction:row;align-items:center;padding-bottom:12px;">
-            <div style="background-color:#f4f4f4;border-radius:50%;height:40px;width:40px;flex-shrink:0;"></div>
-            <div style="display:flex;flex-direction:column;flex-grow:1;padding-left:10px;">
-              <div style="background-color:#f4f4f4;border-radius:4px;height:14px;width:100px;margin-bottom:6px;"></div>
-              <div style="background-color:#f4f4f4;border-radius:4px;height:14px;width:60px;"></div>
-            </div>
-          </div>
-          <div style="padding-bottom:16px;">
-            <div style="background-color:#f4f4f4;border-radius:4px;height:14px;width:100%;margin-bottom:8px;"></div>
-            <div style="background-color:#f4f4f4;border-radius:4px;height:14px;width:80%;"></div>
-          </div>
-          <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#3897f0;padding-bottom:4px;">View on Instagram →</div>
-        </a>
-      </div>
-    </blockquote>
-  </div>
-  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;color:#3a5248;text-align:center;margin-top:14px;text-transform:uppercase;">Follow @fowlai on Instagram for weekly news drops</div>
-</div>
-<script async src="//www.instagram.com/embed.js"></script>
-
 <!-- INTRO -->
 <div class="card">
   <div class="intro-text">The Stanford study is the most visible sign of a much larger shift. AI isn't just changing how companies operate — it's changing who gets hired, who gets managed out, and who gets to set the agenda.<br><br>While algorithmic tools quietly filter applicants at the bottom of the funnel, a different transformation is happening at the top: the emergence of a new kind of worker. Not the person who uses AI tools. The person who manages the AI agents that use tools. This issue is the breakdown of both — the threat and the opportunity, side by side.</div>
@@ -258,11 +236,12 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <!-- STORY 01 -->
 <div class="story">
   <div class="story-n">01</div>
-  <div class="story-title">AI agents are holding meetings without you. Here's what that actually looks like.</div>
-  <div class="story-body">Multi-agent AI isn't a concept anymore — it's running in production. An orchestrator AI receives a goal, breaks it into subtasks, and assigns each to a specialist subagent. One researches. One writes. One checks the output. One sends. No human in the loop for any individual step. This is already deployed inside 57% of software companies and 55% of customer service operations in 2026.</div>
-  <div class="story-body">The performance gap is already measurable: tasks complete 3–5x faster at 90% lower cost compared to single-agent approaches. And productivity in AI-exposed industries grew 27% annually since 2022 — compared to 7% before. That gap compounds every year.</div>
-  <div class="meta"><b>Why it matters ·</b> When "a team handling this" could mean a team of agents with no salary, the question shifts from "how do I do this work?" to "what work should I be setting up?"</div>
-  <div class="inside"><b>The signal —</b> 40% of enterprise AI budgets in 2026 are allocated to agentic workflows — up from near zero in 2023. The infrastructure is being built right now.</div>
+  <div class="story-title">AI agents are already running enterprise teams. Here's the career math.</div>
+  <div class="story-body">Multi-agent AI is running in production inside 57% of software companies right now. An orchestrator AI receives a goal, assigns specialist subagents to research, write, check, and send — no human in the loop for any individual step. Tasks complete 3–5x faster at 90% lower cost.</div>
+  <div class="story-body">The career math: when execution costs 90% less, companies don't do 90% less work — they do 10x more of it. The people who win aren't the ones doing the execution. They're the ones deciding what gets executed.</div>
+  <div class="meta"><b>Salary signal ·</b> Workers directing AI systems earn 56% more than peers in the same role without that layer. The premium is for governance and judgment — not tool usage.</div>
+  <div class="meta"><b>The opportunity ·</b> Every enterprise needs someone who understands what agents can reliably do — and where they fail. That person doesn't exist in most organisations yet.</div>
+  <div class="inside"><b>The signal —</b> 40% of enterprise AI budgets are now allocated to agentic workflows — up from near zero in 2023. The infrastructure is being built. The people to run it are still being found.</div>
 </div>
 
 <!-- STORY 02 -->
@@ -319,11 +298,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <!-- STORY 05 — PREDICTION -->
 <div class="story" style="border-bottom:none;">
   <div class="story-n">05</div>
-  <div class="story-title">The prediction: by 2028, managing at least one AI agent is a baseline job requirement.</div>
+  <div class="story-title">Nova's Forecast: by 2028, managing at least one AI agent is a baseline job requirement.</div>
   <div class="story-body">In 2005, not having email wasn't an option for a knowledge worker. In 2015, not being on LinkedIn cost you professionally. In 2028, not knowing how to direct, monitor, and take responsibility for an AI agent workflow will carry the same career cost. The window for positioning ahead of that expectation is right now.</div>
 
   <div class="predict">
-    <div class="predict-label">📍 The FOWL AI Forecast · 2028</div>
+    <div class="predict-label">📍 Nova's Forecast · 2028</div>
     <div class="predict-text">"Managing an AI team becomes as standard as managing a project. The knowledge worker who can't orchestrate agents is the knowledge worker who can't use a spreadsheet."</div>
     <div class="predict-sub">The 90%+ of organisations that say culture — not technology — is their primary AI adoption barrier means the bottleneck is human. That's exactly where leverage lives for the professionals who move first.</div>
   </div>
