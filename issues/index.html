@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Issues — FOWL AI</title>
+  <meta name="description" content="Every FOWL AI issue — career signals for the AI economy. Weekly signals on AI shifts, emerging jobs, and what knowledge workers need to know.">
+  <meta property="og:title" content="All Issues — FOWL AI" />
+  <meta property="og:description" content="Every FOWL AI issue, public and shareable. Career signals for the AI economy." />
+  <meta property="og:url" content="https://www.fowl-ai.com/issues/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;text-decoration:none;}
+
+    /* Nav */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:20px;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;white-space:nowrap;}
+    .nav-link:hover{color:#fff;}
+    @keyframes nav-bounce{0%,70%,100%{transform:translateY(0);}74%{transform:translateY(-4px);}78%{transform:translateY(0);}82%{transform:translateY(-2px);}86%{transform:translateY(0);}}
+    .nav-link.bounce{display:inline-block;animation:nav-bounce 4s ease-in-out infinite;}
+    .nav-link.bounce:hover{color:#fff;animation:none;}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0);}}
+    @keyframes wiggle{0%,80%,100%{transform:rotate(0deg) scale(1);}83%{transform:rotate(-2deg) scale(1.04);}86%{transform:rotate(2deg) scale(1.04);}89%{transform:rotate(-1deg) scale(1.02);}}
+    .sub-btn{display:inline-flex;align-items:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;}
+    .sub-btn:hover{transform:scale(1.06);animation:none;}
+
+    /* Hero */
+    .page-hero{background:#0d3f31;color:#fff;padding:48px 24px 56px;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
+    .page-hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(34px,5vw,52px);line-height:1.08;margin-bottom:14px;}
+    .page-hero h1 span{color:#f2a12b;}
+    .page-hero p{font-size:17px;color:#e2f2eb;max-width:560px;line-height:1.75;}
+
+    /* Volume headers */
+    .vol-head{padding:18px 0 10px;border-bottom:2px solid #0d3f31;margin-bottom:0;}
+    .vol-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#1a5f4a;font-weight:500;}
+
+    /* Issue rows */
+    .issues-section{padding:36px 24px 72px;}
+    .archive{display:grid;gap:12px;margin-bottom:48px;}
+
+    .issue-row{display:grid;grid-template-columns:90px minmax(0,1fr) auto;gap:20px;align-items:center;background:#fff;padding:22px 24px;border-left:5px solid #0f3d30;text-decoration:none;border-radius:0 10px 10px 0;transition:background .15s,border-color .15s;}
+    .issue-row:hover{background:#fffbf0;border-left-color:#f2a12b;}
+    .issue-row.latest{border-left-color:#f2a12b;background:#fffbf0;}
+
+    .date{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;}
+    .issue-title{font-weight:800;font-size:17px;margin-bottom:5px;color:#13241e;}
+    .issue-desc{color:#665f56;font-size:14px;line-height:1.6;}
+    .issue-tags{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap;}
+    .issue-tag{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;background:#e8f4ee;color:#1a5f4a;padding:3px 8px;border-radius:999px;}
+    .issue-tag.signal{background:#fff0e0;color:#c07000;}
+    .issue-tag.firsthand{background:#f0f4ff;color:#2a4a9a;}
+
+    .status{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;white-space:nowrap;}
+    .status.latest-badge{color:#f2631a;font-weight:700;}
+
+    /* Subscribe strip */
+    .sub-strip{background:#0d3f31;padding:48px 24px;text-align:center;}
+    .sub-strip h2{font-family:Fraunces,Georgia,serif;font-size:30px;color:#fff;margin-bottom:10px;}
+    .sub-strip p{font-size:15px;color:#a9e8cf;margin-bottom:24px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+    /* Footer */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
+    .footer a{color:#78ddb4;}
+
+    @media(max-width:640px){
+      .nav{flex-wrap:wrap;gap:10px;}
+      .nav-links{gap:10px;flex-wrap:wrap;}
+      .nav-link{font-size:10px;letter-spacing:1px;}
+      .sub-btn{padding:9px 14px;font-size:11px;}
+      .issue-row{grid-template-columns:1fr;gap:6px;padding:16px;}
+      .date{font-size:11px;}
+      .issue-title{font-size:15px;}
+      .status{white-space:normal;}
+      .issues-section{padding:24px 18px 56px;}
+      .page-hero{padding:36px 18px 44px;}
+    }
+  </style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark"></span>
+          <span class="brand-word">FOWL AI</span>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link bounce" href="/issues/">Issues</a>
+          <a class="nav-link bounce" style="animation-delay:.4s" href="/jobs/">Job Hunting?</a>
+          <a class="nav-link bounce" style="animation-delay:.8s" href="/products/">Products</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <div class="page-hero">
+    <div class="wrap">
+      <div class="eyebrow">FOWL AI · All Issues</div>
+      <h1>Every signal, <span>in one place.</span></h1>
+      <p>Career signals for the AI economy — every issue stays public and shareable. New editions drop weekly.</p>
+    </div>
+  </div>
+
+  <section class="issues-section">
+    <div class="wrap">
+
+      <!-- Vol. 1 — 2026 -->
+      <div class="vol-head">
+        <span class="vol-label">Vol. 1 · 2026</span>
+      </div>
+
+      <div class="archive" style="margin-top:14px;">
+
+        <a class="issue-row latest" href="/issues/2026-06-08/">
+          <div class="date">Jun 8</div>
+          <div>
+            <div class="issue-title">Issue 3: The Rise of the AI Manager</div>
+            <div class="issue-desc">The highest-paying jobs of the next five years may not involve doing the work. Plus: the Stanford study every job applicant needs to read.</div>
+            <div class="issue-tags">
+              <span class="issue-tag signal">Industry Signal</span>
+              <span class="issue-tag">Hiring</span>
+              <span class="issue-tag">AI Agents</span>
+            </div>
+          </div>
+          <div class="status latest-badge">Latest</div>
+        </a>
+
+        <a class="issue-row" href="/issues/2026-06-01/">
+          <div class="date">Jun 1</div>
+          <div>
+            <div class="issue-title">Issue 2: 14 hours a week. $4k last month.</div>
+            <div class="issue-desc">Job or no job — your domain skills have an AI market. The income, the hours, and the weekly breakdown.</div>
+            <div class="issue-tags">
+              <span class="issue-tag firsthand">First Hand</span>
+              <span class="issue-tag">AI Income</span>
+              <span class="issue-tag">Mercor</span>
+            </div>
+          </div>
+          <div class="status">Live</div>
+        </a>
+
+        <a class="issue-row" href="/issues/2026-05-27/">
+          <div class="date">May 27</div>
+          <div>
+            <div class="issue-title">Issue 1: AI is quietly rewriting career leverage</div>
+            <div class="issue-desc">Domain expertise, AI trainer platforms, agent orchestration, and the career premium for judgment.</div>
+            <div class="issue-tags">
+              <span class="issue-tag signal">Industry Signal</span>
+              <span class="issue-tag">Career</span>
+              <span class="issue-tag">Platforms</span>
+            </div>
+          </div>
+          <div class="status">Live</div>
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+  <div class="sub-strip">
+    <div class="wrap">
+      <h2>Never miss a signal.</h2>
+      <p>Free. Weekly. Unsubscribe any time. Every issue stays public — but subscribers get it first.</p>
+      <a class="sub-btn" href="https://fowlai.eo.page/vmk69" style="display:inline-flex;">Subscribe free →</a>
+    </div>
+  </div>
+
+  <footer class="footer">
+    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Issues</a> · <a href="/platforms/">Platforms</a> · <a href="/jobs/">Job Hunting?</a> · <a href="/products/">Products</a> · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy Policy</a>
+    <div style="margin-top:10px;font-size:10px;opacity:.8;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
+  </footer>
+
+</body>
+</html>
