@@ -65,8 +65,10 @@
     /* Category header row */
     .cat-header{display:flex;align-items:center;justify-content:space-between;padding:12px 20px;background:#0d3f31;margin-bottom:0;}
     .cat-header.ember{background:#1a0a05;}
+    .cat-header.navy{background:#0a0f2a;}
     .cat-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;font-weight:500;}
     .cat-header.ember .cat-label{color:#f0a87a;}
+    .cat-header.navy .cat-label{color:#a0b4f0;}
     .cat-count{font-family:"DM Mono",monospace;font-size:10px;color:rgba(255,255,255,.35);letter-spacing:1px;}
 
     /* Column header */
@@ -171,6 +173,7 @@
         <button class="filter-btn active" onclick="filterJobs('all',this)">All roles</button>
         <button class="filter-btn" onclick="filterJobs('evaluation',this)">AI Evaluation</button>
         <button class="filter-btn" onclick="filterJobs('emerging',this)">Emerging Careers</button>
+        <button class="filter-btn" onclick="filterJobs('company',this)">AI Company Roles</button>
       </div>
     </div>
   </div>
@@ -716,6 +719,222 @@
           <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
           <div class="jr-pay">$110–$160K</div>
           <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Product+Strategist" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+      </div>
+
+      <!-- ═══════════════════════════════════════
+           CATEGORY 3: AI COMPANY & STARTUP ROLES
+      ════════════════════════════════════════ -->
+      <div class="cat-section" id="section-company" data-cat="company">
+        <div class="cat-header navy">
+          <span class="cat-label">AI Company &amp; Startup Roles</span>
+          <span class="cat-count">18 roles · updated Jun 10</span>
+        </div>
+        <div class="col-head">
+          <span>Role</span>
+          <span>Location</span>
+          <span>Type</span>
+          <span>Pay</span>
+          <span></span>
+        </div>
+
+        <!-- FRONTIER LABS -->
+        <div class="job-row" style="background:#f0f4ff;">
+          <div class="jr-main" colspan="5">
+            <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#4040a0;">🏛️ Frontier Labs — Anthropic · OpenAI · Google DeepMind · xAI · Mistral</div>
+          </div>
+          <div class="jr-loc"></div>
+          <div class="jr-badges"></div>
+          <div class="jr-pay"></div>
+          <div></div>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Policy &amp; Governance Analyst</div>
+            <div class="jr-company">Anthropic</div>
+          </div>
+          <div class="jr-loc">Remote · US/UK</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$120–$160K</div>
+          <a class="job-cta apply" href="https://www.anthropic.com/careers/jobs" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Safety Researcher</div>
+            <div class="jr-company">Anthropic</div>
+          </div>
+          <div class="jr-loc">San Francisco · Hybrid</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$180–$280K</div>
+          <a class="job-cta apply" href="https://www.anthropic.com/careers/jobs" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Trust &amp; Safety Specialist</div>
+            <div class="jr-company">OpenAI</div>
+          </div>
+          <div class="jr-loc">Remote · Global</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$130–$180K</div>
+          <a class="job-cta search" href="https://openai.com/careers" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Product Manager — Enterprise</div>
+            <div class="jr-company">OpenAI</div>
+          </div>
+          <div class="jr-loc">San Francisco · Hybrid</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$200–$300K</div>
+          <a class="job-cta search" href="https://openai.com/careers" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Research Scientist</div>
+            <div class="jr-company">Google DeepMind</div>
+          </div>
+          <div class="jr-loc">London / NYC · Hybrid</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$180–$320K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/company/google-deepmind/jobs/" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Partnerships Manager</div>
+            <div class="jr-company">xAI</div>
+          </div>
+          <div class="jr-loc">Remote · US</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$140–$200K</div>
+          <a class="job-cta search" href="https://x.ai/careers" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Deployment Engineer</div>
+            <div class="jr-company">Mistral AI</div>
+          </div>
+          <div class="jr-loc">Paris · Remote EU</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">€80–€130K</div>
+          <a class="job-cta search" href="https://mistral.ai/company/careers" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <!-- AI STARTUPS -->
+        <div class="job-row" style="background:#f0f4ff;">
+          <div class="jr-main">
+            <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#4040a0;">🚀 High-Growth AI Startups — Harvey · Glean · Hebbia · Cursor · Perplexity · Writer</div>
+          </div>
+          <div class="jr-loc"></div>
+          <div class="jr-badges"></div>
+          <div class="jr-pay"></div>
+          <div></div>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Legal Domain Expert — AI Training</div>
+            <div class="jr-company">Harvey · $11B valuation · Legal AI</div>
+          </div>
+          <div class="jr-loc">Remote · US</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$130–$200K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/company/harvey-ai/jobs/" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Enterprise Account Executive</div>
+            <div class="jr-company">Glean · $7.2B valuation · Enterprise AI</div>
+          </div>
+          <div class="jr-loc">Remote · US</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$180–$260K OTE</div>
+          <a class="job-cta search" href="https://www.glean.com/careers" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Finance AI Analyst — Domain Expert</div>
+            <div class="jr-company">Hebbia · Finance &amp; Legal AI · NYC</div>
+          </div>
+          <div class="jr-loc">New York · Hybrid</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$120–$180K</div>
+          <a class="job-cta search" href="https://www.hebbia.ai/careers" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Agent Engineer</div>
+            <div class="jr-company">Cognition / Sierra · Agentic AI</div>
+          </div>
+          <div class="jr-loc">Remote · US</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$175–$250K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Agent+Engineer+startup" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Applied AI Engineer</div>
+            <div class="jr-company">Perplexity · AI Search · Series E</div>
+          </div>
+          <div class="jr-loc">San Francisco · Hybrid</div>
+          <div class="jr-badges"><span class="badge hot">High Pay</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$180–$260K</div>
+          <a class="job-cta search" href="https://www.perplexity.ai/hub/careers" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">Brand &amp; Enterprise AI Writer</div>
+            <div class="jr-company">Writer · Enterprise AI · $200M Series C</div>
+          </div>
+          <div class="jr-loc">Remote · US</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$110–$150K</div>
+          <a class="job-cta search" href="https://writer.com/careers" target="_blank" rel="noopener">Apply →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Customer Success Manager</div>
+            <div class="jr-company">Glean / Writer / Decagon · Enterprise</div>
+          </div>
+          <div class="jr-loc">Remote · US/UK</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$120–$160K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Customer+Success+Manager" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Startup Recruiter — Technical</div>
+            <div class="jr-company">High-growth AI startups · Series A–C</div>
+          </div>
+          <div class="jr-loc">Remote</div>
+          <div class="jr-badges"><span class="badge emerging">Emerging</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$100–$160K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+startup+recruiter+technical" target="_blank" rel="noopener">Search →</a>
+        </div>
+
+        <div class="job-row">
+          <div class="jr-main">
+            <div class="jr-title">AI Research Operations Manager</div>
+            <div class="jr-company">Anthropic / OpenAI · Research support</div>
+          </div>
+          <div class="jr-loc">San Francisco · Hybrid</div>
+          <div class="jr-badges"><span class="badge new">New</span><span class="badge fulltime">Full-time</span></div>
+          <div class="jr-pay">$130–$180K</div>
+          <a class="job-cta search" href="https://www.linkedin.com/jobs/search/?keywords=AI+Research+Operations+Manager" target="_blank" rel="noopener">Search →</a>
         </div>
 
       </div>
