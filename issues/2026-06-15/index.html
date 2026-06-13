@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOWL AI · Issue 4 · The AI Model Map</title>
+<meta name="description" content="6 companies. 20+ models. What they cost, who ranks them, and which one is actually worth your money.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:#f2ede3;}
+body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia,serif;-webkit-font-smoothing:antialiased;}
+.card{background:#fff;margin:8px 0;padding:32px 44px;}
+.card-dark{background:#0f3d30;margin:8px 0;padding:32px 44px;}
+.card-amber{background:#f7eedc;margin:0;padding:34px 44px 36px;border-left:6px solid #f2a12b;}
+.card-mint{background:#e8f4ee;margin:8px 0;padding:28px 44px;}
+
+/* masthead */
+.mast{background:#0d3f31;padding:36px 44px 34px;margin:0;}
+.mast-meta{display:flex;justify-content:space-between;margin-bottom:14px;}
+.mast-meta span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;}
+.brand-lockup{display:flex;align-items:center;gap:18px;margin:20px 0 28px;}
+.brand-dot{width:42px;height:42px;border-radius:50%;background:#78ddb4;box-shadow:0 6px 18px rgba(0,0,0,.2);}
+.brand-fowl{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;letter-spacing:9px;color:#f47f18;text-transform:uppercase;}
+.brand-divider{width:1px;height:48px;background:rgba(255,255,255,.65);}
+.brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
+.brand-name span{display:block;color:#7fd9b8;}
+.mast-title{font-family:'Inter',-apple-system,sans-serif;font-style:italic;font-weight:800;font-size:58px;line-height:1.06;letter-spacing:-2px;color:#fff;margin-top:8px;}
+.mast-title span{color:#35bfa2;display:block;}
+.mast-sub{font-family:'Inter',-apple-system,sans-serif;font-size:19px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:560px;}
+.mast-cta{display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,sans-serif;font-size:15px;font-weight:800;text-decoration:none;padding:15px 28px;border-radius:999px;}
+.mast-rule{height:1px;background:linear-gradient(90deg,#7fd9b8,rgba(127,217,184,.08));margin:28px 0 18px;}
+.mast-foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.brand-strip{display:flex;gap:16px;margin-top:26px;border-top:1px solid rgba(127,217,184,.25);padding-top:18px;}
+.brand-item{flex:1;border-left:1px solid rgba(255,255,255,.38);padding-left:14px;}
+.brand-item:first-child{border-left:none;padding-left:0;}
+.brand-item b{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:5px;}
+.brand-item span{display:block;font-family:'Inter',-apple-system,sans-serif;font-size:13px;line-height:1.45;color:#f4fbf8;}
+
+/* section labels */
+.sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
+.sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
+
+/* tldr */
+.tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
+.tldr-text{font-family:'Inter',-apple-system,sans-serif;font-size:26px;line-height:1.65;color:#0f3d30;font-style:italic;}
+
+/* intro */
+.intro-text{font-size:16px;line-height:1.8;color:#222;border-left:4px solid #0f3d30;padding-left:18px;}
+
+/* story */
+.story{padding:28px 44px;background:#fff;border-bottom:1px solid #e8e4de;}
+.story-n{font-family:'Fraunces',serif;font-size:52px;line-height:1;color:#e8e4dc;font-weight:700;}
+.story-title{font-family:'Fraunces',serif;font-weight:700;font-size:23px;line-height:1.2;color:#0a140a;margin-bottom:14px;}
+.story-body{font-size:15px;line-height:1.75;color:#333;margin-bottom:14px;}
+.meta{display:flex;gap:6px;font-family:-apple-system,sans-serif;font-size:13px;line-height:1.65;color:#555;padding:3px 0;}
+.meta b{color:#1a5f4a;flex-shrink:0;}
+.inside{background:#fffbf0;border-left:4px solid #d99c2b;padding:12px 16px;font-size:14px;font-style:italic;line-height:1.65;color:#4a4030;margin-top:14px;border-radius:0 6px 6px 0;}
+.inside b{font-style:normal;color:#0f3d30;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* nova flag */
+.nova-flag{display:flex;align-items:flex-start;gap:14px;background:rgba(13,63,49,.06);border:1px solid rgba(242,161,43,.25);border-radius:10px;padding:14px 18px;margin-bottom:20px;}
+.nova-flag-icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;}
+.nova-flag-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:4px;}
+.nova-flag-intro{font-family:-apple-system,sans-serif;font-size:11px;color:#7a9a8a;margin-bottom:5px;line-height:1.4;}
+.nova-flag-quote{font-family:-apple-system,sans-serif;font-size:14px;color:#13241e;line-height:1.6;}
+
+/* model comparison table */
+.model-table{width:100%;border-collapse:collapse;margin:18px 0;font-family:-apple-system,sans-serif;font-size:13px;}
+.model-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;padding:10px 12px;border-bottom:2px solid #0f3d30;text-align:left;background:#f9f6f0;}
+.model-table td{padding:12px 12px;border-bottom:1px solid #e8e4de;color:#2a2a2a;vertical-align:middle;line-height:1.5;}
+.model-table tr:last-child td{border-bottom:none;}
+.model-table tr:hover td{background:#fffbf0;}
+.model-rank{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#f2a12b;line-height:1;}
+.model-name{font-weight:700;font-size:14px;color:#0f3d30;}
+.model-company{font-size:12px;color:#665f56;margin-top:2px;}
+.model-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;margin-top:4px;}
+.badge-top{background:#0d3f31;color:#78ddb4;}
+.badge-budget{background:#f7eedc;color:#8a6020;}
+.badge-open{background:#f0f0ff;color:#4040a0;}
+.price-cell{font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;line-height:1.6;}
+.price-highlight{color:#d4541e;font-weight:500;}
+
+/* use case grid */
+.usecase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0;}
+.usecase-card{background:#f9f6f0;border:1px solid #e8e4de;border-radius:8px;padding:16px 18px;}
+.usecase-icon{font-size:20px;margin-bottom:8px;}
+.usecase-job{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:6px;}
+.usecase-winner{font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#0f3d30;margin-bottom:4px;}
+.usecase-why{font-family:-apple-system,sans-serif;font-size:12px;color:#665f56;line-height:1.55;}
+
+/* eval org cards */
+.eval-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0;}
+.eval-card{border-radius:8px;padding:18px 20px;border:1px solid rgba(255,255,255,.1);}
+.eval-card.lmsys{background:#2d0a3a;border-color:#9b30c0;}
+.eval-card.huggingface{background:#3a2800;border-color:#d4a000;}
+.eval-card.helm{background:#0a2a1a;border-color:#20a060;}
+.eval-card.alpaca{background:#1a0a3a;border-color:#6040c0;}
+.eval-card.bigbench{background:#0a1a2a;border-color:#2060c0;}
+.eval-card.livebench{background:#2a1a00;border-color:#c06020;}
+.eval-name{font-family:'Fraunces',serif;font-weight:700;font-size:17px;color:#fff;margin-bottom:4px;}
+.eval-org{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:8px;}
+.eval-how{font-family:-apple-system,sans-serif;font-size:13px;color:rgba(255,255,255,.75);line-height:1.6;margin-bottom:8px;}
+.eval-warning{font-family:-apple-system,sans-serif;font-size:12px;color:#f2a12b;line-height:1.5;margin-bottom:6px;}
+.eval-tick{font-family:-apple-system,sans-serif;font-size:12px;color:#78ddb4;line-height:1.5;}
+
+/* signal */
+.sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
+.sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
+.sig:last-of-type{border-bottom:none;}
+.sig-dot{width:20px;height:20px;background:#d99c2b;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;}
+.sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
+
+/* predict */
+.predict{background:#0d3f31;border-radius:8px;padding:26px 30px;margin:20px 0;}
+.predict-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;}
+.predict-text{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.4;}
+.predict-sub{font-family:-apple-system,sans-serif;font-size:14px;color:#7fd9b8;margin-top:10px;line-height:1.65;}
+
+/* action items */
+.action-wrap{background:#f7eedc;border-left:6px solid #f2a12b;padding:24px 28px;margin:20px 0;border-radius:0 8px 8px 0;}
+.action-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#0f3d30;margin-bottom:14px;font-weight:500;}
+.action-item{display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;line-height:1.65;padding:8px 0;border-bottom:1px solid rgba(242,161,43,.2);}
+.action-item:last-child{border-bottom:none;padding-bottom:0;}
+.action-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#f2a12b;flex-shrink:0;margin-top:2px;background:#0f3d30;padding:2px 7px;border-radius:4px;}
+
+/* launch lab */
+.launch-lab{background:#fff;margin:8px 0;padding:28px 44px;border-left:6px solid #f2a12b;}
+
+/* career */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
+
+/* closing, stamp, reply, footer */
+.closing-text{font-size:16px;line-height:1.8;color:#1a1a1a;}
+.stamp-text{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.6;color:#fff;text-align:center;}
+.stamp-text span{color:#7fd9b8;}
+.reply-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:#1a5f4a;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.reply-text{font-style:italic;font-size:15.5px;line-height:1.75;color:#1a3a2a;}
+.footer{background:#13241e;padding:26px 44px;text-align:center;margin:0;}
+.footer-brand{font-family:'Fraunces',serif;font-size:14px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:6px;}
+.footer-fine{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#3a5248;}
+.footer-fine a{color:#7fd9b8;text-decoration:underline;}
+
+@media(max-width:680px){
+  .card,.card-dark,.card-amber,.card-mint,.mast,.sec,.story,.footer,.launch-lab{padding-left:20px;padding-right:20px;}
+  .mast-title{font-size:34px;letter-spacing:-1.5px;}
+  .mast-sub{font-size:16px;}
+  .mast-meta{flex-direction:column;gap:6px;margin-bottom:18px;}
+  .brand-lockup{gap:10px;margin:14px 0 20px;}
+  .brand-dot{width:34px;height:34px;flex-shrink:0;}
+  .brand-fowl{font-size:20px;letter-spacing:5px;}
+  .brand-divider{height:32px;}
+  .brand-name{font-size:20px;}
+  .brand-strip{flex-direction:column;gap:0;margin-top:20px;}
+  .brand-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:12px;margin-top:12px;}
+  .brand-item:first-child{border-top:none;padding-top:0;margin-top:0;}
+  .tldr-text{font-size:20px;}
+  .story-n{font-size:40px;}
+  .story-title{font-size:20px;}
+  .usecase-grid{grid-template-columns:1fr;}
+  .eval-grid{grid-template-columns:1fr;}
+  .model-table{font-size:12px;}
+  .model-table th,.model-table td{padding:8px;}
+}
+</style></head><body>
+
+<!-- MASTHEAD -->
+<div class="mast">
+  <div class="mast-meta"><span>Vol. 1 · Issue 4</span><span>Jun 15, 2026</span></div>
+  <div class="brand-lockup">
+    <div class="brand-dot"></div>
+    <div class="brand-fowl">FOWL AI</div>
+    <div class="brand-divider"></div>
+    <div class="brand-name">Future of<span>Work Lab</span></div>
+  </div>
+  <div class="mast-title">The AI<span>Model Map.</span></div>
+  <div class="mast-sub">6 companies. 20+ models. What they cost, who ranks them, and which one is actually worth your money — by job, by budget, by use case.</div>
+  <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Subscribe free</a>
+  <div class="mast-rule"></div>
+  <div class="mast-foot">
+    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#9fe3c8;text-transform:uppercase;">Career Signals · AI Economy</span>
+    <span style="background:rgba(127,217,184,.14);color:#7fd9b8;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid rgba(127,217,184,.3);white-space:nowrap;">📡 Reference Issue</span>
+    <span style="font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#d99c2b;">Weekly</span>
+  </div>
+  <div class="brand-strip">
+    <div class="brand-item"><b>What's changing</b><span>The model market has 20+ real options now. Most people are using the wrong one.</span></div>
+    <div class="brand-item"><b>Who wins</b><span>Depends entirely on your use case. This issue is the map.</span></div>
+    <div class="brand-item"><b>What to do</b><span>Audit your model, cut your costs, and understand who you're trusting to rank them.</span></div>
+  </div>
+</div>
+
+<!-- BREAKING SIGNAL — FABLE JAILBREAK -->
+<div style="background:#1a0a05;margin:0;padding:32px 44px;border-bottom:3px solid #d4541e;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f0a87a;margin-bottom:14px;">🚨 Breaking Signal · Jun 12, 2026</div>
+
+  <!-- Nova flag -->
+  <div style="display:flex;align-items:flex-start;gap:14px;background:rgba(255,255,255,.05);border:1px solid rgba(242,161,43,.3);border-radius:10px;padding:14px 18px;margin-bottom:20px;">
+    <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;">🎙️</div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:4px;">Nova flagged this signal</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:11px;color:#b07060;margin-bottom:6px;line-height:1.4;">Nova is FOWL AI's news anchor — she tracks the signals every week and breaks them down in under 60 seconds.</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#f4e8d8;line-height:1.6;margin-bottom:10px;">"The US government just forced Anthropic to shut down two of its most powerful AI models — three days after launch. Here's what that actually means for the future of AI access."</div>
+      <a href="https://www.instagram.com/reel/DZhqWqQOfRK/" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:10px;background:#1a1208;border:1px solid rgba(242,161,43,.3);border-radius:8px;padding:10px 16px;text-decoration:none;">
+        <div style="width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);display:flex;align-items:center;justify-content:center;flex-shrink:0;"><span style="color:#fff;font-size:13px;">▶</span></div>
+        <div><div style="font-family:'Inter',sans-serif;font-weight:800;font-size:13px;color:#fff;">Watch Nova's full breakdown</div><div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#f2a12b;text-transform:uppercase;margin-top:2px;">Instagram · @fowlai</div></div>
+      </a>
+    </div>
+  </div>
+
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:26px;color:#fff;line-height:1.2;margin-bottom:14px;">The US government just recalled two of Anthropic's most powerful AI models. Here's why that matters far beyond Anthropic.</div>
+
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#d4c4b8;margin-bottom:14px;">On June 12, 2026, the Trump administration issued an export control directive ordering Anthropic to immediately suspend access to <strong style="color:#fff;">Fable 5</strong> and <strong style="color:#fff;">Mythos 5</strong> — its two most capable frontier models — just three days after Fable 5 launched. The reason: a reported jailbreak that officials said could allow foreign users to access Mythos 5's advanced cybersecurity capabilities.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0;">
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(212,84,30,.25);border-radius:8px;padding:16px 18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#f0a87a;margin-bottom:8px;">The government's case</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#d4c4b8;line-height:1.6;">A jailbreak technique bypassed Fable 5's safeguards and unlocked Mythos 5's advanced cybersecurity capabilities. Officials called it a national security risk. Model access suspended globally — with 24 hours notice.</div>
+    </div>
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(242,161,43,.2);border-radius:8px;padding:16px 18px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;">Anthropic's response</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#d4c4b8;line-height:1.6;">Complied — but publicly pushed back. Called the action "disproportionate." Said the jailbreak was narrow and specific, not a universal safeguard bypass. Warned the precedent could halt all frontier model deployments.</div>
+    </div>
+  </div>
+
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#d4c4b8;margin-bottom:14px;">The backdrop matters: Anthropic's relationship with the Trump administration had already fractured in February 2026 when they refused a Pentagon contract that would have used Claude for <strong style="color:#fff;">lethal autonomous weapons and mass civilian surveillance</strong>. This is not a neutral technical dispute — it's a fight over who controls frontier AI capabilities and on whose terms.</div>
+
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:#f0a87a;padding-top:14px;border-top:1px solid rgba(212,84,30,.2);line-height:1.65;"><b style="color:#f2a12b;">Why this matters for knowledge workers ·</b> The assumption that AI tools you depend on will remain available is no longer safe. Anthropic complied with this order in 24 hours. OpenAI, Google, and xAI are watching. Government-directed AI shutdowns are now a real operational risk — and the question of who controls frontier model access is the most important policy question in tech right now.</div>
+</div>
+
+<!-- TLDR -->
+<div class="card-amber">
+  <div class="tldr-label">If you read nothing else</div>
+  <div class="tldr-text">Every major AI provider landed on $20/month for consumers. But API prices vary 50x — and most knowledge workers are using the most expensive model for jobs the cheapest one handles just as well. This issue is the full breakdown.</div>
+</div>
+
+<!-- NOVA FLAG -->
+<div class="card" style="padding-bottom:20px;">
+  <div class="nova-flag">
+    <div class="nova-flag-icon">🎙️</div>
+    <div>
+      <div class="nova-flag-label">Nova's Signal</div>
+      <div class="nova-flag-intro">Nova is FOWL AI's news anchor — she tracks the signals every week and breaks them down in under 60 seconds.</div>
+      <div class="nova-flag-quote">"The model that ranks #1 may have been trained on the exact questions it's being tested on. Here's who's actually keeping them honest — and why it matters for every tool you use."</div>
+    </div>
+  </div>
+  <div class="intro-text">Most people are paying for the wrong AI model.<br><br>Some are spending 50x more than they need to. Others are using the smartest model available for work that a free model handles just as well — every single day, without noticing. A few are using the wrong tool entirely and wondering why the output never quite lands.<br><br>This week we're mapping the entire AI model market. The leaderboard, the real costs, who ranks them and whether to trust it, the open-source disruption — and the shift from monthly subscriptions to per-token pricing that's quietly changing what AI actually costs at scale.<br><br>This is the issue you keep.</div>
+</div>
+
+<!-- STORIES HEADER -->
+<div class="sec"><span class="sec-tag">6 Signals This Week</span><span class="sec-line"></span></div>
+
+<!-- STORY 01 — LEADERBOARD -->
+<div class="story">
+  <div class="story-n">01</div>
+  <div class="story-title">The current leaderboard — who leads, and why there's no single winner.</div>
+  <div class="story-body">As of June 2026, Claude Opus 4.8 leads the overall intelligence index. But the more useful truth is that the top 4 models are within 10 points of each other — and each leads on a different benchmark. There is no single best model. There is only the best model for what you're doing.</div>
+
+  <table class="model-table">
+    <tr>
+      <th>#</th><th>Model</th><th>Company</th><th>Leads on</th><th>API (per 1M tokens)</th><th>Consumer</th>
+    </tr>
+    <tr>
+      <td><div class="model-rank">1</div></td>
+      <td><div class="model-name">Claude Opus 4.8</div><span class="model-badge badge-top">Overall #1</span></td>
+      <td style="font-size:13px;color:#665f56;">Anthropic</td>
+      <td style="font-size:13px;">Coding, writing, agents</td>
+      <td><div class="price-cell">$5 in<br>$25 out</div></td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;">$20/mo</td>
+    </tr>
+    <tr>
+      <td><div class="model-rank">2</div></td>
+      <td><div class="model-name">GPT-5.5</div><span class="model-badge badge-top">Best writing</span></td>
+      <td style="font-size:13px;color:#665f56;">OpenAI</td>
+      <td style="font-size:13px;">Creative writing, tools</td>
+      <td><div class="price-cell">$10 in<br>$30 out</div></td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;">$20/mo</td>
+    </tr>
+    <tr>
+      <td><div class="model-rank">3</div></td>
+      <td><div class="model-name">Gemini 3.1 Pro</div><span class="model-badge badge-top">Best reasoning</span></td>
+      <td style="font-size:13px;color:#665f56;">Google</td>
+      <td style="font-size:13px;">Reasoning, multimodal, science</td>
+      <td><div class="price-cell">$2 in<br>$12 out</div></td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;">$20/mo</td>
+    </tr>
+    <tr>
+      <td><div class="model-rank">4</div></td>
+      <td><div class="model-name">Grok 4.3</div><span class="model-badge badge-top">Best value</span></td>
+      <td style="font-size:13px;color:#665f56;">xAI</td>
+      <td style="font-size:13px;">Speed, cost, agentic tasks</td>
+      <td><div class="price-cell price-highlight">$0.20 in<br>$0.50 out</div></td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;">$20/mo</td>
+    </tr>
+    <tr>
+      <td style="font-size:13px;color:#9aada5;">—</td>
+      <td><div class="model-name">Gemini 2.5 Flash</div><span class="model-badge badge-budget">Budget king</span></td>
+      <td style="font-size:13px;color:#665f56;">Google</td>
+      <td style="font-size:13px;">Routine tasks, speed</td>
+      <td><div class="price-cell price-highlight">$0.50 in<br>$3 out</div></td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;">Free tier</td>
+    </tr>
+    <tr>
+      <td style="font-size:13px;color:#9aada5;">—</td>
+      <td><div class="model-name">DeepSeek V3 / R1</div><span class="model-badge badge-open">Open weight</span></td>
+      <td style="font-size:13px;color:#665f56;">DeepSeek</td>
+      <td style="font-size:13px;">Self-hosted, privacy, cost</td>
+      <td><div class="price-cell price-highlight">Free (self-host)</div></td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;">Free</td>
+    </tr>
+    <tr>
+      <td style="font-size:13px;color:#9aada5;">—</td>
+      <td><div class="model-name">Llama 4</div><span class="model-badge badge-open">Open source</span></td>
+      <td style="font-size:13px;color:#665f56;">Meta</td>
+      <td style="font-size:13px;">Custom deployments</td>
+      <td><div class="price-cell price-highlight">Free (self-host)</div></td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;">Free</td>
+    </tr>
+    <tr>
+      <td style="font-size:13px;color:#9aada5;">—</td>
+      <td><div class="model-name">Mistral Large</div><span class="model-badge badge-open">European</span></td>
+      <td style="font-size:13px;color:#665f56;">Mistral AI</td>
+      <td style="font-size:13px;">EU compliance, multilingual</td>
+      <td><div class="price-cell">$2 in<br>$6 out</div></td>
+      <td style="font-family:'DM Mono',monospace;font-size:12px;">Free tier</td>
+    </tr>
+  </table>
+
+  <div class="meta"><b>Benchmark leaders ·</b> Coding: Claude Opus 4.7 (SWE-bench Pro 64.3%). Scientific reasoning: Gemini 3.1 Pro (GPQA Diamond 94.3%). Terminal/tools: GPT-5.4 (TerminalBench 57.6%). Creative: GPT-5.5.</div>
+  <div class="inside"><b>The signal —</b> The top 4 models all cost $20/month for consumers. The real cost differential is at the API tier — and most knowledge workers never need to go there. The decision is simpler than the leaderboard makes it look.</div>
+</div>
+
+<!-- STORY 02 — COST -->
+<div class="story">
+  <div class="story-n">02</div>
+  <div class="story-title">What it actually costs — the $20 convergence and the 50x API gap.</div>
+  <div class="story-body">Every major AI provider settled on $20/month for consumer plans. ChatGPT Plus, Claude Pro, and Gemini Advanced are all within $0.01 of each other. At the consumer tier, the price is no longer a differentiator — the model is.</div>
+  <div class="story-body">The API tier is a different story. GPT-5 charges $10 per million input tokens and $30 per million output tokens. Grok 4.1 charges $0.20 input and $0.50 output. That is a 50x gap on input and a 60x gap on output — for models sitting within 8 points of each other on the leaderboard. For teams building AI-powered products, that gap is the difference between a viable business and an expensive experiment.</div>
+
+  <div style="background:#f9f6f0;border:1px solid #e8e4de;border-radius:8px;padding:20px 24px;margin:18px 0;">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:14px;">API cost at 1 million tokens — input / output</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">GPT-5.5 (OpenAI)</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:100%;height:100%;background:#d4541e;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d4541e;width:80px;text-align:right;flex-shrink:0;">$10 / $30</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Claude Opus 4.8</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:50%;height:100%;background:#d4541e;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d4541e;width:80px;text-align:right;flex-shrink:0;">$5 / $25</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Gemini 3.1 Pro</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:20%;height:100%;background:#d99c2b;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d99c2b;width:80px;text-align:right;flex-shrink:0;">$2 / $12</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Mistral Large</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:20%;height:100%;background:#d99c2b;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d99c2b;width:80px;text-align:right;flex-shrink:0;">$2 / $6</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Gemini 2.5 Flash</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:5%;height:100%;background:#1a5f4a;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#1a5f4a;width:80px;text-align:right;flex-shrink:0;">$0.50 / $3</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Grok 4.1 (xAI)</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:2%;height:100%;background:#1a5f4a;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#1a5f4a;width:80px;text-align:right;flex-shrink:0;">$0.20 / $0.50</div></div>
+    </div>
+  </div>
+
+  <div class="meta"><b>The practical rule ·</b> Use the premium models (Claude, GPT-5.5) for high-stakes, creative, or complex reasoning work where quality matters. Use Flash or Grok for anything routine — summarising, formatting, drafting, classifying. Most people can't tell the output difference at 1/10th the cost.</div>
+  <div class="inside"><b>The signal —</b> Both providers now offer ~90% off cached input tokens. For teams running the same context repeatedly, effective costs are nearly equal — making the quality gap the only decision that matters.</div>
+</div>
+
+<!-- FOWL AI MODEL MATRIX -->
+<div style="background:#fff;margin:8px 0;padding:32px 44px;border-top:3px solid #f2a12b;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:6px;">📊 FOWL AI Exclusive</div>
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:#13241e;margin-bottom:4px;">The FOWL AI Model Matrix</div>
+  <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#665f56;margin-bottom:24px;">Cost vs. Quality vs. Speed — every major model, mapped.</div>
+
+  <!-- Matrix grid -->
+  <div style="position:relative;border:1.5px solid #e8e4de;border-radius:10px;overflow:hidden;">
+
+    <!-- Axis labels -->
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:8px 16px;background:#f9f6f0;border-bottom:1.5px solid #e8e4de;">
+      <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;">← Cheap</span>
+      <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#0f3d30;font-weight:500;">COST AXIS</span>
+      <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;">Expensive →</span>
+    </div>
+
+    <!-- Grid rows -->
+    <div style="display:grid;grid-template-columns:80px 1fr 1fr;border-bottom:1px solid #e8e4de;">
+      <div style="background:#f2ede3;display:flex;align-items:center;justify-content:center;padding:12px 8px;border-right:1.5px solid #e8e4de;">
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;writing-mode:vertical-rl;transform:rotate(180deg);">Elite Quality</span>
+      </div>
+      <!-- Cheap + Elite -->
+      <div style="padding:16px 18px;border-right:1px solid #e8e4de;background:#f9fff9;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#1a5f4a;margin-bottom:10px;">🟢 Sweet Spot</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#0f3d30;">Grok 4.3</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;background:#e8f4ee;color:#1a5f4a;padding:2px 6px;border-radius:4px;">$0.20/1M</span>
+            <span style="font-size:11px;">⚡ Fast</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#0f3d30;">DeepSeek R1</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;background:#e8f4ee;color:#1a5f4a;padding:2px 6px;border-radius:4px;">Free</span>
+            <span style="font-size:11px;">🔒 Private</span>
+          </div>
+        </div>
+      </div>
+      <!-- Expensive + Elite -->
+      <div style="padding:16px 18px;background:#fffbf4;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#d4541e;margin-bottom:10px;">🟠 Premium Tier</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#0f3d30;">Claude Opus 4.8</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;background:#fff0e0;color:#c07000;padding:2px 6px;border-radius:4px;">$25/1M</span>
+            <span style="font-size:11px;">🥇 #1 Overall</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#0f3d30;">GPT-5.5</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;background:#fff0e0;color:#c07000;padding:2px 6px;border-radius:4px;">$30/1M</span>
+            <span style="font-size:11px;">✍️ Best writing</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#0f3d30;">Gemini 3.1 Pro</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;background:#fff0e0;color:#c07000;padding:2px 6px;border-radius:4px;">$12/1M</span>
+            <span style="font-size:11px;">🔬 Best reasoning</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:80px 1fr 1fr;">
+      <div style="background:#f2ede3;display:flex;align-items:center;justify-content:center;padding:12px 8px;border-right:1.5px solid #e8e4de;">
+        <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;writing-mode:vertical-rl;transform:rotate(180deg);">Good Quality</span>
+      </div>
+      <!-- Cheap + Good -->
+      <div style="padding:16px 18px;border-right:1px solid #e8e4de;background:#f9fff9;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#1a5f4a;margin-bottom:10px;">🟢 Budget Wins</div>
+        <div style="display:flex;flex-direction:column;gap:7px;">
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#0f3d30;">Gemini 2.5 Flash</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;background:#e8f4ee;color:#1a5f4a;padding:2px 6px;border-radius:4px;">$3/1M</span>
+            <span style="font-size:11px;">⚡ Fastest</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#0f3d30;">Llama 4</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;background:#e8f4ee;color:#1a5f4a;padding:2px 6px;border-radius:4px;">Free</span>
+            <span style="font-size:11px;">🔧 Customisable</span>
+          </div>
+          <div style="display:flex;align-items:center;gap:8px;">
+            <span style="font-family:-apple-system,sans-serif;font-weight:700;font-size:13px;color:#0f3d30;">Mistral Large</span>
+            <span style="font-family:'DM Mono',monospace;font-size:9px;background:#e8f4ee;color:#1a5f4a;padding:2px 6px;border-radius:4px;">$6/1M</span>
+            <span style="font-size:11px;">🇪🇺 EU compliant</span>
+          </div>
+        </div>
+      </div>
+      <!-- Expensive + Good -->
+      <div style="padding:16px 18px;background:#fff9f8;">
+        <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#9aada5;margin-bottom:10px;">⚠️ Overpaying Zone</div>
+        <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#9aada5;line-height:1.6;font-style:italic;">Using a premium model for tasks that a budget model handles equally well. Most people are here — without knowing it.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div style="display:flex;gap:16px;margin-top:14px;flex-wrap:wrap;">
+    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#665f56;">Cost = API output price per 1M tokens</span>
+    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#665f56;">⚡ Speed · 🔒 Privacy · 🔧 Customisable · 🇪🇺 EU data</span>
+  </div>
+</div>
+
+<!-- SHIFT: MONTHLY TO PER TOKEN -->
+<div style="background:#13241e;margin:8px 0;padding:32px 44px;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:14px;">📉 The Pricing Shift</div>
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:26px;color:#fff;line-height:1.2;margin-bottom:14px;">The $20/month era is ending. The per-token era is here.</div>
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#a9e8cf;margin-bottom:20px;">The flat monthly subscription was a land-grab play — get users hooked before they understand their actual usage. That phase is closing. As AI becomes infrastructure, pricing is shifting to consumption-based: you pay for what you use, at the token level. This changes everything about how knowledge workers should think about AI cost.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:20px;">
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(127,217,184,.15);border-radius:8px;padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;margin-bottom:8px;">The old model</div>
+      <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">$20/month flat</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#a9e8cf;line-height:1.65;">Simple. Predictable. Designed for casual users who don't know their usage. The AI company absorbs the cost variance. Heavy users subsidised by light ones.</div>
+    </div>
+    <div style="background:rgba(255,255,255,.05);border:1px solid rgba(242,161,43,.25);border-radius:8px;padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;">The new model</div>
+      <div style="font-family:'Fraunces',serif;font-size:18px;font-weight:700;color:#fff;margin-bottom:8px;">Per token, per use</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#a9e8cf;line-height:1.65;">Usage-based. You pay for every input and output token processed. Cost scales with how much you use AI — not a fixed overhead. Already standard for teams and APIs.</div>
+    </div>
+  </div>
+
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#a9e8cf;margin-bottom:16px;">The signals are already visible. OpenAI introduced usage-based tiers above the $20 cap. Anthropic charges separately for API access. Google's Workspace AI add-ons are per-seat, per-feature. The $20 flat plan is becoming the entry point — not the destination.</div>
+
+  <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
+    <div style="display:flex;align-items:flex-start;gap:12px;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#f2a12b;flex-shrink:0;margin-top:6px;"></div>
+      <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#e2f2eb;line-height:1.65;"><strong style="color:#fff;">Casual users</strong> — the $20 plan stays fine. If you're prompting a few times a day for personal tasks, flat pricing always wins.</div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#f2a12b;flex-shrink:0;margin-top:6px;"></div>
+      <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#e2f2eb;line-height:1.65;"><strong style="color:#fff;">Power users</strong> — you're already hitting usage caps and either rationing your prompts or paying overages. Per-token pricing is coming for you whether you want it or not.</div>
+    </div>
+    <div style="display:flex;align-items:flex-start;gap:12px;">
+      <div style="width:6px;height:6px;border-radius:50%;background:#f2a12b;flex-shrink:0;margin-top:6px;"></div>
+      <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#e2f2eb;line-height:1.65;"><strong style="color:#fff;">Teams and builders</strong> — already on API pricing. The decision isn't monthly vs. per-token — it's which model gives the best output per dollar at your usage volume.</div>
+    </div>
+  </div>
+
+  <div style="font-family:'DM Mono',monospace;font-size:11px;color:#7fd9b8;padding-top:16px;border-top:1px solid rgba(127,217,184,.15);line-height:1.6;"><b style="color:#f2a12b;">The signal ·</b> The knowledge workers who understand token economics now will be the ones who can negotiate AI tool budgets, build cost-efficient workflows, and make the case for the right model at the right price point when their employer finally asks. That's a niche skill today. It won't be in 12 months.</div>
+</div>
+
+<!-- STORY 03 — USE CASES -->
+<div class="story">
+  <div class="story-n">03</div>
+  <div class="story-title">Best model by job — the decision map.</div>
+  <div class="story-body">The right model depends entirely on what you're doing. Here's the honest breakdown by use case, based on current benchmark performance and real-world testing.</div>
+
+  <div class="usecase-grid">
+    <div class="usecase-card">
+      <div class="usecase-icon">💻</div>
+      <div class="usecase-job">Coding</div>
+      <div class="usecase-winner">Claude Opus 4.7</div>
+      <div class="usecase-why">SWE-bench Pro leader at 64.3%. Best for complex debugging, multi-file refactors, agentic coding tasks.</div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-icon">🔬</div>
+      <div class="usecase-job">Research & Reasoning</div>
+      <div class="usecase-winner">Gemini 3.1 Pro</div>
+      <div class="usecase-why">GPQA Diamond leader at 94.3%. Best for scientific analysis, long documents, multimodal inputs.</div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-icon">✍️</div>
+      <div class="usecase-job">Creative Writing</div>
+      <div class="usecase-winner">GPT-5.5</div>
+      <div class="usecase-why">Leads on prose naturalness and instruction-following for creative tasks. Best for content, copy, ideation.</div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-icon">⚡</div>
+      <div class="usecase-job">Speed + Budget</div>
+      <div class="usecase-winner">Grok 4.1 or Gemini Flash</div>
+      <div class="usecase-why">Grok is 50x cheaper than GPT-5.5 on input. Flash is the budget reasoning leader. Both handle routine tasks well.</div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-icon">🔒</div>
+      <div class="usecase-job">Privacy / Sensitive Data</div>
+      <div class="usecase-winner">DeepSeek or Llama 4</div>
+      <div class="usecase-why">Self-hosted open-weight models. Data never leaves your infrastructure. Free at scale.</div>
+    </div>
+    <div class="usecase-card">
+      <div class="usecase-icon">🇪🇺</div>
+      <div class="usecase-job">EU Data Compliance</div>
+      <div class="usecase-winner">Mistral Large</div>
+      <div class="usecase-why">European model, EU data residency. Best for regulated industries needing GDPR compliance at the model layer.</div>
+    </div>
+  </div>
+
+  <div class="meta"><b>The emerging wildcards ·</b> MiniMax M3 scored 92.9% on GPQA (second only to Gemini). Qwen3.7 Max hit 92.3%. Both Chinese models — not yet mainstream in the West, but closing fast on the frontier.</div>
+  <div class="inside"><b>The signal —</b> The days of "just use ChatGPT" are over. Picking the right model for the right task is already a skill that separates efficient AI workers from expensive ones. That gap will only widen.</div>
+</div>
+
+<!-- STORY 04 — OPEN SOURCE -->
+<div class="story">
+  <div class="story-n">04</div>
+  <div class="story-title">The open-source disruption — when frontier-quality is free.</div>
+  <div class="story-body">DeepSeek V3 and R1 arrived in late 2025 and immediately rattled the frontier model market. Chinese-built, open-weight, and free to self-host — they demonstrated that frontier-level performance no longer requires a subscription to an American lab. Meta's Llama 4 followed the same playbook. Mistral out of France has been doing it for two years.</div>
+  <div class="story-body">The implications are significant. Enterprise teams that previously budgeted for OpenAI or Anthropic API costs are now evaluating self-hosted deployments. The total cost of ownership shifts from per-token pricing to infrastructure management — a different kind of cost, but often a fraction of the bill at scale.</div>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:18px 0;">
+    <div style="background:#0d3f31;border-radius:8px;padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;">DeepSeek R1</div>
+      <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:6px;">The cost disruptor</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#a9e8cf;line-height:1.55;">Open-weight. Frontier reasoning. Self-host for free. Caused a $600B Nvidia stock drop when released.</div>
+    </div>
+    <div style="background:#0d3f31;border-radius:8px;padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;">Meta Llama 4</div>
+      <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:6px;">The customiser's choice</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#a9e8cf;line-height:1.55;">Open source. Fine-tunable on your own data. Best for organisations wanting a model that knows their domain.</div>
+    </div>
+    <div style="background:#0d3f31;border-radius:8px;padding:18px 20px;">
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;">Mistral Large</div>
+      <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:700;color:#fff;margin-bottom:6px;">The compliance play</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#a9e8cf;line-height:1.55;">European model. EU data residency. GDPR-native. The only major frontier model built outside the US or China.</div>
+    </div>
+  </div>
+
+  <div class="meta"><b>The market signal ·</b> The frontier model market is bifurcating: closed-API (expensive, cutting-edge, managed) vs open-weight (free, customisable, self-managed). By 2027, most enterprises will run a hybrid of both.</div>
+  <div class="inside"><b>The signal —</b> Open-weight models don't make the closed-API providers irrelevant — they compress the premium tier. OpenAI and Anthropic have to keep pushing the frontier or risk their margins. That arms race benefits everyone using these tools.</div>
+</div>
+
+<!-- STORY 05 — WHO RANKS THEM -->
+<div class="story">
+  <div class="story-n">05</div>
+  <div class="story-title">Who ranks these models — and why it matters which leaderboard you trust.</div>
+  <div class="story-body">When you read "Claude ranked #1" or "GPT-5 leads on reasoning," you're reading the output of an evaluation process — and every evaluation process has biases, blind spots, and limitations. Knowing who's doing the ranking, and how, is the difference between trusting a benchmark and being misled by one.</div>
+
+  <div class="eval-grid">
+    <div class="eval-card lmsys">
+      <div class="eval-name">🏆 LMSYS Chatbot Arena</div>
+      <div class="eval-org">By UC Berkeley / LMSYS · lmarena.ai</div>
+      <div class="eval-how">Blind A/B human voting — real users pick winners across millions of conversations.</div>
+      <div class="eval-warning">⚠️ Popularity bias. Users favour long, fluent answers even if less accurate.</div>
+      <div class="eval-tick">✓ Most real-world signal. Harder to game than static benchmarks. GPT-4o, Claude, Gemini rotate top spots.</div>
+    </div>
+    <div class="eval-card huggingface">
+      <div class="eval-name">🤗 Open LLM Leaderboard</div>
+      <div class="eval-org">By Hugging Face · huggingface.co/spaces/open-llm-leaderboard</div>
+      <div class="eval-how">Automated evaluation on IFEval, BBH, MATH, GPQA, MuSR, MMLU-Pro across open-weight models.</div>
+      <div class="eval-warning">⚠️ Closed models (GPT-4, Claude) not included. Open-weight focus only.</div>
+      <div class="eval-tick">✓ Best source for comparing open-source models (Llama, Mistral, Qwen, Falcon). Updates daily.</div>
+    </div>
+    <div class="eval-card helm">
+      <div class="eval-name">📐 Scale HELM / HELM Lite</div>
+      <div class="eval-org">By Stanford CRFM + Scale AI · crfm.stanford.edu/helm</div>
+      <div class="eval-how">Holistic eval: accuracy, calibration, robustness, fairness, efficiency across 40+ scenarios.</div>
+      <div class="eval-warning">⚠️ Slow to update. Methodology-heavy — hard to read quickly.</div>
+      <div class="eval-tick">✓ Most rigorous multi-dimensional evaluation. Used by enterprises for model procurement decisions.</div>
+    </div>
+    <div class="eval-card alpaca">
+      <div class="eval-name">🦙 AlpacaEval 2.0</div>
+      <div class="eval-org">By Stanford / Tatsu Lab · tatsu-lab.github.io/alpaca_eval</div>
+      <div class="eval-how">LLM-as-judge: GPT-4 Turbo scores outputs on 805 instructions vs. GPT-4 reference responses.</div>
+      <div class="eval-warning">⚠️ GPT-4 as judge has self-preference bias — rates GPT-4-style outputs higher.</div>
+      <div class="eval-tick">✓ Fast, cheap, correlates well with human preference. Good for instruction-following evaluation.</div>
+    </div>
+    <div class="eval-card bigbench">
+      <div class="eval-name">🧪 BIG-bench / BIG-bench Hard</div>
+      <div class="eval-org">By Google + 400+ researchers · github.com/google/BIG-bench</div>
+      <div class="eval-how">204 diverse tasks designed to be beyond GPT-4 at time of creation. BBH = hardest 23 tasks.</div>
+      <div class="eval-warning">⚠️ Benchmark drift — frontier models now pass many tasks. It was hard in 2022.</div>
+      <div class="eval-tick">✓ Catches reasoning gaps not visible on standard benchmarks. Good for stress-testing.</div>
+    </div>
+    <div class="eval-card livebench">
+      <div class="eval-name">⚡ LiveBench</div>
+      <div class="eval-org">By LiveBench.ai · livebench.ai</div>
+      <div class="eval-how">Fresh questions monthly from recent news and competitions — impossible to contaminate with training data.</div>
+      <div class="eval-warning">⚠️ Newer, smaller question set. Less historical comparison data.</div>
+      <div class="eval-tick">✓ Solves data contamination: models can't have memorised answers. Best for honest capability tracking.</div>
+    </div>
+  </div>
+
+  <div class="meta"><b>The rule of thumb ·</b> LMSYS for real-world feel. LiveBench for honest capability. Scale HELM if you're making a procurement decision. Never trust a single leaderboard — they all have a lens.</div>
+  <div class="inside"><b>The signal —</b> Data contamination is a real problem: models trained on web data may have seen the test questions before being evaluated on them. LiveBench was built specifically to solve this. When you see a surprisingly high benchmark score, ask which leaderboard — and whether LiveBench agrees.</div>
+</div>
+
+<!-- STORY 06 — NOVA'S FORECAST -->
+<div class="story" style="border-bottom:none;">
+  <div class="story-n">06</div>
+  <div class="story-title">Nova's Forecast: model commoditisation is accelerating — and the real skill is changing.</div>
+  <div class="story-body">Every major consumer plan costs $20/month. Open-weight models are matching frontier performance. The gap between the best and second-best model on most tasks is narrowing every quarter. The model itself is becoming a commodity — which means the skill is shifting from "which model" to "how you use it."</div>
+
+  <div class="predict">
+    <div class="predict-label">📍 Nova's Forecast · 2027</div>
+    <div class="predict-text">"By 2027, picking the right model won't be a skill. Orchestrating the right model for the right task — automatically, at scale — will be. That's the career moat being built right now."</div>
+    <div class="predict-sub">The knowledge workers who will earn the most from AI aren't the ones who know which model is #1 today. They're the ones building systems that route tasks to the cheapest capable model automatically — and who understand what each model can and can't be trusted to do.</div>
+  </div>
+
+  <!-- FOWL PREDICTION #004 -->
+  <div style="background:#13241e;border:1px solid rgba(242,161,43,.3);border-radius:10px;padding:22px 26px;margin:20px 0;">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:6px;">🔮 FOWL Prediction #004</div>
+    <div style="font-family:'Fraunces',serif;font-weight:700;font-size:20px;color:#fff;line-height:1.35;margin-bottom:10px;">"By 2028, every enterprise will run at least three AI models simultaneously — one for cost, one for quality, one for compliance."</div>
+    <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#7fd9b8;line-height:1.65;">The era of a single AI vendor is ending. Routing tasks to the right model automatically — cheapest capable model by default, premium models for high-stakes work, open-weight models for sensitive data — will be standard practice. The organisations building that infrastructure now are 18 months ahead.</div>
+    <div style="margin-top:12px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#3a5248;">FOWL AI · Jun 15, 2026 · We'll score this in 2028.</div>
+  </div>
+
+  <div class="meta"><b>What this means practically ·</b> The reference table in this issue will be outdated in 90 days. New models ship monthly. Benchmarks shift. What won't change is the underlying skill: understanding what these systems can and can't do, and building workflows that use them correctly.</div>
+  <div class="inside"><b>The signal —</b> DeepSeek's open-weight release caused a $600B Nvidia stock drop in a single day. The pace of change in this market is unlike anything in software history. The people who treat it as a stable landscape to learn once are the ones who'll be surprised in 2027.</div>
+</div>
+
+<!-- ACTION ITEMS -->
+<div class="sec"><span class="sec-tag">✅ 3 Things to Do This Week</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="action-wrap">
+    <div class="action-label">Based on this issue — concrete moves, this week</div>
+    <div class="action-item">
+      <span class="action-num">01</span>
+      <div><b>Audit which model you're using for what.</b> Open your last 20 prompts. How many were routine tasks — summarising, formatting, drafting? Those don't need a $25/month plan. Gemini Flash or Grok 4.1 handles them at a fraction of the cost. Save premium models for the work where quality actually changes the outcome.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">02</span>
+      <div><b>Test one budget model this week.</b> Run Grok 4.1 or Gemini 2.5 Flash on your most routine AI task. Time it. Check the quality. Most people discover the difference is invisible for 70% of their work — and that changes what they're willing to pay for.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">03</span>
+      <div><b>Bookmark LiveBench for future rankings.</b> When a new model launches and claims to be #1, check <a href="https://livebench.ai" target="_blank" rel="noopener noreferrer" style="color:#1a5f4a;text-decoration:underline;">livebench.ai</a> first. It's the only leaderboard that can't be gamed by training on the test questions. If it's not leading on LiveBench, the #1 claim is worth questioning.</div>
+    </div>
+  </div>
+</div>
+
+<!-- LAUNCH LAB -->
+<div class="launch-lab">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;">🚀 From the Lab</div>
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:#13241e;line-height:1.2;margin-bottom:10px;">Launch Lab — Building something?</div>
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#46524c;margin-bottom:16px;">Need help setting up a website, newsletter, digital products, or payments for your brand? We can help you build it — fast, clean, and ready to launch.</div>
+  <div style="font-family:'DM Mono',monospace;font-size:13px;color:#0f3d30;background:#e8f4ee;border-radius:8px;padding:12px 18px;display:inline-block;">Reply with <strong>"LAUNCH"</strong> and let's chat.</div>
+</div>
+
+<!-- SIGNAL & CHATTER -->
+<div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="sig-intro">What the research and community are saying — mapped to this week's signals.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>All $20/month plans are not equal.</b> Consumer plans at the same price point give very different access levels. Claude Pro includes priority access to Opus 4.8. ChatGPT Plus caps GPT-5.5 usage. Gemini Advanced gives full access to 3.1 Pro with 1M token context. The devil is in the fair-use limits.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Chinese models are closing faster than anyone expected.</b> MiniMax M3 (92.9% GPQA) and Qwen3.7 Max (92.3% GPQA) are within 2 points of Gemini 3.1 Pro's 94.3% on scientific reasoning. They're not mainstream in the West yet — but they will be.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Benchmark contamination is a growing problem.</b> When a model is trained on web data, it may have seen evaluation questions before being tested on them. LiveBench — which uses fresh questions monthly from recent competitions — was built specifically to prevent this. Its rankings sometimes differ significantly from static benchmarks.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The model isn't the product anymore — the application layer is.</b> Every major AI company is building applications on top of their models: Anthropic has Claude.ai, OpenAI has ChatGPT, Google has Gemini Apps. The raw model is becoming infrastructure. The application — and the workflow you build around it — is where the value lives.</div></div>
+</div>
+
+<!-- EMERGING CAREER -->
+<div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
+<div class="card-dark">
+  <div class="career-eye">This week</div>
+  <div class="career-title">AI Model Strategist</div>
+  <div class="career-body">As the model landscape expands past 20 serious options, organisations need someone who understands which model to use for which task — and can build the routing logic, evaluation frameworks, and cost structures that make AI usage predictable and efficient.<br><br>This isn't a pure engineering role. The best AI Model Strategists combine business context (what are we actually trying to do?) with technical literacy (what can each model reliably deliver?) and cost management (what should each task actually cost?). They're the people who stop teams from defaulting to the most expensive model for everything.</div>
+  <div class="career-why"><b>How to position now:</b> Build a personal reference document tracking the models you use, what they cost, what they're best at, and where they fail. That document is the foundation of the role. Add a workflow routing layer — even a simple one — and you have the core of what enterprises are starting to hire for.</div>
+</div>
+
+<!-- CLOSING -->
+<div class="card" style="padding-bottom:0;">
+  <div class="closing-text">The AI model market is the most competitive software market in history — and it's moving faster than any team can keep up with. New models ship monthly. Benchmarks shift. Prices compress. The thing that stays constant is the underlying question: which tool, for which job, at what cost, with what risk.<br><br>That's not a technical question. It's a judgment call. And judgment — informed, calibrated, domain-specific — is exactly what compounds in value as the tools get easier for everyone else to use.</div>
+</div>
+
+<!-- STAMP -->
+<div class="card-dark" style="margin-top:0;text-align:center;">
+  <div class="stamp-text">"The model you use is less important than<br><span>knowing what you're asking it to do."</span></div>
+</div>
+
+<!-- CLAUDE CORPS OPPORTUNITY -->
+<div class="sec"><span class="sec-tag">🎓 Career Opportunity · Apply by Jul 17</span><span class="sec-line"></span></div>
+<div style="background:#0d3f31;margin:0;padding:32px 44px;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;">💡 Anthropic · Claude Corps</div>
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:26px;color:#fff;line-height:1.2;margin-bottom:12px;">Anthropic just committed $150M to place 1,000 AI fellows inside US nonprofits. Here's how to apply.</div>
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#a9e8cf;margin-bottom:20px;">Claude Corps is Anthropic's new fellowship program — a 12-month, full-time placement embedding early-career AI practitioners inside US-based nonprofits. First cohort of 100 starts October 2026. Applications close <strong style="color:#f2a12b;">July 17, 2026.</strong></div>
+
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:20px;">
+    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(127,217,184,.2);border-radius:8px;padding:16px 18px;text-align:center;">
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#f2a12b;line-height:1;margin-bottom:6px;">$85K</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#7fd9b8;">Annual salary</div>
+    </div>
+    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(127,217,184,.2);border-radius:8px;padding:16px 18px;text-align:center;">
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#f2a12b;line-height:1;margin-bottom:6px;">$10K</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#7fd9b8;">Additional grant</div>
+    </div>
+    <div style="background:rgba(255,255,255,.07);border:1px solid rgba(127,217,184,.2);border-radius:8px;padding:16px 18px;text-align:center;">
+      <div style="font-family:'Fraunces',serif;font-size:28px;font-weight:700;color:#f2a12b;line-height:1;margin-bottom:6px;">1,000</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:#7fd9b8;">Fellows total</div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">
+    <div style="display:flex;gap:10px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#e2f2eb;line-height:1.6;">
+      <span style="color:#f2a12b;flex-shrink:0;margin-top:2px;">→</span>
+      <span><strong style="color:#fff;">Who can apply:</strong> Anyone over 18 with under 2 years of full-time work experience. No degree required. Must be authorised to work in the US and comfortable using Claude.</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#e2f2eb;line-height:1.6;">
+      <span style="color:#f2a12b;flex-shrink:0;margin-top:2px;">→</span>
+      <span><strong style="color:#fff;">What you do:</strong> 12-month full-time placement at a US nonprofit. Salary and benefits fully covered by Anthropic. Mentorship from CodePath, direct access to Anthropic's team, and an expanded Claude token budget.</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#e2f2eb;line-height:1.6;">
+      <span style="color:#f2a12b;flex-shrink:0;margin-top:2px;">→</span>
+      <span><strong style="color:#fff;">First cohort:</strong> 100 fellows starting October 2026. Remaining 900 in January and August 2027 cohorts.</span>
+    </div>
+    <div style="display:flex;gap:10px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#e2f2eb;line-height:1.6;">
+      <span style="color:#f2a12b;flex-shrink:0;margin-top:2px;">→</span>
+      <span><strong style="color:#fff;">Applications close July 17.</strong> This is early-career — if you're under 2 years into your working life and want structured AI experience with Anthropic on your CV, this is the most credible pathway available right now.</span>
+    </div>
+  </div>
+
+  <a href="https://www.anthropic.com/news/claude-corps" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:8px;background:#f2a12b;color:#0d3f31;font-family:'Inter',sans-serif;font-weight:800;font-size:14px;padding:14px 28px;border-radius:999px;text-decoration:none;">Apply for Claude Corps →</a>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#7fd9b8;margin-top:10px;opacity:.7;">anthropic.com/news/claude-corps · Applications close Jul 17, 2026</div>
+</div>
+
+<!-- REPLY CTA -->
+<div class="card-mint">
+  <div class="reply-label">💬 One question — reply and tell us</div>
+  <div class="reply-text">Which AI model are you using most right now — and what one task would you most want to replace with a cheaper or better one?<br><br>Hit reply. We read every one and it shapes what we cover next.</div>
+</div>
+
+<!-- SHARE -->
+<div style="background:#fff;margin:8px 0;padding:24px 44px;text-align:center;border-top:2px solid #f2ede3;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9aada5;margin-bottom:16px;">Share this issue</div>
+  <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+    <button onclick="navigator.clipboard.writeText('https://www.fowl-ai.com/issues/2026-06-15/').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>{this.textContent='Copy link'},2000)})" style="display:inline-flex;align-items:center;gap:8px;background:#f2ede3;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid #c8c0b4;cursor:pointer;">Copy link</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">FOWL AI</div>
+  <div class="footer-fine">Career signals for the AI economy.</div>
+  <div class="footer-fine" style="margin-top:6px;">Weekly · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="https://www.fowl-ai.com">fowl-ai.com</a></div>
+</div>
+
+</body></html>
