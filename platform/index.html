@@ -1,0 +1,1181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOWL AI Platform — The AI Work Database</title>
+  <meta name="description" content="A living database of AI training jobs, evaluation work, analyst opportunities, contract roles, and emerging AI companies hiring. Curated weekly by FOWL AI.">
+  <meta property="og:title" content="FOWL AI Platform — The AI Work Database" />
+  <meta property="og:description" content="Every AI work opportunity worth knowing about, in one place. Curated weekly with career context." />
+  <meta property="og:url" content="https://www.fowl-ai.com/platform/" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;text-decoration:none;}
+
+    /* Nav */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;white-space:nowrap;}
+    .nav-link:hover{color:#fff;}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0);}}
+    @keyframes wiggle{0%,80%,100%{transform:rotate(0deg) scale(1);}83%{transform:rotate(-2deg) scale(1.04);}86%{transform:rotate(2deg) scale(1.04);}89%{transform:rotate(-1deg) scale(1.02);}}
+    .sub-btn{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:12px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;white-space:nowrap;}
+    .sub-btn:hover{transform:scale(1.06);animation:none;}
+
+    /* Hero */
+    .hero{background:#0d3f31;color:#fff;padding:52px 24px 0;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+    .live-dot{width:7px;height:7px;border-radius:50%;background:#78ddb4;display:inline-block;animation:pulse-dot 2s ease-in-out infinite;}
+    @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.3;}}
+    .hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(36px,6vw,64px);line-height:1.05;margin-bottom:16px;}
+    .hero h1 span{color:#f2a12b;}
+    .hero-sub{font-size:18px;color:#e2f2eb;max-width:580px;line-height:1.75;margin-bottom:32px;}
+
+    /* Search bar */
+    .search-bar{background:#fff;border-radius:10px;display:flex;align-items:center;gap:0;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.18);max-width:620px;margin-bottom:0;}
+    .search-input{flex:1;border:none;outline:none;padding:16px 20px;font-size:15px;font-family:Inter,sans-serif;color:#13241e;background:transparent;}
+    .search-input::placeholder{color:#9aada5;}
+    .search-btn{background:#0d3f31;color:#fff;border:none;padding:16px 24px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;white-space:nowrap;font-weight:600;}
+    .search-btn:hover{background:#1a5f4a;}
+
+    /* Category tabs */
+    .tabs-bar{background:#0a3028;border-top:1px solid rgba(255,255,255,.08);margin-top:28px;}
+    .tabs-inner{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
+    .tabs-inner::-webkit-scrollbar{display:none;}
+    .tab-btn{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;padding:16px 22px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;flex-shrink:0;}
+    .tab-btn:hover{color:#fff;}
+    .tab-btn.active{color:#f2a12b;border-bottom-color:#f2a12b;}
+    .tab-count{font-size:9px;background:rgba(127,217,184,.2);color:#7fd9b8;padding:2px 6px;border-radius:999px;margin-left:6px;}
+    .tab-btn.active .tab-count{background:rgba(242,161,43,.2);color:#f2a12b;}
+
+    /* Stats strip */
+    .stats-strip{background:#13241e;padding:18px 24px;}
+    .stats-inner{display:flex;gap:32px;align-items:center;flex-wrap:wrap;}
+    .stat{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;color:#7fd9b8;}
+    .stat strong{color:#f2a12b;font-size:16px;display:block;margin-bottom:2px;}
+
+    /* Panel */
+    .panel{display:none;padding:32px 24px 72px;}
+    .panel.active{display:block;}
+
+    /* Section header */
+    .section-intro{margin-bottom:24px;}
+    .section-intro h2{font-family:Fraunces,Georgia,serif;font-size:28px;margin-bottom:6px;}
+    .section-intro p{font-size:14px;color:#665f56;max-width:560px;}
+
+    /* Company cards grid */
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:16px;}
+
+    /* Company card */
+    .company-card{background:#fff;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #ece8e1;transition:box-shadow .18s,border-color .18s;}
+    .company-card:hover{box-shadow:0 8px 36px rgba(0,0,0,.11);border-color:#d5cfc5;}
+    .card-top{display:flex;align-items:flex-start;gap:14px;}
+    .company-logo{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:"DM Mono",monospace;font-size:14px;font-weight:500;color:#fff;}
+    .company-info{flex:1;}
+    .company-name{font-weight:800;font-size:16px;color:#13241e;margin-bottom:3px;}
+    .company-type{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;}
+    .company-badges{display:flex;gap:5px;flex-wrap:wrap;}
+    .cbadge{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:999px;}
+    .cbadge.hot{background:#fff0e0;color:#c07000;}
+    .cbadge.new{background:#e8f9f2;color:#0d7a52;}
+    .cbadge.remote{background:#f0f0ff;color:#4040a0;}
+    .cbadge.startup{background:#fdf0fb;color:#8a2a8a;}
+    .cbadge.open{background:#f2f0ff;color:#5040c0;}
+
+    .company-desc{font-size:13px;color:#46524c;line-height:1.7;}
+
+    .fowl-take{background:#f7eedc;border-left:3px solid #f2a12b;padding:10px 14px;border-radius:0 6px 6px 0;}
+    .fowl-take-label{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:4px;}
+    .fowl-take-text{font-size:13px;color:#4a3820;line-height:1.55;font-style:italic;}
+
+    .card-meta{display:flex;gap:10px;flex-wrap:wrap;}
+    .meta-pill{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;color:#665f56;background:#f2ede3;padding:4px 10px;border-radius:999px;}
+    .meta-pill.pay{color:#0f3d30;background:#e8f4ee;font-weight:500;}
+
+    .card-cta{display:flex;gap:8px;align-items:center;margin-top:auto;}
+    .cta-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:999px;font-weight:700;font-size:13px;transition:opacity .15s;white-space:nowrap;}
+    .cta-btn.primary{background:#0d3f31;color:#fff;}
+    .cta-btn.primary:hover{opacity:.85;}
+    .cta-btn.referral{background:#f2a12b;color:#0d3f31;}
+    .cta-btn.referral:hover{opacity:.85;}
+    .cta-btn.secondary{background:transparent;color:#0d3f31;border:1.5px solid #0d3f31;font-size:12px;}
+    .cta-btn.secondary:hover{background:#0d3f31;color:#fff;}
+
+    /* Role rows inside card */
+    .role-list{display:flex;flex-direction:column;gap:6px;}
+    .role-row{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#f9f6f0;border-radius:6px;padding:8px 12px;}
+    .role-name{font-size:13px;font-weight:600;color:#13241e;}
+    .role-pay{font-family:"DM Mono",monospace;font-size:11px;color:#1a5f4a;font-weight:500;}
+
+    /* Feature banner */
+    .feature-banner{background:#13241e;border-radius:12px;padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .feature-banner-text h3{font-family:Fraunces,Georgia,serif;font-size:20px;color:#fff;margin-bottom:6px;}
+    .feature-banner-text p{font-size:13px;color:#a9e8cf;line-height:1.6;}
+    .feature-banner-cta{margin-left:auto;flex-shrink:0;}
+
+    /* Empty state */
+    .empty{text-align:center;padding:60px 24px;color:#9aada5;}
+    .empty h3{font-family:Fraunces,Georgia,serif;font-size:22px;margin-bottom:8px;color:#665f56;}
+    .empty p{font-size:14px;}
+
+    /* Subscribe CTA */
+    .sub-cta{background:#0d3f31;padding:52px 24px;text-align:center;}
+    .sub-cta h2{font-family:Fraunces,Georgia,serif;font-size:34px;color:#fff;margin-bottom:12px;}
+    .sub-cta p{font-size:16px;color:#a9e8cf;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+
+    /* Footer */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;border-top:1px solid rgba(255,255,255,.06);}
+    .footer a{color:#78ddb4;}
+
+    @media(max-width:680px){
+      .hero{padding:36px 18px 0;}
+      .hero h1{font-size:36px;}
+      .panel{padding:24px 18px 56px;}
+      .cards-grid{grid-template-columns:1fr;}
+      .stats-inner{gap:18px;}
+      .tab-btn{padding:14px 14px;font-size:10px;}
+      .feature-banner{flex-direction:column;}
+      .feature-banner-cta{margin-left:0;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark"></span>
+          <span class="brand-word">FOWL AI</span>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/issues/">Issues</a>
+          <a class="nav-link" href="/platform/" style="color:#f2a12b;">Platform</a>
+          <a class="nav-link" href="/jobs/">Jobs</a>
+          <a class="nav-link" href="/products/">Products</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">
+        <span class="live-dot"></span>
+        FOWL AI Platform · Updated weekly
+      </div>
+      <h1>The AI work database.<br><span>Every opportunity worth knowing.</span></h1>
+      <div class="hero-sub">AI training jobs, evaluation work, analyst roles, contract opportunities, and emerging companies hiring — all in one place. Curated weekly with career context.</div>
+
+      <div class="search-bar">
+        <input class="search-input" type="text" placeholder="Search companies, roles, or skills..." id="searchInput" oninput="filterCards()">
+        <button class="search-btn">Search</button>
+      </div>
+    </div>
+
+    <!-- TABS -->
+    <div class="tabs-bar" style="margin-top:28px;">
+      <div class="wrap">
+        <div class="tabs-inner">
+          <button class="tab-btn active" onclick="switchPanel('training',this)">AI Training <span class="tab-count">8</span></button>
+          <button class="tab-btn" onclick="switchPanel('evaluation',this)">AI Evaluation <span class="tab-count">6</span></button>
+          <button class="tab-btn" onclick="switchPanel('analyst',this)">AI Analyst <span class="tab-count">5</span></button>
+          <button class="tab-btn" onclick="switchPanel('contract',this)">Contract Work <span class="tab-count">5</span></button>
+          <button class="tab-btn" onclick="switchPanel('emerging',this)">Emerging Companies <span class="tab-count">7</span></button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="wrap">
+      <div class="stats-inner">
+        <div class="stat"><strong>31</strong>Opportunities tracked</div>
+        <div class="stat"><strong>$14–$494K</strong>Pay range across all categories</div>
+        <div class="stat"><strong>Jun 13</strong>Last updated</div>
+        <div class="stat"><strong>Weekly</strong>Refresh cadence</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PANEL: AI TRAINING
+  ══════════════════════════════════════════ -->
+  <div id="panel-training" class="panel active">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>AI Training Jobs</h2>
+        <p>Platforms that pay you to train frontier AI models using your domain expertise. No employer needed — you apply, pass the screening, and work flexibly.</p>
+      </div>
+
+      <div class="feature-banner">
+        <div style="width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">🎙️</div>
+        <div class="feature-banner-text">
+          <h3>FOWL AI Pick this week: Mercor</h3>
+          <p>Average pay of $95/hr. Physicians earn $130–170/hr, lawyers $110–130/hr. The highest-paying evaluation platform on the market — and the hardest to get into.</p>
+        </div>
+        <div class="feature-banner-cta">
+          <a class="cta-btn referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply via referral →</a>
+        </div>
+      </div>
+
+      <div class="cards-grid">
+
+        <div class="company-card" data-search="mercor training evaluation domain expert">
+          <div class="card-top">
+            <div class="company-logo" style="background:#0d3f31;">MC</div>
+            <div class="company-info">
+              <div class="company-name">Mercor</div>
+              <div class="company-type">AI Talent Marketplace</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">Top Pay</span><span class="cbadge new">Referral</span></div>
+          </div>
+          <div class="company-desc">Connects domain experts with frontier AI labs. Clients include OpenAI, Anthropic, and six of the Magnificent Seven. Average contractor earns $95/hr.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Domain Expert Evaluator</span><span class="role-pay">$70–$150/hr</span></div>
+            <div class="role-row"><span class="role-name">Medical AI Reviewer</span><span class="role-pay">$130–$170/hr</span></div>
+            <div class="role-row"><span class="role-name">Legal AI Reviewer</span><span class="role-pay">$110–$130/hr</span></div>
+            <div class="role-row"><span class="role-name">Researcher — AI Evaluation</span><span class="role-pay">Avg $95/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The hardest platform to get into and the highest paying. The interview tests your domain — not your AI tool knowledge. If you pass, it compounds.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill">Flexible hours</span>
+            <span class="meta-pill pay">Avg $95/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn referral" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply via referral →</a>
+            <a class="cta-btn secondary" href="https://www.mercor.com" target="_blank" rel="noopener">Learn more</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="outlier scale ai training stem coding">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a2a6a;">OT</div>
+            <div class="company-info">
+              <div class="company-name">Outlier (Scale AI)</div>
+              <div class="company-type">AI Data Platform</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Referral</span><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">Scale AI's freelance platform. Connects experts with leading AI companies for human feedback on language models. Strong in STEM, medicine, law, and coding.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Trainer — Coding & STEM</span><span class="role-pay">$20–$60/hr</span></div>
+            <div class="role-row"><span class="role-name">Healthcare AI Reviewer</span><span class="role-pay">$40–$80/hr</span></div>
+            <div class="role-row"><span class="role-name">AI Content Reviewer</span><span class="role-pay">$18–$40/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">Larger task supply than Mercor. Lower barrier to entry. Good starting point — build your score here while applying to Mercor.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill">Flexible</span>
+            <span class="meta-pill pay">$18–$80/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn referral" href="https://app.outlier.ai/expert/referrals/link/tMAelTC5NHmc-huLgd4sm2s79uE" target="_blank" rel="noopener">Apply via referral →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="dataannotation coding writing python">
+          <div class="card-top">
+            <div class="company-logo" style="background:#2a4a2a;">DA</div>
+            <div class="company-info">
+              <div class="company-name">DataAnnotation</div>
+              <div class="company-type">AI Training Platform</div>
+            </div>
+            <div class="company-badges"><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">Strong for writers, coders, and generalists. Large task volume. Good entry point for AI training work with consistent availability.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Code Evaluator</span><span class="role-pay">$20–$45/hr</span></div>
+            <div class="role-row"><span class="role-name">Quantitative Model Evaluator</span><span class="role-pay">$35–$65/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">Most accessible platform. Lower rates than Mercor but consistent task supply. Ideal for building experience before applying upmarket.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$20–$65/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.dataannotation.tech" target="_blank" rel="noopener">Apply →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="mindrift rlhf red team legal creative">
+          <div class="card-top">
+            <div class="company-logo" style="background:#3a1a4a;">MR</div>
+            <div class="company-info">
+              <div class="company-name">Mindrift</div>
+              <div class="company-type">AI Training · RLHF Specialists</div>
+            </div>
+            <div class="company-badges"><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">Specialises in RLHF, red-teaming, and evaluation. Particularly strong for legal AI and creative writing domains. Global contractor network.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Legal AI Evaluation Specialist</span><span class="role-pay">$30–$80/hr</span></div>
+            <div class="role-row"><span class="role-name">Creative Writing AI Trainer</span><span class="role-pay">$20–$50/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">Good secondary platform for legal and creative professionals. Run alongside Mercor or Outlier for diversified income.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$20–$80/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://mindrift.ai" target="_blank" rel="noopener">Apply →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="alignerr micro1 expert tier evaluation">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a3a5a;">AL</div>
+            <div class="company-info">
+              <div class="company-name">Alignerr / micro1</div>
+              <div class="company-type">Expert-Tier Evaluation</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">Expert-tier evaluation and AI training platform. Rates reflect genuine seniority — strong for finance, research, and technical domains.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Red Teamer — Finance</span><span class="role-pay">$30–$100/hr</span></div>
+            <div class="role-row"><span class="role-name">Expert AI Evaluator</span><span class="role-pay">$30–$100/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">Cleaner and more transparent than older platforms. Growing fast. Apply early — the supply gap is widest here right now.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$30–$100/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://alignerr.com" target="_blank" rel="noopener">Apply →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="surge ai medical legal finance expert">
+          <div class="card-top">
+            <div class="company-logo" style="background:#4a2a1a;">SG</div>
+            <div class="company-info">
+              <div class="company-name">Surge AI</div>
+              <div class="company-type">Expert Human Intelligence</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">Top Pay</span></div>
+          </div>
+          <div class="company-desc">Premium expert evaluation network for medical, legal, and finance professionals. Highest ceiling rates in the market for credentialed domain experts.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Medical / Legal / Finance Evaluator</span><span class="role-pay">$80–$450/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The highest ceiling on the market. Credentialed professionals only — but if you qualify, this is the top of the pay ladder.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$80–$450/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://surgehq.ai/workforce" target="_blank" rel="noopener">Apply →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="toloka qa testing model quality">
+          <div class="card-top">
+            <div class="company-logo" style="background:#2a2a4a;">TL</div>
+            <div class="company-info">
+              <div class="company-name">Toloka</div>
+              <div class="company-type">AI Data & QA Platform</div>
+            </div>
+            <div class="company-badges"><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">Global AI data platform. Strong for quality assurance and model testing. Good entry point with consistent task availability worldwide.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Model QA Tester</span><span class="role-pay">$15–$35/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">Entry-level rates but global availability. Best as a starting platform to build experience while targeting higher-paying options.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$15–$35/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://toloka.ai/tolokers/" target="_blank" rel="noopener">Apply →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="handshake ai fellowship expert track">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a4a3a;">HS</div>
+            <div class="company-info">
+              <div class="company-name">Handshake AI</div>
+              <div class="company-type">AI Fellowship Program</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Fellowship</span></div>
+          </div>
+          <div class="company-desc">Expert track fellowship connecting senior professionals with AI companies for structured evaluation and training partnerships. US only.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Fellowship — Expert Track</span><span class="role-pay">Up to $100/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">Structured program feel rather than pure gig work. Good for professionals who want more continuity than task-by-task freelancing.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US only</span>
+            <span class="meta-pill pay">Up to $100/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn referral" href="https://joinhandshake.com/move-program/referral?referralCode=0EBF05" target="_blank" rel="noopener">Apply via referral →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PANEL: AI EVALUATION
+  ══════════════════════════════════════════ -->
+  <div id="panel-evaluation" class="panel">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>AI Evaluation Work</h2>
+        <p>Structured evaluation roles — testing model outputs, running red-team exercises, and providing expert human feedback that shapes how frontier AI behaves.</p>
+      </div>
+      <div class="cards-grid">
+
+        <div class="company-card" data-search="scale ai evaluation labelling">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a2a6a;">SC</div>
+            <div class="company-info">
+              <div class="company-name">Scale AI</div>
+              <div class="company-type">AI Data Infrastructure</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span></div>
+          </div>
+          <div class="company-desc">The infrastructure layer behind many frontier AI models. 397 internal roles open alongside extensive contractor evaluation work across all domains.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">RLHF Specialist</span><span class="role-pay">$25–$55/hr</span></div>
+            <div class="role-row"><span class="role-name">Senior Domain Evaluator</span><span class="role-pay">$60–$130/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The backbone of AI evaluation. Internal roles are premium-tier. Contractor work is steady and well-structured. Both worth pursuing.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US/CA/UK</span>
+            <span class="meta-pill pay">$25–$130/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://scale.com/spellbook" target="_blank" rel="noopener">Apply →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="anthropic claude corps nonprofit fellowship">
+          <div class="card-top">
+            <div class="company-logo" style="background:#d4541e;">AN</div>
+            <div class="company-info">
+              <div class="company-name">Anthropic — Claude Corps</div>
+              <div class="company-type">AI Fellowship · $150M Program</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Apply by Jul 17</span><span class="cbadge hot">$85K salary</span></div>
+          </div>
+          <div class="company-desc">Anthropic's $150M fellowship program embedding 1,000 AI fellows inside US nonprofits for 12 months. No degree required. Under 2 years experience. First cohort starts October 2026.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Claude Corps Fellow</span><span class="role-pay">$85K + $10K grant</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The most accessible structured AI pathway for early-career workers right now. Anthropic on your CV after 12 months. Apply before July 17.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">US-based · Full-time</span>
+            <span class="meta-pill">Applications close Jul 17</span>
+            <span class="meta-pill pay">$85K + $10K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn referral" href="https://www.anthropic.com/news/claude-corps" target="_blank" rel="noopener">Apply now →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="openai safety trust policy">
+          <div class="card-top">
+            <div class="company-logo" style="background:#111;">OA</div>
+            <div class="company-info">
+              <div class="company-name">OpenAI</div>
+              <div class="company-type">Frontier AI Lab</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span></div>
+          </div>
+          <div class="company-desc">Creator of ChatGPT and GPT-5 family. Targeting 8,000 employees by end of 2026. Hiring across safety, trust, policy, product, and research.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Trust & Safety Specialist</span><span class="role-pay">$130–$180K</span></div>
+            <div class="role-row"><span class="role-name">AI Product Manager</span><span class="role-pay">$200–$300K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The most recognised name in AI. Highly competitive but the roles that don't require ML engineering are underserved — policy, comms, trust & safety.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">San Francisco · Hybrid</span>
+            <span class="meta-pill pay">$130K–$300K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://openai.com/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="anthropic safety research policy governance">
+          <div class="card-top">
+            <div class="company-logo" style="background:#c05020;">AT</div>
+            <div class="company-info">
+              <div class="company-name">Anthropic</div>
+              <div class="company-type">Safety-First AI Lab</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span></div>
+          </div>
+          <div class="company-desc">Maker of Claude. 4,585 employees as of 2026, growing aggressively. Known for safety research hiring — but also policy, governance, and operations roles.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Safety Researcher</span><span class="role-pay">$180–$280K</span></div>
+            <div class="role-row"><span class="role-name">AI Policy & Governance Analyst</span><span class="role-pay">$120–$160K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The most values-aligned major lab. Their refusal of the Pentagon lethal weapons contract signals something real about culture. Policy and governance roles are undersubscribed.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">SF · Remote US/UK</span>
+            <span class="meta-pill pay">$120K–$280K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.anthropic.com/careers/jobs" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="telus appen ai response quality testing">
+          <div class="card-top">
+            <div class="company-logo" style="background:#2a4a4a;">TA</div>
+            <div class="company-info">
+              <div class="company-name">Telus International / Appen</div>
+              <div class="company-type">AI Quality & Response Rating</div>
+            </div>
+            <div class="company-badges"><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">Global AI quality platforms with consistent task availability. Lower rates but steady supply — good for supplementary income or getting started.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Conversation Quality Tester</span><span class="role-pay">$14–$22/hr</span></div>
+            <div class="role-row"><span class="role-name">AI Response Rater</span><span class="role-pay">$14–$25/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">Entry-level rates but genuinely global and consistent. Use as a bridge while building toward higher-paying platforms.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$14–$25/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.telusinternational.com/solutions/ai-data/ai-community" target="_blank" rel="noopener">Apply →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="google deepmind research science">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a3a6a;">GD</div>
+            <div class="company-info">
+              <div class="company-name">Google DeepMind</div>
+              <div class="company-type">AI Research Lab</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span></div>
+          </div>
+          <div class="company-desc">Google's combined AI research unit. 6,000–7,700 researchers globally. Gemini 3.1 Pro leads on scientific reasoning. Hiring across research, engineering, and product.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Research Scientist</span><span class="role-pay">$180–$320K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The most competitive research environment in AI. Top of market for scientific domain experts — especially healthcare and materials science.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">London · NYC · Hybrid</span>
+            <span class="meta-pill pay">$180K–$320K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.linkedin.com/company/google-deepmind/jobs/" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PANEL: AI ANALYST
+  ══════════════════════════════════════════ -->
+  <div id="panel-analyst" class="panel">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>AI Analyst Opportunities</h2>
+        <p>Research, strategy, and intelligence roles at the intersection of AI and your domain. The premium goes to people who can contextualise AI signals, not just report them.</p>
+      </div>
+      <div class="cards-grid">
+
+        <div class="company-card" data-search="ai strategy consulting analyst intelligence">
+          <div class="card-top">
+            <div class="company-logo" style="background:#3a1a2a;">HA</div>
+            <div class="company-info">
+              <div class="company-name">Harvey</div>
+              <div class="company-type">Legal AI · $11B Valuation</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span><span class="cbadge startup">Startup</span></div>
+          </div>
+          <div class="company-desc">Legal AI platform backed by top VCs. Needs domain experts who can analyse legal outputs, flag errors, and help build the intelligence layer. Fast-growing.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Legal Domain Expert</span><span class="role-pay">$130–$200K</span></div>
+            <div class="role-row"><span class="role-name">AI Legal Analyst</span><span class="role-pay">$110–$160K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The fastest-growing legal AI company in the world. If you have a legal background, this is the highest-leverage place to apply right now.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US</span>
+            <span class="meta-pill pay">$110K–$200K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.linkedin.com/company/harvey-ai/jobs/" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="hebbia finance analyst document intelligence">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a3a2a;">HB</div>
+            <div class="company-info">
+              <div class="company-name">Hebbia</div>
+              <div class="company-type">Finance & Legal AI · NYC</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span><span class="cbadge startup">Startup</span></div>
+          </div>
+          <div class="company-desc">AI platform for document-heavy analysis in financial services and legal. Needs finance and legal analysts who can evaluate complex AI outputs.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Finance AI Analyst</span><span class="role-pay">$120–$180K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The intersection of finance expertise and AI. If you've done document-heavy analysis professionally, Hebbia is building the tool — and needs people who know where it fails.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">New York · Hybrid</span>
+            <span class="meta-pill pay">$120K–$180K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.hebbia.ai/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="glean enterprise knowledge ai search analyst">
+          <div class="card-top">
+            <div class="company-logo" style="background:#2a3a5a;">GL</div>
+            <div class="company-info">
+              <div class="company-name">Glean</div>
+              <div class="company-type">Enterprise AI · $7.2B Valuation</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span><span class="cbadge startup">Startup</span></div>
+          </div>
+          <div class="company-desc">Enterprise knowledge AI. Evolved from search to a full AI platform for company knowledge and agentic workflows. $200M ARR and growing fast.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Enterprise Account Executive</span><span class="role-pay">$180–$260K OTE</span></div>
+            <div class="role-row"><span class="role-name">AI Customer Success Manager</span><span class="role-pay">$120–$160K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The enterprise AI platform category is exploding. Glean is the leader — and the CS and sales roles are accessible without a pure engineering background.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US</span>
+            <span class="meta-pill pay">$120K–$260K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.glean.com/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="perplexity ai search analyst growth">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a2a4a;">PX</div>
+            <div class="company-info">
+              <div class="company-name">Perplexity</div>
+              <div class="company-type">AI Search · 100M+ Users</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Hiring</span><span class="cbadge hot">High Pay</span></div>
+          </div>
+          <div class="company-desc">The AI search engine replacing Google for millions. 100M+ users, Series E backed, hiring across engineering, growth, and partnerships.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Applied AI Engineer</span><span class="role-pay">$180–$260K</span></div>
+            <div class="role-row"><span class="role-name">Growth & Partnerships Manager</span><span class="role-pay">$130–$180K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">One of the fastest-scaling AI products ever. GEO (Generative Engine Optimisation) specialists are their next big hire — a role that barely existed 12 months ago.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">San Francisco · Remote US</span>
+            <span class="meta-pill pay">$130K–$260K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.perplexity.ai/hub/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="writer brand enterprise ai content analyst">
+          <div class="card-top">
+            <div class="company-logo" style="background:#3a2a4a;">WR</div>
+            <div class="company-info">
+              <div class="company-name">Writer</div>
+              <div class="company-type">Enterprise AI · $200M Series C</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Hiring</span></div>
+          </div>
+          <div class="company-desc">Enterprise AI writing platform focused on brand-safe generation and governance. Needs content strategists and writers who understand AI-assisted enterprise workflows.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Brand & Enterprise AI Writer</span><span class="role-pay">$110–$150K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The play for professional writers who want to be inside the AI industry — not competing with it. Strong brand, clear mission, growing fast.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US</span>
+            <span class="meta-pill pay">$110K–$150K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://writer.com/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PANEL: CONTRACT WORK
+  ══════════════════════════════════════════ -->
+  <div id="panel-contract" class="panel">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>AI Contract Work</h2>
+        <p>Short-term, project-based, and consulting opportunities in the AI economy. Flexible, often remote, and increasingly well-paid as demand outpaces supply.</p>
+      </div>
+      <div class="cards-grid">
+
+        <div class="company-card" data-search="micro1 frontier model training contract">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a4a1a;">M1</div>
+            <div class="company-info">
+              <div class="company-name">micro1</div>
+              <div class="company-type">Frontier Model Training · Contract</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High Pay</span><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">Expert-tier AI training platform. $30–$135/hr for frontier model work. Strong in technical domains — coding, maths, science, engineering.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Training — Frontier Models</span><span class="role-pay">$30–$135/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">Excellent for technical domain experts. The $135/hr ceiling is real for PhDs and senior engineers in the right domains.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$30–$135/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.micro1.ai/experts/opportunities" target="_blank" rel="noopener">Apply →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="ai consulting strategy deployment contract">
+          <div class="card-top">
+            <div class="company-logo" style="background:#2a3a2a;">AC</div>
+            <div class="company-info">
+              <div class="company-name">AI Consulting — Independent</div>
+              <div class="company-type">Strategy & Deployment · Freelance</div>
+            </div>
+            <div class="company-badges"><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">Organisations are deploying AI faster than they can hire internally. Independent consultants who can advise on AI strategy, tool selection, and workflow automation are in high demand.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Strategy Consultant</span><span class="role-pay">$150–$300/hr</span></div>
+            <div class="role-row"><span class="role-name">AI Automation Consultant</span><span class="role-pay">$91K–$165K/yr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The highest-leverage move for senior professionals. Domain expertise + AI workflow knowledge + consulting skills = the most scarce combination in the market right now.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$150–$300/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn secondary" href="https://www.upwork.com/nx/search/jobs/?q=AI+consultant" target="_blank" rel="noopener">Find projects →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="upwork freelance ai project gig">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a4a2a;">UW</div>
+            <div class="company-info">
+              <div class="company-name">Upwork — AI Skills</div>
+              <div class="company-type">Freelance Marketplace</div>
+            </div>
+            <div class="company-badges"><span class="cbadge remote">Remote</span></div>
+          </div>
+          <div class="company-desc">AI skills on Upwork grew 109% YoY. AI video generation and editing demand up 329%. Strongest freelance market for AI-augmented knowledge work.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Content Creator</span><span class="role-pay">$25–$80/hr</span></div>
+            <div class="role-row"><span class="role-name">AI Automation Builder</span><span class="role-pay">$40–$120/hr</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">AI skills are compounding on Upwork faster than any other category. If you can build workflows or produce AI-augmented content at quality, demand significantly outpaces supply.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$25–$120/hr</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.upwork.com/nx/search/jobs/?q=AI" target="_blank" rel="noopener">Browse projects →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="ai corporate trainer enterprise learning development">
+          <div class="card-top">
+            <div class="company-logo" style="background:#4a3a1a;">CT</div>
+            <div class="company-info">
+              <div class="company-name">Enterprise AI Training</div>
+              <div class="company-type">Corporate L&D · 12-month contracts</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Emerging</span></div>
+          </div>
+          <div class="company-desc">Organisations are deploying AI but struggling with adoption. AI corporate trainers who can run internal education programmes are one of the fastest-emerging contract categories.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Corporate Trainer</span><span class="role-pay">$75–$110K/contract</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">90% of organisations say culture — not technology — is their AI adoption barrier. The person who solves that internally is worth more than the engineer who builds the tool.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US</span>
+            <span class="meta-pill pay">$75K–$110K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn secondary" href="https://www.linkedin.com/jobs/search/?keywords=AI+Corporate+Trainer" target="_blank" rel="noopener">Search roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="geo generative engine optimisation content seo">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a2a4a;">GE</div>
+            <div class="company-info">
+              <div class="company-name">GEO Specialist — Freelance</div>
+              <div class="company-type">Generative Engine Optimisation · New</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Brand New Role</span></div>
+          </div>
+          <div class="company-desc">As AI search (Perplexity, ChatGPT Search, Gemini) replaces traditional search, optimising content for AI-generated answers is the new SEO. GEO is perhaps the most important emerging freelance category of 2026.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">GEO Specialist</span><span class="role-pay">$80–$130K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The role that barely existed 6 months ago and is now in active demand. If you understand SEO and how AI systems ingest and rank content — this is your window.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · Global</span>
+            <span class="meta-pill pay">$80K–$130K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn secondary" href="https://www.linkedin.com/jobs/search/?keywords=Generative+Engine+Optimization" target="_blank" rel="noopener">Search roles →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       PANEL: EMERGING COMPANIES
+  ══════════════════════════════════════════ -->
+  <div id="panel-emerging" class="panel">
+    <div class="wrap">
+      <div class="section-intro">
+        <h2>Emerging AI Companies Hiring</h2>
+        <p>The fastest-growing AI startups actively hiring right now. These are the companies building the next layer of the AI economy — and they need people who understand both AI and the domain it's disrupting.</p>
+      </div>
+      <div class="cards-grid">
+
+        <div class="company-card" data-search="cursor anysphere coding ide developer">
+          <div class="card-top">
+            <div class="company-logo" style="background:#111;">CS</div>
+            <div class="company-info">
+              <div class="company-name">Cursor (Anysphere)</div>
+              <div class="company-type">AI IDE · $2B ARR · &lt;50 employees</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">Fastest growth</span><span class="cbadge startup">Startup</span></div>
+          </div>
+          <div class="company-desc">Fastest B2B SaaS company to $1B ARR in history — ahead of Slack, Zoom, and Snowflake. Fewer than 50 employees. $2B ARR by February 2026. The defining developer tool of the AI era.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Engineering (lean team)</span><span class="role-pay">$200K+</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The most impressive AI company by revenue-per-employee in history. Tiny team, astronomical growth. If you're an engineer and can get in, this is a generational opportunity.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">San Francisco</span>
+            <span class="meta-pill">$2B ARR</span>
+            <span class="meta-pill pay">&lt;50 employees</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://www.cursor.com/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="cognition sierra ai agent engineer">
+          <div class="card-top">
+            <div class="company-logo" style="background:#2a1a4a;">CG</div>
+            <div class="company-info">
+              <div class="company-name">Cognition / Sierra</div>
+              <div class="company-type">Agentic AI · Top-tier salaries</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">$175K–$250K</span><span class="cbadge startup">Startup</span></div>
+          </div>
+          <div class="company-desc">Building autonomous AI agents for enterprise. The scarcest roles in AI right now — multi-agent orchestration, tool-calling, planning, and state management.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Agent Engineer</span><span class="role-pay">$175–$250K</span></div>
+            <div class="role-row"><span class="role-name">AI Agent Architect</span><span class="role-pay">$150–$220K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The scarcest and highest-paying specialisation in AI right now. Multi-agent orchestration skills are 18 months ahead of where the talent supply is.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US</span>
+            <span class="meta-pill pay">$150K–$250K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn secondary" href="https://www.linkedin.com/jobs/search/?keywords=AI+Agent+Engineer+startup" target="_blank" rel="noopener">Search roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="xai grok elon musk hiring partnerships">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a1a1a;">xAI</div>
+            <div class="company-info">
+              <div class="company-name">xAI</div>
+              <div class="company-type">Grok · $20B Raise · Fast scaling</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Hiring</span><span class="cbadge hot">High Pay</span></div>
+          </div>
+          <div class="company-desc">Elon Musk's AI lab. Just closed a $20B funding round. Building Grok — the 4th-ranked frontier model at a fraction of competitors' API cost. Scaling rapidly.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Partnerships Manager</span><span class="role-pay">$140–$200K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The most aggressive spender in AI right now. Non-engineering roles are less competitive than at OpenAI or Anthropic — and the company is moving fast.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US</span>
+            <span class="meta-pill pay">$140K–$200K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://x.ai/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="mistral european ai model deployment">
+          <div class="card-top">
+            <div class="company-logo" style="background:#1a3a4a;">MS</div>
+            <div class="company-info">
+              <div class="company-name">Mistral AI</div>
+              <div class="company-type">European Frontier Model</div>
+            </div>
+            <div class="company-badges"><span class="cbadge new">Hiring</span><span class="cbadge open">EU HQ</span></div>
+          </div>
+          <div class="company-desc">France's frontier AI lab. The only major frontier model built outside the US or China. GDPR-native, EU data residency. Strong in regulated European markets.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">AI Deployment Engineer</span><span class="role-pay">€80–€130K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The play for European professionals who want frontier AI exposure without relocating to San Francisco. Growing fast as EU AI Act drives demand for compliance-native models.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Paris · Remote EU</span>
+            <span class="meta-pill pay">€80K–€130K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://mistral.ai/company/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="decagon customer service ai agent enterprise">
+          <div class="card-top">
+            <div class="company-logo" style="background:#2a4a3a;">DC</div>
+            <div class="company-info">
+              <div class="company-name">Decagon</div>
+              <div class="company-type">Customer Service AI · Series B</div>
+            </div>
+            <div class="company-badges"><span class="cbadge startup">Startup</span><span class="cbadge new">Hiring</span></div>
+          </div>
+          <div class="company-desc">Conversational AI agents for enterprise customer service. Clients include Hertz, Duolingo, and Chime. Chime reportedly cut contact centre costs by 60%+ using Decagon.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Implementation Specialist</span><span class="role-pay">$100–$140K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">The enterprise customer service AI wave is real and large. Decagon is one of the best-positioned companies. CS and implementation roles are accessible without pure engineering backgrounds.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US</span>
+            <span class="meta-pill pay">$100K–$140K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn secondary" href="https://www.linkedin.com/company/decagon-ai/jobs/" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="replit coding platform developer series d">
+          <div class="card-top">
+            <div class="company-logo" style="background:#3a1a3a;">RP</div>
+            <div class="company-info">
+              <div class="company-name">Replit</div>
+              <div class="company-type">AI Dev Platform · $9B Valuation</div>
+            </div>
+            <div class="company-badges"><span class="cbadge hot">High growth</span><span class="cbadge startup">Startup</span></div>
+          </div>
+          <div class="company-desc">AI-powered coding platform. Raised $400M Series D at $9B valuation. Revenue grew from $2.8M to $150M in under a year. One of the fastest-scaling developer tools.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Growth & Product Roles</span><span class="role-pay">$130–$200K</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">50x revenue growth in a year. One of the most impressive AI product stories. Developer tools experience or education background is a strong angle here.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Remote · US</span>
+            <span class="meta-pill pay">$130K–$200K</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn primary" href="https://replit.com/site/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+        <div class="company-card" data-search="lovable vibe coding european unicorn startup">
+          <div class="card-top">
+            <div class="company-logo" style="background:#4a1a2a;">LV</div>
+            <div class="company-info">
+              <div class="company-name">Lovable</div>
+              <div class="company-type">Vibe Coding · European Unicorn · 45 employees</div>
+            </div>
+            <div class="company-badges"><span class="cbadge startup">Unicorn</span><span class="cbadge new">8 months old</span></div>
+          </div>
+          <div class="company-desc">Europe's fastest-growing startup. AI-powered "vibe coding" platform. Became a unicorn just 8 months after launch with 45 employees. The lean AI startup model at its most extreme.</div>
+          <div class="role-list">
+            <div class="role-row"><span class="role-name">Early team roles</span><span class="role-pay">Equity-heavy</span></div>
+          </div>
+          <div class="fowl-take">
+            <div class="fowl-take-label">FOWL AI Take</div>
+            <div class="fowl-take-text">A unicorn in 8 months with 45 people. The definition of what AI-native lean startups can do. If you want equity upside, this is the kind of bet worth watching.</div>
+          </div>
+          <div class="card-meta">
+            <span class="meta-pill">Stockholm · Remote EU</span>
+            <span class="meta-pill pay">Equity-heavy</span>
+          </div>
+          <div class="card-cta">
+            <a class="cta-btn secondary" href="https://lovable.dev/careers" target="_blank" rel="noopener">View roles →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- SUBSCRIBE CTA -->
+  <div class="sub-cta">
+    <div class="wrap">
+      <h2>Get new opportunities every week.</h2>
+      <p>FOWL AI curates the best AI work and career signals — free, every Sunday. No noise. Unsubscribe any time.</p>
+      <a class="sub-btn" href="https://fowlai.eo.page/vmk69" style="display:inline-flex;font-size:14px;padding:14px 32px;">Subscribe free →</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Issues</a> · <a href="/platform/">Platform</a> · <a href="/jobs/">Jobs</a> · <a href="/products/">Products</a> · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy Policy</a>
+    <div style="margin-top:10px;font-size:10px;opacity:.8;">FOWL AI is an independent media brand covering AI, careers, and the future of work. Not affiliated with any company listed.</div>
+  </footer>
+
+  <script>
+    function switchPanel(name, btn) {
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('panel-' + name).classList.add('active');
+      btn.classList.add('active');
+    }
+
+    function filterCards() {
+      const q = document.getElementById('searchInput').value.toLowerCase();
+      document.querySelectorAll('.company-card').forEach(card => {
+        const text = (card.dataset.search + ' ' + card.innerText).toLowerCase();
+        card.style.display = text.includes(q) ? '' : 'none';
+      });
+      // Show all panels when searching
+      if (q.length > 1) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.add('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      } else if (q.length === 0) {
+        document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+        document.getElementById('panel-training').classList.add('active');
+        document.querySelectorAll('.tab-btn')[0].classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
