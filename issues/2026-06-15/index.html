@@ -164,8 +164,19 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   .story-title{font-size:20px;}
   .usecase-grid{grid-template-columns:1fr;}
   .eval-grid{grid-template-columns:1fr;}
-  .model-table{font-size:12px;}
-  .model-table th,.model-table td{padding:8px;}
+  /* model table — horizontal scroll on mobile */
+  .model-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .model-table{font-size:11px;min-width:520px;}
+  .model-table th,.model-table td{padding:7px 8px;}
+  .model-rank{font-size:18px;}
+
+  /* matrix — hide Y-axis sidebar, show as 2x2 */
+  .matrix-row{display:grid !important;grid-template-columns:1fr 1fr !important;}
+  .matrix-y-label{display:none !important;}
+  .matrix-cell{padding:12px 14px !important;}
+
+  /* cost bar — label shrink via child selector */
+  .cost-bar-section .cost-bar-label{width:110px !important;font-size:10px !important;}
 }
 </style></head><body>
 
@@ -260,7 +271,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   <div class="story-title">The current leaderboard — who leads, and why there's no single winner.</div>
   <div class="story-body">As of June 2026, Claude Opus 4.8 leads the overall intelligence index. But the more useful truth is that the top 4 models are within 10 points of each other — and each leads on a different benchmark. There is no single best model. There is only the best model for what you're doing.</div>
 
-  <table class="model-table">
+  <div class="model-table-wrap"><table class="model-table">
     <tr>
       <th>#</th><th>Model</th><th>Company</th><th>Leads on</th><th>API (per 1M tokens)</th><th>Consumer</th>
     </tr>
@@ -328,7 +339,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
       <td><div class="price-cell">$2 in<br>$6 out</div></td>
       <td style="font-family:'DM Mono',monospace;font-size:12px;">Free tier</td>
     </tr>
-  </table>
+  </table></div>
 
   <div class="meta"><b>Benchmark leaders ·</b> Coding: Claude Opus 4.7 (SWE-bench Pro 64.3%). Scientific reasoning: Gemini 3.1 Pro (GPQA Diamond 94.3%). Terminal/tools: GPT-5.4 (TerminalBench 57.6%). Creative: GPT-5.5.</div>
   <div class="inside"><b>The signal —</b> The top 4 models all cost $20/month for consumers. The real cost differential is at the API tier — and most knowledge workers never need to go there. The decision is simpler than the leaderboard makes it look.</div>
@@ -341,15 +352,15 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   <div class="story-body">Every major AI provider settled on $20/month for consumer plans. ChatGPT Plus, Claude Pro, and Gemini Advanced are all within $0.01 of each other. At the consumer tier, the price is no longer a differentiator — the model is.</div>
   <div class="story-body">The API tier is a different story. GPT-5 charges $10 per million input tokens and $30 per million output tokens. Grok 4.1 charges $0.20 input and $0.50 output. That is a 50x gap on input and a 60x gap on output — for models sitting within 8 points of each other on the leaderboard. For teams building AI-powered products, that gap is the difference between a viable business and an expensive experiment.</div>
 
-  <div style="background:#f9f6f0;border:1px solid #e8e4de;border-radius:8px;padding:20px 24px;margin:18px 0;">
+  <div class="cost-bar-section" style="background:#f9f6f0;border:1px solid #e8e4de;border-radius:8px;padding:20px 24px;margin:18px 0;overflow-x:auto;">
     <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:14px;">API cost at 1 million tokens — input / output</div>
-    <div style="display:flex;flex-direction:column;gap:8px;">
-      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">GPT-5.5 (OpenAI)</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:100%;height:100%;background:#d4541e;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d4541e;width:80px;text-align:right;flex-shrink:0;">$10 / $30</div></div>
-      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Claude Opus 4.8</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:50%;height:100%;background:#d4541e;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d4541e;width:80px;text-align:right;flex-shrink:0;">$5 / $25</div></div>
-      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Gemini 3.1 Pro</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:20%;height:100%;background:#d99c2b;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d99c2b;width:80px;text-align:right;flex-shrink:0;">$2 / $12</div></div>
-      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Mistral Large</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:20%;height:100%;background:#d99c2b;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d99c2b;width:80px;text-align:right;flex-shrink:0;">$2 / $6</div></div>
-      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Gemini 2.5 Flash</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:5%;height:100%;background:#1a5f4a;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#1a5f4a;width:80px;text-align:right;flex-shrink:0;">$0.50 / $3</div></div>
-      <div style="display:flex;align-items:center;gap:12px;"><div style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Grok 4.1 (xAI)</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:2%;height:100%;background:#1a5f4a;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#1a5f4a;width:80px;text-align:right;flex-shrink:0;">$0.20 / $0.50</div></div>
+    <div style="display:flex;flex-direction:column;gap:8px;min-width:280px;">
+      <div style="display:flex;align-items:center;gap:12px;"><div class="cost-bar-label" style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">GPT-5.5 (OpenAI)</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:100%;height:100%;background:#d4541e;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d4541e;style="width:80px;text-align:right;flex-shrink:0;">$10 / $30</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div class="cost-bar-label" style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Claude Opus 4.8</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:50%;height:100%;background:#d4541e;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d4541e;style="width:80px;text-align:right;flex-shrink:0;">$5 / $25</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div class="cost-bar-label" style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Gemini 3.1 Pro</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:20%;height:100%;background:#d99c2b;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d99c2b;style="width:80px;text-align:right;flex-shrink:0;">$2 / $12</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div class="cost-bar-label" style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Mistral Large</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:20%;height:100%;background:#d99c2b;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#d99c2b;style="width:80px;text-align:right;flex-shrink:0;">$2 / $6</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div class="cost-bar-label" style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Gemini 2.5 Flash</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:5%;height:100%;background:#1a5f4a;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#1a5f4a;style="width:80px;text-align:right;flex-shrink:0;">$0.50 / $3</div></div>
+      <div style="display:flex;align-items:center;gap:12px;"><div class="cost-bar-label" style="font-family:'DM Mono',monospace;font-size:11px;color:#0f3d30;width:160px;flex-shrink:0;">Grok 4.1 (xAI)</div><div style="flex:1;background:#e8e4de;border-radius:4px;height:10px;overflow:hidden;"><div style="width:2%;height:100%;background:#1a5f4a;border-radius:4px;"></div></div><div style="font-family:'DM Mono',monospace;font-size:11px;color:#1a5f4a;style="width:80px;text-align:right;flex-shrink:0;">$0.20 / $0.50</div></div>
     </div>
   </div>
 
@@ -374,12 +385,12 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
     </div>
 
     <!-- Grid rows -->
-    <div style="display:grid;grid-template-columns:80px 1fr 1fr;border-bottom:1px solid #e8e4de;">
-      <div style="background:#f2ede3;display:flex;align-items:center;justify-content:center;padding:12px 8px;border-right:1.5px solid #e8e4de;">
+    <div class="matrix-row" style="display:grid;grid-template-columns:80px 1fr 1fr;border-bottom:1px solid #e8e4de;">
+      <div class="matrix-y-label" style="background:#f2ede3;display:flex;align-items:center;justify-content:center;padding:12px 8px;border-right:1.5px solid #e8e4de;">
         <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;writing-mode:vertical-rl;transform:rotate(180deg);">Elite Quality</span>
       </div>
       <!-- Cheap + Elite -->
-      <div style="padding:16px 18px;border-right:1px solid #e8e4de;background:#f9fff9;">
+      <div class="matrix-cell" style="padding:16px 18px;border-right:1px solid #e8e4de;background:#f9fff9;">
         <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#1a5f4a;margin-bottom:10px;">🟢 Sweet Spot</div>
         <div style="display:flex;flex-direction:column;gap:7px;">
           <div style="display:flex;align-items:center;gap:8px;">
@@ -395,7 +406,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
         </div>
       </div>
       <!-- Expensive + Elite -->
-      <div style="padding:16px 18px;background:#fffbf4;">
+      <div class="matrix-cell" style="padding:16px 18px;background:#fffbf4;">
         <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#d4541e;margin-bottom:10px;">🟠 Premium Tier</div>
         <div style="display:flex;flex-direction:column;gap:7px;">
           <div style="display:flex;align-items:center;gap:8px;">
@@ -417,12 +428,12 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
       </div>
     </div>
 
-    <div style="display:grid;grid-template-columns:80px 1fr 1fr;">
-      <div style="background:#f2ede3;display:flex;align-items:center;justify-content:center;padding:12px 8px;border-right:1.5px solid #e8e4de;">
+    <div class="matrix-row" style="display:grid;grid-template-columns:80px 1fr 1fr;">
+      <div class="matrix-y-label" style="background:#f2ede3;display:flex;align-items:center;justify-content:center;padding:12px 8px;border-right:1.5px solid #e8e4de;">
         <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;writing-mode:vertical-rl;transform:rotate(180deg);">Good Quality</span>
       </div>
       <!-- Cheap + Good -->
-      <div style="padding:16px 18px;border-right:1px solid #e8e4de;background:#f9fff9;">
+      <div class="matrix-cell" style="padding:16px 18px;border-right:1px solid #e8e4de;background:#f9fff9;">
         <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#1a5f4a;margin-bottom:10px;">🟢 Budget Wins</div>
         <div style="display:flex;flex-direction:column;gap:7px;">
           <div style="display:flex;align-items:center;gap:8px;">
@@ -443,7 +454,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
         </div>
       </div>
       <!-- Expensive + Good -->
-      <div style="padding:16px 18px;background:#fff9f8;">
+      <div class="matrix-cell" style="padding:16px 18px;background:#fff9f8;">
         <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;color:#9aada5;margin-bottom:10px;">⚠️ Overpaying Zone</div>
         <div style="font-family:-apple-system,sans-serif;font-size:13px;color:#9aada5;line-height:1.6;font-style:italic;">Using a premium model for tasks that a budget model handles equally well. Most people are here — without knowing it.</div>
       </div>
