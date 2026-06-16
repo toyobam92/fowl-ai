@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Toyosi Bamidele — FOWL AI</title>
+  <meta name="description" content="Toyosi Bamidele is a data scientist, builder, and founder of FOWL AI — a weekly intelligence platform covering AI jobs, platforms, and career opportunities.">
+  <meta property="og:title" content="About — FOWL AI" />
+  <meta property="og:description" content="The story behind FOWL AI and why it exists." />
+  <meta property="og:url" content="https://www.fowl-ai.com/about/" />
+  <link rel="canonical" href="https://www.fowl-ai.com/about/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;text-decoration:none;}
+
+    /* Nav */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;white-space:nowrap;}
+    .nav-link:hover{color:#fff;}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0);}}
+    @keyframes wiggle{0%,80%,100%{transform:rotate(0deg) scale(1);}83%{transform:rotate(-2deg) scale(1.04);}86%{transform:rotate(2deg) scale(1.04);}89%{transform:rotate(-1deg) scale(1.02);}}
+    .sub-btn{display:inline-flex;align-items:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;white-space:nowrap;}
+    .sub-btn:hover{transform:scale(1.06);animation:none;}
+
+    /* Hero */
+    .hero{background:#0d3f31;padding:64px 24px 72px;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:16px;}
+    .hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(40px,6vw,68px);line-height:1.05;color:#fff;margin-bottom:20px;}
+    .hero h1 span{color:#f2a12b;}
+    .hero-lede{font-size:19px;color:#e2f2eb;max-width:620px;line-height:1.8;}
+
+    /* Content */
+    .content-section{padding:64px 24px;max-width:760px;margin:0 auto;}
+
+    .section-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#1a5f4a;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .section-label::after{content:'';flex:1;height:1px;background:#1a5f4a;opacity:.3;}
+
+    .section-title{font-family:Fraunces,Georgia,serif;font-size:clamp(28px,4vw,38px);color:#13241e;line-height:1.15;margin-bottom:28px;}
+
+    .body-text{font-size:17px;line-height:1.85;color:#2a2a2a;margin-bottom:20px;}
+    .body-text:last-child{margin-bottom:0;}
+
+    /* Story list */
+    .story-list{list-style:none;padding:0;margin:24px 0 28px;}
+    .story-list li{font-size:17px;line-height:1.8;color:#2a2a2a;padding:10px 0 10px 28px;border-bottom:1px solid #e8e4de;position:relative;}
+    .story-list li::before{content:'→';position:absolute;left:0;color:#f2a12b;font-weight:700;}
+    .story-list li:last-child{border-bottom:none;}
+
+    /* Pull quote */
+    .pull-quote{border-left:4px solid #f2a12b;padding:20px 28px;background:#fffbf0;border-radius:0 10px 10px 0;margin:32px 0;}
+    .pull-quote p{font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1.5;color:#13241e;font-style:italic;}
+
+    /* Divider */
+    .divider{height:1px;background:linear-gradient(90deg,#e8e4de,transparent);margin:52px 0;}
+
+    /* Why box */
+    .why-box{background:#0d3f31;border-radius:14px;padding:40px 44px;margin:32px 0;}
+    .why-box-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:12px;}
+    .why-box-q{font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:700;color:#fff;line-height:1.25;margin-bottom:16px;}
+    .why-box-body{font-size:16px;color:#a9e8cf;line-height:1.8;}
+
+    /* CTA */
+    .about-cta{background:#13241e;padding:56px 24px;text-align:center;margin-top:0;}
+    .about-cta h2{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,36px);color:#fff;margin-bottom:12px;}
+    .about-cta p{font-size:16px;color:#a9e8cf;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+    .about-cta-links{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:20px;}
+    .link-pill{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid rgba(127,217,184,.3);color:#78ddb4;text-decoration:none;transition:all .15s;}
+    .link-pill:hover{background:rgba(127,217,184,.1);border-color:#78ddb4;}
+
+    /* Footer */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:26px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;border-top:1px solid rgba(255,255,255,.06);}
+    .footer a{color:#78ddb4;}
+
+    @media(max-width:680px){
+      .hero{padding:44px 20px 52px;}
+      .content-section{padding:44px 20px;}
+      .why-box{padding:28px 24px;}
+      .pull-quote{padding:16px 20px;}
+      .about-cta{padding:40px 20px;}
+      .nav{gap:10px;}
+      .nav-links{gap:12px;}
+      .nav-link{font-size:10px;letter-spacing:1px;}
+      .sub-btn{padding:9px 14px;font-size:11px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark"></span>
+          <span class="brand-word">FOWL AI</span>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/issues/">Issues</a>
+          <a class="nav-link" href="/jobs/">Jobs</a>
+          <a class="nav-link" href="/platform/">Platform</a>
+          <a class="nav-link" href="/products/">Products</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">FOWL AI · About</div>
+      <h1>Hi, I'm <span>Toyosi.</span></h1>
+      <p class="hero-lede">I'm a data scientist, builder, and founder of FOWL AI. I created it after discovering a growing ecosystem of AI training, evaluation, and expert work opportunities that many professionals still don't know exists.</p>
+    </div>
+  </div>
+
+  <!-- MY STORY -->
+  <div class="content-section">
+
+    <div class="section-label">My Story</div>
+    <h2 class="section-title">I assumed there were only three ways to significantly increase my income.</h2>
+
+    <ul class="story-list">
+      <li>Get promoted</li>
+      <li>Change jobs</li>
+      <li>Start a business</li>
+    </ul>
+
+    <p class="body-text">Then I discovered AI training and evaluation platforms.</p>
+
+    <p class="body-text">After completing assessments and participating in projects, I began receiving invitations to additional opportunities through AI labs and platform networks.</p>
+
+    <div class="pull-quote">
+      <p>"For the first time, I realized that professional expertise could be monetized directly through the AI ecosystem — often alongside a traditional career."</p>
+    </div>
+
+    <p class="body-text">The experience completely changed how I thought about work.</p>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Why FOWL AI Exists</div>
+
+    <div class="why-box">
+      <div class="why-box-label">The question that started it</div>
+      <div class="why-box-q">Where are the opportunities in the AI economy?</div>
+      <div class="why-box-body">Through newsletters, platform reviews, job listings, startup intelligence, and industry analysis — FOWL AI helps professionals navigate one of the fastest-growing shifts in the labor market.</div>
+    </div>
+
+    <p class="body-text">Most professionals are watching AI from the sidelines. FOWL AI exists to close that gap — and to make the opportunities inside the AI economy as visible and accessible as possible.</p>
+
+  </div>
+
+  <!-- CTA -->
+  <div class="about-cta">
+    <div class="wrap">
+      <h2>Get paid to work with AI.</h2>
+      <p>Every Monday — AI jobs, training platforms, startup opportunities, and career signals. Free.</p>
+      <a class="sub-btn" href="https://fowlai.eo.page/vmk69" style="display:inline-flex;">Subscribe free →</a>
+      <div class="about-cta-links">
+        <a class="link-pill" href="/issues/">Read the issues</a>
+        <a class="link-pill" href="/jobs/">Browse AI jobs</a>
+        <a class="link-pill" href="/platform/">Explore platforms</a>
+        <a class="link-pill" href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer">toyosibamidele.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/issues/">Issues</a> · <a href="/jobs/">Jobs</a> · <a href="/products/">Products</a> · <a href="/platform/">Platform</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
+    <div style="margin-top:12px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
+      <a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer" style="color:#78ddb4;display:inline-flex;align-items:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+      </a>
+      <a href="https://www.tiktok.com/@fowl_ai" target="_blank" rel="noopener noreferrer" style="color:#78ddb4;display:inline-flex;align-items:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.34 6.34 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.69a8.18 8.18 0 0 0 4.78 1.52V6.78a4.85 4.85 0 0 1-1.01-.09z"/></svg>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61590739223943" target="_blank" rel="noopener noreferrer" style="color:#78ddb4;display:inline-flex;align-items:center;">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+      </a>
+    </div>
+    <div style="margin-top:14px;font-size:10px;opacity:.5;">By <a href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer" style="color:#78ddb4;">Toyosi Bamidele</a></div>
+  </footer>
+
+</body>
+</html>
