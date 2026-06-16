@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOWL AI · Issue 5 · Stop Learning "AI." Start Learning AI For What You Do.</title>
+<meta name="description" content="AI skills mean something different depending on your job. The role-by-role breakdown — what to start, what to build toward, and where the real opportunity is.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:#f2ede3;}
+body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia,serif;-webkit-font-smoothing:antialiased;}
+.card{background:#fff;margin:8px 0;padding:32px 44px;}
+.card-dark{background:#0f3d30;margin:8px 0;padding:32px 44px;}
+.card-amber{background:#f7eedc;margin:0;padding:34px 44px 36px;border-left:6px solid #f2a12b;}
+.card-mint{background:#e8f4ee;margin:8px 0;padding:28px 44px;}
+
+/* masthead */
+.mast{background:#0d3f31;padding:36px 44px 34px;margin:0;}
+.mast-meta{display:flex;justify-content:space-between;margin-bottom:14px;}
+.mast-meta span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;}
+.brand-lockup{display:flex;align-items:center;gap:18px;margin:20px 0 28px;}
+.brand-dot{width:42px;height:42px;border-radius:50%;background:#78ddb4;box-shadow:0 6px 18px rgba(0,0,0,.2);}
+.brand-fowl{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;letter-spacing:9px;color:#f47f18;text-transform:uppercase;}
+.brand-divider{width:1px;height:48px;background:rgba(255,255,255,.65);}
+.brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
+.brand-name span{display:block;color:#7fd9b8;}
+.mast-title{font-family:'Inter',-apple-system,sans-serif;font-style:italic;font-weight:800;font-size:52px;line-height:1.06;letter-spacing:-2px;color:#fff;margin-top:8px;}
+.mast-title span{color:#35bfa2;display:block;}
+.mast-sub{font-family:'Inter',-apple-system,sans-serif;font-size:18px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:580px;}
+.mast-cta{display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,sans-serif;font-size:15px;font-weight:800;text-decoration:none;padding:15px 28px;border-radius:999px;}
+.mast-rule{height:1px;background:linear-gradient(90deg,#7fd9b8,rgba(127,217,184,.08));margin:28px 0 18px;}
+.mast-foot{display:flex;align-items:center;gap:12px;flex-wrap:wrap;}
+.brand-strip{display:flex;gap:16px;margin-top:26px;border-top:1px solid rgba(127,217,184,.25);padding-top:18px;}
+.brand-item{flex:1;border-left:1px solid rgba(255,255,255,.38);padding-left:14px;}
+.brand-item:first-child{border-left:none;padding-left:0;}
+.brand-item b{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:5px;}
+.brand-item span{display:block;font-family:'Inter',-apple-system,sans-serif;font-size:13px;line-height:1.45;color:#f4fbf8;}
+
+/* section labels */
+.sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
+.sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
+
+/* tldr */
+.tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
+.tldr-text{font-family:'Inter',-apple-system,sans-serif;font-size:24px;line-height:1.65;color:#0f3d30;font-style:italic;}
+
+/* intro */
+.intro-text{font-size:16px;line-height:1.8;color:#222;border-left:4px solid #0f3d30;padding-left:18px;}
+
+/* nova flag */
+.nova-flag{display:flex;align-items:flex-start;gap:14px;background:rgba(13,63,49,.06);border:1px solid rgba(242,161,43,.25);border-radius:10px;padding:14px 18px;margin-bottom:20px;}
+.nova-flag-icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;}
+
+/* role cards */
+.role-card{background:#fff;margin:12px 0;border-radius:0 12px 12px 0;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07);}
+.role-header{padding:20px 28px 18px;display:flex;align-items:center;gap:16px;}
+.role-icon{font-size:28px;flex-shrink:0;}
+.role-title-wrap{}
+.role-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;}
+.role-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;line-height:1.1;}
+.role-body{padding:22px 28px 0;}
+.role-changing{font-size:15px;line-height:1.75;color:#333;margin-bottom:20px;}
+
+/* start / get to sections */
+.role-sections{display:grid;grid-template-columns:1fr 1fr;gap:0;}
+.role-section{padding:18px 20px;}
+.role-section-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;font-weight:500;margin-bottom:12px;}
+.role-section.start{background:#f7eedc;border-right:1px solid rgba(242,161,43,.2);}
+.role-section.start .role-section-label{color:#8a5020;}
+.role-section.goto{background:#f2ede3;}
+.role-section.goto .role-section-label{color:#1a5f4a;}
+.role-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:8px;}
+.role-bullets li{font-family:-apple-system,sans-serif;font-size:13px;line-height:1.6;color:#2a2a2a;padding-left:16px;position:relative;}
+.role-bullets li::before{content:'→';position:absolute;left:0;color:#f2a12b;font-size:11px;top:1px;}
+.role-bullets.goto-list li::before{color:#1a5f4a;}
+.role-signal{padding:14px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;border-top:1px solid #f0ede8;}
+.role-signal-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;margin-bottom:4px;}
+.role-signal-pay{font-family:'Fraunces',serif;font-size:20px;font-weight:700;color:#0f3d30;line-height:1;}
+.role-signal-title{font-family:-apple-system,sans-serif;font-size:12px;color:#665f56;margin-top:3px;}
+.role-signal-link{display:inline-flex;align-items:center;gap:6px;background:#0d3f31;color:#fff;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:8px 16px;border-radius:999px;text-decoration:none;white-space:nowrap;}
+.role-signal-link:hover{opacity:.85;}
+
+/* universal section */
+.universal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0;}
+.universal-card{background:#f9f6f0;border:1px solid #e8e4de;border-radius:10px;padding:20px 20px;}
+.universal-num{font-family:'Fraunces',serif;font-size:36px;font-weight:700;color:#e8e4dc;line-height:1;margin-bottom:8px;}
+.universal-title{font-family:-apple-system,sans-serif;font-weight:800;font-size:15px;color:#13241e;margin-bottom:8px;}
+.universal-body{font-family:-apple-system,sans-serif;font-size:13px;color:#665f56;line-height:1.65;}
+.universal-why{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#f2a12b;margin-top:10px;padding-top:10px;border-top:1px solid #e8e4de;}
+
+/* signal */
+.sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
+.sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
+.sig:last-of-type{border-bottom:none;}
+.sig-dot{width:20px;height:20px;background:#d99c2b;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;}
+.sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
+
+/* predict */
+.predict{background:#0d3f31;border-radius:8px;padding:26px 30px;margin:20px 0;}
+.predict-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;}
+.predict-text{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.4;}
+.predict-sub{font-family:-apple-system,sans-serif;font-size:14px;color:#7fd9b8;margin-top:10px;line-height:1.65;}
+
+/* action items */
+.action-wrap{background:#f7eedc;border-left:6px solid #f2a12b;padding:24px 28px;margin:20px 0;border-radius:0 8px 8px 0;}
+.action-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#0f3d30;margin-bottom:14px;font-weight:500;}
+.action-item{display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;line-height:1.65;padding:8px 0;border-bottom:1px solid rgba(242,161,43,.2);}
+.action-item:last-child{border-bottom:none;padding-bottom:0;}
+.action-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#f2a12b;flex-shrink:0;margin-top:2px;background:#0f3d30;padding:2px 7px;border-radius:4px;}
+
+/* launch lab */
+.launch-lab{background:#fff;margin:8px 0;padding:28px 44px;border-left:6px solid #f2a12b;}
+
+/* career */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
+
+/* footer */
+.stamp-text{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.6;color:#fff;text-align:center;}
+.stamp-text span{color:#7fd9b8;}
+.reply-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:#1a5f4a;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.reply-text{font-style:italic;font-size:15.5px;line-height:1.75;color:#1a3a2a;}
+.footer{background:#13241e;padding:26px 44px;text-align:center;margin:0;}
+.footer-brand{font-family:'Fraunces',serif;font-size:14px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:6px;}
+.footer-fine{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#3a5248;}
+.footer-fine a{color:#7fd9b8;text-decoration:underline;}
+
+@media(max-width:680px){
+  .card,.card-dark,.card-amber,.card-mint,.mast,.sec,.footer,.launch-lab{padding-left:20px;padding-right:20px;}
+  .mast-title{font-size:34px;letter-spacing:-1.5px;}
+  .mast-sub{font-size:16px;}
+  .mast-meta{flex-direction:column;gap:6px;margin-bottom:18px;}
+  .brand-lockup{gap:10px;margin:14px 0 20px;}
+  .brand-dot{width:34px;height:34px;flex-shrink:0;}
+  .brand-fowl{font-size:20px;letter-spacing:5px;}
+  .brand-divider{height:32px;}
+  .brand-name{font-size:20px;}
+  .brand-strip{flex-direction:column;gap:0;margin-top:20px;}
+  .brand-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:12px;margin-top:12px;}
+  .brand-item:first-child{border-top:none;padding-top:0;margin-top:0;}
+  .tldr-text{font-size:20px;}
+  .role-sections{grid-template-columns:1fr;}
+  .role-section.start{border-right:none;border-bottom:1px solid rgba(242,161,43,.2);}
+  .universal-grid{grid-template-columns:1fr;}
+  .role-header{padding:16px 20px 14px;}
+  .role-body{padding:16px 20px 0;}
+  .role-signal{padding:12px 20px;}
+}
+</style></head><body>
+
+<!-- MASTHEAD -->
+<div class="mast">
+  <div class="mast-meta"><span>Vol. 1 · Issue 5</span><span>Jun 22, 2026</span></div>
+  <div class="brand-lockup">
+    <div class="brand-dot"></div>
+    <div class="brand-fowl">FOWL AI</div>
+    <div class="brand-divider"></div>
+    <div class="brand-name">Future of<span>Work Lab</span></div>
+  </div>
+  <div class="mast-title">Stop learning "AI."<span>Start learning AI for what you do.</span></div>
+  <div class="mast-sub">Everyone says get AI skills. Nobody tells you which ones — based on your actual job. This issue breaks it down role by role: what to start, what to build toward, and where the real opportunity is.</div>
+  <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Subscribe free</a>
+  <div class="mast-rule"></div>
+  <div class="mast-foot">
+    <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#9fe3c8;text-transform:uppercase;">Career Signals · AI Economy</span>
+    <span style="background:rgba(127,217,184,.14);color:#7fd9b8;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid rgba(127,217,184,.3);white-space:nowrap;">🗺️ Role-by-Role Guide</span>
+    <span style="font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#d99c2b;">Weekly</span>
+  </div>
+  <div class="brand-strip">
+    <div class="brand-item"><b>Your role</b><span>Software, HR, data, product, legal, finance, marketing.</span></div>
+    <div class="brand-item"><b>Start now</b><span>3 specific actions per role — not vague advice.</span></div>
+    <div class="brand-item"><b>Get to</b><span>12-month target and where the real pay is.</span></div>
+  </div>
+</div>
+
+<!-- TLDR -->
+<div class="card-amber">
+  <div class="tldr-label">If you read nothing else</div>
+  <div class="tldr-text">The highest-paid AI professionals in 2026 are not the ones with the most AI skills. They're the ones with the deepest intersection of AI skills and domain expertise. This is the issue that shows you how to build that intersection — starting from wherever you are now.</div>
+</div>
+
+<!-- INTRO -->
+<div class="card">
+  <div class="nova-flag">
+    <div class="nova-flag-icon">🎙️</div>
+    <div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:4px;">Nova's Signal</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:11px;color:#7a9a8a;margin-bottom:5px;line-height:1.4;">Nova is FOWL AI's news anchor — she tracks the signals every week.</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#13241e;line-height:1.6;">"AI skill mentions in job postings are up 297% over the past decade. But 'AI skills' isn't a skill. It's a category. And what it means for a lawyer is completely different from what it means for an engineer. That's the gap this issue closes."</div>
+    </div>
+  </div>
+  <div class="intro-text">Here's the problem with most AI advice: it's written for everybody, which means it's useful for nobody. "Learn prompt engineering." "Get familiar with LLMs." "Take an AI course." These are technically true and practically useless for a finance analyst in Edinburgh or an HR director in Lagos who needs to know exactly what to do Monday morning.<br><br>AI skills are not one thing. They're a set of overlapping capabilities that look completely different depending on your domain, your seniority, and the work you already do. A software engineer needs to understand agent orchestration. An HR professional needs to understand algorithmic bias. A data analyst needs to realise their existing skills are already worth $95/hr on an AI evaluation platform — right now, without learning anything new.<br><br>This is the issue that makes it specific. Seven roles. What's changing, what to start, and where to get to in 12 months.</div>
+</div>
+
+<!-- ROLES HEADER -->
+<div class="sec"><span class="sec-tag">7 Roles · What to Do</span><span class="sec-line"></span></div>
+
+<!-- ROLE 1: SOFTWARE ENGINEER -->
+<div class="role-card" style="border-left:6px solid #0d3f31;">
+  <div class="role-header" style="background:#0d3f31;">
+    <div class="role-icon">💻</div>
+    <div class="role-title-wrap">
+      <div class="role-label">Role 01</div>
+      <div class="role-title">Software Engineer</div>
+    </div>
+  </div>
+  <div class="role-body">
+    <div class="role-changing">The engineer role is splitting into two tracks: engineers who use AI to write faster, and engineers who architect systems of AI agents that write, test, deploy, and monitor code autonomously. Cursor crossed $2B ARR in 2026 — it's not optional anymore. The shift is from syntax to systems thinking. Writing code is becoming the least valuable thing you do.</div>
+  </div>
+  <div class="role-sections">
+    <div class="role-section start">
+      <div class="role-section-label">▶ Start doing now</div>
+      <ul class="role-bullets">
+        <li><strong>Switch to Cursor</strong> if you haven't. Use it for every PR this week — not just autocomplete, but full agent mode on real tasks. Cursor 3 ships agents now.</li>
+        <li><strong>Build one agent.</strong> Pick a task you do manually — code review, test generation, PR descriptions — and build an agent that does it. Use LangGraph, AutoGen, or CrewAI. Getting your hands dirty matters more than courses.</li>
+        <li><strong>Learn to evaluate AI code output.</strong> AI-generated code passes tests but introduces subtle security flaws or architectural debt. The engineer who can spot these earns the trust of the team — and eventually owns the agent layer.</li>
+      </ul>
+    </div>
+    <div class="role-section goto">
+      <div class="role-section-label">🎯 Where to get to in 12 months</div>
+      <ul class="role-bullets goto-list">
+        <li>You've deployed at least one multi-agent system to production. You understand orchestrator/subagent patterns and can diagnose when agents conflict or fail silently.</li>
+        <li>You're the person on your team who defines what the agents work on — not the person implementing what someone else defined.</li>
+        <li>You have a point of view on AI code quality that isn't just "it works." You can articulate where AI-generated code is risky and build guardrails around it.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="role-signal">
+    <div>
+      <div class="role-signal-label">Career target</div>
+      <div class="role-signal-pay">$175K–$250K</div>
+      <div class="role-signal-title">AI Agent Engineer · Cognition / Sierra / Harvey</div>
+    </div>
+    <a class="role-signal-link" href="https://www.linkedin.com/jobs/search/?keywords=AI+Agent+Engineer" target="_blank" rel="noopener">Explore roles →</a>
+  </div>
+</div>
+
+<!-- ROLE 2: HR / PEOPLE OPS -->
+<div class="role-card" style="border-left:6px solid #3a1a5a;">
+  <div class="role-header" style="background:#3a1a5a;">
+    <div class="role-icon">🤝</div>
+    <div class="role-title-wrap">
+      <div class="role-label">Role 02</div>
+      <div class="role-title">HR & People Operations</div>
+    </div>
+  </div>
+  <div class="role-body">
+    <div class="role-changing">AI is already inside your hiring process — you just may not know it. The Stanford study we covered in Issue 3 showed AI screening tools systematically reject qualified candidates across millions of applications. Simultaneously, AI is rewriting JD creation, candidate sourcing, onboarding flows, and performance review drafting. The HR professional who understands both the efficiency gain and the bias risk becomes the most strategically valuable person in the people function.</div>
+  </div>
+  <div class="role-sections">
+    <div class="role-section start">
+      <div class="role-section-label">▶ Start doing now</div>
+      <ul class="role-bullets">
+        <li><strong>Audit your hiring stack.</strong> Find out which AI screening tools your company uses — and which vendor. If it's Pymetrics or a similar platform, read the Stanford study. Understand what "algorithmic monoculture" means for your candidate pool.</li>
+        <li><strong>Use AI for JD writing this week.</strong> Paste your last job description into Claude and ask it to identify language that algorithmically discourages underrepresented candidates. The output will surprise you.</li>
+        <li><strong>Map one AI use case in your current workflow</strong> — scheduling, screening, onboarding — and document what the AI does, what it misses, and where a human is still required. This becomes your AI governance audit.</li>
+      </ul>
+    </div>
+    <div class="role-section goto">
+      <div class="role-section-label">🎯 Where to get to in 12 months</div>
+      <ul class="role-bullets goto-list">
+        <li>You're the person who governs AI use in hiring at your organisation. You understand the EU AI Act and US EEOC implications for automated hiring decisions.</li>
+        <li>You've built or contributed to an AI use policy for people operations — covering screening, performance management, and workforce planning.</li>
+        <li>You're positioned as the intersection of HR and AI governance — a combination that barely existed 2 years ago and is now one of the most in-demand profiles in regulated industries.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="role-signal">
+    <div>
+      <div class="role-signal-label">Career target</div>
+      <div class="role-signal-pay">$90K–$140K</div>
+      <div class="role-signal-title">AI Governance Analyst · People & AI Compliance</div>
+    </div>
+    <a class="role-signal-link" href="https://www.linkedin.com/jobs/search/?keywords=AI+Governance+HR" target="_blank" rel="noopener">Explore roles →</a>
+  </div>
+</div>
+
+<!-- ROLE 3: DATA ANALYST -->
+<div class="role-card" style="border-left:6px solid #1a2a6a;">
+  <div class="role-header" style="background:#1a2a6a;">
+    <div class="role-icon">📊</div>
+    <div class="role-title-wrap">
+      <div class="role-label">Role 03</div>
+      <div class="role-title">Data Analyst</div>
+    </div>
+  </div>
+  <div class="role-body">
+    <div class="role-changing">Here's what most data analysts don't realise: your existing skills — spotting errors in model outputs, understanding where data goes wrong, domain-specific reasoning — are exactly what AI evaluation platforms pay top dollar for. You don't need to learn anything new to start earning $60–130/hr right now. That's the immediate opportunity. The 12-month opportunity is building toward a role where you own the quality layer of AI systems at enterprise scale.</div>
+  </div>
+  <div class="role-sections">
+    <div class="role-section start">
+      <div class="role-section-label">▶ Start doing now</div>
+      <ul class="role-bullets">
+        <li><strong>Apply to Mercor this week.</strong> Your domain expertise in data — spotting statistical errors, flawed models, incorrect analyses — is precisely what they test for. Average pay is $95/hr. Finance and data science evaluators earn $60–130/hr.</li>
+        <li><strong>Use Cursor or Claude Code Interpreter for your next analysis.</strong> Time how long it takes vs. your usual approach. Document where the AI gets it subtly wrong. That documentation IS the skill employers are looking for.</li>
+        <li><strong>Learn one NL-to-SQL tool</strong> (Julius AI, DuckDB + Claude, or ChatGPT Code Interpreter). Natural language querying is becoming the interface layer — analysts who can evaluate whether the output is actually right are worth more than those who can only run the query.</li>
+      </ul>
+    </div>
+    <div class="role-section goto">
+      <div class="role-section-label">🎯 Where to get to in 12 months</div>
+      <ul class="role-bullets goto-list">
+        <li>You're earning supplementary income from AI evaluation work — and your quality score on Mercor or Outlier is high enough to access premium task queues ($100+/hr).</li>
+        <li>You understand AI model evaluation well enough to scope it as a function — not just do it yourself. You can write an evaluation rubric, build regression tests, and flag when a model update breaks previous behaviour.</li>
+        <li>You're positioned for AI Model Strategist or ML Operations roles — the intersection of your analytical instincts and AI system thinking.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="role-signal">
+    <div>
+      <div class="role-signal-label">Start earning now</div>
+      <div class="role-signal-pay">$60–$130/hr</div>
+      <div class="role-signal-title">AI Domain Evaluator · Mercor · your skills qualify today</div>
+    </div>
+    <a class="role-signal-link" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply via referral →</a>
+  </div>
+</div>
+
+<!-- ROLE 4: PRODUCT MANAGER -->
+<div class="role-card" style="border-left:6px solid #6a1a1a;">
+  <div class="role-header" style="background:#6a1a1a;">
+    <div class="role-icon">📋</div>
+    <div class="role-title-wrap">
+      <div class="role-label">Role 04</div>
+      <div class="role-title">Product Manager</div>
+    </div>
+  </div>
+  <div class="role-body">
+    <div class="role-changing">AI automates a significant portion of what PMs spend time on today: PRD drafting, user research synthesis, competitive analysis, meeting notes. But that's not the threat — it's the table stakes. The actual shift is that every company is now trying to build AI products, and they need PMs who can scope AI features with realistic precision. The PM who understands what LLMs can reliably do — and what they can't — becomes the most valuable person in the room.</div>
+  </div>
+  <div class="role-sections">
+    <div class="role-section start">
+      <div class="role-section-label">▶ Start doing now</div>
+      <ul class="role-bullets">
+        <li><strong>Use Claude for every repetitive PM task this week.</strong> PRDs, competitive research, user interview synthesis, OKR drafts. Time how long it takes. Calculate what that time was worth. That number is your business case for the next conversation about AI investment.</li>
+        <li><strong>Learn what LLMs reliably can and can't do.</strong> Not technically — practically. They hallucinate confidently. They can't access real-time data. They degrade on tasks that require counting or precise ordering. Knowing this lets you scope AI features that actually ship — and spot the ones that will fail in production.</li>
+        <li><strong>Shadow an AI feature build at your company</strong> if there is one. If there isn't, propose one. The PM who has been in the room when an LLM feature was scoped, failed, iterated, and shipped has something no course gives you.</li>
+      </ul>
+    </div>
+    <div class="role-section goto">
+      <div class="role-section-label">🎯 Where to get to in 12 months</div>
+      <ul class="role-bullets goto-list">
+        <li>You've shipped at least one AI feature. You know what the real constraints were — not the ones you expected before you started.</li>
+        <li>You can run an AI product evaluation: define success metrics for an LLM feature, build a simple test set, interpret the outputs, and make a go/no-go call.</li>
+        <li>You have a clear point of view on how your company should use AI agents in the product — not just "add AI" but where it creates genuine value and where it creates risk.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="role-signal">
+    <div>
+      <div class="role-signal-label">Career target</div>
+      <div class="role-signal-pay">$200K–$300K</div>
+      <div class="role-signal-title">AI Product Manager · OpenAI / Anthropic / Scale AI</div>
+    </div>
+    <a class="role-signal-link" href="https://openai.com/careers" target="_blank" rel="noopener">Explore roles →</a>
+  </div>
+</div>
+
+<!-- ROLE 5: LAWYER / LEGAL -->
+<div class="role-card" style="border-left:6px solid #1a4a2a;">
+  <div class="role-header" style="background:#1a4a2a;">
+    <div class="role-icon">⚖️</div>
+    <div class="role-title-wrap">
+      <div class="role-label">Role 05</div>
+      <div class="role-title">Lawyer & Legal Professional</div>
+    </div>
+  </div>
+  <div class="role-body">
+    <div class="role-changing">Harvey reached an $11 billion valuation building legal AI. Clio, Ironclad, and a dozen other platforms are automating contract review, legal research, and drafting. The legal profession is not being replaced — it's being restructured around people who can work with these tools and, critically, catch what they get wrong. Lawyers have one of the highest per-hour rates on AI evaluation platforms right now — because their expertise is genuinely hard to replicate.</div>
+  </div>
+  <div class="role-sections">
+    <div class="role-section start">
+      <div class="role-section-label">▶ Start doing now</div>
+      <ul class="role-bullets">
+        <li><strong>Apply to Mercor's legal evaluation track.</strong> Lawyers earn $110–130/hr evaluating AI legal outputs. Your bar admission is the qualification — no AI background needed. Apply this week.</li>
+        <li><strong>Run one real task through Harvey or a legal AI tool</strong> (many offer trials). Use it for contract review or legal research. Document where it's right, where it's confidently wrong, and where you'd never trust it unsupervised. That document is the beginning of your AI governance expertise.</li>
+        <li><strong>Read the EU AI Act's provisions on high-risk AI systems.</strong> Legal decision support is classified as high-risk. The lawyer who understands AI regulation is the lawyer every company deploying AI tools needs to hire.</li>
+      </ul>
+    </div>
+    <div class="role-section goto">
+      <div class="role-section-label">🎯 Where to get to in 12 months</div>
+      <ul class="role-bullets goto-list">
+        <li>You're earning from legal AI evaluation — either as a supplement through Mercor or as a structured role at a legal AI company like Harvey.</li>
+        <li>You understand the regulatory environment well enough to advise a client on AI deployment risk — specifically around the EU AI Act, GDPR, and automated decision-making liability.</li>
+        <li>You're positioned as Legal AI Counsel — the lawyer who is called first when a company is deploying AI in a legally sensitive context. This role barely existed 18 months ago.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="role-signal">
+    <div>
+      <div class="role-signal-label">Start earning now</div>
+      <div class="role-signal-pay">$110–$200K</div>
+      <div class="role-signal-title">Legal AI Evaluator · Mercor or Legal Domain Expert · Harvey</div>
+    </div>
+    <a class="role-signal-link" href="https://t.mercor.com/tEB2Z" target="_blank" rel="noopener">Apply via referral →</a>
+  </div>
+</div>
+
+<!-- ROLE 6: FINANCE -->
+<div class="role-card" style="border-left:6px solid #3a3a1a;">
+  <div class="role-header" style="background:#3a3a1a;">
+    <div class="role-icon">📈</div>
+    <div class="role-title-wrap">
+      <div class="role-label">Role 06</div>
+      <div class="role-title">Finance & Investment Professional</div>
+    </div>
+  </div>
+  <div class="role-body">
+    <div class="role-changing">Finance AI adoption doubled in one year — 72% of CFOs now rely on AI forecasting. Hebbia is built specifically for document-heavy financial analysis. AI is doing earnings call summaries, portfolio monitoring, risk model generation. But here's the signal: AI financial models fail in subtle ways that only someone with deep finance experience catches. The finance professional who can spot a flawed AI risk model isn't competing with AI — they're the most important person in the room.</div>
+  </div>
+  <div class="role-sections">
+    <div class="role-section start">
+      <div class="role-section-label">▶ Start doing now</div>
+      <ul class="role-bullets">
+        <li><strong>Apply to Mercor's finance and risk evaluation track.</strong> Senior Finance & Risk Evaluators earn $60–130/hr. Your domain expertise in financial modelling, credit risk, or portfolio analysis is exactly what they test for — not your AI knowledge.</li>
+        <li><strong>Run your next earnings call analysis through an AI tool.</strong> Claude, Gemini, or Perplexity. Time it vs. your manual process. Then go through the output line by line and document every error or unsupported inference. That documentation is your evaluation expertise.</li>
+        <li><strong>Learn what Hebbia does</strong> — specifically what tasks it handles and where it requires human oversight. The finance professional who understands this tool's limitations is the one Hebbia's clients want beside them.</li>
+      </ul>
+    </div>
+    <div class="role-section goto">
+      <div class="role-section-label">🎯 Where to get to in 12 months</div>
+      <ul class="role-bullets goto-list">
+        <li>You're earning from AI financial evaluation — either through Mercor or through a contract role at a fintech deploying AI models.</li>
+        <li>You can build or review an AI model evaluation rubric for financial outputs — covering accuracy, hallucination risk, regulatory compliance, and decision reliability.</li>
+        <li>You're positioned for Finance AI Analyst roles at companies like Hebbia ($120–180K) — where deep finance domain knowledge + AI evaluation literacy = the exact profile they're hiring for.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="role-signal">
+    <div>
+      <div class="role-signal-label">Start earning now + career target</div>
+      <div class="role-signal-pay">$60/hr → $180K</div>
+      <div class="role-signal-title">Finance AI Evaluator → Finance AI Analyst · Hebbia</div>
+    </div>
+    <a class="role-signal-link" href="https://www.hebbia.ai/careers" target="_blank" rel="noopener">Explore Hebbia →</a>
+  </div>
+</div>
+
+<!-- ROLE 7: MARKETER -->
+<div class="role-card" style="border-left:6px solid #4a1a4a;" style="margin-bottom:0;">
+  <div class="role-header" style="background:#4a1a4a;">
+    <div class="role-icon">📣</div>
+    <div class="role-title-wrap">
+      <div class="role-label">Role 07</div>
+      <div class="role-title">Marketer & Content Professional</div>
+    </div>
+  </div>
+  <div class="role-body">
+    <div class="role-changing">SEO is not dead — but it's being restructured around a new reality: when someone searches with Perplexity, ChatGPT, or Gemini, the result is a generated answer, not a list of links. Generative Engine Optimisation (GEO) is the emerging discipline of getting your content cited, summarised, or referenced by AI search systems. This is the biggest structural shift in content marketing since Google's algorithm updates of the 2010s — and it's happening right now.</div>
+  </div>
+  <div class="role-sections">
+    <div class="role-section start">
+      <div class="role-section-label">▶ Start doing now</div>
+      <ul class="role-bullets">
+        <li><strong>Search your company's key topics on Perplexity and ChatGPT.</strong> Is your brand cited in the AI-generated answer? If not, find out who is — and study what their content structure looks like. This is your GEO audit.</li>
+        <li><strong>Rewrite one piece of your top-performing content for AI legibility.</strong> Clear structure, factual claims with attribution, direct answers to specific questions. AI search systems prefer content that answers questions unambiguously — not content optimised for click-through rates.</li>
+        <li><strong>Learn one AI content tool deeply.</strong> Not all of them — one. Writer for brand-safe enterprise content, or Claude for synthesis and research. Being genuinely expert in one tool is more valuable than being mediocre at ten.</li>
+      </ul>
+    </div>
+    <div class="role-section goto">
+      <div class="role-section-label">🎯 Where to get to in 12 months</div>
+      <ul class="role-bullets goto-list">
+        <li>You have a GEO framework — a documented process for creating content that gets cited in AI search results. Even a rough one puts you ahead of 95% of marketers.</li>
+        <li>You can articulate the difference between SEO and GEO in a board presentation — and show data on which of your content performs in AI search vs. traditional search.</li>
+        <li>You're positioned as AI Content Strategist or GEO Specialist — roles that pay $80–130K and are in active demand from every company that realised their SEO traffic is declining without understanding why.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="role-signal">
+    <div>
+      <div class="role-signal-label">Career target</div>
+      <div class="role-signal-pay">$80K–$130K</div>
+      <div class="role-signal-title">GEO Specialist · AI Content Strategist · the role of 2026</div>
+    </div>
+    <a class="role-signal-link" href="https://www.linkedin.com/jobs/search/?keywords=GEO+Specialist+AI+Content" target="_blank" rel="noopener">Explore roles →</a>
+  </div>
+</div>
+
+<!-- UNIVERSAL 3 -->
+<div class="sec"><span class="sec-tag">✦ Universal — Every Role Needs These 3</span><span class="sec-line"></span></div>
+<div class="card">
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;color:#665f56;margin-bottom:20px;line-height:1.7;">Regardless of your role, three capabilities separate the knowledge workers who compound in value from those who get displaced. None of them require a course. All of them can be built this month.</div>
+  <div class="universal-grid">
+    <div class="universal-card">
+      <div class="universal-num">01</div>
+      <div class="universal-title">Prompt fluency</div>
+      <div class="universal-body">Not prompt engineering — prompt fluency. The ability to get consistently useful output from AI systems without over-engineering the input. You build this by using AI tools daily on real work, not by reading about it. The gap between someone with 30 days of daily use and someone who's used it twice is significant and widening.</div>
+      <div class="universal-why">How to build it → Use Claude or GPT for one real work task every day for 30 days. That's it.</div>
+    </div>
+    <div class="universal-card">
+      <div class="universal-num">02</div>
+      <div class="universal-title">AI output evaluation</div>
+      <div class="universal-body">Knowing when to trust an AI output and when to question it. AI systems hallucinate confidently, fail silently on edge cases, and produce plausible-sounding errors in highly specific domains. The professional who can catch these earns the trust of everyone around them — and earns significantly more on evaluation platforms. This is the most monetisable AI skill in the market right now.</div>
+      <div class="universal-why">How to build it → After every AI output, ask: what would have to be true for this to be wrong? Then check.</div>
+    </div>
+    <div class="universal-card">
+      <div class="universal-num">03</div>
+      <div class="universal-title">Workflow mapping</div>
+      <div class="universal-body">Understanding your own processes well enough to know what to automate, what to augment, and what to keep human. This sounds obvious but most people have never written down what they actually do step by step. The professionals who've mapped their workflows are the ones who can identify AI leverage points — and who can't be replaced by someone asking "couldn't we just use AI for this?"</div>
+      <div class="universal-why">How to build it → Pick your most repetitive weekly task. Write out every step. Then ask which steps an AI could handle today.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SIGNAL & CHATTER -->
+<div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="sig-intro">What the data and community are saying — mapped to this week's breakdown.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The 56% wage premium isn't for using AI tools.</b> Across every role, the premium goes to people who can direct, govern, and evaluate AI systems — not people who can use a chatbot. The tool user is increasingly replicable. The evaluator is not.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Entry-level jobs are narrowing because of the wrong skill set, not the wrong generation.</b> The tasks that used to justify junior hires — research, drafting, formatting — are exactly what AI does cheapest. But entry-level roles at AI companies (Mercor, Scale AI, Anthropic Claude Corps) are growing. The path changed. It didn't disappear.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The Coursera 2026 Skills Report confirms it: AI literacy is the #1 skill employers want.</b> But "AI literacy" in the report means something specific — understanding what AI can and can't do, and knowing how to apply it to your domain. It does not mean knowing how to use ChatGPT to write emails.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The most valuable people in any team right now are the ones who've mapped their workflows.</b> 90% of organisations say culture — not technology — is the barrier to AI adoption. The people who've thought explicitly about what they do, step by step, are the ones who can lead that conversation. It's a leadership skill more than a technical one.</div></div>
+</div>
+
+<!-- FOWL PREDICTION #005 -->
+<div class="card">
+  <div class="predict">
+    <div class="predict-label">🔮 FOWL Prediction #005</div>
+    <div class="predict-text">"By 2027, 'AI skills' will appear on every job description — but the roles paying the most will specify which skills, in which domain, at what level. Generic AI fluency becomes table stakes. Domain-specific AI expertise becomes the premium."</div>
+    <div class="predict-sub">The generalist AI user will be as unremarkable in 2027 as someone who lists "Microsoft Office" on their CV is today. The premium will go to the data scientist who evaluates AI financial models, the lawyer who audits AI hiring tools, the engineer who architects agent systems. Specificity is the moat.</div>
+  </div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;margin-top:8px;">FOWL AI · Jun 22, 2026 · We'll score this in 2027.</div>
+</div>
+
+<!-- ACTION ITEMS -->
+<div class="sec"><span class="sec-tag">✅ 3 Things to Do This Week</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="action-wrap">
+    <div class="action-label">One for each type of reader — pick yours</div>
+    <div class="action-item">
+      <span class="action-num">01</span>
+      <div><b>If you have domain expertise in data, finance, law, medicine, or research:</b> Apply to Mercor this week. Your skills qualify you today — no AI background required. The Mercor interview tests your domain, not your prompt engineering. Use the referral link in this issue for faster review. Average contractor earns $95/hr.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">02</span>
+      <div><b>If you're early career (under 2 years experience):</b> Apply to Anthropic's Claude Corps before July 17. $85K salary, $10K grant, 12 months embedded at a US nonprofit, Anthropic on your CV. No degree required. It is the most credible structured AI pathway available for early-career professionals right now.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">03</span>
+      <div><b>Regardless of role:</b> Map one workflow this week. Take the most repetitive 2-hour task you do and write out every step. Then go through each step and answer: could an AI do this today? The output tells you where your leverage is — and where your value is irreplaceable.</div>
+    </div>
+  </div>
+</div>
+
+<!-- LAUNCH LAB -->
+<div class="launch-lab">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;">🚀 From the Lab</div>
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:#13241e;line-height:1.2;margin-bottom:10px;">Launch Lab — Building something?</div>
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#46524c;margin-bottom:16px;">Need help setting up a website, newsletter, digital products, or payments for your brand? We can help you build it — fast, clean, and ready to launch.</div>
+  <div style="font-family:'DM Mono',monospace;font-size:13px;color:#0f3d30;background:#e8f4ee;border-radius:8px;padding:12px 18px;display:inline-block;">Reply with <strong>"LAUNCH"</strong> and let's chat.</div>
+</div>
+
+<!-- EMERGING CAREER -->
+<div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
+<div class="card-dark">
+  <div class="career-eye">This week</div>
+  <div class="career-title">AI Domain Translator</div>
+  <div class="career-body">Not an engineer. Not a data scientist. Not a prompt engineer. The AI Domain Translator is the professional who sits between a frontier AI system and the domain it's being applied to — and makes sure the application is actually correct.<br><br>They're the doctor who reviews clinical AI outputs and explains to the engineering team why the model's recommended treatment is wrong in a specific patient population. The lawyer who reads Harvey's contract summary and annotates the three clauses it missed. The finance analyst who catches the AI's risk model misclassifying a credit category it's never seen in training.<br><br>This role doesn't have a clean title yet. In some companies it's "Domain Expert." In others it's "AI QA Analyst" or "Human Review Lead." But the function is the same everywhere: being the person whose deep domain knowledge is what keeps the AI system from confidently doing the wrong thing.</div>
+  <div class="career-why"><b>How to position for this now:</b> You don't need to change your job — you need to document your domain expertise in terms of where AI gets it wrong. Every error you catch, every output you correct, every case where the AI was confidently incorrect in your field is a data point in your portfolio. That portfolio is the credential for this role.</div>
+</div>
+
+<!-- CLOSING -->
+<div class="card" style="padding-bottom:0;">
+  <div style="font-size:16px;line-height:1.8;color:#1a1a1a;">The advice to "get AI skills" is not wrong. It's just incomplete. The complete version is: get AI skills that compound on what you already know.<br><br>A lawyer who learns to evaluate AI legal outputs is more valuable than a lawyer who learns to use ChatGPT AND more valuable than an AI engineer who doesn't understand law. The combination is the moat. And the person who builds it now — while most professionals are still deciding whether to bother — is 18 months ahead of where the market will be when everyone else figures it out.</div>
+</div>
+
+<!-- STAMP -->
+<div class="card-dark" style="margin-top:0;text-align:center;">
+  <div class="stamp-text">"The most valuable AI skill isn't knowing how to use the tools.<br><span>It's knowing when they're wrong."</span></div>
+</div>
+
+<!-- REPLY CTA -->
+<div class="card-mint">
+  <div class="reply-label">💬 One question — reply and tell us</div>
+  <div class="reply-text">Which role are you in — and what's the one AI skill you most want to build in the next 90 days?<br><br>Hit reply. We read every one and it shapes what we cover next.</div>
+</div>
+
+<!-- SHARE -->
+<div style="background:#fff;margin:8px 0;padding:24px 44px;text-align:center;border-top:2px solid #f2ede3;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9aada5;margin-bottom:16px;">Share this issue</div>
+  <button onclick="navigator.clipboard.writeText('https://www.fowl-ai.com/issues/2026-06-22/').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>{this.textContent='Copy link'},2000)})" style="display:inline-flex;align-items:center;gap:8px;background:#f2ede3;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid #c8c0b4;cursor:pointer;">Copy link</button>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">FOWL AI</div>
+  <div class="footer-fine">Career signals for the AI economy.</div>
+  <div class="footer-fine" style="margin-top:6px;">Weekly · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="https://www.fowl-ai.com">fowl-ai.com</a></div>
+</div>
+
+</body></html>
