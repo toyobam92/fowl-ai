@@ -184,7 +184,53 @@
     .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
     .footer a{color:#78ddb4;}
 
+    /* ── Choose Your Path ── */
+    .path-section{padding:52px 24px;background:#f2ede3;}
+    .path-head{text-align:center;margin-bottom:36px;}
+    .path-eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#1a5f4a;margin-bottom:10px;}
+    .path-head h2{font-family:Fraunces,Georgia,serif;font-size:clamp(28px,4vw,40px);color:#13241e;line-height:1.15;}
+    .path-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    .path-card{background:#fff;border-radius:14px;padding:32px 28px;display:flex;flex-direction:column;gap:14px;border:1.5px solid #e8e4de;transition:box-shadow .18s,border-color .18s;}
+    .path-card:hover{box-shadow:0 10px 40px rgba(0,0,0,.1);border-color:#0d3f31;}
+    .path-icon{font-size:32px;line-height:1;}
+    .path-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;}
+    .path-title{font-family:Fraunces,Georgia,serif;font-size:22px;font-weight:700;color:#13241e;line-height:1.2;}
+    .path-desc{font-size:14px;color:#665f56;line-height:1.7;flex:1;}
+    .path-btn{display:inline-flex;align-items:center;justify-content:center;padding:12px 22px;border-radius:999px;font-weight:800;font-size:13px;text-decoration:none;background:#0d3f31;color:#fff;transition:background .15s;align-self:flex-start;}
+    .path-btn:hover{background:#1a5f4a;}
+    .path-btn.amber{background:#f2a12b;color:#0d3f31;}
+    .path-btn.amber:hover{background:#e09020;}
+
+    /* ── Products ── */
+    .products-section{padding:52px 24px;background:#13241e;}
+    .products-eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:10px;}
+    .products-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap;}
+    .products-head h2{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,36px);color:#fff;line-height:1.15;}
+    .products-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
+    .prod-card{background:rgba(255,255,255,.06);border:1px solid rgba(127,217,184,.15);border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:10px;text-decoration:none;color:inherit;transition:border-color .18s,background .18s;}
+    .prod-card:hover{border-color:rgba(127,217,184,.4);background:rgba(255,255,255,.1);}
+    .prod-card.live{border-color:rgba(242,161,43,.4);background:rgba(242,161,43,.06);}
+    .prod-num{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;color:#78ddb4;background:rgba(120,221,180,.12);display:inline-block;padding:3px 9px;border-radius:4px;align-self:flex-start;}
+    .prod-num.live-badge{color:#f2a12b;background:rgba(242,161,43,.15);}
+    .prod-title{font-weight:800;font-size:16px;color:#fff;line-height:1.3;}
+    .prod-desc{font-size:13px;color:#7fd9b8;line-height:1.65;flex:1;}
+    .prod-price{font-family:Fraunces,Georgia,serif;font-size:22px;font-weight:700;color:#f2a12b;}
+    .prod-cta{display:inline-flex;align-items:center;justify-content:center;padding:10px 20px;border-radius:999px;font-weight:800;font-size:13px;text-decoration:none;background:#f2a12b;color:#0d3f31;margin-top:4px;align-self:flex-start;transition:opacity .15s;}
+    .prod-cta:hover{opacity:.85;}
+    .launch-lab-card{background:rgba(242,161,43,.08);border:1px solid rgba(242,161,43,.3);border-radius:12px;padding:24px 28px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .launch-lab-text h3{font-family:Fraunces,Georgia,serif;font-size:20px;color:#fff;margin-bottom:6px;}
+    .launch-lab-text p{font-size:14px;color:#a9e8cf;line-height:1.65;}
+    .launch-lab-btn{display:inline-flex;align-items:center;gap:8px;background:#f2a12b;color:#0d3f31;font-weight:800;font-size:13px;padding:12px 22px;border-radius:999px;text-decoration:none;white-space:nowrap;flex-shrink:0;}
+
     /* ── Responsive ── */
+    @media(max-width:760px){
+      .path-grid{grid-template-columns:1fr;}
+      .path-section{padding:36px 18px;}
+      .products-grid{grid-template-columns:1fr;}
+      .products-section{padding:36px 18px;}
+      .launch-lab-card{flex-direction:column;gap:14px;}
+      .launch-lab-btn{width:100%;justify-content:center;}
+    }
     @media (max-width:760px){
       /* Nav — brand + subscribe on top row, links below */
       .hero{padding:22px 18px 36px;}
@@ -276,79 +322,90 @@
       </div>
     </header>
 
-    <main class="main">
+    <!-- Choose Your Path -->
+    <section class="path-section">
       <div class="wrap">
-        <div class="section-head">
-          <h2>Latest Issues</h2>
-          <p>New editions drop weekly. Every issue stays public and shareable.</p>
+        <div class="path-head">
+          <div class="path-eyebrow">FOWL AI · Where do you want to go?</div>
+          <h2>Choose Your Path</h2>
         </div>
-        <div class="archive">
-          <a class="issue-row" href="./issues/2026-06-15/">
-            <div class="date">Jun 15</div>
-            <div>
-              <div class="issue-title">Issue 4: The AI Model Map</div>
-              <div class="issue-desc">6 companies. 20+ models. What they cost, who ranks them, and which one is actually worth your money.</div>
-            </div>
-            <div class="status live">Latest</div>
-          </a>
-          <a class="issue-row" href="./issues/2026-06-08/">
-            <div class="date">Jun 8</div>
-            <div>
-              <div class="issue-title">Issue 3: The Rise of the AI Manager</div>
-              <div class="issue-desc">The highest-paying jobs of the next five years may not involve doing the work. Plus: the Stanford study every job applicant needs to read.</div>
-            </div>
-            <div class="status live">Live</div>
-          </a>
-        </div>
-        <div style="margin-top:16px;text-align:right;">
-          <a href="/issues/" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;text-decoration:none;border-bottom:1.5px solid #1a5f4a;padding-bottom:2px;">View all issues →</a>
-        </div>
-      </div>
-    </main>
-
-    <!-- Products teaser -->
-    <section class="products-teaser">
-      <div class="wrap">
-        <div class="teaser-head">
-          <div>
-            <div class="teaser-eyebrow">FOWL AI · Products</div>
-            <h2 class="teaser-title">Go deeper with the guides.</h2>
+        <div class="path-grid">
+          <div class="path-card">
+            <div class="path-icon">🚀</div>
+            <div class="path-label">Earn With AI</div>
+            <div class="path-title">Explore vetted AI platforms and earning opportunities.</div>
+            <p class="path-desc">Discover AI training jobs, evaluation work, and side-income paths paying knowledge workers today — by domain and pay rate.</p>
+            <a class="path-btn" href="/platforms/">Explore Platforms</a>
           </div>
-          <a class="teaser-all" href="/products/">Browse all →</a>
+          <div class="path-card">
+            <div class="path-icon">💼</div>
+            <div class="path-label">Find AI Opportunities</div>
+            <div class="path-title">Browse AI jobs, contracts, and emerging roles.</div>
+            <p class="path-desc">Curated weekly — AI evaluation gigs, frontier lab jobs, startup roles, and the new career titles forming around agents and governance.</p>
+            <a class="path-btn" href="/jobs/">Explore Jobs</a>
+          </div>
+          <div class="path-card">
+            <div class="path-icon">📰</div>
+            <div class="path-label">Stay Ahead</div>
+            <div class="path-title">Read weekly intelligence on AI shifts and career signals.</div>
+            <p class="path-desc">Every issue covers what's changing, who wins, and what to do — delivered free every week with no noise.</p>
+            <a class="path-btn amber" href="/issues/">Read Issues</a>
+          </div>
         </div>
-        <div class="teaser-grid">
-          <a class="teaser-card" href="/products/">
-            <div class="teaser-num">01</div>
-            <div class="teaser-card-title">AI Expert Platform Blueprint</div>
-            <p class="teaser-card-desc">8 platforms ranked, Mercor playbook, rate benchmarks, and a 30-day action plan.</p>
-            <div class="teaser-price">$27</div>
-          </a>
-          <a class="teaser-card" href="/products/">
-            <div class="teaser-num">02</div>
-            <div class="teaser-card-title">How to Pass Your AI Interview</div>
-            <p class="teaser-card-desc">Real Q&A, scoring breakdowns, and a 7-day prep plan for Mercor, Outlier & more.</p>
-            <div class="teaser-price">$19</div>
-          </a>
-          <a class="teaser-card" href="/products/">
-            <div class="teaser-num">03</div>
-            <div class="teaser-card-title">AI Work Resume Template</div>
-            <p class="teaser-card-desc">Blank template + completed real-world example optimised for AI platform matching.</p>
-            <div class="teaser-price">$15</div>
-          </a>
-        </div>
-        <p class="teaser-bundle">All 3 guides launching soon. <a href="/products/">See what's coming →</a></p>
       </div>
     </section>
 
-    <!-- Mid-page subscribe strip -->
+    <!-- Products -->
+    <section class="products-section">
+      <div class="wrap">
+        <div class="products-head">
+          <div>
+            <div class="products-eyebrow">FOWL AI · Products</div>
+            <h2>Tools to go deeper.</h2>
+          </div>
+          <a href="/products/" style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#78ddb4;text-decoration:none;border-bottom:1.5px solid #78ddb4;padding-bottom:2px;white-space:nowrap;">Browse all →</a>
+        </div>
+        <div class="products-grid">
+          <a class="prod-card live" href="https://fowlai.gumroad.com/l/ai_expert_blueprint" target="_blank" rel="noopener noreferrer">
+            <div class="prod-num live-badge">Live now</div>
+            <div class="prod-title">AI Expert Platform Blueprint</div>
+            <p class="prod-desc">8 platforms ranked, Mercor playbook, rate benchmarks, and a 30-day action plan. Built from 500+ hours of real evaluation work.</p>
+            <div class="prod-price">$27</div>
+            <span class="prod-cta">Buy now →</span>
+          </a>
+          <a class="prod-card" href="/products/">
+            <div class="prod-num">Coming soon</div>
+            <div class="prod-title">How to Pass Your AI Interview</div>
+            <p class="prod-desc">Real Q&A with scored examples, a full Mercor walkthrough, and a 7-day prep plan for Outlier & more.</p>
+            <div class="prod-price">$19</div>
+          </a>
+          <a class="prod-card" href="/products/">
+            <div class="prod-num">Coming soon</div>
+            <div class="prod-title">AI Work Resume Template</div>
+            <p class="prod-desc">Blank template + completed real-world example optimised for AI platform matching and evaluation roles.</p>
+            <div class="prod-price">$15</div>
+          </a>
+        </div>
+        <div class="launch-lab-card">
+          <div class="launch-lab-text">
+            <h3>🚀 Launch Lab</h3>
+            <p>Need help setting up a website, newsletter, digital products, or payments for your brand? We build it — fast, clean, and ready to launch.</p>
+          </div>
+          <a class="launch-lab-btn" href="mailto:toyosibamidele@gmail.com?subject=LAUNCH">Reply "LAUNCH" →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Subscribe strip -->
     <section class="subscribe-strip">
-      <h3>Don't miss the next signal.</h3>
-      <p>Free. No noise. Unsubscribe any time.</p>
+      <h3>Join 150+ professionals navigating the AI economy.</h3>
+      <p>Free. Weekly. No noise. Unsubscribe any time.</p>
       <a class="sub-btn lg" href="https://fowlai.eo.page/vmk69">Subscribe free →</a>
     </section>
 
     <!-- Subtle author line -->
     <div class="about-strip">
+      <p style="font-size:12px;color:#9aada5;font-family:'DM Mono',monospace;letter-spacing:.5px;margin-bottom:10px;">By <a href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer" style="color:#4a4540;text-decoration:underline;text-underline-offset:3px;">Toyosi Bamidele</a></p>
       <div class="social-row">
         <a class="social-link" href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer">
           <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
