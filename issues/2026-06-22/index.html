@@ -52,6 +52,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .nova-flag{display:flex;align-items:flex-start;gap:14px;background:rgba(13,63,49,.06);border:1px solid rgba(242,161,43,.25);border-radius:10px;padding:14px 18px;margin-bottom:20px;}
 .nova-flag-icon{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:15px;}
 
+/* industry examples */
+.role-examples{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;padding-top:20px;border-top:1px solid #f0ede8;margin-bottom:8px;}
+.role-example{font-family:-apple-system,sans-serif;font-size:12.5px;color:#2a2a2a;background:#f2ede3;border-radius:8px;padding:14px 16px;line-height:1.6;flex:1;min-width:160px;}
+.role-example b{display:block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;margin-bottom:6px;}
+
 /* role cards */
 .role-card{background:#fff;margin:12px 0;border-radius:0 12px 12px 0;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07);}
 .role-header{padding:20px 28px 18px;display:flex;align-items:center;gap:16px;}
@@ -59,7 +64,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .role-title-wrap{}
 .role-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.6);margin-bottom:4px;}
 .role-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;line-height:1.1;}
-.role-body{padding:22px 28px 0;}
+.role-body{padding:22px 28px 24px;}
 .role-changing{font-size:15px;line-height:1.75;color:#333;margin-bottom:20px;}
 
 /* start / get to sections */
@@ -189,9 +194,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   <div class="nova-flag">
     <div class="nova-flag-icon">🎙️</div>
     <div>
-      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:4px;">Nova's Signal</div>
+      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:4px;">Nova's Signal — This Week's Lead Story</div>
       <div style="font-family:-apple-system,sans-serif;font-size:11px;color:#7a9a8a;margin-bottom:5px;line-height:1.4;">Nova is FOWL AI's news anchor — she tracks the signals every week.</div>
-      <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#13241e;line-height:1.6;">"AI skill mentions in job postings are up 297% over the past decade. But 'AI skills' isn't a skill. It's a category. And what it means for a lawyer is completely different from what it means for an engineer. That's the gap this issue closes."</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:15px;font-weight:700;color:#0f3d30;margin-bottom:8px;line-height:1.4;">Midjourney just made the most unexpected pivot in tech.</div>
+      <div style="font-family:-apple-system,sans-serif;font-size:14px;color:#13241e;line-height:1.7;margin-bottom:12px;">"The company that built its name generating images from text prompts has launched a full medical division — and its first product is a full-body ultrasonic CT scanner. No radiation. 60 seconds in water. Pair it with AI diagnostics and a medical spa network, and you have something that either rewrites preventive healthcare or becomes the most expensive hype cycle in Silicon Valley history. I'm watching this closely. The technology is real. The question is whether the ambition holds up under clinical scrutiny and FDA timelines."</div>
+      <div style="background:#f7eedc;border-left:3px solid #f2a12b;padding:10px 14px;border-radius:0 6px 6px 0;font-family:'DM Mono',monospace;font-size:11px;color:#7a4a10;letter-spacing:.5px;line-height:1.6;">Nova's call: <strong>Watch carefully.</strong> Could this be the next medical revolution — or just hype? The pivot is unprecedented. The tech makes bold claims. And the medical spa distribution model is either genius or a red flag. We'll be tracking every update.</div>
     </div>
   </div>
   <div class="intro-text">Here's the problem with most AI advice: it's written for everybody, which means it's useful for nobody. "Learn prompt engineering." "Get familiar with LLMs." "Take an AI course." These are technically true and practically useless for a finance analyst in Edinburgh or an HR director in Lagos who needs to know exactly what to do Monday morning.<br><br>AI skills are not one thing. They're a set of overlapping capabilities that look completely different depending on your domain, your seniority, and the work you already do. A software engineer needs to understand agent orchestration. An HR professional needs to understand algorithmic bias. A data analyst needs to realise their existing skills are already worth $95/hr on an AI evaluation platform — right now, without learning anything new.<br><br>This is the issue that makes it specific. Seven roles. What's changing, what to start, and where to get to in 12 months.</div>
@@ -211,6 +218,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   </div>
   <div class="role-body">
     <div class="role-changing">The engineer role is splitting into two tracks: engineers who use AI to write faster, and engineers who architect systems of AI agents that write, test, deploy, and monitor code autonomously. Cursor crossed $2B ARR in 2026 — it's not optional anymore. The shift is from syntax to systems thinking. Writing code is becoming the least valuable thing you do.</div>
+    <div class="role-examples">
+      <div class="role-example"><b>Fintech</b>Building fraud-detection agents at a payments startup — the agent flags, you define the rules it operates by.</div>
+      <div class="role-example"><b>Healthtech</b>Automating clinical data pipeline QA at a hospital network — catching errors AI-generated code introduces silently.</div>
+      <div class="role-example"><b>E-commerce</b>Architecting personalisation agents at a retail platform — orchestrating subagents for pricing, inventory, and recommendations.</div>
+    </div>
   </div>
   <div class="role-sections">
     <div class="role-section start">
@@ -251,6 +263,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   </div>
   <div class="role-body">
     <div class="role-changing">AI is already inside your hiring process — you just may not know it. The Stanford study we covered in Issue 3 showed AI screening tools systematically reject qualified candidates across millions of applications. Simultaneously, AI is rewriting JD creation, candidate sourcing, onboarding flows, and performance review drafting. The HR professional who understands both the efficiency gain and the bias risk becomes the most strategically valuable person in the people function.</div>
+    <div class="role-examples">
+      <div class="role-example"><b>Large Enterprise</b>Auditing AI screening tools at a 10,000-person manufacturer — finding out which vendor's algorithm has been quietly filtering your candidate pool for 18 months.</div>
+      <div class="role-example"><b>Financial Services</b>Rewriting JDs for a bank under EEOC scrutiny — using Claude to identify language that's been discouraging underrepresented applicants.</div>
+      <div class="role-example"><b>Tech Startup</b>Writing the first AI use policy at a Series B company — before the CEO deploys an AI performance review tool and creates a liability no one saw coming.</div>
+    </div>
   </div>
   <div class="role-sections">
     <div class="role-section start">
@@ -291,6 +308,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   </div>
   <div class="role-body">
     <div class="role-changing">Here's what most data analysts don't realise: your existing skills — spotting errors in model outputs, understanding where data goes wrong, domain-specific reasoning — are exactly what AI evaluation platforms pay top dollar for. You don't need to learn anything new to start earning $60–130/hr right now. That's the immediate opportunity. The 12-month opportunity is building toward a role where you own the quality layer of AI systems at enterprise scale.</div>
+    <div class="role-examples">
+      <div class="role-example"><b>Healthcare / NHS</b>Evaluating AI diagnostic outputs for a clinical team — spotting where the model's confidence score doesn't match what the data actually supports.</div>
+      <div class="role-example"><b>Retail</b>Auditing demand-forecasting model errors at a grocery chain — catching the AI over-ordering in categories it's never seen a supply shock in before.</div>
+      <div class="role-example"><b>Banking</b>Reviewing credit-risk AI classifications at a challenger bank — flagging the edge cases a new model misclassifies before they hit real lending decisions.</div>
+    </div>
   </div>
   <div class="role-sections">
     <div class="role-section start">
@@ -331,6 +353,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   </div>
   <div class="role-body">
     <div class="role-changing">AI automates a significant portion of what PMs spend time on today: PRD drafting, user research synthesis, competitive analysis, meeting notes. But that's not the threat — it's the table stakes. The actual shift is that every company is now trying to build AI products, and they need PMs who can scope AI features with realistic precision. The PM who understands what LLMs can reliably do — and what they can't — becomes the most valuable person in the room.</div>
+    <div class="role-examples">
+      <div class="role-example"><b>LegalTech</b>Scoping an AI contract review feature at a Series A startup — knowing which failure modes to test for before you pitch it to law firm clients.</div>
+      <div class="role-example"><b>Consumer App</b>Shipping an AI writing assistant at a productivity tool — defining what "good output" means when users have wildly different expectations of the model.</div>
+      <div class="role-example"><b>Enterprise SaaS</b>Setting success metrics for an AI forecasting feature at a CRM — and explaining to the board why accuracy at 80% is still commercially valuable.</div>
+    </div>
   </div>
   <div class="role-sections">
     <div class="role-section start">
@@ -371,6 +398,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   </div>
   <div class="role-body">
     <div class="role-changing">Harvey reached an $11 billion valuation building legal AI. Clio, Ironclad, and a dozen other platforms are automating contract review, legal research, and drafting. The legal profession is not being replaced — it's being restructured around people who can work with these tools and, critically, catch what they get wrong. Lawyers have one of the highest per-hour rates on AI evaluation platforms right now — because their expertise is genuinely hard to replicate.</div>
+    <div class="role-examples">
+      <div class="role-example"><b>Employment Law</b>Advising a mid-size firm on AI screening tool liability — after a rejected candidate flags that the algorithm had a disparate impact across protected characteristics.</div>
+      <div class="role-example"><b>M&A / Due Diligence</b>Using Harvey to process 4,000 contracts in 48 hours — but you're the one who caught the three indemnity clauses it misread in the target's IP agreements.</div>
+      <div class="role-example"><b>In-House Counsel</b>Drafting an AI use policy for a regulated fintech before their Series C — because the investors asked for it and no one else in the company knew where to start.</div>
+    </div>
   </div>
   <div class="role-sections">
     <div class="role-section start">
@@ -411,6 +443,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   </div>
   <div class="role-body">
     <div class="role-changing">Finance AI adoption doubled in one year — 72% of CFOs now rely on AI forecasting. Hebbia is built specifically for document-heavy financial analysis. AI is doing earnings call summaries, portfolio monitoring, risk model generation. But here's the signal: AI financial models fail in subtle ways that only someone with deep finance experience catches. The finance professional who can spot a flawed AI risk model isn't competing with AI — they're the most important person in the room.</div>
+    <div class="role-examples">
+      <div class="role-example"><b>Hedge Fund</b>Reviewing AI-generated earnings call summaries before a trading decision — and catching the model's confident misreading of a one-time charge as recurring revenue.</div>
+      <div class="role-example"><b>Credit Risk</b>Auditing a challenger bank's AI lending model — finding the segment it was trained on doesn't reflect the SME portfolio it's now being applied to.</div>
+      <div class="role-example"><b>CFO Office</b>Stress-testing AI financial forecasts before the board presentation — because the model has never seen a rate environment like this one and the CFO needs to know where it breaks.</div>
+    </div>
   </div>
   <div class="role-sections">
     <div class="role-section start">
@@ -451,6 +488,11 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
   </div>
   <div class="role-body">
     <div class="role-changing">SEO is not dead — but it's being restructured around a new reality: when someone searches with Perplexity, ChatGPT, or Gemini, the result is a generated answer, not a list of links. Generative Engine Optimisation (GEO) is the emerging discipline of getting your content cited, summarised, or referenced by AI search systems. This is the biggest structural shift in content marketing since Google's algorithm updates of the 2010s — and it's happening right now.</div>
+    <div class="role-examples">
+      <div class="role-example"><b>B2B SaaS</b>Running a GEO audit for a cybersecurity brand — finding that Perplexity cites their competitor on every query about zero-trust architecture, and reverse-engineering why.</div>
+      <div class="role-example"><b>DTC / E-commerce</b>Rewriting product pages for a fashion brand so AI search returns them when someone asks "best sustainable denim under £100" — not just "jeans."</div>
+      <div class="role-example"><b>Agency</b>Building a repeatable GEO framework for 12 clients — because every one of them has seen organic traffic dip and none of them know it's AI search cannibalising their clicks.</div>
+    </div>
   </div>
   <div class="role-sections">
     <div class="role-section start">
