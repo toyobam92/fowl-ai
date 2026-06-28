@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOWL AI · Issue 6 · The Layoff Map</title>
+<meta name="description" content="56% of 2026 layoffs cite AI. 156,000 workers affected. But Klarna just rehired the people it fired. The real story is more complicated — and more useful — than the headline.">
+<meta property="og:title" content="The Layoff Map — FOWL AI Issue 6" />
+<meta property="og:description" content="56 companies. 156,000 jobs. What they actually cut — and what they hired instead." />
+<meta property="og:image" content="https://www.fowl-ai.com/og-image.png" />
+<meta property="og:url" content="https://www.fowl-ai.com/issues/2026-06-29/" />
+<meta property="og:type" content="article" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:#f2ede3;}
+body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia,serif;-webkit-font-smoothing:antialiased;}
+
+/* CARDS */
+.card        {background:#fff;margin:8px 0;padding:32px 44px;}
+.card-dark   {background:#0f3d30;margin:8px 0;padding:32px 44px;}
+.card-amber  {background:#f7eedc;margin:0;padding:34px 44px 36px;border-left:6px solid #f2a12b;}
+.card-mint   {background:#e8f4ee;margin:8px 0;padding:28px 44px;}
+.card-coral  {background:#1a0a05;margin:8px 0;padding:32px 44px;}
+
+/* MASTHEAD */
+.mast{background:#0d3f31;padding:36px 44px 34px;margin:0;}
+.mast-meta{margin-bottom:14px;}
+.mast-meta .vol{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;display:block;margin-bottom:4px;}
+.mast-meta .date{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;display:block;}
+.brand-lockup{display:flex;align-items:center;gap:18px;margin:20px 0 28px;}
+.brand-dot{width:42px;height:42px;min-width:42px;min-height:42px;border-radius:50%;background:#78ddb4;box-shadow:0 6px 18px rgba(0,0,0,.2);flex-shrink:0;}
+.brand-fowl{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;letter-spacing:9px;color:#f47f18;text-transform:uppercase;}
+.brand-divider{width:1px;height:48px;background:rgba(255,255,255,.65);flex-shrink:0;}
+.brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
+.brand-name span{display:block;color:#7fd9b8;}
+.mast-title{font-family:'Inter',-apple-system,sans-serif;font-style:italic;font-weight:800;font-size:58px;line-height:1.06;letter-spacing:-2px;color:#fff;margin-top:8px;}
+.mast-title span{color:#d4541e;display:block;}
+.mast-sub{font-family:'Inter',-apple-system,sans-serif;font-size:19px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:560px;}
+.mast-cta{display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,sans-serif;font-size:15px;font-weight:800;text-decoration:none;padding:15px 28px;border-radius:999px;line-height:1.2;}
+.mast-rule{height:1px;background:linear-gradient(90deg,#7fd9b8,rgba(127,217,184,.08));margin:28px 0 18px;}
+.mast-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.mast-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#9fe3c8;text-transform:uppercase;}
+.mast-badge{display:inline-block;background:rgba(212,84,30,.2);color:#f0a87a;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid rgba(212,84,30,.3);}
+.mast-freq{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#d99c2b;}
+.brand-strip{display:flex;gap:16px;margin-top:26px;border-top:1px solid rgba(127,217,184,.25);padding-top:18px;}
+.brand-item{flex:1;border-left:1px solid rgba(255,255,255,.38);padding-left:14px;}
+.brand-item:first-child{border-left:none;padding-left:0;}
+.brand-item b{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:5px;}
+.brand-item span{display:block;font-family:'Inter',-apple-system,sans-serif;font-size:13px;line-height:1.45;color:#f4fbf8;}
+
+/* SECTION LABEL */
+.sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
+.sec.ember{background:#1a0a05;}
+.sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
+.sec.ember .sec-tag{color:#f0a87a;}
+.sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
+.sec.ember .sec-line{background:#d4541e;opacity:.4;}
+
+/* TLDR */
+.tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
+.tldr-text{font-family:'Inter',-apple-system,sans-serif;font-size:26px;line-height:1.65;color:#0f3d30;font-style:italic;}
+
+/* NOVA SIGNAL — left bar only, no circles */
+.nova-signal{display:flex;align-items:flex-start;gap:16px;background:rgba(13,63,49,.05);border:1px solid rgba(242,161,43,.2);border-radius:10px;padding:18px 20px;margin-bottom:24px;}
+.nova-bar{width:4px;min-width:4px;border-radius:4px;background:linear-gradient(180deg,#f47f18,#d4541e);align-self:stretch;flex-shrink:0;}
+.nova-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:5px;}
+.nova-byline{font-family:-apple-system,sans-serif;font-size:11px;color:#7a9a8a;margin-bottom:8px;line-height:1.4;}
+.nova-quote{font-family:-apple-system,sans-serif;font-size:14px;color:#13241e;line-height:1.7;}
+.nova-call{background:#f7eedc;border-left:3px solid #f2a12b;padding:10px 14px;border-radius:0 6px 6px 0;font-family:'DM Mono',monospace;font-size:11px;color:#7a4a10;letter-spacing:.5px;line-height:1.6;margin-top:12px;}
+
+/* INTRO */
+.intro-text{font-size:16px;line-height:1.8;color:#222;border-left:4px solid #0f3d30;padding-left:18px;}
+
+/* STORY */
+.story{padding:28px 44px;background:#fff;border-bottom:1px solid #e8e4de;}
+.story-n{font-family:'Fraunces',serif;font-size:52px;line-height:1;color:#e8e4dc;font-weight:700;}
+.story-title{font-family:'Fraunces',serif;font-weight:700;font-size:23px;line-height:1.2;color:#0a140a;margin-bottom:14px;}
+.story-body{font-size:15px;line-height:1.75;color:#333;margin-bottom:14px;}
+.meta{display:flex;gap:6px;font-family:-apple-system,sans-serif;font-size:13px;line-height:1.65;color:#555;padding:3px 0;}
+.meta b{color:#1a5f4a;flex-shrink:0;}
+.inside{background:#fffbf0;border-left:4px solid #d99c2b;padding:12px 16px;font-size:14px;font-style:italic;line-height:1.65;color:#4a4030;margin-top:14px;border-radius:0 6px 6px 0;}
+.inside b{font-style:normal;color:#0f3d30;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* LAYOFF TRACKER TABLE */
+.layoff-table{width:100%;border-collapse:collapse;margin:18px 0;font-family:-apple-system,sans-serif;font-size:13px;}
+.layoff-table th{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#f0a87a;padding:10px 12px;border-bottom:2px solid #d4541e;text-align:left;background:#1a0a05;}
+.layoff-table td{padding:12px 12px;border-bottom:1px solid #2a1408;color:#d4c4b8;vertical-align:middle;line-height:1.5;background:#1a0a05;}
+.layoff-table tr:last-child td{border-bottom:none;}
+.layoff-table tr:hover td{background:#220e06;}
+.co-name{font-weight:700;font-size:14px;color:#fff;}
+.co-reason{font-size:12px;color:#b07060;margin-top:2px;}
+.cut-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:#3a0a0a;color:#f0a87a;border:1px solid rgba(212,84,30,.3);}
+.hired-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.5px;text-transform:uppercase;padding:2px 7px;border-radius:4px;background:#0a2a1a;color:#78ddb4;border:1px solid rgba(120,221,180,.2);}
+
+/* STAT BLOCKS */
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0;}
+.stat-block{background:#1a0a05;border:1px solid rgba(212,84,30,.2);border-radius:10px;padding:22px 20px;text-align:center;}
+.stat-num{font-family:'Fraunces',serif;font-size:42px;font-weight:700;color:#d4541e;line-height:1;margin-bottom:6px;}
+.stat-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f0a87a;line-height:1.5;}
+.stat-sub{font-family:-apple-system,sans-serif;font-size:12px;color:#b07060;margin-top:6px;line-height:1.5;}
+
+/* KLARNA CASE STUDY */
+.case-study{background:#fff;border-left:6px solid #d4541e;border-radius:0 10px 10px 0;padding:24px 28px;margin:20px 0;box-shadow:0 2px 16px rgba(0,0,0,.07);}
+.case-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#d4541e;margin-bottom:8px;}
+.case-title{font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:#13241e;margin-bottom:12px;line-height:1.2;}
+.case-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#333;margin-bottom:12px;}
+.case-timeline{display:flex;flex-direction:column;gap:10px;margin:16px 0;}
+.case-step{display:flex;gap:14px;align-items:flex-start;}
+.case-dot{width:10px;height:10px;min-width:10px;min-height:10px;border-radius:50%;margin-top:4px;flex-shrink:0;}
+.case-dot.red{background:#d4541e;}
+.case-dot.amber{background:#d99c2b;}
+.case-dot.green{background:#1a5f4a;}
+.case-step-text{font-family:-apple-system,sans-serif;font-size:13.5px;line-height:1.65;color:#2a2a2a;}
+.case-lesson{background:#f7eedc;border-left:3px solid #f2a12b;padding:12px 16px;border-radius:0 6px 6px 0;font-family:'DM Mono',monospace;font-size:11px;color:#7a4a10;letter-spacing:.5px;line-height:1.6;margin-top:14px;}
+
+/* SAFE VS EXPOSED */
+.split-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;margin:18px 0;border-radius:10px;overflow:hidden;box-shadow:0 2px 16px rgba(0,0,0,.07);}
+.split-col{padding:22px 24px;}
+.split-col.exposed{background:#1a0a05;}
+.split-col.safe{background:#0a2a1a;}
+.split-col-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:14px;font-weight:500;}
+.split-col.exposed .split-col-label{color:#f0a87a;}
+.split-col.safe .split-col-label{color:#7fd9b8;}
+.split-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.split-list li{font-family:-apple-system,sans-serif;font-size:13px;line-height:1.6;padding-left:16px;position:relative;}
+.split-list li::before{position:absolute;left:0;font-size:11px;top:1px;}
+.split-col.exposed .split-list li{color:#d4c4b8;}
+.split-col.exposed .split-list li::before{content:'↓';color:#d4541e;}
+.split-col.safe .split-list li{color:#a9e8cf;}
+.split-col.safe .split-list li::before{content:'↑';color:#78ddb4;}
+
+/* SIGNAL & CHATTER */
+.sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
+.sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
+.sig:last-of-type{border-bottom:none;}
+.sig-dot{width:20px;height:20px;min-width:20px;min-height:20px;background:#d99c2b;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;line-height:1;}
+.sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
+
+/* PREDICT */
+.predict{background:#0d3f31;border-radius:8px;padding:26px 30px;margin:20px 0;}
+.predict-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;}
+.predict-text{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.4;}
+.predict-sub{font-family:-apple-system,sans-serif;font-size:14px;color:#7fd9b8;margin-top:10px;line-height:1.65;}
+
+/* ACTION ITEMS */
+.action-wrap{background:#f7eedc;border-left:6px solid #f2a12b;padding:24px 28px;margin:20px 0;border-radius:0 8px 8px 0;}
+.action-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#0f3d30;margin-bottom:14px;font-weight:500;}
+.action-item{display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;line-height:1.65;padding:8px 0;border-bottom:1px solid rgba(242,161,43,.2);}
+.action-item:last-child{border-bottom:none;padding-bottom:0;}
+.action-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#f2a12b;flex-shrink:0;margin-top:2px;background:#0f3d30;padding:2px 7px;border-radius:4px;line-height:1.6;}
+
+/* LAUNCH LAB */
+.launch-lab{background:#fff;margin:8px 0;padding:28px 44px;border-left:6px solid #f2a12b;}
+
+/* EMERGING CAREER */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
+
+/* STAMP / REPLY / FOOTER */
+.stamp-text{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.6;color:#fff;text-align:center;}
+.stamp-text span{color:#7fd9b8;}
+.reply-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:#1a5f4a;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.reply-text{font-style:italic;font-size:15.5px;line-height:1.75;color:#1a3a2a;}
+.footer{background:#13241e;padding:26px 44px;text-align:center;margin:0;}
+.footer-brand{font-family:'Fraunces',serif;font-size:14px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:6px;}
+.footer-fine{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#3a5248;}
+.footer-fine a{color:#7fd9b8;text-decoration:underline;}
+
+/* MOBILE */
+@media(max-width:768px){
+  .mast,.card,.card-dark,.card-amber,.card-mint,.card-coral,.sec,.story,.footer,.launch-lab{padding-left:20px;padding-right:20px;}
+  .mast-title{font-size:36px;letter-spacing:-1px;}
+  .mast-sub{font-size:16px;}
+  .brand-lockup{gap:12px;margin:14px 0 20px;}
+  .brand-dot{width:34px;height:34px;min-width:34px;min-height:34px;}
+  .brand-fowl{font-size:20px;letter-spacing:5px;}
+  .brand-divider{height:32px;}
+  .brand-name{font-size:20px;}
+  .brand-strip{flex-direction:column;gap:0;}
+  .brand-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:12px;margin-top:12px;}
+  .brand-item:first-child{border-top:none;padding-top:0;margin-top:0;}
+  .tldr-text{font-size:20px;}
+  .story-n{font-size:40px;}
+  .story-title{font-size:19px;}
+  .stat-grid{grid-template-columns:1fr;}
+  .split-grid{grid-template-columns:1fr;}
+  .predict{padding:20px 18px;}
+  .predict-text{font-size:18px;}
+  .action-wrap{padding:20px 18px;}
+  .nova-signal{padding:14px 16px;}
+  .layoff-table{font-size:11px;}
+  .layoff-table th,.layoff-table td{padding:8px 8px;}
+}
+</style></head><body>
+
+
+<!-- MASTHEAD -->
+<div class="mast">
+  <div class="mast-meta">
+    <span class="vol">Vol. 1 · Issue 6</span>
+    <span class="date">Jun 29, 2026</span>
+  </div>
+  <div class="brand-lockup">
+    <div class="brand-dot"></div>
+    <div class="brand-fowl">FOWL AI</div>
+    <div class="brand-divider"></div>
+    <div class="brand-name">Future of<span>Work Lab</span></div>
+  </div>
+  <div class="mast-title">The Layoff Map.<span>What they cut. What they hired instead.</span></div>
+  <div class="mast-sub">56% of 2026 layoffs explicitly cite AI. 156,000 workers affected. But Klarna just rehired the people it fired. The real story is more complicated — and more useful — than the headline.</div>
+  <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Subscribe free</a>
+  <div class="mast-rule"></div>
+  <div class="mast-foot">
+    <div class="mast-tag">Career Signals · AI Economy</div>
+    <div class="mast-badge">🗺️ Industry Signal</div>
+    <div class="mast-freq">Weekly</div>
+  </div>
+  <div class="brand-strip">
+    <div class="brand-item"><b>The numbers</b><span>267 layoff events. 156K workers. The tracker nobody's showing clearly.</span></div>
+    <div class="brand-item"><b>The Klarna lesson</b><span>What happens when you go too fast — and why they rehired.</span></div>
+    <div class="brand-item"><b>What's safe</b><span>By role and function, based on real 2026 data.</span></div>
+  </div>
+</div>
+
+
+<!-- TLDR -->
+<div class="card-amber">
+  <div class="tldr-label">If you read nothing else</div>
+  <div class="tldr-text">Companies aren't replacing humans with AI. They're replacing certain humans with fewer, different humans — plus AI. Klarna tried to skip the human part entirely and had to reverse course. The pattern tells you exactly which side of that equation to be on.</div>
+</div>
+
+
+<!-- INTRO + NOVA -->
+<div class="card">
+  <div class="nova-signal">
+    <div class="nova-bar"></div>
+    <div>
+      <div class="nova-label">🎙️ Nova's Signal</div>
+      <div class="nova-byline">Nova is FOWL AI's news anchor — she tracks the signals every week. <a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener" style="color:#f2a12b;text-decoration:none;font-weight:600;">Follow on Instagram →</a></div>
+      <div class="nova-quote">"56% of every layoff announcement this year included the words 'AI,' 'automation,' or 'machine learning.' That is not a trend. That is a structural shift. But here's what the headlines miss: Salesforce cut 4,000 support jobs and then hired AI engineers at twice the salary. Klarna replaced 700 workers with AI, watched customer satisfaction collapse, and started rehiring. The companies that are doing this well are not replacing humans — they are redesigning the ratio. The ones doing it badly are learning the hard way that domain expertise is still non-negotiable."</div>
+      <div class="nova-call">Nova's call: <strong>Map your role before your employer does.</strong> This issue gives you the framework to do exactly that.</div>
+    </div>
+  </div>
+  <div class="intro-text">The number that should make every knowledge worker pay attention: 267 layoff events in 2026. 156,000 workers affected. And 56% of those events explicitly cited AI as a reason.<br><br>But raw numbers miss the pattern. The companies getting this right — Salesforce, GitLab, Cisco — are not eliminating humans wholesale. They are cutting one category of work and investing the savings into a different, higher-leverage category. The companies getting it wrong — Klarna is the clearest example — are finding out that you can't automate away domain expertise and customer judgment without consequence.<br><br>This issue maps the real picture: what's being cut, what's replacing it, which roles are exposed, and what the Klarna reversal tells us about the actual limits of AI replacement.</div>
+</div>
+
+
+<!-- THE NUMBERS -->
+<div class="sec ember"><span class="sec-tag">📊 The Numbers — 2026 So Far</span><span class="sec-line"></span></div>
+<div class="card-coral" style="background:#1a0a05;padding:32px 44px;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f0a87a;margin-bottom:20px;">AI-Driven Layoffs · Jan–Jun 2026</div>
+  <div class="stat-grid">
+    <div class="stat-block">
+      <div class="stat-num">267</div>
+      <div class="stat-label">Layoff Events</div>
+      <div class="stat-sub">In 2026 to date</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">156K</div>
+      <div class="stat-label">Workers Affected</div>
+      <div class="stat-sub">Citing AI/automation as cause</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-num">56%</div>
+      <div class="stat-label">Cite AI Explicitly</div>
+      <div class="stat-sub">Of all 2026 layoff events</div>
+    </div>
+  </div>
+  <div style="font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#d4c4b8;margin-top:20px;">Averaging <strong style="color:#fff;">1,044 job losses per day</strong> in 2026 — across companies that explicitly named AI in their announcement. This is not the total layoff count. This is only the portion where companies said the quiet part out loud.</div>
+</div>
+
+
+<!-- STORIES -->
+<div class="sec"><span class="sec-tag">5 Signals This Week</span><span class="sec-line"></span></div>
+
+<!-- STORY 01 — THE TRACKER -->
+<div class="story">
+  <div class="story-n">01</div>
+  <div class="story-title">The companies cutting — and what they're actually replacing.</div>
+  <div class="story-body">The pattern across every major AI-cited layoff in 2026 is the same: cut a volume-based role, invest the savings in AI infrastructure or a smaller number of higher-leverage humans. Three examples worth understanding in detail.</div>
+
+  <div style="overflow-x:auto;margin:18px 0;">
+    <table class="layoff-table">
+      <tr>
+        <th>Company</th>
+        <th>Cut</th>
+        <th>How many</th>
+        <th>What replaced it</th>
+      </tr>
+      <tr>
+        <td>
+          <div class="co-name">Salesforce</div>
+          <div class="co-reason">Agentforce handles 50% of customer interactions</div>
+        </td>
+        <td><span class="cut-badge">Support Engineers</span></td>
+        <td style="color:#f0a87a;font-family:'DM Mono',monospace;font-size:12px;">4,000 roles</td>
+        <td><span class="hired-badge">AI Engineers + Orchestrators</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="co-name">GitLab</div>
+          <div class="co-reason">Funding AI infrastructure investment</div>
+        </td>
+        <td><span class="cut-badge">General Staff (14%)</span></td>
+        <td style="color:#f0a87a;font-family:'DM Mono',monospace;font-size:12px;">~350 roles</td>
+        <td><span class="hired-badge">AI Infra + ML Engineers</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="co-name">Cisco</div>
+          <div class="co-reason">Refocusing on AI product lines</div>
+        </td>
+        <td><span class="cut-badge">Legacy Tech Roles</span></td>
+        <td style="color:#f0a87a;font-family:'DM Mono',monospace;font-size:12px;">4,000 roles</td>
+        <td><span class="hired-badge">AI Product + Security Eng</span></td>
+      </tr>
+      <tr>
+        <td>
+          <div class="co-name">Duolingo</div>
+          <div class="co-reason">AI translates content end-to-end</div>
+        </td>
+        <td><span class="cut-badge">Contractors (10%)</span></td>
+        <td style="color:#f0a87a;font-family:'DM Mono',monospace;font-size:12px;">Contract roles</td>
+        <td><span class="hired-badge">AI Content Systems</span></td>
+      </tr>
+    </table>
+  </div>
+
+  <div class="meta"><b>The pattern ·</b> In every case: volume-based roles out, AI infrastructure and high-judgment roles in. The ratio shifts — fewer people, different people, higher pay.</div>
+  <div class="inside"><b>The signal —</b> "AI took my job" is rarely accurate. "AI eliminated the repetitive part of my job and my company decided not to backfill" is usually what happened. The distinction matters for what you do next.</div>
+</div>
+
+<!-- STORY 02 — KLARNA -->
+<div class="story">
+  <div class="story-n">02</div>
+  <div class="story-title">The Klarna lesson — what happens when you go too fast.</div>
+  <div class="story-body">Klarna is the most important case study in AI workforce replacement right now — not because they succeeded, but because they failed visibly and publicly admitted it.</div>
+
+  <div class="case-study">
+    <div class="case-label">📋 Case Study — Klarna · 2024–2026</div>
+    <div class="case-title">The company that replaced 700 workers with AI — and then hired them back.</div>
+    <div class="case-timeline">
+      <div class="case-step">
+        <div class="case-dot red"></div>
+        <div class="case-step-text"><strong>2024:</strong> Klarna deployed an AI customer service system, claiming it could do the work of 700 agents. CEO Sebastian Siemiatkowski called it a breakthrough. Headcount dropped from 5,000 to 3,800.</div>
+      </div>
+      <div class="case-step">
+        <div class="case-dot amber"></div>
+        <div class="case-step-text"><strong>Early 2025:</strong> Customer satisfaction scores begin declining. Complex queries — the ones that require genuine judgment, emotional intelligence, and context — are handled poorly by the AI system. Complaints rise.</div>
+      </div>
+      <div class="case-step">
+        <div class="case-dot green"></div>
+        <div class="case-step-text"><strong>2025–2026:</strong> Klarna reverses course and begins rehiring human agents. Siemiatkowski publicly acknowledges the company "went too far" and that "lower quality" resulted from prioritising efficiency over service.</div>
+      </div>
+    </div>
+    <div class="case-lesson">The lesson: AI handles volume. Humans handle judgment. Companies that confuse the two pay for it in customer satisfaction — and then pay again to fix it.</div>
+  </div>
+
+  <div class="meta"><b>Why this matters ·</b> Klarna is not an outlier. They were just faster and more public than most. Every company deploying AI customer-facing systems is running the same experiment — and learning the same limits.</div>
+  <div class="inside"><b>The signal —</b> The roles that survived Klarna's reversal were the ones that handled edge cases, escalations, and emotionally complex situations. That is the blueprint for what to build toward in any customer-facing role.</div>
+</div>
+
+<!-- STORY 03 — SALESFORCE MODEL -->
+<div class="story">
+  <div class="story-n">03</div>
+  <div class="story-title">The Salesforce model — what the replacement actually looks like.</div>
+  <div class="story-body">Salesforce didn't just cut support engineers. They rebuilt the entire support function around a different model: Agentforce handles 50% of interactions automatically, resolves 63% of queries with satisfaction scores matching humans — and the human team that remains is smaller, more senior, and focused on what the AI can't do.</div>
+  <div class="story-body">Marc Benioff didn't say "we're replacing humans." He said "we're rebalancing headcount." That language matters. The 5,000 people still in the support function are not doing what the 9,000 were doing. They're overseeing the agents, handling escalations, training the system on domain-specific edge cases, and owning the quality layer. The job changed, not just the number.</div>
+  <div class="meta"><b>What this means for non-Salesforce employees ·</b> Your company is watching this. The question isn't whether your function will be restructured — it's whether you'll be on the oversight side or the displaced side when it happens.</div>
+  <div class="inside"><b>The signal —</b> The Salesforce support engineers who survived were not the most efficient ticket-closers. They were the ones who understood the product deeply enough to train, evaluate, and correct the AI system. That combination — domain expertise plus AI evaluation literacy — is the moat.</div>
+</div>
+
+<!-- STORY 04 — SAFE VS EXPOSED -->
+<div class="story">
+  <div class="story-n">04</div>
+  <div class="story-title">Safe vs. exposed — which functions are actually at risk in 2026.</div>
+  <div class="story-body">Based on real 2026 layoff data, the functions being cut have a clear pattern: high-volume, rule-based work with limited judgment requirements. The functions being protected or grown are the inverse.</div>
+
+  <div class="split-grid">
+    <div class="split-col exposed">
+      <div class="split-col-label">⚠️ Most Exposed</div>
+      <ul class="split-list">
+        <li>Tier-1 customer support — scripted, high-volume query resolution</li>
+        <li>Content production — templated copy, SEO articles, basic marketing output</li>
+        <li>Data entry &amp; basic QA — repetitive input/output validation</li>
+        <li>Junior software engineering — boilerplate code, simple bug fixes</li>
+        <li>Back-office admin — scheduling, formatting, report generation</li>
+        <li>Basic legal research — standard document review at volume</li>
+      </ul>
+    </div>
+    <div class="split-col safe">
+      <div class="split-col-label">✓ Most Protected</div>
+      <ul class="split-list">
+        <li>AI system oversight — evaluating, correcting, and governing AI outputs</li>
+        <li>Complex escalation handling — judgment-heavy, emotionally nuanced cases</li>
+        <li>Domain expert evaluation — medical, legal, financial AI review</li>
+        <li>Agent orchestration — designing and managing multi-agent systems</li>
+        <li>AI governance &amp; compliance — EU AI Act, EEOC, audit functions</li>
+        <li>Healthcare &amp; clinical roles — diagnosis, patient judgment, care decisions</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="meta"><b>The common thread ·</b> Exposed roles have clear, repeatable rules. Protected roles require domain judgment that is difficult to formalise — and where errors are costly.</div>
+  <div class="inside"><b>The signal —</b> Every role has exposed parts and protected parts. The professionals who survive restructuring are the ones who have consciously moved toward the judgment-heavy end of their function — and can articulate what AI can't replace about what they do.</div>
+</div>
+
+<!-- STORY 05 — WHAT TO DO -->
+<div class="story" style="border-bottom:none;">
+  <div class="story-n">05</div>
+  <div class="story-title">What knowledge workers should do before their company does this to them.</div>
+  <div class="story-body">The companies running the Salesforce model give their employees almost no warning. GitLab announced and executed in weeks. Cisco's 4,000 cuts were disclosed in a single earnings call. The restructuring doesn't wait for you to be ready — which means the preparation has to happen now, before it's announced.</div>
+  <div class="story-body">There are three concrete moves that matter. First: map your own workflow (Issue 5 covered this — write out every step you do and identify which parts AI already handles or could handle). Second: move deliberately toward the oversight and evaluation layer of your function. Third: build a visible record of where your domain expertise catches what AI gets wrong — because that record is the credential employers will pay for.</div>
+  <div class="meta"><b>The timing ·</b> The Salesforce restructuring took 18 months from first AI deployment to headcount reduction. If your company is actively deploying AI tools right now, you likely have 12–24 months to reposition.</div>
+  <div class="inside"><b>The signal —</b> The professionals who will land on the right side of every restructuring are not the ones who resist AI — they are the ones who understand it well enough to be the person their company needs to manage it.</div>
+</div>
+
+
+<!-- SIGNAL & CHATTER -->
+<div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="sig-intro">What the data and community are saying this week.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>59,000 tech jobs cut in Q1 2026 alone — 9,200 directly attributed to AI.</b> That's the official count. The real number is higher: many companies cite "restructuring" without naming AI, even when the driver is clear to anyone inside the company.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Customer support is the hardest-hit function — followed by back-office operations, content production, and middle management.</b> These four functions account for the majority of AI-cited cuts in 2026. If you're in one of them, the question isn't whether restructuring is coming — it's when.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Salesforce's Agentforce resolves 63% of queries at human-equivalent satisfaction scores.</b> The 37% it can't handle — emotionally complex, domain-specific, edge cases — is where the surviving human team lives. That 37% is worth understanding in your own function.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The Klarna reversal has been noticed inside other companies.</b> Multiple HR leaders and operations executives have cited it privately as a reason to slow down AI-only replacement plans. The lesson is spreading — which buys knowledge workers more time than the headlines suggest.</div></div>
+</div>
+
+
+<!-- PREDICTION -->
+<div class="card">
+  <div class="predict">
+    <div class="predict-label">🔮 FOWL Prediction #006</div>
+    <div class="predict-text">"By 2027, 'AI-driven restructuring' will appear in every major company's annual report — and the roles that survive will be defined not by what they do, but by what AI still gets wrong in their domain."</div>
+    <div class="predict-sub">The Salesforce model is the template. Cut the volume. Keep the judgment. The professionals who have explicitly documented where AI fails in their domain — and can prove they catch those failures — will be the ones who define what the post-restructuring team looks like. Specificity is the survival strategy.</div>
+  </div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;margin-top:8px;">FOWL AI · Jun 29, 2026 · We'll score this in 2027.</div>
+</div>
+
+
+<!-- ACTION ITEMS -->
+<div class="sec"><span class="sec-tag">✅ 3 Things to Do This Week</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="action-wrap">
+    <div class="action-label">Before your company announces its version of this</div>
+    <div class="action-item">
+      <span class="action-num">01</span>
+      <div><b>Map your own workflow this week.</b> Write out every step of your most common work task. For each step, ask: could AI do this today? The steps it can't handle — because they require domain judgment, emotional intelligence, or contextual reasoning — are your protected value. Write that list down. It's the foundation of your repositioning.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">02</span>
+      <div><b>Start documenting where AI gets it wrong in your domain.</b> Every time you use an AI tool and catch an error, write it down. What was the error? Why did it happen? What knowledge was required to catch it? After 30 days, that document is both your AI evaluation expertise and your evidence that you are irreplaceable by the tool you just corrected.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">03</span>
+      <div><b>Apply to Mercor if you have domain expertise in data, finance, law, medicine, or research.</b> The companies restructuring right now are simultaneously paying top dollar for people who can evaluate AI outputs in exactly those domains. Average $95/hr. The irony: the same AI wave creating the layoffs is also creating the evaluation economy. You can participate in both sides — the job market and the platform market.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- LAUNCH LAB -->
+<div class="launch-lab">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;">🚀 From the Lab</div>
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:#13241e;line-height:1.2;margin-bottom:10px;">Launch Lab — Building something?</div>
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#46524c;margin-bottom:16px;">Need help setting up a website, newsletter, digital products, or payments for your brand? We can help you build it — fast, clean, and ready to launch.</div>
+  <div style="font-family:'DM Mono',monospace;font-size:13px;color:#0f3d30;background:#e8f4ee;border-radius:8px;padding:12px 18px;display:inline-block;">Reply with <strong>"LAUNCH"</strong> and let's chat.</div>
+</div>
+
+
+<!-- EMERGING CAREER -->
+<div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
+<div class="card-dark">
+  <div class="career-eye">This week</div>
+  <div class="career-title">AI Restructuring Advisor</div>
+  <div class="career-body">Not a consultant. Not an HR generalist. Not a change manager. The AI Restructuring Advisor is the professional a company calls when it's about to do what Salesforce, GitLab, and Cisco just did — and wants to avoid doing what Klarna did.<br><br>Their job is to map which roles are genuinely replaceable by AI (volume-based, rule-governed, low-judgment), which roles need to be redesigned around AI augmentation (domain expertise + AI oversight), and which roles are safe to grow (judgment-heavy, complex, evaluation-critical). Then they help the company make those cuts and investments in the right order and at the right pace.<br><br>This role doesn't exist cleanly yet. In some companies it's an internal strategy lead. In others it's a McKinsey or Deloitte engagement. In others it's the Head of AI transformation. But the function is the same: being the person who prevents the company from moving at Klarna speed — and helps it move at Salesforce speed instead.</div>
+  <div class="career-why"><b>How to position for this now:</b> The credential for this role is having done it — even informally. If you can document how you mapped your own team's workflow, identified what AI could and couldn't replace, and proposed a restructuring plan — that document is your portfolio. Companies paying $150–250K for this role are not looking for a certificate. They're looking for someone who has thought harder about this than they have.</div>
+</div>
+
+
+<!-- CLOSING -->
+<div class="card" style="padding-bottom:0;">
+  <div style="font-size:16px;line-height:1.8;color:#1a1a1a;">The layoff numbers are real. But they're not the whole story. The whole story is that every company restructuring around AI is simultaneously creating a smaller, more expensive, more judgment-dependent workforce to manage what it built.<br><br>Klarna learned the hard way that you can't skip the human judgment layer. Salesforce is learning — more carefully — how to redesign around it. The professionals who understand this pattern now are the ones who will be hired to manage the next wave of it. That's the career opportunity hiding inside the most alarming job market numbers of the decade.</div>
+</div>
+
+<div class="card-dark" style="margin-top:0;text-align:center;">
+  <div class="stamp-text">"AI didn't take those jobs.<br><span>Companies restructured around what AI can't do yet — and forgot to plan for what it can't do at all."</span></div>
+</div>
+
+
+<!-- REPLY CTA -->
+<div class="card-mint">
+  <div class="reply-label">💬 One question — reply and tell us</div>
+  <div class="reply-text">Has your company started cutting roles and citing AI? Or are you seeing the opposite — new AI-related roles being created? Either way — hit reply. We're tracking the real-world picture and your answer shapes what we cover next.</div>
+</div>
+
+
+<!-- SHARE -->
+<div style="background:#fff;margin:8px 0;padding:24px 44px;text-align:center;border-top:2px solid #f2ede3;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9aada5;margin-bottom:16px;">Share this issue</div>
+  <button onclick="navigator.clipboard.writeText('https://www.fowl-ai.com/issues/2026-06-29/').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>{this.textContent='Copy link'},2000)})" style="display:inline-block;background:#f2ede3;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid #c8c0b4;cursor:pointer;line-height:1.2;">Copy link</button>
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">FOWL AI</div>
+  <div class="footer-fine">Career signals for the AI economy.</div>
+  <div class="footer-fine" style="margin-top:6px;">Weekly · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="https://www.fowl-ai.com">fowl-ai.com</a></div>
+  <div class="footer-fine" style="margin-top:10px;">{{SenderInfoLine}}</div>
+  <div class="footer-fine" style="margin-top:6px;"><a href="{{UnsubscribeURL}}">Unsubscribe</a> · <a href="{{RewardsURL}}">Powered by EmailOctopus</a></div>
+</div>
+
+</body></html>
