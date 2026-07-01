@@ -3,719 +3,598 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LaunchLab — Build an AI-powered business you actually own | FOWL AI</title>
-<meta name="description" content="LaunchLab by FOWL AI. Learn how to build your AI brand, website, newsletter, and digital infrastructure without depending on expensive platforms.">
-<meta property="og:title" content="LaunchLab — Build an AI-powered business you actually own" />
-<meta property="og:description" content="Practical Builder Kits for creators, professionals, and entrepreneurs." />
+<title>Brand Brain — Your AI Building Partner | FOWL AI LaunchLab</title>
+<meta name="description" content="Brand Brain is your AI Building Partner. Turn what you know into something you own — website, newsletter, AI avatar, digital products.">
+<meta property="og:title" content="Brand Brain — Your AI Building Partner" />
+<meta property="og:description" content="Everyone has something worth building. Brand Brain is a guided AI workspace that teaches you how to turn an idea into something you own." />
 <meta property="og:url" content="https://www.fowl-ai.com/launchlab/" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,700&family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
 <style>
-/* ─── TOKENS ─────────────────────────────────────────── */
 :root {
-  --ink:       #0a0e0d;
-  --ink-2:     #111714;
-  --ink-3:     #1a2420;
-  --green:     #0d3f31;
-  --green-l:   #0f4d3c;
-  --mint:      #78ddb4;
-  --mint-d:    #35bfa2;
-  --orange:    #f47f18;
-  --amber:     #f2a12b;
-  --cream:     #f2ede3;
-  --white:     #ffffff;
-  --muted:     rgba(255,255,255,.5);
-  --subtle:    rgba(255,255,255,.06);
-  --border:    rgba(255,255,255,.08);
-  --border-l:  rgba(120,221,180,.15);
+  --forest:     #0d3f31;
+  --forest-2:   #0f4d3c;
+  --paper:      #f2ede3;
+  --surface:    #e8f4ee;
+  --ink:        #13241e;
+  --ink-soft:   #2a4a3a;
+  --paper-ink:  #f2ede3;
+  --moss:       #35bfa2;
+  --moss-deep:  #0d3f31;
+  --moss-fill:  #d4f0e8;
+  --clay:       #f47f18;
+  --line:       #c8e0d4;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--paper); color: var(--ink); }
+body { font-family: 'Inter', sans-serif; background: var(--paper); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+.font-display { font-family: 'Fraunces', serif; }
+.eyebrow { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--moss-deep); }
+.eyebrow-on-forest { color: #7fd9b8; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* BUTTONS */
+.btn { font-weight: 600; border-radius: 10px; padding: 14px 24px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.25s ease, box-shadow 0.25s ease; cursor: pointer; border: 1px solid transparent; text-decoration: none; }
+.btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(91,112,82,0.45); }
+.btn-primary { background: var(--clay); color: #FCF9F1; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(178,101,47,0.55); }
+.btn-ghost-forest { background: transparent; color: var(--paper-ink); border-color: rgba(244,241,231,0.35); }
+.btn-ghost-forest:hover { border-color: rgba(244,241,231,0.7); transform: translateY(-2px); }
+
+/* CARDS */
+.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; transition: transform 0.3s ease, border-color 0.3s ease; }
+.card:hover { transform: translateY(-3px); border-color: var(--moss); }
+
+/* UTILITIES */
+.check-badge { width: 22px; height: 22px; border-radius: 50%; background: var(--moss-fill); display: flex; align-items: center; justify-content: center; flex-shrink: 0; margin-top: 1px; }
+.journey-line { position: absolute; left: 19px; top: 8px; bottom: 8px; width: 2px; background: repeating-linear-gradient(to bottom, var(--moss) 0, var(--moss) 6px, transparent 6px, transparent 12px); }
+.contour { position: absolute; inset: 0; pointer-events: none; opacity: 0.5; }
+::selection { background: rgba(178,101,47,0.25); }
+
+/* WORKSPACE MOCKUP */
+.mockup-wrap{max-width:860px;margin:48px auto 0;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.18);border:1px solid var(--line);}
+.mockup-bar{background:#2c2c2c;padding:12px 16px;display:flex;align-items:center;gap:8px;}
+.mockup-dot{width:12px;height:12px;border-radius:50%;}
+.mockup-title{font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,.4);margin-left:8px;letter-spacing:.5px;}
+.mockup-body{display:grid;grid-template-columns:220px 1fr;background:#1e1e1e;min-height:420px;}
+.mockup-sidebar{background:#252526;border-right:1px solid #333;padding:12px 0;}
+.mockup-sidebar-title{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);padding:0 14px 10px;}
+.mockup-folder{font-family:'DM Mono',monospace;font-size:12px;color:rgba(255,255,255,.6);padding:4px 14px;display:flex;align-items:center;gap:6px;cursor:default;}
+.mockup-folder.active{background:rgba(120,221,180,.08);color:#78ddb4;}
+.mockup-file{font-family:'DM Mono',monospace;font-size:11px;color:rgba(255,255,255,.4);padding:3px 14px 3px 28px;display:flex;align-items:center;gap:5px;}
+.mockup-file.active{color:rgba(255,255,255,.75);}
+.mockup-terminal{padding:24px;display:flex;flex-direction:column;gap:0;overflow:hidden;}
+.term-line{font-family:'DM Mono',monospace;font-size:13px;line-height:1.7;white-space:pre-wrap;}
+.term-prompt{color:#78ddb4;}
+.term-cmd{color:#f2ede3;}
+.term-label{color:#f2a12b;font-weight:500;}
+.term-out{color:rgba(255,255,255,.65);}
+.term-menu{color:#a9e8cf;}
+.term-cursor{display:inline-block;width:8px;height:14px;background:#78ddb4;vertical-align:middle;animation:blink 1s step-end infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
+@media(max-width:680px){
+  .mockup-body{grid-template-columns:1fr;}
+  .mockup-sidebar{display:none;}
+  .proof-grid{grid-template-columns:1fr !important;}
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{background:var(--ink);color:var(--white);}
-body{font-family:'Inter',system-ui,sans-serif;background:var(--ink);overflow-x:hidden;}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;}
-
-/* ─── SCROLL ANIMATIONS ──────────────────────────────── */
-.reveal{opacity:0;transform:translateY(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
-.reveal.visible{opacity:1;transform:none;}
-.reveal-l{opacity:0;transform:translateX(-28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
-.reveal-l.visible{opacity:1;transform:none;}
-.reveal-r{opacity:0;transform:translateX(28px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1);}
-.reveal-r.visible{opacity:1;transform:none;}
-.delay-1{transition-delay:.1s;}
-.delay-2{transition-delay:.2s;}
-.delay-3{transition-delay:.3s;}
-.delay-4{transition-delay:.4s;}
-.delay-5{transition-delay:.5s;}
-
-/* ─── NAV ─────────────────────────────────────────────── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;background:rgba(10,14,13,.8);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
-.nav-brand{display:flex;align-items:center;gap:10px;}
-.nav-dot{width:28px;height:28px;min-width:28px;border-radius:50%;background:linear-gradient(135deg,var(--mint),var(--mint-d));flex-shrink:0;}
-.nav-fowl{font-family:'DM Mono',monospace;font-size:14px;font-weight:500;letter-spacing:6px;color:var(--orange);text-transform:uppercase;}
-.nav-sep{width:1px;height:20px;background:rgba(255,255,255,.2);margin:0 10px;}
-.nav-lab{font-family:'Fraunces',serif;font-style:italic;font-size:16px;color:var(--mint);letter-spacing:.5px;}
-.nav-links{display:flex;align-items:center;gap:6px;}
-.nav-link{font-size:13px;color:rgba(255,255,255,.6);padding:6px 12px;border-radius:8px;transition:color .2s,background .2s;}
-.nav-link:hover{color:#fff;background:var(--subtle);}
-.nav-cta{background:var(--mint);color:var(--ink);font-size:13px;font-weight:700;padding:8px 18px;border-radius:999px;transition:opacity .2s,transform .2s;}
-.nav-cta:hover{opacity:.88;transform:scale(1.03);}
-@media(max-width:680px){.nav-links .nav-link{display:none;}}
-
-/* ─── HERO ─────────────────────────────────────────────── */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 24px 80px;text-align:center;position:relative;overflow:hidden;}
-
-.hero-bg{position:absolute;inset:0;z-index:0;}
-.hero-bg-blob{position:absolute;border-radius:50%;filter:blur(100px);opacity:.18;}
-.hero-bg-blob-1{width:600px;height:600px;background:radial-gradient(circle,#0d3f31,transparent);top:-100px;left:-100px;}
-.hero-bg-blob-2{width:500px;height:500px;background:radial-gradient(circle,#f47f18,transparent);top:100px;right:-100px;opacity:.08;}
-.hero-bg-blob-3{width:400px;height:400px;background:radial-gradient(circle,#78ddb4,transparent);bottom:-50px;left:50%;transform:translateX(-50%);opacity:.12;}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:60px 60px;}
-
-.hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto;}
-
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(120,221,180,.1);border:1px solid rgba(120,221,180,.2);border-radius:999px;padding:6px 16px;margin-bottom:32px;}
-.hero-eyebrow-dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:var(--mint);}
-.hero-eyebrow span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--mint);}
-
-.hero-h1{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(40px,7vw,78px);line-height:1.04;letter-spacing:-2px;margin-bottom:28px;}
-.hero-h1 em{font-style:italic;background:linear-gradient(135deg,var(--mint) 0%,var(--mint-d) 50%,var(--orange) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-
-.hero-sub{font-size:clamp(16px,2vw,19px);line-height:1.75;color:rgba(255,255,255,.65);max-width:560px;margin:0 auto 44px;}
-
-.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:72px;}
-.btn-primary{display:inline-block;background:var(--mint);color:var(--ink);font-size:15px;font-weight:700;padding:14px 28px;border-radius:999px;transition:opacity .2s,transform .2s,box-shadow .2s;box-shadow:0 0 0 0 rgba(120,221,180,.4);}
-.btn-primary:hover{opacity:.9;transform:translateY(-2px);box-shadow:0 8px 32px rgba(120,221,180,.25);}
-.btn-secondary{display:inline-block;background:transparent;color:rgba(255,255,255,.8);font-size:15px;font-weight:600;padding:14px 28px;border-radius:999px;border:1px solid rgba(255,255,255,.15);transition:background .2s,border-color .2s,color .2s,transform .2s;}
-.btn-secondary:hover{background:var(--subtle);border-color:rgba(255,255,255,.3);color:#fff;transform:translateY(-2px);}
-
-/* Flow diagram */
-.hero-flow{display:flex;align-items:center;justify-content:center;gap:0;flex-wrap:wrap;row-gap:16px;}
-.flow-node{display:flex;flex-direction:column;align-items:center;gap:8px;}
-.flow-icon{width:48px;height:48px;border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:20px;background:var(--subtle);border:1px solid var(--border-l);backdrop-filter:blur(10px);}
-.flow-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.45);}
-.flow-arrow{color:rgba(255,255,255,.2);font-size:18px;padding:0 8px;margin-top:-20px;}
-@keyframes flow-pulse{0%,100%{opacity:.4;transform:scale(1);}50%{opacity:1;transform:scale(1.08);}}
-.flow-node:nth-child(1) .flow-icon{animation:flow-pulse 3s ease-in-out infinite;}
-.flow-node:nth-child(3) .flow-icon{animation:flow-pulse 3s ease-in-out infinite .6s;}
-.flow-node:nth-child(5) .flow-icon{animation:flow-pulse 3s ease-in-out infinite 1.2s;}
-.flow-node:nth-child(7) .flow-icon{animation:flow-pulse 3s ease-in-out infinite 1.8s;}
-.flow-node:nth-child(9) .flow-icon{animation:flow-pulse 3s ease-in-out infinite 2.4s;}
-
-/* ─── SECTION COMMONS ─────────────────────────────────── */
-.section{padding:96px 24px;}
-.section-inner{max-width:1100px;margin:0 auto;}
-.section-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mint);margin-bottom:16px;}
-.section-h2{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(30px,4vw,48px);line-height:1.1;letter-spacing:-1px;margin-bottom:16px;}
-.section-sub{font-size:17px;line-height:1.75;color:rgba(255,255,255,.55);max-width:560px;}
-
-/* ─── PHILOSOPHY ──────────────────────────────────────── */
-.philosophy{background:var(--ink-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.phil-header{text-align:center;margin-bottom:64px;}
-.phil-body{font-size:17px;line-height:1.8;color:rgba(255,255,255,.55);max-width:560px;margin:0 auto 64px;text-align:center;}
-.rent-list{display:flex;flex-direction:column;gap:6px;margin-bottom:28px;}
-.rent-item{display:flex;align-items:center;gap:10px;font-size:15px;color:rgba(255,255,255,.4);}
-.rent-dot{width:6px;height:6px;min-width:6px;border-radius:50%;background:rgba(255,255,255,.2);}
-
-.phil-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
-.phil-col{background:var(--subtle);padding:40px 36px;border:1px solid var(--border);transition:background .3s,border-color .3s;}
-.phil-col:first-child{border-radius:16px 0 0 16px;}
-.phil-col:last-child{border-radius:0 16px 16px 0;}
-.phil-col:hover{background:rgba(255,255,255,.07);border-color:rgba(120,221,180,.2);}
-.phil-icon{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,rgba(120,221,180,.15),rgba(53,191,162,.08));border:1px solid rgba(120,221,180,.2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:20px;}
-.phil-title{font-family:'Fraunces',serif;font-weight:700;font-size:22px;margin-bottom:12px;}
-.phil-text{font-size:14px;line-height:1.75;color:rgba(255,255,255,.5);}
-
-@media(max-width:768px){
-  .phil-cols{grid-template-columns:1fr;}
-  .phil-col:first-child{border-radius:16px 16px 0 0;}
-  .phil-col:last-child{border-radius:0 0 16px 16px;}
-}
-
-/* ─── BUILDER KITS ────────────────────────────────────── */
-.kits-header{text-align:center;margin-bottom:64px;}
-.kits-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-
-.kit-card{background:var(--ink-2);border:1px solid var(--border);border-radius:20px;overflow:hidden;transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s,border-color .3s;display:flex;flex-direction:column;}
-.kit-card:hover{transform:translateY(-6px);box-shadow:0 24px 64px rgba(0,0,0,.4);border-color:rgba(120,221,180,.2);}
-.kit-card.available{border-color:rgba(120,221,180,.25);box-shadow:0 0 0 1px rgba(120,221,180,.1);}
-
-.kit-top{padding:32px 28px 24px;flex:1;}
-.kit-icon{font-size:32px;margin-bottom:16px;}
-.kit-status{display:inline-block;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;margin-bottom:16px;}
-.kit-status.available{background:rgba(120,221,180,.15);color:var(--mint);border:1px solid rgba(120,221,180,.25);}
-.kit-status.soon{background:rgba(255,255,255,.06);color:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.1);}
-
-.kit-title{font-family:'Fraunces',serif;font-weight:700;font-size:22px;margin-bottom:12px;line-height:1.2;}
-.kit-desc{font-size:14px;line-height:1.75;color:rgba(255,255,255,.55);margin-bottom:20px;}
-
-.kit-topics{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:24px;}
-.kit-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.45);padding:4px 10px;border-radius:6px;}
-
-.kit-meta{display:flex;gap:12px;margin-bottom:0;}
-.kit-meta-item{display:flex;align-items:center;gap:5px;font-size:12px;color:rgba(255,255,255,.35);}
-.kit-meta-item svg{opacity:.5;}
-
-.kit-bottom{padding:20px 28px;border-top:1px solid var(--border);}
-.kit-btn{display:block;text-align:center;width:100%;padding:11px 0;border-radius:10px;font-size:14px;font-weight:700;transition:all .2s;}
-.kit-btn.active{background:var(--mint);color:var(--ink);}
-.kit-btn.active:hover{opacity:.88;transform:scale(1.02);}
-.kit-btn.inactive{background:rgba(255,255,255,.05);color:rgba(255,255,255,.3);cursor:default;border:1px solid rgba(255,255,255,.08);}
-
-@media(max-width:960px){.kits-grid{grid-template-columns:1fr 1fr;}}
-@media(max-width:640px){.kits-grid{grid-template-columns:1fr;}}
-
-/* ─── BUNDLE ───────────────────────────────────────────── */
-.bundle-section{background:var(--ink-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.bundle-card{max-width:760px;margin:0 auto;background:linear-gradient(135deg,rgba(13,63,49,.6) 0%,rgba(10,14,13,.8) 100%);border:1px solid rgba(120,221,180,.2);border-radius:24px;padding:56px 52px;position:relative;overflow:hidden;}
-.bundle-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 20% 50%,rgba(120,221,180,.08) 0%,transparent 60%);pointer-events:none;}
-.bundle-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--mint);margin-bottom:16px;}
-.bundle-h{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(28px,4vw,42px);line-height:1.1;letter-spacing:-1px;margin-bottom:16px;}
-.bundle-sub{font-size:16px;color:rgba(255,255,255,.55);line-height:1.75;margin-bottom:32px;}
-.bundle-items{display:flex;flex-direction:column;gap:10px;margin-bottom:36px;}
-.bundle-item{display:flex;align-items:center;gap:12px;font-size:15px;color:rgba(255,255,255,.8);}
-.bundle-check{width:20px;height:20px;min-width:20px;border-radius:50%;background:rgba(120,221,180,.15);border:1px solid rgba(120,221,180,.3);display:flex;align-items:center;justify-content:center;font-size:10px;color:var(--mint);}
-.bundle-badge{display:inline-block;background:rgba(242,161,43,.12);border:1px solid rgba(242,161,43,.25);color:var(--amber);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:6px 14px;border-radius:999px;}
-@media(max-width:640px){.bundle-card{padding:36px 24px;}}
-
-/* ─── WHY ─────────────────────────────────────────────── */
-.why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:56px;}
-.why-card{background:var(--subtle);border:1px solid var(--border);border-radius:16px;padding:32px 28px;transition:background .3s,border-color .3s,transform .3s;}
-.why-card:hover{background:rgba(255,255,255,.07);border-color:rgba(120,221,180,.2);transform:translateY(-4px);}
-.why-num{font-family:'Fraunces',serif;font-size:48px;font-weight:700;color:rgba(255,255,255,.07);line-height:1;margin-bottom:16px;}
-.why-title{font-family:'Fraunces',serif;font-weight:700;font-size:20px;margin-bottom:10px;}
-.why-text{font-size:14px;line-height:1.75;color:rgba(255,255,255,.5);}
-@media(max-width:768px){.why-grid{grid-template-columns:1fr;}}
-
-/* ─── BUILT WHILE BUILDING ─────────────────────────────── */
-.bwb-section{background:var(--ink-2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
-.bwb-inner{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;max-width:1100px;margin:0 auto;}
-.bwb-text .section-h2{margin-bottom:20px;}
-.bwb-body{font-size:16px;line-height:1.85;color:rgba(255,255,255,.55);margin-bottom:24px;}
-.bwb-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(13,63,49,.5);border:1px solid rgba(120,221,180,.2);border-radius:999px;padding:8px 16px;}
-.bwb-badge-dot{width:8px;height:8px;min-width:8px;border-radius:50%;background:var(--mint);}
-.bwb-badge span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mint);}
-.bwb-visual{background:var(--subtle);border:1px solid var(--border);border-radius:20px;padding:36px;display:flex;flex-direction:column;gap:14px;}
-.bwb-stat{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.06);}
-.bwb-stat-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.4);}
-.bwb-stat-val{font-family:'Fraunces',serif;font-weight:700;font-size:18px;color:var(--mint);}
-@media(max-width:768px){.bwb-inner{grid-template-columns:1fr;gap:40px;}}
-
-/* ─── ROADMAP ─────────────────────────────────────────── */
-.roadmap-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px;}
-.roadmap-card{background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:24px 22px;opacity:.55;transition:opacity .3s;}
-.roadmap-card:hover{opacity:.75;}
-.roadmap-icon{font-size:22px;margin-bottom:12px;}
-.roadmap-title{font-size:15px;font-weight:600;color:rgba(255,255,255,.6);margin-bottom:8px;}
-.roadmap-badge{display:inline-block;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);color:rgba(255,255,255,.3);padding:3px 8px;border-radius:4px;}
-@media(max-width:960px){.roadmap-grid{grid-template-columns:repeat(2,1fr);}}
-@media(max-width:580px){.roadmap-grid{grid-template-columns:1fr;}}
-
-/* ─── FOOTER CTA ───────────────────────────────────────── */
-.footer-cta{background:linear-gradient(135deg,var(--green) 0%,#072918 100%);padding:100px 24px;text-align:center;position:relative;overflow:hidden;}
-.footer-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(120,221,180,.12) 0%,transparent 60%);pointer-events:none;}
-.footer-cta-inner{position:relative;z-index:1;max-width:600px;margin:0 auto;}
-.footer-cta h2{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(32px,5vw,52px);line-height:1.08;letter-spacing:-1.5px;margin-bottom:16px;}
-.footer-cta p{font-size:17px;color:rgba(255,255,255,.6);line-height:1.75;margin-bottom:40px;}
-.footer-cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
-
-/* ─── FOOTER ────────────────────────────────────────────── */
-.site-footer{background:var(--ink);border-top:1px solid var(--border);padding:32px 24px;text-align:center;}
-.site-footer-brand{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:8px;}
-.site-footer-links{display:flex;gap:20px;justify-content:center;flex-wrap:wrap;}
-.site-footer-link{font-size:13px;color:rgba(255,255,255,.3);transition:color .2s;}
-.site-footer-link:hover{color:var(--mint);}
-
-/* ─── WAITLIST ────────────────────────────────────────── */
-.waitlist-section{background:linear-gradient(135deg,rgba(13,63,49,.4) 0%,rgba(10,14,13,.6) 100%);border:1px solid rgba(120,221,180,.15);border-radius:20px;padding:52px 48px;margin-top:40px;position:relative;overflow:hidden;}
-.waitlist-section::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(120,221,180,.1),transparent 70%);pointer-events:none;}
-.waitlist-header{text-align:center;margin-bottom:32px;}
-.waitlist-title{font-family:'Fraunces',serif;font-weight:700;font-size:clamp(22px,3vw,32px);letter-spacing:-0.5px;margin-bottom:10px;}
-.waitlist-sub{font-size:15px;color:rgba(255,255,255,.5);line-height:1.7;max-width:480px;margin:0 auto;}
-.waitlist-kits{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;}
-.waitlist-kit-chip{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 14px;font-size:13px;color:rgba(255,255,255,.6);}
-.waitlist-kit-chip span{font-size:15px;}
-.waitlist-form{display:flex;gap:10px;max-width:480px;margin:0 auto;}
-.waitlist-input{flex:1;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;padding:13px 18px;font-size:14px;color:#fff;font-family:'Inter',sans-serif;outline:none;transition:border-color .2s,background .2s;}
-.waitlist-input::placeholder{color:rgba(255,255,255,.3);}
-.waitlist-input:focus{border-color:rgba(120,221,180,.4);background:rgba(255,255,255,.08);}
-.waitlist-submit{display:inline-block;background:var(--mint);color:var(--ink);font-size:14px;font-weight:700;padding:13px 24px;border-radius:10px;border:none;cursor:pointer;white-space:nowrap;transition:opacity .2s,transform .2s;font-family:'Inter',sans-serif;}
-.waitlist-submit:hover{opacity:.88;transform:scale(1.02);}
-.waitlist-note{text-align:center;margin-top:14px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.25);}
-.waitlist-success{display:none;text-align:center;padding:16px;background:rgba(120,221,180,.08);border:1px solid rgba(120,221,180,.2);border-radius:10px;font-size:14px;color:var(--mint);}
-@media(max-width:580px){
-  .waitlist-section{padding:36px 22px;}
-  .waitlist-form{flex-direction:column;}
-  .waitlist-submit{width:100%;}
-}
-
-/* ─── SECTION DIVIDER ──────────────────────────────────── */
-.divider{height:1px;background:linear-gradient(90deg,transparent,rgba(120,221,180,.15),transparent);margin:0;}
-
-/* ─── GLASSMORPHISM HIGHLIGHT ─────────────────────────── */
-.glass-chip{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);border-radius:999px;padding:5px 12px;font-size:13px;color:rgba(255,255,255,.6);}
-
+/* DELAY HELPERS */
+.d1{transition-delay:80ms;}.d2{transition-delay:160ms;}.d3{transition-delay:240ms;}.d4{transition-delay:320ms;}.d5{transition-delay:400ms;}.d6{transition-delay:480ms;}
 </style>
 </head>
 <body>
 
-<!-- ═══════════════════════════════════════ NAV -->
-<nav class="nav">
-  <a class="nav-brand" href="/">
-    <div class="nav-dot"></div>
-    <span class="nav-fowl">FOWL AI</span>
-    <div class="nav-sep"></div>
-    <span class="nav-lab">LaunchLab</span>
-  </a>
-  <div class="nav-links">
-    <a class="nav-link" href="/">Home</a>
-    <a class="nav-link" href="/issues/">Issues</a>
-    <a class="nav-link" href="/jobs/">Jobs</a>
-    <a class="nav-cta" href="#kits">Browse Kits</a>
-  </div>
-</nav>
-
-
-<!-- ═══════════════════════════════════════ HERO -->
-<section class="hero">
-  <div class="hero-bg">
-    <div class="hero-bg-blob hero-bg-blob-1"></div>
-    <div class="hero-bg-blob hero-bg-blob-2"></div>
-    <div class="hero-bg-blob hero-bg-blob-3"></div>
-    <div class="hero-grid"></div>
-  </div>
-  <div class="hero-inner">
-    <div class="hero-eyebrow reveal">
-      <div class="hero-eyebrow-dot"></div>
-      <span>LaunchLab by FOWL AI</span>
+<!-- ═══ 1. HERO ═══ -->
+<section class="relative px-6 pt-24 pb-28 md:pt-32 md:pb-36" style="background:radial-gradient(1200px 500px at 20% -10%, var(--forest-2), var(--forest));color:var(--paper-ink);">
+  <svg class="contour" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-50,600 C 200,520 350,650 600,560 S 1000,480 1250,540" fill="none" stroke="#1a5f4a" stroke-width="1.5"/>
+    <path d="M-50,520 C 220,460 380,560 620,480 S 1020,400 1250,450" fill="none" stroke="#17543f" stroke-width="1.5"/>
+    <path d="M-50,440 C 240,400 400,470 640,410 S 1040,340 1250,370" fill="none" stroke="#134a37" stroke-width="1.5"/>
+  </svg>
+  <div class="max-w-3xl mx-auto text-center relative">
+    <div class="reveal">
+      <h1 class="font-display" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.18;font-weight:600;">Everyone has something worth building.</h1>
     </div>
-    <h1 class="hero-h1 reveal delay-1">
-      Build an AI-powered business<br><em>you actually own.</em>
-    </h1>
-    <p class="hero-sub reveal delay-2">
-      Learn how to build your AI brand, website, newsletter, and digital infrastructure using AI — while maintaining ownership, flexibility, and control.
-    </p>
-    <div class="hero-btns reveal delay-3">
-      <a class="btn-primary" href="#kits">Explore Builder Kits</a>
-      <a class="btn-secondary" href="#philosophy">Learn Our Philosophy</a>
+    <div class="reveal d1">
+      <p class="mt-6 max-w-xl mx-auto" style="font-size:17px;line-height:1.7;color:#e2f2eb;">You've been sitting on your idea for too long. Not because you aren't capable — because building today feels overwhelming. Too many AI tools. Too many subscriptions. Too many tutorials. Too many opinions.</p>
     </div>
-    <div class="hero-flow reveal delay-4">
-      <div class="flow-node">
-        <div class="flow-icon">🤖</div>
-        <div class="flow-label">AI</div>
+    <div class="reveal d2">
+      <p class="mt-6 font-display" style="font-size:20px;color:var(--paper-ink);">Brand Brain is your AI Building Partner, helping you turn what you know into something you own.</p>
+    </div>
+    <div class="reveal d3">
+      <div class="mt-10 flex flex-col items-center gap-3">
+        <a href="#cta" class="btn btn-primary">Build Your Brand Brain
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <span class="eyebrow eyebrow-on-forest">$99 Founding Edition</span>
       </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-icon">✦</div>
-        <div class="flow-label">Brand</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-icon">🌐</div>
-        <div class="flow-label">Website</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-icon">📧</div>
-        <div class="flow-label">Newsletter</div>
-      </div>
-      <div class="flow-arrow">→</div>
-      <div class="flow-node">
-        <div class="flow-icon">🚀</div>
-        <div class="flow-label">Business</div>
+    </div>
+    <div class="reveal d4">
+      <div class="mt-14 flex justify-center gap-10 flex-wrap" style="font-size:13px;color:#7fd9b8;">
+        <span>One workspace.</span>
+        <span>One AI Building Partner.</span>
+        <span>Years of ownership.</span>
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- ═══════════════════════════════════════ PHILOSOPHY -->
-<section class="section philosophy" id="philosophy">
-  <div class="section-inner">
-    <div class="phil-header">
-      <div class="section-label reveal">Philosophy</div>
-      <h2 class="section-h2 reveal delay-1">Stop Renting.<br>Start Owning.</h2>
-      <div class="phil-body reveal delay-2">
-        The internet has convinced creators to rent everything.
-        <div class="rent-list" style="margin-top:16px;">
-          <div class="rent-item"><div class="rent-dot"></div>Rent your website.</div>
-          <div class="rent-item"><div class="rent-dot"></div>Rent your audience.</div>
-          <div class="rent-item"><div class="rent-dot"></div>Rent your newsletter.</div>
-          <div class="rent-item"><div class="rent-dot"></div>Rent another AI subscription.</div>
+<!-- ═══ WORKSPACE MOCKUP ═══ -->
+<section class="px-6 pb-20" style="background:radial-gradient(1200px 300px at 20% 0%, var(--forest-2), var(--forest));">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center mb-6">
+      <p style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;">What you're actually buying</p>
+    </div>
+    <div class="reveal d1 mockup-wrap">
+      <!-- Window chrome -->
+      <div class="mockup-bar">
+        <div class="mockup-dot" style="background:#ff5f57;"></div>
+        <div class="mockup-dot" style="background:#febc2e;"></div>
+        <div class="mockup-dot" style="background:#28c840;"></div>
+        <span class="mockup-title">BrandBrain-Workspace — VS Code + Claude Code</span>
+      </div>
+      <!-- Body -->
+      <div class="mockup-body">
+        <!-- Sidebar -->
+        <div class="mockup-sidebar">
+          <div class="mockup-sidebar-title">Brand Brain</div>
+          <div class="mockup-folder active"><span>📁</span> brand</div>
+          <div class="mockup-file active">📄 mission.md</div>
+          <div class="mockup-file">📄 audience.md</div>
+          <div class="mockup-file">📄 brand-voice.md</div>
+          <div class="mockup-file">📄 positioning.md</div>
+          <div class="mockup-folder"><span>📁</span> commands</div>
+          <div class="mockup-folder"><span>📁</span> extensions</div>
+          <div class="mockup-folder"><span>📁</span> outputs</div>
+          <div class="mockup-folder"><span>📁</span> templates</div>
+          <div class="mockup-folder"><span>📁</span> memory</div>
+          <div class="mockup-file" style="margin-top:10px;color:#f2a12b;">📄 CLAUDE.md</div>
+          <div class="mockup-file">📄 START-HERE.md</div>
         </div>
-        LaunchLab believes AI should help you <strong style="color:rgba(255,255,255,.85);">own more</strong> — not rent more. Use AI to build assets instead of collecting software.
+        <!-- Terminal -->
+        <div class="mockup-terminal">
+          <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd">claude</span></div>
+          <div class="term-line" style="color:rgba(255,255,255,.3);font-size:11px;margin-bottom:8px;">Claude Code — reading CLAUDE.md...</div>
+          <div class="term-line"><span class="term-label">Brand Brain</span></div>
+          <div class="term-line term-out" style="margin-bottom:12px;">Welcome back. What are we building today?</div>
+          <div class="term-line term-menu">  1. Brand foundation</div>
+          <div class="term-line term-menu">  2. Website</div>
+          <div class="term-line term-menu">  3. Newsletter</div>
+          <div class="term-line term-menu">  4. Content system</div>
+          <div class="term-line term-menu">  5. AI avatar</div>
+          <div class="term-line term-menu">  6. Digital product</div>
+          <div class="term-line term-menu">  7. Analytics</div>
+          <div class="term-line" style="margin-top:16px;"><span class="term-prompt">You:</span> <span class="term-cmd">3</span></div>
+          <div class="term-line term-out" style="margin-top:6px;"><span class="term-label">Brand Brain</span></div>
+          <div class="term-line term-out">Let's build your newsletter. I've read your brand voice</div>
+          <div class="term-line term-out">and mission. What's this week's topic?<span class="term-cursor"></span></div>
+        </div>
       </div>
     </div>
-    <div class="phil-cols">
-      <div class="phil-col reveal reveal-l delay-1">
-        <div class="phil-icon">🔨</div>
-        <div class="phil-title">Build</div>
-        <div class="phil-text">Use AI to build digital assets you control. Every Builder Kit ends with something real — a brand, a website, a newsletter — that belongs to you.</div>
-      </div>
-      <div class="phil-col reveal delay-2">
-        <div class="phil-icon">🔑</div>
-        <div class="phil-title">Own</div>
-        <div class="phil-text">Understand the technology so you stay in control. We teach principles first and show multiple implementation paths — from beginner-friendly to fully independent.</div>
-      </div>
-      <div class="phil-col reveal reveal-r delay-3">
-        <div class="phil-icon">📈</div>
-        <div class="phil-title">Grow</div>
-        <div class="phil-text">Build digital infrastructure that scales with your business. AI should increase your independence — not your dependence on platforms you don't control.</div>
-      </div>
+    <div class="reveal d2 text-center mt-6" style="color:#7fd9b8;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;">
+      Claude Code · VS Code · Your Brand Brain workspace
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ═══════════════════════════════════════ BUILDER KITS -->
-<section class="section" id="kits">
-  <div class="section-inner">
-    <div class="kits-header">
-      <div class="section-label reveal">Builder Kits</div>
-      <h2 class="section-h2 reveal delay-1">Practical systems.<br>Built while building FOWL AI.</h2>
-      <p class="section-sub reveal delay-2" style="margin:0 auto;">Not hypothetical tutorials. Every kit teaches the exact systems and workflows used to build a real AI media company.</p>
+<!-- ═══ QUICK ANSWER ═══ -->
+<section class="px-6 py-14" style="background:var(--surface);border-bottom:1px solid var(--line);">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="reveal">
+      <p class="font-display" style="font-size:clamp(1.2rem,2.4vw,1.5rem);line-height:1.5;">Brand Brain is a guided AI workspace that teaches you how to turn an idea into something you own.</p>
     </div>
-    <div class="kits-grid">
+    <div class="reveal d1">
+      <div class="mt-7 flex flex-wrap justify-center gap-x-6 gap-y-3" style="font-size:13.5px;color:var(--ink-soft);">
+        <span>Brand Brain Workspace</span><span>Guided AI onboarding</span><span>Website workflow</span>
+        <span>Newsletter workflow</span><span>AI avatar workflow</span><span>Analytics workflow</span>
+        <span>Digital product workflow</span><span>Templates &amp; checklists</span><span>Future updates</span>
+      </div>
+    </div>
+    <div class="reveal d2">
+      <a href="#inside" class="inline-block mt-8" style="font-size:13.5px;font-weight:600;color:var(--moss-deep);border-bottom:1px solid var(--moss);padding-bottom:2px;">See exactly what's inside &darr;</a>
+    </div>
+  </div>
+</section>
 
-      <!-- Kit 1 -->
-      <div class="kit-card available reveal reveal-l delay-1">
-        <div class="kit-top">
-          <div class="kit-icon">🤖</div>
-          <div class="kit-status available">Available Now</div>
-          <div class="kit-title">Own Your AI Brand</div>
-          <div class="kit-desc">Build an AI-powered creator or business brand without needing to be on camera. Your brand, your systems, your voice.</div>
-          <div class="kit-topics">
-            <span class="kit-tag">AI Avatars</span>
-            <span class="kit-tag">Brand Identity</span>
-            <span class="kit-tag">Voice Creation</span>
-            <span class="kit-tag">Prompt Engineering</span>
-            <span class="kit-tag">Content Workflow</span>
-            <span class="kit-tag">Publishing</span>
-            <span class="kit-tag">Automation</span>
-            <span class="kit-tag">Templates</span>
+<!-- ═══ 2. THIS IS FOR YOU ═══ -->
+<section class="px-6 py-24 md:py-28">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal text-center max-w-xl mx-auto mb-14">
+      <div class="eyebrow mb-3">This is for you</div>
+      <h2 class="font-display" style="font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:600;">If you've ever said &ldquo;One day, I'm going to build&hellip;&rdquo;</h2>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <div class="reveal d1 card p-4 flex items-center gap-3"><span style="font-size:24px;">👩🏽‍⚕️</span><span style="font-size:14.5px;">A doctor wanting to educate</span></div>
+      <div class="reveal d2 card p-4 flex items-center gap-3"><span style="font-size:24px;">👨🏽‍💻</span><span style="font-size:14.5px;">An engineer sharing projects</span></div>
+      <div class="reveal d1 card p-4 flex items-center gap-3"><span style="font-size:24px;">💊</span><span style="font-size:14.5px;">A pharmacist simplifying healthcare</span></div>
+      <div class="reveal d2 card p-4 flex items-center gap-3"><span style="font-size:24px;">📊</span><span style="font-size:14.5px;">A data scientist teaching AI</span></div>
+      <div class="reveal d1 card p-4 flex items-center gap-3"><span style="font-size:24px;">🏀</span><span style="font-size:14.5px;">Someone passionate about sports</span></div>
+      <div class="reveal d2 card p-4 flex items-center gap-3"><span style="font-size:24px;">🎮</span><span style="font-size:14.5px;">A gamer building a community</span></div>
+      <div class="reveal d1 card p-4 flex items-center gap-3"><span style="font-size:24px;">🎨</span><span style="font-size:14.5px;">A creative building a portfolio</span></div>
+      <div class="reveal d2 card p-4 flex items-center gap-3"><span style="font-size:24px;">🎓</span><span style="font-size:14.5px;">A college student creating your future</span></div>
+      <div class="reveal d1 card p-4 flex items-center gap-3"><span style="font-size:24px;">💼</span><span style="font-size:14.5px;">Someone between jobs, building your next opportunity</span></div>
+      <div class="reveal d2 card p-4 flex items-center gap-3"><span style="font-size:24px;">❤️</span><span style="font-size:14.5px;">Or simply someone who's carried an idea around for years</span></div>
+    </div>
+    <div class="reveal mt-12 text-center">
+      <p class="font-display" style="font-size:19px;color:var(--ink);">If you have knowledge. If you have passion. If you have experience.<br>You already have the foundation of a brand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. THE PROBLEM ═══ -->
+<section class="px-6 py-24 md:py-28" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="reveal">
+      <div class="eyebrow mb-3">The problem</div>
+      <h2 class="font-display" style="font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:600;line-height:1.3;">The hardest part isn't having an idea. It's knowing where to start.</h2>
+    </div>
+    <div class="reveal d1">
+      <p class="mt-6" style="font-size:16px;color:var(--ink-soft);line-height:1.7;">Every week there's another AI platform. Another AI website builder. Another newsletter platform. Another avatar tool. Another subscription. Another workflow. By the time you've researched everything&hellip; you still haven't built anything.</p>
+    </div>
+    <div class="reveal d2">
+      <p class="mt-6 font-display" style="font-size:19px;">We think that's backwards.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. MEET BRAND BRAIN ═══ -->
+<section class="px-6 py-24 md:py-28">
+  <div class="max-w-3xl mx-auto text-center">
+    <div class="reveal">
+      <div class="eyebrow mb-3">Meet Brand Brain</div>
+      <h2 class="font-display" style="font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:600;">Your AI Building Partner.</h2>
+      <p class="mt-3" style="font-size:16px;color:var(--ink-soft);">Not another AI platform. Not another course. Not another website builder.</p>
+    </div>
+    <div class="reveal d2 mt-10 max-w-lg mx-auto card p-8 text-left">
+      <p style="font-size:15px;color:var(--ink-soft);margin-bottom:14px;">A workspace that learns</p>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">your mission</span></div>
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">your audience</span></div>
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">your goals</span></div>
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">your voice</span></div>
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">your projects</span></div>
+      </div>
+      <p class="font-display mt-6" style="font-size:17px;">So instead of starting over every time&hellip; you're always building forward.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4B. WHAT'S INSIDE ═══ -->
+<section id="inside" class="px-6 py-24 md:py-28" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal text-center max-w-xl mx-auto mb-14">
+      <div class="eyebrow mb-3">What's inside Brand Brain</div>
+      <h2 class="font-display" style="font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:600;">📦 Not a course. Not another AI tool.</h2>
+      <p class="mt-3" style="font-size:16px;color:var(--ink-soft);">A complete workspace that becomes your AI Building Partner.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      <div class="reveal d1 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">🧠</span><p class="font-display" style="font-size:17px;">Brand Brain Workspace</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Your central workspace where your AI teammate learns your mission, audience, voice, goals, projects, and brand direction. No starting from scratch every time.</p></div>
+      <div class="reveal d2 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">🚀</span><p class="font-display" style="font-size:17px;">Guided Brand Launch</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Claude walks you through building your brand step by step — from idea to launch, one conversation at a time.</p></div>
+      <div class="reveal d1 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">🌐</span><p class="font-display" style="font-size:17px;">Website Workflow</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Learn how to create and manage your own website with AI by your side. Review every change before it goes live, and understand how your site works so you can confidently update it yourself.</p></div>
+      <div class="reveal d2 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">📰</span><p class="font-display" style="font-size:17px;">Newsletter Workflow</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Create newsletters inside your workspace, learn how to send them, and understand how your audience grows. Build a mailing list you control.</p></div>
+      <div class="reveal d1 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">🤖</span><p class="font-display" style="font-size:17px;">AI Avatar Workflow</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Develop personality, voice, tone, presentation style, and script structure — then take that profile into your preferred AI avatar platform whenever you're ready.</p></div>
+      <div class="reveal d2 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">📈</span><p class="font-display" style="font-size:17px;">Analytics Workflow</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Understand how people discover your brand. Learn how to connect analytics into your ecosystem and make decisions using real data.</p></div>
+      <div class="reveal d1 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">📄</span><p class="font-display" style="font-size:17px;">Digital Product Workflow</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Turn your expertise into downloadable products — PDFs, guides, playbooks, resources — and launch them using the simplest workflow that fits your goals.</p></div>
+      <div class="reveal d2 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">📁</span><p class="font-display" style="font-size:17px;">Templates</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">Ready-to-use templates for websites, newsletters, content, brand documents, and launch plans.</p></div>
+      <div class="reveal d1 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">🤝</span><p class="font-display" style="font-size:17px;">AI Building Partner</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">The real product. Not the templates. Not the files. Your AI teammate that already understands your brand.</p></div>
+      <div class="reveal d2 card p-6 h-full"><div class="flex items-center gap-3 mb-3"><span style="font-size:22px;">🔄</span><p class="font-display" style="font-size:17px;">Future Updates</p></div><p style="font-size:14px;color:var(--ink-soft);line-height:1.6;">As Brand Brain grows, your workspace grows — new workflows, new templates, new ideas, all built around the same philosophy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. PHILOSOPHY ═══ -->
+<section class="px-6 py-24 md:py-28" style="background:var(--forest);color:var(--paper-ink);">
+  <div class="max-w-2xl mx-auto">
+    <div class="reveal text-center mb-12">
+      <div class="eyebrow eyebrow-on-forest mb-3">Our philosophy</div>
+      <h2 class="font-display" style="font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:600;">We democratize AI.</h2>
+      <p class="mt-3" style="font-size:16px;color:#a9e8cf;">AI shouldn't only help developers. It should help everyone build.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0;">
+      <div class="reveal d1 flex items-start gap-3" style="border-bottom:1px solid #1a5f4a;padding-bottom:16px;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg><span class="font-display" style="font-size:17px;">Everyone has something worth building.</span></div>
+      <div class="reveal d2 flex items-start gap-3" style="border-bottom:1px solid #1a5f4a;padding-bottom:16px;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg><span class="font-display" style="font-size:17px;">Technology should reduce complexity.</span></div>
+      <div class="reveal d3 flex items-start gap-3" style="border-bottom:1px solid #1a5f4a;padding-bottom:16px;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg><span class="font-display" style="font-size:17px;">AI should feel like a teammate.</span></div>
+      <div class="reveal d4 flex items-start gap-3" style="border-bottom:1px solid #1a5f4a;padding-bottom:16px;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg><span class="font-display" style="font-size:17px;">Your brand should belong to you.</span></div>
+      <div class="reveal d5 flex items-start gap-3" style="border-bottom:1px solid #1a5f4a;padding-bottom:16px;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg><span class="font-display" style="font-size:17px;">Understanding creates confidence.</span></div>
+      <div class="reveal d6 flex items-start gap-3" style="border-bottom:1px solid #1a5f4a;padding-bottom:16px;margin-bottom:16px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg><span class="font-display" style="font-size:17px;">Ownership creates freedom.</span></div>
+      <div class="reveal flex items-start gap-3"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5" style="flex-shrink:0;margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg><span class="font-display" style="font-size:17px;">Build what you need today. Expand tomorrow.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. BUILD WITH CLARITY ═══ -->
+<section class="px-6 py-24 md:py-28">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="reveal">
+      <div class="eyebrow mb-3">Build with clarity, not complexity</div>
+      <h2 class="font-display" style="font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:600;line-height:1.3;">Your brand deserves your attention &mdash; not endless software decisions.</h2>
+    </div>
+    <div class="reveal d1">
+      <p class="mt-6" style="font-size:16px;color:var(--ink-soft);line-height:1.7;">Today's AI ecosystem is incredible. There are tools for websites, newsletters, AI avatars, SEO, analytics, email marketing, payments, automation. Many of them are excellent. The challenge isn't finding tools &mdash; it's knowing which ones actually matter for your stage.</p>
+    </div>
+    <div class="reveal d2 mt-10 card p-7 text-left">
+      <p style="font-size:15px;color:var(--ink-soft);margin-bottom:12px;">That's where Brand Brain comes in. We help you understand:</p>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">What you actually need today.</span></div>
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">What can wait until later.</span></div>
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">Which tools fit your goals.</span></div>
+        <div class="flex items-center gap-3"><span class="check-badge"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span><span style="font-size:15px;">How everything connects into one simple workflow.</span></div>
+      </div>
+    </div>
+    <div class="reveal d3">
+      <p class="mt-8" style="font-size:15px;color:var(--ink-soft);line-height:1.7;">Sometimes the right answer is a premium platform. Sometimes it's a free solution. Sometimes it's using capabilities you already have. Our goal isn't to give you more software &mdash; it's to help you make better decisions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. BUILD WHERE YOUR THINKING HAPPENS ═══ -->
+<section class="px-6 py-24 md:py-28" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center mb-14">
+      <div class="eyebrow mb-3">Build where your thinking happens</div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+      <div class="reveal card p-6" style="opacity:0.85;">
+        <div class="flex items-center gap-2 mb-3" style="font-size:14.5px;color:var(--ink-soft);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>20 browser tabs</div>
+        <div class="flex items-center gap-2 mb-3" style="font-size:14.5px;color:var(--ink-soft);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>Different AI chats</div>
+        <div class="flex items-center gap-2 mb-3" style="font-size:14.5px;color:var(--ink-soft);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>Website builder</div>
+        <div class="flex items-center gap-2 mb-3" style="font-size:14.5px;color:var(--ink-soft);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>Newsletter platform</div>
+        <div class="flex items-center gap-2 mb-3" style="font-size:14.5px;color:var(--ink-soft);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>Analytics</div>
+        <div class="flex items-center gap-2 mb-3" style="font-size:14.5px;color:var(--ink-soft);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>Tutorials</div>
+        <div class="flex items-center gap-2" style="font-size:14.5px;color:var(--ink-soft);"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>Back to AI</div>
+      </div>
+      <div class="reveal d2 card p-8 text-center" style="background:var(--moss-fill);border-color:var(--moss);">
+        <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="2" style="margin:0 auto 14px auto;"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/></svg>
+        <p class="font-display" style="font-size:20px;margin-bottom:4px;">One Workspace.</p>
+        <p class="font-display" style="font-size:20px;margin-bottom:4px;">One AI Building Partner.</p>
+        <p class="font-display" style="font-size:20px;">One place where your ideas live.</p>
+      </div>
+    </div>
+    <div class="reveal d3 text-center mt-10">
+      <p style="font-size:15px;color:var(--ink-soft);">When another tool genuinely adds value, Brand Brain explains why, helps you connect it, and brings you right back.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8. BUILT WITH BRAND BRAIN ═══ -->
+<section class="px-6 py-24 md:py-28">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-xl mx-auto mb-14">
+      <div class="eyebrow mb-3">Built with Brand Brain</div>
+      <h2 class="font-display" style="font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:600;">This isn't theory.<br>It's how we build FOWL AI.</h2>
+      <p class="mt-3" style="font-size:15px;color:var(--ink-soft);">Every piece of the FOWL AI brand was built using the exact system inside Brand Brain.</p>
+    </div>
+
+    <!-- Nova video — top featured -->
+    <div class="reveal d1" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-bottom:20px;">
+
+      <!-- Nova reel -->
+      <div class="card overflow-hidden" style="border-color:var(--line);">
+        <div style="background:var(--forest);padding:14px 18px;display:flex;align-items:center;gap:10px;">
+          <div style="width:32px;height:32px;min-width:32px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);display:flex;align-items:center;justify-content:center;font-size:14px;">🎙️</div>
+          <div>
+            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#78ddb4;margin-bottom:2px;">AI Avatar · Built with Brand Brain</div>
+            <div style="font-family:'Fraunces',serif;font-size:16px;color:#f2ede3;font-weight:600;">Nova — FOWL AI's News Anchor</div>
           </div>
-          <div class="kit-meta">
-            <div class="kit-meta-item">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Self-paced
+        </div>
+        <div style="position:relative;background:#000;overflow:hidden;height:560px;">
+          <iframe
+            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990175010593589&show_text=false&width=476"
+            style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:476px;height:560px;border:none;"
+            scrolling="no"
+            frameborder="0"
+            allowfullscreen="true"
+            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
+          </iframe>
+        </div>
+        <div style="padding:14px 18px;background:#fafafa;border-top:1px solid var(--line);">
+          <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;">A locked AI personality and voice — consistent across every video, every week. Built from scratch using the AI Avatar workflow inside Brand Brain.</p>
+        </div>
+      </div>
+
+      <!-- Right column: Website + Newsletter stacked -->
+      <div style="display:flex;flex-direction:column;gap:20px;">
+
+        <!-- FOWL AI Website -->
+        <div class="card overflow-hidden">
+          <!-- Mini browser mockup -->
+          <div style="background:#f0f0f0;padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--line);">
+            <div style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></div>
+            <div style="width:10px;height:10px;border-radius:50%;background:#28c840;"></div>
+            <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:4px;padding:4px 10px;margin-left:8px;font-family:'DM Mono',monospace;font-size:10px;color:#888;">fowl-ai.com</div>
+          </div>
+          <!-- Website preview -->
+          <div style="background:var(--forest);padding:20px 18px;">
+            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#78ddb4;flex-shrink:0;"></div>
+              <span style="font-family:'DM Mono',monospace;font-size:13px;letter-spacing:5px;color:#f47f18;">FOWL AI</span>
             </div>
-            <div class="kit-meta-item">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              Beginner Friendly
+            <div style="font-family:'Fraunces',serif;font-size:20px;color:#f2ede3;line-height:1.2;margin-bottom:10px;">Career signals<br>for the AI economy.</div>
+            <div style="display:flex;gap:6px;flex-wrap:wrap;">
+              <span style="background:#f2a12b;color:#0d3f31;font-size:10px;font-weight:700;padding:5px 12px;border-radius:999px;">Subscribe free</span>
+              <span style="background:rgba(255,255,255,.1);color:#a9e8cf;font-size:10px;padding:5px 12px;border-radius:999px;">Issues</span>
+              <span style="background:rgba(255,255,255,.1);color:#a9e8cf;font-size:10px;padding:5px 12px;border-radius:999px;">Jobs</span>
             </div>
           </div>
-        </div>
-        <div class="kit-bottom">
-          <a class="kit-btn active" href="/launchlab/own-your-ai-brand/">Explore Kit</a>
-        </div>
-      </div>
-
-      <!-- Kit 2 -->
-      <div class="kit-card reveal delay-2" style="border-color:rgba(242,161,43,.15);">
-        <div class="kit-top">
-          <div class="kit-icon">🌐</div>
-          <div class="kit-status soon">Coming Soon</div>
-          <div class="kit-title">Own Your Website</div>
-          <div class="kit-desc">Launch and maintain a professional website you fully own using AI and modern development tools. No monthly fees, no platform dependency.</div>
-          <div class="kit-topics">
-            <span class="kit-tag">Git Repositories</span>
-            <span class="kit-tag">Domains</span>
-            <span class="kit-tag">Hosting</span>
-            <span class="kit-tag">Deployment</span>
-            <span class="kit-tag">AI Development</span>
-            <span class="kit-tag">Architecture</span>
-            <span class="kit-tag">Analytics</span>
-          </div>
-          <div class="kit-meta">
-            <div class="kit-meta-item">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Self-paced
+          <div style="padding:14px 18px;display:flex;align-items:center;justify-content:space-between;">
+            <div>
+              <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;">Website · Built with Brand Brain</div>
+              <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:600;">fowl-ai.com</div>
             </div>
-            <div class="kit-meta-item">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              Beginner Friendly
-            </div>
+            <a href="https://www.fowl-ai.com" target="_blank" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--moss-deep);border-bottom:1px solid var(--moss);padding-bottom:1px;">Visit →</a>
           </div>
         </div>
-        <div class="kit-bottom" style="display:flex;gap:8px;">
-          <span class="kit-btn inactive" style="flex:1;">Coming Soon</span>
-          <a class="kit-btn active" href="#waitlist" style="flex:1;background:rgba(242,161,43,.15);color:var(--amber);border:1px solid rgba(242,161,43,.25);">Join Waitlist</a>
-        </div>
-      </div>
 
-      <!-- Kit 3 -->
-      <div class="kit-card reveal reveal-r delay-3" style="border-color:rgba(242,161,43,.15);">
-        <div class="kit-top">
-          <div class="kit-icon">📧</div>
-          <div class="kit-status soon">Coming Soon</div>
-          <div class="kit-title">Own Your Newsletter</div>
-          <div class="kit-desc">Build a newsletter system with ownership and flexibility in mind. Learn principles first, then choose your implementation path — from platforms to full independence.</div>
-          <div class="kit-topics">
-            <span class="kit-tag">Newsletter Strategy</span>
-            <span class="kit-tag">HTML Email</span>
-            <span class="kit-tag">Landing Pages</span>
-            <span class="kit-tag">Subscriber Mgmt</span>
-            <span class="kit-tag">Email Infrastructure</span>
-            <span class="kit-tag">Automation</span>
-            <span class="kit-tag">Analytics</span>
-          </div>
-          <div class="kit-meta">
-            <div class="kit-meta-item">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Self-paced
-            </div>
-            <div class="kit-meta-item">
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-              Beginner Friendly
+        <!-- Newsletter stat -->
+        <div class="card p-6" style="background:linear-gradient(135deg,var(--surface),#fff);">
+          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;">Newsletter · Built with Brand Brain</div>
+          <div style="display:flex;align-items:flex-end;gap:12px;margin-bottom:12px;">
+            <div style="font-family:'Fraunces',serif;font-size:56px;font-weight:700;color:var(--forest);line-height:1;">150<span style="font-size:32px;color:var(--moss);">+</span></div>
+            <div style="padding-bottom:8px;">
+              <div style="font-size:14px;font-weight:600;color:var(--ink);">Subscribers</div>
+              <div style="font-size:12px;color:var(--ink-soft);">and growing weekly</div>
             </div>
           </div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
+            <span style="background:var(--moss-fill);color:var(--moss-deep);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:4px;">Issue 6 live</span>
+            <span style="background:var(--moss-fill);color:var(--moss-deep);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:4px;">Weekly</span>
+            <span style="background:var(--moss-fill);color:var(--moss-deep);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:4px;">Real subscribers</span>
+          </div>
+          <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;">A real publication with a real audience — built using the Newsletter workflow inside Brand Brain. HTML emails, landing pages, and subscriber management, all owned.</p>
         </div>
-        <div class="kit-bottom" style="display:flex;gap:8px;">
-          <span class="kit-btn inactive" style="flex:1;">Coming Soon</span>
-          <a class="kit-btn active" href="#waitlist" style="flex:1;background:rgba(242,161,43,.15);color:var(--amber);border:1px solid rgba(242,161,43,.25);">Join Waitlist</a>
-        </div>
-      </div>
 
+      </div>
     </div>
 
-    <!-- WAITLIST -->
-    <div class="waitlist-section reveal" id="waitlist">
-      <div class="waitlist-header">
-        <div class="section-label" style="text-align:center;margin-bottom:12px;">Get Early Access</div>
-        <div class="waitlist-title">Be first to know when new<br>Builder Kits drop.</div>
-        <p class="waitlist-sub">Join the waitlist for Own Your Website and Own Your Newsletter. No spam — one email when each kit goes live.</p>
-      </div>
-      <div class="waitlist-kits">
-        <div class="waitlist-kit-chip"><span>🌐</span> Own Your Website</div>
-        <div class="waitlist-kit-chip"><span>📧</span> Own Your Newsletter</div>
-        <div class="waitlist-kit-chip"><span>⚙️</span> + More kits coming</div>
-      </div>
-      <iframe name="hidden_iframe" style="display:none;"></iframe>
-      <form class="waitlist-form" id="waitlistForm"
-        action="https://docs.google.com/forms/d/e/1FAIpQLSehREkBixB22Voe9VB67R3KKu0PZHCWg2Zv3ZKROgQK5GCBLA/formResponse"
-        method="POST"
-        target="hidden_iframe"
-        onsubmit="handleWaitlist(event)">
-        <input class="waitlist-input" type="email" name="entry.864927766" placeholder="Your email address" required autocomplete="email" />
-        <button class="waitlist-submit" type="submit">Join Waitlist</button>
-      </form>
-      <div class="waitlist-success" id="waitlistSuccess">
-        ✓ You're on the list. We'll email you the moment each kit is ready.
-      </div>
-      <div class="waitlist-note">No spam. One email per kit. Unsubscribe any time.</div>
-    </div>
-
-  </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- ═══════════════════════════════════════ BUNDLE -->
-<section class="section bundle-section" id="bundle">
-  <div class="section-inner">
-    <div class="bundle-card reveal">
-      <div class="bundle-label">Complete Collection</div>
-      <h2 class="bundle-h">Own Everything.</h2>
-      <p class="bundle-sub">The complete LaunchLab collection. Your AI brand, your website, your audience — all in one bundle.</p>
-      <div class="bundle-items">
-        <div class="bundle-item">
-          <div class="bundle-check">✓</div>
-          Own Your AI Brand
-        </div>
-        <div class="bundle-item">
-          <div class="bundle-check">✓</div>
-          Own Your Website
-        </div>
-        <div class="bundle-item">
-          <div class="bundle-check">✓</div>
-          Own Your Newsletter
-        </div>
-        <div class="bundle-item" style="color:rgba(255,255,255,.4);">
-          <div class="bundle-check" style="opacity:.4;">✓</div>
-          All future Builder Kits
-        </div>
-      </div>
-      <div class="bundle-badge">Coming Soon</div>
+    <!-- Community card -->
+    <div class="reveal d2 text-center card p-8 mt-4" style="border-style:dashed;">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="2" style="margin:0 auto 10px auto;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      <p class="font-display" style="font-size:17px;">Soon&hellip; Built by the Brand Brain Community</p>
+      <p style="font-size:14px;color:var(--ink-soft);margin-top:6px;">This is where we'll celebrate builders who launched with Brand Brain.</p>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ═══════════════════════════════════════ WHY LAUNCHLAB -->
-<section class="section">
-  <div class="section-inner">
-    <div style="text-align:center;margin-bottom:16px;">
-      <div class="section-label reveal">Why LaunchLab</div>
-      <h2 class="section-h2 reveal delay-1">Learn. Build. Own.</h2>
+<!-- ═══ 9. WHAT YOU'LL WALK AWAY WITH ═══ -->
+<section class="px-6 py-24 md:py-28" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="reveal">
+      <div class="eyebrow mb-3">By the end</div>
+      <h2 class="font-display" style="font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:600;">What you'll walk away with</h2>
+      <p class="mt-3" style="font-size:15px;color:var(--ink-soft);">You won't just have&hellip;</p>
     </div>
-    <div class="why-grid">
-      <div class="why-card reveal reveal-l delay-1">
-        <div class="why-num">01</div>
-        <div class="why-title">Learn</div>
-        <div class="why-text">No fluff. No theory. Only practical systems you can implement immediately. Every lesson is drawn from building a real AI media company.</div>
-      </div>
-      <div class="why-card reveal delay-2">
-        <div class="why-num">02</div>
-        <div class="why-title">Build</div>
-        <div class="why-text">Every Builder Kit ends with something real that you've created — a brand, a website, a newsletter. Not a certificate. An actual asset.</div>
-      </div>
-      <div class="why-card reveal reveal-r delay-3">
-        <div class="why-num">03</div>
-        <div class="why-title">Own</div>
-        <div class="why-text">Build digital assets you control instead of renting your business. AI should increase your independence — not add another subscription to the pile.</div>
+    <div class="reveal d1 flex flex-wrap justify-center gap-3 mt-6">
+      <span class="card flex items-center gap-2" style="padding:10px 16px;display:inline-flex;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:14.5px;">A website</span></span>
+      <span class="card flex items-center gap-2" style="padding:10px 16px;display:inline-flex;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:14.5px;">Content</span></span>
+      <span class="card flex items-center gap-2" style="padding:10px 16px;display:inline-flex;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:14.5px;">A newsletter</span></span>
+      <span class="card flex items-center gap-2" style="padding:10px 16px;display:inline-flex;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:14.5px;">An AI avatar</span></span>
+    </div>
+    <div class="reveal d2 mt-12">
+      <p class="font-display" style="font-size:19px;">You'll understand</p>
+      <div class="mt-5" style="display:flex;flex-direction:column;gap:8px;">
+        <p class="font-display" style="font-size:17px;color:var(--moss-deep);">How your brand works.</p>
+        <p class="font-display" style="font-size:17px;color:var(--moss-deep);">How your tools connect.</p>
+        <p class="font-display" style="font-size:17px;color:var(--moss-deep);">How to continue building — without starting over.</p>
       </div>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ═══════════════════════════════════════ BUILT WHILE BUILDING -->
-<section class="section bwb-section">
-  <div class="bwb-inner">
-    <div class="bwb-text">
-      <div class="section-label reveal">Authenticity</div>
-      <h2 class="section-h2 reveal delay-1">Built While Building FOWL AI.</h2>
-      <p class="bwb-body reveal delay-2">Everything inside LaunchLab comes from building a real AI media company. These are not hypothetical tutorials.</p>
-      <p class="bwb-body reveal delay-3">Every Builder Kit teaches the exact systems, workflows, prompts, and lessons used to create and grow FOWL AI. Students learn real-world approaches — not isolated software demonstrations.</p>
-      <div class="bwb-badge reveal delay-4">
-        <div class="bwb-badge-dot"></div>
-        <span>Real systems. Real results.</span>
+<!-- ═══ 10. HOW IT WORKS ═══ -->
+<section class="px-6 py-24 md:py-28">
+  <div class="max-w-md mx-auto">
+    <div class="reveal text-center mb-14">
+      <div class="eyebrow mb-3">How it works</div>
+    </div>
+    <div class="relative">
+      <div class="journey-line"></div>
+      <div style="display:flex;flex-direction:column;gap:28px;">
+        <div class="reveal d1 flex items-center gap-5"><div style="width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--moss);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-family:'Fraunces',serif;font-weight:600;color:var(--moss-deep);">1</div><span class="font-display" style="font-size:17px;">Download</span></div>
+        <div class="reveal d2 flex items-center gap-5"><div style="width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--moss);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-family:'Fraunces',serif;font-weight:600;color:var(--moss-deep);">2</div><span class="font-display" style="font-size:17px;">One-time setup</span></div>
+        <div class="reveal d3 flex items-center gap-5"><div style="width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--moss);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-family:'Fraunces',serif;font-weight:600;color:var(--moss-deep);">3</div><span class="font-display" style="font-size:17px;">Meet your AI Building Partner</span></div>
+        <div class="reveal d4 flex items-center gap-5"><div style="width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--moss);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-family:'Fraunces',serif;font-weight:600;color:var(--moss-deep);">4</div><span class="font-display" style="font-size:17px;">Build</span></div>
+        <div class="reveal d5 flex items-center gap-5"><div style="width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--moss);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-family:'Fraunces',serif;font-weight:600;color:var(--moss-deep);">5</div><span class="font-display" style="font-size:17px;">Review</span></div>
+        <div class="reveal d6 flex items-center gap-5"><div style="width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--moss);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-family:'Fraunces',serif;font-weight:600;color:var(--moss-deep);">6</div><span class="font-display" style="font-size:17px;">Launch</span></div>
+        <div class="reveal flex items-center gap-5"><div style="width:40px;height:40px;border-radius:50%;background:#fff;border:2px solid var(--moss);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-family:'Fraunces',serif;font-weight:600;color:var(--moss-deep);">7</div><span class="font-display" style="font-size:17px;">Grow</span></div>
+        <div class="reveal flex items-center gap-5"><div style="width:40px;height:40px;border-radius:50%;background:var(--moss);border:2px solid var(--moss);display:flex;align-items:center;justify-content:center;flex-shrink:0;z-index:1;font-family:'Fraunces',serif;font-weight:600;color:#fff;">8</div><span class="font-display" style="font-size:17px;">Get Featured</span></div>
       </div>
     </div>
-    <div class="bwb-visual reveal reveal-r delay-2">
-      <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:14px;">FOWL AI — Built with LaunchLab systems</div>
-      <div class="bwb-stat">
-        <div class="bwb-stat-label">AI Brand</div>
-        <div class="bwb-stat-val">Active</div>
-      </div>
-      <div class="bwb-stat">
-        <div class="bwb-stat-label">Website</div>
-        <div class="bwb-stat-val">fowl-ai.com</div>
-      </div>
-      <div class="bwb-stat">
-        <div class="bwb-stat-label">Newsletter</div>
-        <div class="bwb-stat-val">Issue 6 Live</div>
-      </div>
-      <div class="bwb-stat">
-        <div class="bwb-stat-label">AI Avatar</div>
-        <div class="bwb-stat-val">Nova</div>
-      </div>
-      <div class="bwb-stat">
-        <div class="bwb-stat-label">Ownership</div>
-        <div class="bwb-stat-val" style="color:var(--amber);">100%</div>
-      </div>
+    <div class="reveal mt-12 text-center">
+      <p style="font-size:14.5px;color:var(--ink-soft);line-height:1.6;">We're asking you to spend a little more time today so you can spend years building with confidence tomorrow.</p>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
-
-<!-- ═══════════════════════════════════════ ROADMAP -->
-<section class="section">
-  <div class="section-inner">
-    <div class="section-label reveal">Roadmap</div>
-    <h2 class="section-h2 reveal delay-1">What's coming next.</h2>
-    <p class="section-sub reveal delay-2">More Builder Kits in development. Every kit will teach a system used while building FOWL AI.</p>
-    <div class="roadmap-grid">
-      <div class="roadmap-card reveal delay-1">
-        <div class="roadmap-icon">⚙️</div>
-        <div class="roadmap-title">Own Your Content Engine</div>
-        <div class="roadmap-badge">Coming Soon</div>
+<!-- ═══ 11. BUILT FOR THE LONG TERM ═══ -->
+<section class="px-6 py-24 md:py-28" style="background:var(--forest);color:var(--paper-ink);">
+  <div class="max-w-2xl mx-auto text-center">
+    <div class="reveal">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2" style="margin:0 auto 14px auto;"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      <div class="eyebrow eyebrow-on-forest mb-3">Built for the long term</div>
+      <h2 class="font-display" style="font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:600;">We don't disappear after you download Brand Brain.</h2>
+    </div>
+    <div class="reveal d1">
+      <p class="mt-6" style="font-size:16px;color:#a9e8cf;line-height:1.7;">As Brand Brain grows, we'll grow with you. We'll celebrate launches. Share builder stories. Feature outstanding work. And continue improving the workspace as AI evolves.</p>
+    </div>
+    <div class="reveal d2">
+      <p class="mt-6 font-display" style="font-size:18px;">Our goal isn't just helping you launch. It's helping you keep building.</p>
+    </div>
+    <div class="reveal d3 mt-12 pt-10" style="border-top:1px solid #1a5f4a;">
+      <p class="font-display" style="font-size:20px;margin-bottom:20px;">You won't build alone.</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left max-w-md mx-auto">
+        <div>
+          <div class="eyebrow eyebrow-on-forest mb-3">Today</div>
+          <div class="flex items-center gap-2 mb-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:14.5px;">Brand Brain</span></div>
+          <div class="flex items-center gap-2"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#78ddb4" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg><span style="font-size:14.5px;">Your AI Building Partner</span></div>
+        </div>
+        <div>
+          <div class="eyebrow eyebrow-on-forest mb-3">Tomorrow</div>
+          <p style="font-size:14.5px;color:#a9e8cf;margin-bottom:8px;">Builder check-ins.</p>
+          <p style="font-size:14.5px;color:#a9e8cf;margin-bottom:8px;">Launch celebrations.</p>
+          <p style="font-size:14.5px;color:#a9e8cf;margin-bottom:8px;">Community showcases.</p>
+          <p style="font-size:14.5px;color:#a9e8cf;">Builder stories.</p>
+        </div>
       </div>
-      <div class="roadmap-card reveal delay-2">
-        <div class="roadmap-icon">🔄</div>
-        <div class="roadmap-title">Own Your AI Workflow</div>
-        <div class="roadmap-badge">Coming Soon</div>
-      </div>
-      <div class="roadmap-card reveal delay-3">
-        <div class="roadmap-icon">⚡</div>
-        <div class="roadmap-title">Own Your Automation</div>
-        <div class="roadmap-badge">Coming Soon</div>
-      </div>
-      <div class="roadmap-card reveal delay-1">
-        <div class="roadmap-icon">🖼️</div>
-        <div class="roadmap-title">Own Your Portfolio</div>
-        <div class="roadmap-badge">Coming Soon</div>
-      </div>
-      <div class="roadmap-card reveal delay-2">
-        <div class="roadmap-icon">🎯</div>
-        <div class="roadmap-title">Own Your Landing Page</div>
-        <div class="roadmap-badge">Coming Soon</div>
-      </div>
-      <div class="roadmap-card reveal delay-3">
-        <div class="roadmap-icon">🔍</div>
-        <div class="roadmap-title">Own Your AI Research System</div>
-        <div class="roadmap-badge">Coming Soon</div>
-      </div>
+      <p class="mt-8" style="font-size:14px;color:#7fd9b8;">Because our goal isn't simply to sell you a workspace. It's to help you launch something you're proud of.</p>
     </div>
   </div>
 </section>
 
-<div class="divider"></div>
+<!-- ═══ THE REAL PRODUCT ═══ -->
+<section class="px-6 py-20 md:py-24 text-center">
+  <div class="max-w-xl mx-auto">
+    <div class="reveal"><p style="font-size:14px;color:var(--ink-soft);line-height:1.8;">You're not selling files. You're not selling markdown documents. You're not selling prompts.</p></div>
+    <div class="reveal d1"><p class="font-display mt-4" style="font-size:22px;">You're buying a complete building system.</p></div>
+    <div class="reveal d2"><p class="mt-4" style="font-size:14px;color:var(--ink-soft);">The files are simply how the system is delivered.</p></div>
+  </div>
+</section>
 
-<!-- ═══════════════════════════════════════ FOOTER CTA -->
-<section class="footer-cta">
-  <div class="footer-cta-inner">
-    <div class="section-label reveal" style="text-align:center;">Get Started</div>
-    <h2 class="reveal delay-1">Ready to build something you own?</h2>
-    <p class="reveal delay-2">Start with one Builder Kit and build your digital business one asset at a time.</p>
-    <div class="footer-cta-btns reveal delay-3">
-      <a class="btn-primary" href="#kits">Explore Builder Kits</a>
-      <a class="btn-secondary" href="https://www.fowl-ai.com" style="border-color:rgba(120,221,180,.3);color:rgba(255,255,255,.7);">Read FOWL AI</a>
+<!-- ═══ 12. FINAL CTA ═══ -->
+<section id="cta" class="px-6 py-28 md:py-32 text-center">
+  <div class="max-w-xl mx-auto">
+    <div class="reveal">
+      <h2 class="font-display" style="font-size:clamp(1.9rem,3.8vw,2.7rem);font-weight:600;line-height:1.25;">Your idea deserves more than &ldquo;one day.&rdquo;</h2>
+    </div>
+    <div class="reveal d1">
+      <p class="mt-5" style="font-size:16px;color:var(--ink-soft);line-height:1.7;">It deserves a chance to be built. You've researched enough. You've compared enough tools. You've waited long enough.</p>
+    </div>
+    <div class="reveal d2">
+      <p class="mt-4 font-display" style="font-size:20px;">Now&hellip; let's build.</p>
+    </div>
+    <div class="reveal d3 mt-9 flex flex-col items-center gap-3">
+      <a href="YOUR_LEMON_SQUEEZY_URL" class="btn btn-primary">Build Your Brand Brain
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <span class="eyebrow">$99 Founding Edition</span>
     </div>
   </div>
 </section>
 
-<!-- ═══════════════════════════════════════ FOOTER -->
-<footer class="site-footer">
-  <div class="site-footer-brand">FOWL AI · LaunchLab</div>
-  <div class="site-footer-links">
-    <a class="site-footer-link" href="/">Home</a>
-    <a class="site-footer-link" href="/issues/">Issues</a>
-    <a class="site-footer-link" href="/jobs/">Jobs</a>
-    <a class="site-footer-link" href="/launchlab/">LaunchLab</a>
-    <a class="site-footer-link" href="/contact/">Contact</a>
-    <a class="site-footer-link" href="/privacy/">Privacy</a>
+<!-- ═══ FOOTER ═══ -->
+<footer class="px-6 py-12 text-center" style="border-top:1px solid var(--line);">
+  <p class="font-display" style="font-size:16px;margin-bottom:4px;">Turn what you know into something you own.</p>
+  <p class="eyebrow" style="letter-spacing:0.1em;">Your AI Building Partner</p>
+  <div class="mt-6 flex justify-center gap-6 flex-wrap" style="font-size:13px;color:var(--ink-soft);">
+    <a href="/" style="color:var(--ink-soft);">FOWL AI</a>
+    <a href="/issues/" style="color:var(--ink-soft);">Issues</a>
+    <a href="/jobs/" style="color:var(--ink-soft);">Jobs</a>
+    <a href="/launchlab/own-your-ai-brand/" style="color:var(--ink-soft);">Own Your AI Brand</a>
+    <a href="/privacy/" style="color:var(--ink-soft);">Privacy</a>
   </div>
 </footer>
 
 <script>
-// Scroll reveal
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      observer.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
-
-document.querySelectorAll('.reveal, .reveal-l, .reveal-r').forEach(el => observer.observe(el));
-
-// Waitlist form — submits to Google Forms via hidden iframe, no redirect
-function handleWaitlist(e) {
-  const form = document.getElementById('waitlistForm');
-  const success = document.getElementById('waitlistSuccess');
-  setTimeout(() => {
-    form.style.display = 'none';
-    success.style.display = 'block';
-  }, 400);
-}
-
-// Nav scroll effect
-const nav = document.querySelector('.nav');
-window.addEventListener('scroll', () => {
-  nav.style.background = window.scrollY > 40
-    ? 'rgba(10,14,13,.95)'
-    : 'rgba(10,14,13,.8)';
-}, { passive: true });
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} });
+}, {threshold:0.12, rootMargin:'0px 0px -24px 0px'});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
-
 </body>
 </html>
