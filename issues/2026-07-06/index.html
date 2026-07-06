@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOWL AI · Issue 7 · Some of the highest-paid AI work right now is trying to break it.</title>
+<meta name="description" content="Companies are paying people to break their AI — and the highest earners aren't engineers. Here's the red-teaming opportunity almost no one is talking about.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:#f2ede3;}
+body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia,serif;-webkit-font-smoothing:antialiased;}
+
+/* CARDS */
+.card        {background:#fff;margin:8px 0;padding:32px 44px;}
+.card-dark   {background:#0f3d30;margin:8px 0;padding:32px 44px;}
+.card-amber  {background:#f7eedc;margin:0;padding:34px 44px 36px;border-left:6px solid #f2a12b;}
+.card-mint   {background:#e8f4ee;margin:8px 0;padding:28px 44px;}
+.card-coral  {background:#fff4ef;margin:8px 0;padding:24px 44px;border-left:6px solid #d4541e;}
+
+/* MASTHEAD */
+.mast{background:#0d3f31;padding:36px 44px 34px;margin:0;}
+.mast-meta{display:flex;justify-content:space-between;margin-bottom:14px;}
+.mast-meta span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;}
+
+/* brand-dot — DECORATIVE ONLY, nothing inside, no centering needed */
+.brand-lockup{display:flex;align-items:center;gap:18px;margin:20px 0 28px;}
+.brand-dot{width:42px;height:42px;min-width:42px;min-height:42px;border-radius:50%;background:#78ddb4;box-shadow:0 6px 18px rgba(0,0,0,.2);flex-shrink:0;}
+.brand-fowl{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;letter-spacing:9px;color:#f47f18;text-transform:uppercase;}
+.brand-divider{width:1px;height:48px;background:rgba(255,255,255,.65);flex-shrink:0;}
+.brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
+.brand-name span{display:block;color:#7fd9b8;}
+
+.mast-title{font-family:'Inter',-apple-system,sans-serif;font-style:italic;font-weight:800;font-size:58px;line-height:1.06;letter-spacing:-2px;color:#fff;margin-top:8px;}
+.mast-title span{color:#35bfa2;display:block;}
+.mast-sub{font-family:'Inter',-apple-system,sans-serif;font-size:19px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:560px;}
+
+/* CTA — inline-block only, never flex */
+.mast-cta{display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,sans-serif;font-size:15px;font-weight:800;text-decoration:none;padding:15px 28px;border-radius:999px;line-height:1.2;}
+
+.mast-rule{height:1px;background:linear-gradient(90deg,#7fd9b8,rgba(127,217,184,.08));margin:28px 0 18px;}
+.mast-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.mast-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#9fe3c8;text-transform:uppercase;}
+.mast-badge{display:inline-block;background:rgba(127,217,184,.14);color:#7fd9b8;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid rgba(127,217,184,.3);}
+.mast-freq{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#d99c2b;}
+.brand-strip{display:flex;gap:16px;margin-top:26px;border-top:1px solid rgba(127,217,184,.25);padding-top:18px;}
+.brand-item{flex:1;border-left:1px solid rgba(255,255,255,.38);padding-left:14px;}
+.brand-item:first-child{border-left:none;padding-left:0;}
+.brand-item b{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:5px;}
+.brand-item span{display:block;font-family:'Inter',-apple-system,sans-serif;font-size:13px;line-height:1.45;color:#f4fbf8;}
+
+/* SECTION LABEL */
+.sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
+.sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
+
+/* TLDR */
+.tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
+.tldr-text{font-family:'Inter',-apple-system,sans-serif;font-size:26px;line-height:1.65;color:#0f3d30;font-style:italic;}
+
+/* NOVA SIGNAL — left-bar design, zero shape-centering issues */
+.nova-signal{display:flex;align-items:flex-start;gap:16px;background:rgba(13,63,49,.05);border:1px solid rgba(242,161,43,.2);border-radius:10px;padding:18px 20px;margin-bottom:24px;}
+.nova-bar{width:4px;min-width:4px;border-radius:4px;background:linear-gradient(180deg,#f47f18,#d4541e);align-self:stretch;flex-shrink:0;}
+.nova-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:5px;}
+.nova-byline{font-family:-apple-system,sans-serif;font-size:11px;color:#7a9a8a;margin-bottom:8px;line-height:1.4;}
+.nova-quote{font-family:-apple-system,sans-serif;font-size:14px;color:#13241e;line-height:1.7;}
+.nova-call{background:#f7eedc;border-left:3px solid #f2a12b;padding:10px 14px;border-radius:0 6px 6px 0;font-family:'DM Mono',monospace;font-size:11px;color:#7a4a10;letter-spacing:.5px;line-height:1.6;margin-top:12px;}
+
+/* INTRO */
+.intro-text{font-size:16px;line-height:1.8;color:#222;border-left:4px solid #0f3d30;padding-left:18px;}
+.editor-note{font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#1f332b;background:#e8f4ee;border-left:4px solid #35bfa2;padding:16px 18px;margin-bottom:22px;border-radius:0 6px 6px 0;}
+.editor-note b{color:#0f3d30;}
+
+/* STORY */
+.story{padding:28px 44px;background:#fff;border-bottom:1px solid #e8e4de;}
+.story-n{font-family:'Fraunces',serif;font-size:52px;line-height:1;color:#e8e4dc;font-weight:700;}
+.story-title{font-family:'Fraunces',serif;font-weight:700;font-size:23px;line-height:1.2;color:#0a140a;margin-bottom:14px;}
+.story-body{font-size:15px;line-height:1.75;color:#333;margin-bottom:14px;}
+.meta{display:flex;gap:6px;font-family:-apple-system,sans-serif;font-size:13px;line-height:1.65;color:#555;padding:3px 0;}
+.meta b{color:#1a5f4a;flex-shrink:0;}
+.inside{background:#fffbf0;border-left:4px solid #d99c2b;padding:12px 16px;font-size:14px;font-style:italic;line-height:1.65;color:#4a4030;margin-top:14px;border-radius:0 6px 6px 0;}
+.inside b{font-style:normal;color:#0f3d30;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* SIGNAL & CHATTER — sig-dot contains one text char only, safe to use flex */
+.sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
+.sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
+.sig:last-of-type{border-bottom:none;}
+.sig-dot{width:20px;height:20px;min-width:20px;min-height:20px;background:#d99c2b;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;line-height:1;}
+.sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
+
+/* PREDICT */
+.predict{background:#0d3f31;border-radius:8px;padding:26px 30px;margin:20px 0;}
+.predict-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;}
+.predict-text{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.4;}
+.predict-sub{font-family:-apple-system,sans-serif;font-size:14px;color:#7fd9b8;margin-top:10px;line-height:1.65;}
+
+/* ACTION ITEMS — badge is a small rectangle, no centering issues */
+.action-wrap{background:#f7eedc;border-left:6px solid #f2a12b;padding:24px 28px;margin:20px 0;border-radius:0 8px 8px 0;}
+.action-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#0f3d30;margin-bottom:14px;font-weight:500;}
+.action-item{display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;line-height:1.65;padding:8px 0;border-bottom:1px solid rgba(242,161,43,.2);}
+.action-item:last-child{border-bottom:none;padding-bottom:0;}
+.action-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#f2a12b;flex-shrink:0;margin-top:2px;background:#0f3d30;padding:2px 7px;border-radius:4px;line-height:1.6;}
+
+/* LAUNCH LAB */
+.launch-lab{background:#fff;margin:8px 0;padding:28px 44px;border-left:6px solid #f2a12b;}
+
+/* EMERGING CAREER */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
+
+/* STAMP / CLOSING */
+.stamp-text{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.6;color:#fff;text-align:center;}
+.stamp-text span{color:#7fd9b8;}
+.reply-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:#1a5f4a;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.reply-text{font-style:italic;font-size:15.5px;line-height:1.75;color:#1a3a2a;}
+
+/* FOOTER */
+.footer{background:#13241e;padding:26px 44px;text-align:center;margin:0;}
+.footer-brand{font-family:'Fraunces',serif;font-size:14px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:6px;}
+.footer-fine{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#3a5248;}
+.footer-fine a{color:#7fd9b8;text-decoration:underline;}
+
+/* MOBILE — single breakpoint, applied consistently */
+@media(max-width:768px){
+  .mast,.card,.card-dark,.card-amber,.card-mint,.card-coral,
+  .sec,.story,.footer,.launch-lab{padding-left:20px;padding-right:20px;}
+  .mast-title{font-size:36px;letter-spacing:-1px;}
+  .mast-sub{font-size:16px;}
+  .mast-meta{flex-direction:column;gap:8px;}
+  .brand-lockup{gap:12px;margin:14px 0 20px;}
+  .brand-dot{width:34px;height:34px;min-width:34px;min-height:34px;}
+  .brand-fowl{font-size:20px;letter-spacing:5px;}
+  .brand-divider{height:32px;}
+  .brand-name{font-size:20px;}
+  .brand-strip{flex-direction:column;gap:0;}
+  .brand-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:12px;margin-top:12px;}
+  .brand-item:first-child{border-top:none;padding-top:0;margin-top:0;}
+  .tldr-text{font-size:20px;}
+  .story-n{font-size:40px;}
+  .story-title{font-size:19px;}
+  .predict{padding:20px 18px;}
+  .predict-text{font-size:18px;}
+  .action-wrap{padding:20px 18px;}
+  .nova-signal{padding:14px 16px;}
+}
+
+</style></head><body>
+
+
+<!-- ═══════════════════════════════════════ MASTHEAD -->
+<div class="mast">
+  <div class="mast-meta">
+    <span>Vol. 1 · Issue 7</span>
+    <span>July 6, 2026</span>
+  </div>
+  <div class="brand-lockup">
+    <div class="brand-dot"></div>
+    <div class="brand-fowl">FOWL AI</div>
+    <div class="brand-divider"></div>
+    <div class="brand-name">Future of<span>Work Lab</span></div>
+  </div>
+  <div class="mast-title">Some of the highest-paid AI work<span>is trying to break it.</span></div>
+  <div class="mast-sub">Companies are paying people to attack their own AI — and the best people doing it aren't engineers. Here's the red-teaming opportunity almost no one is talking about.</div>
+  <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Subscribe free</a>
+  <div class="mast-rule"></div>
+  <div class="mast-foot">
+    <div class="mast-tag">Career Signals · AI Economy</div>
+    <div class="mast-badge">Industry Signal</div>
+    <div class="mast-freq">Weekly</div>
+  </div>
+  <div class="brand-strip">
+    <div class="brand-item"><b>The Opportunity</b><span>How red-teaming works and who's paying for it</span></div>
+    <div class="brand-item"><b>The Skill Gap</b><span>Why domain experts beat engineers at this</span></div>
+    <div class="brand-item"><b>What's Next</b><span>Regulation is turning this into a permanent market</span></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ TLDR -->
+<div class="card-amber">
+  <div class="tldr-label">If you read nothing else</div>
+  <div class="tldr-text">Companies are paying strangers to intentionally break their AI — expose harmful outputs, bypass safety filters, and find failure modes before real users do. The highest earners aren't coders. They're lawyers, doctors, teachers, and researchers who understand the domains where AI is being deployed. This market is growing fast, and almost no one is talking about it.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ INTRO + NOVA -->
+<div class="card">
+
+  <div class="nova-signal">
+    <div class="nova-bar"></div>
+    <div>
+      <div class="nova-label">🎙️ Nova's Signal</div>
+      <div class="nova-byline">Nova is FOWL AI's news anchor — she tracks the signals every week.</div>
+      <div class="nova-quote">"The red-teaming economy is one of the quietest corners of AI income — and one of the fastest growing. The moment regulators started requiring it, it stopped being optional. Now it's a market. And most people who are perfectly positioned for it have no idea it exists."</div>
+      <div class="nova-call">Nova's call: <strong>Bullish.</strong> Domain experts have a rare window before this role gets saturated. Move now, not when it's obvious.</div>
+    </div>
+  </div>
+
+  <div class="editor-note"><b>New here?</b> FOWL AI tracks where the real AI income opportunities are hiding — not the hype, the signal. Every week we cover what's actually moving in the AI economy and what it means for your career.</div>
+
+  <div class="intro-text">
+    Every major AI company has a problem. Their models are powerful, widely deployed, and capable of causing serious harm when they fail in the wrong context. A lawyer's AI gives dangerous legal advice. A medical chatbot misses a critical contraindication. An education tool coaches a student into something dangerous. These failures are real, they're expensive, and they happen before most users report them.<br><br>
+    The solution companies have landed on is paying people to find the failures first. Not after launch. Before. That's red-teaming — deliberately trying to make AI systems break in ways that matter. And the counterintuitive finding is that the best people at this aren't the ones who built the models. They're the ones who know the real-world contexts where those models will fail.<br><br>
+    This issue covers the full picture: what the work actually is, what it pays, why domain experts have a structural advantage, and how government regulation is turning red-teaming from a niche gig into a permanent, credentialled profession.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ STORIES -->
+<div class="sec"><span class="sec-tag">5 Developments This Week</span><span class="sec-line"></span></div>
+
+<div class="story">
+  <div class="story-n">01</div>
+  <div class="story-title">Red-teaming is now a legitimate AI career path</div>
+  <div class="story-body">AI red-teaming means deliberately trying to make AI systems fail — produce harmful outputs, hallucinate facts, bypass safety filters, or give dangerously wrong answers in high-stakes contexts. Anthropic, OpenAI, Google, and Meta all run formal red-team programs. Scale AI, Bugcrowd, and HackerOne have opened dedicated AI tracks. The work is expanding fast as AI gets deployed in healthcare, law, finance, and education — places where failure costs real money and real harm.</div>
+  <div class="story-body">This is not a fringe security role. It's becoming a standard line item in AI product budgets, sitting alongside QA and compliance — and it's being staffed by people from every professional background imaginable.</div>
+  <div class="meta"><b>Why it matters ·</b> A category of well-paid AI work that didn't exist three years ago is now actively hiring, and most qualified candidates don't know the job exists.</div>
+  <div class="meta"><b>Who's affected ·</b> Knowledge workers in any professional field — law, medicine, finance, education, engineering — who understand how AI will be used in their domain.</div>
+  <div class="inside"><b>The signal —</b> When a job category moves from "fringe experiment" to "standard budget line," the early movers set the rates and build the reputations. That window is open right now.</div>
+</div>
+
+<div class="story">
+  <div class="story-n">02</div>
+  <div class="story-title">The pay is not what people expect</div>
+  <div class="story-body">Depending on the platform and the severity of what you find, red-teamers are earning $50–$200/hr. Some bug bounty payouts for AI vulnerabilities have hit five figures for a single finding. Platforms like Bugcrowd and HackerOne now pay cash bounties specifically for AI behavior issues — not just security vulnerabilities. Scale AI's Outlier platform runs red-team projects regularly, often without requiring prior experience, at rates that compete with senior freelance writing or mid-level consulting.</div>
+  <div class="meta"><b>Why it matters ·</b> The pay floor for this work is already significantly above average knowledge-worker gig rates — and it's set before the market gets crowded.</div>
+  <div class="inside"><b>The signal —</b> Most people assume this requires a computer science background. It doesn't. It requires knowing how to think adversarially — and knowing your domain well enough to know where AI will confidently get it wrong.</div>
+</div>
+
+<div class="story">
+  <div class="story-n">03</div>
+  <div class="story-title">Domain experts are beating engineers at this</div>
+  <div class="story-body">A lawyer who can expose how an AI gives dangerous legal advice is more valuable in a red-team context than a developer who understands the model architecture. Same for doctors testing medical AI, accountants testing financial AI, teachers testing education tools. The best red-teamers aren't the ones who can read a transformer's attention weights — they're the ones who deeply understand the domain where the model will be deployed and can construct realistic, high-stakes failure scenarios.</div>
+  <div class="meta"><b>Why it matters ·</b> Deep professional expertise is now a direct input into a growing AI income market — not a fallback when AI takes your job, but the thing that makes you better at this than engineers.</div>
+  <div class="inside"><b>The signal —</b> If you have domain expertise, you are not competing with AI. You are the person AI companies need to find out where their models fail at your level of knowledge.</div>
+</div>
+
+<div class="story">
+  <div class="story-n">04</div>
+  <div class="story-title">Governments are formalizing it — and creating more demand</div>
+  <div class="story-body">The EU AI Act, NIST's AI Risk Management Framework, and the UK AI Safety Institute are all pushing mandatory red-teaming requirements for high-risk AI deployments. These aren't guidelines — they're compliance requirements with enforcement teeth. Companies deploying AI in healthcare, financial services, hiring, and education will need to demonstrate that their systems have been formally tested for failure modes by qualified reviewers. That's a procurement category that doesn't exist yet at scale — but will.</div>
+  <div class="meta"><b>Why it matters ·</b> Regulatory pressure converts an optional best practice into a required service, which means predictable, recurring demand — not just one-off gigs.</div>
+  <div class="inside"><b>The signal —</b> Red-teaming is about to follow the same arc as penetration testing: niche experiment in 2010, professional category by 2018, standard compliance requirement by 2022. It's roughly 2013 for AI red-teaming right now.</div>
+</div>
+
+<div class="story" style="border-bottom:none;">
+  <div class="story-n">05</div>
+  <div class="story-title">Most people have never heard of this — which is the opportunity</div>
+  <div class="story-body">Red-teaming is one of the least-covered corners of the AI income landscape. It doesn't trend on LinkedIn. It's not in most "AI side hustle" roundups. The people doing it quietly are building reputations, setting rates, and accumulating case studies while everyone else is still debating whether AI will take their job. The low awareness relative to real demand is the exact dynamic that creates outsized early-mover advantage.</div>
+  <div class="meta"><b>Why it matters ·</b> Windows like this close. When red-teaming becomes mainstream knowledge, the rates compress and the credential bar rises. The time to position is before that happens.</div>
+  <div class="inside"><b>The signal —</b> The question to ask yourself is not "is this real?" — it's "how long before everyone knows about it?" That's your runway.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ SIGNAL & CHATTER -->
+<div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="sig-intro">What the data and community are saying this week.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Bugcrowd and HackerOne have opened dedicated AI vulnerability tracks.</b> These are no longer bundled under general security — AI behavior bugs now have their own categories, their own bounty tiers, and their own reviewer pools.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Scale AI's Outlier platform runs paid red-team projects at $50–150/hr for non-technical testers.</b> Many projects are open to applicants with domain expertise and no prior red-team experience. The application bar is lower than most people assume.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>The UK AI Safety Institute paid participants in its first public red-team exercise.</b> This signals a government-sponsored pipeline for trained, credentialled AI red-teamers — the early versions of a professional certification track.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>OpenAI's bug bounty for AI behavior issues now pays up to $20,000 per finding.</b> Not just for security vulnerabilities — for documented cases where the model behaves dangerously in real-world deployment contexts.</div></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ PREDICTION -->
+<div class="card">
+  <div class="predict">
+    <div class="predict-label">🔮 FOWL Prediction #7</div>
+    <div class="predict-text">"By end of 2027, 'AI Red Team Specialist' will appear as a formal job title at 30%+ of Fortune 500 companies — not as a security role, but as a compliance and product quality role."</div>
+    <div class="predict-sub">The EU AI Act enforcement timeline starts in 2026. NIST AI RMF adoption is accelerating. Every company deploying high-risk AI will need documented evidence of adversarial testing by qualified reviewers. Red-teaming will follow the same institutionalisation path as pen testing — from contractor gig to internal team to required headcount. We'll score this in January 2028.</div>
+  </div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;margin-top:8px;">FOWL AI · July 2026 · We'll score this in January 2028.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ ACTION ITEMS -->
+<div class="sec"><span class="sec-tag">✅ 3 Things to Do This Week</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="action-wrap">
+    <div class="action-label">One for each type of reader — pick yours</div>
+    <div class="action-item">
+      <span class="action-num">01</span>
+      <div><b>If you have domain expertise (law, medicine, finance, education, any professional field)…</b> Pick the top AI tool being used in your field right now. Spend 30 minutes trying to make it fail at something a professional would catch — a wrong answer, a dangerous recommendation, a confident hallucination. Document what you find: the prompt, the output, why it matters. That exercise is the beginning of a red-team portfolio.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">02</span>
+      <div><b>If you're looking for paid AI work now…</b> Search "red team" on Scale AI's Outlier platform and check Bugcrowd's AI track. The entry bar is lower than you think — many projects pay on application with no prior red-team experience required. Domain expertise is the credential they're actually looking for.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">03</span>
+      <div><b>If you're building a long-term positioning play…</b> Start documenting AI failures in your domain publicly — a LinkedIn post, a short write-up, even a thread. "I tested [tool] on [professional scenario] and here's what broke" is exactly the kind of content that gets you inbound from companies who need red-teamers. You're not just doing the work — you're signalling that you can do it.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ LAUNCH LAB -->
+<div class="launch-lab">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;">🚀 From the Lab</div>
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:22px;color:#13241e;line-height:1.2;margin-bottom:10px;">Launch Lab — Building something?</div>
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#46524c;margin-bottom:16px;">Need help setting up a website, newsletter, digital products, or payments for your brand? We can help you build it — fast, clean, and ready to launch.</div>
+  <div style="font-family:'DM Mono',monospace;font-size:13px;color:#0f3d30;background:#e8f4ee;border-radius:8px;padding:12px 18px;display:inline-block;">Reply with <strong>"LAUNCH"</strong> and let's chat.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ EMERGING CAREER -->
+<div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
+<div class="card-dark">
+  <div class="career-eye">This week</div>
+  <div class="career-title">AI Red Team Specialist</div>
+  <div class="career-body">
+    An AI Red Team Specialist is someone paid to find failure modes in AI systems before the general public does. The role involves designing adversarial prompts, constructing realistic high-stakes scenarios, documenting failure patterns, and in some cases writing formal reports that feed into product safety decisions or regulatory compliance filings.<br><br>
+    At large AI labs (Anthropic, OpenAI, Google DeepMind), this is an internal role staffed by a mix of ML researchers and domain experts. At mid-size companies deploying AI products, it's increasingly a contracted service — hired per product launch or per compliance cycle. At platforms like Scale AI and Outlier, it's a freelance project model where specialists are matched to specific testing needs.<br><br>
+    The title doesn't always exist yet. You'll see it listed as "AI Safety Evaluator," "Adversarial Testing Consultant," "AI QA Specialist," or just folded into "AI Evaluator" roles. But the function is converging into a recognizable profession, and the credential path is starting to take shape — with NIST frameworks, EU AI Act compliance requirements, and emerging certification programs beginning to define what "qualified" means in this space.<br><br>
+    The range of people doing this work is wider than most expect: former lawyers testing legal AI, ex-teachers testing education tools, healthcare professionals testing clinical decision support systems, journalists testing news summarisation products. Domain knowledge is the differentiator — not technical background.
+  </div>
+  <div class="career-why"><b>How to position for this now:</b> Don't wait for the job title to appear on LinkedIn. Start doing the work in your domain and documenting the results publicly. One well-written post about an AI failure you found in your professional field is worth more than a certification that doesn't exist yet. The credential will come — but the reputation starts now.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ CLOSING -->
+<div class="card" style="padding-bottom:0;">
+  <div style="font-size:16px;line-height:1.8;color:#1a1a1a;">
+    The window on this is real but not permanent. Red-teaming is following the same arc as bug bounties in cybersecurity — fringe hobby in 2010, professional category by 2018, standard compliance line item by 2022. AI red-teaming is somewhere around 2013 right now. The people who move early will have case studies, reputations, and rates set before the market crowds.<br><br>
+    The question worth sitting with: what do you know professionally that an AI would get confidently wrong? Whatever your answer is — that's not just expertise. It's a service that companies are actively trying to buy.
+  </div>
+</div>
+
+<div class="card-dark" style="margin-top:0;text-align:center;">
+  <div class="stamp-text">"The most valuable AI skill of 2026<span>isn't building it. It's knowing where it breaks."</span></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ REPLY CTA -->
+<div class="card-mint">
+  <div class="reply-label">💬 One question — reply and tell us</div>
+  <div class="reply-text">Have you ever tried to make an AI say something it shouldn't — just to see if you could? That instinct is worth money right now. Hit reply and tell us what field you're in. We want to see if there's a red-teaming angle here for you specifically.<br><br>Hit reply. We read every one and it shapes what we cover next.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ SHARE -->
+<div style="background:#fff;margin:8px 0;padding:24px 44px;text-align:center;border-top:2px solid #f2ede3;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9aada5;margin-bottom:16px;">Share this issue</div>
+  <button onclick="navigator.clipboard.writeText('https://www.fowl-ai.com/issues/2026-07-06/').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>{this.textContent='Copy link'},2000)})" style="display:inline-block;background:#f2ede3;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid #c8c0b4;cursor:pointer;line-height:1.2;">Copy link</button>
+</div>
+
+
+<!-- ═══════════════════════════════════════ FOOTER -->
+<div class="footer">
+  <div class="footer-brand">FOWL AI</div>
+  <div class="footer-fine">Career signals for the AI economy.</div>
+  <div class="footer-fine" style="margin-top:6px;">Weekly · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="https://www.fowl-ai.com">fowl-ai.com</a></div>
+  <div class="footer-fine" style="margin-top:10px;">{{SenderInfoLine}}</div>
+  <div class="footer-fine" style="margin-top:6px;"><a href="{{UnsubscribeURL}}">Unsubscribe</a> · <a href="{{RewardsURL}}">Powered by EmailOctopus</a></div>
+</div>
+
+</body></html>
