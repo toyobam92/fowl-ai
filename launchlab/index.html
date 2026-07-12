@@ -362,105 +362,97 @@ body { font-family: 'Inter', sans-serif; background: var(--paper); overflow-x: h
   </div>
 </section>
 
-<!-- ═══ 8. BUILT WITH BRAND BRAIN ═══ -->
-<section class="px-6 py-24 md:py-28">
-  <div class="max-w-5xl mx-auto">
-    <div class="reveal text-center max-w-xl mx-auto mb-14">
-      <div class="eyebrow mb-3">Built with Brand Brain</div>
-      <h2 class="font-display" style="font-size:clamp(1.7rem,3.2vw,2.3rem);font-weight:600;">This isn't theory.<br>It's how we build FOWL AI.</h2>
-      <p class="mt-3" style="font-size:15px;color:var(--ink-soft);">Every piece of the FOWL AI brand was built using the exact system inside Brand Brain.</p>
+<!-- ═══ PROOF WIDGET (floating bottom-right) ═══ -->
+<style>
+.proof-trigger{position:fixed;bottom:28px;right:28px;z-index:999;display:flex;align-items:center;gap:8px;background:var(--forest);color:var(--paper-ink);border:1px solid rgba(120,221,180,.25);border-radius:999px;padding:10px 18px 10px 12px;cursor:pointer;box-shadow:0 8px 32px rgba(0,0,0,.25);transition:transform .2s,box-shadow .2s;}
+.proof-trigger:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(0,0,0,.3);}
+.proof-trigger-dot{width:8px;height:8px;min-width:8px;border-radius:50%;background:#78ddb4;flex-shrink:0;}
+.proof-trigger-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#a9e8cf;}
+.proof-trigger-arrow{font-size:12px;color:#78ddb4;margin-left:2px;transition:transform .3s;}
+.proof-trigger.open .proof-trigger-arrow{transform:rotate(180deg);}
+
+.proof-panel{position:fixed;bottom:76px;right:28px;z-index:998;width:320px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 24px 64px rgba(0,0,0,.18);overflow:hidden;transform:translateY(12px) scale(.97);opacity:0;pointer-events:none;transition:transform .3s cubic-bezier(.16,1,.3,1),opacity .3s ease;}
+.proof-panel.open{transform:translateY(0) scale(1);opacity:1;pointer-events:all;}
+
+.proof-panel-head{background:var(--forest);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;}
+.proof-panel-title{font-family:'Fraunces',serif;font-size:15px;color:#f2ede3;font-weight:700;}
+.proof-panel-sub{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;margin-top:2px;}
+.proof-panel-close{width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:12px;color:#a9e8cf;flex-shrink:0;}
+.proof-panel-close:hover{background:rgba(255,255,255,.2);}
+
+.proof-item{padding:14px 18px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:12px;text-decoration:none;color:inherit;transition:background .15s;}
+.proof-item:last-child{border-bottom:none;}
+.proof-item:hover{background:#faf9f6;}
+.proof-item-icon{width:36px;height:36px;min-width:36px;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0;}
+.proof-item-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:3px;}
+.proof-item-name{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.2;}
+.proof-item-stat{font-size:12px;color:var(--ink-soft);margin-top:2px;}
+.proof-item-arrow{margin-left:auto;font-size:12px;color:var(--ink-soft);flex-shrink:0;}
+</style>
+
+<!-- Trigger pill -->
+<div class="proof-trigger" id="proofTrigger" onclick="toggleProof()">
+  <div class="proof-trigger-dot"></div>
+  <span class="proof-trigger-label">Built this way</span>
+  <span class="proof-trigger-arrow">▲</span>
+</div>
+
+<!-- Expandable panel -->
+<div class="proof-panel" id="proofPanel">
+  <div class="proof-panel-head">
+    <div>
+      <div class="proof-panel-title">Built with Brand Brain</div>
+      <div class="proof-panel-sub">Real brand. Real results.</div>
     </div>
+    <div class="proof-panel-close" onclick="toggleProof()">✕</div>
+  </div>
 
-    <!-- Nova video — top featured -->
-    <div class="reveal d1" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start;margin-bottom:20px;">
-
-      <!-- Nova reel -->
-      <div class="card overflow-hidden" style="border-color:var(--line);">
-        <div style="background:var(--forest);padding:14px 18px;display:flex;align-items:center;gap:10px;">
-          <div style="width:32px;height:32px;min-width:32px;border-radius:50%;background:linear-gradient(135deg,#f47f18,#d4541e);display:flex;align-items:center;justify-content:center;font-size:14px;">🎙️</div>
-          <div>
-            <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#78ddb4;margin-bottom:2px;">AI Avatar · Built with Brand Brain</div>
-            <div style="font-family:'Fraunces',serif;font-size:16px;color:#f2ede3;font-weight:600;">Nova — FOWL AI's News Anchor</div>
-          </div>
-        </div>
-        <div style="position:relative;background:#000;overflow:hidden;height:560px;">
-          <iframe
-            src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F990175010593589&show_text=false&width=476"
-            style="position:absolute;top:0;left:50%;transform:translateX(-50%);width:476px;height:560px;border:none;"
-            scrolling="no"
-            frameborder="0"
-            allowfullscreen="true"
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-          </iframe>
-        </div>
-        <div style="padding:14px 18px;background:#fafafa;border-top:1px solid var(--line);">
-          <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;">A locked AI personality and voice — consistent across every video, every week. Built from scratch using the AI Avatar workflow inside Brand Brain.</p>
-        </div>
-      </div>
-
-      <!-- Right column: Website + Newsletter stacked -->
-      <div style="display:flex;flex-direction:column;gap:20px;">
-
-        <!-- FOWL AI Website -->
-        <div class="card overflow-hidden">
-          <!-- Mini browser mockup -->
-          <div style="background:#f0f0f0;padding:10px 14px;display:flex;align-items:center;gap:6px;border-bottom:1px solid var(--line);">
-            <div style="width:10px;height:10px;border-radius:50%;background:#ff5f57;"></div>
-            <div style="width:10px;height:10px;border-radius:50%;background:#febc2e;"></div>
-            <div style="width:10px;height:10px;border-radius:50%;background:#28c840;"></div>
-            <div style="flex:1;background:#fff;border:1px solid #ddd;border-radius:4px;padding:4px 10px;margin-left:8px;font-family:'DM Mono',monospace;font-size:10px;color:#888;">fowl-ai.com</div>
-          </div>
-          <!-- Website preview -->
-          <div style="background:var(--forest);padding:20px 18px;">
-            <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
-              <div style="width:28px;height:28px;border-radius:50%;background:#78ddb4;flex-shrink:0;"></div>
-              <span style="font-family:'DM Mono',monospace;font-size:13px;letter-spacing:5px;color:#f47f18;">FOWL AI</span>
-            </div>
-            <div style="font-family:'Fraunces',serif;font-size:20px;color:#f2ede3;line-height:1.2;margin-bottom:10px;">Career signals<br>for the AI economy.</div>
-            <div style="display:flex;gap:6px;flex-wrap:wrap;">
-              <span style="background:#f2a12b;color:#0d3f31;font-size:10px;font-weight:700;padding:5px 12px;border-radius:999px;">Subscribe free</span>
-              <span style="background:rgba(255,255,255,.1);color:#a9e8cf;font-size:10px;padding:5px 12px;border-radius:999px;">Issues</span>
-              <span style="background:rgba(255,255,255,.1);color:#a9e8cf;font-size:10px;padding:5px 12px;border-radius:999px;">Jobs</span>
-            </div>
-          </div>
-          <div style="padding:14px 18px;display:flex;align-items:center;justify-content:space-between;">
-            <div>
-              <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:4px;">Website · Built with Brand Brain</div>
-              <div style="font-family:'Fraunces',serif;font-size:16px;font-weight:600;">fowl-ai.com</div>
-            </div>
-            <a href="https://www.fowl-ai.com" target="_blank" style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;text-transform:uppercase;color:var(--moss-deep);border-bottom:1px solid var(--moss);padding-bottom:1px;">Visit →</a>
-          </div>
-        </div>
-
-        <!-- Newsletter stat -->
-        <div class="card p-6" style="background:linear-gradient(135deg,var(--surface),#fff);">
-          <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--ink-soft);margin-bottom:12px;">Newsletter · Built with Brand Brain</div>
-          <div style="display:flex;align-items:flex-end;gap:12px;margin-bottom:12px;">
-            <div style="font-family:'Fraunces',serif;font-size:56px;font-weight:700;color:var(--forest);line-height:1;">150<span style="font-size:32px;color:var(--moss);">+</span></div>
-            <div style="padding-bottom:8px;">
-              <div style="font-size:14px;font-weight:600;color:var(--ink);">Subscribers</div>
-              <div style="font-size:12px;color:var(--ink-soft);">and growing weekly</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:14px;">
-            <span style="background:var(--moss-fill);color:var(--moss-deep);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:4px;">Issue 6 live</span>
-            <span style="background:var(--moss-fill);color:var(--moss-deep);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:4px;">Weekly</span>
-            <span style="background:var(--moss-fill);color:var(--moss-deep);font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:4px 10px;border-radius:4px;">Real subscribers</span>
-          </div>
-          <p style="font-size:13px;color:var(--ink-soft);line-height:1.6;">A real publication with a real audience — built using the Newsletter workflow inside Brand Brain. HTML emails, landing pages, and subscriber management, all owned.</p>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- Community card -->
-    <div class="reveal d2 text-center card p-8 mt-4" style="border-style:dashed;">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--moss-deep)" stroke-width="2" style="margin:0 auto 10px auto;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-      <p class="font-display" style="font-size:17px;">Soon&hellip; Built by the Brand Brain Community</p>
-      <p style="font-size:14px;color:var(--ink-soft);margin-top:6px;">This is where we'll celebrate builders who launched with Brand Brain.</p>
+  <div class="proof-item" style="cursor:default;">
+    <div class="proof-item-icon" style="background:linear-gradient(135deg,rgba(244,127,24,.15),rgba(244,127,24,.05));">🎙️</div>
+    <div>
+      <div class="proof-item-label">AI Avatar</div>
+      <div class="proof-item-name">Nova</div>
+      <div class="proof-item-stat">FOWL AI's AI news anchor</div>
     </div>
   </div>
-</section>
+
+  <div class="proof-item" style="cursor:default;">
+    <div class="proof-item-icon" style="background:rgba(13,63,49,.08);">🌐</div>
+    <div>
+      <div class="proof-item-label">Website</div>
+      <div class="proof-item-name">fowl-ai.com</div>
+      <div class="proof-item-stat">Live · GitHub Pages · free hosting</div>
+    </div>
+  </div>
+
+  <div class="proof-item" style="cursor:default;">
+    <div class="proof-item-icon" style="background:rgba(53,191,162,.1);">📧</div>
+    <div>
+      <div class="proof-item-label">Newsletter</div>
+      <div class="proof-item-name">150+ subscribers</div>
+      <div class="proof-item-stat">Issue 6 live · growing weekly</div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function toggleProof(){
+  const trigger = document.getElementById('proofTrigger');
+  const panel = document.getElementById('proofPanel');
+  const isOpen = panel.classList.contains('open');
+  panel.classList.toggle('open', !isOpen);
+  trigger.classList.toggle('open', !isOpen);
+}
+document.addEventListener('click', function(e){
+  const trigger = document.getElementById('proofTrigger');
+  const panel = document.getElementById('proofPanel');
+  if(!trigger.contains(e.target) && !panel.contains(e.target)){
+    panel.classList.remove('open');
+    trigger.classList.remove('open');
+  }
+});
+</script>
 
 <!-- ═══ 9. WHAT YOU'LL WALK AWAY WITH ═══ -->
 <section class="px-6 py-24 md:py-28" style="background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line);">
