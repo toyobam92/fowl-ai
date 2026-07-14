@@ -156,6 +156,16 @@
       margin-bottom:10px;color:#fff;
     }
     .subscribe-strip p{font-size:15px;color:#a9e8cf;margin-bottom:28px;}
+    #signup{scroll-margin-top:90px;}
+    .signup-proof{display:inline-flex;align-items:center;gap:8px;background:rgba(120,221,180,.12);border:1px solid rgba(127,217,184,.3);color:#7fd9b8;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:22px;}
+    .signup-form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+    .signup-input{flex:1;min-width:220px;padding:14px 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.2);background:#fff;font-family:Inter,-apple-system,sans-serif;font-size:15px;color:#13241e;outline:none;}
+    .signup-input:focus{border-color:#78ddb4;}
+    .signup-submit{background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;border:none;padding:14px 22px;border-radius:999px;cursor:pointer;white-space:nowrap;}
+    .signup-submit:hover{opacity:.88;}
+    .signup-success{display:none;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:19px;color:#fff;}
+    .signup-success span{color:#78ddb4;}
+    .signup-fineprint{margin-top:14px;font-size:12px;color:#7a9a8a;}
 
     /* ── Products teaser ── */
     .products-teaser{padding:56px 24px 48px;background:#f2ede3;}
@@ -287,7 +297,7 @@
   <!-- Sticky bar -->
   <div class="sticky-bar" id="stickyBar">
     <span>Get weekly AI career signals.</span>
-    <a class="sub-btn sm" href="https://fowlai.eo.page/vmk69">Subscribe free →</a>
+    <a class="sub-btn sm" href="#signup">Subscribe free →</a>
     <button class="sticky-close" onclick="document.getElementById('stickyBar').style.display='none'" aria-label="Close">×</button>
   </div>
 
@@ -302,15 +312,21 @@
           <a class="nav-bounce" href="/platforms/">Platforms</a>
           <a class="nav-bounce" style="animation-delay:.4s" href="/jobs/">Jobs</a>
           <a class="nav-bounce" style="animation-delay:.8s" href="/issues/">Issues</a>
-          <a class="sub-btn sm" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+          <a class="sub-btn sm" href="#signup">Subscribe</a>
         </nav>
         <div class="hero-grid">
           <div>
             <div class="eyebrow">FOWL AI</div>
             <h1>Navigate the<span>AI Economy.</span></h1>
             <p class="lede">Discover AI jobs, training platforms, startup opportunities, and career intelligence for ambitious professionals.</p>
-            <div class="hero-actions">
-              <a class="sub-btn lg" href="https://fowlai.eo.page/vmk69">Explore the AI Economy →</a>
+            <div class="hero-actions" id="signup">
+              <div class="signup-proof">Join 170+ AI professionals and builders</div>
+              <form id="fowlSignupForm" class="signup-form" style="margin:0;max-width:420px;justify-content:flex-start;" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true;">
+                <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
+                <button class="signup-submit" type="submit">Subscribe free →</button>
+              </form>
+              <div id="fowlSignupSuccess" class="signup-success">You're in! <span>The next issue arrives Monday.</span></div>
+              <iframe name="fowlHiddenFrame" title="signup" style="display:none;" onload="if(window.fowlFormSubmitted){document.getElementById('fowlSignupForm').style.display='none';document.getElementById('fowlSignupSuccess').style.display='block';window.fowlFormSubmitted=false;}"></iframe>
               <span style="font-size:13px;color:#a9e8cf;line-height:1.65;max-width:480px;">Built by a working data scientist who discovered AI training and expert-work opportunities hidden in plain sight. <a href="/about/" style="color:#f2a12b;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Learn why FOWL AI exists →</a></span>
             </div>
           </div>
@@ -360,11 +376,11 @@
     <section class="subscribe-strip">
       <h3>Learn where the AI opportunities are.</h3>
       <p>Every Monday — AI jobs, training platforms, startup opportunities, and career signals. Free. Unsubscribe any time.</p>
-      <a class="sub-btn lg" href="https://fowlai.eo.page/vmk69">Subscribe free →</a>
+      <a class="sub-btn lg" href="#signup">Subscribe free ↑</a>
     </section>
 
     <footer class="footer">
-      <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/issues/">Issues</a> · <a href="/jobs/">Jobs</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
+      <a href="#signup">Subscribe</a> · <a href="/issues/">Issues</a> · <a href="/jobs/">Jobs</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
       <div style="margin-top:12px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
         <a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer" style="color:#78ddb4;display:inline-flex;align-items:center;">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
