@@ -311,23 +311,32 @@
           </a>
           <a class="nav-bounce" href="/platforms/">Platforms</a>
           <a class="nav-bounce" style="animation-delay:.4s" href="/jobs/">Jobs</a>
-          <a class="nav-bounce" style="animation-delay:.8s" href="/issues/">Issues</a>
+          <a class="nav-bounce" style="animation-delay:.8s" href="/issues/">Briefings</a>
           <a class="sub-btn sm" href="#signup">Subscribe</a>
         </nav>
         <div class="hero-grid">
           <div>
             <div class="eyebrow">FOWL AI</div>
             <h1>Navigate the<span>AI Economy.</span></h1>
-            <p class="lede">Discover AI jobs, training platforms, startup opportunities, and career intelligence for ambitious professionals.</p>
+            <p class="lede">Find AI jobs, discover vetted AI platforms, and get a free 5-minute AI briefing every Monday.</p>
             <div class="hero-actions" id="signup">
-              <div class="signup-proof">Join 170+ AI professionals and builders</div>
+              <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#f2a12b;font-weight:700;margin-bottom:4px;">Get the FOWL AI Briefing</div>
               <form id="fowlSignupForm" class="signup-form" style="margin:0;max-width:420px;justify-content:flex-start;" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true;">
                 <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
                 <button class="signup-submit" type="submit">Subscribe free →</button>
               </form>
               <div id="fowlSignupSuccess" class="signup-success">You're in! <span>The next issue arrives Monday.</span></div>
               <iframe name="fowlHiddenFrame" title="signup" style="display:none;" onload="if(window.fowlFormSubmitted){document.getElementById('fowlSignupForm').style.display='none';document.getElementById('fowlSignupSuccess').style.display='block';window.fowlFormSubmitted=false;}"></iframe>
-              <span style="font-size:13px;color:#a9e8cf;line-height:1.65;max-width:480px;">Built by a working data scientist who discovered AI training and expert-work opportunities hidden in plain sight. <a href="/about/" style="color:#f2a12b;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Learn why FOWL AI exists →</a></span>
+              <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#7fd9b8;">Every Monday · 5-minute read · Free</div>
+              <div style="font-size:11px;color:#7a9a8a;">Unsubscribe anytime.</div>
+              <div class="signup-proof">Join 170+ AI professionals receiving the FOWL AI Briefing every Monday.</div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap;">
+                <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(120,221,180,.12);color:#7fd9b8;padding:5px 11px;border-radius:999px;border:1px solid rgba(127,217,184,.25);">New AI jobs</span>
+                <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(120,221,180,.12);color:#7fd9b8;padding:5px 11px;border-radius:999px;border:1px solid rgba(127,217,184,.25);">New AI platforms</span>
+                <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(120,221,180,.12);color:#7fd9b8;padding:5px 11px;border-radius:999px;border:1px solid rgba(127,217,184,.25);">Career insights</span>
+                <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(120,221,184,.12);color:#7fd9b8;padding:5px 11px;border-radius:999px;border:1px solid rgba(127,217,184,.25);">Emerging opportunities</span>
+              </div>
+              <span style="font-size:13px;color:#a9e8cf;line-height:1.65;max-width:480px;">Built by a full-time data scientist researching AI jobs, platforms, and opportunities every week. <a href="/about/" style="color:#f2a12b;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Learn why FOWL AI exists →</a></span>
             </div>
           </div>
           <aside class="latest-card" style="display:flex;flex-direction:column;gap:0;">
@@ -347,9 +356,15 @@
               <a class="btn primary" href="/jobs/" style="font-size:13px;padding:10px 18px;min-height:auto;background:#0d3f31;color:#fff;">Browse Jobs →</a>
             </div>
 
-            <div>
-              <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;margin-bottom:6px;">📰 Latest Issue</div>
+            <div style="border-bottom:1px solid #e8e4de;padding-bottom:18px;margin-bottom:18px;">
+              <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;margin-bottom:6px;">📰 Latest Briefing</div>
               <div style="font-size:13px;color:#665f56;line-height:1.6;">Issue 8: <a href="./issues/2026-07-13/" style="color:#1a5f4a;text-decoration:underline;text-underline-offset:3px;">2 Platforms. 8 Contracts. →</a></div>
+            </div>
+
+            <div>
+              <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2631a;margin-bottom:6px;">📬 Weekly Briefing</div>
+              <div style="font-weight:700;font-size:16px;color:#13241e;margin-bottom:6px;">Join 170+ AI professionals.</div>
+              <div style="font-size:13px;color:#46524c;line-height:1.6;">Free every Monday.</div>
             </div>
           </aside>
         </div>
@@ -380,7 +395,7 @@
     </section>
 
     <footer class="footer">
-      <a href="#signup">Subscribe</a> · <a href="/issues/">Issues</a> · <a href="/jobs/">Jobs</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
+      <a href="#signup">Subscribe</a> · <a href="/issues/">Briefings</a> · <a href="/jobs/">Jobs</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
       <div style="margin-top:12px;display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
         <a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer" style="color:#78ddb4;display:inline-flex;align-items:center;">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
