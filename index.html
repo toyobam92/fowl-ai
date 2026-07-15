@@ -40,53 +40,31 @@
     a{color:inherit;}
     .site{min-height:100vh;}
 
-    /* ── Vibrant subscribe button ── */
-    @keyframes pulse-glow {
-      0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65),0 6px 24px rgba(255,100,10,.35);}
-      50%{box-shadow:0 0 0 12px rgba(255,138,30,0),0 6px 36px rgba(255,100,10,.65);}
-    }
-    @keyframes wiggle {
-      0%,80%,100%{transform:rotate(0deg) scale(1);}
-      83%{transform:rotate(-2.5deg) scale(1.04);}
-      86%{transform:rotate(2.5deg) scale(1.04);}
-      89%{transform:rotate(-1.5deg) scale(1.02);}
-      92%{transform:rotate(1.5deg) scale(1.01);}
-      95%{transform:rotate(0deg) scale(1);}
-    }
+    /* ── Subscribe button ── */
     .sub-btn{
       display:inline-flex;align-items:center;justify-content:center;gap:8px;
       padding:15px 34px;border-radius:999px;
-      background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);
-      color:#fff;font-weight:800;font-size:16px;text-decoration:none;
+      background:#f2a12b;
+      color:#0d3f31;font-weight:800;font-size:16px;text-decoration:none;
       letter-spacing:.3px;border:none;cursor:pointer;
-      animation:pulse-glow 2.2s ease-in-out infinite, wiggle 5s ease-in-out infinite;
-      transition:transform .15s ease, box-shadow .15s ease;
+      transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
       white-space:nowrap;
     }
     .sub-btn:hover{
-      transform:scale(1.08);
-      box-shadow:0 10px 48px rgba(242,100,26,.75);
-      animation:none;
+      transform:translateY(-1px);
+      background:#ffb84d;
     }
     .sub-btn.sm{padding:10px 22px;font-size:13px;}
     .sub-btn.lg{padding:18px 44px;font-size:18px;}
 
-    /* ── Nav link bounce ── */
-    @keyframes nav-bounce {
-      0%,70%,100%{transform:translateY(0);}
-      74%{transform:translateY(-4px);}
-      78%{transform:translateY(0);}
-      82%{transform:translateY(-2px);}
-      86%{transform:translateY(0);}
-    }
+    /* ── Nav link ── */
     .nav-bounce{
       font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;
       color:#a9e8cf;text-decoration:none;margin-right:8px;
       display:inline-block;white-space:nowrap;
-      animation:nav-bounce 4s ease-in-out infinite;
+      transition:color .15s ease;
     }
-    .nav-bounce:nth-of-type(2){animation-delay:.6s;}
-    .nav-bounce:hover{color:#fff;animation:none;transform:translateY(-2px);}
+    .nav-bounce:hover{color:#fff;}
 
     /* ── Sticky bar ── */
     .sticky-bar{
@@ -114,7 +92,6 @@
     .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
 
     /* ── Hero ── */
-    .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(300px,.9fr);gap:38px;align-items:end;}
     .eyebrow{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:16px;}
     h1{font-size:clamp(44px,7vw,78px);line-height:1.02;font-weight:800;max-width:760px;}
     h1 span{display:block;color:#35bfa2;font-family:Fraunces,Georgia,serif;}
@@ -123,15 +100,8 @@
     .hero-sub-link{font-size:13px;color:#7fd9b8;text-decoration:none;}
     .hero-sub-link:hover{text-decoration:underline;}
 
-    /* ── Latest card ── */
     .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 22px;border-radius:999px;font-weight:800;text-decoration:none;}
     .btn.primary{background:#f2a12b;color:#0d3f31;}
-    .latest-card{background:#fff;color:#13241e;padding:24px;border-radius:8px;border-left:6px solid #f2a12b;box-shadow:0 18px 50px rgba(0,0,0,.18);}
-    .latest-kicker{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:12px;}
-    .latest-card h2{font-family:Fraunces,Georgia,serif;font-size:30px;line-height:1.1;margin-bottom:12px;}
-    .latest-card p{color:#46524c;font-size:15px;margin-bottom:18px;}
-    .issue-meta{display:flex;flex-wrap:wrap;gap:10px;color:#63736b;font-size:13px;margin-bottom:18px;}
-    .pill{background:#e8f4ee;border-radius:999px;padding:6px 10px;}
 
     /* ── Archive ── */
     .main{padding:42px 24px 64px;}
@@ -157,7 +127,6 @@
     }
     .subscribe-strip p{font-size:15px;color:#a9e8cf;margin-bottom:28px;}
     #signup{scroll-margin-top:90px;}
-    .signup-proof{display:inline-flex;align-items:center;gap:8px;background:rgba(120,221,180,.12);border:1px solid rgba(127,217,184,.3);color:#7fd9b8;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:7px 16px;border-radius:999px;margin-bottom:22px;}
     .signup-form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
     .signup-input{flex:1;min-width:220px;padding:14px 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.2);background:#fff;font-family:Inter,-apple-system,sans-serif;font-size:15px;color:#13241e;outline:none;}
     .signup-input:focus{border-color:#78ddb4;}
@@ -167,23 +136,6 @@
     .signup-success span{color:#78ddb4;}
     .signup-fineprint{margin-top:14px;font-size:12px;color:#7a9a8a;}
 
-    /* ── Products teaser ── */
-    .products-teaser{padding:56px 24px 48px;background:#f2ede3;}
-    .teaser-head{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:28px;flex-wrap:wrap;}
-    .teaser-eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#1a5f4a;margin-bottom:8px;}
-    .teaser-title{font-family:Fraunces,Georgia,serif;font-size:32px;line-height:1.1;}
-    .teaser-all{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;text-decoration:none;white-space:nowrap;border-bottom:1.5px solid #1a5f4a;padding-bottom:2px;}
-    .teaser-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px;}
-    .teaser-card{background:#fff;border-radius:10px;padding:22px;text-decoration:none;color:inherit;border-top:4px solid #0d3f31;display:flex;flex-direction:column;gap:10px;transition:box-shadow .18s;}
-    .teaser-card:hover{box-shadow:0 10px 36px rgba(0,0,0,.1);}
-    .teaser-num{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;color:#78ddb4;background:#0d3f31;display:inline-block;padding:3px 9px;border-radius:4px;align-self:flex-start;}
-    .teaser-card-title{font-weight:800;font-size:16px;line-height:1.3;}
-    .teaser-card-desc{font-size:13px;color:#665f56;line-height:1.65;flex:1;}
-    .teaser-price{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:700;color:#f2631a;margin-top:4px;}
-    .teaser-bundle{font-size:13px;color:#665f56;text-align:center;}
-    .teaser-bundle strong{color:#13241e;}
-    .teaser-bundle a{color:#1a5f4a;text-decoration:underline;text-underline-offset:3px;}
-    @media(max-width:760px){.teaser-grid{grid-template-columns:1fr;}}
 
     /* ── Subtle author strip ── */
     .about-strip{
@@ -259,14 +211,10 @@
       .sub-btn.sm{padding:9px 16px;font-size:11px;}
 
       /* Hero */
-      .hero-grid{grid-template-columns:1fr;align-items:start;}
       .lede{font-size:16px;line-height:1.7;}
       .hero-actions{width:100%;}
       .sub-btn.lg{width:100%;font-size:15px;padding:15px 20px;justify-content:center;}
       .hero-sub-link{text-align:center;width:100%;display:block;}
-
-      /* Latest card */
-      .latest-card h2{font-size:22px;}
 
       /* Main / archive */
       .main{padding:28px 18px 44px;}
@@ -276,10 +224,6 @@
       .issue-title{font-size:16px;}
       .status{white-space:normal;}
 
-      /* Products teaser */
-      .products-teaser{padding:36px 18px 32px;}
-      .teaser-title{font-size:26px;}
-      .teaser-grid{grid-template-columns:1fr;}
       .teaser-head{flex-direction:column;align-items:flex-start;gap:8px;}
 
       /* Subscribe strip */
@@ -310,69 +254,29 @@
             <span class="brand-word">FOWL AI</span>
           </a>
           <a class="nav-bounce" href="/platforms/">Platforms</a>
-          <a class="nav-bounce" style="animation-delay:.4s" href="/jobs/">Jobs</a>
-          <a class="nav-bounce" style="animation-delay:.8s" href="/issues/">Briefings</a>
+          <a class="nav-bounce" href="/jobs/">Jobs</a>
+          <a class="nav-bounce" href="/issues/">Briefings</a>
           <a class="sub-btn sm" href="#signup">Subscribe</a>
         </nav>
-        <div class="hero-grid">
-          <div>
-            <div class="eyebrow">FOWL AI</div>
-            <h1>Navigate the<span>AI Economy.</span></h1>
-            <p class="lede">Find AI jobs, discover vetted AI platforms, and get a free 5-minute AI briefing every Monday.</p>
-            <div class="hero-actions" id="signup">
-              <div style="font-family:'DM Mono',monospace;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:#f2a12b;font-weight:700;margin-bottom:4px;">Get the FOWL AI Briefing</div>
-              <form id="fowlSignupForm" class="signup-form" style="margin:0;max-width:420px;justify-content:flex-start;" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true;">
-                <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
-                <button class="signup-submit" type="submit">Subscribe free →</button>
-              </form>
-              <div id="fowlSignupSuccess" class="signup-success">You're in! <span>The next issue arrives Monday.</span></div>
-              <iframe name="fowlHiddenFrame" title="signup" style="display:none;" onload="if(window.fowlFormSubmitted){document.getElementById('fowlSignupForm').style.display='none';document.getElementById('fowlSignupSuccess').style.display='block';window.fowlFormSubmitted=false;}"></iframe>
-              <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#7fd9b8;">Every Monday · 5-minute read · Free</div>
-              <div style="font-size:11px;color:#7a9a8a;">Unsubscribe anytime.</div>
-              <div class="signup-proof">Join 170+ AI professionals receiving the FOWL AI Briefing every Monday.</div>
-              <div style="display:flex;gap:8px;flex-wrap:wrap;">
-                <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(120,221,180,.12);color:#7fd9b8;padding:5px 11px;border-radius:999px;border:1px solid rgba(127,217,184,.25);">New AI jobs</span>
-                <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(120,221,180,.12);color:#7fd9b8;padding:5px 11px;border-radius:999px;border:1px solid rgba(127,217,184,.25);">New AI platforms</span>
-                <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(120,221,180,.12);color:#7fd9b8;padding:5px 11px;border-radius:999px;border:1px solid rgba(127,217,184,.25);">Career insights</span>
-                <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;background:rgba(120,221,184,.12);color:#7fd9b8;padding:5px 11px;border-radius:999px;border:1px solid rgba(127,217,184,.25);">Emerging opportunities</span>
-              </div>
-              <span style="font-size:13px;color:#a9e8cf;line-height:1.65;max-width:480px;">Built by a full-time data scientist researching AI jobs, platforms, and opportunities every week. <a href="/about/" style="color:#f2a12b;text-decoration:underline;text-underline-offset:3px;white-space:nowrap;">Learn why FOWL AI exists →</a></span>
-            </div>
+        <div>
+          <div class="eyebrow">Career Signals · AI Economy</div>
+          <h1>Navigate the<span>AI Economy.</span></h1>
+          <p class="lede">Find AI jobs, discover vetted AI platforms, and get a free 5-minute AI briefing every Monday.</p>
+          <div class="hero-actions" id="signup">
+            <form id="fowlSignupForm" class="signup-form" style="margin:0;max-width:420px;justify-content:flex-start;" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true;">
+              <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
+              <button class="signup-submit" type="submit">Subscribe free →</button>
+            </form>
+            <div id="fowlSignupSuccess" class="signup-success">You're in! <span>The next issue arrives Monday.</span></div>
+            <iframe name="fowlHiddenFrame" title="signup" style="display:none;" onload="if(window.fowlFormSubmitted){document.getElementById('fowlSignupForm').style.display='none';document.getElementById('fowlSignupSuccess').style.display='block';window.fowlFormSubmitted=false;}"></iframe>
+            <div style="font-size:13px;color:#7fd9b8;">Every Monday, free. Join 170+ AI professionals already reading. <a href="/about/" style="color:#f2a12b;text-decoration:underline;text-underline-offset:3px;">Learn why FOWL AI exists →</a></div>
           </div>
-          <aside class="latest-card" style="display:flex;flex-direction:column;gap:0;">
-            <div class="latest-kicker" style="margin-bottom:18px;">Start Here</div>
-
-            <div style="border-bottom:1px solid #e8e4de;padding-bottom:18px;margin-bottom:18px;">
-              <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:6px;">🚀 Learn the Landscape</div>
-              <div style="font-weight:700;font-size:16px;color:#13241e;margin-bottom:6px;">Explore AI Platforms</div>
-              <div style="font-size:13px;color:#46524c;line-height:1.6;margin-bottom:12px;">Vetted AI training, evaluation, and expert work opportunities — ranked by accessibility.</div>
-              <a class="btn primary" href="/platforms/" style="font-size:13px;padding:10px 18px;min-height:auto;">Browse Platforms →</a>
-            </div>
-
-            <div style="border-bottom:1px solid #e8e4de;padding-bottom:18px;margin-bottom:18px;">
-              <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:6px;">💼 Find Opportunities</div>
-              <div style="font-weight:700;font-size:16px;color:#13241e;margin-bottom:6px;">Browse AI Jobs</div>
-              <div style="font-size:13px;color:#46524c;line-height:1.6;margin-bottom:12px;">AI evaluation gigs, startup roles, and emerging career titles — updated weekly.</div>
-              <a class="btn primary" href="/jobs/" style="font-size:13px;padding:10px 18px;min-height:auto;background:#0d3f31;color:#fff;">Browse Jobs →</a>
-            </div>
-
-            <div style="border-bottom:1px solid #e8e4de;padding-bottom:18px;margin-bottom:18px;">
-              <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;margin-bottom:6px;">📰 Latest Briefing</div>
-              <div style="font-size:13px;color:#665f56;line-height:1.6;">Issue 8: <a href="./issues/2026-07-13/" style="color:#1a5f4a;text-decoration:underline;text-underline-offset:3px;">2 Platforms. 8 Contracts. →</a></div>
-            </div>
-
-            <div>
-              <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2631a;margin-bottom:6px;">📬 Weekly Briefing</div>
-              <div style="font-weight:700;font-size:16px;color:#13241e;margin-bottom:6px;">Join 170+ AI professionals.</div>
-              <div style="font-size:13px;color:#46524c;line-height:1.6;">Free every Monday.</div>
-            </div>
-          </aside>
         </div>
       </div>
     </header>
 
     <!-- Why FOWL AI -->
-    <div style="background:#fff;border-bottom:1px solid #e8e4de;padding:28px 24px;">
+    <div style="background:#fff;border-bottom:1px solid #e8e4de;padding:48px 24px;">
       <div class="wrap">
         <div style="display:flex;align-items:center;gap:12px;margin-bottom:18px;">
           <span style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#1a5f4a;">Why FOWL AI?</span>
@@ -384,6 +288,42 @@
           <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#2a2a2a;line-height:1.5;"><span style="color:#1a5f4a;font-weight:700;flex-shrink:0;">✓</span> Weekly research on emerging AI opportunities</div>
           <div style="display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#2a2a2a;line-height:1.5;"><span style="color:#1a5f4a;font-weight:700;flex-shrink:0;">✓</span> Focused on practical career knowledge and opportunities, not hype</div>
         </div>
+      </div>
+    </div>
+
+    <!-- Start Here — all-green, no card -->
+    <section style="background:#0d3f31;padding:52px 24px;">
+      <div class="wrap">
+        <div style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:30px;">Start Here</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:36px;">
+          <div>
+            <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;">Learn the Landscape</div>
+            <div style="font-weight:700;font-size:18px;color:#fff;margin-bottom:8px;">Explore AI Platforms</div>
+            <div style="font-size:14px;color:#cfe9dd;line-height:1.65;margin-bottom:16px;">Vetted AI training, evaluation, and expert work opportunities — ranked by accessibility.</div>
+            <a class="btn primary" href="/platforms/" style="font-size:13px;padding:10px 18px;min-height:auto;">Browse Platforms →</a>
+          </div>
+
+          <div>
+            <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;margin-bottom:8px;">Find Opportunities</div>
+            <div style="font-weight:700;font-size:18px;color:#fff;margin-bottom:8px;">Browse AI Jobs</div>
+            <div style="font-size:14px;color:#cfe9dd;line-height:1.65;margin-bottom:16px;">AI evaluation gigs, startup roles, and emerging career titles — updated weekly.</div>
+            <a class="btn" href="/jobs/" style="font-size:13px;padding:10px 18px;min-height:auto;background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.35);">Browse Jobs →</a>
+          </div>
+
+          <div>
+            <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#9fe3c8;margin-bottom:8px;">Latest Briefing</div>
+            <div style="font-weight:700;font-size:18px;color:#fff;margin-bottom:8px;">Issue 8: 2 Platforms. 8 Contracts.</div>
+            <div style="font-size:14px;color:#cfe9dd;line-height:1.65;"><a href="./issues/2026-07-13/" style="color:#78ddb4;text-decoration:underline;text-underline-offset:3px;">Read the issue →</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Breather -->
+    <div style="padding:64px 24px;text-align:center;">
+      <div class="wrap">
+        <p style="font-family:Fraunces,Georgia,serif;font-style:italic;font-size:26px;line-height:1.5;color:#1a3a2a;max-width:640px;margin:0 auto;">"It's not one job. It's a portfolio you keep refilling."</p>
+        <p style="font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;margin-top:18px;">— Issue 8, FOWL AI</p>
       </div>
     </div>
 
