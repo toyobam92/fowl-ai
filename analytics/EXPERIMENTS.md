@@ -20,7 +20,7 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 | [Jobs Board filters](#jobs-board-filters) | Engagement rate (Jobs Board) | — | Planned |
 | [Platforms Directory filters](#platforms-directory-filters) | Engagement rate (Platforms Directory) | — | Planned |
 | ["Start here" + related-issue links](#start-here--related-issue-links) | Pages / session | — | Planned |
-| [Sitewide event instrumentation](#sitewide-event-instrumentation) | % sessions with a tracked engagement event | — | Planned |
+| [Sitewide event instrumentation](#sitewide-event-instrumentation) | % sessions with a tracked engagement event | 2026-07-16 | Reading |
 
 ---
 
@@ -80,5 +80,8 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Hypothesis:** Most of the site's bounce rate currently reflects missing GA4 event tracking (only Contact has a working conversion event), not actual visitor disengagement. Adding scroll, outbound-click, and subscribe events will both lower measured bounce and — more importantly — make every other experiment on this list actually measurable.
 **Metric:** % of sessions with at least one tracked engagement event, sitewide.
 **Ticket:** TICKET-6 in `TICKETS.md`.
-**Status:** Planned — not yet shipped. **This should ship before/alongside the others** — every experiment above needs it to produce a trustworthy result.
-**Baseline (as of 2026-07-15–16):** 17s avg. engagement/user sitewide; Contact is the only page with a non-100% bounce rate. **Latest (2026-07-10–16):** 9s avg. engagement/user sitewide; Contact still the only page that never bounces, but every other page's bounce rate also fell this week without any corresponding UX change shipping — the leading explanation is that the metric itself is noisy/incomplete without broader event tracking, which is exactly what this ticket fixes.
+**Shipped:** 2026-07-16 (`a57b9a2` — "Ship TICKET-6: sitewide GA4 event instrumentation"). Added `analytics-events.js` (scroll_75, outbound_click, subscribe_click, subscribe_submit) to all 24 site pages. Scope expanded beyond the original ticket: 14 pages (guide, resume-template, interview-guide, both launchlab pages, and 9 issue archive pages) had no GA4 tracking at all and got the base `gtag` snippet added too, not just events. Still needs a manual step: mark `subscribe_click` and `subscribe_submit` as GA4 Key Events in Admin.
+**Status:** Reading.
+**Baseline (as of 2026-07-15–16):** 17s avg. engagement/user sitewide; Contact is the only page with a non-100% bounce rate. **Pre-ship read (2026-07-10–16):** 9s avg. engagement/user sitewide; Contact still the only page that never bounces, but every other page's bounce rate also fell that week without any corresponding UX change shipping — the leading explanation was that the metric itself was noisy/incomplete without broader event tracking, which is what this ticket fixes.
+**Result:** Pending — 0 days since ship, needs the ≥7-day/≥2-row gate like everything else. First real read next weekly cycle. Once it lands, expect a level-shift in bounce/engagement numbers sitewide that reflects better measurement, not a UX change — don't misread that as a win or loss for any of the four experiments above.
+**Decision:** Pending.
