@@ -2,6 +2,8 @@
   "site-snapshot": {
     "file": "analytics/dashboards/site-snapshot.html",
     "url": "https://claude.ai/code/artifact/34de4adc-e8f1-418f-81ce-e66ba9194918",
+    "cowork_artifact_id": "fowlai-site-snapshot",
+    "cowork_artifact_note": "Republished 2026-07-16 via the Cowork create_artifact tool (id fowlai-site-snapshot), which uses a different URL scheme than the claude.ai/code/artifact link above. That original link is from a different environment (likely Claude Code) not reachable from this Cowork session, so it could not be updated in place — flagged to the user in that cycle's chat report.",
     "description": "GA4 traffic snapshot — pages, sources, geography, bounce-rate callouts. Updated weekly from analytics/metrics-history.csv."
   },
   "phase1-roadmap": {

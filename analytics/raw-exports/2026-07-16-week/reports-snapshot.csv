@@ -1,0 +1,97 @@
+# ----------------------------------------
+# Reports snapshot
+# Account: fowl AI
+# Property: fowl AI
+# NOTE: pulled directly from the GA4 UI (Reports > Snapshot / Demographic details) via
+# Claude in Chrome for the weekly-analytics-review scheduled task, not a manual CSV export.
+# ----------------------------------------
+#
+# Start date: 20260710
+# End date: 20260716
+Active users,New users,Average engagement time per active user,Event count
+154,149,9,819
+
+#
+# Start date: 20260710
+# End date: 20260716
+Page title and screen class,Views,Active users,Event count,Bounce rate
+"FOWL AI | AI Jobs, Platforms & Opportunities",99,75,362,0.643
+All Issues — FOWL AI,41,22,127,0.759
+Contact — FOWL AI,36,32,161,0
+AI Platforms Directory — FOWL AI,32,23,88,0.741
+AI Jobs Board | Remote AI Opportunities & Roles — FOWL AI,19,10,58,0.529
+About TYB — FOWL AI,5,3,18,0.8
+Privacy Policy — FOWL AI,1,1,3,1
+
+#
+# Start date: 20260710
+# End date: 20260716
+First user source / medium,Active users
+google / organic,118
+(direct) / (none),19
+chatgpt.com / ai-assistant,5
+bing / organic,3
+(data not available),2
+duckduckgo / organic,1
+quendu.com / referral,1
+
+#
+# Start date: 20260710
+# End date: 20260716
+Session source / medium,Sessions
+google / organic,137
+(direct) / (none),17
+chatgpt.com / ai-assistant,8
+bing / organic,3
+(data not available),2
+duckduckgo / organic,1
+quendu.com / referral,1
+
+#
+# Start date: 20260710
+# End date: 20260716
+# NOTE: Nth-day new/returning cohort breakdown was not retrievable from the GA4 UI
+# snapshot/demographic views used for this pull (would require the Retention report,
+# which this session did not navigate to). Left blank this cycle — see metrics-history.csv.
+Nth day,new,returning
+
+# How does activity on your platforms compare?
+# Start date: 20260710
+# End date: 20260716
+Platform,Key events
+web,36
+
+#
+# Start date: 20260710
+# End date: 20260716
+City,Active users
+Patna,17
+Jaipur,8
+(not set),6
+Bengaluru,5
+Hyderabad,5
+Lucknow,5
+Pune,5
+Ahmedabad,4
+Delhi,4
+Atlanta,3
+Bhopal,3
+Bhubaneswar,3
+Dhaka,3
+Frankfurt am Main,3
+Guwahati,3
+Indore,3
+Surat,3
+Chennai,2
+Jodhpur,2
+Kolkata,2
+Kota,2
+Ludhiana,2
+Malang,2
+Meerut,2
+
+#
+# Start date: 20260710
+# End date: 20260716
+Audience name,Active users
+All Users,154

@@ -30,8 +30,8 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Metric:** Homepage bounce rate (GA4, page = `FOWL AI | AI Jobs, Platforms & Opportunities`).
 **Shipped:** 2026-07-15 (`c1e14c2` — "Declutter homepage: remove gimmicky animations, tighten hero, fix section rhythm")
 **Baseline:** Not available (shipped at/before first GA export). First read: 100% bounce, 21 views, 14 users (2026-07-15–16) — 1 day of post-ship data, too small to call.
-**Result:** Pending — needs 2+ more weekly reads.
-**Decision:** Pending.
+**Result:** Pending — 2nd read (2026-07-10–16, 7-day window, overlaps the first read's dates): 64.3% bounce, 99 views, 75 users. Bounce dropped sharply but only 1 day has actually elapsed since ship — sample is bigger, not yet longer. Needs ~6 more days before the ≥7-day/≥2-row call threshold is met.
+**Decision:** Pending — 1 of 2 reads collected, but the "days since shipped" gate (needs ≥7) isn't met yet.
 
 ## Embedded signup form + social proof
 
@@ -39,8 +39,8 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Metric:** Newsletter conversion rate — currently not a tracked GA4 event; needs a "subscribe submitted" conversion event (see [Sitewide event instrumentation](#sitewide-event-instrumentation)). Proxy until then: homepage → Contact/subscribe engagement.
 **Shipped:** 2026-07-14 (`2eb9ef8` — "Embed signup form in hero and add social proof")
 **Baseline:** Not available.
-**Result:** Pending — blocked on conversion-event tracking existing at all. This is the clearest case for shipping the instrumentation ticket first.
-**Decision:** Pending.
+**Result:** Pending — blocked on conversion-event tracking existing at all. 2nd read (proxy): Contact still 0% bounce, up to 36 views / 32 users (from 13/11). This is the clearest case for shipping the instrumentation ticket first.
+**Decision:** Pending — 2 days since ship, below the ≥7-day gate.
 
 ## Issues → Briefings rename + sharper copy
 
@@ -48,8 +48,8 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Metric:** Average engagement time per active user (sitewide + homepage).
 **Shipped:** 2026-07-14 (`efeb2da` — "Sharpen homepage landing-page copy and rename Issues to Briefings")
 **Baseline:** Not available. First read: 17s avg. engagement/user sitewide (2026-07-15–16).
-**Result:** Pending.
-**Decision:** Pending.
+**Result:** Pending — 2nd read: 9s avg. engagement/user sitewide (2026-07-10–16), down from 17s. Moving the wrong direction for the hypothesis, but likely confounded: bounce fell on every page except Contact this week too, which points at missing engagement-event tracking (TICKET-6) more than a real behavior shift. Not calling this yet.
+**Decision:** Pending — 2 days since ship, below the ≥7-day gate.
 
 ## Jobs Board filters
 
@@ -57,7 +57,7 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Metric:** Engagement rate on the AI Jobs Board page.
 **Ticket:** TICKET-2 in `TICKETS.md`.
 **Status:** Planned — not yet shipped.
-**Baseline (as of 2026-07-15–16):** 100% bounce, 6 views, 4 users.
+**Baseline (as of 2026-07-15–16):** 100% bounce, 6 views, 4 users. **Latest (2026-07-10–16):** 52.9% bounce, 19 views, 10 users.
 
 ## Platforms Directory filters
 
@@ -65,7 +65,7 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Metric:** Engagement rate on the AI Platforms Directory page.
 **Ticket:** TICKET-3 in `TICKETS.md`.
 **Status:** Planned — not yet shipped.
-**Baseline (as of 2026-07-15–16):** 100% bounce, 5 views, 2 users.
+**Baseline (as of 2026-07-15–16):** 100% bounce, 5 views, 2 users. **Latest (2026-07-10–16):** 74.1% bounce, 32 views, 23 users.
 
 ## "Start here" + related-issue links
 
@@ -73,7 +73,7 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Metric:** Pages / session (sitewide), and views on `/issues` specifically.
 **Ticket:** TICKET-4 in `TICKETS.md`.
 **Status:** Planned — not yet shipped.
-**Baseline (as of 2026-07-15–16):** All Issues page — 100% bounce, 8 views, 6 users.
+**Baseline (as of 2026-07-15–16):** All Issues page — 100% bounce, 8 views, 6 users. **Latest (2026-07-10–16):** 75.9% bounce, 41 views, 22 users.
 
 ## Sitewide event instrumentation
 
@@ -81,4 +81,4 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Metric:** % of sessions with at least one tracked engagement event, sitewide.
 **Ticket:** TICKET-6 in `TICKETS.md`.
 **Status:** Planned — not yet shipped. **This should ship before/alongside the others** — every experiment above needs it to produce a trustworthy result.
-**Baseline (as of 2026-07-15–16):** 17s avg. engagement/user sitewide; Contact is the only page with a non-100% bounce rate.
+**Baseline (as of 2026-07-15–16):** 17s avg. engagement/user sitewide; Contact is the only page with a non-100% bounce rate. **Latest (2026-07-10–16):** 9s avg. engagement/user sitewide; Contact still the only page that never bounces, but every other page's bounce rate also fell this week without any corresponding UX change shipping — the leading explanation is that the metric itself is noisy/incomplete without broader event tracking, which is exactly what this ticket fixes.
