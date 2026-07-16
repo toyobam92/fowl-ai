@@ -12,8 +12,8 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FOWL AI · Issue 8 · 2 platforms. 8 contracts.</title>
-<meta name="description" content="A full breakdown of every AI training contract I'm running right now — across 2 platforms, current and past, with real pay.">
+<title>FOWL AI · Issue 9 · LLMs, Agents, MCP, RAG — what do these terms actually mean?</title>
+<meta name="description" content="A plain-English breakdown of the 5 AI terms you keep hearing but nobody explains: LLM, Agent, MCP, RAG, and Context Window.">
 <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
 <style>
 
@@ -42,7 +42,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
 .brand-name span{display:block;color:#7fd9b8;}
 
-.mast-title{font-family:'Inter',-apple-system,sans-serif;font-style:italic;font-weight:800;font-size:58px;line-height:1.06;letter-spacing:-2px;color:#fff;margin-top:8px;}
+.mast-title{font-family:'Inter',-apple-system,sans-serif;font-style:italic;font-weight:800;font-size:52px;line-height:1.1;letter-spacing:-1.5px;color:#fff;margin-top:8px;}
 .mast-title span{color:#35bfa2;display:block;}
 .mast-sub{font-family:'Inter',-apple-system,sans-serif;font-size:19px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:560px;}
 
@@ -92,9 +92,6 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 .inside{background:#fffbf0;border-left:4px solid #d99c2b;padding:12px 16px;font-size:14px;font-style:italic;line-height:1.65;color:#4a4030;margin-top:14px;border-radius:0 6px 6px 0;}
 .inside b{font-style:normal;color:#0f3d30;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
 
-.story-img{max-width:100%;display:block;border-radius:10px;border:1px solid #e8e4de;box-shadow:0 4px 16px rgba(0,0,0,.06);margin:16px 0 6px;}
-.story-caption{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.5px;color:#8a8f8a;margin-bottom:14px;}
-
 /* SIGNAL & CHATTER — sig-dot contains one text char only, safe to use flex */
 .sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
 .sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
@@ -142,7 +139,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 @media(max-width:768px){
   .mast,.card,.card-dark,.card-amber,.card-mint,.card-coral,
   .sec,.story,.footer,.launch-lab{padding-left:20px;padding-right:20px;}
-  .mast-title{font-size:36px;letter-spacing:-1px;}
+  .mast-title{font-size:32px;letter-spacing:-1px;}
   .mast-sub{font-size:16px;}
   .mast-meta{flex-direction:column;gap:8px;}
   .brand-lockup{gap:12px;margin:14px 0 20px;}
@@ -168,8 +165,8 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <!-- ═══════════════════════════════════════ MASTHEAD -->
 <div class="mast">
   <div class="mast-meta">
-    <span>Vol. 1 · Issue 8</span>
-    <span>July 13, 2026</span>
+    <span>Vol. 1 · Issue 9</span>
+    <span>July 20, 2026</span>
   </div>
   <div class="brand-lockup">
     <div class="brand-dot"></div>
@@ -177,19 +174,19 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
     <div class="brand-divider"></div>
     <div class="brand-name">Future of<span>Work Lab</span></div>
   </div>
-  <div class="mast-title">2 platforms.<span>8 contracts.</span></div>
-  <div class="mast-sub">We just crossed 170 subscribers — so this week I'm opening the books completely. Every AI training contract I'm running right now, across two platforms, current and past, with the real pay attached.</div>
+  <div class="mast-title">LLMs. Agents. MCP. RAG.<span>What do these terms actually mean?</span></div>
+  <div class="mast-sub">You've heard all four this month alone — in a job posting, a LinkedIn post, a meeting you nodded through. This issue is the plain-English version nobody gave you the first time.</div>
   <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Subscribe free</a>
   <div class="mast-rule"></div>
   <div class="mast-foot">
     <div class="mast-tag">Career Signals · AI Economy</div>
-    <div class="mast-badge">First Hand</div>
+    <div class="mast-badge">Reference Issue</div>
     <div class="mast-freq">Weekly</div>
   </div>
   <div class="brand-strip">
-    <div class="brand-item"><b>Platforms</b><span>Handshake and Mercor, side by side</span></div>
-    <div class="brand-item"><b>Pay range</b><span>$17/hr to $140/task</span></div>
-    <div class="brand-item"><b>Status</b><span>6 active, 2 ended — the full lifecycle</span></div>
+    <div class="brand-item"><b>Terms covered</b><span>LLM, Agent, MCP, RAG, Context Window</span></div>
+    <div class="brand-item"><b>No jargon</b><span>Every definition in one sentence first</span></div>
+    <div class="brand-item"><b>Why now</b><span>These 5 words show up in nearly every AI job posting</span></div>
   </div>
 </div>
 
@@ -197,7 +194,7 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <!-- ═══════════════════════════════════════ TLDR -->
 <div class="card-amber">
   <div class="tldr-label">If you read nothing else</div>
-  <div class="tldr-text">I'm running 8 AI training contracts across 2 platforms right now — 6 active, 2 already ended. The pay ranges from $17/hr to $140/task, and none of it required more than one application per platform to get started.</div>
+  <div class="tldr-text">An LLM is the engine. An Agent is that engine given a task and the ability to act on it. MCP is how it plugs into your tools and data. RAG is how it looks things up instead of guessing. A context window is how much it can hold in its head at once. That's the whole map.</div>
 </div>
 
 
@@ -210,72 +207,67 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
     <div>
       <div class="nova-label">🎙️ Nova's Signal</div>
       <div class="nova-byline">Nova is FOWL AI's news anchor — she tracks the signals every week.</div>
-      <div class="nova-quote">"Nobody talks about the boring part of this work — that it's a portfolio, not a job. Contracts start, they run for a few weeks or months, and then they end. That's not a red flag. That's just what this labor market looks like right now."</div>
-      <div class="nova-call">Nova's call: <strong>Bullish.</strong> Multiple concurrent contracts across platforms is becoming the default way people do this work, not the exception.</div>
+      <div class="nova-quote">"Every one of these terms sounds harder than it is. That's not an accident — vague jargon makes a feature sound more impressive than a plain sentence would. Once you can define all five in under ten seconds each, most AI product pitches stop sounding magical and start sounding like what they are: useful, specific tools."</div>
+      <div class="nova-call">Nova's call: <strong>Bookmark this one.</strong> You'll reference it more than any issue we've done.</div>
     </div>
   </div>
 
+  <div class="editor-note"><b>New here? —</b> This is a Reference Issue, same format as Issue 4 (The AI Model Map). No prior AI knowledge assumed — every term is defined from zero before we go further.</div>
+
   <div class="intro-text">
-    Last week we crossed 170 subscribers. Thank you for helping build one of the fastest-growing newsletters focused on AI careers and the future of work. This week's issue is the most literal one I've written: I'm just going to show you what's actually on my plate.<br><br>
-    Right now I have contracts open on two platforms — Handshake and Mercor — and they don't work the same way. Handshake has me mid-onboarding on three separate projects and ready to start a fourth. Mercor has two contracts running today and two that already wrapped.<br><br>
-    What you'll get from this issue: the full list, the pay attached to each one, and the difference between a contract that's active and one that's ended — because that distinction matters more than it sounds like it should.
+    Somewhere in the last few months, five words started showing up everywhere — job postings, product launches, LinkedIn posts, meetings — and most people nodded along without a clean definition for any of them.<br><br>
+    That's not a knowledge gap you caused. Almost nobody explains these terms in order, from the ground up, without assuming you already know the last one. So they stack: you half-understand "LLM," which makes "Agent" fuzzy, which makes "MCP" sound like alphabet soup.<br><br>
+    This issue fixes that. Five terms, each defined in one plain sentence first, then unpacked with a real example. Read it once and you'll have a permanent answer key.
   </div>
 </div>
 
 
 <!-- ═══════════════════════════════════════ STORIES -->
-<div class="sec"><span class="sec-tag">This Week — The Full Breakdown</span><span class="sec-line"></span></div>
+<div class="sec"><span class="sec-tag">5 Terms, Plain English</span><span class="sec-line"></span></div>
 
 <div class="story">
   <div class="story-n">01</div>
-  <div class="story-title">Handshake: 4 projects, mixed pay structures</div>
-  <div class="story-body">Handshake — yes, the platform best known for college recruiting — is where four of my contracts live. Project Dynamo pays $120/task plus $10/hr and has me building tasks against the Terminal Bench benchmark. Hedgehog-Evals pays a flat $17/hr for accuracy checks across eval tasks, and I'm four steps into a five-step onboarding. Hydra-Production pays $30/hr to evaluate and rank model-generated images, three steps into four. Project Seal is the highest-paying of the four at $140/task, for writing prompts difficult enough to expose failures in model websearch and reasoning — I'm five steps into seven there.</div>
-  <div class="story-body">Every one of these came with a task-limit warning at the top of the dashboard. That's not a bug — it's a real constraint on how much of this work you can take on at once, and it's worth knowing before you assume you can stack unlimited contracts.</div>
-  <img class="story-img" src="assets/handshake-projects.png" alt="Handshake project board showing Project Dynamo, Hedgehog-Evals, Hydra-Production, and Project Seal with pay rates and onboarding progress">
-  <div class="story-caption">My actual Handshake project board, screenshotted today.</div>
-  <div class="meta"><b>Why it matters ·</b> One platform, four live contracts, three different pay models — this is what "AI training work" actually looks like day to day, not a single job description.</div>
-  <div class="inside"><b>The signal —</b> Per-task pay tends to show up on harder, more adversarial work (Seal, Dynamo); flat hourly shows up on more repetitive eval work (Hedgehog, Hydra). The rate tracks the difficulty, not the platform.</div>
+  <div class="story-title">LLM — Large Language Model</div>
+  <div class="story-body"><b>One sentence:</b> an LLM is software trained on huge amounts of text that predicts what word should come next, which turns out to be enough to hold conversations, write code, and answer questions.</div>
+  <div class="story-body">That's it — underneath everything, an LLM is a very sophisticated next-word predictor. It doesn't "know" facts the way a database does; it's learned patterns from the text it was trained on and generates a response one piece at a time, each piece chosen based on everything that came before it. ChatGPT, Claude, and Gemini are all products built around an LLM — the LLM is the engine, the product is the car built around it.</div>
+  <div class="meta"><b>Why it matters ·</b> Every other term in this issue is something built on top of an LLM. This is the foundation the rest of the map sits on.</div>
+  <div class="inside"><b>The signal —</b> When someone says "the model," they usually mean the LLM specifically — not the whole product wrapped around it.</div>
 </div>
 
 <div class="story">
   <div class="story-n">02</div>
-  <div class="story-title">Mercor: 2 active, 2 already ended</div>
-  <div class="story-body">Mercor is where the other four contracts are, and it's the clearest example of the current-vs-past split. Active right now: Contractor at $80/hr and Project Thor - Mac Professionals at $30/task. Both show up as "Active" with no end date attached.</div>
-  <div class="story-body">Then there's the past section — two contracts that already ran their course. Data Science Expert paid $70/hr and ended about four months ago. Professional Evaluator Expert also paid $70/hr and ended about three months ago. Both are labeled "Ended," not paused, not failed — just complete.</div>
-  <img class="story-img" src="assets/mercor-contracts.png" alt="Mercor contracts dashboard showing active contracts Contractor and Project Thor, plus past contracts Data Science Expert and Professional Evaluator Expert">
-  <div class="story-caption">My actual Mercor contracts tab — 2 active, 2 ended.</div>
-  <div class="story-body">Here's what those four contracts have paid out on Mercor alone: $9,241.04 year to date, across roughly 110 hours — a blended average of about $84/hr. It hasn't come in evenly. Nothing in January, a slow ramp through February and March, a dead April, then the two biggest months yet in May and June.</div>
-  <img class="story-img" src="assets/earnings-chart.png" alt="Mercor earnings over time chart showing $9,241.04 total paid earnings from January through June 2026, with the largest months in May and June">
-  <div class="story-caption">My actual Mercor earnings chart, Jan 1 – Jul 11, 2026.</div>
-  <div class="meta"><b>Why it matters ·</b> Half of my Mercor history is already in the past tense. That's the first real data point I have on how long a typical contract actually lasts.</div>
-  <div class="inside"><b>The signal —</b> Two ended contracts in the same window I've had two new ones start. The portfolio isn't shrinking — it's turning over. And the income doesn't arrive on a flat line — it comes in waves as contracts start, ramp, and close.</div>
+  <div class="story-title">Agent — an LLM given a task and the ability to act</div>
+  <div class="story-body"><b>One sentence:</b> an AI Agent is an LLM that's been given a goal, a set of tools it's allowed to use, and the ability to keep working in steps until the goal is done — instead of just answering one question and stopping.</div>
+  <div class="story-body">A plain chatbot answers what you type and waits. An agent can be told "book me the cheapest flight to Chicago next Tuesday," then actually search flights, compare prices, and complete the booking — checking its own work and adjusting along the way, without you approving every single step. The shift from "answers questions" to "completes tasks" is the entire reason "AI Agent Orchestration Specialist" showed up as one of the most in-demand new job titles this year.</div>
+  <div class="meta"><b>Why it matters ·</b> Nearly every "next generation of AI" headline you've seen this year is really just describing agents getting more reliable at multi-step tasks.</div>
+  <div class="inside"><b>The signal —</b> If a tool can only respond to one message at a time with no memory of what it just did, it's not an agent yet — it's a chatbot.</div>
 </div>
 
 <div class="story">
   <div class="story-n">03</div>
-  <div class="story-title">Current vs. past — why the distinction matters</div>
-  <div class="story-body">It's tempting to read "Ended" as a downgrade. It isn't. Data Science Expert and Professional Evaluator Expert both ran for a defined stretch, paid consistently the whole time, and closed out cleanly. Nothing about either listing suggests I did anything wrong or that the platform cut me off.</div>
-  <div class="story-body">Meanwhile, six contracts are active today across the two platforms — four still mid-onboarding on Handshake, two running on Mercor. That's the actual shape of this work: a rolling mix of contracts in progress, contracts wrapping up, and new ones opening.</div>
-  <div class="meta"><b>Why it matters ·</b> If you're evaluating whether this kind of work is stable, the right question isn't "did a contract end" — it's "did another one replace it."</div>
-  <div class="inside"><b>The signal —</b> Treat "ended" contracts as portfolio turnover, not attrition. The number to watch is how many are active at any given time, not whether any individual one closes.</div>
+  <div class="story-title">MCP — Model Context Protocol</div>
+  <div class="story-body"><b>One sentence:</b> MCP is a standard way for an AI model to connect to outside tools and data — your files, a database, a calendar, a company's internal system — without every company having to build a custom connector from scratch.</div>
+  <div class="story-body">Before MCP, if you wanted an AI to read your Google Calendar, someone had to build a one-off integration just for that. MCP (created by Anthropic, now adopted industry-wide) works more like a universal power outlet: any tool that speaks MCP can plug into any AI model that supports it, and they understand each other automatically. It's plumbing, not a feature you'd notice directly — but it's the reason AI agents can now reach into real software instead of being stuck in a chat window.</div>
+  <div class="meta"><b>Why it matters ·</b> MCP is what turns an agent from "smart but isolated" into "smart and actually connected to your work."</div>
+  <div class="inside"><b>The signal —</b> If you see a company advertise "MCP support," they mean their product can be plugged into by AI tools — that's a compatibility claim, not a product feature on its own.</div>
 </div>
 
 <div class="story">
   <div class="story-n">04</div>
-  <div class="story-title">What running 8 contracts actually costs you</div>
-  <div class="story-body">The part nobody puts in the pitch: managing eight contracts across two dashboards takes real overhead. Onboarding steps on Handshake alone add up — 4 of 5 on one project, 3 of 4 on another, 5 of 7 on a third. Each platform has its own task-limit rules, its own progress bar, its own login.</div>
-  <div class="story-body">None of this is a complaint. It's a logistics problem, not a difficulty problem — and it's exactly the kind of thing that doesn't show up until you're actually in it.</div>
-  <div class="meta"><b>Why it matters ·</b> If you're planning to run more than one platform at once, budget time for the coordination, not just the task work.</div>
-  <div class="inside"><b>The signal —</b> The task-limit banner showing up on every Handshake project is a quiet reminder that these platforms are actively managing supply. Availability isn't unlimited on either side.</div>
+  <div class="story-title">RAG — Retrieval-Augmented Generation</div>
+  <div class="story-body"><b>One sentence:</b> RAG is a technique where an AI looks up relevant information from a specific set of documents before answering, instead of relying only on what it memorized during training.</div>
+  <div class="story-body">An LLM's training data has a cutoff date and doesn't include your company's internal wiki, your specific contracts, or last week's news. RAG fixes that by searching a document store for the most relevant pieces of text, then handing those to the model along with your question — so the answer is grounded in something real and current, not just the model's memory. This is why an AI customer support tool can answer questions about your specific product instead of hallucinating a generic answer.</div>
+  <div class="meta"><b>Why it matters ·</b> RAG is the main defense against an AI confidently making things up — it's the difference between "guessing" and "looking it up."</div>
+  <div class="inside"><b>The signal —</b> If an AI tool cites a specific source or document for its answer, RAG is almost certainly running underneath it.</div>
 </div>
 
 <div class="story" style="border-bottom:none;">
   <div class="story-n">05</div>
-  <div class="story-title">The full pay range, side by side</div>
-  <div class="story-body">Laid out flat: $17/hr (Hedgehog-Evals) → $30/hr (Hydra-Production) → $30/task (Project Thor) → $70/hr (Data Science Expert, ended) → $70/hr (Professional Evaluator Expert, ended) → $80/hr (Contractor) → $120/task + $10/hr (Dynamo) → $140/task (Seal).</div>
-  <div class="story-body">The spread is wide, but it's not random — the highest-paying work is also the most adversarial or highest-context (writing prompts to break models, benchmark task design). The lowest-paying work is the most repeatable (accuracy checks, image ranking).</div>
-  <div class="meta"><b>Why it matters ·</b> If you're choosing where to spend limited hours, difficulty and pay track each other closely enough to use as a filter.</div>
-  <div class="inside"><b>The signal —</b> Don't judge a platform by its lowest listed rate — judge it by its highest, since that's usually where the real skill-based pay shows up.</div>
+  <div class="story-title">Context Window — how much the model can hold in mind at once</div>
+  <div class="story-body"><b>One sentence:</b> the context window is the total amount of text — your messages, its replies, any documents you've shared — that a model can "see" and reason about at one time, measured in chunks of text called tokens.</div>
+  <div class="story-body">Once a conversation grows past the context window's limit, the oldest parts start dropping out of view — which is why an AI can seem to "forget" something you told it twenty minutes ago. Bigger context windows (some now stretch past a million tokens) let a model hold an entire codebase or book in mind at once, which is a big part of why AI tools have gotten noticeably better at long, complex tasks over the past year.</div>
+  <div class="meta"><b>Why it matters ·</b> When an AI response gets worse in a long conversation, a full context window is often the real culprit — not a sudden drop in the model's ability.</div>
+  <div class="inside"><b>The signal —</b> "Tokens" are roughly ¾ of a word on average — so a 1-million-token context window is very roughly 750,000 words, or several long novels.</div>
 </div>
 
 
@@ -283,21 +275,21 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
 <div class="card">
   <div class="sig-intro">What the data and community are saying this week.</div>
-  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>170 subscribers, up from a standing start.</b> Growth has been word-of-mouth and reply-driven so far — no paid promotion behind any of it.</div></div>
-  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Task limits are showing up everywhere.</b> Every open Handshake project in this issue carried a "you have a task limit" banner — a sign these platforms are throttling supply, not just demand.</div></div>
-  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Onboarding is multi-step by design.</b> Three of four Handshake projects required 4-7 onboarding steps before task work even starts — this isn't a same-day sign-up-to-paid pipeline.</div></div>
-  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Ended contracts aren't rare.</b> Half of my Mercor history is already closed out — worth expecting if you're planning around this as steady income.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>"Agent" is the most overused word in AI marketing right now.</b> A growing share of products labeled "AI Agents" are really just chatbots with a new coat of paint — ask whether it can complete a multi-step task unsupervised before you believe the label.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>MCP adoption has moved fast.</b> Since its release, major AI products and developer tools have added support for it, which is unusually quick for an open standard — a sign the industry wanted this problem solved.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>RAG is quietly becoming table stakes.</b> Most serious enterprise AI tools now use it by default — a model with no retrieval layer is increasingly treated as a demo, not a product.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Context windows keep growing.</b> What counted as a large context window two years ago is now considered small — treat any specific number you read as a snapshot, not a ceiling.</div></div>
 </div>
 
 
 <!-- ═══════════════════════════════════════ PREDICTION -->
 <div class="card">
   <div class="predict">
-    <div class="predict-label">🔮 FOWL Prediction #8</div>
-    <div class="predict-text">"By Issue 15 (mid-September), I'll have cycled through at least 12 total contracts across platforms — with the active count holding steady between 4 and 6 at any given time."</div>
-    <div class="predict-sub">The pattern so far: contracts end roughly as often as new ones open. If that rate holds, the total will climb even as the active count stays flat. We'll score this when Issue 15 goes out.</div>
+    <div class="predict-label">🔮 FOWL Prediction #9</div>
+    <div class="predict-text">"By Issue 20 (early 2027), 'Can you use MCP?' will show up in AI-related job interviews as often as 'Do you know Git?' shows up in engineering interviews today."</div>
+    <div class="predict-sub">MCP adoption is moving faster than most open standards do, and it's becoming the default way AI tools connect to real work. We'll check back on this prediction when Issue 20 goes out.</div>
   </div>
-  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;margin-top:8px;">FOWL AI · July 13, 2026 · We'll score this in September 2026.</div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;margin-top:8px;">FOWL AI · July 20, 2026 · We'll score this in early 2027.</div>
 </div>
 
 
@@ -308,15 +300,15 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
     <div class="action-label">One for each type of reader — pick yours</div>
     <div class="action-item">
       <span class="action-num">01</span>
-      <div><b>If you haven't applied to any platform yet —</b> pick one, not two. Handshake and Mercor both take real onboarding time; starting on both at once is how the task-limit walls in story 04 catch you off guard.</div>
+      <div><b>If you're job hunting in or near AI —</b> re-read job postings you've saved and circle every instance of these 5 words. You'll immediately understand what the role actually involves, not just the buzzword version.</div>
     </div>
     <div class="action-item">
       <span class="action-num">02</span>
-      <div><b>If you're already on one platform —</b> check whether a second one is worth adding. The pay spread in story 05 shows the real money is in higher-difficulty, per-task work — that might already exist on your current platform before you go looking for a second one.</div>
+      <div><b>If you use AI tools day to day —</b> next time a long conversation starts giving worse answers, start a fresh one instead of assuming the model got dumber. It's very likely the context window, not the model.</div>
     </div>
     <div class="action-item">
       <span class="action-num">03</span>
-      <div><b>If a contract of yours just ended —</b> don't read it as a signal to stop. Use the gap to apply to what's next while you have the bandwidth, the same way two new contracts opened for me right around when two others closed.</div>
+      <div><b>If you evaluate or buy AI products —</b> ask any vendor claiming to have an "AI Agent" one direct question: what multi-step task can it complete without you approving each step? The answer will tell you fast whether it's a real agent or a chatbot with better marketing.</div>
     </div>
   </div>
 </div>
@@ -341,38 +333,37 @@ body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia
 <div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
 <div class="card-dark">
   <div class="career-eye">This week</div>
-  <div class="career-title">AI Evaluator</div>
-  <div class="career-body">Half the contracts in this issue fall under some version of this title — Hedgehog-Evals, Hydra-Production's ranking work, Professional Evaluator Expert. The job is judgment, not generation: looking at model output and deciding if it's right, ranked correctly, or good enough to ship.</div>
-  <div class="career-body">It doesn't require an ML background. It requires the ability to hold a rubric consistently across hundreds of judgments and explain, in writing, why one output beats another. Companies are hiring for this across image ranking, accuracy checks, and reasoning review — the specifics vary, the underlying skill doesn't.</div>
-  <div class="career-why"><b>How to position for this now:</b> If you have any background where you've had to grade, review, or QA other people's work — teaching, editing, code review, quality assurance — lead with that on your application. It's a more direct match than most people assume.</div>
+  <div class="career-title">AI Agent Orchestration Specialist</div>
+  <div class="career-body">This title barely existed two years ago. Now it's one of the fastest-growing roles tied directly to term #2 in this issue: someone who designs, connects, and supervises multiple AI agents working together on a business process — routing tasks between them, setting the guardrails, and catching the failures before they become a customer-facing problem.</div>
+  <div class="career-body">It's less about writing code and more about systems thinking — understanding a workflow well enough to break it into steps an agent can reliably execute, and knowing exactly where a human still needs to check the work. People moving into this role come from operations, project management, and QA backgrounds as often as from engineering.</div>
+  <div class="career-why"><b>How to position for this now:</b> If you've ever mapped out a multi-step business process — even in a spreadsheet — that experience is more transferable to this role than most people realize. Lead with the process-design skill, not a coding background you don't have.</div>
 </div>
 
 
 <!-- ═══════════════════════════════════════ CLOSING -->
 <div class="card" style="padding-bottom:0;">
   <div style="font-size:16px;line-height:1.8;color:#1a1a1a;">
-    The honest version of "get paid to train AI" isn't one contract, it's a portfolio — some active, some just wrapping up, a couple always somewhere in onboarding. That's not instability. It's what this actually looks like once you're a few months in.<br><br>
-    So what do you actually do with this on Monday? Pick one platform and apply — don't split your first application across two. If you're already in, check whether a higher-paying, harder project is sitting in your dashboard right now instead of the easiest one. And if a contract of yours just ended, use it as a prompt to apply to what's next, not a reason to slow down.<br><br>
-    Next issue, I'm stepping back out to cover what's happening across the industry more broadly. But I wanted you to see the unglamorous, literal version first.
+    None of these five terms are actually complicated once someone hands you the plain-English version first. The complexity was never in the concepts — it was in nobody bothering to define them in order.<br><br>
+    Next time one of these words comes up in a meeting, a job posting, or a product pitch, you'll know exactly what's being claimed — and just as importantly, what isn't.
   </div>
 </div>
 
 <div class="card-dark" style="margin-top:0;text-align:center;">
-  <div class="stamp-text">"It's not one job.<br><span>It's a portfolio you keep refilling."</span></div>
+  <div class="stamp-text">"Jargon isn't complexity.<br><span>It's just a definition nobody gave you yet."</span></div>
 </div>
 
 
 <!-- ═══════════════════════════════════════ REPLY CTA -->
 <div class="card-mint">
   <div class="reply-label">💬 One question — reply and tell us</div>
-  <div class="reply-text">How many platforms are you currently signed up for — and how many of them have actually turned into paid contract work? Hit reply. We read every one and it shapes what we cover next.</div>
+  <div class="reply-text">Which AI term do you keep hearing but still can't define confidently? Hit reply — we'll cover it in a future issue.<br><br>Hit reply. We read every one and it shapes what we cover next.</div>
 </div>
 
 
 <!-- ═══════════════════════════════════════ SHARE -->
 <div style="background:#fff;margin:8px 0;padding:24px 44px;text-align:center;border-top:2px solid #f2ede3;">
   <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9aada5;margin-bottom:16px;">Share this issue</div>
-  <button onclick="navigator.clipboard.writeText('https://www.fowl-ai.com/issues/2026-07-13/').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>{this.textContent='Copy link'},2000)})" style="display:inline-block;background:#f2ede3;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid #c8c0b4;cursor:pointer;line-height:1.2;">Copy link</button>
+  <button onclick="navigator.clipboard.writeText('https://www.fowl-ai.com/issues/2026-07-20/').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>{this.textContent='Copy link'},2000)})" style="display:inline-block;background:#f2ede3;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid #c8c0b4;cursor:pointer;line-height:1.2;">Copy link</button>
 </div>
 
 
