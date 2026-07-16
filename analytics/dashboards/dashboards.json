@@ -1,0 +1,12 @@
+{
+  "site-snapshot": {
+    "file": "analytics/dashboards/site-snapshot.html",
+    "url": "https://claude.ai/code/artifact/34de4adc-e8f1-418f-81ce-e66ba9194918",
+    "description": "GA4 traffic snapshot — pages, sources, geography, bounce-rate callouts. Updated weekly from analytics/metrics-history.csv."
+  },
+  "phase1-roadmap": {
+    "file": "analytics/dashboards/phase1-roadmap.html",
+    "url": "https://claude.ai/code/artifact/f8559ca0-1402-44af-add1-6f8a9b97358b",
+    "description": "Phase 1 'AI destination' roadmap tracker — status badges sourced from analytics/roadmap.md."
+  }
+}

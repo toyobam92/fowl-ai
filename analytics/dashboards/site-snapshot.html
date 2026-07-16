@@ -1,0 +1,657 @@
+<title>FOWL AI — Site Snapshot</title>
+<style>
+  :root {
+    --surface-1:      #fcfcfb;
+    --page-plane:     #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --muted:          #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --series-1:       #2a78d6;
+    --series-1-wash:  rgba(42,120,214,0.10);
+    --good:           #0ca30c;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --surface-1:      #1a1a19;
+      --page-plane:     #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --muted:          #898781;
+      --gridline:       #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --series-1:       #3987e5;
+      --series-1-wash:  rgba(57,135,229,0.14);
+      --good:           #0ca30c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --surface-1:      #1a1a19;
+    --page-plane:     #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --muted:          #898781;
+    --gridline:       #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --series-1:       #3987e5;
+    --series-1-wash:  rgba(57,135,229,0.14);
+  }
+  :root[data-theme="light"] {
+    --surface-1:      #fcfcfb;
+    --page-plane:     #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --muted:          #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --series-1:       #2a78d6;
+    --series-1-wash:  rgba(42,120,214,0.10);
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page-plane);
+    color: var(--text-primary);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  .wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 32px 20px 64px;
+  }
+  header {
+    margin-bottom: 24px;
+  }
+  .eyebrow {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  h1 {
+    font-size: 24px;
+    font-weight: 650;
+    margin: 0 0 4px;
+    letter-spacing: -0.01em;
+  }
+  .subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .stat-tile {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px 18px;
+  }
+  .stat-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin: 0 0 8px;
+  }
+  .stat-value {
+    font-size: 28px;
+    font-weight: 650;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+  .stat-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+
+  .card-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  .card {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px 14px;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0 0 2px;
+  }
+  .card-caption {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+
+  .bar-row {
+    display: grid;
+    grid-template-columns: 132px 1fr 44px;
+    align-items: center;
+    gap: 10px;
+    padding: 5px 0;
+    border-radius: 6px;
+    outline: none;
+  }
+  .bar-row:focus-visible {
+    box-shadow: 0 0 0 2px var(--series-1);
+  }
+  .bar-label {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .bar-track {
+    position: relative;
+    height: 24px;
+    background: var(--series-1-wash);
+    border-radius: 4px;
+  }
+  .bar-fill {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    background: var(--series-1);
+    border-radius: 4px;
+    transition: filter 0.12s ease;
+  }
+  .bar-row:hover .bar-fill,
+  .bar-row:focus-visible .bar-fill {
+    filter: brightness(1.08);
+  }
+  .bar-value {
+    font-size: 12.5px;
+    font-weight: 600;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+  .bar-note {
+    font-size: 11.5px;
+    color: var(--muted);
+    margin-top: 8px;
+  }
+
+  .callout-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 12px 0 24px;
+  }
+  .callout {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 16px;
+  }
+  .callout-value {
+    font-size: 20px;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  .callout-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+  }
+
+  .insight-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 6px;
+  }
+  .insight-row {
+    display: grid;
+    grid-template-columns: 176px 96px 1fr;
+    align-items: start;
+    gap: 14px;
+    padding: 11px 0;
+    border-top: 1px solid var(--gridline);
+  }
+  .insight-row:first-child { border-top: none; }
+  .insight-page {
+    font-size: 12.5px;
+    font-weight: 600;
+    padding-top: 2px;
+  }
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11.5px;
+    font-weight: 650;
+    padding: 3px 9px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+  .badge .dot { width: 7px; height: 7px; border-radius: 50%; flex: none; }
+  .badge.critical { color: #d03b3b; background: rgba(208,59,59,0.12); }
+  .badge.critical .dot { background: #d03b3b; }
+  .badge.good { color: #0ca30c; background: rgba(12,163,12,0.12); }
+  .badge.good .dot { background: #0ca30c; }
+  .insight-text {
+    font-size: 12.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  details.table-toggle {
+    background: var(--surface-1);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px 20px;
+  }
+  details.table-toggle summary {
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 14px;
+    font-size: 12.5px;
+  }
+  table caption {
+    text-align: left;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 16px 0 6px;
+    padding: 0;
+  }
+  table caption:first-of-type { margin-top: 0; }
+  th, td {
+    text-align: left;
+    padding: 6px 10px 6px 0;
+    border-bottom: 1px solid var(--gridline);
+  }
+  th {
+    color: var(--muted);
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+  }
+  td.num, th.num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  footer {
+    margin-top: 24px;
+    font-size: 11.5px;
+    color: var(--muted);
+  }
+
+  #tooltip {
+    position: fixed;
+    pointer-events: none;
+    background: var(--text-primary);
+    color: var(--surface-1);
+    font-size: 12px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    line-height: 1.4;
+    transform: translate(-50%, calc(-100% - 10px));
+    opacity: 0;
+    transition: opacity 0.08s ease;
+    z-index: 10;
+    white-space: nowrap;
+  }
+  #tooltip.visible { opacity: 1; }
+  #tooltip .tt-value { font-weight: 700; }
+  #tooltip .tt-label { color: var(--baseline); margin-top: 1px; }
+
+  @media (max-width: 720px) {
+    .stat-row { grid-template-columns: repeat(2, 1fr); }
+    .card-row { grid-template-columns: 1fr; }
+    .callout-row { grid-template-columns: 1fr; }
+    .bar-row { grid-template-columns: 96px 1fr 36px; }
+    .insight-row { grid-template-columns: 1fr; gap: 6px; }
+  }
+</style>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">FOWL AI · fowl-ai.com</p>
+    <h1>Site snapshot</h1>
+    <p class="subtitle">Google Analytics · Jul 15–16, 2026 (2-day window)</p>
+  </header>
+
+  <div class="stat-row">
+    <div class="stat-tile">
+      <p class="stat-label">Active users</p>
+      <div class="stat-value">33</div>
+    </div>
+    <div class="stat-tile">
+      <p class="stat-label">New users</p>
+      <div class="stat-value">28</div>
+      <p class="stat-sub">85% of active users</p>
+    </div>
+    <div class="stat-tile">
+      <p class="stat-label">Avg. engagement / user</p>
+      <div class="stat-value">17s</div>
+    </div>
+    <div class="stat-tile">
+      <p class="stat-label">Events</p>
+      <div class="stat-value">180</div>
+    </div>
+  </div>
+
+  <div class="card-row">
+    <div class="card">
+      <p class="card-title">Top pages by views</p>
+      <p class="card-caption">Page title / screen class</p>
+      <div class="bar-list" data-chart="pages"></div>
+    </div>
+    <div class="card">
+      <p class="card-title">Traffic sources</p>
+      <p class="card-caption">First user source / medium · active users</p>
+      <div class="bar-list" data-chart="sources"></div>
+    </div>
+  </div>
+
+  <div class="card-row">
+    <div class="card">
+      <p class="card-title">Top cities</p>
+      <p class="card-caption">Active users by city (top 12 of 22)</p>
+      <div class="bar-list" data-chart="cities"></div>
+      <p class="bar-note">Remaining 10 cities each contributed 1 active user (see table below).</p>
+    </div>
+    <div class="card">
+      <p class="card-title">Countries</p>
+      <p class="card-caption">Active users by country</p>
+      <div class="bar-list" data-chart="countries"></div>
+      <p class="bar-note">12 of 13 sitewide key events (92%) came from users in India; 1 from the US.</p>
+    </div>
+  </div>
+
+  <div class="callout-row">
+    <div class="callout">
+      <div class="callout-value">64%</div>
+      <div class="callout-label">of users arrived via google / organic</div>
+    </div>
+    <div class="callout">
+      <div class="callout-value">2 users</div>
+      <div class="callout-label">arrived via chatgpt.com / ai-assistant</div>
+    </div>
+    <div class="callout">
+      <div class="callout-value">0 of 27</div>
+      <div class="callout-label">day-0 visitors returned on day 1</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:12px;">
+    <p class="card-title">Bounce rate — what to fix, by page</p>
+    <p class="card-caption">GA4 bounce = no 10s+ engagement, no conversion event, no 2nd pageview. 2-day, 33-user sample — a signal, not yet a trend.</p>
+    <div class="insight-list">
+      <div class="insight-row">
+        <div class="insight-page">Homepage</div>
+        <div><span class="badge critical"><span class="dot"></span>100%</span></div>
+        <div class="insight-text">Main entry point from Google organic. Add an above-the-fold CTA (subscribe / read latest issue) and internal links to the Jobs Board and Platforms Directory so there's an obvious next click.</div>
+      </div>
+      <div class="insight-row">
+        <div class="insight-page">Contact</div>
+        <div><span class="badge good"><span class="dot"></span>0%</span></div>
+        <div class="insight-text">The one page that didn't bounce — submitting the form likely fires an engagement/conversion event. Replicate that pattern elsewhere: track "apply" clicks, platform-link clicks, and subscribe clicks as events.</div>
+      </div>
+      <div class="insight-row">
+        <div class="insight-page">All Issues</div>
+        <div><span class="badge critical"><span class="dot"></span>100%</span></div>
+        <div class="insight-text">Surface a "start here" or most-popular issue instead of a flat list; a recommended-next-issue link at the bottom of each post keeps sessions going past page one.</div>
+      </div>
+      <div class="insight-row">
+        <div class="insight-page">AI Jobs Board</div>
+        <div><span class="badge critical"><span class="dot"></span>100%</span></div>
+        <div class="insight-text">Add filters, search, or save/apply buttons — interacting with them counts as an engagement event in GA4, lowering bounce independent of time on page.</div>
+      </div>
+      <div class="insight-row">
+        <div class="insight-page">AI Platforms Directory</div>
+        <div><span class="badge critical"><span class="dot"></span>100%</span></div>
+        <div class="insight-text">Same fix as the Jobs Board: add filters/search, or track outbound clicks on platform links as engagement events.</div>
+      </div>
+      <div class="insight-row">
+        <div class="insight-page">About TYB</div>
+        <div><span class="badge critical"><span class="dot"></span>100%</span></div>
+        <div class="insight-text">Low traffic (1 view), but add a link back to the newsletter or Jobs Board so it isn't a dead end.</div>
+      </div>
+    </div>
+    <p class="bar-note">Sitewide avg. engagement time is 17s — before chasing bounce rate further, confirm engagement events (scroll depth, outbound clicks, subscribe clicks) are actually being tracked. Otherwise the rate partly reflects missing instrumentation, not just visitor behavior.</p>
+  </div>
+
+  <details class="table-toggle">
+    <summary>View all data as tables</summary>
+    <table>
+      <caption>Pages</caption>
+      <thead><tr><th>Page</th><th class="num">Views</th><th class="num">Active users</th><th class="num">Events</th><th class="num">Bounce rate</th></tr></thead>
+      <tbody id="tbl-pages"></tbody>
+    </table>
+    <table>
+      <caption>First user source / medium</caption>
+      <thead><tr><th>Source / medium</th><th class="num">Active users</th></tr></thead>
+      <tbody id="tbl-sources"></tbody>
+    </table>
+    <table>
+      <caption>Session source / medium</caption>
+      <thead><tr><th>Source / medium</th><th class="num">Sessions</th></tr></thead>
+      <tbody id="tbl-sessions"></tbody>
+    </table>
+    <table>
+      <caption>New vs. returning by day since first visit</caption>
+      <thead><tr><th>Nth day</th><th class="num">New</th><th class="num">Returning</th></tr></thead>
+      <tbody id="tbl-nth"></tbody>
+    </table>
+    <table>
+      <caption>Cities (all 22)</caption>
+      <thead><tr><th>City</th><th class="num">Active users</th></tr></thead>
+      <tbody id="tbl-cities"></tbody>
+    </table>
+    <table>
+      <caption>Countries</caption>
+      <thead><tr><th>Country</th><th class="num">Active users</th><th class="num">New users</th><th class="num">Engaged sessions</th><th class="num">Engagement rate</th><th class="num">Avg. engagement time</th><th class="num">Events</th><th class="num">Key events</th></tr></thead>
+      <tbody id="tbl-countries"></tbody>
+    </table>
+  </details>
+
+  <footer>Source: Reports_snapshot (2).csv &amp; Demographic_details_Country.csv — GA4 exports, account &amp; property "fowl AI", 2026-07-15 to 2026-07-16.</footer>
+</div>
+
+<div id="tooltip" role="tooltip"></div>
+
+<script>
+(function () {
+  var DATA = {
+    pages: [
+      { label: "FOWL AI | AI Jobs, Platforms & Opportunities", value: 21, sub: "14 users · 64 events · bounce 1" },
+      { label: "Contact — FOWL AI", value: 13, sub: "11 users · 58 events · bounce 0" },
+      { label: "All Issues — FOWL AI", value: 8, sub: "6 users · 25 events · bounce 1" },
+      { label: "AI Jobs Board | Remote AI Opportunities & Roles", value: 6, sub: "4 users · 19 events · bounce 1" },
+      { label: "AI Platforms Directory — FOWL AI", value: 5, sub: "2 users · 11 events · bounce 1" },
+      { label: "About TYB — FOWL AI", value: 1, sub: "1 user · 3 events · bounce 1" }
+    ],
+    sources: [
+      { label: "google / organic", value: 21, sub: "64% of active users" },
+      { label: "(direct) / (none)", value: 4, sub: "12% of active users" },
+      { label: "(data not available)", value: 2, sub: "6% of active users" },
+      { label: "chatgpt.com / ai-assistant", value: 2, sub: "6% of active users" }
+    ],
+    cities: [
+      { label: "Patna", value: 6 },
+      { label: "Ahmedabad", value: 2 },
+      { label: "Atlanta", value: 2 },
+      { label: "Bhubaneswar", value: 2 },
+      { label: "Malang", value: 2 },
+      { label: "Agartala", value: 1 },
+      { label: "Bengaluru", value: 1 },
+      { label: "Bhopal", value: 1 },
+      { label: "Delhi", value: 1 },
+      { label: "Hyderabad", value: 1 },
+      { label: "Kanpur", value: 1 },
+      { label: "Karachi", value: 1 }
+    ],
+    countries: [
+      { label: "India", value: 23, sub: "23 new · eng. rate 42% · 12 key events" },
+      { label: "United States", value: 4, sub: "2 new · eng. rate 20% · 1 key event" },
+      { label: "Indonesia", value: 2, sub: "2 new · eng. rate 0% · 0 key events" },
+      { label: "Pakistan", value: 2, sub: "0 new · eng. rate 0% · 0 key events" },
+      { label: "Saudi Arabia", value: 1, sub: "1 new · eng. rate 0% · 0 key events" },
+      { label: "Rwanda", value: 1, sub: "0 new · eng. rate 0% · 0 key events" }
+    ]
+  };
+
+  var ALL_CITIES = DATA.cities.concat([
+    { label: "Kigali", value: 1 },
+    { label: "Kolkata", value: 1 },
+    { label: "Meerut", value: 1 },
+    { label: "Pune", value: 1 },
+    { label: "Quetta", value: 1 },
+    { label: "Rajamahendravaram", value: 1 },
+    { label: "Riyadh", value: 1 },
+    { label: "Siliguri", value: 1 },
+    { label: "Sonipat", value: 1 },
+    { label: "Visalia", value: 1 }
+  ]);
+
+  function buildBarChart(container, items) {
+    var max = Math.max.apply(null, items.map(function (d) { return d.value; }));
+    items.forEach(function (d) {
+      var row = document.createElement("div");
+      row.className = "bar-row";
+      row.tabIndex = 0;
+
+      var label = document.createElement("div");
+      label.className = "bar-label";
+      label.textContent = d.label;
+      label.title = d.label;
+
+      var track = document.createElement("div");
+      track.className = "bar-track";
+      var fill = document.createElement("div");
+      fill.className = "bar-fill";
+      fill.style.width = Math.max((d.value / max) * 100, 3) + "%";
+      track.appendChild(fill);
+
+      var value = document.createElement("div");
+      value.className = "bar-value";
+      value.textContent = d.value;
+
+      row.appendChild(label);
+      row.appendChild(track);
+      row.appendChild(value);
+      attachTooltip(row, d.label, d.value, d.sub);
+      container.appendChild(row);
+    });
+  }
+
+  var tooltip = document.getElementById("tooltip");
+  function attachTooltip(el, label, value, sub) {
+    function show(x, y) {
+      tooltip.innerHTML = "";
+      var v = document.createElement("div");
+      v.className = "tt-value";
+      v.textContent = value;
+      var l = document.createElement("div");
+      l.className = "tt-label";
+      l.textContent = label;
+      tooltip.appendChild(v);
+      tooltip.appendChild(l);
+      if (sub) {
+        var s = document.createElement("div");
+        s.className = "tt-label";
+        s.textContent = sub;
+        tooltip.appendChild(s);
+      }
+      tooltip.style.left = x + "px";
+      tooltip.style.top = y + "px";
+      tooltip.classList.add("visible");
+    }
+    function hide() { tooltip.classList.remove("visible"); }
+
+    el.addEventListener("pointermove", function (e) { show(e.clientX, e.clientY); });
+    el.addEventListener("pointerenter", function (e) { show(e.clientX, e.clientY); });
+    el.addEventListener("pointerleave", hide);
+    el.addEventListener("focus", function () {
+      var r = el.getBoundingClientRect();
+      show(r.left + r.width / 2, r.top);
+    });
+    el.addEventListener("blur", hide);
+  }
+
+  buildBarChart(document.querySelector('[data-chart="pages"]'), DATA.pages);
+  buildBarChart(document.querySelector('[data-chart="sources"]'), DATA.sources);
+  buildBarChart(document.querySelector('[data-chart="cities"]'), DATA.cities);
+  buildBarChart(document.querySelector('[data-chart="countries"]'), DATA.countries);
+
+  function fillTable(id, rows, cols) {
+    var tbody = document.getElementById(id);
+    rows.forEach(function (r) {
+      var tr = document.createElement("tr");
+      cols.forEach(function (c, i) {
+        var td = document.createElement("td");
+        if (i > 0) td.className = "num";
+        td.textContent = r[c];
+        tr.appendChild(td);
+      });
+      tbody.appendChild(tr);
+    });
+  }
+
+  fillTable("tbl-pages", [
+    { label: "FOWL AI | AI Jobs, Platforms & Opportunities", views: 21, users: 14, events: 64, bounce: 1 },
+    { label: "Contact — FOWL AI", views: 13, users: 11, events: 58, bounce: 0 },
+    { label: "All Issues — FOWL AI", views: 8, users: 6, events: 25, bounce: 1 },
+    { label: "AI Jobs Board | Remote AI Opportunities & Roles — FOWL AI", views: 6, users: 4, events: 19, bounce: 1 },
+    { label: "AI Platforms Directory — FOWL AI", views: 5, users: 2, events: 11, bounce: 1 },
+    { label: "About TYB — FOWL AI", views: 1, users: 1, events: 3, bounce: 1 }
+  ], ["label", "views", "users", "events", "bounce"]);
+
+  fillTable("tbl-sources", [
+    { label: "google / organic", users: 21 },
+    { label: "(direct) / (none)", users: 4 },
+    { label: "(data not available)", users: 2 },
+    { label: "chatgpt.com / ai-assistant", users: 2 }
+  ], ["label", "users"]);
+
+  fillTable("tbl-sessions", [
+    { label: "google / organic", sessions: 23 },
+    { label: "(direct) / (none)", sessions: 3 },
+    { label: "(data not available)", sessions: 2 },
+    { label: "chatgpt.com / ai-assistant", sessions: 2 }
+  ], ["label", "sessions"]);
+
+  fillTable("tbl-nth", [
+    { day: "0", nu: 25, ru: 2 },
+    { day: "1", nu: 2, ru: 0 }
+  ], ["day", "nu", "ru"]);
+
+  fillTable("tbl-cities", ALL_CITIES.map(function (c) { return { label: c.label, users: c.value }; }), ["label", "users"]);
+
+  fillTable("tbl-countries", [
+    { label: "India", users: 23, nu: 23, engaged: 10, rate: "42%", time: "3s", events: 106, key: 12 },
+    { label: "United States", users: 4, nu: 2, engaged: 1, rate: "20%", time: "41s", events: 59, key: 1 },
+    { label: "Indonesia", users: 2, nu: 2, engaged: 0, rate: "0%", time: "0s", events: 6, key: 0 },
+    { label: "Pakistan", users: 2, nu: 0, engaged: 0, rate: "0%", time: "5s", events: 3, key: 0 },
+    { label: "Saudi Arabia", users: 1, nu: 1, engaged: 0, rate: "0%", time: "3s", events: 4, key: 0 },
+    { label: "Rwanda", users: 1, nu: 0, engaged: 0, rate: "0%", time: "326s", events: 2, key: 0 }
+  ], ["label", "users", "nu", "engaged", "rate", "time", "events", "key"]);
+})();
+</script>
