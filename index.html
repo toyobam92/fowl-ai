@@ -264,7 +264,7 @@
           <h1>Navigate the<span>AI Economy.</span></h1>
           <p class="lede">Find AI jobs, discover vetted AI platforms, and get a free 5-minute AI briefing every Monday.</p>
           <div class="hero-actions" id="signup">
-            <form id="fowlSignupForm" class="signup-form" style="margin:0;max-width:420px;justify-content:flex-start;" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true;">
+            <form id="fowlSignupForm" class="signup-form" style="margin:0;max-width:420px;justify-content:flex-start;" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true; var b=this.querySelector('.signup-submit'); b.disabled=true; b.textContent='Subscribing…'; setTimeout(function(){b.disabled=false;b.textContent='Subscribe free →';}, 8000);">
               <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
               <button class="signup-submit" type="submit">Subscribe free →</button>
             </form>
