@@ -9,11 +9,20 @@
  *   - subscribe_click   fires specifically for links to the newsletter
  *                        signup platform (fowlai.eo.page) — most pages link
  *                        out to subscribe.
- *   - subscribe_submit  fires when the embedded signup form (homepage hero,
- *                        class "signup-form", posts to a Google Form) is
- *                        submitted — that's the actual conversion the
- *                        "Embedded signup form + social proof" experiment
- *                        is testing, not a link click.
+ *   - subscribe_submit  fires on an actual completed signup. Two sources,
+ *                        distinguished by a "method" param:
+ *                          - "embedded_form": the homepage hero form
+ *                            (class "signup-form") posts to a Google Form.
+ *                          - "emailoctopus_redirect": fowlai.eo.page (the
+ *                            EmailOctopus landing page every other page's
+ *                            Subscribe button links to) is a page we don't
+ *                            control, so it can't fire our GA4 events
+ *                            directly. Closing that gap needs a one-time
+ *                            manual step: set that form's "redirect on
+ *                            success" URL (in the EmailOctopus dashboard)
+ *                            to https://www.fowl-ai.com/subscribed/ — this
+ *                            script fires subscribe_submit automatically
+ *                            when that page loads.
  * Mark subscribe_click AND subscribe_submit as GA4 Key Events in Admin —
  * together they're the real newsletter-conversion metric across every page.
  *
@@ -80,17 +89,34 @@
     true
   );
 
-  // --- subscribe_submit (embedded hero signup form) -------------------
+  // --- subscribe_submit: source 1, embedded hero signup form ----------
   document.addEventListener(
     "submit",
     function (e) {
       var form = e.target;
       if (!form || !form.classList || !form.classList.contains("signup-form")) return;
       window.gtag("event", "subscribe_submit", {
+        method: "embedded_form",
         form_id: form.id || "unspecified",
         page_location: window.location.href
       });
     },
     true
   );
+
+  // --- subscribe_submit: source 2, EmailOctopus redirect landing -------
+  // Fires automatically when /subscribed/ loads. That page is the
+  // "redirect on success" target configured in the EmailOctopus dashboard
+  // for the fowlai.eo.page form used by every Subscribe button except the
+  // homepage hero.
+  if (
+    window.location.pathname === "/subscribed/" ||
+    window.location.pathname === "/subscribed" ||
+    window.location.pathname === "/subscribed/index.html"
+  ) {
+    window.gtag("event", "subscribe_submit", {
+      method: "emailoctopus_redirect",
+      page_location: window.location.href
+    });
+  }
 })();
