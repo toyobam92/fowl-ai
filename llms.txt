@@ -1,0 +1,27 @@
+# FOWL AI
+
+> FOWL AI is a weekly newsletter and career-intelligence site that helps knowledge workers navigate and profit from the AI economy — AI jobs, vetted AI training/evaluation platforms, and plain-English explainers on AI tools and terminology.
+
+FOWL AI publishes a new issue every Monday covering AI jobs, training platforms, startup opportunities, and career signals for the AI economy. Content is first-hand and numbers-driven (real pay, real contracts, real screenshots) rather than theoretical. All issues stay public and are free to read without a subscription.
+
+## Start Here
+
+- [Homepage](https://www.fowl-ai.com/): Overview of FOWL AI and the latest issue.
+- [All Issues](https://www.fowl-ai.com/issues/): Full archive of every weekly issue, newest first.
+- [AI Jobs Board](https://www.fowl-ai.com/jobs/): Curated AI evaluation gigs and emerging career opportunities, updated weekly.
+- [AI Platforms Directory](https://www.fowl-ai.com/platforms/): Vetted AI training and evaluation platforms, ranked by accessibility.
+- [Products & Guides](https://www.fowl-ai.com/products/): Guides and templates for building AI-era income.
+- [About](https://www.fowl-ai.com/about/): Who writes FOWL AI and why it exists.
+
+## Latest Issues
+
+- [Issue 9: LLMs. Agents. MCP. RAG. What do these terms actually mean?](https://www.fowl-ai.com/issues/2026-07-20/): Plain-English breakdown of the 5 AI terms people keep hearing but nobody explains — LLM, Agent, MCP, RAG, and Context Window.
+- [Issue 8: 2 platforms. 8 contracts.](https://www.fowl-ai.com/issues/2026-07-13/): Every AI training contract running right now across Handshake and Mercor, with real pay and a live earnings screenshot.
+- [Issue 7: Some of the highest-paid AI work is trying to break it.](https://www.fowl-ai.com/issues/2026-07-06/): The AI red-teaming opportunity — no coding required.
+- [Issue 6: The Layoff Map](https://www.fowl-ai.com/issues/2026-06-29/): Where AI is displacing roles and where it's creating them.
+- [Issue 5: Stop Learning "AI." Start Learning AI For What You Do.](https://www.fowl-ai.com/issues/2026-06-22/): Why generic AI upskilling underperforms role-specific AI fluency.
+
+## Optional
+
+- [Sitemap](https://www.fowl-ai.com/sitemap.xml): Full list of indexed URLs.
+- [Privacy Policy](https://www.fowl-ai.com/privacy/): Data handling and privacy practices.
