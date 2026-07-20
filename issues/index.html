@@ -17,6 +17,7 @@
   <meta property="og:title" content="All Issues — FOWL AI" />
   <meta property="og:description" content="Every FOWL AI issue, public and shareable. Career signals for the AI economy." />
   <meta property="og:url" content="https://www.fowl-ai.com/issues/" />
+  <link rel="alternate" type="application/rss+xml" title="FOWL AI Newsletter" href="https://www.fowl-ai.com/feed.xml">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
@@ -51,8 +52,10 @@
     .page-hero p{font-size:17px;color:#e2f2eb;max-width:560px;line-height:1.75;}
 
     /* Volume headers */
-    .vol-head{padding:18px 0 10px;border-bottom:2px solid #0d3f31;margin-bottom:0;}
+    .vol-head{padding:18px 0 10px;border-bottom:2px solid #0d3f31;margin-bottom:0;display:flex;align-items:center;justify-content:space-between;}
     .vol-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#1a5f4a;font-weight:500;}
+    .rss-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#c07000;text-decoration:none;display:inline-flex;align-items:center;gap:6px;}
+    .rss-link:hover{text-decoration:underline;}
 
     /* Issue rows */
     .issues-section{padding:36px 24px 72px;}
@@ -129,6 +132,7 @@
       <!-- Vol. 1 — 2026 -->
       <div class="vol-head">
         <span class="vol-label">Vol. 1 · 2026</span>
+        <a class="rss-link" href="/feed.xml">RSS →</a>
       </div>
 
       <div class="archive" style="margin-top:14px;">

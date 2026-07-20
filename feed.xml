@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FOWL AI</title>
+    <link>https://www.fowl-ai.com/</link>
+    <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
+    <language>en-us</language>
+    <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 9: LLMs, Agents, MCP, RAG — what do these terms actually mean?</title>
+      <link>https://www.fowl-ai.com/issues/2026-07-20/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-07-20/</guid>
+      <pubDate>Mon, 20 Jul 2026 00:00:00 GMT</pubDate>
+      <description>A plain-English breakdown of the 5 AI terms you keep hearing but nobody explains: LLM, Agent, MCP, RAG, and Context Window.</description>
+    </item>
+    <item>
+      <title>Issue 8: 2 platforms. 8 contracts.</title>
+      <link>https://www.fowl-ai.com/issues/2026-07-13/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-07-13/</guid>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
+      <description>A full breakdown of every AI training contract I'm running right now — across 2 platforms, current and past, with real pay.</description>
+    </item>
+    <item>
+      <title>Issue 7: Some of the highest-paid AI work right now is trying to break it.</title>
+      <link>https://www.fowl-ai.com/issues/2026-07-06/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-07-06/</guid>
+      <pubDate>Mon, 06 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Companies are paying people to break their AI — and the highest earners aren't engineers. Here's the red-teaming opportunity almost no one is talking about.</description>
+    </item>
+    <item>
+      <title>Issue 6: The Layoff Map</title>
+      <link>https://www.fowl-ai.com/issues/2026-06-29/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-06-29/</guid>
+      <pubDate>Mon, 29 Jun 2026 00:00:00 GMT</pubDate>
+      <description>56% of 2026 layoffs cite AI. 156,000 workers affected. But Klarna just rehired the people it fired. The real story is more complicated — and more useful — than the headline.</description>
+    </item>
+    <item>
+      <title>Issue 5: Stop Learning "AI." Start Learning AI For What You Do.</title>
+      <link>https://www.fowl-ai.com/issues/2026-06-22/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-06-22/</guid>
+      <pubDate>Mon, 22 Jun 2026 00:00:00 GMT</pubDate>
+      <description>AI skills mean something different depending on your job. The role-by-role breakdown — what to start, what to build toward, and where the real opportunity is.</description>
+    </item>
+    <item>
+      <title>Issue 4: The AI Model Map</title>
+      <link>https://www.fowl-ai.com/issues/2026-06-15/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-06-15/</guid>
+      <pubDate>Mon, 15 Jun 2026 00:00:00 GMT</pubDate>
+      <description>6 companies. 20+ models. What they cost, who ranks them, and which one is actually worth your money.</description>
+    </item>
+    <item>
+      <title>Issue 3: The Rise of the AI Manager</title>
+      <link>https://www.fowl-ai.com/issues/2026-06-08/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-06-08/</guid>
+      <pubDate>Mon, 08 Jun 2026 00:00:00 GMT</pubDate>
+      <description>The highest-paying jobs of the next five years may not involve doing the work. They may involve managing the AI agents that do it for you.</description>
+    </item>
+    <item>
+      <title>Issue 2: 14 hours a week. $4k last month.</title>
+      <link>https://www.fowl-ai.com/issues/2026-06-01/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-06-01/</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Job or no job — the knowledge you've built in your field is exactly what AI evaluation platforms pay for. Here's what that looks like in practice.</description>
+    </item>
+    <item>
+      <title>Issue 1: AI is quietly rewriting career leverage</title>
+      <link>https://www.fowl-ai.com/issues/2026-05-27/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-05-27/</guid>
+      <pubDate>Wed, 27 May 2026 00:00:00 GMT</pubDate>
+      <description>AI is quietly rewriting career leverage — Issue 1 of FOWL AI, the weekly signal for knowledge workers navigating the AI transition.</description>
+    </item>
+  </channel>
+</rss>
