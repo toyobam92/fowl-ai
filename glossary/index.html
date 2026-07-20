@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <script src="/analytics-events.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Glossary — LLM, Agent, MCP, Skills & Claude CLI Explained | FOWL AI</title>
+  <meta name="description" content="Plain-English definitions for the AI terms that actually show up in AI jobs and evaluation work: LLM, Agent, MCP, Skills, and Claude CLI — each with a real example.">
+  <meta property="og:title" content="AI Glossary — FOWL AI" />
+  <meta property="og:description" content="LLM, Agent, MCP, Skills, Claude CLI — defined in one sentence each, then tied to what they mean for AI jobs and evaluation work." />
+  <meta property="og:image" content="https://www.fowl-ai.com/og-image.png" />
+  <meta property="og:url" content="https://www.fowl-ai.com/glossary/" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://www.fowl-ai.com/glossary/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"DefinedTermSet","name":"AI Glossary — FOWL AI","description":"Plain-English definitions for the AI terms that actually show up in AI jobs and evaluation work.","url":"https://www.fowl-ai.com/glossary/","hasDefinedTerm":[{"@type":"DefinedTerm","name":"LLM (Large Language Model)","description":"Software trained on enormous amounts of text to predict the next word — which turns out to be enough to hold a conversation, write code, summarize a document, or answer a question.","url":"https://www.fowl-ai.com/glossary/#llm"},{"@type":"DefinedTerm","name":"Agent","description":"An LLM that's been given a goal, a set of tools it's allowed to use, and the ability to keep working in steps until the goal is done, instead of answering one question and stopping.","url":"https://www.fowl-ai.com/glossary/#agent"},{"@type":"DefinedTerm","name":"MCP (Model Context Protocol)","description":"A standard, created by Anthropic and now adopted industry-wide, that lets an AI model connect to outside tools and data without a custom integration built for every pairing.","url":"https://www.fowl-ai.com/glossary/#mcp"},{"@type":"DefinedTerm","name":"Skills (Agent Skills)","description":"A packaged, reusable set of instructions that teaches an AI agent how to do a specific task consistently, so it doesn't have to be re-explained every time.","url":"https://www.fowl-ai.com/glossary/#skills"},{"@type":"DefinedTerm","name":"Claude CLI (Claude Code)","description":"Anthropic's command-line tool that runs Claude as a coding agent directly in your terminal — reading files, running commands, and editing real code to complete a task.","url":"https://www.fowl-ai.com/glossary/#claude-cli"}]}</script>
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;}
+
+    /* Nav */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;text-decoration:none;white-space:nowrap;}
+    .nav-link:hover{color:#fff;}
+    .nav-link.current{color:#fff;}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0);}}
+    @keyframes wiggle{0%,80%,100%{transform:rotate(0deg) scale(1);}83%{transform:rotate(-2deg) scale(1.04);}86%{transform:rotate(2deg) scale(1.04);}89%{transform:rotate(-1deg) scale(1.02);}}
+    .sub-btn{display:inline-flex;align-items:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;text-decoration:none;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;white-space:nowrap;}
+    .sub-btn:hover{transform:scale(1.06);animation:none;}
+
+    /* Hero */
+    .hero{background:#0d3f31;padding:56px 24px 60px;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:16px;}
+    .hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(34px,5.5vw,58px);line-height:1.08;color:#fff;margin-bottom:18px;}
+    .hero h1 span{color:#f2a12b;}
+    .hero-lede{font-size:18px;color:#e2f2eb;max-width:640px;line-height:1.8;}
+
+    /* Content */
+    .content-section{padding:52px 24px 20px;max-width:800px;margin:0 auto;}
+    .intro-text{font-size:16px;line-height:1.8;color:#46524c;margin-bottom:44px;}
+
+    /* Term cards */
+    .term-list{display:flex;flex-direction:column;gap:20px;}
+    .term-card{background:#fff;border-radius:14px;padding:32px 36px;border-left:6px solid #0d3f31;scroll-margin-top:24px;}
+    .term-card:nth-child(2){border-left-color:#1a5f4a;}
+    .term-card:nth-child(3){border-left-color:#c07000;}
+    .term-card:nth-child(4){border-left-color:#d4541e;}
+    .term-card:nth-child(5){border-left-color:#0d3f31;}
+    .term-num{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#9aada5;margin-bottom:10px;}
+    .term-name{font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:700;color:#13241e;margin-bottom:4px;}
+    .term-full{font-size:13px;color:#665f56;margin-bottom:18px;}
+    .term-one-sentence{font-size:18px;line-height:1.7;color:#13241e;font-weight:600;margin-bottom:16px;}
+    .term-body{font-size:15px;line-height:1.8;color:#46524c;margin-bottom:18px;}
+    .term-where{background:#f7eedc;border-left:4px solid #f2a12b;border-radius:0 8px 8px 0;padding:14px 18px;font-size:14px;line-height:1.7;color:#4a3a1a;}
+    .term-where b{color:#13241e;}
+
+    /* CTA */
+    .glossary-cta{background:#13241e;padding:56px 24px;text-align:center;margin-top:48px;}
+    .glossary-cta h2{font-family:Fraunces,Georgia,serif;font-size:clamp(24px,4vw,32px);color:#fff;margin-bottom:12px;}
+    .glossary-cta p{font-size:15px;color:#a9e8cf;margin-bottom:24px;max-width:460px;margin-left:auto;margin-right:auto;}
+    .cta-links{display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:18px;}
+    .link-pill{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid rgba(127,217,184,.3);color:#78ddb4;text-decoration:none;}
+    .link-pill:hover{background:rgba(127,217,184,.1);border-color:#78ddb4;}
+
+    /* Footer */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:26px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;border-top:1px solid rgba(255,255,255,.06);}
+    .footer a{color:#78ddb4;}
+
+    @media(max-width:640px){
+      .hero{padding:40px 18px 44px;}
+      .hero h1{font-size:30px;}
+      .content-section{padding:36px 18px 10px;}
+      .term-card{padding:24px 22px;}
+      .term-name{font-size:22px;}
+      .term-one-sentence{font-size:16px;}
+      .nav{gap:10px;}
+      .nav-links{gap:10px;}
+      .nav-link{font-size:10px;letter-spacing:1px;}
+      .sub-btn{padding:9px 14px;font-size:11px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark"></span>
+          <span class="brand-word">FOWL AI</span>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/issues/">Briefings</a>
+          <a class="nav-link" href="/jobs/">Jobs</a>
+          <a class="nav-link" href="/platforms/">Platforms</a>
+          <a class="nav-link current" href="/glossary/">Glossary</a>
+          <a class="nav-link" href="/faq/">FAQ</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">FOWL AI · Glossary</div>
+      <h1>The AI terms <span>everyone assumes you know.</span></h1>
+      <p class="hero-lede">Five words showing up in job postings, eval projects, and every AI conversation this year — defined in one plain sentence each, then tied to what they actually mean for your work.</p>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content-section">
+    <p class="intro-text">Almost nobody explains these terms in order, from the ground up, without assuming you already know the last one — so they stack: you half-understand "LLM," which makes "Agent" fuzzy, which makes "MCP" sound like alphabet soup. This page fixes that, and stays updated as new terms enter the AI job market.</p>
+
+    <div class="term-list">
+
+      <div class="term-card" id="llm">
+        <div class="term-num">01 · Foundation</div>
+        <div class="term-name">LLM</div>
+        <div class="term-full">Large Language Model</div>
+        <p class="term-one-sentence">Software trained on enormous amounts of text to predict the next word — which turns out to be enough to hold a conversation, write code, summarize a document, or answer a question.</p>
+        <p class="term-body">An LLM doesn't "know" facts the way a database does. It's learned patterns from the text it was trained on and generates a response one piece at a time, each piece chosen based on everything that came before it. ChatGPT, Claude, and Gemini are all products built around an LLM — the LLM is the engine, the chat app is the car built around it.</p>
+        <div class="term-where"><b>Where you'll see this —</b> Job postings and eval projects that mention "LLM evaluation" or "model output review" are asking you to judge how well one of these models answers, reasons, or follows instructions, not to build the model itself.</div>
+      </div>
+
+      <div class="term-card" id="agent">
+        <div class="term-num">02 · Built on an LLM</div>
+        <div class="term-name">Agent</div>
+        <div class="term-full">AI Agent</div>
+        <p class="term-one-sentence">An LLM that's been given a goal, a set of tools it's allowed to use, and the ability to keep working in steps until the goal is done — instead of answering one question and stopping.</p>
+        <p class="term-body">A plain chatbot answers what you type and waits. An agent can be told to complete a task — research a topic, fix a bug, book something — then actually take the steps to do it, checking its own work and adjusting along the way, without a human approving every single move.</p>
+        <div class="term-where"><b>Where you'll see this —</b> "AI Agent Orchestration," "agentic evaluation," and "multi-step task testing" roles on platforms like Mercor and Outlier all pay people to judge how reliably an agent completes real, multi-step work.</div>
+      </div>
+
+      <div class="term-card" id="mcp">
+        <div class="term-num">03 · Connects agents to your tools</div>
+        <div class="term-name">MCP</div>
+        <div class="term-full">Model Context Protocol</div>
+        <p class="term-one-sentence">A standard, created by Anthropic and now adopted industry-wide, that lets an AI model connect to outside tools and data — your files, a database, a calendar — without a custom integration built for every single pairing.</p>
+        <p class="term-body">Before MCP, connecting an AI to your calendar or a company's internal systems meant a one-off integration, built by hand, every time. MCP works more like a universal power outlet: any tool that speaks MCP can plug into any AI model that supports it, and they understand each other automatically.</p>
+        <div class="term-where"><b>Where you'll see this —</b> If a project asks you to "test an MCP server" or "evaluate tool use," they mean checking whether a model correctly uses one of these plug-in-style connections, not writing the connection yourself.</div>
+      </div>
+
+      <div class="term-card" id="skills">
+        <div class="term-num">04 · Teaches an agent a task</div>
+        <div class="term-name">Skills</div>
+        <div class="term-full">Agent Skills</div>
+        <p class="term-one-sentence">A packaged, reusable set of instructions — usually a folder with an instructions file and any supporting resources — that teaches an AI agent how to do a specific task consistently, so it doesn't have to be re-explained every time.</p>
+        <p class="term-body">Instead of typing out the same detailed instructions every time you want an agent to follow a specific checklist or writing style, you write it once as a Skill. The agent loads it by name whenever the task calls for it, the same way a new hire follows a documented process instead of guessing.</p>
+        <div class="term-where"><b>Where you'll see this —</b> Newer eval projects ask evaluators to test whether an agent picks the right Skill for a task, or to author a new one — this is starting to show up in listings as "Skill authoring" or "Agent Skill design."</div>
+      </div>
+
+      <div class="term-card" id="claude-cli">
+        <div class="term-num">05 · An agent in your terminal</div>
+        <div class="term-name">Claude CLI</div>
+        <div class="term-full">Claude Code</div>
+        <p class="term-one-sentence">Anthropic's command-line tool that runs Claude as a coding agent directly in your terminal — reading files, running commands, and editing real code across a whole project to complete a task, not just chatting about it.</p>
+        <p class="term-body">Where a chat window gives you an answer, Claude Code actually does the work inside your codebase: it can read your files, make edits, run your tests, and iterate until a task is done. It's one of the clearest everyday examples of an "agent" (see above) actually at work.</p>
+        <div class="term-where"><b>Where you'll see this —</b> Listings that mention "Claude Code eval," "agentic coding," or "CLI-based coding tasks" are paying you to work inside this tool (or a close equivalent) and judge how well it completes real engineering work.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="glossary-cta">
+    <div class="wrap">
+      <h2>New terms land in every issue.</h2>
+      <p>FOWL AI breaks down what's actually changing in AI jobs and tools — every Monday, free.</p>
+      <a class="sub-btn" href="https://fowlai.eo.page/vmk69" style="display:inline-flex;">Subscribe free →</a>
+      <div class="cta-links">
+        <a class="link-pill" href="/faq/">Read the FAQ</a>
+        <a class="link-pill" href="/issues/">Browse issues</a>
+        <a class="link-pill" href="/jobs/">Browse AI jobs</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/jobs/">Jobs</a> · <a href="/platforms/">Platforms</a> · <a href="/glossary/">Glossary</a> · <a href="/faq/">FAQ</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
+    <div style="margin-top:10px;font-size:10px;opacity:.6;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
+  </footer>
+
+</body>
+</html>

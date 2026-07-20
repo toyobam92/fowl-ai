@@ -10,6 +10,8 @@ FOWL AI publishes a new issue every Monday covering AI jobs, training platforms,
 - [All Issues](https://www.fowl-ai.com/issues/): Full archive of every weekly issue, newest first.
 - [AI Jobs Board](https://www.fowl-ai.com/jobs/): Curated AI evaluation gigs and emerging career opportunities, updated weekly.
 - [AI Platforms Directory](https://www.fowl-ai.com/platforms/): Vetted AI training and evaluation platforms, ranked by accessibility.
+- [AI Glossary](https://www.fowl-ai.com/glossary/): Plain-English definitions of LLM, Agent, MCP, Skills, and Claude CLI, each with a real-world example.
+- [AI & Future of Work FAQ](https://www.fowl-ai.com/faq/): Straight answers on job risk, real pay, required skills, and whether AI training/evaluation gigs are 1099 or W2 employment in the United States.
 - [Products & Guides](https://www.fowl-ai.com/products/): Guides and templates for building AI-era income.
 - [About](https://www.fowl-ai.com/about/): Who writes FOWL AI and why it exists.
 
