@@ -22,12 +22,19 @@
     .topbar{background:#0d3f31;padding:18px 24px;}
     .wrap{width:min(760px,100%);margin:0 auto;}
     .nav-wrap{width:min(1120px,100%);margin:0 auto;}
-    .nav{display:flex;align-items:center;justify-content:space-between;}
+    .nav{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+    .nav-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
     .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;}
     .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
     .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;text-decoration:none;}
     .nav-link:hover{color:#fff;}
+
+    @media(max-width:640px){
+      .nav-links{gap:12px;flex-basis:100%;}
+      .nav-link{font-size:10px;letter-spacing:1px;}
+      .brand-word{font-size:14px;letter-spacing:4px;}
+    }
 
     .hero{background:#0d3f31;color:#fff;padding:48px 24px 56px;border-top:1px solid rgba(255,255,255,.07);}
     .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
@@ -55,7 +62,7 @@
           <span class="brand-mark"></span>
           <span class="brand-word">FOWL AI</span>
         </a>
-        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
+        <div class="nav-links">
           <a class="nav-link" href="/">Home</a>
           <a class="nav-link" href="/issues/">Briefings</a>
           <a class="nav-link" href="/platforms/">Platforms</a>

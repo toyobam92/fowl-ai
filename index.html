@@ -60,9 +60,10 @@
     .sub-btn.lg{padding:18px 44px;font-size:18px;}
 
     /* ── Nav link ── */
+    .nav-links{display:flex;align-items:center;gap:16px;flex-wrap:wrap;}
     .nav-bounce{
       font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;
-      color:#a9e8cf;text-decoration:none;margin-right:8px;
+      color:#a9e8cf;text-decoration:none;
       display:inline-block;white-space:nowrap;
       transition:color .15s ease;
     }
@@ -205,11 +206,12 @@
       .launch-lab-btn{width:100%;justify-content:center;}
     }
     @media (max-width:760px){
-      /* Nav — brand + subscribe on top row, links below */
+      /* Nav — brand on top row, links + subscribe wrap below */
       .hero{padding:22px 18px 36px;}
       .nav{flex-wrap:wrap;gap:10px;margin-bottom:32px;}
+      .nav-links{gap:10px;flex-basis:100%;}
       .brand-word{font-size:14px;letter-spacing:4px;}
-      .nav-bounce{font-size:10px;letter-spacing:1px;margin-right:4px;}
+      .nav-bounce{font-size:10px;letter-spacing:1px;}
       .sub-btn.sm{padding:9px 16px;font-size:11px;}
 
       /* Hero */
@@ -255,12 +257,14 @@
             <span class="brand-mark"></span>
             <span class="brand-word">FOWL AI</span>
           </a>
-          <a class="nav-bounce" href="/platforms/">Platforms</a>
-          <a class="nav-bounce" href="/jobs/">Jobs</a>
-          <a class="nav-bounce" href="/issues/">Briefings</a>
-          <a class="nav-bounce" href="/glossary/">Glossary</a>
-          <a class="nav-bounce" href="/faq/">FAQ</a>
-          <a class="sub-btn sm" href="#signup">Subscribe</a>
+          <div class="nav-links">
+            <a class="nav-bounce" href="/platforms/">Platforms</a>
+            <a class="nav-bounce" href="/jobs/">Jobs</a>
+            <a class="nav-bounce" href="/issues/">Briefings</a>
+            <a class="nav-bounce" href="/glossary/">Glossary</a>
+            <a class="nav-bounce" href="/faq/">FAQ</a>
+            <a class="sub-btn sm" href="#signup">Subscribe</a>
+          </div>
         </nav>
         <div>
           <div class="eyebrow">Career Signals · AI Economy</div>
