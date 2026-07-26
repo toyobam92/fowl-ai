@@ -17,11 +17,11 @@ FOWL AI publishes a new issue every Monday covering AI jobs, training platforms,
 
 ## Latest Issues
 
+- [Issue 10: There are two doors into a frontier AI lab. Only one is open to you.](https://www.fowl-ai.com/issues/2026-07-27/): Real 2026 hiring data from Anthropic, OpenAI, and Perplexity — named hires, a program with a published 40%+ conversion rate, and the honest odds behind the "no traditional background" success stories.
 - [Issue 9: LLMs. Agents. MCP. RAG. What do these terms actually mean?](https://www.fowl-ai.com/issues/2026-07-20/): Plain-English breakdown of the 5 AI terms people keep hearing but nobody explains — LLM, Agent, MCP, RAG, and Context Window.
 - [Issue 8: 2 platforms. 8 contracts.](https://www.fowl-ai.com/issues/2026-07-13/): Every AI training contract running right now across Handshake and Mercor, with real pay and a live earnings screenshot.
 - [Issue 7: Some of the highest-paid AI work is trying to break it.](https://www.fowl-ai.com/issues/2026-07-06/): The AI red-teaming opportunity — no coding required.
 - [Issue 6: The Layoff Map](https://www.fowl-ai.com/issues/2026-06-29/): Where AI is displacing roles and where it's creating them.
-- [Issue 5: Stop Learning "AI." Start Learning AI For What You Do.](https://www.fowl-ai.com/issues/2026-06-22/): Why generic AI upskilling underperforms role-specific AI fluency.
 
 ## Optional
 

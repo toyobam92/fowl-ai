@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 20 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 27 Jul 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 10: There are two doors into a frontier AI lab. Only one is open to you.</title>
+      <link>https://www.fowl-ai.com/issues/2026-07-27/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-07-27/</guid>
+      <pubDate>Mon, 27 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Real 2026 hiring data from Anthropic, OpenAI, and Perplexity — named hires, a program with a published 40%+ conversion rate, and the honest odds behind the "no traditional background" success stories.</description>
+    </item>
     <item>
       <title>Issue 9: LLMs, Agents, MCP, RAG — what do these terms actually mean?</title>
       <link>https://www.fowl-ai.com/issues/2026-07-20/</link>

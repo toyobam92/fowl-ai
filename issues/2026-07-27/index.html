@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <script src="/analytics-events.js" defer></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FOWL AI · Issue 10 · There are two doors into a frontier AI lab. Only one is open to you.</title>
+<meta name="description" content="Real 2026 hiring data from Anthropic, OpenAI, and Perplexity — who actually gets in, which programs have a published conversion rate, and which door is basically closed to you.">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,ital,wght@9..144,0,700;9..144,1,400;9..144,1,600;9..144,1,700&family=Inter:ital,wght@0,400;0,600;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "There are two doors into a frontier AI lab. Only one is open to you.", "description": "Real 2026 hiring data from Anthropic, OpenAI, and Perplexity — who actually gets in, which programs have a published conversion rate, and which door is basically closed to you.", "image": "https://www.fowl-ai.com/og-image.png", "datePublished": "2026-07-27T00:00:00+00:00", "dateModified": "2026-07-27T00:00:00+00:00", "author": {"@type": "Person", "name": "TYB", "url": "https://www.fowl-ai.com/about/"}, "publisher": {"@type": "Organization", "name": "FOWL AI", "logo": {"@type": "ImageObject", "url": "https://www.fowl-ai.com/og-image.png"}}, "mainEntityOfPage": {"@type": "WebPage", "@id": "https://www.fowl-ai.com/issues/2026-07-27/"}}</script>
+<style>
+
+/* RESET */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{background:#f2ede3;}
+body{width:min(100%,1180px);margin:0 auto;background:#f2ede3;font-family:Georgia,serif;-webkit-font-smoothing:antialiased;}
+
+/* CARDS */
+.card        {background:#fff;margin:8px 0;padding:32px 44px;}
+.card-dark   {background:#0f3d30;margin:8px 0;padding:32px 44px;}
+.card-amber  {background:#f7eedc;margin:0;padding:34px 44px 36px;border-left:6px solid #f2a12b;}
+.card-mint   {background:#e8f4ee;margin:8px 0;padding:28px 44px;}
+.card-coral  {background:#fff4ef;margin:8px 0;padding:24px 44px;border-left:6px solid #d4541e;}
+
+/* MASTHEAD */
+.mast{background:#0d3f31;padding:36px 44px 34px;margin:0;}
+.mast-meta{display:flex;justify-content:space-between;margin-bottom:14px;}
+.mast-meta span{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;}
+
+/* brand-dot — DECORATIVE ONLY, nothing inside, no centering needed */
+.brand-lockup{display:flex;align-items:center;gap:18px;margin:20px 0 28px;}
+.brand-dot{width:42px;height:42px;min-width:42px;min-height:42px;border-radius:50%;background:#78ddb4;box-shadow:0 6px 18px rgba(0,0,0,.2);flex-shrink:0;}
+.brand-fowl{font-family:'DM Mono',monospace;font-size:28px;font-weight:500;letter-spacing:9px;color:#f47f18;text-transform:uppercase;}
+.brand-divider{width:1px;height:48px;background:rgba(255,255,255,.65);flex-shrink:0;}
+.brand-name{font-family:'Fraunces',serif;font-style:italic;font-weight:700;font-size:28px;line-height:1;color:#fff;}
+.brand-name span{display:block;color:#7fd9b8;}
+
+.mast-title{font-family:'Inter',-apple-system,sans-serif;font-style:italic;font-weight:800;font-size:44px;line-height:1.15;letter-spacing:-1.5px;color:#fff;margin-top:8px;}
+.mast-title span{color:#35bfa2;display:block;}
+.mast-sub{font-family:'Inter',-apple-system,sans-serif;font-size:19px;line-height:1.85;color:#e2f2eb;margin:24px 0 28px;max-width:560px;}
+
+/* CTA — inline-block only, never flex */
+.mast-cta{display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,sans-serif;font-size:15px;font-weight:800;text-decoration:none;padding:15px 28px;border-radius:999px;line-height:1.2;}
+
+.mast-rule{height:1px;background:linear-gradient(90deg,#7fd9b8,rgba(127,217,184,.08));margin:28px 0 18px;}
+.mast-foot{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;}
+.mast-tag{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;color:#9fe3c8;text-transform:uppercase;}
+.mast-badge{display:inline-block;background:rgba(127,217,184,.14);color:#7fd9b8;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.5px;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid rgba(127,217,184,.3);}
+.mast-freq{font-family:'Fraunces',serif;font-style:italic;font-size:15px;color:#d99c2b;}
+.brand-strip{display:flex;gap:16px;margin-top:26px;border-top:1px solid rgba(127,217,184,.25);padding-top:18px;}
+.brand-item{flex:1;border-left:1px solid rgba(255,255,255,.38);padding-left:14px;}
+.brand-item:first-child{border-left:none;padding-left:0;}
+.brand-item b{display:block;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:5px;}
+.brand-item span{display:block;font-family:'Inter',-apple-system,sans-serif;font-size:13px;line-height:1.45;color:#f4fbf8;}
+
+/* SECTION LABEL */
+.sec{background:#0f3d30;padding:14px 44px;display:flex;align-items:center;gap:14px;margin:8px 0 0;}
+.sec-tag{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;color:#7fd9b8;text-transform:uppercase;white-space:nowrap;}
+.sec-line{flex:1;height:1px;background:#7fd9b8;opacity:.25;}
+
+/* TLDR */
+.tldr-label{font-family:'DM Mono',monospace;font-size:12px;letter-spacing:4px;color:#0f3d30;text-transform:uppercase;font-weight:500;margin-bottom:22px;}
+.tldr-text{font-family:'Inter',-apple-system,sans-serif;font-size:26px;line-height:1.65;color:#0f3d30;font-style:italic;}
+
+/* NOVA SIGNAL — left-bar design, zero shape-centering issues */
+.nova-signal{display:flex;align-items:flex-start;gap:16px;background:rgba(13,63,49,.05);border:1px solid rgba(242,161,43,.2);border-radius:10px;padding:18px 20px;margin-bottom:24px;}
+.nova-bar{width:4px;min-width:4px;border-radius:4px;background:linear-gradient(180deg,#f47f18,#d4541e);align-self:stretch;flex-shrink:0;}
+.nova-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:5px;}
+.nova-byline{font-family:-apple-system,sans-serif;font-size:11px;color:#7a9a8a;margin-bottom:8px;line-height:1.4;}
+.nova-quote{font-family:-apple-system,sans-serif;font-size:14px;color:#13241e;line-height:1.7;}
+.nova-call{background:#f7eedc;border-left:3px solid #f2a12b;padding:10px 14px;border-radius:0 6px 6px 0;font-family:'DM Mono',monospace;font-size:11px;color:#7a4a10;letter-spacing:.5px;line-height:1.6;margin-top:12px;}
+
+/* INTRO */
+.intro-text{font-size:16px;line-height:1.8;color:#222;border-left:4px solid #0f3d30;padding-left:18px;}
+.editor-note{font-family:'Inter',-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#1f332b;background:#e8f4ee;border-left:4px solid #35bfa2;padding:16px 18px;margin-bottom:22px;border-radius:0 6px 6px 0;}
+.editor-note b{color:#0f3d30;}
+
+/* STORY */
+.story{padding:28px 44px;background:#fff;border-bottom:1px solid #e8e4de;}
+.story-n{font-family:'Fraunces',serif;font-size:52px;line-height:1;color:#e8e4dc;font-weight:700;}
+.story-title{font-family:'Fraunces',serif;font-weight:700;font-size:23px;line-height:1.2;color:#0a140a;margin-bottom:14px;}
+.story-body{font-size:15px;line-height:1.75;color:#333;margin-bottom:14px;}
+.meta{display:flex;gap:6px;font-family:-apple-system,sans-serif;font-size:13px;line-height:1.65;color:#555;padding:3px 0;}
+.meta b{color:#1a5f4a;flex-shrink:0;}
+.inside{background:#fffbf0;border-left:4px solid #d99c2b;padding:12px 16px;font-size:14px;font-style:italic;line-height:1.65;color:#4a4030;margin-top:14px;border-radius:0 6px 6px 0;}
+.inside b{font-style:normal;color:#0f3d30;font-size:13px;text-transform:uppercase;letter-spacing:.5px;}
+
+/* SIGNAL & CHATTER — sig-dot contains one text char only, safe to use flex */
+.sig-intro{font-style:italic;font-size:13px;color:#999;margin-bottom:16px;}
+.sig{display:flex;gap:12px;padding:10px 0;border-bottom:1px solid #f0ede6;}
+.sig:last-of-type{border-bottom:none;}
+.sig-dot{width:20px;height:20px;min-width:20px;min-height:20px;background:#d99c2b;border-radius:50%;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;}
+.sig-dot span{color:#0f3d30;font-weight:700;font-size:12px;line-height:1;}
+.sig-text{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.65;color:#2a2a2a;}
+
+/* PREDICT */
+.predict{background:#0d3f31;border-radius:8px;padding:26px 30px;margin:20px 0;}
+.predict-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;}
+.predict-text{font-family:'Fraunces',serif;font-size:22px;font-weight:700;color:#fff;line-height:1.4;}
+.predict-sub{font-family:-apple-system,sans-serif;font-size:14px;color:#7fd9b8;margin-top:10px;line-height:1.65;}
+
+/* ACTION ITEMS — badge is a small rectangle, no centering issues */
+.action-wrap{background:#f7eedc;border-left:6px solid #f2a12b;padding:24px 28px;margin:20px 0;border-radius:0 8px 8px 0;}
+.action-label{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#0f3d30;margin-bottom:14px;font-weight:500;}
+.action-item{display:flex;gap:12px;align-items:flex-start;font-family:-apple-system,sans-serif;font-size:14px;color:#2a2a2a;line-height:1.65;padding:8px 0;border-bottom:1px solid rgba(242,161,43,.2);}
+.action-item:last-child{border-bottom:none;padding-bottom:0;}
+.action-num{font-family:'DM Mono',monospace;font-size:11px;font-weight:500;color:#f2a12b;flex-shrink:0;margin-top:2px;background:#0f3d30;padding:2px 7px;border-radius:4px;line-height:1.6;}
+
+/* LAUNCH LAB */
+.launch-lab{background:#fff;margin:8px 0;padding:28px 44px;border-left:6px solid #f2a12b;}
+
+/* EMERGING CAREER */
+.career-eye{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:8px;}
+.career-title{font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;margin-bottom:13px;}
+.career-body{font-family:-apple-system,sans-serif;font-size:14px;line-height:1.75;color:#cfe9dd;}
+.career-why{font-size:13.5px;line-height:1.68;color:#9fe3c8;margin-top:14px;padding-top:14px;border-top:1px solid rgba(127,217,184,.2);}
+.career-why b{color:#fff;}
+
+/* STAMP / CLOSING */
+.stamp-text{font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.6;color:#fff;text-align:center;}
+.stamp-text span{color:#7fd9b8;}
+.reply-label{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2.5px;color:#1a5f4a;text-transform:uppercase;font-weight:500;margin-bottom:10px;}
+.reply-text{font-style:italic;font-size:15.5px;line-height:1.75;color:#1a3a2a;}
+
+/* FOOTER */
+.footer{background:#13241e;padding:26px 44px;text-align:center;margin:0;}
+.footer-brand{font-family:'Fraunces',serif;font-size:14px;letter-spacing:2px;color:#7fd9b8;text-transform:uppercase;margin-bottom:6px;}
+.footer-fine{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1px;color:#3a5248;}
+.footer-fine a{color:#7fd9b8;text-decoration:underline;}
+
+/* MOBILE — single breakpoint, applied consistently */
+@media(max-width:768px){
+  .mast,.card,.card-dark,.card-amber,.card-mint,.card-coral,
+  .sec,.story,.footer,.launch-lab{padding-left:20px;padding-right:20px;}
+  .mast-title{font-size:28px;letter-spacing:-1px;}
+  .mast-sub{font-size:16px;}
+  .mast-meta{flex-direction:column;gap:8px;}
+  .brand-lockup{gap:12px;margin:14px 0 20px;}
+  .brand-dot{width:34px;height:34px;min-width:34px;min-height:34px;}
+  .brand-fowl{font-size:20px;letter-spacing:5px;}
+  .brand-divider{height:32px;}
+  .brand-name{font-size:20px;}
+  .brand-strip{flex-direction:column;gap:0;}
+  .brand-item{border-left:none;padding-left:0;border-top:1px solid rgba(255,255,255,.18);padding-top:12px;margin-top:12px;}
+  .brand-item:first-child{border-top:none;padding-top:0;margin-top:0;}
+  .tldr-text{font-size:20px;}
+  .story-n{font-size:40px;}
+  .story-title{font-size:19px;}
+  .predict{padding:20px 18px;}
+  .predict-text{font-size:18px;}
+  .action-wrap{padding:20px 18px;}
+  .nova-signal{padding:14px 16px;}
+}
+
+</style></head><body>
+
+
+<!-- ═══════════════════════════════════════ MASTHEAD -->
+<div class="mast">
+  <div class="mast-meta">
+    <span>Vol. 1 · Issue 10</span>
+    <span>July 27, 2026</span>
+  </div>
+  <div class="brand-lockup">
+    <div class="brand-dot"></div>
+    <div class="brand-fowl">FOWL AI</div>
+    <div class="brand-divider"></div>
+    <div class="brand-name">Future of<span>Work Lab</span></div>
+  </div>
+  <div class="mast-title">There are two doors into a frontier AI lab.<span>Only one of them is open to you.</span></div>
+  <div class="mast-sub">Anthropic and OpenAI are hiring on two completely different tracks right now. Knowing which one you're actually near could save you months chasing the wrong door.</div>
+  <a class="mast-cta" href="https://fowlai.eo.page/vmk69">Subscribe free</a>
+  <div class="mast-rule"></div>
+  <div class="mast-foot">
+    <div class="mast-tag">Career Signals · AI Economy</div>
+    <div class="mast-badge">Hiring Investigation</div>
+    <div class="mast-freq">Weekly</div>
+  </div>
+  <div class="brand-strip">
+    <div class="brand-item"><b>Labs covered</b><span>Anthropic, OpenAI, Perplexity</span></div>
+    <div class="brand-item"><b>No hype</b><span>Named hires, real numbers, sourced</span></div>
+    <div class="brand-item"><b>Why now</b><span>One program converts 40%+ of fellows to full-time</span></div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ TLDR -->
+<div class="card-amber">
+  <div class="tldr-label">If you read nothing else</div>
+  <div class="tldr-text">Anthropic and OpenAI are hiring on two tracks at once: poaching already-famous people at the top, while running structured programs — Fellows, Residency, Claude Corps — that convert 40%+ of participants to full-time staff at the bottom. The second track is the one you can actually walk through. It still requires proof, just not pedigree.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ INTRO + NOVA -->
+<div class="card">
+
+  <!-- NOVA SIGNAL: left bar = no circles, no centering problems -->
+  <div class="nova-signal">
+    <div class="nova-bar"></div>
+    <div>
+      <div class="nova-label">🎙️ Nova's Signal</div>
+      <div class="nova-byline">Nova is FOWL AI's news anchor — she tracks the signals every week.</div>
+      <div class="nova-quote">"Every 'how I got hired at OpenAI' story you've read skips the boring version: most people who work there were already impressive somewhere else first. But two specific doors don't require that — and almost nobody talks about them, because they don't make for a viral post."</div>
+      <div class="nova-call">Nova's call: <strong>This is the most actionable issue we've run in weeks.</strong> Save the deadlines section.</div>
+    </div>
+  </div>
+
+  <div class="intro-text">
+    Every "day in the life at a frontier lab" post and "how I got hired at Anthropic" thread makes it sound like there's one path in: be brilliant, build something, get discovered. That's true for a small number of people — and it's not the whole story.<br><br>
+    Underneath the viral hiring stories, there are two very different hiring tracks running at once inside these labs. One is basically closed unless you're already somebody. The other has a published conversion rate, explicitly welcomes people with zero traditional AI background, and is open for applications right now.<br><br>
+    Here's what we found going through named 2026 hires, the labs' own program pages, and a breakdown of 1,680 real engineer résumés.
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ STORIES -->
+<div class="sec"><span class="sec-tag">5 Doors In, Ranked by How Open They Actually Are</span><span class="sec-line"></span></div>
+
+<div class="story">
+  <div class="story-n">01</div>
+  <div class="story-title">The Résumé Door — and it's basically shut</div>
+  <div class="story-body"><b>One sentence:</b> Anthropic's highest-profile 2026 hires were all somebody else's star player first — poached at the top, not grown from the bottom.</div>
+  <div class="story-body">The named hires read like a most-wanted list: Andrej Karpathy (OpenAI co-founder, ex-Tesla Autopilot lead) to build a new pre-training team; Eric Boyd (17 years at Microsoft, president of AI Platform) into infrastructure; Tom Blomfield (co-founder of Monzo and GoCardless) onto the compute team; Jelani Nelson (chair of UC Berkeley's CS division); Chris Ciauri (ex-Google Cloud and Salesforce exec) to scale Europe and Asia; Sarah Heck (Stripe and the White House National Security Council) to lead policy; Ross Nordeen (an xAI founding member) into security.</div>
+  <div class="meta"><b>Why it matters ·</b> This is the hiring track that makes headlines — and every name on it already had a title most people spend a career trying to reach.</div>
+  <div class="inside"><b>The signal —</b> If a hiring story starts with "[Person] joins from [famous company] as [VP/Chief title]," you're reading about the closed door, not the open one.</div>
+</div>
+
+<div class="story">
+  <div class="story-n">02</div>
+  <div class="story-title">The Door Nobody's Writing About: Enterprise Sales</div>
+  <div class="story-body"><b>One sentence:</b> OpenAI and Anthropic have pulled roughly 100 people from Salesforce alone in 2026 — most of them into sales and go-to-market roles, not research.</div>
+  <div class="story-body">Reports put it at 45 hires to Anthropic and 40 to OpenAI over the last six months, primarily in sales, marketing, and go-to-market functions. The reasoning is pragmatic, not technical: these labs are selling into the same Fortune 500 accounts Salesforce has spent two decades building relationships with, and that experience is worth more to a lab's growth right now than another research paper. It lines up with what's already visible on FOWL AI's own jobs board — roles like Trust & Safety Specialist and AI Policy & Governance Analyst don't ask for a machine learning background either.</div>
+  <div class="meta"><b>Why it matters ·</b> If you're a mid-career enterprise sales or customer-success professional, you may be closer to a frontier-lab job than most "break into AI" content will ever tell you.</div>
+  <div class="inside"><b>The signal —</b> None of these roles required an ML background. They required an existing book of enterprise relationships.</div>
+</div>
+
+<div class="story">
+  <div class="story-n">03</div>
+  <div class="story-title">The Door That Actually Converts: Fellowships and Residencies</div>
+  <div class="story-body"><b>One sentence:</b> two structured programs publish real numbers on this, and both explicitly welcome people with no traditional AI background.</div>
+  <div class="story-body">The Anthropic Fellows Program runs 4 months, pays a $3,850/week stipend plus roughly $15,000/month in compute funding, and — in Anthropic's own words — "over 40% of fellows subsequently joined full-time." The OpenAI Residency runs 6 months at $18,333/month as a full employee, not an intern, and OpenAI's own FAQ states plainly: "For those Residents who perform well we extend full-time offers to join OpenAI immediately upon completion." Past residents include someone who came from biology with zero AI background. A third program, Anthropic's Claude Corps, pays $85,000/year and explicitly requires no college degree or prior experience.</div>
+  <div class="meta"><b>Why it matters ·</b> This is the one door with a published, real conversion rate. It's not a maybe.</div>
+  <div class="inside"><b>The signal —</b> The Fellows Program's November 2026 cohort closed applications on July 26; later cohorts are accepted on a rolling basis after that, so this is worth tracking, not a one-time miss.</div>
+</div>
+
+<div class="story">
+  <div class="story-n">04</div>
+  <div class="story-title">The Proof-of-Work Door — real, but rarer than it sounds</div>
+  <div class="story-body"><b>One sentence:</b> Gabriel Petersson dropped out of high school at 17 in a Swedish town of 5,000 people and is now a researcher at OpenAI — but the honest version of his story is less "anyone can do this" than it looks.</div>
+  <div class="story-body">Petersson got noticed by building things before anyone asked him to: a week of 16-hour days building a working demo site for Midjourney, unpaid, before they'd even talk to him, which got him hired there in 2023. OpenAI actually rejected him once before a friend's referral got him in months later, in December 2024. He's 22 now, earning six figures. It's a real story — but a breakdown of 1,680 Anthropic engineer résumés found that even among their junior hires (under 6 years' experience), 50% had already interned at Meta, Google, DeepMind, Microsoft, or Amazon. "No degree" doors are real. "No proof" doors aren't.</div>
+  <div class="meta"><b>Why it matters ·</b> This door exists — but it asks for a portfolio or a founder story, not the absence of one.</div>
+  <div class="inside"><b>The signal —</b> Petersson's own advice: "Anyone can compete if you just put yourself in the right scenarios." True, but read alongside the résumé data above, not instead of it.</div>
+</div>
+
+<div class="story" style="border-bottom:none;">
+  <div class="story-n">05</div>
+  <div class="story-title">The Door Being Built, Slowly</div>
+  <div class="story-body"><b>One sentence:</b> Anthropic is investing in a wider pipeline for later — it's just not a hiring channel yet.</div>
+  <div class="story-body">Anthropic partnered with CodePath, the largest provider of collegiate computer science education in the US, to give more than 20,000 students at community colleges, state schools, and HBCUs access to frontier AI tools and industry-vetted courses — over 40% of those students come from households earning under $50,000 a year. Combined with Claude Corps' no-degree-required $85K track, it reads as a deliberate attempt to widen who even has a shot at the doors above.</div>
+  <div class="meta"><b>Why it matters ·</b> Neither program is a current mass hiring channel — but both are evidence the labs know their existing pipeline is too narrow, which is worth watching over the next year.</div>
+  <div class="inside"><b>The signal —</b> Access to tools and courses isn't the same as a job offer. Treat this as a door being built, not one you can walk through today.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ SIGNAL & CHATTER -->
+<div class="sec"><span class="sec-tag">📡 Signal &amp; Chatter</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="sig-intro">What the data and community are saying this week.</div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Anthropic Fellows' November cohort closed today.</b> If you missed it, later cohorts are rolling — worth setting a reminder rather than writing the program off.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>OpenAI Residency pays $18,333/month as a full employee, not an intern stipend.</b> Worth knowing before you assume these programs don't pay real money.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>Perplexity nearly tripled headcount in a year</b> — roughly 500 to 1,400+ — and still says it favors applied engineers who ship over pure research pedigree, with 60 roles open right now.</div></div>
+  <div class="sig"><div class="sig-dot"><span>›</span></div><div class="sig-text"><b>"Entry level" at a frontier lab rarely means actual entry level.</b> Half of Anthropic's junior hires already had a FAANG internship on their résumé before they applied.</div></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ PREDICTION -->
+<div class="card">
+  <div class="predict">
+    <div class="predict-label">🔮 FOWL Prediction #10</div>
+    <div class="predict-text">"By Issue 20 (early 2027), at least one frontier lab will publicly report its Fellows- or Residency-style conversion rate as a recruiting metric — the same way startups report application-to-funding stats."</div>
+    <div class="predict-sub">Anthropic already volunteered its 40%+ number without being asked. Once one lab treats a strong conversion rate as a selling point, the others will have a reason to publish theirs too. We'll check back on this prediction when Issue 20 goes out.</div>
+  </div>
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;margin-top:8px;">FOWL AI · July 27, 2026 · We'll score this in early 2027.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ ACTION ITEMS -->
+<div class="sec"><span class="sec-tag">✅ 3 Things to Do This Week</span><span class="sec-line"></span></div>
+<div class="card">
+  <div class="action-wrap">
+    <div class="action-label">One for each type of reader — pick yours</div>
+    <div class="action-item">
+      <span class="action-num">01</span>
+      <div><b>If you have zero traditional AI background —</b> look specifically at Fellows/Residency-style program pages, not general job boards. These are the doors that publish real conversion numbers and explicitly welcome your background.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">02</span>
+      <div><b>If you're in enterprise sales or customer success —</b> don't rule yourself out because your résumé isn't technical. ~100 people just like you moved from Salesforce into these labs this year alone.</div>
+    </div>
+    <div class="action-item">
+      <span class="action-num">03</span>
+      <div><b>If you're planning to "build something to prove it" —</b> it's a real door, but the honest odds say pair the portfolio with some form of credential-building, not instead of it — half of even junior hires already had one.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ LAUNCH LAB -->
+<div class="launch-lab" style="background:#0d3f31;border-left:none;">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;">
+    <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;">🚀 From the Lab</div>
+    <div style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:#7fd9b8;opacity:.65;">Sponsored by FOWL AI</div>
+  </div>
+  <div style="font-family:'Fraunces',serif;font-weight:700;font-size:24px;color:#fff;line-height:1.2;margin-bottom:10px;">Launch Lab — Building something?</div>
+  <div style="font-family:-apple-system,sans-serif;font-size:15px;line-height:1.75;color:#cfe9dd;margin-bottom:20px;max-width:520px;">We're not an agency — we don't build it for you. Brand Brain is the AI workspace you use to turn what you know into a website, newsletter, and digital products you actually own. You stay in control of it the whole way.</div>
+  <div style="display:flex;gap:14px;flex-wrap:wrap;align-items:center;">
+    <a href="https://www.fowl-ai.com/launchlab/" style="display:inline-block;background:#f2a12b;color:#0d3f31;font-family:'Inter',-apple-system,sans-serif;font-size:14px;font-weight:800;text-decoration:none;padding:14px 26px;border-radius:999px;line-height:1.2;">See what we've built →</a>
+    <div style="font-family:'DM Mono',monospace;font-size:12px;color:#a9e8cf;">or reply with <strong style="color:#fff;">"LAUNCH"</strong> and let's chat</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ EMERGING CAREER -->
+<div class="sec"><span class="sec-tag">🪪 Emerging Career Title</span><span class="sec-line"></span></div>
+<div class="card-dark">
+  <div class="career-eye">This week</div>
+  <div class="career-title">Trust &amp; Safety Specialist</div>
+  <div class="career-body">Both OpenAI and Anthropic have this title open right now, and it sits squarely in the "door nobody's writing about" category from this issue: it doesn't ask for a research background, it asks for judgment. The role involves reviewing how a model's outputs affect real users, deciding where a product needs guardrails, and working across policy, product, and engineering to get them built.</div>
+  <div class="career-body">People moving into this role come from content moderation, trust and safety at other tech companies, law, and policy — not machine learning. It's one of the clearest examples in this issue of a real, current opening at a frontier lab that doesn't require you to already be famous or hold a PhD.</div>
+  <div class="career-why"><b>How to position for this now:</b> If you've done policy, compliance, content moderation, or trust and safety work anywhere — even outside tech — lead with that directly. It's more relevant here than a general "interested in AI" pitch.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ CLOSING -->
+<div class="card" style="padding-bottom:0;">
+  <div style="font-size:16px;line-height:1.8;color:#1a1a1a;">
+    The honest version of "how do I get hired at a frontier lab" isn't one answer. It's two tracks running at once — one closed to most people, one genuinely open to people willing to walk through it with proof in hand.<br><br>
+    Next time you read a hiring story from one of these labs, ask which door it's actually describing before you decide whether it applies to you.
+  </div>
+</div>
+
+<div class="card-dark" style="margin-top:0;text-align:center;">
+  <div class="stamp-text">"The path in isn't closed.<br><span>It's just not the path everyone's describing."</span></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ REPLY CTA -->
+<div class="card-mint">
+  <div class="reply-label">💬 One question — reply and tell us</div>
+  <div class="reply-text">Which door are you actually closer to right now — the fellowship, the sales pipeline, or building something to prove it? Hit reply and tell us — we're tracking this for a follow-up issue.<br><br>Hit reply. We read every one and it shapes what we cover next.</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════ SHARE -->
+<div style="background:#fff;margin:8px 0;padding:24px 44px;text-align:center;border-top:2px solid #f2ede3;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#9aada5;margin-bottom:16px;">Share this issue</div>
+  <button onclick="navigator.clipboard.writeText('https://www.fowl-ai.com/issues/2026-07-27/').then(()=>{this.textContent='✓ Copied!';setTimeout(()=>{this.textContent='Copy link'},2000)})" style="display:inline-block;background:#f2ede3;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;border:1.5px solid #c8c0b4;cursor:pointer;line-height:1.2;">Copy link</button>
+</div>
+
+
+<!-- ═══════════════════════════════════════ FOOTER -->
+<div class="footer">
+  <div class="footer-brand">FOWL AI</div>
+  <div class="footer-fine">Career signals for the AI economy.</div>
+  <div class="footer-fine" style="margin-top:6px;">Weekly · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="https://www.fowl-ai.com">fowl-ai.com</a></div>
+  <div class="footer-fine" style="margin-top:10px;">{{SenderInfoLine}}</div>
+  <div class="footer-fine" style="margin-top:6px;"><a href="{{UnsubscribeURL}}">Unsubscribe</a> · <a href="{{RewardsURL}}">Powered by EmailOctopus</a></div>
+</div>
+
+</body></html>
