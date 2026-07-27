@@ -15,6 +15,7 @@ FOWL AI publishes a new issue every Monday covering AI jobs, training platforms,
 - [FOWL AI Tests](https://www.fowl-ai.com/tests/): Monthly head-to-head AI tool comparisons using real downloaded output files, not just chat transcripts. No sponsorships.
 - [Products & Guides](https://www.fowl-ai.com/products/): Guides and templates for building AI-era income.
 - [About](https://www.fowl-ai.com/about/): Who writes FOWL AI and why it exists.
+- [LaunchLab: Brand Brain](https://www.fowl-ai.com/launchlab/): A guided AI workspace ("AI Building Partner") that teaches you how to turn an idea into a website, newsletter, AI avatar, and digital products you own. $99 Founding Edition. A separate business powered by FOWL AI. See also: [Own Your AI Brand](https://www.fowl-ai.com/launchlab/own-your-ai-brand/) (Playbook $39 / Builder Pack $99).
 
 ## Latest Issues
 
