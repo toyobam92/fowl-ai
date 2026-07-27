@@ -121,6 +121,43 @@
     .verdict-card p{font-size:14px;color:#cfe9dd;line-height:1.7;}
     .verdict-text{font-size:16px;color:#e2f2eb;line-height:1.85;margin-top:24px;}
 
+    /* Key takeaways */
+    .takeaway-box{background:#fff;border-radius:14px;padding:26px 30px;border:1.5px solid #e8e4de;border-left:6px solid #1a5f4a;}
+    .takeaway-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#1a5f4a;margin-bottom:14px;font-weight:700;}
+    .takeaway-list{list-style:none;display:flex;flex-direction:column;gap:10px;}
+    .takeaway-list li{font-size:15px;line-height:1.6;color:#2a2a2a;padding-left:24px;position:relative;}
+    .takeaway-list li::before{content:'✓';position:absolute;left:0;color:#1a5f4a;font-weight:800;}
+
+    /* Scoring legend + definitions table */
+    .legend-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:14px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:.5px;color:#665f56;}
+    .legend-row span b{color:#13241e;}
+    .def-table{width:100%;border-collapse:collapse;margin-top:18px;}
+    .def-table th,.def-table td{text-align:left;padding:10px 14px;border-bottom:1px solid #f0ede6;font-size:13.5px;}
+    .def-table th{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#665f56;}
+    .def-table td:first-child{font-weight:700;color:#13241e;white-space:nowrap;}
+    .def-table td{color:#46524c;line-height:1.6;}
+
+    /* Prompt disclosure */
+    .prompt-disclosure{margin-top:18px;background:#faf8f4;border:1px solid #e8e4de;border-radius:10px;overflow:hidden;}
+    .prompt-disclosure summary{cursor:pointer;padding:14px 18px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;text-transform:uppercase;color:#1a5f4a;font-weight:700;list-style:none;display:flex;align-items:center;gap:8px;}
+    .prompt-disclosure summary::-webkit-details-marker{display:none;}
+    .prompt-disclosure summary::before{content:'▸';font-size:12px;}
+    .prompt-disclosure[open] summary::before{content:'▾';}
+    .prompt-disclosure summary:hover{color:#0f3d30;}
+    .prompt-text{padding:0 18px 18px;font-family:"DM Mono",monospace;font-size:12.5px;line-height:1.8;color:#3a3a3a;white-space:pre-wrap;border-top:1px solid #e8e4de;padding-top:14px;}
+
+    /* Summary snippets */
+    .snippet-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+    .snippet-card{background:#fff;border-radius:12px;padding:22px 24px;border:1.5px solid #e8e4de;}
+    .snippet-tool{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#c07000;margin-bottom:10px;font-weight:700;}
+    .snippet-quote{font-family:Fraunces,Georgia,serif;font-style:italic;font-size:15px;line-height:1.7;color:#2a2a2a;}
+
+    /* Switch guide */
+    .switch-guide{margin-top:28px;padding-top:24px;border-top:1px solid rgba(127,217,184,.2);}
+    .switch-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:14px;}
+    .switch-item{font-size:14.5px;line-height:1.75;color:#cfe9dd;margin-bottom:10px;}
+    .switch-item b{color:#fff;}
+
     /* CTA */
     .tests-cta{background:#13241e;padding:56px 24px;text-align:center;}
     .tests-cta h2{font-family:Fraunces,Georgia,serif;font-size:clamp(24px,4vw,32px);color:#fff;margin-bottom:12px;}
@@ -141,6 +178,9 @@
       .sb-table th,.sb-table td{padding:10px 8px;}
       .verdict-box{padding:26px 22px;}
       .method-card{padding:22px 20px;}
+      .snippet-grid{grid-template-columns:1fr;}
+      .def-table{font-size:12px;}
+      .def-table th,.def-table td{padding:8px 10px;}
     }
     @media(max-width:640px){
       .hero{padding:40px 18px 44px;}
@@ -191,6 +231,21 @@
     </div>
   </div>
 
+  <!-- KEY TAKEAWAYS -->
+  <div class="section" style="padding-bottom:0;">
+    <div class="wrap-narrow">
+      <div class="takeaway-box">
+        <div class="takeaway-label">Key Findings — 15-Second Version</div>
+        <ul class="takeaway-list">
+          <li><b>Claude.ai</b> was the only tool that verified its own page length before showing us the result.</li>
+          <li><b>Codex</b> produced the most detailed, thorough resume of the four.</li>
+          <li>None of the four tools fabricated a credential, certification, or team size.</li>
+          <li><b>ChatGPT</b> and <b>Codex</b> both quietly ran to 2 pages without flagging it.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <!-- METHODOLOGY -->
   <div class="section">
     <div class="wrap-narrow">
@@ -203,6 +258,28 @@
           <div class="method-item"><b>Output checked</b><span>The real downloaded .docx / .pdf, not the chat reply</span></div>
           <div class="method-item"><b>Verification</b><span>Page counts confirmed in Microsoft Word</span></div>
         </div>
+        <details class="prompt-disclosure">
+          <summary>Show the exact prompt we used</summary>
+          <div class="prompt-text">I need help writing a resume for this target role: Senior Marketing Manager, Lifecycle &amp; Retention at a mid-size B2B SaaS company (50-200 employees).
+
+Here's my background, unformatted — please turn this into a polished, ATS-friendly resume:
+
+Jordan Reyes
+jordan.reyes@email.com | (555) 123-4567 | Austin, TX | linkedin.com/in/jordanreyes
+
+Work history:
+- Marketing Manager at BrightPath Software (SaaS, project management tools), Jan 2022–present. Ran email lifecycle campaigns, grew trial-to-paid conversion from 11% to 17% over 18 months. Managed a $400K/year paid marketing budget across Google and LinkedIn ads. Built and launched a customer re-engagement flow in HubSpot that recovered about $180K in at-risk annual recurring revenue. Managed one direct report (Marketing Coordinator).
+- Senior Marketing Associate at Lumen Analytics (data analytics startup, ~40 people), Jun 2019–Dec 2021. Owned content marketing calendar, grew organic blog traffic from 8K to 47K monthly visitors in 2 years. Ran A/B tests on landing pages that improved demo request conversion by 22%. Coordinated with sales to build lead scoring criteria.
+- Marketing Coordinator at Retail Insights Co (retail SaaS), Aug 2017–May 2019. Supported event marketing (ran 3 regional conferences, 200-400 attendees each), managed social media accounts, wrote weekly newsletter to 15K subscriber list.
+
+Education: BA in Communications, University of Texas at Austin, 2017.
+
+Skills I use regularly: HubSpot, Google Analytics, Google Ads, LinkedIn Campaign Manager, Figma (basic), SQL (basic, can pull simple queries), ChatGPT/Claude for campaign copywriting and content briefs, Asana, Looker (dashboards, not building them).
+
+I don't have a formal certification in anything. I've never managed a team bigger than 1 person. I'm applying because I want to move from a smaller company into a role with more strategic ownership over retention/lifecycle at a bigger SaaS company.
+
+Please write the full resume.</div>
+        </details>
       </div>
     </div>
   </div>
@@ -212,7 +289,23 @@
     <div class="wrap">
       <div class="section-label">The Scoreboard</div>
       <h2 class="section-title">Five categories, scored from the actual files.</h2>
-      <div class="scoreboard">
+      <p class="body-text" style="max-width:760px;">Every category is scored 1–5, dot for dot, based only on what we found in the downloaded file — never the chat reply.</p>
+      <div class="legend-row">
+        <span><b>5</b> = Excellent</span>
+        <span><b>4</b> = Good</span>
+        <span><b>3</b> = Acceptable</span>
+        <span><b>2</b> = Weak</span>
+        <span><b>1</b> = Poor</span>
+      </div>
+      <table class="def-table">
+        <tr><th>Category</th><th>What it measures</th></tr>
+        <tr><td>Content Depth</td><td>How much of the candidate's real work and impact made it into the resume, without padding.</td></tr>
+        <tr><td>Structure &amp; ATS-Safety</td><td>Real selectable text, no tables/text boxes/columns, contact info in the body — the things that actually break applicant tracking systems.</td></tr>
+        <tr><td>Page-Fit Verification</td><td>Whether the tool checked that its own output actually matched the stated length before handing it over.</td></tr>
+        <tr><td>Visual Polish</td><td>Typography, spacing, and design choices in the real file.</td></tr>
+        <tr><td>Honesty</td><td>Whether the tool invented any credential, certification, or scope of experience not present in the source material.</td></tr>
+      </table>
+      <div class="scoreboard" style="margin-top:22px;">
         <table class="sb-table">
           <tr>
             <th>Category</th>
@@ -265,7 +358,33 @@
           </tr>
         </table>
       </div>
-      <p class="body-text" style="margin-top:18px;color:#665f56;font-size:14px;">Scored 1–5 per category from the actual downloaded files — not the chat conversations. See "The Setup" above for exactly what each score is based on.</p>
+    </div>
+  </div>
+
+  <!-- SUMMARY SNIPPETS -->
+  <div class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-label">Summary Showdown</div>
+      <h2 class="section-title">Same person, four completely different opening paragraphs.</h2>
+      <p class="body-text" style="max-width:760px;margin-bottom:22px;">The "Professional Summary" each tool wrote from the identical source material — verbatim, no edits.</p>
+      <div class="snippet-grid">
+        <div class="snippet-card">
+          <div class="snippet-tool">Claude.ai</div>
+          <p class="snippet-quote">"Lifecycle and retention marketer with 8+ years across B2B SaaS, focused on turning customer journeys into measurable revenue. Owns email lifecycle programs, trial-to-paid conversion, and churn recovery end to end..."</p>
+        </div>
+        <div class="snippet-card">
+          <div class="snippet-tool">ChatGPT</div>
+          <p class="snippet-quote">"Results-driven SaaS marketing professional with 8+ years of experience leading lifecycle marketing, demand generation, content strategy, and paid acquisition initiatives for B2B software companies..."</p>
+        </div>
+        <div class="snippet-card">
+          <div class="snippet-tool">Codex</div>
+          <p class="snippet-quote">"Lifecycle and growth marketing manager with 7+ years of B2B SaaS experience across retention, trial conversion, marketing automation, paid acquisition, content, and funnel optimization..."</p>
+        </div>
+        <div class="snippet-card">
+          <div class="snippet-tool">Claude Code</div>
+          <p class="snippet-quote">"Marketing Manager with 7+ years in B2B SaaS, specializing in lifecycle marketing and retention. Grew trial-to-paid conversion 6 points (11% → 17%) and recovered $180K in at-risk ARR..."</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -357,6 +476,14 @@
           </div>
         </div>
         <p class="verdict-text">There isn't one universal winner here — the honest finding is that these four tools optimized for different things without telling us. If you want the fuller picture, tell your tool explicitly to check the page count and keep the detail — none of them will do both by default yet.</p>
+
+        <div class="switch-guide">
+          <div class="switch-label">Should you switch tools?</div>
+          <div class="switch-item"><b>Use Claude.ai</b> if you want polished, verified output with fewer surprises.</div>
+          <div class="switch-item"><b>Use Codex</b> if you prefer maximum detail and don't mind reviewing the formatting yourself.</div>
+          <div class="switch-item"><b>Use ChatGPT</b> if you want a solid, balanced draft but plan to proofread the final document anyway.</div>
+          <div class="switch-item" style="margin-bottom:0;"><b>Use Claude Code</b> if your workflow is already code-first and you don't need advanced document design.</div>
+        </div>
       </div>
     </div>
   </div>
