@@ -10,7 +10,7 @@ When `weekly-analytics-review` runs, it checks `git log` since the last review a
 | AI Jobs Board | Discovery | live | pre-dates tracking | — |
 | AI Platforms Directory | Discovery | live | pre-dates tracking | — |
 | Launch Lab (separate business) | — | live | pre-dates tracking | — |
-| AI Glossary | Core Content | in_progress | started, pre-dates tracking | glossary, LLM/MCP/agents/skills definitions page |
+| AI Glossary | Core Content | live | 2026-07-20 (`af46d07`) | glossary, LLM/MCP/agents/skills definitions page |
 | AI Newsletter Archive | Core Content | planned | — | archive page, best of 2026, most popular issues |
 | AI Books & Resources | Core Content | planned | — | books, resources, reading list, courses, podcasts |
 | AI Company Tracker | Discovery | planned | — | company tracker, OpenAI/Anthropic/Google/Microsoft/Meta/Apple/Amazon page |

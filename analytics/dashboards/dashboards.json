@@ -9,6 +9,8 @@
   "phase1-roadmap": {
     "file": "analytics/dashboards/phase1-roadmap.html",
     "url": "https://claude.ai/code/artifact/f8559ca0-1402-44af-add1-6f8a9b97358b",
+    "cowork_artifact_id": "fowlai-phase1-roadmap",
+    "cowork_artifact_note": "Republished 2026-07-27 via the Cowork create_artifact tool (id fowlai-phase1-roadmap), which uses a different URL scheme than the claude.ai/code/artifact link above. That original link is from a different environment (likely Claude Code) not reachable from this Cowork session, so it could not be updated in place — flagged to the user in that cycle's chat report, same as site-snapshot's migration on 2026-07-16.",
     "description": "Phase 1 'AI destination' roadmap tracker — status badges sourced from analytics/roadmap.md."
   }
 }

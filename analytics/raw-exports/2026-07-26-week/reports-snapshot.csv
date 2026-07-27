@@ -1,0 +1,86 @@
+# ----------------------------------------
+# Reports snapshot
+# Account: fowl AI
+# Property: fowl AI
+# NOTE: pulled directly from the GA4 UI (Reports > Snapshot / Business objectives > Generate
+# leads > Overview, and Admin > Events for the key-event flag) via Claude in Chrome for the
+# weekly-analytics-review scheduled task, not a manual CSV export.
+# ----------------------------------------
+#
+# Start date: 20260720
+# End date: 20260726
+Active users,New users,Average engagement time per active user,Event count
+94,90,19,677
+
+#
+# Start date: 20260720
+# End date: 20260726
+Page title and screen class,Views,Active users,Event count,Bounce rate
+FOWL AI | AI Jobs, Platforms & Opportunities,85,52,332,0.576
+AI Jobs Board | Remote AI Opportunities & Roles | FOWL AI,24,14,85,0.455
+AI Platforms Directory — FOWL AI,18,16,55,0.412
+Contact — FOWL AI,12,12,63,0.000
+All Issues — FOWL AI,10,6,33,0.286
+AI Glossary — LLM, Agent, MCP, Skills & Claude CLI Explained | FOWL AI,8,3,17,0.167
+AI & Future of Work FAQ — Jobs, Pay, 1099 vs W2 (US) | FOWL AI,5,3,16,0.250
+About TYB — FOWL AI,2,2,16,0.000
+
+#
+# Start date: 20260720
+# End date: 20260726
+First user source / medium,Active users
+google / organic,61
+(direct) / (none),17
+chatgpt.com / ai-assistant,8
+bing / organic,3
+in.search.yahoo.com / referral,1
+privacywall.org / referral,1
+yahoo / organic,1
+
+#
+# Start date: 20260720
+# End date: 20260726
+Session source / medium,Sessions
+google / organic,75
+(direct) / (none),17
+chatgpt.com / ai-assistant,16
+bing / organic,4
+in.search.yahoo.com / referral,1
+privacywall.org / referral,1
+yahoo / organic,1
+
+#
+# Start date: 20260720
+# End date: 20260726
+# NOTE: Nth-day new/returning cohort breakdown was not retrievable from the GA4 UI
+# snapshot/demographic views used for this pull (would require the Retention report,
+# which this session did not navigate to). Left blank this cycle — see metrics-history.csv.
+Nth day,new,returning
+
+# How does activity on your platforms compare?
+# Start date: 20260720
+# End date: 20260726
+# NOTE: raw key-event count (12) taken from Admin > Events (only "generate_lead" is
+# currently marked as a Key Event; subscribe_click/subscribe_submit still are not — see
+# EXPERIMENTS.md "Sitewide event instrumentation" follow-up) cross-checked against the
+# Pages and screens report's Key events column (Contact = 12, all others = 0).
+Platform,Key events
+web,12
+
+#
+# Start date: 20260720
+# End date: 20260726
+City,Active users
+Patna,7
+Guwahati,5
+Nairobi,4
+Bengaluru,3
+Lucknow,3
+Accra,2
+Ahmedabad,2
+
+#
+# Start date: 20260720
+# End date: 20260726
+Audience name,Active users
+All Users,94

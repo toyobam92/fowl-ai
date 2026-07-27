@@ -335,30 +335,30 @@
   <header>
     <p class="eyebrow">FOWL AI · fowl-ai.com</p>
     <h1>Site snapshot</h1>
-    <p class="subtitle">Google Analytics · Jul 10–16, 2026 (7-day window)</p>
-    <p class="subtitle" style="margin-top:4px;">Week-over-week deltas below are vs. the 2026-07-15–16 baseline read — that baseline was a 2-day window inside this 7-day one, so treat the deltas as directional, not a clean apples-to-apples comparison. The first true non-overlapping week-over-week read will land next cycle.</p>
+    <p class="subtitle">Google Analytics · Jul 20–26, 2026 (7-day window)</p>
+    <p class="subtitle" style="margin-top:4px;">First true non-overlapping week-over-week read: this 7-day window (Jul 20–26) vs. the prior 7-day window (Jul 10–16). TICKET-6 (sitewide GA4 event instrumentation) shipped 2026-07-16, partway through the prior window — so part of this week's shift in bounce/engagement reflects better measurement, not necessarily a real behavior change. See the callout below each metric.</p>
   </header>
 
   <div class="stat-row">
     <div class="stat-tile">
       <p class="stat-label">Active users</p>
-      <div class="stat-value">154</div>
-      <p class="stat-sub">▲ vs 33 baseline</p>
+      <div class="stat-value">94</div>
+      <p class="stat-sub">▼ vs 154 last week</p>
     </div>
     <div class="stat-tile">
       <p class="stat-label">New users</p>
-      <div class="stat-value">149</div>
-      <p class="stat-sub">97% of active users</p>
+      <div class="stat-value">90</div>
+      <p class="stat-sub">96% of active users</p>
     </div>
     <div class="stat-tile">
       <p class="stat-label">Avg. engagement / user</p>
-      <div class="stat-value">9s</div>
-      <p class="stat-sub">▼ vs 17s baseline</p>
+      <div class="stat-value">19s</div>
+      <p class="stat-sub">▲ vs 9s last week</p>
     </div>
     <div class="stat-tile">
       <p class="stat-label">Events</p>
-      <div class="stat-value">819</div>
-      <p class="stat-sub">▲ vs 180 baseline</p>
+      <div class="stat-value">677</div>
+      <p class="stat-sub">▼ vs 819 last week</p>
     </div>
   </div>
 
@@ -378,25 +378,25 @@
   <div class="card-row">
     <div class="card">
       <p class="card-title">Top cities</p>
-      <p class="card-caption">Active users by city (top 12 of 75)</p>
+      <p class="card-caption">Active users by city (top 12 of 64)</p>
       <div class="bar-list" data-chart="cities"></div>
-      <p class="bar-note">Long tail beyond the top 24 cities each contributed 1 active user (see table below for the top 24).</p>
+      <p class="bar-note">"(not set)" is GA4's bucket for city-unresolvable sessions — now the single largest city-level bucket this week. Long tail beyond the top 20 cities shown in the table below each contributed 1 active user.</p>
     </div>
     <div class="card">
       <p class="card-title">Countries</p>
       <p class="card-caption">Active users by country</p>
       <div class="bar-list" data-chart="countries"></div>
-      <p class="bar-note">33 of 36 sitewide key events (92%) came from users in India; 1 from the US, 1 from Romania.</p>
+      <p class="bar-note">9 of 12 sitewide key events (75%) came from users in India; 2 from Bangladesh, 1 from Germany. All 12 are generate_lead (Contact form) — subscribe_click/subscribe_submit still aren't marked as GA4 Key Events (see EXPERIMENTS.md).</p>
     </div>
   </div>
 
   <div class="callout-row">
     <div class="callout">
-      <div class="callout-value">77%</div>
+      <div class="callout-value">65%</div>
       <div class="callout-label">of users arrived via google / organic</div>
     </div>
     <div class="callout">
-      <div class="callout-value">5 users</div>
+      <div class="callout-value">8 users</div>
       <div class="callout-label">arrived via chatgpt.com / ai-assistant</div>
     </div>
     <div class="callout">
@@ -407,40 +407,40 @@
 
   <div class="card" style="margin-bottom:12px;">
     <p class="card-title">Bounce rate — what to fix, by page</p>
-    <p class="card-caption">GA4 bounce = no 10s+ engagement, no conversion event, no 2nd pageview. 7-day, 154-user sample — bigger than the baseline read, still small.</p>
+    <p class="card-caption">GA4 bounce = no 10s+ engagement, no conversion event, no 2nd pageview. First full 7-day window entirely after TICKET-6 (sitewide event instrumentation) shipped — 94-user sample, still small.</p>
     <div class="insight-list">
       <div class="insight-row">
         <div class="insight-page">Homepage</div>
-        <div><span class="badge critical"><span class="dot"></span>64%</span></div>
-        <div class="insight-text">Down from 100% at baseline (small sample both times). Main entry point from Google organic. Add an above-the-fold CTA (subscribe / read latest issue) and internal links to the Jobs Board and Platforms Directory so there's an obvious next click.</div>
+        <div><span class="badge critical"><span class="dot"></span>58%</span></div>
+        <div class="insight-text">Down from 64% last week. Main entry point from Google organic. Add an above-the-fold CTA (subscribe / read latest issue) and internal links to the Jobs Board and Platforms Directory so there's an obvious next click.</div>
       </div>
       <div class="insight-row">
         <div class="insight-page">Contact</div>
         <div><span class="badge good"><span class="dot"></span>0%</span></div>
-        <div class="insight-text">Still the one page that never bounces — submitting the form fires an engagement/conversion event. Replicate that pattern elsewhere: track "apply" clicks, platform-link clicks, and subscribe clicks as events.</div>
+        <div class="insight-text">Still the one page that never bounces — submitting the form fires generate_lead, the only event currently marked as a GA4 Key Event. All 12 of this week's key events came from here.</div>
       </div>
       <div class="insight-row">
         <div class="insight-page">All Issues</div>
-        <div><span class="badge critical"><span class="dot"></span>76%</span></div>
-        <div class="insight-text">Down from 100% at baseline. Surface a "start here" or most-popular issue instead of a flat list; a recommended-next-issue link at the bottom of each post keeps sessions going past page one.</div>
+        <div><span class="badge critical"><span class="dot"></span>29%</span></div>
+        <div class="insight-text">Down sharply from 76% last week — first week where scroll_75/outbound_click events (from TICKET-6) are countable for a full period, not just a UX change. Still worth shipping the "start here" / related-issue links (TICKET-4).</div>
       </div>
       <div class="insight-row">
         <div class="insight-page">AI Jobs Board</div>
-        <div><span class="badge critical"><span class="dot"></span>53%</span></div>
-        <div class="insight-text">Down from 100% at baseline. Add filters, search, or save/apply buttons — interacting with them counts as an engagement event in GA4, lowering bounce independent of time on page.</div>
+        <div><span class="badge critical"><span class="dot"></span>45%</span></div>
+        <div class="insight-text">Down from 53% last week. Filters/search/save buttons (TICKET-2) would still give visitors something to interact with beyond scroll depth.</div>
       </div>
       <div class="insight-row">
         <div class="insight-page">AI Platforms Directory</div>
-        <div><span class="badge critical"><span class="dot"></span>74%</span></div>
-        <div class="insight-text">Down from 100% at baseline. Same fix as the Jobs Board: add filters/search, or track outbound clicks on platform links as engagement events.</div>
+        <div><span class="badge critical"><span class="dot"></span>41%</span></div>
+        <div class="insight-text">Down from 74% last week. Same fix as the Jobs Board: add filters/search, or track outbound clicks on platform links as engagement events (TICKET-3).</div>
       </div>
       <div class="insight-row">
         <div class="insight-page">About TYB</div>
-        <div><span class="badge critical"><span class="dot"></span>80%</span></div>
-        <div class="insight-text">Down slightly from 100% at baseline (5 views this week vs. 1). Add a link back to the newsletter or Jobs Board so it isn't a dead end.</div>
+        <div><span class="badge good"><span class="dot"></span>0%</span></div>
+        <div class="insight-text">0% this week (2 views) vs. 80% last week — too small a sample (2 users) to call a trend, but scroll/outbound tracking from TICKET-6 is likely doing the work here too.</div>
       </div>
     </div>
-    <p class="bar-note">Sitewide avg. engagement time dropped to 9s this week (from 17s at baseline) even as bounce rates fell across every page except Contact — a pattern consistent with missing engagement-event tracking outside Contact, not necessarily a real behavior change. TICKET-6 (sitewide event instrumentation) is what would make these numbers trustworthy.</p>
+    <p class="bar-note">Sitewide avg. engagement time rose to 19s this week (from 9s last week) while bounce fell on every page except Contact (already at 0%). This is the first read where TICKET-6's scroll/outbound/subscribe event tracking was live for the entire window, so treat this as a level-shift from better measurement, not a UX win for any single experiment above — see EXPERIMENTS.md for the per-experiment read.</p>
   </div>
 
   <details class="table-toggle">
@@ -466,7 +466,7 @@
       <tbody id="tbl-nth"></tbody>
     </table>
     <table>
-      <caption>Cities (top 24 of 75)</caption>
+      <caption>Cities (top 20 of 64; 44 more cities contributed 1 active user each)</caption>
       <thead><tr><th>City</th><th class="num">Active users</th></tr></thead>
       <tbody id="tbl-cities"></tbody>
     </table>
@@ -477,7 +477,7 @@
     </table>
   </details>
 
-  <footer>Source: reports-snapshot.csv &amp; demographic-details-country.csv — pulled directly from the GA4 UI (Reports &gt; Snapshot / Demographic details) via Claude in Chrome, account &amp; property "fowl AI", 2026-07-10 to 2026-07-16. Nth-day new/returning retention wasn't captured in this pull (needs the Retention report, not visited this cycle) — that stat tile and table are blank until next time.</footer>
+  <footer>Source: reports-snapshot.csv &amp; demographic-details-country.csv — pulled directly from the GA4 UI (Reports &gt; Snapshot / Demographic details) via Claude in Chrome, account &amp; property "fowl AI", 2026-07-20 to 2026-07-26. Nth-day new/returning retention wasn't captured in this pull (needs the Retention report, not visited this cycle) — that stat tile and table are blank until next time.</footer>
 </div>
 
 <div id="tooltip" role="tooltip"></div>
@@ -486,56 +486,51 @@
 (function () {
   var DATA = {
     pages: [
-      { label: "FOWL AI | AI Jobs, Platforms & Opportunities", value: 99, sub: "75 users · 362 events · bounce 64.3%" },
-      { label: "All Issues — FOWL AI", value: 41, sub: "22 users · 127 events · bounce 75.9%" },
-      { label: "Contact — FOWL AI", value: 36, sub: "32 users · 161 events · bounce 0%" },
-      { label: "AI Platforms Directory — FOWL AI", value: 32, sub: "23 users · 88 events · bounce 74.1%" },
-      { label: "AI Jobs Board | Remote AI Opportunities & Roles", value: 19, sub: "10 users · 58 events · bounce 52.9%" },
-      { label: "About TYB — FOWL AI", value: 5, sub: "3 users · 18 events · bounce 80%" }
+      { label: "FOWL AI | AI Jobs, Platforms & Opportunities", value: 85, sub: "52 users · 332 events · bounce 57.6%" },
+      { label: "AI Jobs Board | Remote AI Opportunities & Roles", value: 24, sub: "14 users · 85 events · bounce 45.5%" },
+      { label: "AI Platforms Directory — FOWL AI", value: 18, sub: "16 users · 55 events · bounce 41.2%" },
+      { label: "Contact — FOWL AI", value: 12, sub: "12 users · 63 events · bounce 0%" },
+      { label: "All Issues — FOWL AI", value: 10, sub: "6 users · 33 events · bounce 28.6%" },
+      { label: "AI Glossary — FOWL AI", value: 8, sub: "3 users · 17 events · bounce 16.7%" }
     ],
     sources: [
-      { label: "google / organic", value: 118, sub: "77% of active users" },
-      { label: "(direct) / (none)", value: 19, sub: "12% of active users" },
-      { label: "chatgpt.com / ai-assistant", value: 5, sub: "3% of active users" },
-      { label: "bing / organic", value: 3, sub: "2% of active users" }
+      { label: "google / organic", value: 61, sub: "65% of active users" },
+      { label: "(direct) / (none)", value: 17, sub: "18% of active users" },
+      { label: "chatgpt.com / ai-assistant", value: 8, sub: "9% of active users" },
+      { label: "bing / organic", value: 3, sub: "3% of active users" }
     ],
     cities: [
-      { label: "Patna", value: 17 },
-      { label: "Jaipur", value: 8 },
-      { label: "(not set)", value: 6 },
-      { label: "Bengaluru", value: 5 },
-      { label: "Hyderabad", value: 5 },
-      { label: "Lucknow", value: 5 },
-      { label: "Pune", value: 5 },
-      { label: "Ahmedabad", value: 4 },
-      { label: "Delhi", value: 4 },
-      { label: "Atlanta", value: 3 },
-      { label: "Bhopal", value: 3 },
-      { label: "Bhubaneswar", value: 3 }
+      { label: "(not set)", value: 10 },
+      { label: "Patna", value: 7 },
+      { label: "Guwahati", value: 5 },
+      { label: "Nairobi", value: 4 },
+      { label: "Bengaluru", value: 3 },
+      { label: "Lucknow", value: 3 },
+      { label: "Accra", value: 2 },
+      { label: "Ahmedabad", value: 2 },
+      { label: "Atlanta", value: 2 },
+      { label: "Council Bluffs", value: 2 },
+      { label: "Jaipur", value: 2 },
+      { label: "Tangier", value: 2 }
     ],
     countries: [
-      { label: "India", value: 110, sub: "110 new · eng. rate 41.5% · 33 key events" },
-      { label: "United States", value: 9, sub: "6 new · eng. rate 57.9% · 1 key event" },
-      { label: "Bangladesh", value: 8, sub: "8 new · eng. rate 25% · 1 key event" },
-      { label: "France", value: 3, sub: "4 new · eng. rate 33.3% · 0 key events" },
-      { label: "Germany", value: 3, sub: "4 new · eng. rate 33.3% · 0 key events" },
-      { label: "Pakistan", value: 3, sub: "1 new · eng. rate 0% · 0 key events" }
+      { label: "India", value: 42, sub: "42 new · eng. rate 37.8% · 9 key events" },
+      { label: "United States", value: 15, sub: "13 new · eng. rate 65.5% · 0 key events" },
+      { label: "Bangladesh", value: 7, sub: "6 new · eng. rate 57.1% · 2 key events" },
+      { label: "Kenya", value: 4, sub: "3 new · eng. rate 50% · 0 key events" },
+      { label: "Ghana", value: 2, sub: "2 new · eng. rate 50% · 0 key events" },
+      { label: "Japan", value: 2, sub: "2 new · eng. rate 50% · 0 key events" }
     ]
   };
 
   var ALL_CITIES = DATA.cities.concat([
-    { label: "Dhaka", value: 3 },
-    { label: "Frankfurt am Main", value: 3 },
-    { label: "Guwahati", value: 3 },
-    { label: "Indore", value: 3 },
-    { label: "Surat", value: 3 },
-    { label: "Chennai", value: 2 },
-    { label: "Jodhpur", value: 2 },
-    { label: "Kolkata", value: 2 },
-    { label: "Kota", value: 2 },
-    { label: "Ludhiana", value: 2 },
-    { label: "Malang", value: 2 },
-    { label: "Meerut", value: 2 }
+    { label: "Barishal", value: 1 },
+    { label: "Berkeley", value: 1 },
+    { label: "Bhubaneswar", value: 1 },
+    { label: "Bijnor", value: 1 },
+    { label: "Buchholz in der Nordheide", value: 1 },
+    { label: "Cairo", value: 1 },
+    { label: "Decatur", value: 1 }
   ]);
 
   function buildBarChart(container, items) {
@@ -623,33 +618,35 @@
   }
 
   fillTable("tbl-pages", [
-    { label: "FOWL AI | AI Jobs, Platforms & Opportunities", views: 99, users: 75, events: 362, bounce: "64.3%" },
-    { label: "All Issues — FOWL AI", views: 41, users: 22, events: 127, bounce: "75.9%" },
-    { label: "Contact — FOWL AI", views: 36, users: 32, events: 161, bounce: "0%" },
-    { label: "AI Platforms Directory — FOWL AI", views: 32, users: 23, events: 88, bounce: "74.1%" },
-    { label: "AI Jobs Board | Remote AI Opportunities & Roles — FOWL AI", views: 19, users: 10, events: 58, bounce: "52.9%" },
-    { label: "About TYB — FOWL AI", views: 5, users: 3, events: 18, bounce: "80%" },
-    { label: "Privacy Policy — FOWL AI", views: 1, users: 1, events: 3, bounce: "100%" }
+    { label: "FOWL AI | AI Jobs, Platforms & Opportunities", views: 85, users: 52, events: 332, bounce: "57.6%" },
+    { label: "AI Jobs Board | Remote AI Opportunities & Roles — FOWL AI", views: 24, users: 14, events: 85, bounce: "45.5%" },
+    { label: "AI Platforms Directory — FOWL AI", views: 18, users: 16, events: 55, bounce: "41.2%" },
+    { label: "Contact — FOWL AI", views: 12, users: 12, events: 63, bounce: "0%" },
+    { label: "All Issues — FOWL AI", views: 10, users: 6, events: 33, bounce: "28.6%" },
+    { label: "AI Glossary — LLM, Agent, MCP, Skills & Claude CLI Explained — FOWL AI", views: 8, users: 3, events: 17, bounce: "16.7%" },
+    { label: "AI & Future of Work FAQ — Jobs, Pay, 1099 vs W2 (US) — FOWL AI", views: 5, users: 3, events: 16, bounce: "25%" },
+    { label: "About TYB — FOWL AI", views: 2, users: 2, events: 16, bounce: "0%" },
+    { label: "Privacy Policy — FOWL AI", views: 1, users: 1, events: 1, bounce: "0%" }
   ], ["label", "views", "users", "events", "bounce"]);
 
   fillTable("tbl-sources", [
-    { label: "google / organic", users: 118 },
-    { label: "(direct) / (none)", users: 19 },
-    { label: "chatgpt.com / ai-assistant", users: 5 },
+    { label: "google / organic", users: 61 },
+    { label: "(direct) / (none)", users: 17 },
+    { label: "chatgpt.com / ai-assistant", users: 8 },
     { label: "bing / organic", users: 3 },
-    { label: "(data not available)", users: 2 },
-    { label: "duckduckgo / organic", users: 1 },
-    { label: "quendu.com / referral", users: 1 }
+    { label: "in.search.yahoo.com / referral", users: 1 },
+    { label: "privacywall.org / referral", users: 1 },
+    { label: "yahoo / organic", users: 1 }
   ], ["label", "users"]);
 
   fillTable("tbl-sessions", [
-    { label: "google / organic", sessions: 137 },
+    { label: "google / organic", sessions: 75 },
     { label: "(direct) / (none)", sessions: 17 },
-    { label: "chatgpt.com / ai-assistant", sessions: 8 },
-    { label: "bing / organic", sessions: 3 },
-    { label: "(data not available)", sessions: 2 },
-    { label: "duckduckgo / organic", sessions: 1 },
-    { label: "quendu.com / referral", sessions: 1 }
+    { label: "chatgpt.com / ai-assistant", sessions: 16 },
+    { label: "bing / organic", sessions: 4 },
+    { label: "in.search.yahoo.com / referral", sessions: 1 },
+    { label: "privacywall.org / referral", sessions: 1 },
+    { label: "yahoo / organic", sessions: 1 }
   ], ["label", "sessions"]);
 
   fillTable("tbl-nth", [
@@ -659,28 +656,27 @@
   fillTable("tbl-cities", ALL_CITIES.map(function (c) { return { label: c.label, users: c.value }; }), ["label", "users"]);
 
   fillTable("tbl-countries", [
-    { label: "India", users: 110, nu: 110, engaged: 49, rate: "41.5%", time: "3s", events: 514, key: 33 },
-    { label: "United States", users: 9, nu: 6, engaged: 11, rate: "57.9%", time: "46s", events: 165, key: 1 },
-    { label: "Bangladesh", users: 8, nu: 8, engaged: 2, rate: "25%", time: "2s", events: 32, key: 1 },
-    { label: "France", users: 3, nu: 4, engaged: 1, rate: "33.3%", time: "0s", events: 12, key: 0 },
-    { label: "Germany", users: 3, nu: 4, engaged: 1, rate: "33.3%", time: "0s", events: 13, key: 0 },
-    { label: "Pakistan", users: 3, nu: 1, engaged: 0, rate: "0%", time: "5s", events: 8, key: 0 },
-    { label: "Indonesia", users: 2, nu: 2, engaged: 0, rate: "0%", time: "0s", events: 6, key: 0 },
-    { label: "Kenya", users: 2, nu: 2, engaged: 2, rate: "66.7%", time: "1m 50s", events: 11, key: 0 },
-    { label: "Saudi Arabia", users: 2, nu: 2, engaged: 0, rate: "0%", time: "1s", events: 7, key: 0 },
-    { label: "Bulgaria", users: 1, nu: 1, engaged: 0, rate: "0%", time: "0s", events: 5, key: 0 },
-    { label: "Canada", users: 1, nu: 1, engaged: 0, rate: "0%", time: "0s", events: 3, key: 0 },
-    { label: "Nepal", users: 1, nu: 1, engaged: 1, rate: "100%", time: "5s", events: 6, key: 0 },
-    { label: "Nigeria", users: 1, nu: 1, engaged: 0, rate: "0%", time: "0s", events: 3, key: 0 },
-    { label: "Romania", users: 1, nu: 1, engaged: 1, rate: "100%", time: "0s", events: 4, key: 1 },
-    { label: "Rwanda", users: 1, nu: 0, engaged: 0, rate: "0%", time: "5m 26s", events: 2, key: 0 },
-    { label: "Somalia", users: 1, nu: 1, engaged: 1, rate: "100%", time: "9s", events: 7, key: 0 },
-    { label: "Spain", users: 1, nu: 0, engaged: 1, rate: "100%", time: "50s", events: 4, key: 0 },
-    { label: "Sri Lanka", users: 1, nu: 1, engaged: 0, rate: "0%", time: "5s", events: 4, key: 0 },
-    { label: "Thailand", users: 1, nu: 1, engaged: 0, rate: "0%", time: "5s", events: 4, key: 0 },
-    { label: "United Kingdom", users: 1, nu: 1, engaged: 0, rate: "0%", time: "0s", events: 3, key: 0 },
-    { label: "Vietnam", users: 1, nu: 1, engaged: 0, rate: "0%", time: "2s", events: 4, key: 0 },
-    { label: "Ukraine", users: 0, nu: 0, engaged: 0, rate: "0%", time: "0s", events: 2, key: 0 }
+    { label: "India", users: 42, nu: 42, engaged: 17, rate: "37.8%", time: "7s", events: 210, key: 9 },
+    { label: "United States", users: 15, nu: 13, engaged: 19, rate: "65.5%", time: "52s", events: 214, key: 0 },
+    { label: "Bangladesh", users: 7, nu: 6, engaged: 4, rate: "57.1%", time: "22s", events: 66, key: 2 },
+    { label: "Kenya", users: 4, nu: 3, engaged: 4, rate: "50%", time: "1m 15s", events: 32, key: 0 },
+    { label: "(not set)", users: 3, nu: 3, engaged: 0, rate: "0%", time: "0s", events: 9, key: 0 },
+    { label: "Ghana", users: 2, nu: 2, engaged: 1, rate: "50%", time: "28s", events: 8, key: 0 },
+    { label: "Japan", users: 2, nu: 2, engaged: 1, rate: "50%", time: "22s", events: 14, key: 0 },
+    { label: "Morocco", users: 2, nu: 2, engaged: 1, rate: "50%", time: "24s", events: 8, key: 0 },
+    { label: "Nigeria", users: 2, nu: 2, engaged: 1, rate: "50%", time: "43s", events: 17, key: 0 },
+    { label: "Pakistan", users: 2, nu: 2, engaged: 0, rate: "0%", time: "0s", events: 7, key: 0 },
+    { label: "Thailand", users: 2, nu: 2, engaged: 0, rate: "0%", time: "2s", events: 10, key: 0 },
+    { label: "Vietnam", users: 2, nu: 2, engaged: 0, rate: "0%", time: "0s", events: 6, key: 0 },
+    { label: "China", users: 1, nu: 1, engaged: 0, rate: "0%", time: "2s", events: 4, key: 0 },
+    { label: "Egypt", users: 1, nu: 1, engaged: 0, rate: "0%", time: "2s", events: 4, key: 0 },
+    { label: "Germany", users: 1, nu: 1, engaged: 1, rate: "100%", time: "0s", events: 5, key: 1 },
+    { label: "Malaysia", users: 1, nu: 1, engaged: 0, rate: "0%", time: "1s", events: 4, key: 0 },
+    { label: "Nepal", users: 1, nu: 1, engaged: 1, rate: "100%", time: "47s", events: 34, key: 0 },
+    { label: "Saudi Arabia", users: 1, nu: 1, engaged: 1, rate: "100%", time: "4s", events: 6, key: 0 },
+    { label: "Somalia", users: 1, nu: 1, engaged: 0, rate: "0%", time: "4s", events: 4, key: 0 },
+    { label: "Ukraine", users: 1, nu: 1, engaged: 1, rate: "33.3%", time: "4s", events: 9, key: 0 },
+    { label: "United Arab Emirates", users: 1, nu: 1, engaged: 0, rate: "0%", time: "8s", events: 8, key: 0 }
   ], ["label", "users", "nu", "engaged", "rate", "time", "events", "key"]);
 })();
 </script>
