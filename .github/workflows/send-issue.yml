@@ -1,0 +1,49 @@
+name: send-issue
+
+# EmailOctopus's public v2 API (confirmed 2026-08-02 against the real account,
+# list "Audience" = 2db3799e-5a00-11f1-af98-ebe52727da5b, 195 subscribers) only
+# exposes GET endpoints for campaigns/reports -- there is no documented
+# create/send endpoint, and the 10 campaigns sent so far were all created
+# through EmailOctopus's own UI. So this cannot fully automate the send.
+#
+# What this does instead: once an issue's PR is merged (live on the site),
+# trigger this to push a Telegram reminder with the subject + a direct link
+# to EmailOctopus's campaign composer, so the only manual step left is
+# paste-the-HTML-and-click-send in their UI -- instead of that step living
+# only in your head. Revisit full automation if EmailOctopus ever ships a
+# public create/send endpoint.
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_path:
+        description: 'Path to the merged issue HTML, e.g. issues/2026-08-03/index.html'
+        required: true
+      subject:
+        description: 'Email subject line'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  remind:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram reminder to send via EmailOctopus
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          ISSUE_PATH: ${{ github.event.inputs.issue_path }}
+          SUBJECT: ${{ github.event.inputs.subject }}
+        run: |
+          set -euo pipefail
+          MSG="📧 Ready to send: ${SUBJECT}
+Issue HTML: https://raw.githubusercontent.com/toyobam92/fowl-ai/main/${ISSUE_PATH}
+
+EmailOctopus can't be driven by API (no public create/send endpoint) --
+open https://emailoctopus.com/campaigns, paste the HTML above into a new
+campaign to the Audience list, set the subject, and send/schedule."
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MSG}" > /dev/null

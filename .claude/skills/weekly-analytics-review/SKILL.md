@@ -52,6 +52,16 @@ If nothing matched this week, leave `roadmap.md` and the dashboard untouched —
 
 Summarize in chat, briefly: what shipped this week (both experiments and roadmap items), what moved (with numbers), any decisions made, and any still pending more data. Then look at `TICKETS.md` for the highest-priority item with no matching `EXPERIMENTS.md` entry yet and suggest it as next up — remember `TICKET-6` (sitewide event instrumentation) blocks getting a trustworthy read on several other experiments, so keep surfacing it until it ships. If nothing on `roadmap.md` shipped in a while, it's fair to nudge toward the next `planned` item too.
 
-## 8. Offer to commit
+## 8. Branch, commit, and open a PR — don't push to main
 
-`analytics/` (including `dashboards/`, `roadmap.md`, `EXPERIMENTS.md`, `metrics-history.csv`, `raw-exports/`) lives in the site's git repo (`fowlai-site-upload`, remote `origin` → `github.com/toyobam92/fowl-ai.git`). After updating them, offer to commit the changes — don't push without being asked.
+`analytics/` (including `dashboards/`, `roadmap.md`, `EXPERIMENTS.md`, `metrics-history.csv`, `raw-exports/`) lives in the site's git repo (`fowlai-site-upload`, remote `origin` → `github.com/toyobam92/fowl-ai.git`). Don't commit straight to `main` or push directly — instead:
+
+```
+git checkout -b update/weekly-review-<date>
+git add -A
+git commit -m "Weekly analytics review (<date>): <one-line summary>"
+git push -u origin update/weekly-review-<date>
+gh pr create --title "Weekly analytics review (<date>)" --body "<what shipped/moved/decided this week>"
+```
+
+`.github/workflows/pr-notify.yml` pings Telegram with the diff automatically when the PR opens, and `.github/workflows/telegram-approve.yml` merges it (deploying the updated dashboards/logs) once the user replies `APPROVE <PR#>` — no separate ask-before-push step needed here anymore.

@@ -1,0 +1,73 @@
+name: telegram-approve
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  poll:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Poll Telegram for APPROVE replies and merge
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PYEOF'
+          import json, os, re, subprocess, time, urllib.parse, urllib.request
+
+          bot = os.environ["TELEGRAM_BOT_TOKEN"]
+          chat_id = os.environ["TELEGRAM_CHAT_ID"]
+          api = f"https://api.telegram.org/bot{bot}"
+
+          # Fetch the full unacknowledged backlog (offset=0), then immediately
+          # re-request past the highest update_id seen to ack/clear it with
+          # Telegram, regardless of whether we act on it. This makes the poll
+          # stateless across workflow runs -- no repo/cache persistence needed.
+          with urllib.request.urlopen(f"{api}/getUpdates?offset=0&timeout=0") as r:
+              data = json.load(r)
+
+          updates = data.get("result", [])
+          max_id = max((u["update_id"] for u in updates), default=0)
+
+          if max_id:
+              ack_url = f"{api}/getUpdates?offset={max_id + 1}&timeout=0"
+              urllib.request.urlopen(ack_url).read()
+
+          now = time.time()
+          FRESH_WINDOW_SECONDS = 20 * 60  # tolerate poll delay/backoff
+
+          def notify(text):
+              body = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
+              urllib.request.urlopen(f"{api}/sendMessage", data=body).read()
+
+          for u in updates:
+              msg = u.get("message") or {}
+              if str(msg.get("chat", {}).get("id")) != str(chat_id):
+                  continue
+              if now - msg.get("date", 0) > FRESH_WINDOW_SECONDS:
+                  continue  # stale, likely already handled in a prior run
+              text = (msg.get("text") or "").strip()
+              m = re.match(r"^APPROVE\s+(\d+)$", text, re.IGNORECASE)
+              if not m:
+                  continue
+              pr = m.group(1)
+              result = subprocess.run(
+                  ["gh", "pr", "merge", pr, "--squash", "--delete-branch"],
+                  capture_output=True, text=True,
+              )
+              if result.returncode == 0:
+                  notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.")
+              else:
+                  err = (result.stderr or result.stdout).strip()[:300]
+                  notify(f"❌ Could not merge PR #{pr}: {err}")
+          PYEOF
