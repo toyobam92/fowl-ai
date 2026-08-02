@@ -1,9 +1,11 @@
 name: send-issue
 
-# Drives EmailOctopus's UI with Playwright to build a campaign draft (there is no
-# public create/send API -- confirmed 2026-08-02 against the real account). Stops
-# once the draft is saved; a human still reviews and presses Send in EmailOctopus.
-# Needs EMAILOCTOPUS_EMAIL / EMAILOCTOPUS_PASSWORD as repo secrets.
+# Drives EmailOctopus's UI with Playwright to build a campaign draft AND schedule
+# it for a specific date/time (there is no public create/send API -- confirmed
+# 2026-08-02 against the real account). Only ever triggered by telegram-approve.yml
+# in response to an explicit "SCHEDULE <PR#>" reply -- a site-merge APPROVE alone
+# never reaches this workflow. Needs EMAILOCTOPUS_EMAIL / EMAILOCTOPUS_PASSWORD as
+# repo secrets.
 
 on:
   workflow_dispatch:
@@ -14,12 +16,19 @@ on:
       subject:
         description: 'Email subject line'
         required: true
+      schedule_date:
+        description: 'YYYY-MM-DD to schedule the send for'
+        required: true
+      schedule_time:
+        description: 'Time to schedule the send for, e.g. "7:45 AM" (account timezone: Eastern)'
+        required: true
+        default: '7:45 AM'
 
 permissions:
   contents: read
 
 jobs:
-  draft:
+  schedule:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -33,13 +42,15 @@ jobs:
           npm install --no-save playwright@^1.47.0
           npx playwright install --with-deps chromium
 
-      - name: Create EmailOctopus draft
-        id: draft
+      - name: Create and schedule the EmailOctopus campaign
+        id: schedule
         env:
           EMAILOCTOPUS_EMAIL: ${{ secrets.EMAILOCTOPUS_EMAIL }}
           EMAILOCTOPUS_PASSWORD: ${{ secrets.EMAILOCTOPUS_PASSWORD }}
           ISSUE_PATH: ${{ github.event.inputs.issue_path }}
           SUBJECT: ${{ github.event.inputs.subject }}
+          SCHEDULE_DATE: ${{ github.event.inputs.schedule_date }}
+          SCHEDULE_TIME: ${{ github.event.inputs.schedule_time }}
         run: node automation/emailoctopus-draft.mjs
 
       - name: Notify success
@@ -48,9 +59,12 @@ jobs:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           SUBJECT: ${{ github.event.inputs.subject }}
+          SCHEDULE_DATE: ${{ github.event.inputs.schedule_date }}
+          SCHEDULE_TIME: ${{ github.event.inputs.schedule_time }}
         run: |
           set -euo pipefail
-          MSG=$(printf '📧 Draft ready in EmailOctopus: %s\n\nOpen https://emailoctopus.com/campaigns (Draft tab), review, and press Send.' "$SUBJECT")
+          MSG=$(printf '\xE2\x9C\x85 Scheduled in EmailOctopus: %s\nSends %s at %s (ET) to the full Audience list.\n\nOpen https://emailoctopus.com/campaigns (Scheduled tab) any time before then to review or cancel.' \
+            "$SUBJECT" "$SCHEDULE_DATE" "$SCHEDULE_TIME")
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MSG}" > /dev/null
@@ -64,7 +78,8 @@ jobs:
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -euo pipefail
-          MSG=$(printf '\xE2\x9D\x8C Could not auto-draft in EmailOctopus: %s\n%s\n\nPaste the HTML in manually this time -- see the run log for what broke.' "$SUBJECT" "$RUN_URL")
+          MSG=$(printf '\xE2\x9D\x8C Could not schedule in EmailOctopus: %s\n%s\n\nNothing was armed -- the script aborts before confirming if anything looks off. Check the run log, or set it up manually this time.' \
+            "$SUBJECT" "$RUN_URL")
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MSG}" > /dev/null

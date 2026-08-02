@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Poll Telegram for APPROVE replies and merge
+      - name: Poll Telegram for APPROVE/SCHEDULE replies
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
@@ -24,7 +24,7 @@ jobs:
         run: |
           set -euo pipefail
           python3 - <<'PYEOF'
-          import json, os, re, subprocess, time, urllib.parse, urllib.request
+          import datetime, json, os, re, subprocess, time, urllib.parse, urllib.request
 
           bot = os.environ["TELEGRAM_BOT_TOKEN"]
           chat_id = os.environ["TELEGRAM_CHAT_ID"]
@@ -51,6 +51,18 @@ jobs:
               body = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
               urllib.request.urlopen(f"{api}/sendMessage", data=body).read()
 
+          def pr_meta(pr):
+              view = subprocess.run(
+                  ["gh", "pr", "view", pr, "--json", "headRefName,title,files,state,mergedAt"],
+                  capture_output=True, text=True,
+              )
+              return json.loads(view.stdout) if view.returncode == 0 else {}
+
+          def next_monday_iso():
+              today = datetime.date.today()
+              days_ahead = (7 - today.weekday()) % 7  # Monday == 0; today counts if it IS Monday
+              return (today + datetime.timedelta(days=days_ahead)).isoformat()
+
           for u in updates:
               msg = u.get("message") or {}
               if str(msg.get("chat", {}).get("id")) != str(chat_id):
@@ -58,48 +70,55 @@ jobs:
               if now - msg.get("date", 0) > FRESH_WINDOW_SECONDS:
                   continue  # stale, likely already handled in a prior run
               text = (msg.get("text") or "").strip()
-              m = re.match(r"^APPROVE\s+(\d+)$", text, re.IGNORECASE)
-              if not m:
-                  continue
-              pr = m.group(1)
 
-              # Grab head branch/title before merging (still available after too,
-              # but simplest to read once, up front).
-              view = subprocess.run(
-                  ["gh", "pr", "view", pr, "--json", "headRefName,title,files"],
-                  capture_output=True, text=True,
-              )
-              pr_meta = json.loads(view.stdout) if view.returncode == 0 else {}
+              approve = re.match(r"^APPROVE\s+(\d+)$", text, re.IGNORECASE)
+              schedule = re.match(r"^SCHEDULE\s+(\d+)$", text, re.IGNORECASE)
 
-              result = subprocess.run(
-                  ["gh", "pr", "merge", pr, "--squash", "--delete-branch"],
-                  capture_output=True, text=True,
-              )
-              if result.returncode != 0:
-                  err = (result.stderr or result.stdout).strip()[:300]
-                  notify(f"❌ Could not merge PR #{pr}: {err}")
-                  continue
-
-              notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.")
-
-              head_ref = pr_meta.get("headRefName", "")
-              if not head_ref.startswith("draft/issue-"):
-                  continue  # a general site-update PR, not an issue -- nothing to send
-
-              issue_paths = [
-                  f["path"] for f in pr_meta.get("files", [])
-                  if re.match(r"^issues/[\d-]+/index\.html$", f.get("path", ""))
-              ]
-              if not issue_paths:
-                  notify(f"⚠️ PR #{pr} merged but no issues/<date>/index.html found -- trigger send-issue.yml manually.")
+              if approve:
+                  pr = approve.group(1)
+                  # Merging only ever deploys the site. It never touches email --
+                  # that requires a separate, explicit SCHEDULE <PR#> reply.
+                  result = subprocess.run(
+                      ["gh", "pr", "merge", pr, "--squash", "--delete-branch"],
+                      capture_output=True, text=True,
+                  )
+                  if result.returncode != 0:
+                      err = (result.stderr or result.stdout).strip()[:300]
+                      notify(f"❌ Could not merge PR #{pr}: {err}")
+                      continue
+                  meta = pr_meta(pr)
+                  is_issue = meta.get("headRefName", "").startswith("draft/issue-")
+                  extra = " Reply \"SCHEDULE %s\" when you want to also schedule the email." % pr if is_issue else ""
+                  notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.{extra}")
                   continue
 
-              dispatch = subprocess.run(
-                  ["gh", "workflow", "run", "send-issue.yml",
-                   "-f", f"issue_path={issue_paths[0]}",
-                   "-f", f"subject={pr_meta.get('title', '')}"],
-                  capture_output=True, text=True,
-              )
-              if dispatch.returncode != 0:
-                  notify(f"⚠️ Merged PR #{pr} but couldn't kick off send-issue.yml: {dispatch.stderr.strip()[:300]}")
+              if schedule:
+                  pr = schedule.group(1)
+                  meta = pr_meta(pr)
+                  if not meta:
+                      notify(f"❌ Couldn't look up PR #{pr}.")
+                      continue
+                  if not meta.get("mergedAt"):
+                      notify(f"⚠️ PR #{pr} isn't merged yet — reply \"APPROVE {pr}\" first, then \"SCHEDULE {pr}\".")
+                      continue
+                  issue_paths = [
+                      f["path"] for f in meta.get("files", [])
+                      if re.match(r"^issues/[\d-]+/index\.html$", f.get("path", ""))
+                  ]
+                  if not issue_paths:
+                      notify(f"⚠️ PR #{pr} has no issues/<date>/index.html — nothing to schedule.")
+                      continue
+                  target_date = next_monday_iso()
+                  dispatch = subprocess.run(
+                      ["gh", "workflow", "run", "send-issue.yml",
+                       "-f", f"issue_path={issue_paths[0]}",
+                       "-f", f"subject={meta.get('title', '')}",
+                       "-f", f"schedule_date={target_date}",
+                       "-f", "schedule_time=7:45 AM"],
+                      capture_output=True, text=True,
+                  )
+                  if dispatch.returncode != 0:
+                      notify(f"❌ Couldn't start send-issue.yml for PR #{pr}: {dispatch.stderr.strip()[:300]}")
+                  else:
+                      notify(f"⏳ Building the EmailOctopus schedule for {target_date} 7:45 AM ET — will confirm here once it's armed (or if it fails).")
           PYEOF
