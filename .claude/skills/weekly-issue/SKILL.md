@@ -11,16 +11,16 @@ This replaces the old three-prompt manual workflow (research memo → draft → 
 
 **To send a Telegram message, call `gh workflow run notify.yml -f text="..."`.** Never `curl` Telegram directly from this skill — when run by the cloud routine, there is no `TELEGRAM_BOT_TOKEN` in the environment at all (only GitHub Actions secrets have it, and the cloud routine isn't GitHub Actions). This exact mistake shipped once, 2026-08-02: the skill's first version instructed a direct curl "reading the token from the environment," which was never actually provided, so the very first topic-proposal message silently failed to send.
 
-**Cadence:** topics proposed, picked whenever the user replies, drafted same run, a review copy emailed to the owner, revised on feedback (as many rounds as needed), merged whenever the user replies `APPROVE <PR#>` (site deploy only), emailed to the real subscriber list only after a further, separate `SCHEDULE <PR#>` reply (targets the next Monday 7:45am ET automatically) — that reply alone is what authorizes touching the real subscriber list, and the schedule stays cancellable in EmailOctopus right up to send time.
+**Cadence:** topics proposed **only on Sunday** (step 0's `idle` branch gates on day-of-week, not on how fast the user replies or how fast the previous issue shipped — confirmed necessary 2026-08-02, when finishing one issue's cycle same-day triggered the next one's proposal within the hour), picked whenever the user replies, drafted same run, a review copy emailed to the owner, revised on feedback (as many rounds as needed), merged whenever the user replies `APPROVE <PR#>` (site deploy only), emailed to the real subscriber list only after a further, separate `SCHEDULE <PR#>` reply (targets the next Monday 7:45am ET automatically) — that reply alone is what authorizes touching the real subscriber list, and the schedule stays cancellable in EmailOctopus right up to send time.
 
 ## 0. Check state and inbox first
 
 Read `automation/issue-state.json` (create it with `{"status": "idle"}` if it doesn't exist) and `automation/inbox.json` (an array, `[]` if it doesn't exist or has been fully drained). Branch on `status`:
 
-- **`idle`** (new week, no proposal yet) → go to step 1.
+- **`idle`** (no proposal in flight) → **this is weekly, anchored to Sunday — not "as fast as you reply."** Check today's day of week. If it is **not Sunday**, exit quietly (no Telegram message, nothing) — this is the normal case for almost every hourly fire. If it **is** Sunday, proceed to step 1.
 - **`awaiting_pick`** → look in the inbox for an entry matching a digit 1-5 or `MORE` (case-insensitive); if none, exit (nothing to do yet). If found, remove it from the inbox (write the file back without it, commit) and go to step 2.
-- **`drafted`** (PR open, awaiting review/revision) → look in the inbox for any other entry (free-text feedback). If none, exit. If found, remove it from the inbox and go to step 9a (revise).
-- Anything else, or `week_of` more than ~10 days stale → treat as idle, start over.
+- **`drafted`** (PR open, awaiting review/revision/merge) → first check whether the PR (`pr_number`) is now merged (`gh pr view <N> --json mergedAt`). If merged: this issue's cycle is complete — set `status: "idle"`, clear `topics`/`rejected_titles`/`picked_topic`/`pr_number`, commit+push to `main`, and exit (don't propose next week's topics in this same run — that's the `idle` branch's job, and it only fires on the next Sunday anyway per the day-of-week gate above). If not yet merged: look in the inbox for a free-text entry (revision feedback); if none, exit; if found, remove it from the inbox and go to step 9a (revise).
+- Anything else → treat as idle, start over (but still respect the Sunday-only gate above).
 
 Commit inbox changes (`git add automation/inbox.json && git commit -m "Drain inbox" && git push`) as their own small commit, separate from any state-file update, so a crash mid-run doesn't lose track of what was already consumed.
 
