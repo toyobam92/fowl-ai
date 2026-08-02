@@ -3,27 +3,33 @@
   "status": "awaiting_pick",
   "topics": [
     {
-      "title": "The AI-washing con: why half of \"AI layoffs\" aren't actually about AI",
-      "why": "New data shows nearly 6 in 10 companies admit framing cuts as AI-driven when the real driver is financial — timely because it changes how readers should interpret every scary layoff headline this year."
+      "title": "AI skills now pay a 62% wage premium — here's what's actually being paid for",
+      "why": "2026 pay data shows the AI wage premium widening from 56% to 62% in a year, but the premium tracks specific verifiable skills, not just \"knows AI\" — worth breaking down which ones."
     },
     {
-      "title": "Companies that fired workers for AI are quietly rehiring them",
-      "why": "A rehiring boomerang is showing up in 2026 data as AI hits a 60%-of-duties ceiling — the workers getting rehired reveal exactly which skills make you hard to replace."
+      "title": "The $80/hr specialist track: how degreed professionals are quietly retraining into AI evaluation",
+      "why": "Expert networks like Handshake AI and Mercor are recruiting lawyers, doctors, and scientists directly into paid model-evaluation fellowships in 2026 — a route into AI work that doesn't require learning to code."
     },
     {
-      "title": "79% of companies say adopting AI is tearing them apart — and that's the opening",
-      "why": "Fresh 2026 enterprise survey data shows a huge gap between AI investment and ROI, which is exactly the gap that AI-adoption-savvy knowledge workers can get paid to close."
+      "title": "Hinton says 2026 brings a new wave of job losses — here's the 12-month version of that warning",
+      "why": "The \"godfather of AI\" headline is everywhere this week, but the underlying claim about model capability timelines implies a specific, actionable planning horizon most coverage skips."
     },
     {
-      "title": "The bifurcation is here: 'force multiplier' professionals vs. everyone else",
-      "why": "2026 labor-market research describes a small tier of people who direct AI agents at department-level output — worth naming precisely what moves someone into that tier."
+      "title": "80% of companies say upskilling is the fix, 28% are funding it — the gap workers are filling themselves",
+      "why": "Fresh 2026 data shows a stark employer-commitment gap on AI upskilling, which is exactly the space where self-directed learners are pulling ahead of their peers."
     },
     {
-      "title": "What Blind and Reddit say about 2026 layoffs that press releases don't",
-      "why": "With ~80k tech layoffs already this year and heavy AI-or-overhiring debate on Blind/Reddit, there's a practical playbook in how insiders read these announcements versus how PR frames them."
+      "title": "Job postings for \"AI agent\" roles are up 1000% — and most don't require an engineering degree",
+      "why": "The AI agent hiring boom is real in 2026 data, but a meaningful share of these roles are orchestration/ops jobs, not ML engineering — worth mapping who actually qualifies."
     }
   ],
-  "rejected_titles": [],
+  "rejected_titles": [
+    "The AI-washing con: why half of \"AI layoffs\" aren't actually about AI",
+    "Companies that fired workers for AI are quietly rehiring them",
+    "79% of companies say adopting AI is tearing them apart — and that's the opening",
+    "The bifurcation is here: 'force multiplier' professionals vs. everyone else",
+    "What Blind and Reddit say about 2026 layoffs that press releases don't"
+  ],
   "picked_topic": null,
   "pr_number": null,
   "last_updated": "2026-08-02T00:00:00Z"
