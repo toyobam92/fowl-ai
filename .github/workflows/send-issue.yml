@@ -1,17 +1,11 @@
 name: send-issue
 
-# EmailOctopus's public v2 API (confirmed 2026-08-02 against the real account,
-# list "Audience" = 2db3799e-5a00-11f1-af98-ebe52727da5b, 195 subscribers) only
-# exposes GET endpoints for campaigns/reports -- there is no documented
-# create/send endpoint, and the 10 campaigns sent so far were all created
-# through EmailOctopus's own UI. So this cannot fully automate the send.
-#
-# What this does instead: once an issue's PR is merged (live on the site),
-# trigger this to push a Telegram reminder with the subject + a direct link
-# to EmailOctopus's campaign composer, so the only manual step left is
-# paste-the-HTML-and-click-send in their UI -- instead of that step living
-# only in your head. Revisit full automation if EmailOctopus ever ships a
-# public create/send endpoint.
+# Drives EmailOctopus's UI with Playwright to build a campaign draft AND schedule
+# it for a specific date/time (there is no public create/send API -- confirmed
+# 2026-08-02 against the real account). Only ever triggered by telegram-approve.yml
+# in response to an explicit "SCHEDULE <PR#>" reply -- a site-merge APPROVE alone
+# never reaches this workflow. Needs EMAILOCTOPUS_EMAIL / EMAILOCTOPUS_PASSWORD as
+# repo secrets.
 
 on:
   workflow_dispatch:
@@ -22,28 +16,70 @@ on:
       subject:
         description: 'Email subject line'
         required: true
+      schedule_date:
+        description: 'YYYY-MM-DD to schedule the send for'
+        required: true
+      schedule_time:
+        description: 'Time to schedule the send for, e.g. "7:45 AM" (account timezone: Eastern)'
+        required: true
+        default: '7:45 AM'
 
 permissions:
   contents: read
 
 jobs:
-  remind:
+  schedule:
     runs-on: ubuntu-latest
     steps:
-      - name: Send Telegram reminder to send via EmailOctopus
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install Playwright
+        run: |
+          npm install --no-save playwright@^1.47.0
+          npx playwright install --with-deps chromium
+
+      - name: Create and schedule the EmailOctopus campaign
+        id: schedule
+        env:
+          EMAILOCTOPUS_EMAIL: ${{ secrets.EMAILOCTOPUS_EMAIL }}
+          EMAILOCTOPUS_PASSWORD: ${{ secrets.EMAILOCTOPUS_PASSWORD }}
+          ISSUE_PATH: ${{ github.event.inputs.issue_path }}
+          SUBJECT: ${{ github.event.inputs.subject }}
+          SCHEDULE_DATE: ${{ github.event.inputs.schedule_date }}
+          SCHEDULE_TIME: ${{ github.event.inputs.schedule_time }}
+        run: node automation/emailoctopus-draft.mjs
+
+      - name: Notify success
+        if: success()
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          ISSUE_PATH: ${{ github.event.inputs.issue_path }}
           SUBJECT: ${{ github.event.inputs.subject }}
+          SCHEDULE_DATE: ${{ github.event.inputs.schedule_date }}
+          SCHEDULE_TIME: ${{ github.event.inputs.schedule_time }}
         run: |
           set -euo pipefail
-          MSG="📧 Ready to send: ${SUBJECT}
-Issue HTML: https://raw.githubusercontent.com/toyobam92/fowl-ai/main/${ISSUE_PATH}
+          MSG=$(printf '\xE2\x9C\x85 Scheduled in EmailOctopus: %s\nSends %s at %s (ET) to the full Audience list.\n\nOpen https://emailoctopus.com/campaigns (Scheduled tab) any time before then to review or cancel.' \
+            "$SUBJECT" "$SCHEDULE_DATE" "$SCHEDULE_TIME")
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MSG}" > /dev/null
 
-EmailOctopus can't be driven by API (no public create/send endpoint) --
-open https://emailoctopus.com/campaigns, paste the HTML above into a new
-campaign to the Audience list, set the subject, and send/schedule."
+      - name: Notify failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SUBJECT: ${{ github.event.inputs.subject }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          MSG=$(printf '\xE2\x9D\x8C Could not schedule in EmailOctopus: %s\n%s\n\nNothing was armed -- the script aborts before confirming if anything looks off. Check the run log, or set it up manually this time.' \
+            "$SUBJECT" "$RUN_URL")
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MSG}" > /dev/null
