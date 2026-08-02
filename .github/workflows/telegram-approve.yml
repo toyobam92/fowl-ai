@@ -63,6 +63,13 @@ jobs:
               days_ahead = (7 - today.weekday()) % 7  # Monday == 0; today counts if it IS Monday
               return (today + datetime.timedelta(days=days_ahead)).isoformat()
 
+          # Anything that isn't APPROVE/SCHEDULE gets relayed to automation/inbox.json
+          # for the weekly-issue cloud routine to pick up (topic picks, "MORE", and
+          # free-text revision feedback all land here) -- this is the ONLY consumer
+          # of Telegram's getUpdates, precisely so a second poller can never race it
+          # and silently eat a message meant for the other one.
+          relayed = []
+
           for u in updates:
               msg = u.get("message") or {}
               if str(msg.get("chat", {}).get("id")) != str(chat_id):
@@ -70,6 +77,8 @@ jobs:
               if now - msg.get("date", 0) > FRESH_WINDOW_SECONDS:
                   continue  # stale, likely already handled in a prior run
               text = (msg.get("text") or "").strip()
+              if not text:
+                  continue
 
               approve = re.match(r"^APPROVE\s+(\d+)$", text, re.IGNORECASE)
               schedule = re.match(r"^SCHEDULE\s+(\d+)$", text, re.IGNORECASE)
@@ -121,4 +130,29 @@ jobs:
                       notify(f"❌ Couldn't start send-issue.yml for PR #{pr}: {dispatch.stderr.strip()[:300]}")
                   else:
                       notify(f"⏳ Building the EmailOctopus schedule for {target_date} 7:45 AM ET — will confirm here once it's armed (or if it fails).")
+                  continue
+
+              # Not APPROVE or SCHEDULE -- relay verbatim for the weekly-issue
+              # routine to interpret (topic pick, "MORE", or revision feedback).
+              relayed.append({"text": text, "date": msg.get("date", 0)})
+
+          if relayed:
+              inbox_path = "automation/inbox.json"
+              try:
+                  with open(inbox_path) as f:
+                      inbox = json.load(f)
+              except FileNotFoundError:
+                  inbox = []
+              inbox.extend(relayed)
+              with open(inbox_path, "w") as f:
+                  json.dump(inbox, f, indent=2)
+                  f.write("\n")
+              subprocess.run(["git", "config", "user.email", "actions@github.com"], check=True)
+              subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
+              subprocess.run(["git", "add", inbox_path], check=True)
+              subprocess.run(["git", "commit", "-m", f"Relay {len(relayed)} Telegram message(s) to inbox"], check=True)
+              # main may have moved (the weekly-issue routine commits here too) --
+              # rebase before pushing rather than assume a clean fast-forward.
+              subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+              subprocess.run(["git", "push"], check=True)
           PYEOF
