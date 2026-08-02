@@ -1,0 +1,31 @@
+name: notify
+
+# Sends one Telegram message. Exists so the weekly-issue cloud routine (which
+# has no access to repo secrets -- only GitHub Actions does) can notify the
+# user without ever being handed the bot token itself: it calls
+# `gh workflow run notify.yml -f text="..."` instead of curling Telegram
+# directly with a token it doesn't actually have.
+
+on:
+  workflow_dispatch:
+    inputs:
+      text:
+        description: 'Message text to send'
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Send Telegram message
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set -euo pipefail
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${{ github.event.inputs.text }}" > /dev/null

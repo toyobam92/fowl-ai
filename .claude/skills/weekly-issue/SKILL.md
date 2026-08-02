@@ -7,7 +7,9 @@ description: Produce this week's FOWL AI newsletter issue end-to-end — propose
 
 This replaces the old three-prompt manual workflow (research memo → draft → HTML update) with one pass, plus a topic-pick step and an email-review loop so the user chooses the angle and can iterate before anything is merged. It is self-contained inside this repo (`fowlai-site-upload`) so it works whether it's run locally in Claude Code or by the unattended recurring cloud routine, which only has access to this repo — not the sibling `automation/` folder in the outer project directory.
 
-**Telegram is one-way into this skill, not read directly by it.** `.github/workflows/telegram-approve.yml` is the *only* thing that polls Telegram — it handles `APPROVE <PR#>` and `SCHEDULE <PR#>` itself, and relays everything else (topic picks, "MORE", revision feedback) into `automation/inbox.json`, committed to `main`. This skill reads that file instead of ever calling Telegram's `getUpdates` itself — two independent pollers on the same bot would race and silently eat each other's messages (this happened once, 2026-08-02 — see the project memory on this).
+**Telegram is one-way into this skill, not read directly by it, and this skill has no ability to talk to Telegram directly either.** `.github/workflows/telegram-approve.yml` is the *only* thing that receives Telegram messages (via a real-time webhook, not polling) — it handles `APPROVE <PR#>` and `SCHEDULE <PR#>` itself, and relays everything else (topic picks, "MORE", revision feedback) into `automation/inbox.json`, committed to `main`. This skill reads that file instead of ever calling Telegram's API to receive messages — two independent receivers on the same bot would race and silently eat each other's messages (this happened once, 2026-08-02, with the old polling design — see the project memory on this).
+
+**To send a Telegram message, call `gh workflow run notify.yml -f text="..."`.** Never `curl` Telegram directly from this skill — when run by the cloud routine, there is no `TELEGRAM_BOT_TOKEN` in the environment at all (only GitHub Actions secrets have it, and the cloud routine isn't GitHub Actions). This exact mistake shipped once, 2026-08-02: the skill's first version instructed a direct curl "reading the token from the environment," which was never actually provided, so the very first topic-proposal message silently failed to send.
 
 **Cadence:** topics proposed, picked whenever the user replies, drafted same run, a review copy emailed to the owner, revised on feedback (as many rounds as needed), merged whenever the user replies `APPROVE <PR#>` (site deploy only), emailed to the real subscriber list only after a further, separate `SCHEDULE <PR#>` reply (targets the next Monday 7:45am ET automatically) — that reply alone is what authorizes touching the real subscriber list, and the schedule stays cancellable in EmailOctopus right up to send time.
 
@@ -38,7 +40,7 @@ Do a *light* research pass with `WebSearch` — enough to sketch 5 distinct plau
 }
 ```
 
-Commit and push this file directly to `main`. Then message Telegram directly (`curl` to `https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage`, reading the token from the environment the routine provides):
+Commit and push this file directly to `main`. Then send the numbered list via `gh workflow run notify.yml -f text="..."`:
 
 ```
 This week's issue — pick one:
