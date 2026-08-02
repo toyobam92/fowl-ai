@@ -1,0 +1,56 @@
+name: review-email
+
+# Sends a copy of the in-progress issue draft to the owner's own inbox for
+# review -- never to the subscriber list. Triggered by the weekly-issue skill
+# right after opening/updating a draft PR. Needs GMAIL_ADDRESS/GMAIL_APP_PASSWORD
+# as repo secrets (app password from Google Account > Security > App passwords).
+
+on:
+  workflow_dispatch:
+    inputs:
+      issue_path:
+        description: 'Path to the issue HTML to send, e.g. issues/2026-08-03/index.html'
+        required: true
+      subject:
+        description: 'Email subject line (will be prefixed with "[Review] ")'
+        required: true
+      note:
+        description: 'Short note shown at the top of the email'
+        required: false
+        default: ''
+
+permissions:
+  contents: read
+
+jobs:
+  send:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Send review email
+        env:
+          GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+        run: |
+          python3 automation/send_review_email.py \
+            --issue-path "${{ github.event.inputs.issue_path }}" \
+            --subject "${{ github.event.inputs.subject }}" \
+            --note "${{ github.event.inputs.note }}"
+
+      - name: Notify Telegram
+        if: success()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          SUBJECT: ${{ github.event.inputs.subject }}
+        run: |
+          set -euo pipefail
+          MSG=$(printf '\xF0\x9F\x93\xA7 Review copy sent to your inbox: %s\n\nReply here with any changes, or "APPROVE <PR#>" when it looks good.' "$SUBJECT")
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
+            --data-urlencode "text=${MSG}" > /dev/null

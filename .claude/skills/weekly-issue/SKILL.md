@@ -1,25 +1,26 @@
 ---
 name: weekly-issue
-description: Produce this week's FOWL AI newsletter issue end-to-end — propose 5 topic angles via Telegram, wait for a pick, then live web research, draft, branded HTML, and site plumbing (archive list, sitemap, feed, llms.txt) — then open a PR gated on Telegram approval instead of pushing straight to main. Use when it's time to start the week's issue, the recurring Sunday/Monday cloud routine fires, or the user asks to draft/publish the next issue.
+description: Produce this week's FOWL AI newsletter issue end-to-end — propose 5 topic angles via Telegram, wait for a pick, draft, email a review copy to the owner, iterate on feedback, then open/update a PR gated on Telegram approval instead of pushing straight to main. Use when it's time to start the week's issue, the recurring cloud routine fires, or the user asks to draft/publish/revise the next issue.
 ---
 
 # Weekly issue
 
-This replaces the old three-prompt manual workflow (research memo → draft → HTML update) with one pass, plus a topic-pick step so the user chooses the week's angle before any drafting happens. It is self-contained inside this repo (`fowlai-site-upload`) so it works whether it's run locally in Claude Code or by the unattended recurring cloud routine, which only has access to this repo — not the sibling `automation/` folder in the outer project directory.
+This replaces the old three-prompt manual workflow (research memo → draft → HTML update) with one pass, plus a topic-pick step and an email-review loop so the user chooses the angle and can iterate before anything is merged. It is self-contained inside this repo (`fowlai-site-upload`) so it works whether it's run locally in Claude Code or by the unattended recurring cloud routine, which only has access to this repo — not the sibling `automation/` folder in the outer project directory.
 
-**Cadence:** topics proposed Sunday, picked any time after, drafted once picked, merged/live ~7am Monday, emailed ~7:45am Monday (matches the existing EmailOctopus send history).
+**Telegram is one-way into this skill, not read directly by it.** `.github/workflows/telegram-approve.yml` is the *only* thing that polls Telegram — it handles `APPROVE <PR#>` and `SCHEDULE <PR#>` itself, and relays everything else (topic picks, "MORE", revision feedback) into `automation/inbox.json`, committed to `main`. This skill reads that file instead of ever calling Telegram's `getUpdates` itself — two independent pollers on the same bot would race and silently eat each other's messages (this happened once, 2026-08-02 — see the project memory on this).
 
-**This skill never pushes to `main` and never sends anything.** It ends at an open PR. Merging happens only when the user replies `APPROVE <PR#>` in Telegram. **Scheduling the email is a separate, later step** — merging only deploys the site. The user must reply `SCHEDULE <PR#>` for `send-issue.yml` to build and arm the EmailOctopus schedule (Playwright, `automation/emailoctopus-draft.mjs`) for the next Monday 7:45am ET; that reply alone is what authorizes touching the real subscriber list, and the schedule stays cancellable in EmailOctopus right up to send time. See `.github/workflows/pr-notify.yml` and `.github/workflows/telegram-approve.yml`.
+**Cadence:** topics proposed, picked whenever the user replies, drafted same run, a review copy emailed to the owner, revised on feedback (as many rounds as needed), merged whenever the user replies `APPROVE <PR#>` (site deploy only), emailed to the real subscriber list only after a further, separate `SCHEDULE <PR#>` reply (targets the next Monday 7:45am ET automatically) — that reply alone is what authorizes touching the real subscriber list, and the schedule stays cancellable in EmailOctopus right up to send time.
 
-Because this now spans multiple separate invocations (propose → wait → pick → draft), progress is tracked in `automation/issue-state.json`, committed directly to `main` on every update (it's internal bookkeeping, not site content — no PR needed for this file specifically).
+## 0. Check state and inbox first
 
-## 0. Check state first
-
-Read `automation/issue-state.json` (create it with `{"status": "idle"}` if it doesn't exist). Branch on `status`:
+Read `automation/issue-state.json` (create it with `{"status": "idle"}` if it doesn't exist) and `automation/inbox.json` (an array, `[]` if it doesn't exist or has been fully drained). Branch on `status`:
 
 - **`idle`** (new week, no proposal yet) → go to step 1.
-- **`awaiting_pick`** → go to step 2 (check for a reply).
-- **`drafted`** or anything else → nothing to do, exit. A new week only starts once someone resets status to `idle` (or the `week_of` date is stale — more than ~10 days old — in which case treat it as idle and start over).
+- **`awaiting_pick`** → look in the inbox for an entry matching a digit 1-5 or `MORE` (case-insensitive); if none, exit (nothing to do yet). If found, remove it from the inbox (write the file back without it, commit) and go to step 2.
+- **`drafted`** (PR open, awaiting review/revision) → look in the inbox for any other entry (free-text feedback). If none, exit. If found, remove it from the inbox and go to step 9a (revise).
+- Anything else, or `week_of` more than ~10 days stale → treat as idle, start over.
+
+Commit inbox changes (`git add automation/inbox.json && git commit -m "Drain inbox" && git push`) as their own small commit, separate from any state-file update, so a crash mid-run doesn't lose track of what was already consumed.
 
 ## 1. Propose 5 topics
 
@@ -37,7 +38,7 @@ Do a *light* research pass with `WebSearch` — enough to sketch 5 distinct plau
 }
 ```
 
-Commit and push this file directly to `main` (`git add automation/issue-state.json && git commit -m "Propose issue topics for week of <date>" && git push`). Then message Telegram directly (same pattern as the workflows — `curl` to `https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage`, reading the token from the environment the routine provides):
+Commit and push this file directly to `main`. Then message Telegram directly (`curl` to `https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage`, reading the token from the environment the routine provides):
 
 ```
 This week's issue — pick one:
@@ -52,13 +53,12 @@ Reply with a number to pick, or MORE for five different options.
 
 Stop here. Do not research further or draft anything yet.
 
-## 2. Check for a pick
+## 2. Act on the pick
 
-Call Telegram's `getUpdates` (same stateless offset/ack pattern as `telegram-approve.yml` — fetch with `offset=0`, immediately re-fetch with `offset=<max_id+1>` to clear the backlog regardless of outcome, and only act on messages from the stored chat_id dated within the last ~20 minutes so a stale reply from days ago can't fire on a later, unrelated run).
+(Reached only from step 0 with an inbox entry already removed.)
 
-- **No matching reply yet** → exit. Nothing to do until the next scheduled run.
-- **Reply is `MORE`** (case-insensitive) → move the current `topics` titles into `rejected_titles`, generate 5 new angles that don't repeat any rejected title, update the state file (`topics` replaced, `status` stays `awaiting_pick`), commit+push to `main`, message the new numbered list to Telegram. Stop here.
-- **Reply is a digit 1-5** → set `picked_topic` to that entry, `status: "drafting"`, commit+push. Continue in this same run to step 3 — don't wait for another invocation.
+- **Inbox entry was `MORE`** → move the current `topics` titles into `rejected_titles`, generate 5 new angles that don't repeat any rejected title, update the state file (`topics` replaced, `status` stays `awaiting_pick`), commit+push to `main`, message the new numbered list to Telegram. Stop here.
+- **Inbox entry was a digit 1-5** → set `picked_topic` to that entry, `status: "drafting"`, commit+push. Continue in this same run to step 3 — don't wait for another invocation.
 
 ## 3. Figure out the issue number and date
 
@@ -132,7 +132,7 @@ Before opening the PR, verify:
 
 Anything you flagged in step 4.8 as unsourced goes into the PR description under "needs manual verification" — don't silently drop it or silently guess a source.
 
-## 9. Branch, commit, PR
+## 9. Branch, commit, PR, and email a review copy
 
 ```
 git checkout -b draft/issue-<N>
@@ -142,9 +142,42 @@ git push -u origin draft/issue-<N>
 gh pr create --title "Issue <N>: <short title>" --body "<summary + files changed + needs-manual-verification list>"
 ```
 
-Then update `automation/issue-state.json` on `main`: `status: "drafted"`, `pr_number: <N>`. Commit+push directly.
+Update `automation/issue-state.json` on `main`: `status: "drafted"`, `pr_number: <N>`. Commit+push directly.
+
+Then trigger the review email:
+
+```
+gh workflow run review-email.yml \
+  -f issue_path=issues/<date>/index.html \
+  -f subject="Issue <N>: <short title>" \
+  -f note="First draft — reply with any changes, or APPROVE <N> in Telegram when it looks good."
+```
 
 Stop here. Do not merge, do not push the issue content to `main`, and do not touch EmailOctopus. `pr-notify` pings Telegram automatically when the PR opens; `telegram-approve` merges it (site deploy only) on `APPROVE <PR#>`, and separately kicks off the EmailOctopus schedule only on a later, explicit `SCHEDULE <PR#>` reply.
+
+## 9a. Revise on feedback
+
+(Reached only from step 0 with a free-text inbox entry already removed, `status` was `drafted`.)
+
+Read the current draft (`issues/<date>/index.html` on the `draft/issue-<N>` branch — check it out or diff against it) and the feedback text. Apply the requested changes directly — don't ask clarifying questions back through this channel, since there's no synchronous way to get an answer; make a reasonable interpretation and let the next review email make the result visible. Re-run the relevant parts of steps 5-8 (draft/HTML/site-plumbing/self-check) as needed for just the changed sections.
+
+```
+git checkout draft/issue-<N>
+git add -A
+git commit -m "Revise issue <N> per feedback: <one-line summary of the change>"
+git push
+```
+
+This updates the existing PR in place (same branch) — don't open a new one. Then trigger the review email again:
+
+```
+gh workflow run review-email.yml \
+  -f issue_path=issues/<date>/index.html \
+  -f subject="Issue <N>: <short title>" \
+  -f note="Updated per your feedback: <one-line summary>. Reply again to keep iterating, or APPROVE <N> when it looks good."
+```
+
+Leave `status` as `"drafted"` — this loop can repeat as many times as needed before `APPROVE`.
 
 ## 10. Report back
 
