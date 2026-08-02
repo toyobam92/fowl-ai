@@ -1,9 +1,30 @@
 {
-  "week_of": null,
-  "status": "idle",
-  "topics": [],
+  "week_of": "2026-08-04",
+  "status": "awaiting_pick",
+  "topics": [
+    {
+      "title": "The AI-washing con: why half of \"AI layoffs\" aren't actually about AI",
+      "why": "New data shows nearly 6 in 10 companies admit framing cuts as AI-driven when the real driver is financial — timely because it changes how readers should interpret every scary layoff headline this year."
+    },
+    {
+      "title": "Companies that fired workers for AI are quietly rehiring them",
+      "why": "A rehiring boomerang is showing up in 2026 data as AI hits a 60%-of-duties ceiling — the workers getting rehired reveal exactly which skills make you hard to replace."
+    },
+    {
+      "title": "79% of companies say adopting AI is tearing them apart — and that's the opening",
+      "why": "Fresh 2026 enterprise survey data shows a huge gap between AI investment and ROI, which is exactly the gap that AI-adoption-savvy knowledge workers can get paid to close."
+    },
+    {
+      "title": "The bifurcation is here: 'force multiplier' professionals vs. everyone else",
+      "why": "2026 labor-market research describes a small tier of people who direct AI agents at department-level output — worth naming precisely what moves someone into that tier."
+    },
+    {
+      "title": "What Blind and Reddit say about 2026 layoffs that press releases don't",
+      "why": "With ~80k tech layoffs already this year and heavy AI-or-overhiring debate on Blind/Reddit, there's a practical playbook in how insiders read these announcements versus how PR frames them."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": null
+  "last_updated": "2026-08-02T00:00:00Z"
 }
