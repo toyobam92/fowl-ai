@@ -106,26 +106,20 @@ jobs:
               if not meta.get("mergedAt"):
                   notify(f"⚠️ PR #{pr} isn't merged yet — reply \"APPROVE {pr}\" first, then \"SCHEDULE {pr}\".")
                   raise SystemExit(0)
-              issue_paths = [
-                  f["path"] for f in meta.get("files", [])
-                  if re.match(r"^issues/[\d-]+/index\.html$", f.get("path", ""))
-              ]
-              if not issue_paths:
-                  notify(f"⚠️ PR #{pr} has no issues/<date>/index.html — nothing to schedule.")
-                  raise SystemExit(0)
+              # send-issue.yml (headless Playwright) can never get past
+              # EmailOctopus's Cloudflare bot-check from a GitHub Actions IP --
+              # confirmed live, 2026-08-02, screenshot showed the "Verify you
+              # are human" challenge. Scheduling can only happen through a real
+              # browser/IP, i.e. interactively via Claude Code + claude-in-chrome.
+              # Don't dispatch a run that's guaranteed to fail; just point at it.
               target_date = next_monday_iso()
-              dispatch = subprocess.run(
-                  ["gh", "workflow", "run", "send-issue.yml",
-                   "-f", f"issue_path={issue_paths[0]}",
-                   "-f", f"subject={meta.get('title', '')}",
-                   "-f", f"schedule_date={target_date}",
-                   "-f", "schedule_time=7:45 AM"],
-                  capture_output=True, text=True,
+              notify(
+                  f"📌 PR #{pr} is merged. EmailOctopus can't be scheduled from "
+                  f"here (their bot-protection blocks headless automation) -- "
+                  f"open Claude Code and ask to schedule it for {target_date} "
+                  f"7:45 AM ET; it'll drive your browser directly, same as "
+                  f"Issue 11."
               )
-              if dispatch.returncode != 0:
-                  notify(f"❌ Couldn't start send-issue.yml for PR #{pr}: {dispatch.stderr.strip()[:300]}")
-              else:
-                  notify(f"⏳ Building the EmailOctopus schedule for {target_date} 7:45 AM ET — will confirm here once it's armed (or if it fails).")
               raise SystemExit(0)
 
           # Not APPROVE or SCHEDULE -- relay verbatim for the weekly-issue
