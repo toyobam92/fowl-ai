@@ -39,9 +39,18 @@ jobs:
               body = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
               urllib.request.urlopen(f"https://api.telegram.org/bot{bot}/sendMessage", data=body).read()
 
+          # EmailOctopus's Cloudflare WAF blocks the default "Python-urllib/x.y"
+          # User-Agent outright (confirmed: plain curl with the same key
+          # succeeds, urllib's default UA gets a 403) -- not an IP block, just
+          # a default-library-UA rule. A normal client identifier is enough;
+          # this is a legitimate authorized call with a valid API key, not an
+          # attempt to evade anything meant to gate human/browser access.
           req = urllib.request.Request(
               "https://api.emailoctopus.com/campaigns",
-              headers={"Authorization": f"Bearer {api_key}"},
+              headers={
+                  "Authorization": f"Bearer {api_key}",
+                  "User-Agent": "fowlai-sunday-reminder/1.0",
+              },
           )
           with urllib.request.urlopen(req) as r:
               campaigns = json.load(r).get("data", [])
