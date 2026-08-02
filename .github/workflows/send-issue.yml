@@ -53,6 +53,14 @@ jobs:
           SCHEDULE_TIME: ${{ github.event.inputs.schedule_time }}
         run: node automation/emailoctopus-draft.mjs
 
+      - name: Upload failure screenshot
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: emailoctopus-failure-screenshot
+          path: failure.png
+          if-no-files-found: ignore
+
       - name: Notify success
         if: success()
         env:

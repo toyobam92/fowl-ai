@@ -42,18 +42,34 @@ for (const tag of ['{{UnsubscribeURL}}', '{{SenderInfoLine}}']) {
 const browser = await chromium.launch();
 const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
 
+// Any unhandled failure below should leave a screenshot behind (uploaded as a
+// CI artifact by the workflow) -- a bare Playwright timeout in the log tells
+// you almost nothing about what was actually on screen (a security challenge?
+// a cookie banner? a redirect?).
+async function screenshotOnFailure(fn) {
+  try {
+    return await fn();
+  } catch (err) {
+    await page.screenshot({ path: 'failure.png', fullPage: true }).catch(() => {});
+    throw err;
+  }
+}
+
 async function ensureLoggedIn() {
-  await page.goto('https://dashboard.emailoctopus.com/campaigns', { waitUntil: 'domcontentloaded' });
+  await page.goto('https://dashboard.emailoctopus.com/campaigns', { waitUntil: 'networkidle' });
   const emailField = page.locator('input[type="email"]').first();
   const isLoginPage = await emailField.isVisible({ timeout: 8000 }).catch(() => false);
   if (!isLoginPage) return;
 
   await emailField.fill(EMAILOCTOPUS_EMAIL);
   await page.locator('input[type="password"]').first().fill(EMAILOCTOPUS_PASSWORD);
-  await Promise.all([
-    page.waitForURL('**/campaigns**', { timeout: 20000 }),
-    page.getByRole('button', { name: /log.?in|sign.?in/i }).click(),
-  ]);
+  await page.getByRole('button', { name: /log.?in|sign.?in/i }).click();
+  // Don't assume success lands on /campaigns -- a first-time login from an
+  // unfamiliar IP (e.g. a CI runner) may trigger an email/2FA verification
+  // step instead. Wait for the login form to at least disappear, then let the
+  // caller's own waits/screenshot-on-failure surface whatever comes next.
+  await emailField.waitFor({ state: 'detached', timeout: 20000 }).catch(() => {});
+  await page.waitForLoadState('networkidle').catch(() => {});
 }
 
 // Click at a fraction of an element's own bounding box -- used for the two
@@ -64,6 +80,7 @@ async function clickWithinBox(locator, fx, fy) {
   await page.mouse.click(box.x + box.width * fx, box.y + box.height * fy);
 }
 
+try {
 await ensureLoggedIn();
 
 await page.getByRole('button', { name: 'Create', exact: true }).click();
@@ -140,6 +157,12 @@ if (!confirmText.includes(expectedYear) || !confirmText.includes(expectedHourMin
 
 await page.getByRole('button', { name: 'Schedule', exact: true }).last().click();
 await page.getByText('Your campaign is scheduled', { exact: false }).waitFor({ timeout: 10000 });
+
+} catch (err) {
+  await page.screenshot({ path: 'failure.png', fullPage: true }).catch(() => {});
+  await browser.close();
+  throw err;
+}
 
 await browser.close();
 console.log(`Scheduled in EmailOctopus for ${SCHEDULE_DATE} ${SCHEDULE_TIME}: ${SUBJECT}`);
