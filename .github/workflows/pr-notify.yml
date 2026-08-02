@@ -28,13 +28,8 @@ jobs:
         run: |
           set -euo pipefail
           STAT=$(git diff --stat "$BASE_SHA" "$HEAD_SHA" | tail -n 25)
-          MSG="🐔 New PR #${PR_NUMBER}: ${PR_TITLE}
-${PR_URL}
-
-Files changed:
-${STAT}
-
-Reply \"APPROVE ${PR_NUMBER}\" here to merge & deploy."
+          MSG=$(printf '🐔 New PR #%s: %s\n%s\n\nFiles changed:\n%s\n\nReply "APPROVE %s" here to merge & deploy.' \
+            "$PR_NUMBER" "$PR_TITLE" "$PR_URL" "$STAT" "$PR_NUMBER")
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
             --data-urlencode "text=${MSG}" > /dev/null

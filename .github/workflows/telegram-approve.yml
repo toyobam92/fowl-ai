@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  actions: write
 
 jobs:
   poll:
@@ -61,13 +62,44 @@ jobs:
               if not m:
                   continue
               pr = m.group(1)
+
+              # Grab head branch/title before merging (still available after too,
+              # but simplest to read once, up front).
+              view = subprocess.run(
+                  ["gh", "pr", "view", pr, "--json", "headRefName,title,files"],
+                  capture_output=True, text=True,
+              )
+              pr_meta = json.loads(view.stdout) if view.returncode == 0 else {}
+
               result = subprocess.run(
                   ["gh", "pr", "merge", pr, "--squash", "--delete-branch"],
                   capture_output=True, text=True,
               )
-              if result.returncode == 0:
-                  notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.")
-              else:
+              if result.returncode != 0:
                   err = (result.stderr or result.stdout).strip()[:300]
                   notify(f"❌ Could not merge PR #{pr}: {err}")
+                  continue
+
+              notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.")
+
+              head_ref = pr_meta.get("headRefName", "")
+              if not head_ref.startswith("draft/issue-"):
+                  continue  # a general site-update PR, not an issue -- nothing to send
+
+              issue_paths = [
+                  f["path"] for f in pr_meta.get("files", [])
+                  if re.match(r"^issues/[\d-]+/index\.html$", f.get("path", ""))
+              ]
+              if not issue_paths:
+                  notify(f"⚠️ PR #{pr} merged but no issues/<date>/index.html found -- trigger send-issue.yml manually.")
+                  continue
+
+              dispatch = subprocess.run(
+                  ["gh", "workflow", "run", "send-issue.yml",
+                   "-f", f"issue_path={issue_paths[0]}",
+                   "-f", f"subject={pr_meta.get('title', '')}"],
+                  capture_output=True, text=True,
+              )
+              if dispatch.returncode != 0:
+                  notify(f"⚠️ Merged PR #{pr} but couldn't kick off send-issue.yml: {dispatch.stderr.strip()[:300]}")
           PYEOF
