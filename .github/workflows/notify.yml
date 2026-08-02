@@ -24,8 +24,13 @@ jobs:
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          # Passed via env, never spliced directly into the script -- `${{ }}`
+          # substitutes literal text into the run block before bash sees it,
+          # so anything like a literal "$80" in the message becomes a real
+          # shell variable reference ($8) and blows up under `set -u`.
+          MESSAGE_TEXT: ${{ github.event.inputs.text }}
         run: |
           set -euo pipefail
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" \
-            --data-urlencode "text=${{ github.event.inputs.text }}" > /dev/null
+            --data-urlencode "text=${MESSAGE_TEXT}" > /dev/null

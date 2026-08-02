@@ -36,11 +36,13 @@ jobs:
         env:
           GMAIL_ADDRESS: ${{ secrets.GMAIL_ADDRESS }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
-        run: |
-          python3 automation/send_review_email.py \
-            --issue-path "${{ github.event.inputs.issue_path }}" \
-            --subject "${{ github.event.inputs.subject }}" \
-            --note "${{ github.event.inputs.note }}"
+          # Passed via env, not spliced into the script -- ${{ }} substitutes
+          # literal text before bash/python ever see it, so arbitrary subject/
+          # note text (quotes, $, backticks) can break out of the quoting.
+          ISSUE_PATH: ${{ github.event.inputs.issue_path }}
+          SUBJECT: ${{ github.event.inputs.subject }}
+          NOTE: ${{ github.event.inputs.note }}
+        run: python3 automation/send_review_email.py
 
       - name: Notify Telegram
         if: success()
