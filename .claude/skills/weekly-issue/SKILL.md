@@ -1,13 +1,15 @@
 ---
 name: weekly-issue
-description: Produce this week's FOWL AI newsletter issue end-to-end — live web research, draft, branded HTML, and site plumbing (archive list, sitemap, feed, llms.txt) — then open a PR gated on Telegram approval instead of pushing straight to main. Use when it's time to start the week's issue, the Monday cloud routine fires, or the user asks to draft/publish the next issue.
+description: Produce this week's FOWL AI newsletter issue end-to-end — live web research, draft, branded HTML, and site plumbing (archive list, sitemap, feed, llms.txt) — then open a PR gated on Telegram approval instead of pushing straight to main. Use when it's time to start the week's issue, the Sunday cloud routine fires, or the user asks to draft/publish the next issue.
 ---
 
 # Weekly issue
 
-This replaces the old three-prompt manual workflow (research memo → draft → HTML update) with one pass. It runs the same editorial process, just without you pasting anything by hand. It is self-contained inside this repo (`fowlai-site-upload`) so it works whether it's run locally in Claude Code or by the unattended Monday cloud routine, which only has access to this repo — not the sibling `automation/` folder in the outer project directory.
+This replaces the old three-prompt manual workflow (research memo → draft → HTML update) with one pass. It runs the same editorial process, just without you pasting anything by hand. It is self-contained inside this repo (`fowlai-site-upload`) so it works whether it's run locally in Claude Code or by the unattended Sunday cloud routine, which only has access to this repo — not the sibling `automation/` folder in the outer project directory.
 
-**This skill never pushes to `main` and never sends anything.** It ends at an open PR. Merging (and the deploy that follows) happens only when the user replies `APPROVE <PR#>` in Telegram — see `.github/workflows/pr-notify.yml` and `.github/workflows/telegram-approve.yml`.
+**Cadence:** drafted Sunday, merged/live ~7am Monday, emailed ~7:45am Monday (matches the existing EmailOctopus send history). Reply `APPROVE <PR#>` in Telegram around 7am Monday so the site flip and the email draft line up with that schedule — approving earlier just means the site goes live earlier than usual.
+
+**This skill never pushes to `main` and never sends anything.** It ends at an open PR. Merging (and the deploy that follows) happens only when the user replies `APPROVE <PR#>` in Telegram — see `.github/workflows/pr-notify.yml` and `.github/workflows/telegram-approve.yml`. Once merged, `telegram-approve.yml` automatically kicks off `.github/workflows/send-issue.yml`, which uses Playwright to build the EmailOctopus draft (see `automation/emailoctopus-draft.mjs`) — you still press Send yourself in EmailOctopus.
 
 ## 1. Figure out the issue number and date
 
