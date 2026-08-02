@@ -1,6 +1,6 @@
 {
   "week_of": "2026-08-04",
-  "status": "drafted",
+  "status": "idle",
   "topics": [
     {
       "title": "AI skills now pay a 62% wage premium — here's what's actually being paid for",
@@ -30,7 +30,7 @@
     "The bifurcation is here: 'force multiplier' professionals vs. everyone else",
     "What Blind and Reddit say about 2026 layoffs that press releases don't"
   ],
-  "picked_topic": "Hinton says 2026 brings a new wave of job losses — here's the 12-month version of that warning",
-  "pr_number": 5,
+  "picked_topic": null,
+  "pr_number": null,
   "last_updated": "2026-08-02T00:00:00Z"
 }
