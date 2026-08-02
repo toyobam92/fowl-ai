@@ -1,9 +1,27 @@
 name: telegram-approve
 
+# Triggered in real time by a Cloudflare Worker acting as the Telegram webhook
+# receiver (see automation/telegram-webhook-worker.js) -- it dispatches this
+# workflow with the message's text/chat_id as inputs the moment a message
+# arrives. Telegram webhooks and getUpdates polling are mutually exclusive
+# for a given bot, so this workflow never calls getUpdates itself; there is
+# no separate poller anywhere, so there is nothing left to race.
+#
+# Still supports a plain manual `gh workflow run telegram-approve.yml` with
+# no inputs as a no-op-safe fallback -- useful for testing the merge/schedule
+# logic directly without going through Telegram at all.
+
 on:
-  schedule:
-    - cron: '*/10 * * * *'
-  workflow_dispatch: {}
+  workflow_dispatch:
+    inputs:
+      message_text:
+        description: 'Raw Telegram message text'
+        required: false
+        default: ''
+      chat_id:
+        description: 'Telegram chat id the message came from'
+        required: false
+        default: ''
 
 permissions:
   contents: write
@@ -11,41 +29,27 @@ permissions:
   actions: write
 
 jobs:
-  poll:
+  handle:
+    if: github.event.inputs.message_text != ''
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
 
-      - name: Poll Telegram for APPROVE/SCHEDULE replies
+      - name: Handle one Telegram message
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          MESSAGE_TEXT: ${{ github.event.inputs.message_text }}
+          MESSAGE_CHAT_ID: ${{ github.event.inputs.chat_id }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
           python3 - <<'PYEOF'
-          import datetime, json, os, re, subprocess, time, urllib.parse, urllib.request
+          import datetime, json, os, re, subprocess, urllib.parse, urllib.request
 
           bot = os.environ["TELEGRAM_BOT_TOKEN"]
           chat_id = os.environ["TELEGRAM_CHAT_ID"]
           api = f"https://api.telegram.org/bot{bot}"
-
-          # Fetch the full unacknowledged backlog (offset=0), then immediately
-          # re-request past the highest update_id seen to ack/clear it with
-          # Telegram, regardless of whether we act on it. This makes the poll
-          # stateless across workflow runs -- no repo/cache persistence needed.
-          with urllib.request.urlopen(f"{api}/getUpdates?offset=0&timeout=0") as r:
-              data = json.load(r)
-
-          updates = data.get("result", [])
-          max_id = max((u["update_id"] for u in updates), default=0)
-
-          if max_id:
-              ack_url = f"{api}/getUpdates?offset={max_id + 1}&timeout=0"
-              urllib.request.urlopen(ack_url).read()
-
-          now = time.time()
-          FRESH_WINDOW_SECONDS = 20 * 60  # tolerate poll delay/backoff
 
           def notify(text):
               body = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
@@ -63,96 +67,85 @@ jobs:
               days_ahead = (7 - today.weekday()) % 7  # Monday == 0; today counts if it IS Monday
               return (today + datetime.timedelta(days=days_ahead)).isoformat()
 
-          # Anything that isn't APPROVE/SCHEDULE gets relayed to automation/inbox.json
-          # for the weekly-issue cloud routine to pick up (topic picks, "MORE", and
-          # free-text revision feedback all land here) -- this is the ONLY consumer
-          # of Telegram's getUpdates, precisely so a second poller can never race it
-          # and silently eat a message meant for the other one.
-          relayed = []
+          # Defense in depth: the Cloudflare Worker already filters by chat_id
+          # before ever dispatching this workflow, but check again here in case
+          # that filter is ever loosened or bypassed.
+          incoming_chat_id = os.environ.get("MESSAGE_CHAT_ID", "")
+          if incoming_chat_id and incoming_chat_id != chat_id:
+              raise SystemExit(f"chat_id mismatch ({incoming_chat_id} != stored chat_id) -- refusing to act.")
 
-          for u in updates:
-              msg = u.get("message") or {}
-              if str(msg.get("chat", {}).get("id")) != str(chat_id):
-                  continue
-              if now - msg.get("date", 0) > FRESH_WINDOW_SECONDS:
-                  continue  # stale, likely already handled in a prior run
-              text = (msg.get("text") or "").strip()
-              if not text:
-                  continue
+          text = os.environ["MESSAGE_TEXT"].strip()
 
-              approve = re.match(r"^APPROVE\s+(\d+)$", text, re.IGNORECASE)
-              schedule = re.match(r"^SCHEDULE\s+(\d+)$", text, re.IGNORECASE)
+          approve = re.match(r"^APPROVE\s+(\d+)$", text, re.IGNORECASE)
+          schedule = re.match(r"^SCHEDULE\s+(\d+)$", text, re.IGNORECASE)
 
-              if approve:
-                  pr = approve.group(1)
-                  # Merging only ever deploys the site. It never touches email --
-                  # that requires a separate, explicit SCHEDULE <PR#> reply.
-                  result = subprocess.run(
-                      ["gh", "pr", "merge", pr, "--squash", "--delete-branch"],
-                      capture_output=True, text=True,
-                  )
-                  if result.returncode != 0:
-                      err = (result.stderr or result.stdout).strip()[:300]
-                      notify(f"❌ Could not merge PR #{pr}: {err}")
-                      continue
-                  meta = pr_meta(pr)
-                  is_issue = meta.get("headRefName", "").startswith("draft/issue-")
-                  extra = " Reply \"SCHEDULE %s\" when you want to also schedule the email." % pr if is_issue else ""
-                  notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.{extra}")
-                  continue
+          if approve:
+              pr = approve.group(1)
+              # Merging only ever deploys the site. It never touches email --
+              # that requires a separate, explicit SCHEDULE <PR#> reply.
+              result = subprocess.run(
+                  ["gh", "pr", "merge", pr, "--squash", "--delete-branch"],
+                  capture_output=True, text=True,
+              )
+              if result.returncode != 0:
+                  err = (result.stderr or result.stdout).strip()[:300]
+                  notify(f"❌ Could not merge PR #{pr}: {err}")
+                  raise SystemExit(0)
+              meta = pr_meta(pr)
+              is_issue = meta.get("headRefName", "").startswith("draft/issue-")
+              extra = " Reply \"SCHEDULE %s\" when you want to also schedule the email." % pr if is_issue else ""
+              notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.{extra}")
+              raise SystemExit(0)
 
-              if schedule:
-                  pr = schedule.group(1)
-                  meta = pr_meta(pr)
-                  if not meta:
-                      notify(f"❌ Couldn't look up PR #{pr}.")
-                      continue
-                  if not meta.get("mergedAt"):
-                      notify(f"⚠️ PR #{pr} isn't merged yet — reply \"APPROVE {pr}\" first, then \"SCHEDULE {pr}\".")
-                      continue
-                  issue_paths = [
-                      f["path"] for f in meta.get("files", [])
-                      if re.match(r"^issues/[\d-]+/index\.html$", f.get("path", ""))
-                  ]
-                  if not issue_paths:
-                      notify(f"⚠️ PR #{pr} has no issues/<date>/index.html — nothing to schedule.")
-                      continue
-                  target_date = next_monday_iso()
-                  dispatch = subprocess.run(
-                      ["gh", "workflow", "run", "send-issue.yml",
-                       "-f", f"issue_path={issue_paths[0]}",
-                       "-f", f"subject={meta.get('title', '')}",
-                       "-f", f"schedule_date={target_date}",
-                       "-f", "schedule_time=7:45 AM"],
-                      capture_output=True, text=True,
-                  )
-                  if dispatch.returncode != 0:
-                      notify(f"❌ Couldn't start send-issue.yml for PR #{pr}: {dispatch.stderr.strip()[:300]}")
-                  else:
-                      notify(f"⏳ Building the EmailOctopus schedule for {target_date} 7:45 AM ET — will confirm here once it's armed (or if it fails).")
-                  continue
+          if schedule:
+              pr = schedule.group(1)
+              meta = pr_meta(pr)
+              if not meta:
+                  notify(f"❌ Couldn't look up PR #{pr}.")
+                  raise SystemExit(0)
+              if not meta.get("mergedAt"):
+                  notify(f"⚠️ PR #{pr} isn't merged yet — reply \"APPROVE {pr}\" first, then \"SCHEDULE {pr}\".")
+                  raise SystemExit(0)
+              issue_paths = [
+                  f["path"] for f in meta.get("files", [])
+                  if re.match(r"^issues/[\d-]+/index\.html$", f.get("path", ""))
+              ]
+              if not issue_paths:
+                  notify(f"⚠️ PR #{pr} has no issues/<date>/index.html — nothing to schedule.")
+                  raise SystemExit(0)
+              target_date = next_monday_iso()
+              dispatch = subprocess.run(
+                  ["gh", "workflow", "run", "send-issue.yml",
+                   "-f", f"issue_path={issue_paths[0]}",
+                   "-f", f"subject={meta.get('title', '')}",
+                   "-f", f"schedule_date={target_date}",
+                   "-f", "schedule_time=7:45 AM"],
+                  capture_output=True, text=True,
+              )
+              if dispatch.returncode != 0:
+                  notify(f"❌ Couldn't start send-issue.yml for PR #{pr}: {dispatch.stderr.strip()[:300]}")
+              else:
+                  notify(f"⏳ Building the EmailOctopus schedule for {target_date} 7:45 AM ET — will confirm here once it's armed (or if it fails).")
+              raise SystemExit(0)
 
-              # Not APPROVE or SCHEDULE -- relay verbatim for the weekly-issue
-              # routine to interpret (topic pick, "MORE", or revision feedback).
-              relayed.append({"text": text, "date": msg.get("date", 0)})
-
-          if relayed:
-              inbox_path = "automation/inbox.json"
-              try:
-                  with open(inbox_path) as f:
-                      inbox = json.load(f)
-              except FileNotFoundError:
-                  inbox = []
-              inbox.extend(relayed)
-              with open(inbox_path, "w") as f:
-                  json.dump(inbox, f, indent=2)
-                  f.write("\n")
-              subprocess.run(["git", "config", "user.email", "actions@github.com"], check=True)
-              subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
-              subprocess.run(["git", "add", inbox_path], check=True)
-              subprocess.run(["git", "commit", "-m", f"Relay {len(relayed)} Telegram message(s) to inbox"], check=True)
-              # main may have moved (the weekly-issue routine commits here too) --
-              # rebase before pushing rather than assume a clean fast-forward.
-              subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
-              subprocess.run(["git", "push"], check=True)
+          # Not APPROVE or SCHEDULE -- relay verbatim for the weekly-issue
+          # routine to interpret (topic pick, "MORE", or revision feedback).
+          inbox_path = "automation/inbox.json"
+          try:
+              with open(inbox_path) as f:
+                  inbox = json.load(f)
+          except FileNotFoundError:
+              inbox = []
+          inbox.append({"text": text})
+          with open(inbox_path, "w") as f:
+              json.dump(inbox, f, indent=2)
+              f.write("\n")
+          subprocess.run(["git", "config", "user.email", "actions@github.com"], check=True)
+          subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
+          subprocess.run(["git", "add", inbox_path], check=True)
+          subprocess.run(["git", "commit", "-m", "Relay Telegram message to inbox"], check=True)
+          # main may have moved (the weekly-issue routine commits here too) --
+          # rebase before pushing rather than assume a clean fast-forward.
+          subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+          subprocess.run(["git", "push"], check=True)
           PYEOF
