@@ -8,6 +8,10 @@ name: review-email
 on:
   workflow_dispatch:
     inputs:
+      ref:
+        description: 'Branch the draft lives on, e.g. draft/issue-11 (defaults to main)'
+        required: false
+        default: 'main'
       issue_path:
         description: 'Path to the issue HTML to send, e.g. issues/2026-08-03/index.html'
         required: true
@@ -26,7 +30,12 @@ jobs:
   send:
     runs-on: ubuntu-latest
     steps:
+      # Drafts live on draft/issue-<N> until merged -- must check out that
+      # branch explicitly, since a bare checkout defaults to main, where the
+      # file doesn't exist yet. (This broke the first real run, 2026-08-02.)
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.inputs.ref }}
 
       - uses: actions/setup-python@v5
         with:

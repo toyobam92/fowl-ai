@@ -150,10 +150,13 @@ Then trigger the review email:
 
 ```
 gh workflow run review-email.yml \
+  -f ref=draft/issue-<N> \
   -f issue_path=issues/<date>/index.html \
   -f subject="Issue <N>: <short title>" \
   -f note="First draft — reply with any changes, or APPROVE <N> in Telegram when it looks good."
 ```
+
+**Always pass `-f ref=draft/issue-<N>`** — the draft lives on that branch until merged, not on `main`. Omitting it broke the first real run (2026-08-02): the workflow defaulted to checking out `main`, where the file didn't exist yet.
 
 Stop here. Do not merge, do not push the issue content to `main`, and do not touch EmailOctopus. `pr-notify` pings Telegram automatically when the PR opens; `telegram-approve` merges it (site deploy only) on `APPROVE <PR#>`, and separately kicks off the EmailOctopus schedule only on a later, explicit `SCHEDULE <PR#>` reply.
 
@@ -174,6 +177,7 @@ This updates the existing PR in place (same branch) — don't open a new one. Th
 
 ```
 gh workflow run review-email.yml \
+  -f ref=draft/issue-<N> \
   -f issue_path=issues/<date>/index.html \
   -f subject="Issue <N>: <short title>" \
   -f note="Updated per your feedback: <one-line summary>. Reply again to keep iterating, or APPROVE <N> when it looks good."
