@@ -1,35 +1,29 @@
 {
   "week_of": "2026-08-04",
-  "status": "idle",
+  "status": "awaiting_pick",
   "topics": [
     {
-      "title": "AI skills now pay a 62% wage premium — here's what's actually being paid for",
-      "why": "2026 pay data shows the AI wage premium widening from 56% to 62% in a year, but the premium tracks specific verifiable skills, not just \"knows AI\" — worth breaking down which ones."
+      "title": "The AI wage premium just hit 62% — but only for four specific skills",
+      "why": "PwC's 2026 Global AI Jobs Barometer shows the premium is concentrated in LangChain, RAG, vector databases, and multi-agent orchestration, not \"AI\" broadly — a sharper, more actionable read than the generic wage-premium headline."
     },
     {
-      "title": "The $80/hr specialist track: how degreed professionals are quietly retraining into AI evaluation",
-      "why": "Expert networks like Handshake AI and Mercor are recruiting lawyers, doctors, and scientists directly into paid model-evaluation fellowships in 2026 — a route into AI work that doesn't require learning to code."
+      "title": "Handshake AI and Transfyr are paying degreed professionals to fix AI models — deadlines are this month",
+      "why": "Two fellowship programs recruiting lawyers, scientists, and PhDs into paid model-evaluation work have application windows closing in August 2026, making this a time-boxed opportunity rather than evergreen advice."
     },
     {
-      "title": "Hinton says 2026 brings a new wave of job losses — here's the 12-month version of that warning",
-      "why": "The \"godfather of AI\" headline is everywhere this week, but the underlying claim about model capability timelines implies a specific, actionable planning horizon most coverage skips."
+      "title": "UK data shows a real two-speed jobs market — and it's not the bifurcation you'd expect",
+      "why": "Indeed's new UK figures show AI-skilled hiring rising even as overall postings fall about 10% from last year, giving the \"bifurcation\" story an actual number instead of a vibe."
     },
     {
-      "title": "80% of companies say upskilling is the fix, 28% are funding it — the gap workers are filling themselves",
-      "why": "Fresh 2026 data shows a stark employer-commitment gap on AI upskilling, which is exactly the space where self-directed learners are pulling ahead of their peers."
+      "title": "AI job titles have tripled since 2022 — most of them aren't engineering roles",
+      "why": "New labor-market data show AI-labeled postings growing fastest in sales, education, and management, meaning the fastest-growing \"AI job\" category doesn't require a CS background — worth mapping who's actually getting hired."
     },
     {
-      "title": "Job postings for \"AI agent\" roles are up 1000% — and most don't require an engineering degree",
-      "why": "The AI agent hiring boom is real in 2026 data, but a meaningful share of these roles are orchestration/ops jobs, not ML engineering — worth mapping who actually qualifies."
+      "title": "Tech and finance are losing 28,000 jobs a month — here's what's actually replacing them",
+      "why": "New payroll data show accelerating losses concentrated in the sectors adopting AI fastest, but the same data hints at where those workers are landing next — a more useful frame than another \"AI is coming for jobs\" headline."
     }
   ],
-  "rejected_titles": [
-    "The AI-washing con: why half of \"AI layoffs\" aren't actually about AI",
-    "Companies that fired workers for AI are quietly rehiring them",
-    "79% of companies say adopting AI is tearing them apart — and that's the opening",
-    "The bifurcation is here: 'force multiplier' professionals vs. everyone else",
-    "What Blind and Reddit say about 2026 layoffs that press releases don't"
-  ],
+  "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
   "last_updated": "2026-08-02T00:00:00Z"
