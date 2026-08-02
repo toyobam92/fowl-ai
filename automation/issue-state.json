@@ -1,30 +1,10 @@
 {
-  "week_of": "2026-08-04",
-  "status": "awaiting_pick",
-  "topics": [
-    {
-      "title": "The AI wage premium just hit 62% — but only for four specific skills",
-      "why": "PwC's 2026 Global AI Jobs Barometer shows the premium is concentrated in LangChain, RAG, vector databases, and multi-agent orchestration, not \"AI\" broadly — a sharper, more actionable read than the generic wage-premium headline."
-    },
-    {
-      "title": "Handshake AI and Transfyr are paying degreed professionals to fix AI models — deadlines are this month",
-      "why": "Two fellowship programs recruiting lawyers, scientists, and PhDs into paid model-evaluation work have application windows closing in August 2026, making this a time-boxed opportunity rather than evergreen advice."
-    },
-    {
-      "title": "UK data shows a real two-speed jobs market — and it's not the bifurcation you'd expect",
-      "why": "Indeed's new UK figures show AI-skilled hiring rising even as overall postings fall about 10% from last year, giving the \"bifurcation\" story an actual number instead of a vibe."
-    },
-    {
-      "title": "AI job titles have tripled since 2022 — most of them aren't engineering roles",
-      "why": "New labor-market data show AI-labeled postings growing fastest in sales, education, and management, meaning the fastest-growing \"AI job\" category doesn't require a CS background — worth mapping who's actually getting hired."
-    },
-    {
-      "title": "Tech and finance are losing 28,000 jobs a month — here's what's actually replacing them",
-      "why": "New payroll data show accelerating losses concentrated in the sectors adopting AI fastest, but the same data hints at where those workers are landing next — a more useful frame than another \"AI is coming for jobs\" headline."
-    }
-  ],
+  "week_of": null,
+  "status": "idle",
+  "last_proposed": "2026-08-02",
+  "topics": [],
   "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": "2026-08-02T00:00:00Z"
+  "last_updated": null
 }
