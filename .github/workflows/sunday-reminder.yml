@@ -1,0 +1,79 @@
+name: sunday-reminder
+
+# Weekly nudge, ~5pm ET Sunday: if an issue merged this week but nothing is
+# scheduled in EmailOctopus yet, remind the owner to open Claude Code and ask
+# to schedule it (that step can't run headless -- see send-issue.yml/the
+# project memory on EmailOctopus's Cloudflare bot-protection). GitHub's own
+# schedule cron can run late by tens of minutes under load; that's fine for a
+# once-a-week reminder, unlike the sub-10-minute Telegram-approval polling
+# this repo used to need (now replaced by a real-time webhook instead).
+
+on:
+  schedule:
+    - cron: '7 21 * * 0' # ~5pm ET Sunday (EDT = UTC-4)
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check EmailOctopus + recent merges, nudge if needed
+        env:
+          EMAILOCTOPUS_API_KEY: ${{ secrets.EMAILOCTOPUS_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PYEOF'
+          import datetime, json, os, subprocess, urllib.parse, urllib.request
+
+          api_key = os.environ["EMAILOCTOPUS_API_KEY"]
+          bot = os.environ["TELEGRAM_BOT_TOKEN"]
+          chat_id = os.environ["TELEGRAM_CHAT_ID"]
+
+          def notify(text):
+              body = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
+              urllib.request.urlopen(f"https://api.telegram.org/bot{bot}/sendMessage", data=body).read()
+
+          req = urllib.request.Request(
+              "https://api.emailoctopus.com/campaigns",
+              headers={"Authorization": f"Bearer {api_key}"},
+          )
+          with urllib.request.urlopen(req) as r:
+              campaigns = json.load(r).get("data", [])
+
+          # EmailOctopus's real status value for an armed-but-unsent campaign
+          # is "preparing", not "scheduled" -- confirmed against the live
+          # account (Issue 11's campaign, scheduled 2026-08-02, shows this).
+          if any(c.get("status") == "preparing" for c in campaigns):
+              print("Already scheduled -- no reminder needed.")
+              raise SystemExit(0)
+
+          view = subprocess.run(
+              ["gh", "pr", "list", "-R", "toyobam92/fowl-ai", "--state", "merged",
+               "--json", "headRefName,mergedAt,number,title", "--limit", "20"],
+              capture_output=True, text=True, check=True,
+          )
+          merged = json.loads(view.stdout)
+          cutoff = datetime.datetime.now(datetime.timezone.utc) - datetime.timedelta(days=8)
+          recent_issue_prs = [
+              pr for pr in merged
+              if pr.get("headRefName", "").startswith("draft/issue-")
+              and datetime.datetime.fromisoformat(pr["mergedAt"].replace("Z", "+00:00")) >= cutoff
+          ]
+
+          if not recent_issue_prs:
+              print("No issue merged in the last 8 days -- nothing to schedule yet.")
+              raise SystemExit(0)
+
+          latest = max(recent_issue_prs, key=lambda pr: pr["mergedAt"])
+          notify(
+              f"⏰ Sunday check-in: \"{latest['title']}\" (PR #{latest['number']}) is live "
+              f"but nothing's scheduled in EmailOctopus yet. Open Claude Code and ask me "
+              f"to schedule it if you want tomorrow's 7:45am send."
+          )
+          PYEOF
