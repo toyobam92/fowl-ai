@@ -1,6 +1,6 @@
 {
   "week_of": "2026-08-11",
-  "status": "awaiting_pick",
+  "status": "drafting",
   "last_proposed": "2026-08-09",
   "topics": [
     {
@@ -25,7 +25,7 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
+  "picked_topic": "Inside the 9% of companies actually winning at AI",
   "pr_number": null,
   "last_updated": "2026-08-09"
 }
