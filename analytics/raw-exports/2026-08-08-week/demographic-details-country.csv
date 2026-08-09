@@ -1,0 +1,32 @@
+# ----------------------------------------
+# Demographic details: Country
+# Account: fowl AI
+# Property: fowl AI
+# NOTE: pulled directly from the GA4 UI (Reports > User attributes > Demographic details)
+# via Claude in Chrome for the weekly-analytics-review scheduled task, not a manual CSV export.
+# ----------------------------------------
+#
+# All Users
+# Start date: 20260802
+# End date: 20260808
+Country,Active users,New users,Engaged sessions,Engagement rate,Engaged sessions per active user,Average engagement time per active user,Event count,Key events,User key event rate,Total revenue
+India,65,68,34,0.5075,0.52,8,393,28,0.40,0
+United States,20,17,11,0.3438,0.55,11,137,2,0.10,0
+Pakistan,9,8,1,0.1111,0.11,0,34,1,0.1111,0
+Thailand,7,6,1,0.1429,0.14,8,31,0,0,0
+Bangladesh,4,4,2,0.40,0.50,7,34,2,0.50,0
+China,3,3,0,0,0,1,12,0,0,0
+Nepal,2,2,0,0,0,6,15,0,0,0
+Vietnam,2,2,0,0,0,20,19,0,0,0
+Algeria,1,1,0,0,0,0,3,0,0,0
+Argentina,1,1,1,1.00,1.00,397,9,0,0,0
+Australia,1,1,1,1.00,1.00,27,12,0,0,0
+France,1,1,1,1.00,1.00,11,6,0,0,0
+Germany,1,1,1,1.00,1.00,9,10,0,0,0
+Netherlands,1,1,0,0,0,2,4,0,0,0
+Nigeria,1,1,1,1.00,1.00,17,4,0,0,0
+Palestine,1,1,1,0.50,1.00,14,8,0,0,0
+Switzerland,1,1,1,1.00,1.00,2,8,2,1.00,0
+Ukraine,1,0,1,0.1429,1.00,0,15,0,0,0
+United Arab Emirates,1,1,1,1.00,1.00,34,16,0,0,0
+United Kingdom,1,1,0,0,0,5,6,0,0,0
