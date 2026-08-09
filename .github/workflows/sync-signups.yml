@@ -1,0 +1,130 @@
+name: sync-signups
+
+# Daily: pull new rows from the homepage signup Google Sheet and add any
+# email not already in the EmailOctopus Audience list. Previously this was a
+# manual step bundled into the weekly EmailOctopus-scheduling ask, because
+# reading the Sheet needed the Google Drive MCP connector, which only works
+# in an interactive Claude Code session -- GitHub Actions has no access to
+# that. Google Sheets' own read API doesn't have that restriction, so a
+# service account with read-only access to just this one sheet (granted via
+# Sheet-level sharing, no project-wide IAM role) closes the gap headlessly.
+#
+# The Sheet has known rapid-duplicate submissions from a handful of
+# addresses (looks like bot traffic). Uses POST (create-only, confirmed 409
+# on an existing email) rather than PUT (create-or-update): PUT would
+# silently flip a contact's status back to "subscribed" even if they'd since
+# unsubscribed for real, since it always sets what's in the request body.
+# POST just no-ops (409) on anyone already present, sheet duplicates
+# included, without touching their current status.
+
+on:
+  schedule:
+    - cron: '23 13 * * *' # ~9:23am ET daily; odd minute avoids the top-of-hour pile-up
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+env:
+  SHEET_ID: '1ig0Q53uu5Ax0D4d8C9QBNgThBPRg47SjGAzVG6v3TWE'
+  SHEET_TAB: 'Form Responses 1'
+  EMAILOCTOPUS_LIST_ID: '2db3799e-5a00-11f1-af98-ebe52727da5b' # "Audience" list
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Pull new signups from the Sheet, add to EmailOctopus
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          EMAILOCTOPUS_API_KEY: ${{ secrets.EMAILOCTOPUS_API_KEY }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set -euo pipefail
+          pip install --quiet google-auth
+          python3 - <<'PYEOF'
+          import json, os, re, urllib.parse, urllib.request
+          from google.oauth2 import service_account
+          from google.auth.transport.requests import Request as GoogleAuthRequest
+
+          sa_info = json.loads(os.environ["GOOGLE_SERVICE_ACCOUNT_JSON"])
+          creds = service_account.Credentials.from_service_account_info(
+              sa_info, scopes=["https://www.googleapis.com/auth/spreadsheets.readonly"]
+          )
+          creds.refresh(GoogleAuthRequest())
+
+          sheet_id = os.environ["SHEET_ID"]
+          tab = urllib.parse.quote(os.environ["SHEET_TAB"])
+          list_id = os.environ["EMAILOCTOPUS_LIST_ID"]
+          api_key = os.environ["EMAILOCTOPUS_API_KEY"]
+          bot = os.environ["TELEGRAM_BOT_TOKEN"]
+          chat_id = os.environ["TELEGRAM_CHAT_ID"]
+
+          def notify(text):
+              body = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
+              urllib.request.urlopen(f"https://api.telegram.org/bot{bot}/sendMessage", data=body).read()
+
+          req = urllib.request.Request(
+              f"https://sheets.googleapis.com/v4/spreadsheets/{sheet_id}/values/{tab}!A:B",
+              headers={"Authorization": f"Bearer {creds.token}"},
+          )
+          with urllib.request.urlopen(req) as r:
+              rows = json.load(r).get("values", [])
+
+          if not rows:
+              print("Sheet empty or unreadable.")
+              raise SystemExit(0)
+
+          header = [c.strip().lower() for c in rows[0]]
+          email_col = header.index("email") if "email" in header else 1
+          email_re = re.compile(r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
+
+          emails = set()
+          for row in rows[1:]:
+              if len(row) <= email_col:
+                  continue
+              email = row[email_col].strip().lower()
+              if email_re.match(email):
+                  emails.add(email)
+
+          if not emails:
+              print("No valid emails found in sheet.")
+              raise SystemExit(0)
+
+          added, failed = [], []
+          for email in sorted(emails):
+              body = json.dumps({"email_address": email, "status": "subscribed"}).encode()
+              # EmailOctopus's Cloudflare WAF blocks the default urllib User-Agent
+              # outright (confirmed against this same API in the manual sync) --
+              # not an IP block, just a default-library-UA rule.
+              req = urllib.request.Request(
+                  f"https://api.emailoctopus.com/lists/{list_id}/contacts",
+                  data=body,
+                  method="POST",
+                  headers={
+                      "Authorization": f"Bearer {api_key}",
+                      "Content-Type": "application/json",
+                      "User-Agent": "fowlai-sync-signups/1.0",
+                  },
+              )
+              try:
+                  with urllib.request.urlopen(req) as r:
+                      r.read()
+                  added.append(email)
+              except urllib.error.HTTPError as e:
+                  if e.code == 409:
+                      continue  # already a contact -- POST is create-only, no-op
+                  failed.append((email, e.code))
+
+          print(f"{len(emails)} emails in sheet, {len(added)} newly added, {len(failed)} failed.")
+          if failed:
+              print("Failures:", failed)
+
+          if added:
+              names = "\n".join(f"- {e}" for e in added[:20])
+              more = f"\n…and {len(added) - 20} more" if len(added) > 20 else ""
+              notify(f"📥 Synced {len(added)} new signup(s) into EmailOctopus:\n{names}{more}")
+          if failed:
+              notify(f"⚠️ sync-signups: {len(failed)} email(s) failed to add to EmailOctopus — check the Action log.")
+          PYEOF
