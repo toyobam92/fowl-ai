@@ -1,5 +1,15 @@
 name: pr-notify
 
+# Notifies on every opened/reopened PR, full stop -- no branch-name allowlist.
+# Previously gated on startsWith(head_ref, 'draft/') || startsWith(head_ref,
+# 'update/'), which silently dropped the notification for PR #8 (branch
+# add/signup-sync-automation) -- neither prefix matched, so the job was
+# skipped with no error, and the owner never got the Telegram ping to
+# approve it. Every PR in this repo already goes through this Telegram
+# gate by convention; an allowlist of prefixes was solving a problem that
+# doesn't exist while creating a silent-failure mode for any prefix nobody
+# thought to add ahead of time.
+
 on:
   pull_request:
     types: [opened, reopened]
@@ -9,7 +19,6 @@ permissions:
 
 jobs:
   notify:
-    if: startsWith(github.head_ref, 'draft/') || startsWith(github.head_ref, 'update/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
