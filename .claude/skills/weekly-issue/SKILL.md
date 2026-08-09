@@ -30,7 +30,7 @@ Do a *light* research pass with `WebSearch` — enough to sketch 5 distinct plau
 
 ```json
 {
-  "week_of": "<upcoming Tuesday's date>",
+  "week_of": "<upcoming Monday's date -- the actual send day, not the day after; every EmailOctopus send to date has been a Monday 7:45am ET, and this value also becomes the issue's folder date in step 6, so getting it right here matters twice over>",
   "status": "awaiting_pick",
   "last_proposed": "<today's date -- the one-issue-a-week guard, see step 0>",
   "topics": [{"title": "...", "why": "..."}, ...],
@@ -66,6 +66,8 @@ Stop here. Do not research further or draft anything yet.
 ## 3. Figure out the issue number and date
 
 Look at the folder names under `issues/` (e.g. `2026-07-27`) and the "Issue N" markers inside the most recent one's `<title>`/masthead to get the last published issue number and date. This week's issue is number+1.
+
+Use the `week_of` value already recorded in `issue-state.json` (from step 1) as this issue's date — don't recompute it independently here. Keeping a single source of truth for the date is what step 6 relies on.
 
 ## 4. Research
 

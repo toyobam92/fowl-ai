@@ -1,16 +1,19 @@
-name: sunday-reminder
+name: schedule-watchdog
 
-# Weekly nudge, ~5pm ET Sunday: if an issue merged this week but nothing is
-# scheduled in EmailOctopus yet, remind the owner to open Claude Code and ask
-# to schedule it (that step can't run headless -- see send-issue.yml/the
-# project memory on EmailOctopus's Cloudflare bot-protection). GitHub's own
-# schedule cron can run late by tens of minutes under load; that's fine for a
-# once-a-week reminder, unlike the sub-10-minute Telegram-approval polling
-# this repo used to need (now replaced by a real-time webhook instead).
+# Runs every 6 hours, any day: if an issue merged recently but nothing is
+# scheduled in EmailOctopus yet, nudge the owner on Telegram to open Claude
+# Code and ask to schedule it (that step can't run headless -- see
+# send-issue.yml/the project memory on EmailOctopus's Cloudflare
+# bot-protection). Replaces the old once-a-week "sunday-reminder" version,
+# which only checked one fixed slot (5pm ET Sunday) -- a merge that lands
+# any other time (e.g. Saturday night, as Issue 12's did) could sit
+# unscheduled for the better part of a week before anyone was told. Checking
+# 4x/day catches it same-day instead, without needing the owner to notice on
+# their own.
 
 on:
   schedule:
-    - cron: '7 21 * * 0' # ~5pm ET Sunday (EDT = UTC-4)
+    - cron: '13 */6 * * *' # every 6 hours, any day; odd minute avoids the top-of-hour GH Actions pile-up
   workflow_dispatch: {}
 
 permissions:
@@ -39,6 +42,14 @@ jobs:
               body = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
               urllib.request.urlopen(f"https://api.telegram.org/bot{bot}/sendMessage", data=body).read()
 
+          def next_monday_iso():
+              # Matches telegram-approve.yml's SCHEDULE handler exactly, so the
+              # date named in this nudge is always the same one that command
+              # would actually compute.
+              today = datetime.date.today()
+              days_ahead = (7 - today.weekday()) % 7  # Monday == 0; today counts if it IS Monday
+              return (today + datetime.timedelta(days=days_ahead)).isoformat()
+
           # EmailOctopus's Cloudflare WAF blocks the default "Python-urllib/x.y"
           # User-Agent outright (confirmed: plain curl with the same key
           # succeeds, urllib's default UA gets a 403) -- not an IP block, just
@@ -49,7 +60,7 @@ jobs:
               "https://api.emailoctopus.com/campaigns",
               headers={
                   "Authorization": f"Bearer {api_key}",
-                  "User-Agent": "fowlai-sunday-reminder/1.0",
+                  "User-Agent": "fowlai-schedule-watchdog/1.0",
               },
           )
           with urllib.request.urlopen(req) as r:
@@ -81,8 +92,8 @@ jobs:
 
           latest = max(recent_issue_prs, key=lambda pr: pr["mergedAt"])
           notify(
-              f"⏰ Sunday check-in: \"{latest['title']}\" (PR #{latest['number']}) is live "
-              f"but nothing's scheduled in EmailOctopus yet. Open Claude Code and ask me "
-              f"to schedule it if you want tomorrow's 7:45am send."
+              f"⏰ Still unscheduled: \"{latest['title']}\" (PR #{latest['number']}) is live "
+              f"but nothing's scheduled in EmailOctopus yet. Open Claude Code and ask me to "
+              f"schedule it for {next_monday_iso()} 7:45am ET."
           )
           PYEOF
