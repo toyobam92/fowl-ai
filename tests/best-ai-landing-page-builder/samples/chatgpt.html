@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Recapp automatically transcribes Zoom and Google Meet calls, summarizes them, and posts action items to Slack within minutes." />
+  <title>Recapp — Your meetings, recapped automatically</title>
+  <style>
+    :root {
+      --bg: #f7f8fc;
+      --surface: #ffffff;
+      --surface-soft: #f0f3ff;
+      --text: #15182a;
+      --muted: #666d80;
+      --line: #e5e8f0;
+      --primary: #5b5cf0;
+      --primary-dark: #4546cf;
+      --accent: #16a085;
+      --shadow: 0 20px 60px rgba(35, 42, 80, 0.10);
+      --radius: 22px;
+      --max: 1160px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at top left, rgba(91, 92, 240, 0.10), transparent 32%),
+        linear-gradient(180deg, #fbfbfe 0%, var(--bg) 100%);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      width: min(calc(100% - 40px), var(--max));
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
+    }
+
+    .logo {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      display: grid;
+      place-items: center;
+      color: white;
+      background: linear-gradient(135deg, var(--primary), #8b5cf6);
+      box-shadow: 0 10px 25px rgba(91, 92, 240, 0.25);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-height: 50px;
+      padding: 0 20px;
+      border-radius: 13px;
+      border: 1px solid transparent;
+      font-weight: 750;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 12px 28px rgba(91, 92, 240, 0.23);
+    }
+
+    .btn-primary:hover { background: var(--primary-dark); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.75);
+      border-color: var(--line);
+      color: var(--text);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 1.06fr 0.94fr;
+      gap: 54px;
+      align-items: center;
+      padding: 72px 0 100px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 8px 12px;
+      border: 1px solid rgba(91, 92, 240, 0.18);
+      background: rgba(255,255,255,0.68);
+      color: var(--primary-dark);
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 750;
+      margin-bottom: 22px;
+    }
+
+    .eyebrow-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 0 5px rgba(22,160,133,0.10);
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 760px;
+      font-size: clamp(3rem, 7vw, 5.7rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--primary), #8b5cf6);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 690px;
+      margin: 26px 0 0;
+      font-size: 1.18rem;
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 32px;
+    }
+
+    .subcopy {
+      margin-top: 15px;
+      color: #7b8192;
+      font-size: 0.9rem;
+    }
+
+    .mockup {
+      position: relative;
+      background: linear-gradient(145deg, #ffffff, #f4f5fb);
+      border: 1px solid var(--line);
+      border-radius: 26px;
+      box-shadow: var(--shadow);
+      padding: 18px;
+      transform: rotate(1deg);
+    }
+
+    .window-bar {
+      display: flex;
+      gap: 7px;
+      padding: 4px 2px 14px;
+    }
+
+    .window-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d9dce7;
+    }
+
+    .slack-card {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+    }
+
+    .slack-top {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 750;
+      font-size: 0.95rem;
+    }
+
+    .slack-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      background: #4a154b;
+      color: white;
+      display: grid;
+      place-items: center;
+      font-size: 0.8rem;
+      font-weight: 800;
+    }
+
+    .message {
+      padding: 22px;
+    }
+
+    .message-head {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .recapp-avatar {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: white;
+      font-weight: 800;
+      background: linear-gradient(135deg, var(--primary), #8b5cf6);
+    }
+
+    .timestamp {
+      color: #999eac;
+      font-size: 0.78rem;
+    }
+
+    .summary-box {
+      margin-top: 12px;
+      border-left: 3px solid var(--primary);
+      padding: 4px 0 4px 14px;
+      color: #4d5365;
+      font-size: 0.92rem;
+    }
+
+    .actions-box {
+      margin-top: 18px;
+      background: var(--surface-soft);
+      border-radius: 14px;
+      padding: 14px 16px;
+      font-size: 0.9rem;
+    }
+
+    .actions-box strong { display: block; margin-bottom: 7px; }
+
+    .mini-badge {
+      position: absolute;
+      right: -18px;
+      bottom: -22px;
+      background: #15182a;
+      color: white;
+      padding: 13px 16px;
+      border-radius: 14px;
+      box-shadow: 0 15px 36px rgba(21,24,42,0.22);
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+
+    section { padding: 92px 0; }
+
+    .section-label {
+      color: var(--primary);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.75rem;
+    }
+
+    .section-title {
+      margin: 9px 0 14px;
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      letter-spacing: -0.045em;
+      line-height: 1.08;
+    }
+
+    .section-copy {
+      color: var(--muted);
+      max-width: 650px;
+      font-size: 1.05rem;
+    }
+
+    .steps, .features-grid, .pricing-grid {
+      display: grid;
+      gap: 22px;
+      margin-top: 44px;
+    }
+
+    .steps { grid-template-columns: repeat(3, 1fr); }
+
+    .step, .feature, .price-card {
+      background: rgba(255,255,255,0.82);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: 0 12px 32px rgba(35,42,80,0.05);
+    }
+
+    .step { padding: 28px; }
+
+    .step-number {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: var(--surface-soft);
+      color: var(--primary);
+      font-weight: 850;
+      margin-bottom: 20px;
+    }
+
+    .step h3, .feature h3, .price-card h3 {
+      margin: 0 0 8px;
+      font-size: 1.15rem;
+      letter-spacing: -0.025em;
+    }
+
+    .step p, .feature p, .price-card p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature { padding: 30px; }
+
+    .feature-icon {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: grid;
+      place-items: center;
+      background: var(--surface-soft);
+      font-size: 1.25rem;
+      margin-bottom: 18px;
+    }
+
+    .highlight {
+      background: #15182a;
+      color: white;
+      border-radius: 30px;
+      padding: 56px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      margin-top: 28px;
+    }
+
+    .highlight h3 {
+      margin: 0 0 10px;
+      font-size: 2rem;
+      letter-spacing: -0.04em;
+    }
+
+    .highlight p {
+      margin: 0;
+      color: #c7cbda;
+      max-width: 700px;
+    }
+
+    .pricing-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      max-width: 880px;
+    }
+
+    .price-card { padding: 34px; position: relative; }
+
+    .price-card.popular {
+      border-color: rgba(91, 92, 240, 0.45);
+      box-shadow: 0 18px 50px rgba(91,92,240,0.12);
+    }
+
+    .popular-badge {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      color: var(--primary);
+      background: var(--surface-soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 800;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 6px;
+      margin: 18px 0 6px;
+    }
+
+    .price strong {
+      font-size: 3.2rem;
+      letter-spacing: -0.055em;
+      line-height: 1;
+    }
+
+    .price span { color: var(--muted); }
+
+    .price-list {
+      list-style: none;
+      padding: 0;
+      margin: 26px 0;
+      display: grid;
+      gap: 11px;
+      color: #3f4556;
+    }
+
+    .price-list li::before {
+      content: "✓";
+      color: var(--accent);
+      font-weight: 900;
+      margin-right: 9px;
+    }
+
+    .price-card .btn { width: 100%; }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 34px 0 42px;
+      color: var(--muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 860px) {
+      .nav-links { display: none; }
+      .hero {
+        grid-template-columns: 1fr;
+        padding-top: 48px;
+      }
+      .mockup { transform: none; }
+      .steps,
+      .features-grid,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+      .highlight {
+        grid-template-columns: 1fr;
+        padding: 38px 28px;
+      }
+      .mini-badge {
+        right: 14px;
+        bottom: -18px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .container { width: min(calc(100% - 26px), var(--max)); }
+      h1 { font-size: 3.3rem; }
+      section { padding: 72px 0; }
+      .hero { padding-bottom: 82px; }
+      .hero-actions { flex-direction: column; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav class="nav">
+      <a class="brand" href="#">
+        <span class="logo">R</span>
+        <span>Recapp</span>
+      </a>
+      <div class="nav-links">
+        <a href="#how-it-works">How it works</a>
+        <a href="#features">Features</a>
+        <a href="#pricing">Pricing</a>
+      </div>
+      <a class="btn btn-primary" href="#pricing">Start free</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="container hero">
+      <div>
+        <div class="eyebrow">
+          <span class="eyebrow-dot"></span>
+          Meeting notes that actually reach your team
+        </div>
+
+        <h1>
+          End the meeting.<br>
+          <span class="gradient-text">Recapp posts the recap.</span>
+        </h1>
+
+        <p>
+          Recapp automatically joins your Zoom and Google Meet calls, transcribes the conversation,
+          and posts a concise summary with action items to Slack within 5 minutes — so nobody has to
+          remember to take, clean up, or share notes.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#pricing">Start free — 10 meetings/month</a>
+          <a class="btn btn-secondary" href="#how-it-works">See how it works ↓</a>
+        </div>
+
+        <div class="subcopy">No credit card required · No raw video stored · Built for teams of 5–50</div>
+      </div>
+
+      <div class="mockup" aria-label="Example Slack recap">
+        <div class="window-bar">
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+          <span class="window-dot"></span>
+        </div>
+
+        <div class="slack-card">
+          <div class="slack-top">
+            <span class="slack-icon">S</span>
+            # product-team
+          </div>
+
+          <div class="message">
+            <div class="message-head">
+              <div class="recapp-avatar">R</div>
+              <div>
+                <strong>Recapp</strong>
+                <div class="timestamp">Today at 11:04 AM</div>
+              </div>
+            </div>
+
+            <strong>Weekly product sync — recap</strong>
+            <div class="summary-box">
+              The team aligned on shipping the onboarding redesign next Tuesday, moving the billing
+              experiment to the following sprint, and prioritizing the mobile login issue after support
+              volume increased this week.
+            </div>
+
+            <div class="actions-box">
+              <strong>Action items</strong>
+              ✓ Maya — finalize onboarding copy by Monday<br>
+              ✓ Chris — investigate mobile login failures<br>
+              ✓ Jordan — move billing test to Sprint 24
+            </div>
+          </div>
+        </div>
+
+        <div class="mini-badge">Posted 4 min after call ended ✓</div>
+      </div>
+    </section>
+
+    <section id="how-it-works">
+      <div class="container">
+        <div class="section-label">How it works</div>
+        <h2 class="section-title">From meeting to Slack. Automatically.</h2>
+        <p class="section-copy">
+          Recapp removes the part everyone forgets: turning a finished meeting into something the whole team can actually use.
+        </p>
+
+        <div class="steps">
+          <article class="step">
+            <div class="step-number">1</div>
+            <h3>Connect your calendar</h3>
+            <p>Install the Chrome extension and connect your Zoom, Google Meet, and Slack workspace.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">2</div>
+            <h3>Have the meeting</h3>
+            <p>Recapp automatically joins eligible calls and creates a transcript without anyone manually inviting a bot.</p>
+          </article>
+
+          <article class="step">
+            <div class="step-number">3</div>
+            <h3>Get the recap in Slack</h3>
+            <p>Within 5 minutes, your channel gets a one-paragraph summary plus clear action items and owners.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="features">
+      <div class="container">
+        <div class="section-label">Why teams use Recapp</div>
+        <h2 class="section-title">Less meeting admin. More follow-through.</h2>
+        <p class="section-copy">
+          Built for lean remote and hybrid teams that need reliable meeting memory without adding another job to someone’s plate.
+        </p>
+
+        <div class="features-grid">
+          <article class="feature">
+            <div class="feature-icon">⚡</div>
+            <h3>Slack delivery is automatic</h3>
+            <p>Your notes go where your team already works. No exporting, forwarding, copying, or “can someone share the notes?”</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">📝</div>
+            <h3>Concise summaries, not transcript dumps</h3>
+            <p>Recapp turns the call into one useful paragraph and a focused list of next steps instead of another document nobody reads.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🤖</div>
+            <h3>No manual bot wrangling</h3>
+            <p>Eligible Zoom and Google Meet calls are handled automatically, so teammates do not have to remember to invite a notetaker every time.</p>
+          </article>
+
+          <article class="feature">
+            <div class="feature-icon">🔒</div>
+            <h3>Privacy-minded by default</h3>
+            <p>Recapp never stores raw video. You get the useful output from the conversation without building a library of meeting recordings.</p>
+          </article>
+        </div>
+
+        <div class="highlight">
+          <div>
+            <h3>The difference is what happens after the meeting.</h3>
+            <p>
+              Other meeting assistants can create notes. Recapp closes the loop by posting the summary directly to Slack,
+              so the recap reaches the team without relying on someone to remember to share it.
+            </p>
+          </div>
+          <a class="btn btn-primary" href="#pricing">Try Recapp free</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container">
+        <div class="section-label">Simple pricing</div>
+        <h2 class="section-title">Start free. Upgrade when meetings multiply.</h2>
+        <p class="section-copy">
+          No complicated meeting-minute math. Pick the plan that fits your team and keep every recap moving automatically.
+        </p>
+
+        <div class="pricing-grid">
+          <article class="price-card">
+            <h3>Free</h3>
+            <div class="price">
+              <strong>$0</strong>
+              <span>/ month</span>
+            </div>
+            <p>For small teams trying Recapp on their most important calls.</p>
+
+            <ul class="price-list">
+              <li>Up to 10 meetings per month</li>
+              <li>Zoom + Google Meet support</li>
+              <li>Automatic Slack summaries</li>
+              <li>Action-item extraction</li>
+              <li>No raw video storage</li>
+            </ul>
+
+            <a class="btn btn-secondary" href="#">Start free</a>
+          </article>
+
+          <article class="price-card popular">
+            <div class="popular-badge">Best for teams</div>
+            <h3>Unlimited</h3>
+            <div class="price">
+              <strong>$12</strong>
+              <span>/ user / month</span>
+            </div>
+            <p>For remote and hybrid teams that want every meeting captured automatically.</p>
+
+            <ul class="price-list">
+              <li>Unlimited meetings</li>
+              <li>Zoom + Google Meet support</li>
+              <li>Automatic Slack summaries</li>
+              <li>Action-item extraction</li>
+              <li>No raw video storage</li>
+            </ul>
+
+            <a class="btn btn-primary" href="#">Start unlimited</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <div class="brand">
+        <span class="logo">R</span>
+        <span>Recapp</span>
+      </div>
+      <div>© 2026 Recapp. Meetings end. Momentum continues.</div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="mailto:hello@recapp.app">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

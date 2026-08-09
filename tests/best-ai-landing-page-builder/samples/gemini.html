@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recapp - Automated Meeting Summaries to Slack</title>
+    <style>
+        /* CSS Reset & Variables */
+        :root {
+            --primary: #4F46E5;
+            --primary-dark: #4338CA;
+            --bg-light: #F9FAFB;
+            --text-main: #111827;
+            --text-muted: #4B5563;
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        /* Navigation */
+        nav {
+            padding: 24px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            letter-spacing: -1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0 100px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            letter-spacing: -1px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        /* How it Works */
+        .how-it-works {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 36px;
+            margin-bottom: 48px;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .step-card {
+            background: var(--white);
+            padding: 40px 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background-color: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        .step-card h3 {
+            margin-bottom: 12px;
+            font-size: 20px;
+        }
+
+        .step-card p {
+            color: var(--text-muted);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 48px;
+        }
+
+        .feature-item {
+            padding: 24px;
+            border-left: 4px solid var(--primary);
+            background-color: var(--bg-light);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .feature-item h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+        }
+
+        .feature-item p {
+            color: var(--text-muted);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            background-color: var(--bg-light);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .pricing-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-top: 48px;
+        }
+
+        .price-card {
+            background: var(--white);
+            padding: 48px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: left;
+        }
+
+        .price-card h3 {
+            font-size: 24px;
+            margin-bottom: 16px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 24px;
+        }
+
+        .price span {
+            font-size: 16px;
+            color: var(--text-muted);
+            font-weight: normal;
+        }
+
+        .price-card ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .price-card ul li {
+            margin-bottom: 12px;
+            color: var(--text-muted);
+            padding-left: 24px;
+            position: relative;
+        }
+
+        .price-card ul li::before {
+            content: '✓';
+            color: var(--primary);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .price-card .btn {
+            width: 100%;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            color: var(--text-muted);
+            border-top: 1px solid #E5E7EB;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 36px; }
+            .hero p { font-size: 18px; }
+            .features-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header / Navigation -->
+    <header class="container">
+        <nav>
+            <div class="logo">Recapp</div>
+            <a href="#pricing" class="btn btn-outline">Pricing</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero container">
+        <h1>Stop losing meeting notes in the void.</h1>
+        <p>Recapp automatically joins your calls, transcribes them, and drops a clear summary with action items right into Slack. No bot to invite. No notes to share manually.</p>
+        <a href="#pricing" class="btn btn-primary" style="font-size: 18px; padding: 16px 32px;">Add to Chrome - It's Free</a>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How Recapp Works</h2>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>Install & Connect</h3>
+                    <p>Add the Recapp Chrome extension and connect your Slack workspace. It runs silently in the background of your browser.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>Meet as Usual</h3>
+                    <p>Hop on your Zoom or Google Meet. Recapp joins automatically without ever asking you to manually invite a clunky bot.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>Check Slack</h3>
+                    <p>Within 5 minutes of hanging up, a one-paragraph summary and a bulleted list of action items are automatically posted to your designated Slack channel.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features container">
+        <h2 class="section-title" style="text-align: center;">Built for Remote Teams Moving Fast</h2>
+        <div class="features-grid">
+            <div class="feature-item">
+                <h3>The Slack-First Advantage</h3>
+                <p>Unlike Otter or Fireflies, you don't have to log into a separate dashboard or remember to share a link. The notes go exactly where your team already works: Slack.</p>
+            </div>
+            <div class="feature-item">
+                <h3>No Awkward Bots</h3>
+                <p>Nobody likes the "Recapp Bot is recording this meeting" participant taking up a square on the screen. Recapp runs via your browser extension, keeping your attendee list clean.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Action-Oriented Summaries</h3>
+                <p>No endless transcripts to read through. You get exactly what you need: one paragraph explaining what happened, and a clear list of who is doing what next.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Privacy by Default</h3>
+                <p>We only care about the actionable text. Recapp never stores raw video or audio files from your meetings, keeping your company data lightweight and secure.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Simple, transparent pricing</h2>
+            <p style="color: var(--text-muted); margin-top: -24px; margin-bottom: 24px;">Start for free, upgrade when your team scales.</p>
+            
+            <div class="pricing-grid">
+                <!-- Free Tier -->
+                <div class="price-card">
+                    <h3>Starter</h3>
+                    <div class="price">$0<span> / month</span></div>
+                    <ul>
+                        <li>Up to 10 meetings per month</li>
+                        <li>Automated Slack integration</li>
+                        <li>Zoom & Google Meet support</li>
+                        <li>One-paragraph summaries</li>
+                        <li>Action item extraction</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline">Start for Free</a>
+                </div>
+
+                <!-- Pro Tier -->
+                <div class="price-card" style="border: 2px solid var(--primary);">
+                    <h3>Unlimited</h3>
+                    <div class="price">$12<span> / user / month</span></div>
+                    <ul>
+                        <li><strong>Unlimited</strong> meetings per month</li>
+                        <li>Automated Slack integration</li>
+                        <li>Zoom & Google Meet support</li>
+                        <li>One-paragraph summaries</li>
+                        <li>Action item extraction</li>
+                        <li>Priority support</li>
+                    </ul>
+                    <a href="#" class="btn btn-primary">Get Unlimited</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Recapp. All rights reserved.</p>
+            <div style="margin-top: 16px;">
+                <a href="#" style="color: var(--text-muted); text-decoration: none; margin: 0 12px;">Privacy Policy</a>
+                <a href="#" style="color: var(--text-muted); text-decoration: none; margin: 0 12px;">Terms of Service</a>
+                <a href="#" style="color: var(--text-muted); text-decoration: none; margin: 0 12px;">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
