@@ -1,31 +1,10 @@
 {
   "week_of": "2026-08-11",
-  "status": "drafted",
+  "status": "idle",
   "last_proposed": "2026-08-09",
-  "topics": [
-    {
-      "title": "The AI wage premium hit 56% — and it's the postings that don't mention AI that are vanishing",
-      "why": "Fresh PwC/Indeed data this month puts a hard number on the two-speed jobs market: a 56% wage premium for AI-skilled roles even as overall vacancies fall about 10%."
-    },
-    {
-      "title": "84% of companies still haven't redesigned a single job around AI",
-      "why": "New 2026 workforce research shows AI tool access reaching 60% of workers while most firms just bolt AI onto old workflows instead of restructuring roles — explains why so many rollouts feel underwhelming."
-    },
-    {
-      "title": "Inside the 9% of companies actually winning at AI",
-      "why": "New enterprise research isolates a small 'Pacesetter' cohort getting measurable AI ROI with a repeatable playbook, worth breaking down for readers building leverage inside their own companies."
-    },
-    {
-      "title": "The AI trainer economy just crossed $12B — and the money moved to domain experts",
-      "why": "Spend on human feedback and training data is on pace to nearly double by 2027, with pay shifting sharply from generalist labeling toward $80+/hr specialist evaluation work."
-    },
-    {
-      "title": "What Reddit actually says about AI training-gig platforms before you sign up",
-      "why": "A wave of new Mindrift/Mercor/Outlier-style platforms this year has produced real community skepticism about pay claims and application funnels, worth separating from the marketing copy."
-    }
-  ],
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": "Inside the 9% of companies actually winning at AI",
-  "pr_number": 6,
+  "picked_topic": null,
+  "pr_number": null,
   "last_updated": "2026-08-09"
 }
