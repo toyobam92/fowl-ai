@@ -1,11 +1,37 @@
 {
-  "status": "idle",
-  "last_proposed": null,
-  "test_number": null,
-  "matchups": [],
+  "status": "awaiting_pick",
+  "last_proposed": "2026-08-09",
+  "test_number": 2,
+  "matchups": [
+    {
+      "task": "Build a one-page SaaS product landing page (working HTML/CSS) from a one-paragraph product brief",
+      "tools": ["Claude Code", "Gemini 3.5", "ChatGPT/Codex", "v0 by Vercel"],
+      "why": "AI landing-page builders are the hottest 'tested & compared' category online right now, but nobody's checking if the page actually renders and converts."
+    },
+    {
+      "task": "Turn a messy list of monthly expenses into a formatted budget spreadsheet with working formulas and a chart",
+      "tools": ["ChatGPT (GPT-5.6)", "Claude.ai", "Gemini 3.5", "Copilot in Excel"],
+      "why": "Everyday spreadsheet work is where AI claims save the most time, but formula correctness is easy to fake in a chat reply and hard to fake in a real .xlsx."
+    },
+    {
+      "task": "Draft a one-page investor pitch deck (PPTX) for a fictional early-stage startup from a short brief",
+      "tools": ["Gemini 3.5", "ChatGPT", "Claude", "Canva AI"],
+      "why": "Pitch decks are a classic AI use case, and Canva's Magic Design has matured enough this year to be a fair fourth contender against the chat-native tools."
+    },
+    {
+      "task": "Write and run a small file-organizing automation script from a plain-English spec, and verify it actually works on sample files",
+      "tools": ["Claude Code", "Codex CLI", "Cursor", "Gemini CLI"],
+      "why": "Coding agents are the biggest AI category of 2026 per this month's news, and 'it compiles' is a much lower bar than 'it did the task correctly on real files.'"
+    },
+    {
+      "task": "Draft a professional resignation letter plus a short two-week-notice email from a few bullet points about the situation",
+      "tools": ["ChatGPT", "Claude", "Gemini 3.5", "Perplexity"],
+      "why": "A high-stakes personal writing task where fabricated details or off-key tone are actively harmful, not just annoying."
+    }
+  ],
   "rejected_matchups": [],
   "picked_matchup": null,
   "pr_number": null,
   "last_nudged": null,
-  "last_updated": null
+  "last_updated": "2026-08-09T06:38:57Z"
 }
