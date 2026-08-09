@@ -1,0 +1,11 @@
+{
+  "status": "idle",
+  "last_proposed": null,
+  "test_number": null,
+  "matchups": [],
+  "rejected_matchups": [],
+  "picked_matchup": null,
+  "pr_number": null,
+  "last_nudged": null,
+  "last_updated": null
+}
