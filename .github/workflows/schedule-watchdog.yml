@@ -69,7 +69,8 @@ jobs:
           # EmailOctopus's real status value for an armed-but-unsent campaign
           # is "preparing", not "scheduled" -- confirmed against the live
           # account (Issue 11's campaign, scheduled 2026-08-02, shows this).
-          if any(c.get("status") == "preparing" for c in campaigns):
+          # "sending" covers the brief in-flight window at send time.
+          if any(c.get("status") in ("preparing", "sending") for c in campaigns):
               print("Already scheduled -- no reminder needed.")
               raise SystemExit(0)
 
@@ -91,6 +92,37 @@ jobs:
               raise SystemExit(0)
 
           latest = max(recent_issue_prs, key=lambda pr: pr["mergedAt"])
+          merged_at = datetime.datetime.fromisoformat(
+              latest["mergedAt"].replace("Z", "+00:00")
+          )
+
+          # A campaign that already SENT since (roughly) this issue merged means
+          # the issue was scheduled and has gone out -- the "preparing" check
+          # above can't see that, because EmailOctopus flips the status to
+          # "sent" the moment the blast completes, which restarted the nagging
+          # for the rest of the merge's 8-day window (bitten by Issue 12: sent
+          # Monday morning, nagged every 6h afterwards). 24h of slack covers a
+          # campaign that was built shortly before its PR merged.
+          def campaign_time(c):
+              for key in ("sent_at", "created_at"):
+                  raw = c.get(key)
+                  if isinstance(raw, str):
+                      try:
+                          t = datetime.datetime.fromisoformat(raw.replace("Z", "+00:00"))
+                      except ValueError:
+                          continue
+                      if t.tzinfo is None:
+                          t = t.replace(tzinfo=datetime.timezone.utc)
+                      return t
+              return None
+
+          slack = merged_at - datetime.timedelta(hours=24)
+          for c in campaigns:
+              t = campaign_time(c)
+              if c.get("status") == "sent" and t and t >= slack:
+                  print(f"Campaign already sent at {t.isoformat()} -- no reminder needed.")
+                  raise SystemExit(0)
+
           notify(
               f"⏰ Still unscheduled: \"{latest['title']}\" (PR #{latest['number']}) is live "
               f"but nothing's scheduled in EmailOctopus yet. Open Claude Code and ask me to "
