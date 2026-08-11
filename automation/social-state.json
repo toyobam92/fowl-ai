@@ -1,0 +1,43 @@
+{
+  "status": "drafted",
+  "last_drafted": null,
+  "pr_number": null,
+  "posts": [
+    {
+      "day": "Monday",
+      "hookId": 3,
+      "script": "The highest-paid knowledge workers in 2028 may not be doing the work. They'll be managing the AI agents that do it for them.\n\nHarvard Business Review put a name to this role in February: Agent Manager — accountable for making sure AI agents actually deliver results. Microsoft calls it the \"agent boss\" era — your value shifts from doing the task to setting intent and judgment.\n\nGartner predicts Fortune 500 companies will run 150,000 agents each by 2028, up from fewer than 15 in 2025. PwC's latest Global AI Jobs Barometer puts the AI-skills wage premium at 62% — up from 57% last year. And on Glassdoor, agent-orchestration roles start around $148,000 a year.\n\nThis isn't a someday problem — it's happening right now. Follow FOWL AI, Future of Work Lab, so you're the one managing the agents, not managed out by them.",
+      "caption": "By 2028, the highest-paid knowledge workers might not touch the work at all — they'll be managing the AI agents that do it. The job title (and the salary) is already showing up in 2026. #AIagents #FutureOfWork #AICareers #FOWLAI #AgentManager #CareerAdvice",
+      "video_path": null,
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false
+      }
+    },
+    {
+      "day": "Wednesday",
+      "hookId": 4,
+      "script": "AI agents are now coordinating with each other, delegating tasks, and delivering finished work — with no human in the loop. Here's what that actually looks like.\n\nThe U.S. Army is running an AI agent system, built by Salesforce, that already supports 9.2 million soldiers, veterans, and their families. Google's Agent2Agent protocol — the standard for agents talking to agents — is already live in production at Microsoft, AWS, and SAP. Anthropic built the same pattern into Claude: one lead agent delegates to specialist subagents working in parallel, then assembles their output into a finished result. And Gartner predicts 40% of new enterprise apps will ship with an agent built in by the end of this year.\n\nFollow @fowlai — we track what this means for your job, before it changes it.",
+      "caption": "AI agents aren't just chatting anymore — they're delegating work to each other and shipping finished results, already running production systems that support millions of people. This is the org chart shift every knowledge worker needs to see coming. #AIagents #FutureOfWork #AICareers #AgenticAI #FOWLAI",
+      "video_path": null,
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false
+      }
+    },
+    {
+      "day": "Friday",
+      "hookId": 5,
+      "script": "There's a job title appearing in 2026 that most people have never heard of. By 2028, it could be as common as Product Manager.\n\nIt's called Agent Manager. In February, Harvard Business Review named and defined the role for the first time: \"Just as product managers emerged during the software revolution, agent managers are becoming essential\" now. Job boards are already listing it as \"AI Agent Manager\" — call it 2026's breakout title.\n\nThis isn't theoretical. At Salesforce, Zach Stauber's actual title is \"support agent manager\" — he manages a fleet of AI agents, reviewing their work, fixing exceptions, coaching them the way a manager walks the floor with a human team.\n\nPostings for roles like this are up over 140% year over year. Average salary: around $103,000 — with senior roles pushing past $200,000.\n\nNew AI titles are landing fast — and most people won't see them coming until they're already the norm. Follow @fowlai so you're not one of them.",
+      "caption": "AI Agent Manager just became an official job title — and HBR says it's following the exact same path Product Manager did 20 years ago. Follow @fowlai for the roles shaping AI careers before they hit LinkedIn. #AIAgentManager #FutureOfWork #AIJobs #AgenticAI #CareerTips #FOWLAI",
+      "video_path": null,
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false
+      }
+    }
+  ]
+}
