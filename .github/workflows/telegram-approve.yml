@@ -42,6 +42,9 @@ jobs:
           MESSAGE_TEXT: ${{ github.event.inputs.message_text }}
           MESSAGE_CHAT_ID: ${{ github.event.inputs.chat_id }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
         run: |
           set -euo pipefail
           python3 - <<'PYEOF'
@@ -78,6 +81,7 @@ jobs:
 
           approve = re.match(r"^APPROVE\s+(\d+)$", text, re.IGNORECASE)
           schedule = re.match(r"^SCHEDULE\s+(\d+)$", text, re.IGNORECASE)
+          publish = re.match(r"^PUBLISH\s+(\d+)$", text, re.IGNORECASE)
 
           if approve:
               pr = approve.group(1)
@@ -92,8 +96,15 @@ jobs:
                   notify(f"❌ Could not merge PR #{pr}: {err}")
                   raise SystemExit(0)
               meta = pr_meta(pr)
-              is_issue = meta.get("headRefName", "").startswith("draft/issue-")
-              extra = " Reply \"SCHEDULE %s\" when you want to also schedule the email." % pr if is_issue else ""
+              head_ref = meta.get("headRefName", "")
+              is_issue = head_ref.startswith("draft/issue-")
+              is_social = head_ref.startswith("update/social-")
+              if is_issue:
+                  extra = " Reply \"SCHEDULE %s\" when you want to also schedule the email." % pr
+              elif is_social:
+                  extra = " Reply \"PUBLISH %s\" when you want to also post to Facebook + Instagram." % pr
+              else:
+                  extra = ""
               notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.{extra}")
               raise SystemExit(0)
 
@@ -122,8 +133,63 @@ jobs:
               )
               raise SystemExit(0)
 
-          # Not APPROVE or SCHEDULE -- relay verbatim for the weekly-issue
-          # routine to interpret (topic pick, "MORE", or revision feedback).
+          if publish:
+              pr = publish.group(1)
+              meta = pr_meta(pr)
+              if not meta:
+                  notify(f"❌ Couldn't look up PR #{pr}.")
+                  raise SystemExit(0)
+              if not meta.get("mergedAt"):
+                  notify(f"⚠️ PR #{pr} isn't merged yet — reply \"APPROVE {pr}\" first, then \"PUBLISH {pr}\".")
+                  raise SystemExit(0)
+              # Unlike EmailOctopus/TikTok, the Meta Graph API is a real
+              # token-authenticated API with no browser-login bot-check to
+              # dodge, so Facebook + Instagram can post headlessly, right
+              # here, no interactive session needed.
+              result = subprocess.run(
+                  ["python3", "automation/post_to_meta.py"],
+                  capture_output=True, text=True,
+              )
+              print(result.stdout)
+              print(result.stderr)
+              if result.returncode != 0:
+                  err = (result.stderr or result.stdout).strip()[:300]
+                  notify(f"❌ post_to_meta.py failed for PR #{pr}: {err}")
+                  raise SystemExit(0)
+              # post_to_meta.py only edits the file on disk -- commit
+              # whatever platforms_published flags it updated, same as the
+              # inbox relay below does for its own file.
+              subprocess.run(["git", "config", "user.email", "actions@github.com"], check=True)
+              subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
+              subprocess.run(["git", "add", "automation/social-state.json"], check=True)
+              staged = subprocess.run(["git", "diff", "--cached", "--quiet"])
+              if staged.returncode != 0:
+                  subprocess.run(["git", "commit", "-m", f"Mark Meta posts published for PR #{pr}"], check=True)
+                  subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+                  subprocess.run(["git", "push"], check=True)
+              notify(f"✅ Posted to Facebook + Instagram for PR #{pr} (check the Action log for per-post detail).")
+
+              # TikTok can never be posted headlessly here -- same
+              # Cloudflare/bot-detection risk that ruled out headless
+              # EmailOctopus scheduling. List what's still pending so the
+              # owner knows exactly what to post manually.
+              with open("automation/social-state.json") as f:
+                  state = json.load(f)
+              pending_tiktok = [
+                  p for p in state.get("posts", [])
+                  if not p.get("platforms_published", {}).get("tiktok")
+              ]
+              if pending_tiktok:
+                  checklist = "\n".join(f"- {p['day']}: {p['caption']}" for p in pending_tiktok)
+                  notify(
+                      "🎵 TikTok still needs posting manually -- it can't be done headless. "
+                      f"Open an interactive Claude Code session to post these via browser:\n{checklist}"
+                  )
+              raise SystemExit(0)
+
+          # Not APPROVE, SCHEDULE, or PUBLISH -- relay verbatim for the
+          # weekly-issue routine to interpret (topic pick, "MORE", or
+          # revision feedback).
           inbox_path = "automation/inbox.json"
           try:
               with open(inbox_path) as f:
