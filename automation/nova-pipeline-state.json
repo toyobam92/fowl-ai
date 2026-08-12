@@ -1,0 +1,17 @@
+{
+  "status": "idle",
+  "last_proposed": null,
+  "publish_date": null,
+  "tone": null,
+  "topics": [],
+  "rejected_titles": [],
+  "picked_topic": null,
+  "script": null,
+  "caption": null,
+  "picked_look": null,
+  "look_alternates": [],
+  "pr_number": null,
+  "pr_branch": null,
+  "video_id": null,
+  "last_updated": null
+}

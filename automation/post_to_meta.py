@@ -21,6 +21,7 @@ video_path is a placeholder until Nova's videos are actually rendered
 video_path is still null is skipped with a clear log line, never crashed
 on and never silently posted as broken.
 """
+import datetime
 import json
 import os
 import sys
@@ -167,20 +168,44 @@ def main():
     any_attempted = False
     any_failed = False
 
+    today = datetime.date.today().isoformat()
+
     for post in state.get("posts", []):
+        # Label posts by whatever identifying fields they actually have --
+        # the original PR #13 seed data used hookId, the nova-daily-prep
+        # pipeline (added later) uses topic/publish_date instead. Neither
+        # schema is guaranteed present on every post, so never assume one.
+        label = post.get("day", "?")
+        if post.get("hookId") is not None:
+            label += f" (hook {post['hookId']})"
+        elif post.get("topic"):
+            label += f" ({post['topic']})"
+
         published = post.setdefault("platforms_published", {"facebook": False, "instagram": False, "tiktok": False})
         needs_facebook = not published.get("facebook")
         needs_instagram = not published.get("instagram")
 
         if not needs_facebook and not needs_instagram:
-            print(f"{post['day']} (hook {post['hookId']}): already posted to Facebook + Instagram, skipping.")
+            print(f"{label}: already posted to Facebook + Instagram, skipping.")
+            continue
+
+        # publish_date gates the nova-daily-prep pipeline's day-before
+        # approval model: a video can finish rendering and land in this
+        # file well before its scheduled slot, but it should only actually
+        # post on (or after, if this run was somehow missed) that date.
+        # Posts without publish_date (the legacy PUBLISH <PR#> flow, and
+        # PR #13's original seed data) post immediately, same as before --
+        # this field is opt-in, not a new requirement.
+        publish_date = post.get("publish_date")
+        if publish_date and publish_date > today:
+            print(f"{label}: scheduled for {publish_date}, not due yet -- skipping.")
             continue
 
         if not post.get("video_path"):
             # The whole point of this guard: video files aren't ready yet
             # (HeyGen API key still pending as of 2026-08-11). Skip cleanly
             # rather than crash or post a broken/empty request.
-            print(f"{post['day']} (hook {post['hookId']}): video_path is null, skipping -- video not rendered yet.")
+            print(f"{label}: video_path is null, skipping -- video not rendered yet.")
             continue
 
         any_attempted = True
@@ -189,24 +214,34 @@ def main():
             try:
                 fb_id = post_facebook_video(post, page_id, page_token)
                 published["facebook"] = True
-                print(f"{post['day']}: posted to Facebook (post id {fb_id}).")
+                print(f"{label}: posted to Facebook (post id {fb_id}).")
             except RuntimeError as e:
                 any_failed = True
-                print(f"{post['day']}: Facebook post FAILED -- {e}")
+                print(f"{label}: Facebook post FAILED -- {e}")
 
         if needs_instagram:
             try:
                 ig_id = post_instagram_video(post, ig_user_id, page_token)
                 published["instagram"] = True
-                print(f"{post['day']}: posted to Instagram (media id {ig_id}).")
+                print(f"{label}: posted to Instagram (media id {ig_id}).")
             except RuntimeError as e:
                 any_failed = True
-                print(f"{post['day']}: Instagram post FAILED -- {e}")
+                print(f"{label}: Instagram post FAILED -- {e}")
 
     save_state(state)
 
     if not any_attempted:
-        print("Nothing to post -- either everything's already published or no videos are rendered yet.")
+        print("Nothing to post -- either everything's already published, nothing's due yet, or no videos are rendered yet.")
+
+    # Tagged summary line so callers (auto-publish-nova.yml) can decide
+    # whether to notify without grepping prose output -- same pattern as
+    # check_nova_render.py's RESULT: line.
+    if any_failed:
+        print("RESULT:failed:")
+    elif any_attempted:
+        print("RESULT:posted:")
+    else:
+        print("RESULT:nothing:")
 
     # Non-zero exit only on an actual posting failure so the caller
     # (telegram-approve.yml) can tell "ran but nothing failed" apart from

@@ -1,0 +1,101 @@
+name: auto-publish-nova
+
+# Daily check for any Nova post whose publish_date has arrived. The human
+# gate for this pipeline is the day-before "APPROVE <PR#>" reply (see
+# .claude/skills/nova-daily-prep) -- once that's happened and the video's
+# rendered (render-check-nova.yml), no further reply is needed to actually
+# post it. post_to_meta.py itself skips anything not yet rendered or not
+# yet due (publish_date in the future), so this is safe to run daily
+# without double-posting or posting early.
+
+on:
+  schedule:
+    - cron: '0 12 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Post anything due today
+        id: publish
+        env:
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+        run: |
+          set -euo pipefail
+          set +e
+          OUTPUT=$(python3 automation/post_to_meta.py)
+          echo "$OUTPUT"
+          set -e
+          RESULT_LINE=$(echo "$OUTPUT" | grep '^RESULT:' | tail -n1)
+          echo "kind=$(echo "$RESULT_LINE" | cut -d: -f2)" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Commit any state changes
+        if: steps.publish.outputs.kind == 'posted' || steps.publish.outputs.kind == 'failed'
+        run: |
+          set -euo pipefail
+          git config user.email "actions@github.com"
+          git config user.name "github-actions"
+          git add automation/social-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Auto-publish Nova: ${{ steps.publish.outputs.kind }}"
+            git pull --rebase origin main
+            git push
+          fi
+
+      - name: Notify on post or failure
+        if: steps.publish.outputs.kind == 'posted' || steps.publish.outputs.kind == 'failed'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KIND: ${{ steps.publish.outputs.kind }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          if [ "$KIND" = "posted" ]; then
+            MSG="✅ Nova's video for today auto-posted to Facebook + Instagram. Check ${RUN_URL} for per-platform detail."
+          else
+            MSG="❌ Today's Nova auto-publish had a failure. Check ${RUN_URL} for detail -- nothing else was skipped, only the platform(s) that actually failed."
+          fi
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${MSG}" > /dev/null
+
+      - name: Remind about TikTok if anything's still pending
+        if: steps.publish.outputs.kind == 'posted'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          set -euo pipefail
+          python3 - <<'PYEOF'
+          import json, os, urllib.parse, urllib.request
+
+          bot = os.environ["TELEGRAM_BOT_TOKEN"]
+          chat_id = os.environ["TELEGRAM_CHAT_ID"]
+
+          def notify(text):
+              body = urllib.parse.urlencode({"chat_id": chat_id, "text": text}).encode()
+              urllib.request.urlopen(f"https://api.telegram.org/bot{bot}/sendMessage", data=body).read()
+
+          with open("automation/social-state.json") as f:
+              state = json.load(f)
+
+          pending_tiktok = [
+              p for p in state.get("posts", [])
+              if p.get("video_path") and not p.get("platforms_published", {}).get("tiktok")
+          ]
+          if pending_tiktok:
+              checklist = "\n".join(f"- {p.get('day', '?')}: {p.get('caption', '')}" for p in pending_tiktok)
+              notify(
+                  "🎵 TikTok still needs posting manually -- it can't be done headless. "
+                  f"Open an interactive Claude Code session to post these via browser:\n{checklist}"
+              )
+          PYEOF

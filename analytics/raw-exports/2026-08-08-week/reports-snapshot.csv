@@ -1,0 +1,89 @@
+# ----------------------------------------
+# Reports snapshot
+# Account: fowl AI
+# Property: fowl AI
+# NOTE: pulled directly from the GA4 UI (Reports > Snapshot / Pages and screens, and
+# Admin > Events for the key-event flag) via Claude in Chrome for the weekly-analytics-review
+# scheduled task, not a manual CSV export.
+# ----------------------------------------
+#
+# Start date: 20260802
+# End date: 20260808
+Active users,New users,Average engagement time per active user,Event count
+124,121,11,776
+
+#
+# Start date: 20260802
+# End date: 20260808
+Page title and screen class,Views,Active users,Event count,Bounce rate
+FOWL AI | AI Jobs, Platforms & Opportunities,84,60,341,0.722
+Contact — FOWL AI,35,33,180,0.030
+AI Platforms Directory — FOWL AI,32,27,112,0.643
+AI Jobs Board | Remote AI Opportunities & Roles | FOWL AI,20,10,61,0.684
+About TYB — FOWL AI,6,6,24,0.500
+All Issues — FOWL AI,5,5,11,0.200
+FOWL AI · Issue 11 · Hinton says 2026 brings the job losses,5,4,14,0.400
+
+# NOTE: lower-traffic pages seen this week via the path-level report (Pages and screens:
+# Page path and screen class) but not in the top-7 "Page title" snapshot card, so bounce
+# rate wasn't captured for these: /issues/2026-07-13/ (4 views, 4 users, 20 events, 0 key
+# events), /index.html (2 views, 2 users, 7 events), /faq/ (1 view, 1 user, 4 events),
+# /products/ (1 view, 1 user, 2 events — new page path, first time seen in this report).
+
+#
+# Start date: 20260802
+# End date: 20260808
+First user source / medium,Active users
+google / organic,83
+(direct) / (none),23
+(data not available),7
+chatgpt.com / ai-assistant,3
+tiktok.com / referral,3
+bing / organic,1
+duckduckgo / organic,1
+
+#
+# Start date: 20260802
+# End date: 20260808
+Session source / medium,Sessions
+google / organic,88
+(direct) / (none),32
+chatgpt.com / ai-assistant,11
+(data not available),7
+tiktok.com / referral,3
+bing / organic,2
+search.brave.com / referral,2
+
+#
+# Start date: 20260802
+# End date: 20260808
+# NOTE: Nth-day new/returning cohort breakdown was not retrievable from the GA4 UI
+# snapshot/demographic views used for this pull (would require the Retention report,
+# which this session did not navigate to, consistent with prior cycles). Left blank —
+# see metrics-history.csv.
+Nth day,new,returning
+
+# How does activity on your platforms compare?
+# Start date: 20260802
+# End date: 20260808
+# NOTE: raw key-event count (35) taken from the Pages and screens report's Key events
+# column (/contact/ = 35.00, all other pages = 0.00) and cross-checked against the
+# Demographic details: Country report (28 India + 2 US + 1 Pakistan + 2 Bangladesh +
+# 2 Switzerland = 35). Admin > Events confirms only "generate_lead" is currently marked
+# as a GA4 Key Event; subscribe_click/subscribe_submit fire (both appear in the Recent
+# events list) but are still not marked as Key Events — same pending manual step noted
+# in EXPERIMENTS.md "Sitewide event instrumentation".
+Platform,Key events
+web,35
+
+#
+# Start date: 20260802
+# End date: 20260808
+City,Active users
+Atlanta,10
+Ahmedabad,6
+Lucknow,6
+Patna,6
+Lahore,4
+Bengaluru,3
+Delhi,3
