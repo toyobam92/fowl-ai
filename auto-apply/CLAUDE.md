@@ -4,7 +4,7 @@ Job application pipeline for AI/fintech/banking remote roles. Mode: auto-prep ev
 human approves before submit. Fabrication guardrails are non-negotiable.
 
 ## Architecture
-Discovery -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application Execution -> Tracking
+Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application Execution -> Tracking
 
 ## What exists (Module 1 — resume rewrite pipeline)
 - `config.yaml` — filters, thresholds, guardrail settings, company watchlist
@@ -28,6 +28,13 @@ Discovery -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application Executio
   (cover_letter_audit_prompt.md). Any flag = BLOCKED, nothing written. Fail closed.
 - `src/render.py` — markdown -> PDF (WeasyPrint)
 - `assets/prompts/` — rewrite, audit, score, cover letter, and cover letter audit prompts
+- `scrapers/` — discovery via the three public ATS JSON APIs (no HTML scraping):
+  greenhouse.py / lever.py / ashby.py fetch boards listed in config `boards:`;
+  base.py filters titles against search_filters, drops non-remote roles, dedupes on
+  url and (company, normalized title), inserts status=discovered. `python -m scrapers.run`
+  runs everything (per-board failures reported, never abort the run; exit 1 if any).
+  `python -m scrapers.probe <company>` finds which ATS + token a company uses — the
+  seeded tokens in config are UNVERIFIED until probed from a normal network.
 
 ## Run
     pip install -r requirements.txt
@@ -47,9 +54,11 @@ Discovery -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application Executio
    (then full-auto only for score >= `full_auto_min`).
 
 ## Build next (in order)
-1. Calibrate scoring: save the 5 priority JDs as fixtures, confirm they score >= 80 and
+1. Verify board tokens: `python -m scrapers.probe` each watchlist company from a normal
+   network; fill config `boards:` with confirmed tokens (ATS APIs are blocked from the
+   cloud session's proxy, so this step needs a local machine)
+2. Calibrate scoring: save the 5 priority JDs as fixtures, confirm they score >= 80 and
    5 reject-worthy JDs score < 60; tune score_prompt.md until they do (BUILD_PLAN Phase 3)
-2. `scrapers/` — Greenhouse/Lever/Ashby public APIs + watchlist pollers; write to jobs table
 3. `apply/greenhouse.py` — Playwright adapter: fill, upload, screenshot, STOP before submit
 4. Approve flow (email/Telegram) + `apply/lever.py`, `apply/ashby.py`
 5. Tracking: Gmail label matcher, 7-day follow-up events, Sunday digest

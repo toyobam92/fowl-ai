@@ -28,12 +28,12 @@
 ## Phase 2 — Discovery Pipeline
 
 - [ ] Build scraper for LinkedIn job alerts (via email parsing — scraping LinkedIn directly risks account bans; parse the alert emails instead)
-- [ ] Build scrapers for direct sources: Greenhouse boards API (`boards-api.greenhouse.io`), Lever postings API, Ashby API — these are public JSON, no scraping fragility
+- [x] Build scrapers for direct sources: Greenhouse boards API (`boards-api.greenhouse.io`), Lever postings API, Ashby API — these are public JSON, no scraping fragility
 - [ ] Add company watchlist: fintech/credit risk companies whose careers pages you poll directly (Prosper, LexisNexis Risk, SoFi, Upstart, Affirm, etc.)
 - [ ] Add job boards with RSS/API: Otta, WorkAtAStartup, RemoteOK, Wellfound
-- [ ] Write dedupe logic (same role posted on multiple boards → one record, keyed on company + normalized title)
+- [x] Write dedupe logic (same role posted on multiple boards → one record, keyed on company + normalized title)
 - [ ] Schedule discovery run via cron: 2x daily (morning + evening)
-- [ ] Write each new job to SQLite with status = `discovered`
+- [x] Write each new job to SQLite with status = `discovered`
 
 ## Phase 3 — Scoring Engine
 

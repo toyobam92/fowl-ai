@@ -38,6 +38,19 @@ guardrails:
   max_jd_keywords_inserted: 8   # keyword density cap
   audit_required: true          # audit failure blocks pipeline, no exceptions
 
+# ATS board tokens polled by `python -m scrapers.run` (Phase 2).
+# UNVERIFIED seeds — confirm each with `python -m scrapers.probe <company>` from a
+# machine with normal network access; probe prints ready-to-paste lines. Companies
+# with no board on these three ATSes (Workday/Taleo/custom) stay manual-queue.
+boards:
+  greenhouse:
+    - sofi
+    - affirm
+    - upstart
+  lever: []
+  ashby:
+    - ramp
+
 company_watchlist:
   - Prosper
   - LexisNexis Risk Solutions
