@@ -1,0 +1,59 @@
+# Auto-Apply System Config
+mode: approve_required   # approve_required | full_auto (per-adapter, Phase 5)
+daily_submit_cap: 5
+kill_switch: false
+
+model: claude-sonnet-4-6
+
+search_filters:
+  keywords_any:
+    - credit risk analytics
+    - risk modeling
+    - fraud analytics
+    - machine learning
+    - AI/ML
+    - predictive analytics
+    - decision science
+    - model risk
+  titles_any:
+    - Senior Data Scientist
+    - Staff Data Scientist
+    - Senior Manager Analytics
+    - Senior Risk Analyst
+    - ML Engineer
+    - Senior Statistical Modeler
+  industries: [fintech, banking, lending, payments, credit bureaus, insurtech]
+  location: remote_us
+  seniority: [senior, staff, manager]
+  exclude:
+    - onsite-only
+    - clearance required
+
+score_thresholds:
+  auto_prep: 80        # >= this: generate assets automatically
+  digest: 60           # 60-79: weekly manual review digest
+  full_auto_min: 90    # full-auto submit only above this (after adapter proven)
+
+guardrails:
+  max_jd_keywords_inserted: 8   # keyword density cap
+  audit_required: true          # audit failure blocks pipeline, no exceptions
+
+company_watchlist:
+  - Prosper
+  - LexisNexis Risk Solutions
+  - Upstart
+  - SoFi
+  - Affirm
+  - Chime
+  - Block
+  - Capital One
+  - Discover
+  - Synchrony
+  - TransUnion
+  - Experian
+  - Equifax
+  - Marqeta
+  - Plaid
+  - Ramp
+  - Brex
+  - Stripe

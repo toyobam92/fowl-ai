@@ -1,0 +1,12 @@
+# This repo is PUBLIC — never commit generated applications, the tracking DB,
+# or locally-filled sensitive answers.
+db/*.db
+db/*.sqlite*
+applications/*
+!applications/.gitkeep
+fixtures/*
+!fixtures/.gitkeep
+*.local.md
+.env
+__pycache__/
+*.pyc
