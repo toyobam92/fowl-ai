@@ -44,7 +44,6 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
-          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
           HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
         run: |
           set -euo pipefail
@@ -130,16 +129,17 @@ jobs:
                       subprocess.run(["git", "push"], check=True)
                   notify(
                       f"✅ Merged PR #{pr} — Nova's video is rendering now. "
-                      f"It'll auto-publish to Facebook + Instagram on its scheduled day "
-                      f"once it's done (checked every 15 min); you'll still need to post "
-                      f"it to TikTok manually."
+                      f"It'll auto-publish to Facebook on its scheduled day once it's "
+                      f"done (checked every 15 min); you'll still need to post it to "
+                      f"Instagram + TikTok manually (Instagram's blocked on Meta App "
+                      f"Review, TikTok can't be headless)."
                   )
                   raise SystemExit(0)
 
               if is_issue:
                   extra = " Reply \"SCHEDULE %s\" when you want to also schedule the email." % pr
               elif is_social:
-                  extra = " Reply \"PUBLISH %s\" when you want to also post to Facebook + Instagram." % pr
+                  extra = " Reply \"PUBLISH %s\" when you want to also post to Facebook." % pr
               else:
                   extra = ""
               notify(f"✅ Merged PR #{pr} — deploying to fowl-ai.com now.{extra}")
@@ -181,8 +181,12 @@ jobs:
                   raise SystemExit(0)
               # Unlike EmailOctopus/TikTok, the Meta Graph API is a real
               # token-authenticated API with no browser-login bot-check to
-              # dodge, so Facebook + Instagram can post headlessly, right
-              # here, no interactive session needed.
+              # dodge, so Facebook can post headlessly, right here, no
+              # interactive session needed. Instagram is NOT attempted here
+              # -- instagram_business_content_publish needs Meta App Review
+              # (paused, see project memory), so it's posted manually
+              # through a live browser session, same as TikTok, flagged in
+              # the reminder below.
               result = subprocess.run(
                   ["python3", "automation/post_to_meta.py"],
                   capture_output=True, text=True,
@@ -204,22 +208,24 @@ jobs:
                   subprocess.run(["git", "commit", "-m", f"Mark Meta posts published for PR #{pr}"], check=True)
                   subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
                   subprocess.run(["git", "push"], check=True)
-              notify(f"✅ Posted to Facebook + Instagram for PR #{pr} (check the Action log for per-post detail).")
+              notify(f"✅ Posted to Facebook for PR #{pr} (check the Action log for detail).")
 
-              # TikTok can never be posted headlessly here -- same
-              # Cloudflare/bot-detection risk that ruled out headless
+              # Neither Instagram nor TikTok can be posted headlessly here
+              # -- Instagram is blocked on Meta App Review, TikTok on the
+              # same Cloudflare/bot-detection risk that ruled out headless
               # EmailOctopus scheduling. List what's still pending so the
               # owner knows exactly what to post manually.
               with open("automation/social-state.json") as f:
                   state = json.load(f)
-              pending_tiktok = [
+              pending_manual = [
                   p for p in state.get("posts", [])
-                  if not p.get("platforms_published", {}).get("tiktok")
+                  if not p.get("platforms_published", {}).get("instagram")
+                  or not p.get("platforms_published", {}).get("tiktok")
               ]
-              if pending_tiktok:
-                  checklist = "\n".join(f"- {p['day']}: {p['caption']}" for p in pending_tiktok)
+              if pending_manual:
+                  checklist = "\n".join(f"- {p['day']}: {p['caption']}" for p in pending_manual)
                   notify(
-                      "🎵 TikTok still needs posting manually -- it can't be done headless. "
+                      "📱 Instagram + TikTok still need posting manually -- neither can be done headless. "
                       f"Open an interactive Claude Code session to post these via browser:\n{checklist}"
                   )
               raise SystemExit(0)

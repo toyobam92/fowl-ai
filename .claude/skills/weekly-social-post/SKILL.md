@@ -5,6 +5,8 @@ description: Take this week's finalized Nova video scripts (Facebook, Instagram,
 
 # Weekly social post
 
+**Superseded by `nova-daily-prep` (2026-08-12)**, which covers this same ground end-to-end (topic pick → script/look → PR → approve → render → auto-publish) and has an actual RemoteTrigger cron wired to it, which this skill never did. Left here for reference, not actively invoked.
+
 Gets this week's Nova episode scripts (Facebook + Instagram + TikTok; Threads is deferred, see the TODO in step 1) through the same branch → PR → Telegram-approve pipeline every other piece of FOWL AI content already goes through, then stops — actually publishing to Facebook/Instagram or posting to TikTok is a separate, explicit step this skill never triggers itself.
 
 **This skill does not write scripts, generate videos, or post anything.** Script drafting happens upstream (from the Nova hook backlog); video rendering is blocked on a HeyGen API key as of 2026-08-11 (`video_path` stays `null` in the state file until that's wired up — see project memory). This skill's job is narrower: turn already-finalized scripts+captions into a reviewable PR, and later, once merged, get out of the way so the human-gated publish step can run.
