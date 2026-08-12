@@ -108,7 +108,7 @@ def main():
             "script": nova_state.get("script"),
             "caption": nova_state.get("caption"),
             "video_path": video_url,
-            "platforms_published": {"facebook": False, "instagram": False, "tiktok": False},
+            "platforms_published": {"facebook": False, "instagram": False, "tiktok": False, "threads": False},
         }
     )
     with open(SOCIAL_STATE_PATH, "w", encoding="utf-8") as f:

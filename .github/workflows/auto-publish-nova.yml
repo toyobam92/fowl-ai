@@ -27,6 +27,8 @@ jobs:
         env:
           META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_THREADS_ACCESS_TOKEN: ${{ secrets.META_THREADS_ACCESS_TOKEN }}
+          META_THREADS_USER_ID: ${{ secrets.META_THREADS_USER_ID }}
         run: |
           set -euo pipefail
           set +e
@@ -60,7 +62,7 @@ jobs:
         run: |
           set -euo pipefail
           if [ "$KIND" = "posted" ]; then
-            MSG="✅ Nova's video for today auto-posted to Facebook. Check ${RUN_URL} for detail."
+            MSG="✅ Nova's video for today auto-posted to Facebook + Threads. Check ${RUN_URL} for per-platform detail."
           else
             MSG="❌ Today's Nova auto-publish had a failure. Check ${RUN_URL} for detail -- nothing else was skipped, only the platform(s) that actually failed."
           fi
