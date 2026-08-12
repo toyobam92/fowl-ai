@@ -54,7 +54,7 @@
 
 ## Phase 5 — Application Execution
 
-- [ ] Build Playwright adapter #1: **Greenhouse** (simplest — single page, stable selectors)
+- [x] Build Playwright adapter #1: **Greenhouse** (simplest — single page, stable selectors)
 - [ ] Build adapter #2: **Lever**
 - [ ] Build adapter #3: **Ashby**
 - [ ] Each adapter: navigate → fill fields from profile.md → upload resume PDF → paste cover letter → answer screening questions from your stored answers bank → screenshot the completed form → STOP before submit

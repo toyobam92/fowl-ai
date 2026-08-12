@@ -4,7 +4,8 @@ Job application pipeline for AI/fintech/banking remote roles. Mode: auto-prep ev
 human approves before submit. Fabrication guardrails are non-negotiable.
 
 ## Architecture
-Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application Execution -> Tracking
+Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application Execution
+(greenhouse BUILT) -> Tracking
 
 ## What exists (Module 1 — resume rewrite pipeline)
 - `config.yaml` — filters, thresholds, guardrail settings, company watchlist
@@ -35,6 +36,17 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
   runs everything (per-board failures reported, never abort the run; exit 1 if any).
   `python -m scrapers.probe <company>` finds which ATS + token a company uses — the
   seeded tokens in config are UNVERIFIED until probed from a normal network.
+- `apply/greenhouse.py` — Playwright adapter. Fills identity from config `applicant:`
+  (deterministic, never LLM), uploads resume PDF, pastes cover letter, answers screening
+  questions from the answers bank, screenshots, writes application_report.json, and
+  STOPS before submit. `--submit` (passed only by the approve flow after human APPROVE)
+  actually submits — and refuses if the resume failed to attach or a required question
+  is unanswered. EEO/demographic blocks are never auto-filled. Unknown questions ->
+  status=needs_answers + events rows (exit 2). kill_switch in config blocks all runs.
+  Set AUTOAPPLY_CHROMIUM=/path/to/chrome if playwright's browsers are out of sync.
+- `apply/answers.py` — answers bank: normalized question -> answer. Seeds from config
+  `screening_answers` (non-sensitive only); add sensitive answers locally:
+  `python -m apply.answers add "<question>" "<answer>"`
 
 ## Run
     pip install -r requirements.txt
@@ -44,6 +56,9 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
     python -m src.rewrite --jd fixtures/prosper.txt --variant credit-risk --out applications/prosper/
     python -m src.cover_letter --jd fixtures/prosper.txt --company Prosper --out applications/prosper/
     python -m src.render --md applications/prosper/resume.md
+    playwright install chromium   # once
+    python -m apply.greenhouse --job-id 3 --resume applications/prosper/resume.pdf \
+        --cover-letter applications/prosper/cover_letter.md
 
 ## Guardrail invariants — do not weaken these when extending
 1. LLM never generates locked fields; templates own them.
@@ -59,8 +74,9 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
    cloud session's proxy, so this step needs a local machine)
 2. Calibrate scoring: save the 5 priority JDs as fixtures, confirm they score >= 80 and
    5 reject-worthy JDs score < 60; tune score_prompt.md until they do (BUILD_PLAN Phase 3)
-3. `apply/greenhouse.py` — Playwright adapter: fill, upload, screenshot, STOP before submit
-4. Approve flow (email/Telegram) + `apply/lever.py`, `apply/ashby.py`
+3. Approve flow (email/Telegram): send screenshot + score + summary, APPROVE reply
+   triggers `apply.greenhouse --submit`, SKIP archives
+4. `apply/lever.py`, `apply/ashby.py` — same contract as the greenhouse adapter
 5. Tracking: Gmail label matcher, 7-day follow-up events, Sunday digest
 
 Full phase checklist: see BUILD_PLAN.md

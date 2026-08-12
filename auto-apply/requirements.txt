@@ -1,5 +1,6 @@
 anthropic>=0.40.0
 pyyaml
 requests
+playwright
 weasyprint
 markdown

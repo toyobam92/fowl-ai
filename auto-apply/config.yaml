@@ -29,6 +29,29 @@ search_filters:
     - onsite-only
     - clearance required
 
+# Form-fill identity — adapters fill these deterministically, never via LLM.
+applicant:
+  first_name: Toyosi
+  last_name: Bamidele
+  email: toyosibamidele@gmail.com
+  phone: "404-971-8544"
+  location: Atlanta, GA
+  website: https://toyosibamidele.com
+  linkedin: ""   # add profile URL
+
+# Seed answers for screening questions (non-sensitive only — this repo is public).
+# Loaded into the answers_bank table on each adapter run; add sensitive answers
+# (salary, EEO) locally via: python -m apply.answers add "<question>" "<answer>"
+screening_answers:
+  "are you legally authorized to work in the united states": "Yes"
+  "are you authorized to work in the us": "Yes"
+  "will you now or in the future require sponsorship": "No"
+  "do you now or will you in the future require sponsorship for employment visa status": "No"
+  "do you require visa sponsorship": "No"
+  "are you willing to relocate": "No — seeking remote roles; based in Atlanta, GA"
+  "have you ever worked for this company before": "No"
+  "how did you hear about this job": "Company careers page"
+
 score_thresholds:
   auto_prep: 80        # >= this: generate assets automatically
   digest: 60           # 60-79: weekly manual review digest
