@@ -37,8 +37,8 @@
 
 ## Phase 3 — Scoring Engine
 
-- [ ] Write scoring prompt for Claude API: input = JD text + your profile.md, output = JSON {score 1-100, track (credit-risk / DS-ML / AI-TPM / health-tech), top 3 match reasons, top 2 gaps, recommended resume variant}
-- [ ] Set thresholds: ≥80 = auto-prep application, 60-79 = weekly digest for manual review, <60 = archive
+- [x] Write scoring prompt for Claude API: input = JD text + your profile.md, output = JSON {score 1-100, track (credit-risk / DS-ML / AI-TPM / health-tech), top 3 match reasons, top 2 gaps, recommended resume variant}
+- [x] Set thresholds: ≥80 = auto-prep application, 60-79 = weekly digest for manual review, <60 = archive
 - [ ] Test scoring against the 5 saved priority JDs — they should all score ≥80; tune the prompt until they do
 - [ ] Test against 5 roles you'd reject — they should score <60
 - [ ] Update job status to `scored` with score + track stored
@@ -46,7 +46,7 @@
 ## Phase 4 — Asset Generation
 
 - [ ] Write resume-tailoring prompt: input = base resume variant + JD, output = reordered bullets, keyword-aligned summary, JD-matched skills section (edits only — never fabricates)
-- [ ] Write cover letter prompt: 3 short paragraphs, references 1-2 specific things about the company, maps your top 2 achievements to their top 2 requirements
+- [x] Write cover letter prompt: 3 short paragraphs, references 1-2 specific things about the company, maps your top 2 achievements to their top 2 requirements
 - [ ] Add a hallucination guard: diff generated resume against profile.md — flag any claim not present in the source before it can be used
 - [ ] Render resume to PDF (markdown → PDF via weasyprint or a docx template)
 - [ ] Save assets to `/assets/{company}-{role}/` and log paths in SQLite

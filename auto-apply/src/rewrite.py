@@ -13,35 +13,17 @@ Requires ANTHROPIC_API_KEY in the environment.
 import argparse
 import difflib
 import json
-import os
 import re
 import sys
 from pathlib import Path
 
-import yaml
 from anthropic import Anthropic
 
-ROOT = Path(__file__).resolve().parent.parent
-CONFIG = yaml.safe_load((ROOT / "config.yaml").read_text())
-MODEL = CONFIG.get("model", "claude-sonnet-4-6")
+from src.llm import CONFIG, MODEL, ROOT
+from src.llm import call as _call
+from src.llm import client as _client
 
 LOCKED_RE = re.compile(r"\{\{LOCKED:.*?\}\}", re.DOTALL)
-
-
-def _client() -> Anthropic:
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        sys.exit("ANTHROPIC_API_KEY not set")
-    return Anthropic()
-
-
-def _call(client: Anthropic, system: str, user: str, max_tokens: int = 4000) -> str:
-    resp = client.messages.create(
-        model=MODEL,
-        max_tokens=max_tokens,
-        system=system,
-        messages=[{"role": "user", "content": user}],
-    )
-    return "".join(b.text for b in resp.content if b.type == "text").strip()
 
 
 def rewrite_resume(client: Anthropic, profile: str, base_resume: str, jd: str) -> str:
