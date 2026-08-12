@@ -1,0 +1,73 @@
+name: render-check-nova
+
+# Polls HeyGen for a Nova video submitted by render_nova_video.py (which
+# telegram-approve.yml runs synchronously on "APPROVE <PR#>" for an
+# update/nova-<date> branch). Rendering takes a few minutes, so this can't
+# happen inline in the approve workflow -- it checks back on a schedule
+# instead. A no-op almost every run: automation/check_nova_render.py exits
+# immediately unless nova-pipeline-state.json status is exactly "rendering".
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Nova render status
+        id: check
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        run: |
+          set -euo pipefail
+          set +e
+          OUTPUT=$(python3 automation/check_nova_render.py)
+          echo "$OUTPUT"
+          set -e
+          RESULT_LINE=$(echo "$OUTPUT" | grep '^RESULT:' | tail -n1)
+          echo "kind=$(echo "$RESULT_LINE" | cut -d: -f2)" >> "$GITHUB_OUTPUT"
+          echo "detail=$(echo "$RESULT_LINE" | cut -d: -f3-)" >> "$GITHUB_OUTPUT"
+
+      - name: Commit any state changes
+        if: steps.check.outputs.kind != 'noop'
+        run: |
+          set -euo pipefail
+          git config user.email "actions@github.com"
+          git config user.name "github-actions"
+          git add automation/nova-pipeline-state.json automation/social-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Nova render check: ${{ steps.check.outputs.kind }}"
+            git pull --rebase origin main
+            git push
+          fi
+
+      - name: Notify on completion
+        if: steps.check.outputs.kind == 'completed'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          PUBLISH_DATE: ${{ steps.check.outputs.detail }}
+        run: |
+          set -euo pipefail
+          MSG="🎬 Nova's video finished rendering — queued to auto-publish on ${PUBLISH_DATE}."
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${MSG}" > /dev/null
+
+      - name: Notify on failure
+        if: steps.check.outputs.kind == 'failed' || steps.check.outputs.kind == 'error'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          DETAIL: ${{ steps.check.outputs.detail }}
+        run: |
+          set -euo pipefail
+          MSG="❌ Nova's video failed to render: ${DETAIL}. Check the render-check-nova Action log -- needs manual attention (automation/nova-pipeline-state.json status is 'failed')."
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${MSG}" > /dev/null

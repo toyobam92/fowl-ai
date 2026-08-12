@@ -45,6 +45,7 @@ jobs:
           META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
           META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
         run: |
           set -euo pipefail
           python3 - <<'PYEOF'
@@ -99,6 +100,42 @@ jobs:
               head_ref = meta.get("headRefName", "")
               is_issue = head_ref.startswith("draft/issue-")
               is_social = head_ref.startswith("update/social-")
+              is_nova = head_ref.startswith("update/nova-")
+
+              if is_nova:
+                  # Unlike SCHEDULE/PUBLISH, this fires immediately on
+                  # approve, not on a later explicit reply -- the
+                  # day-before approval IS the human gate for this
+                  # pipeline; publishing itself happens automatically the
+                  # next day via auto-publish-nova.yml once the video's
+                  # actually rendered. See .claude/skills/nova-daily-prep.
+                  subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+                  result = subprocess.run(
+                      ["python3", "automation/render_nova_video.py"],
+                      capture_output=True, text=True,
+                  )
+                  print(result.stdout)
+                  print(result.stderr)
+                  if result.returncode != 0:
+                      err = (result.stderr or result.stdout).strip()[:300]
+                      notify(f"✅ Merged PR #{pr}. ❌ But the HeyGen render failed to start: {err}")
+                      raise SystemExit(0)
+                  subprocess.run(["git", "config", "user.email", "actions@github.com"], check=True)
+                  subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
+                  subprocess.run(["git", "add", "automation/nova-pipeline-state.json"], check=True)
+                  staged = subprocess.run(["git", "diff", "--cached", "--quiet"])
+                  if staged.returncode != 0:
+                      subprocess.run(["git", "commit", "-m", f"Nova render submitted for PR #{pr}"], check=True)
+                      subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+                      subprocess.run(["git", "push"], check=True)
+                  notify(
+                      f"✅ Merged PR #{pr} — Nova's video is rendering now. "
+                      f"It'll auto-publish to Facebook + Instagram on its scheduled day "
+                      f"once it's done (checked every 15 min); you'll still need to post "
+                      f"it to TikTok manually."
+                  )
+                  raise SystemExit(0)
+
               if is_issue:
                   extra = " Reply \"SCHEDULE %s\" when you want to also schedule the email." % pr
               elif is_social:
