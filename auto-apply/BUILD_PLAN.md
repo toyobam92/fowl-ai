@@ -23,7 +23,7 @@
 - [ ] Create SQLite schema: `jobs` (url, title, company, ats_type, jd_text, score, status), `applications` (job_id, resume_version, cover_letter_path, submitted_at, method), `events` (follow-ups, responses)
 - [ ] Write a master profile doc (`profile.md`): full work history, quantified achievements at Visa, skills, certs, target comp, work authorization answers, EEO answers, common screening-question answers
 - [ ] Store 2-3 base resume variants: credit-risk-focused, ML/DS-focused, AI/TPM-focused
-- [ ] Decide notification channel for approve/reject pings (email vs. Telegram bot vs. SMS)
+- [x] Decide notification channel for approve/reject pings (email vs. Telegram bot vs. SMS) — Telegram (matches the fowl-ai automation stack)
 
 ## Phase 2 — Discovery Pipeline
 
@@ -58,7 +58,7 @@
 - [ ] Build adapter #2: **Lever**
 - [ ] Build adapter #3: **Ashby**
 - [ ] Each adapter: navigate → fill fields from profile.md → upload resume PDF → paste cover letter → answer screening questions from your stored answers bank → screenshot the completed form → STOP before submit
-- [ ] Build the approve flow: send you the screenshot + score + role summary via your chosen channel; "APPROVE" reply triggers submit, "SKIP" archives
+- [x] Build the approve flow: send you the screenshot + score + role summary via your chosen channel; "APPROVE" reply triggers submit, "SKIP" archives
 - [ ] Handle unknown screening questions: if a question isn't in the answers bank, pause, send it to you, store your answer for future reuse
 - [ ] Workday/Taleo roles: do NOT automate — system generates the assets + a checklist link and queues them for a manual 10-minute session
 - [ ] Log every submission to `applications` table with screenshot archived

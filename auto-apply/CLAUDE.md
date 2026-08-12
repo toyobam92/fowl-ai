@@ -47,6 +47,13 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
 - `apply/answers.py` — answers bank: normalized question -> answer. Seeds from config
   `screening_answers` (non-sensitive only); add sensitive answers locally:
   `python -m apply.answers add "<question>" "<answer>"`
+- `apply/approve.py` — Telegram approve flow (long-polls getUpdates; no webhook infra).
+  `notify` sends screenshot + score + summary per prepared job -> awaiting_approval;
+  `poll` reads replies: "APPROVE <id>" runs the adapter with --submit (kill_switch and
+  daily_submit_cap re-checked, adapter's own refusal gates still apply), "SKIP <id>"
+  archives. Only TELEGRAM_CHAT_ID messages are honored; non-greenhouse ATSes are routed
+  to the manual queue with the asset path. Env: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+  (same bot as the fowl-ai newsletter automation works fine).
 
 ## Run
     pip install -r requirements.txt
@@ -59,6 +66,9 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
     playwright install chromium   # once
     python -m apply.greenhouse --job-id 3 --resume applications/prosper/resume.pdf \
         --cover-letter applications/prosper/cover_letter.md
+    export TELEGRAM_BOT_TOKEN=... TELEGRAM_CHAT_ID=...
+    python -m apply.approve notify        # sends prepared jobs for approval
+    python -m apply.approve poll          # waits for APPROVE/SKIP replies (or --once via cron)
 
 ## Guardrail invariants — do not weaken these when extending
 1. LLM never generates locked fields; templates own them.
@@ -74,9 +84,10 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
    cloud session's proxy, so this step needs a local machine)
 2. Calibrate scoring: save the 5 priority JDs as fixtures, confirm they score >= 80 and
    5 reject-worthy JDs score < 60; tune score_prompt.md until they do (BUILD_PLAN Phase 3)
-3. Approve flow (email/Telegram): send screenshot + score + summary, APPROVE reply
-   triggers `apply.greenhouse --submit`, SKIP archives
-4. `apply/lever.py`, `apply/ashby.py` — same contract as the greenhouse adapter
-5. Tracking: Gmail label matcher, 7-day follow-up events, Sunday digest
+3. `apply/lever.py`, `apply/ashby.py` — same contract as the greenhouse adapter
+   (approve.py routes per ats_type once they exist)
+4. Tracking: Gmail label matcher, 7-day follow-up events, Sunday digest
+5. Full-auto graduation: after 10 clean approvals on an adapter, auto-submit
+   score >= full_auto_min without waiting for a reply
 
 Full phase checklist: see BUILD_PLAN.md

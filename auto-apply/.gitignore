@@ -2,6 +2,7 @@
 # or locally-filled sensitive answers.
 db/*.db
 db/*.sqlite*
+db/telegram_offset
 applications/*
 !applications/.gitkeep
 fixtures/*
