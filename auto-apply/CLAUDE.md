@@ -5,7 +5,7 @@ human approves before submit. Fabrication guardrails are non-negotiable.
 
 ## Architecture
 Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application Execution
-(greenhouse BUILT) -> Tracking
+(greenhouse/lever/ashby BUILT) -> Tracking
 
 ## What exists (Module 1 — resume rewrite pipeline)
 - `config.yaml` — filters, thresholds, guardrail settings, company watchlist
@@ -36,14 +36,23 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
   runs everything (per-board failures reported, never abort the run; exit 1 if any).
   `python -m scrapers.probe <company>` finds which ATS + token a company uses — the
   seeded tokens in config are UNVERIFIED until probed from a normal network.
-- `apply/greenhouse.py` — Playwright adapter. Fills identity from config `applicant:`
-  (deterministic, never LLM), uploads resume PDF, pastes cover letter, answers screening
-  questions from the answers bank, screenshots, writes application_report.json, and
-  STOPS before submit. `--submit` (passed only by the approve flow after human APPROVE)
-  actually submits — and refuses if the resume failed to attach or a required question
-  is unanswered. EEO/demographic blocks are never auto-filled. Unknown questions ->
-  status=needs_answers + events rows (exit 2). kill_switch in config blocks all runs.
-  Set AUTOAPPLY_CHROMIUM=/path/to/chrome if playwright's browsers are out of sync.
+- `apply/base.py` — shared Playwright machinery + the safety contract all adapters
+  inherit: identity filled deterministically from config `applicant:` (never LLM),
+  resume upload, cover letter paste, screening questions from the answers bank,
+  full-page screenshot + application_report.json, and STOP before submit. `--submit`
+  (passed only by the approve flow after human APPROVE) refuses if the resume failed
+  to attach or a required question is unanswered. EEO/demographic blocks are never
+  auto-filled (shared guard: eeoc/eeo[…]/demographic ids, names, classes). Unknown
+  questions -> status=needs_answers + events rows (exit 2). kill_switch blocks all
+  runs. Set AUTOAPPLY_CHROMIUM=/path/to/chrome if playwright's browsers are out of sync.
+- `apply/greenhouse.py` — classic-board ids (+ label fallbacks for React boards),
+  #custom_fields question scope, paste-toggle cover letter.
+- `apply/lever.py` — name=-attribute selectors, single full-name field, current
+  company -> org, cover letter into the "Additional information" comments box,
+  .application-question scope, EEO under name^=eeo.
+- `apply/ashby.py` — React app: Apply click-through to reach the form,
+  _systemfield_ ids with label fallbacks, hidden file input behind Upload File,
+  voluntary demographic survey never touched.
 - `apply/answers.py` — answers bank: normalized question -> answer. Seeds from config
   `screening_answers` (non-sensitive only); add sensitive answers locally:
   `python -m apply.answers add "<question>" "<answer>"`
@@ -51,8 +60,9 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
   `notify` sends screenshot + score + summary per prepared job -> awaiting_approval;
   `poll` reads replies: "APPROVE <id>" runs the adapter with --submit (kill_switch and
   daily_submit_cap re-checked, adapter's own refusal gates still apply), "SKIP <id>"
-  archives. Only TELEGRAM_CHAT_ID messages are honored; non-greenhouse ATSes are routed
-  to the manual queue with the asset path. Env: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
+  archives. Only TELEGRAM_CHAT_ID messages are honored; APPROVE routes by ats_type to
+  the matching adapter (greenhouse/lever/ashby); anything else (Workday/Taleo/custom)
+  goes to the manual queue with the asset path. Env: TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID
   (same bot as the fowl-ai newsletter automation works fine).
 
 ## Run
@@ -84,10 +94,9 @@ Discovery (BUILT) -> Scoring (BUILT) -> Asset Generation (BUILT) -> Application 
    cloud session's proxy, so this step needs a local machine)
 2. Calibrate scoring: save the 5 priority JDs as fixtures, confirm they score >= 80 and
    5 reject-worthy JDs score < 60; tune score_prompt.md until they do (BUILD_PLAN Phase 3)
-3. `apply/lever.py`, `apply/ashby.py` — same contract as the greenhouse adapter
-   (approve.py routes per ats_type once they exist)
-4. Tracking: Gmail label matcher, 7-day follow-up events, Sunday digest
-5. Full-auto graduation: after 10 clean approvals on an adapter, auto-submit
+3. Tracking: Gmail label matcher, 7-day follow-up events, Sunday digest
+4. Full-auto graduation: after 10 clean approvals on an adapter, auto-submit
    score >= full_auto_min without waiting for a reply
+5. Hardening: adapter retry + error screenshots into the manual queue, weekly db backup
 
 Full phase checklist: see BUILD_PLAN.md

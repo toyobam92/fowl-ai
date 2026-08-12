@@ -117,21 +117,26 @@ def submitted_today(conn) -> int:
         "SELECT COUNT(*) FROM applications WHERE submitted_at >= date('now')").fetchone()[0]
 
 
+ADAPTER_MODULES = {"greenhouse": "apply.greenhouse", "lever": "apply.lever",
+                   "ashby": "apply.ashby"}
+
+
 def do_submit(conn, job_id: int, ats: str) -> str:
     if CONFIG.get("kill_switch"):
         return f"#{job_id}: kill_switch is on — not submitting."
     cap = CONFIG.get("daily_submit_cap", 5)
     if submitted_today(conn) >= cap:
         return f"#{job_id}: daily submit cap ({cap}) reached — try tomorrow."
-    if ats != "greenhouse":
+    if ats not in ADAPTER_MODULES:
         return (f"#{job_id}: no adapter for ATS {ats!r} yet — submit manually; "
                 f"assets are in {latest_out_dir(conn, job_id)}")
     app = latest_application(conn, job_id)
     if not app or not app[0]:
         return f"#{job_id}: no prepared application on file — run the adapter first."
     out = latest_out_dir(conn, job_id) or Path(app[0]).parent
-    import apply.greenhouse as gh
-    rc = gh.run(argparse.Namespace(
+    import importlib
+    adapter = importlib.import_module(ADAPTER_MODULES[ats])
+    rc = adapter.run(argparse.Namespace(
         job_id=job_id, url=None, resume=app[0], cover_letter=app[1],
         out=str(out), submit=True, headed=False))
     if rc == 0:

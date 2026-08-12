@@ -55,13 +55,13 @@
 ## Phase 5 — Application Execution
 
 - [x] Build Playwright adapter #1: **Greenhouse** (simplest — single page, stable selectors)
-- [ ] Build adapter #2: **Lever**
-- [ ] Build adapter #3: **Ashby**
-- [ ] Each adapter: navigate → fill fields from profile.md → upload resume PDF → paste cover letter → answer screening questions from your stored answers bank → screenshot the completed form → STOP before submit
+- [x] Build adapter #2: **Lever**
+- [x] Build adapter #3: **Ashby**
+- [x] Each adapter: navigate → fill fields from profile.md → upload resume PDF → paste cover letter → answer screening questions from your stored answers bank → screenshot the completed form → STOP before submit
 - [x] Build the approve flow: send you the screenshot + score + role summary via your chosen channel; "APPROVE" reply triggers submit, "SKIP" archives
 - [ ] Handle unknown screening questions: if a question isn't in the answers bank, pause, send it to you, store your answer for future reuse
 - [ ] Workday/Taleo roles: do NOT automate — system generates the assets + a checklist link and queues them for a manual 10-minute session
-- [ ] Log every submission to `applications` table with screenshot archived
+- [x] Log every submission to `applications` table with screenshot archived
 - [ ] After 10 clean approvals on a given adapter with zero corrections, flip that adapter to full-auto for scores ≥90
 
 ## Phase 6 — Tracking & Follow-up
