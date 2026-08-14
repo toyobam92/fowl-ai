@@ -17,6 +17,8 @@ Gets tomorrow's Nova video script + look through the same propose → pick → d
 
 **No revision loop in v1.** Unlike `weekly-issue`, this skill doesn't re-open PRs on feedback — if the script or look needs a change before approving, edit `automation/nova-previews/<publish_date>.md` and `automation/nova-pipeline-state.json` directly on the PR branch via GitHub's UI, or close the PR (next cycle will propose fresh topics 2 days later). Keeps this first version bounded; add a revision step later if it's actually needed.
 
+**Never fail silently past the inbox drain.** Once step 0 drains a matching inbox entry, that pick is consumed — if steps 2-5 hit an unrecoverable error afterward (a search failure, the HeyGen look-list call erroring, `gh pr create` failing, an auth problem in this routine's environment, anything), the pick is lost with no PR to show for it unless something surfaces the failure. Before stopping on any such error, send a Telegram notice: `gh workflow run notify.yml -f text="Nova prep failed for <publish_date> at step <N>: <error>"`. A run that dies with no notification is the single worst outcome this skill can produce — it looks identical to "nothing was due" and can only be caught by manually diffing repo state. Always err toward one extra Telegram message over silence.
+
 ## 0. Check state and inbox first
 
 Read `automation/nova-pipeline-state.json` (create `{"status": "idle", "last_proposed": null}` if missing) and `automation/inbox.json` (`[]` if missing/drained). Branch on `status`:
@@ -96,43 +98,62 @@ Set `picked_look` to `{"avatar_id": "<id>", "name": "<name>", "image_url": "<ima
 
 ## 5. Open the PR
 
-Write `automation/nova-previews/<publish_date>.md`:
+**Order matters here: the full state lands on `main` before the PR exists, not after.** `pr-notify.yml` pings Telegram the instant a PR opens, and a reply can come back in seconds — faster than a second "update state" commit can land. If the PR exists before the state does, an instant `APPROVE` can race ahead of the script/look ever being recorded, and `render_nova_video.py` either runs on stale/empty state or (if its own defensive check catches the mismatch) silently does nothing and leaves the episode stuck with a merged PR and no render — this has actually happened. `pr_number` is the only field that genuinely can't be known before the PR is created; everything else can and must be committed first.
 
-```markdown
-# Nova — <publish_date> (<tone>)
+1. **Commit the brief to `main` first.** While still on `main`, update `automation/nova-pipeline-state.json` with everything accumulated since step 2 — `picked_topic`, `script`, `caption`, `picked_look`, `look_alternates`, plus `status: "pr_open"` and `pr_branch: "update/nova-<publish_date>"` (deterministic, known now). Leave `pr_number: null` for the moment.
 
-**Topic:** <picked topic title>
+   ```
+   git add automation/nova-pipeline-state.json
+   git commit -m "Nova brief for <publish_date>: <topic title>"
+   git push
+   ```
 
-**Script:**
-> <script, verbatim, including the sign-off line>
+   This is the only copy of the script/look that `render_nova_video.py` reads later (in a fresh checkout, after merge) — nothing on the PR branch itself is read programmatically. It must be durable on `main` before anything can trigger a merge.
 
-**Caption:**
-> <caption, verbatim>
+2. **Then write the preview and open the PR:**
 
-**Look:** <name>
-<image_url>
+   ```markdown
+   # Nova — <publish_date> (<tone>)
 
-**Alternates considered:**
-- <alt 1 name> — <alt 1 image_url>
-- <alt 2 name> — <alt 2 image_url>
-```
+   **Topic:** <picked topic title>
 
-```
-git checkout -b update/nova-<publish_date>
-git add automation/nova-previews/<publish_date>.md
-git commit -m "Nova script + look for <publish_date>: <topic title>"
-git push -u origin update/nova-<publish_date>
-gh pr create --title "Nova — <publish_date>: <topic title>" --body "<short summary>"
-```
+   **Script:**
+   > <script, verbatim, including the sign-off line>
 
-Then update `automation/nova-pipeline-state.json` on `main` directly (separate commit) with the full state accumulated since step 2 — `picked_topic`, `script`, `caption`, `picked_look`, `look_alternates` all filled in, plus `status: "pr_open"`, `pr_number: <N>`, `pr_branch: "update/nova-<publish_date>"`. This is the only copy of the script/look that `render_nova_video.py` reads later (in a fresh checkout, after merge) — nothing on the PR branch itself is read programmatically, the preview file is for human review only.
+   **Caption:**
+   > <caption, verbatim>
 
-```
-git checkout main
-git add automation/nova-pipeline-state.json
-git commit -m "Mark Nova PR #<N> pending for <publish_date>"
-git push
-```
+   **Look:** <name>
+   <image_url>
+
+   **Alternates considered:**
+   - <alt 1 name> — <alt 1 image_url>
+   - <alt 2 name> — <alt 2 image_url>
+   ```
+
+   Save that as `automation/nova-previews/<publish_date>.md`, then:
+
+   ```
+   git checkout -b update/nova-<publish_date>
+   git add automation/nova-previews/<publish_date>.md
+   git commit -m "Nova script + look for <publish_date>: <topic title>"
+   git push -u origin update/nova-<publish_date>
+   gh pr create --title "Nova — <publish_date>: <topic title>" --body "<short summary>"
+   ```
+
+   If `gh pr create` fails, that's exactly the kind of error the note above on never failing silently exists for — notify Telegram with the error before stopping; the branch is already pushed and state already says `pr_open` with no PR, so simply retrying `gh pr create` against the same branch next run is enough to recover, but only if someone finds out it's needed.
+
+3. **Patch in `pr_number`.** Back on `main`, a small follow-up commit setting `pr_number: <N>` to the number `gh pr create` returned:
+
+   ```
+   git checkout main
+   git pull --rebase origin main
+   git add automation/nova-pipeline-state.json
+   git commit -m "Record Nova PR #<N> for <publish_date>"
+   git push
+   ```
+
+   This one isn't race-critical — `telegram-approve.yml` identifies Nova PRs by branch-name prefix (`update/nova-`), not by reading `pr_number` back out of state — it only matters for this skill's own step 0 bookkeeping on the next run.
 
 Stop here. Do not merge, do not call HeyGen, do not touch `automation/social-state.json`. `pr-notify.yml` pings Telegram automatically when the PR opens; `telegram-approve.yml` merges it **and kicks off the render** on a single `APPROVE <PR#>` reply — there's no separate publish step to remember, that's handled by the daily auto-publish cron once the video finishes rendering.
 
