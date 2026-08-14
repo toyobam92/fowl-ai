@@ -1,5 +1,5 @@
 {
-  "status": "pr_open",
+  "status": "rendering",
   "last_proposed": "2026-08-13",
   "publish_date": "2026-08-14",
   "tone": "casual-professional",
@@ -19,8 +19,8 @@
   ],
   "rejected_titles": [],
   "picked_topic": "DeepSeek drops V4-Pro-0813, undercutting frontier pricing again",
-  "script": "DeepSeek just dropped another price shock in the AI race.\n\nThis week, the Chinese lab released V4-Pro-0813 — a new flagship tier priced at just $0.87 per million output tokens, with a 1-million-token context window. That's a fraction of what frontier labs in the US charge for comparable performance. Even priced well above DeepSeek's own cheaper Flash model, it still undercuts the field enough to keep pressure on Western pricing.\n\nFor knowledge workers, that means more powerful AI tools staying affordable — the frontier keeps getting cheaper, not more expensive.\n\nI'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
-  "caption": "DeepSeek's new V4-Pro-0813 still undercuts Western frontier pricing by a mile — even at 14x its own Flash model's cost, top-tier AI keeps getting cheaper. #AI #DeepSeek #AINews #FutureOfWork #FOWLAI",
+  "script": "DeepSeek just dropped another price shock in the AI race.\n\nThis week, the Chinese lab released V4-Pro-0813 \u2014 a new flagship tier priced at just $0.87 per million output tokens, with a 1-million-token context window. That's a fraction of what frontier labs in the US charge for comparable performance. Even priced well above DeepSeek's own cheaper Flash model, it still undercuts the field enough to keep pressure on Western pricing.\n\nFor knowledge workers, that means more powerful AI tools staying affordable \u2014 the frontier keeps getting cheaper, not more expensive.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+  "caption": "DeepSeek's new V4-Pro-0813 still undercuts Western frontier pricing by a mile \u2014 even at 14x its own Flash model's cost, top-tier AI keeps getting cheaper. #AI #DeepSeek #AINews #FutureOfWork #FOWLAI",
   "picked_look": {
     "avatar_id": "5a9ac51c80d74a09b1579ab7e3186fef",
     "name": "Lavender Sweater",
@@ -40,6 +40,6 @@
   ],
   "pr_number": 17,
   "pr_branch": "update/nova-2026-08-14",
-  "video_id": null,
+  "video_id": "4c8577e1f05e48459b45a76dcbd7d023",
   "last_updated": "2026-08-14T19:25:00Z"
 }
