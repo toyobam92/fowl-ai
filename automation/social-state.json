@@ -6,8 +6,8 @@
     {
       "day": "Monday",
       "hookId": 3,
-      "script": "The highest-paid knowledge workers in 2028 may not be doing the work. They'll be managing the AI agents that do it for them.\n\nHarvard Business Review put a name to this role in February: Agent Manager — accountable for making sure AI agents actually deliver results. Microsoft calls it the \"agent boss\" era — your value shifts from doing the task to setting intent and judgment.\n\nGartner predicts Fortune 500 companies will run 150,000 agents each by 2028, up from fewer than 15 in 2025. PwC's latest Global AI Jobs Barometer puts the AI-skills wage premium at 62% — up from 57% last year. And on Glassdoor, agent-orchestration roles start around $148,000 a year.\n\nThis isn't a someday problem — it's happening right now. Follow FOWL AI, Future of Work Lab, so you're the one managing the agents, not managed out by them.",
-      "caption": "By 2028, the highest-paid knowledge workers might not touch the work at all — they'll be managing the AI agents that do it. The job title (and the salary) is already showing up in 2026. #AIagents #FutureOfWork #AICareers #FOWLAI #AgentManager #CareerAdvice",
+      "script": "The highest-paid knowledge workers in 2028 may not be doing the work. They'll be managing the AI agents that do it for them.\n\nHarvard Business Review put a name to this role in February: Agent Manager \u2014 accountable for making sure AI agents actually deliver results. Microsoft calls it the \"agent boss\" era \u2014 your value shifts from doing the task to setting intent and judgment.\n\nGartner predicts Fortune 500 companies will run 150,000 agents each by 2028, up from fewer than 15 in 2025. PwC's latest Global AI Jobs Barometer puts the AI-skills wage premium at 62% \u2014 up from 57% last year. And on Glassdoor, agent-orchestration roles start around $148,000 a year.\n\nThis isn't a someday problem \u2014 it's happening right now. Follow FOWL AI, Future of Work Lab, so you're the one managing the agents, not managed out by them.",
+      "caption": "By 2028, the highest-paid knowledge workers might not touch the work at all \u2014 they'll be managing the AI agents that do it. The job title (and the salary) is already showing up in 2026. #AIagents #FutureOfWork #AICareers #FOWLAI #AgentManager #CareerAdvice",
       "video_path": null,
       "platforms_published": {
         "facebook": false,
@@ -19,8 +19,8 @@
     {
       "day": "Wednesday",
       "hookId": 4,
-      "script": "AI agents are now coordinating with each other, delegating tasks, and delivering finished work — with no human in the loop. Here's what that actually looks like.\n\nThe U.S. Army is running an AI agent system, built by Salesforce, that already supports 9.2 million soldiers, veterans, and their families. Google's Agent2Agent protocol — the standard for agents talking to agents — is already live in production at Microsoft, AWS, and SAP. Anthropic built the same pattern into Claude: one lead agent delegates to specialist subagents working in parallel, then assembles their output into a finished result. And Gartner predicts 40% of new enterprise apps will ship with an agent built in by the end of this year.\n\nFollow @fowlai — we track what this means for your job, before it changes it.",
-      "caption": "AI agents aren't just chatting anymore — they're delegating work to each other and shipping finished results, already running production systems that support millions of people. This is the org chart shift every knowledge worker needs to see coming. #AIagents #FutureOfWork #AICareers #AgenticAI #FOWLAI",
+      "script": "AI agents are now coordinating with each other, delegating tasks, and delivering finished work \u2014 with no human in the loop. Here's what that actually looks like.\n\nThe U.S. Army is running an AI agent system, built by Salesforce, that already supports 9.2 million soldiers, veterans, and their families. Google's Agent2Agent protocol \u2014 the standard for agents talking to agents \u2014 is already live in production at Microsoft, AWS, and SAP. Anthropic built the same pattern into Claude: one lead agent delegates to specialist subagents working in parallel, then assembles their output into a finished result. And Gartner predicts 40% of new enterprise apps will ship with an agent built in by the end of this year.\n\nFollow @fowlai \u2014 we track what this means for your job, before it changes it.",
+      "caption": "AI agents aren't just chatting anymore \u2014 they're delegating work to each other and shipping finished results, already running production systems that support millions of people. This is the org chart shift every knowledge worker needs to see coming. #AIagents #FutureOfWork #AICareers #AgenticAI #FOWLAI",
       "video_path": null,
       "platforms_published": {
         "facebook": false,
@@ -32,9 +32,23 @@
     {
       "day": "Friday",
       "hookId": 5,
-      "script": "There's a job title appearing in 2026 that most people have never heard of. By 2028, it could be as common as Product Manager.\n\nIt's called Agent Manager. In February, Harvard Business Review named and defined the role for the first time: \"Just as product managers emerged during the software revolution, agent managers are becoming essential\" now. Job boards are already listing it as \"AI Agent Manager\" — call it 2026's breakout title.\n\nThis isn't theoretical. At Salesforce, Zach Stauber's actual title is \"support agent manager\" — he manages a fleet of AI agents, reviewing their work, fixing exceptions, coaching them the way a manager walks the floor with a human team.\n\nPostings for roles like this are up over 140% year over year. Average salary: around $103,000 — with senior roles pushing past $200,000.\n\nNew AI titles are landing fast — and most people won't see them coming until they're already the norm. Follow @fowlai so you're not one of them.",
-      "caption": "AI Agent Manager just became an official job title — and HBR says it's following the exact same path Product Manager did 20 years ago. Follow @fowlai for the roles shaping AI careers before they hit LinkedIn. #AIAgentManager #FutureOfWork #AIJobs #AgenticAI #CareerTips #FOWLAI",
+      "script": "There's a job title appearing in 2026 that most people have never heard of. By 2028, it could be as common as Product Manager.\n\nIt's called Agent Manager. In February, Harvard Business Review named and defined the role for the first time: \"Just as product managers emerged during the software revolution, agent managers are becoming essential\" now. Job boards are already listing it as \"AI Agent Manager\" \u2014 call it 2026's breakout title.\n\nThis isn't theoretical. At Salesforce, Zach Stauber's actual title is \"support agent manager\" \u2014 he manages a fleet of AI agents, reviewing their work, fixing exceptions, coaching them the way a manager walks the floor with a human team.\n\nPostings for roles like this are up over 140% year over year. Average salary: around $103,000 \u2014 with senior roles pushing past $200,000.\n\nNew AI titles are landing fast \u2014 and most people won't see them coming until they're already the norm. Follow @fowlai so you're not one of them.",
+      "caption": "AI Agent Manager just became an official job title \u2014 and HBR says it's following the exact same path Product Manager did 20 years ago. Follow @fowlai for the roles shaping AI careers before they hit LinkedIn. #AIAgentManager #FutureOfWork #AIJobs #AgenticAI #CareerTips #FOWLAI",
       "video_path": null,
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
+    },
+    {
+      "day": "Friday",
+      "publish_date": "2026-08-14",
+      "topic": "DeepSeek drops V4-Pro-0813, undercutting frontier pricing again",
+      "script": "DeepSeek just dropped another price shock in the AI race.\n\nThis week, the Chinese lab released V4-Pro-0813 \u2014 a new flagship tier priced at just $0.87 per million output tokens, with a 1-million-token context window. That's a fraction of what frontier labs in the US charge for comparable performance. Even priced well above DeepSeek's own cheaper Flash model, it still undercuts the field enough to keep pressure on Western pricing.\n\nFor knowledge workers, that means more powerful AI tools staying affordable \u2014 the frontier keeps getting cheaper, not more expensive.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "DeepSeek's new V4-Pro-0813 still undercuts Western frontier pricing by a mile \u2014 even at 14x its own Flash model's cost, top-tier AI keeps getting cheaper. #AI #DeepSeek #AINews #FutureOfWork #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/adbbfac558f9485b8dc0081580b3d69a.mp4?Expires=1787350495&Signature=UH2r4mMs6hA4TyLMW2lUAmcyX6ZRD0L8P38eJPXs2nTTBBCueF3a61MfeUeeuRgzRynHOI~UtkalkRPG4yDbFxgZ-jbNfmka~6akwrSC1xbMXb1eQ46LQmG97ua1MAjspKdcrXMF4rjbrbJ5OXfX0KNu5qe07a3JGPSaRzBQyjuMh2i0lD9A0~ulysCyUnR7m~Hm29uM-E2wmv5e-nfZyeK~osrPJa8jkMYKhwJX~HDEcCGADFdlxf0srn9Blw9MFVCJHYfXrEBrH89lMEsOQZKsUlMAemyXwwEZz~ViPeZ8yOMwON-VYaCNrsBODJJNnP-47iOSq1wkSRm5o64PXA__&Key-Pair-Id=K38HBHX5LX3X2H",
       "platforms_published": {
         "facebook": false,
         "instagram": false,
