@@ -104,11 +104,18 @@ def main():
         {
             "day": day_name,
             "publish_date": publish_date,
-            "topic": (nova_state.get("picked_topic") or {}).get("title"),
+            # picked_topic is a plain string (the topic title itself) in
+            # this schema, not an object -- nova-daily-prep's step 2 sets
+            # it directly to one of the proposed topics' titles. Fixed
+            # 2026-08-14: this line previously assumed a dict shape
+            # (`.get("title")`) and crashed with AttributeError on every
+            # real completed render, since no video had gone through this
+            # path before to expose it.
+            "topic": nova_state.get("picked_topic"),
             "script": nova_state.get("script"),
             "caption": nova_state.get("caption"),
             "video_path": video_url,
-            "platforms_published": {"facebook": False, "instagram": False, "tiktok": False},
+            "platforms_published": {"facebook": False, "instagram": False, "tiktok": False, "threads": False},
         }
     )
     with open(SOCIAL_STATE_PATH, "w", encoding="utf-8") as f:
