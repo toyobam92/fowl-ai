@@ -86,13 +86,17 @@ Target 100-160 words total (roughly 40-60 seconds spoken) so the rendered video 
 
 ## 4. Pick the look
 
-Fetch the Nova avatar group's looks: `GET https://api.heygen.com/v2/avatar_group/6eef573ef32844d8b881010bf917601f/avatars` with header `X-Api-Key: $HEYGEN_API_KEY` (available in this routine's environment). Each entry has `id`, `name`, `image_url`, `default_voice_id`.
+Fetch the Nova avatar group's looks: `GET https://api.heygen.com/v2/avatar_group/6eef573ef32844d8b881010bf917601f/avatars` with header `X-Api-Key: $HEYGEN_API_KEY` (available in this routine's environment). Each entry has `id`, `name`, `image_url`, `default_voice_id`, `is_motion`.
 
-Pick one look whose `name` reads as fitting today's `tone`:
+**First, filter to `is_motion: true` looks only — this is not optional.** Of the group's ~87 looks, only a handful are true motion avatars (full animated expression/cadence); the rest are static "talking photo" avatars that just animate a still image's mouth over the audio, producing noticeably flatter, more mechanical delivery. This bit the pipeline's first fully-automated pick on 2026-08-14 ("Lavender Sweater," a static look, got selected purely because its name matched the tone) and Toyo flagged the result as visibly off — wrong cadence, teeth, energy. Discard every non-motion look before doing anything else below.
+
+Within that motion-capable subset, pick one look whose `name` reads as fitting today's `tone`:
 - `casual-professional` → simple tops, sweaters, everyday pieces (avoid anything named "Blazer," "Collared," "Button-Up," "Vest" — those read more formal).
 - `professional` → blazers, collared/button-up pieces, structured tops.
 
-Avoid repeating whatever look was used for the immediately prior episode if you can tell from `automation/social-state.json`'s most recent post. Pick one primary look and 1-2 alternates in the same tone family for the preview message.
+If nothing in the motion-capable subset fits the tone by name, pick the closest motion-capable match rather than falling back to a static look — motion is the harder constraint.
+
+Avoid repeating whatever look was used for the immediately prior episode if you can tell from `automation/social-state.json`'s most recent post. Pick one primary look and 1-2 alternates in the same tone family (still motion-capable) for the preview message.
 
 Set `picked_look` to `{"avatar_id": "<id>", "name": "<name>", "image_url": "<image_url>"}` and `look_alternates` to a list of the same shape.
 
