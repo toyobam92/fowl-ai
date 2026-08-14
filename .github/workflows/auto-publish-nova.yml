@@ -29,6 +29,8 @@ jobs:
           META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
           META_THREADS_ACCESS_TOKEN: ${{ secrets.META_THREADS_ACCESS_TOKEN }}
           META_THREADS_USER_ID: ${{ secrets.META_THREADS_USER_ID }}
+          META_IG_ACCESS_TOKEN: ${{ secrets.META_IG_ACCESS_TOKEN }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
         run: |
           set -euo pipefail
           set +e
@@ -62,19 +64,20 @@ jobs:
         run: |
           set -euo pipefail
           if [ "$KIND" = "posted" ]; then
-            MSG="✅ Nova's video for today auto-posted to Facebook + Threads. Check ${RUN_URL} for detail."
+            MSG="✅ Nova's video for today auto-posted to Facebook + Threads + Instagram. Check ${RUN_URL} for detail."
           else
             MSG="❌ Today's Nova auto-publish had a failure. Check ${RUN_URL} for detail -- nothing else was skipped, only the platform(s) that actually failed."
           fi
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
             --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${MSG}" > /dev/null
 
-      - name: Remind about Instagram/TikTok if anything's still pending
-        # Instagram is here too, not just TikTok -- instagram_business_content_publish
-        # needs Meta App Review (paused, see project memory), so Instagram is
-        # posted the same way TikTok always has been: manually, through a
-        # live browser session (Meta Business Suite's composer posts to
-        # Facebook + Instagram together, confirmed working 2026-08-12).
+      - name: Remind about TikTok if anything's still pending
+        # TikTok only, as of 2026-08-14 -- Facebook, Threads, and Instagram
+        # all post automatically now via post_to_meta.py. TikTok is the one
+        # platform with no headless posting path at all (same
+        # Cloudflare/bot-detection risk that ruled out headless EmailOctopus
+        # scheduling), so it's still posted manually through a live browser
+        # session.
         if: steps.publish.outputs.kind == 'posted'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
@@ -94,22 +97,14 @@ jobs:
           with open("automation/social-state.json") as f:
               state = json.load(f)
 
-          def pending(platform):
-              return [
-                  p for p in state.get("posts", [])
-                  if p.get("video_path") and not p.get("platforms_published", {}).get(platform)
-              ]
-
-          pending_instagram = pending("instagram")
-          pending_tiktok = pending("tiktok")
-          if pending_instagram or pending_tiktok:
-              platforms = " + ".join(
-                  name for name, pend in (("Instagram", pending_instagram), ("TikTok", pending_tiktok)) if pend
-              )
-              all_pending = {p.get("day", "?"): p.get("caption", "") for p in pending_instagram + pending_tiktok}
-              checklist = "\n".join(f"- {day}: {caption}" for day, caption in all_pending.items())
+          pending_tiktok = [
+              p for p in state.get("posts", [])
+              if p.get("video_path") and not p.get("platforms_published", {}).get("tiktok")
+          ]
+          if pending_tiktok:
+              checklist = "\n".join(f"- {p.get('day', '?')}: {p.get('caption', '')}" for p in pending_tiktok)
               notify(
-                  f"📱 {platforms} still need posting manually -- neither can be done headless. "
+                  "📱 TikTok still needs posting manually -- it can't be done headless. "
                   f"Open an interactive Claude Code session to post these via browser:\n{checklist}"
               )
           PYEOF

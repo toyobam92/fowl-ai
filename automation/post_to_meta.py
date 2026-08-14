@@ -1,22 +1,26 @@
 #!/usr/bin/env python3
-"""Post this week's Nova video scripts to Facebook and Threads via their APIs.
+"""Post this week's Nova video scripts to Facebook, Threads, and Instagram
+via their APIs.
 
 Only ever invoked by telegram-approve.yml in response to an explicit
 "PUBLISH <PR#>" reply, after that PR is already merged -- mirrors the same
 "never auto-publish, always gate on an explicit human reply" pattern used
-for EmailOctopus (SCHEDULE <PR#>). Facebook and Threads can both be posted
-headlessly because both have real, supported, token-authenticated APIs
-under Standard Access with no App Review needed.
+for EmailOctopus (SCHEDULE <PR#>). All three can be posted headlessly
+because each has a real, supported, token-authenticated API under
+Standard Access with no App Review needed for this account.
 
-Instagram is deliberately NOT posted here -- instagram_business_content_publish
-requires Meta App Review under the classic Facebook-Login Instagram Graph API
-path this script otherwise uses (see project memory: a newer Instagram-Login
-API product may unblock this differently, but that's a separate integration,
-not this one). Instagram is treated exactly like TikTok: posted manually
-through a live browser session (Meta Business Suite's composer posts to
-Facebook + Instagram together already, confirmed working 2026-08-12),
-flagged in the same "still needs posting" reminder auto-publish-nova.yml
-sends after a successful Facebook post.
+Instagram posts via the newer Instagram-Login API product
+(graph.instagram.com, not graph.facebook.com) -- a separate credential
+and host from the classic Facebook-Login Instagram Graph API, which
+remained genuinely blocked behind App Review (see project memory,
+2026-08-12 through 2026-08-14). This is not the same integration that
+was previously ruled out.
+
+TikTok is still posted manually through a live browser session -- no
+headless posting exists for it (same Cloudflare/bot-detection risk that
+ruled out headless EmailOctopus scheduling), flagged in the same "still
+needs posting" reminder auto-publish-nova.yml sends after a successful
+post elsewhere.
 
 Reads/writes automation/social-state.json directly. Does not touch git --
 the caller (telegram-approve.yml) commits+pushes whatever this script
@@ -39,15 +43,19 @@ STATE_PATH = "automation/social-state.json"
 GRAPH_API_VERSION = "v21.0"
 GRAPH_API_BASE = f"https://graph.facebook.com/{GRAPH_API_VERSION}"
 THREADS_API_BASE = "https://graph.threads.net/v1.0"
+IG_API_BASE = f"https://graph.instagram.com/{GRAPH_API_VERSION}"
 
-# Threads video containers process asynchronously (same lineage as Instagram
-# Graph API's container-then-publish design) -- poll a bounded number of
-# times rather than either a fixed sleep (often too short) or an unbounded
-# loop (could hang the Action). If it's still not FINISHED after this many
-# attempts, fail cleanly; the post stays unpublished and the next day's
+# Threads and Instagram video containers both process asynchronously (same
+# lineage -- Instagram Graph API's container-then-publish design, which
+# Threads' API was modeled on) -- poll a bounded number of times rather
+# than either a fixed sleep (often too short) or an unbounded loop (could
+# hang the Action). If it's still not FINISHED after this many attempts,
+# fail cleanly; the post stays unpublished and the next day's
 # auto-publish-nova.yml run retries it from scratch.
 THREADS_POLL_ATTEMPTS = 12
 THREADS_POLL_INTERVAL_SECONDS = 5
+IG_POLL_ATTEMPTS = 12
+IG_POLL_INTERVAL_SECONDS = 5
 
 # Not a known requirement for the Graph API the way it was for EmailOctopus's
 # Cloudflare WAF (see sync-signups.yml / schedule-watchdog.yml) -- but a
@@ -68,10 +76,10 @@ def save_state(state):
 
 
 def api_request(base, path, params, method="POST"):
-    """POST/GET against a Graph-family API (Facebook or Threads -- same
-    request/error shape). Raises RuntimeError with the API's own error
-    message (not just the raw HTTPError) so failures are diagnosable from
-    the Telegram/Action-log output alone."""
+    """POST/GET against a Graph-family API (Facebook, Threads, or
+    Instagram -- same request/error shape). Raises RuntimeError with the
+    API's own error message (not just the raw HTTPError) so failures are
+    diagnosable from the Telegram/Action-log output alone."""
     url = f"{base}/{path}"
     data = urllib.parse.urlencode(params).encode()
     req = urllib.request.Request(
@@ -100,6 +108,10 @@ def graph_request(path, params, method="POST"):
 
 def threads_request(path, params, method="POST"):
     return api_request(THREADS_API_BASE, path, params, method)
+
+
+def ig_request(path, params, method="POST"):
+    return api_request(IG_API_BASE, path, params, method)
 
 
 def post_facebook_video(post, page_id, page_token):
@@ -161,11 +173,56 @@ def post_threads_video(post, threads_user_id, threads_token):
     return publish["id"]
 
 
+def post_instagram_video(post, ig_user_id, ig_token):
+    """Instagram container-then-publish flow via the newer Instagram-Login
+    API (graph.instagram.com) -- media_type=REELS is required for video
+    posts to this account's feed; Instagram consolidated all video posting
+    into Reels, there's no separate plain-video feed post type anymore."""
+    create = ig_request(
+        f"{ig_user_id}/media",
+        {
+            "access_token": ig_token,
+            "media_type": "REELS",
+            "video_url": post["video_path"],
+            "caption": post["caption"],
+        },
+    )
+    creation_id = create.get("id")
+    if not creation_id:
+        raise RuntimeError(f"Instagram container creation returned no id: {create}")
+
+    status = None
+    for _ in range(IG_POLL_ATTEMPTS):
+        time.sleep(IG_POLL_INTERVAL_SECONDS)
+        check = ig_request(
+            str(creation_id),
+            {"access_token": ig_token, "fields": "status_code,status"},
+            method="GET",
+        )
+        status = check.get("status_code")
+        if status == "FINISHED":
+            break
+        if status == "ERROR":
+            raise RuntimeError(f"Instagram container processing failed: {check.get('status', check)}")
+    else:
+        raise RuntimeError(f"Instagram container still {status!r} after {IG_POLL_ATTEMPTS} polls -- giving up for this run.")
+
+    publish = ig_request(
+        f"{ig_user_id}/media_publish",
+        {"access_token": ig_token, "creation_id": creation_id},
+    )
+    if "id" not in publish:
+        raise RuntimeError(f"Instagram publish returned no id: {publish}")
+    return publish["id"]
+
+
 def main():
     page_token = os.environ.get("META_PAGE_ACCESS_TOKEN")
     page_id = os.environ.get("META_PAGE_ID")
     threads_token = os.environ.get("META_THREADS_ACCESS_TOKEN")
     threads_user_id = os.environ.get("META_THREADS_USER_ID")
+    ig_token = os.environ.get("META_IG_ACCESS_TOKEN")
+    ig_user_id = os.environ.get("META_IG_USER_ID")
     missing = [
         name
         for name, val in (
@@ -177,12 +234,16 @@ def main():
     if missing:
         print(f"Missing required env var(s): {', '.join(missing)} -- cannot post to Facebook.")
         sys.exit(1)
-    # Threads credentials are optional-ish in the sense that their absence
-    # only disables Threads posting for this run, not the whole script --
-    # Facebook posting must never be held hostage to a Threads config gap.
+    # Threads/Instagram credentials are optional-ish in the sense that
+    # their absence only disables that platform for this run, not the
+    # whole script -- Facebook posting must never be held hostage to a
+    # gap in either config.
     threads_configured = bool(threads_token and threads_user_id)
     if not threads_configured:
         print("META_THREADS_ACCESS_TOKEN/META_THREADS_USER_ID not set -- skipping Threads this run.")
+    ig_configured = bool(ig_token and ig_user_id)
+    if not ig_configured:
+        print("META_IG_ACCESS_TOKEN/META_IG_USER_ID not set -- skipping Instagram this run.")
 
     state = load_state()
     any_attempted = False
@@ -209,8 +270,9 @@ def main():
 
         needs_facebook = not published.get("facebook")
         needs_threads = threads_configured and not published.get("threads")
+        needs_instagram = ig_configured and not published.get("instagram")
 
-        if not needs_facebook and not needs_threads:
+        if not needs_facebook and not needs_threads and not needs_instagram:
             print(f"{label}: already posted everywhere this script handles, skipping.")
             continue
 
@@ -252,6 +314,16 @@ def main():
             except RuntimeError as e:
                 any_failed = True
                 print(f"{label}: Threads post FAILED -- {e}")
+
+        if needs_instagram:
+            any_attempted = True
+            try:
+                ig_id = post_instagram_video(post, ig_user_id, ig_token)
+                published["instagram"] = True
+                print(f"{label}: posted to Instagram (post id {ig_id}).")
+            except RuntimeError as e:
+                any_failed = True
+                print(f"{label}: Instagram post FAILED -- {e}")
 
     save_state(state)
 
