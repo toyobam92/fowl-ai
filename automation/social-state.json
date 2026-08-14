@@ -53,9 +53,9 @@
       "look_name": "Avatar in a pink sweater",
       "platforms_published": {
         "facebook": false,
-        "instagram": false,
+        "instagram": true,
         "tiktok": false,
-        "threads": false
+        "threads": true
       }
     }
   ]
