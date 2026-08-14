@@ -12,7 +12,8 @@
       "platforms_published": {
         "facebook": false,
         "instagram": false,
-        "tiktok": false
+        "tiktok": false,
+        "threads": false
       }
     },
     {
@@ -24,7 +25,8 @@
       "platforms_published": {
         "facebook": false,
         "instagram": false,
-        "tiktok": false
+        "tiktok": false,
+        "threads": false
       }
     },
     {
@@ -36,7 +38,8 @@
       "platforms_published": {
         "facebook": false,
         "instagram": false,
-        "tiktok": false
+        "tiktok": false,
+        "threads": false
       }
     }
   ]
