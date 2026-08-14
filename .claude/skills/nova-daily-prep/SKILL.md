@@ -96,7 +96,9 @@ Within that motion-capable subset, pick one look whose `name` reads as fitting t
 
 If nothing in the motion-capable subset fits the tone by name, pick the closest motion-capable match rather than falling back to a static look — motion is the harder constraint.
 
-Avoid repeating whatever look was used for the immediately prior episode if you can tell from `automation/social-state.json`'s most recent post. Pick one primary look and 1-2 alternates in the same tone family (still motion-capable) for the preview message.
+**Rotate through every look in the tone-matching subset before repeating any of them — not just "avoid the immediately prior one."** Read `automation/social-state.json`'s `posts` array; each entry `check_nova_render.py` appends carries `avatar_id` (added 2026-08-14 — older entries from before that date won't have it, skip those when building history). Count how many looks are in today's tone-matching motion-capable subset (call it `N`). Look at the `avatar_id`s of the most recent `N - 1` posts, most recent first, and exclude any of those from today's pick — this guarantees every look in the subset gets used once before any repeat, a true round-robin rather than a single-step "don't repeat yesterday" rule. If fewer than `N - 1` prior entries have an `avatar_id` (early in the pipeline's life, or after a gap), just exclude whatever history does exist — the rotation naturally tightens up as more episodes accumulate.
+
+Pick one primary look and 1-2 alternates in the same tone family (still motion-capable, still respecting the rotation exclusion) for the preview message.
 
 Set `picked_look` to `{"avatar_id": "<id>", "name": "<name>", "image_url": "<image_url>"}` and `look_alternates` to a list of the same shape.
 

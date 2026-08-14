@@ -115,6 +115,13 @@ def main():
             "script": nova_state.get("script"),
             "caption": nova_state.get("caption"),
             "video_path": video_url,
+            # Recorded so nova-daily-prep's step 4 can actually rotate
+            # through the motion-capable look pool instead of just
+            # avoiding a single immediately-prior repeat -- added
+            # 2026-08-14, this field didn't exist before, so there was no
+            # queryable history to check.
+            "avatar_id": (nova_state.get("picked_look") or {}).get("avatar_id"),
+            "look_name": (nova_state.get("picked_look") or {}).get("name"),
             "platforms_published": {"facebook": False, "instagram": False, "tiktok": False, "threads": False},
         }
     )
