@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_topic_pick",
+  "status": "pr_open",
   "last_proposed": "2026-08-13",
   "publish_date": "2026-08-14",
   "tone": "casual-professional",
@@ -18,13 +18,28 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
-  "script": null,
-  "caption": null,
-  "picked_look": null,
-  "look_alternates": [],
-  "pr_number": null,
-  "pr_branch": null,
+  "picked_topic": "DeepSeek drops V4-Pro-0813, undercutting frontier pricing again",
+  "script": "DeepSeek just dropped another price shock in the AI race.\n\nThis week, the Chinese lab released V4-Pro-0813 — a new flagship tier priced at just $0.87 per million output tokens, with a 1-million-token context window. That's a fraction of what frontier labs in the US charge for comparable performance. Even priced well above DeepSeek's own cheaper Flash model, it still undercuts the field enough to keep pressure on Western pricing.\n\nFor knowledge workers, that means more powerful AI tools staying affordable — the frontier keeps getting cheaper, not more expensive.\n\nI'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
+  "caption": "DeepSeek's new V4-Pro-0813 still undercuts Western frontier pricing by a mile — even at 14x its own Flash model's cost, top-tier AI keeps getting cheaper. #AI #DeepSeek #AINews #FutureOfWork #FOWLAI",
+  "picked_look": {
+    "avatar_id": "5a9ac51c80d74a09b1579ab7e3186fef",
+    "name": "Lavender Sweater",
+    "image_url": "https://files2.heygen.ai/talking_photo/5a9ac51c80d74a09b1579ab7e3186fef/a065dd35c4344ad48452c12e1a4623e6.WEBP?Expires=1787106617&Signature=JBgzNlTkpEy2CA9GHw2y846K55pame0aXhyYpnHed3Z8ixHqHcVclSrT7HBqcHZNnFfDH-CW7YhEwKRKP2WO0806~vJH0uG939Kqp6SWMlRhPu3B-tC35IwYSXoXmhfrtrK1yjEtC~drfXxPTfYYWXcPK-tuFSYf-LC5xQkwnuou4qSNnJM86PvVjpWyHA2ZV61g16gqKD652-w-LnCAIUf9uT3G0ug-1Ca10YS1CLpBZkSYg180m56QiyQ6p1vud1WSpy4rg9DFxSKpz~e8IbPiQkmS93cyeIXsahaQ7lX5gVPZItY55XMfNYdUESEKcJzyipzaanP44-0O6OPKvw__&Key-Pair-Id=K38HBHX5LX3X2H"
+  },
+  "look_alternates": [
+    {
+      "avatar_id": "5f8953d556b84c19afee4cbe0f711c2c",
+      "name": "Avatar in blue knit sweater",
+      "image_url": "https://files2.heygen.ai/talking_photo/5f8953d556b84c19afee4cbe0f711c2c/c149613e9e4f4b4293c78856700ffb4c.WEBP?Expires=1787106617&Signature=jikaXNdIHkaPooh4A~0DnD-tO5fWaGLsdvc7csAZ86hMGUnwfi3gdqufnnU~CQH2d9ErV8iQ3mAQtMd6r5RYXS86QpBXRmDb7s-pPwBOAAo4C4HiHDUgRq5nKdSaIxRlApdqHAuOYLgvQFVx4iMnMLfvCKGigjwlZWucH3uUNGHH6BQMqYDKZQoF7md7XQvob~6lcWq1KTJ0G6kH2EKmpIhJ35KUIGY8od-XmjT-q-Qrh9m3mh4IKmv~MJCmxutcOn3Xr7vSccrCTEIafK3p2ogzTLZkghuGguFupts1ONtaCXYMeBnhm09qxvtjJFEDkncTwP6UeyQDqYDzLley-Q__&Key-Pair-Id=K38HBHX5LX3X2H"
+    },
+    {
+      "avatar_id": "e1bdec5f9a8743d4a3eb755597fbe06a",
+      "name": "Avatar in maroon turtleneck sweater",
+      "image_url": "https://files2.heygen.ai/talking_photo/e1bdec5f9a8743d4a3eb755597fbe06a/8bbde633ccfe4dfe9d22770ad21964ed.WEBP?Expires=1787106617&Signature=YCtwvfsKWUTSebNxnydJkQt7iqIopfoQ0qyUXtQOq3xls2ViI1ZSc6TILraUn3gLf~EgzFA-KVhfGo9noyN5WrDDiMtP9OcO-QwptT5HX4tO1SnOp8unRWZNi9mO97mpHmtuI5vLiF5usLhdUVUXh3WOcCJtifVb003DH0O2xWBWOsctzZ3bap0-40VZrJ3ikNbvzJDbUWz5rfBGjQNOJ~v81E9GIi8SLnybKJRortvzluLZcY8wsmTCE8QrH7lolIWpACxQlatxuCcBK6Jc1j3GP8p7prR~jdsq1PzKjks5Eg5080bexiO-rvQTBjaVB4GhdAeTW5PGdxy3cmNE1w__&Key-Pair-Id=K38HBHX5LX3X2H"
+    }
+  ],
+  "pr_number": 17,
+  "pr_branch": "update/nova-2026-08-14",
   "video_id": null,
-  "last_updated": "2026-08-13T23:15:00Z"
+  "last_updated": "2026-08-14T19:25:00Z"
 }
