@@ -1,0 +1,95 @@
+name: open-nova-pr
+
+# Opens the PR for a Nova episode branch pushed by the nova-daily-prep
+# skill, and patches the resulting PR number back into
+# automation/nova-pipeline-state.json on main.
+#
+# PR creation was moved here from the skill itself on 2026-08-15: that
+# skill runs in a Claude Code RemoteTrigger cloud session, and `gh pr
+# create` reliably failed there with zero error output across three
+# separate real runs (2026-08-14) -- an auth-resolution gap specific to
+# that sandbox, since `git push` from the exact same session always
+# succeeded. Rather than debug that sandbox's credential setup further,
+# PR creation now happens here instead, where `gh` authenticates via the
+# standard GITHUB_TOKEN every other workflow in this repo already uses
+# with no issues.
+#
+# By the time this fires, automation/nova-pipeline-state.json already has
+# the full brief (picked_topic, script, picked_look, status: "pr_open")
+# committed to main -- the skill's step 5 commits that BEFORE pushing the
+# branch this workflow triggers on, so nothing here has to wait or guess.
+
+on:
+  push:
+    branches:
+      - 'update/nova-*'
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  open-pr:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Open the PR if one doesn't already exist
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          BRANCH="${GITHUB_REF#refs/heads/}"
+
+          # Idempotent -- a re-run (retry, re-push) should never open a
+          # second PR for the same branch.
+          EXISTING=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$BRANCH" --json number --jq '.[0].number // empty')
+          if [ -n "$EXISTING" ]; then
+            echo "PR #$EXISTING already exists for $BRANCH -- nothing to do."
+            exit 0
+          fi
+
+          PUBLISH_DATE="${BRANCH#update/nova-}"
+          TOPIC=$(python3 -c "
+          import json
+          try:
+              with open('automation/nova-pipeline-state.json') as f:
+                  state = json.load(f)
+              print(state.get('picked_topic') or '')
+          except FileNotFoundError:
+              print('')
+          ")
+          if [ -n "$TOPIC" ]; then
+            TITLE="Nova — ${PUBLISH_DATE}: ${TOPIC}"
+          else
+            TITLE="Nova — ${PUBLISH_DATE}"
+          fi
+
+          PR_URL=$(gh pr create \
+            --repo "$GITHUB_REPOSITORY" \
+            --title "$TITLE" \
+            --body "Nova's episode for ${PUBLISH_DATE}. Script + look in automation/nova-previews/${PUBLISH_DATE}.md. Reply \"APPROVE <PR#>\" to merge and kick off render." \
+            --head "$BRANCH" --base main)
+          PR_NUMBER="${PR_URL##*/}"
+          echo "Opened PR #$PR_NUMBER for $BRANCH"
+
+          git config user.email "actions@github.com"
+          git config user.name "github-actions"
+          git checkout main
+          git pull --rebase origin main
+          python3 -c "
+          import json
+          with open('automation/nova-pipeline-state.json') as f:
+              state = json.load(f)
+          state['pr_number'] = $PR_NUMBER
+          state['pr_branch'] = '$BRANCH'
+          with open('automation/nova-pipeline-state.json', 'w') as f:
+              json.dump(state, f, indent=2)
+              f.write('\n')
+          "
+          git add automation/nova-pipeline-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record Nova PR #${PR_NUMBER} for ${PUBLISH_DATE}"
+            git pull --rebase origin main
+            git push
+          fi

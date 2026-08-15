@@ -116,7 +116,7 @@ Set `picked_look` to `{"avatar_id": "<id>", "name": "<name>", "image_url": "<ima
 
    This is the only copy of the script/look that `render_nova_video.py` reads later (in a fresh checkout, after merge) — nothing on the PR branch itself is read programmatically. It must be durable on `main` before anything can trigger a merge.
 
-2. **Then write the preview and open the PR:**
+2. **Write the preview and push the branch — do not call `gh pr create` yourself:**
 
    ```markdown
    # Nova — <publish_date> (<tone>)
@@ -144,24 +144,13 @@ Set `picked_look` to `{"avatar_id": "<id>", "name": "<name>", "image_url": "<ima
    git add automation/nova-previews/<publish_date>.md
    git commit -m "Nova script + look for <publish_date>: <topic title>"
    git push -u origin update/nova-<publish_date>
-   gh pr create --title "Nova — <publish_date>: <topic title>" --body "<short summary>"
    ```
 
-   If `gh pr create` fails, that's exactly the kind of error the note above on never failing silently exists for — notify Telegram with the error before stopping; the branch is already pushed and state already says `pr_open` with no PR, so simply retrying `gh pr create` against the same branch next run is enough to recover, but only if someone finds out it's needed.
+   **PR creation happens automatically from here — `open-nova-pr.yml` opens it** the moment this push lands (triggers on any `update/nova-*` branch push), then patches `pr_number` back into `nova-pipeline-state.json` on `main` itself. This split exists because `gh pr create` reliably fails with zero error output when run from *this* skill's own remote execution context (confirmed 2026-08-15, three separate silent stalls) — `git push` from the exact same session never has that problem, so PR creation was moved into a GitHub Actions job instead, where `gh` authenticates via `GITHUB_TOKEN` the normal way every other workflow in this repo already relies on. Don't try to call `gh pr create` here even as a "just in case" — if `open-nova-pr.yml` is ever removed or broken, that's a real regression to fix at the workflow level, not something to route around from this skill.
 
-3. **Patch in `pr_number`.** Back on `main`, a small follow-up commit setting `pr_number: <N>` to the number `gh pr create` returned:
+   Stop right after the `git push` above. There's nothing else for this skill to do — no PR number to fetch, nothing to verify — `open-nova-pr.yml` owns everything from the push onward.
 
-   ```
-   git checkout main
-   git pull --rebase origin main
-   git add automation/nova-pipeline-state.json
-   git commit -m "Record Nova PR #<N> for <publish_date>"
-   git push
-   ```
-
-   This one isn't race-critical — `telegram-approve.yml` identifies Nova PRs by branch-name prefix (`update/nova-`), not by reading `pr_number` back out of state — it only matters for this skill's own step 0 bookkeeping on the next run.
-
-Stop here. Do not merge, do not call HeyGen, do not touch `automation/social-state.json`. `pr-notify.yml` pings Telegram automatically when the PR opens; `telegram-approve.yml` merges it **and kicks off the render** on a single `APPROVE <PR#>` reply — there's no separate publish step to remember, that's handled by the daily auto-publish cron once the video finishes rendering.
+Do not merge, do not call HeyGen, do not touch `automation/social-state.json`. `pr-notify.yml` pings Telegram automatically when the PR opens; `telegram-approve.yml` merges it **and kicks off the render** on a single `APPROVE <PR#>` reply — there's no separate publish step to remember, that's handled by the daily auto-publish cron once the video finishes rendering.
 
 ## 6. Report back
 
