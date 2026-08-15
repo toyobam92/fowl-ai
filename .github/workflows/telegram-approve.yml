@@ -218,13 +218,18 @@ jobs:
               # Cloudflare/bot-detection risk that ruled out headless
               # EmailOctopus scheduling. List what's still pending so the
               # owner knows exactly what to post manually.
+              #
+              # Silenced 2026-08-15: Toyo paused TikTok posting for now.
+              # Flip TIKTOK_REMINDER_ENABLED back to True to re-enable
+              # once TikTok resumes.
+              TIKTOK_REMINDER_ENABLED = False
               with open("automation/social-state.json") as f:
                   state = json.load(f)
               pending_manual = [
                   p for p in state.get("posts", [])
                   if not p.get("platforms_published", {}).get("tiktok")
               ]
-              if pending_manual:
+              if TIKTOK_REMINDER_ENABLED and pending_manual:
                   checklist = "\n".join(f"- {p['day']}: {p['caption']}" for p in pending_manual)
                   notify(
                       "📱 TikTok still needs posting manually -- it can't be done headless. "
