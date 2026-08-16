@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Tue, 11 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 17 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 13: Stanford just measured the AI gap for young workers at 19%. Here's who's hiring around it.</title>
+      <link>https://www.fowl-ai.com/issues/2026-08-17/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-08-17/</guid>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Stanford's Digital Economy Lab and ADP Research's new Canaries Dashboard shows the AI-exposed employment gap for 22-25-year-olds has widened to 19%, almost entirely through reduced hiring, not layoffs. Reddit's AI-native hiring push, Handshake's university-credentialed AI Fellowship, DoorDash's new gig-to-AI-training pipeline, and the entry-level title actually growing right now.</description>
+    </item>
     <item>
       <title>Issue 12: Four 2026 studies just measured the same AI divide. Here's what the winning 6–21% do differently.</title>
       <link>https://www.fowl-ai.com/issues/2026-08-11/</link>
