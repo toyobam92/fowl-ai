@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-08-13",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-08-16",
+  "publish_date": "2026-08-17",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Google ships Gemini 3.7 Flash at half price, flagship Pro still stuck in limbo",
+      "why": "Cheaper, sharper AI tools are landing in your stack right now even as the industry's own top model slips its timeline."
+    },
+    {
+      "title": "OpenAI's $7B share sale pushes it toward IPO as revenue tops $40B run rate",
+      "why": "The AI boom is about to hit public markets, which means way more scrutiny (and cash) flowing into the tools knowledge workers use every day."
+    },
+    {
+      "title": "YC-backed AI startup offered job interviews for company tattoos, then apologized",
+      "why": "A blunt reminder of how brutal the AI-era hiring market has gotten -- job seekers are now the headline, not just the tools."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-08-14T20:05:00Z"
+  "last_updated": "2026-08-16T00:00:00Z"
 }
