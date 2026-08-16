@@ -1,31 +1,10 @@
 {
-  "week_of": "2026-08-17",
-  "status": "drafted",
+  "week_of": null,
+  "status": "idle",
   "last_proposed": "2026-08-16",
-  "topics": [
-    {
-      "title": "The Young-Worker AI Gap",
-      "why": "Stanford's Digital Economy Lab just found the AI-exposed employment gap for young workers has widened to 19% through mid-2026 -- a concrete, sourced signal about who's actually absorbing the disruption."
-    },
-    {
-      "title": "56% of CEOs Say Zero ROI on AI -- Here's the Opening",
-      "why": "WRITER's 2026 adoption survey shows 79% of orgs struggling and 56% of CEOs reporting zero measurable ROI despite $1M+ budgets -- the gap between spend and results is exactly where individual leverage gets built."
-    },
-    {
-      "title": "Agents Everywhere, Scaled Almost Nowhere",
-      "why": "Nearly 2/3 of enterprises have experimented with AI agents but fewer than 10% have scaled them -- the 'agent ops' skill gap behind that stat is a real, hireable niche right now."
-    },
-    {
-      "title": "Inside the New AI Training Economy",
-      "why": "DoorDash's new Tasks app and Handshake AI's university-credentialed Fellowship show the gig-to-AI-training pipeline maturing fast, with specialized eval roles now clearing $80+/hr -- directly actionable opportunity-board material."
-    },
-    {
-      "title": "The Market's Softening -- What's Still Hiring Through It",
-      "why": "BLS data points to a broader labor-market softening again in August alongside a fresh wave of Fortune 500 layoffs citing AI -- worth naming which roles and skills are proving resistant."
-    }
-  ],
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": "1",
-  "pr_number": 18,
+  "picked_topic": null,
+  "pr_number": null,
   "last_updated": "2026-08-16"
 }
