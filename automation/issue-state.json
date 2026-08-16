@@ -1,6 +1,6 @@
 {
   "week_of": "2026-08-17",
-  "status": "drafting",
+  "status": "drafted",
   "last_proposed": "2026-08-16",
   "topics": [
     {
@@ -26,6 +26,6 @@
   ],
   "rejected_titles": [],
   "picked_topic": "1",
-  "pr_number": null,
+  "pr_number": 18,
   "last_updated": "2026-08-16"
 }
