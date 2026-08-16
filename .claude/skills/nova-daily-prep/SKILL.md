@@ -32,7 +32,14 @@ Read `automation/nova-pipeline-state.json` (create `{"status": "idle", "last_pro
 
 Compute `publish_date` = tomorrow's date (`YYYY-MM-DD`). Compute `tone` from `publish_date`'s weekday: Monday or Friday → `"casual-professional"`, Wednesday → `"professional"`.
 
-Use `WebSearch` for a *light* pass — enough to find 2-3 genuinely current AI-news items from the last few days (a launch, a funding/IPO move, a new model/feature, a notable industry shift). Not evergreen trend pieces — see the content-style note above. For each: a one-line title and a one-sentence why-it-matters-to-a-knowledge-worker angle.
+Use `WebSearch` for a *light* pass — enough to find 2-3 genuinely current AI-news items from the last few days, drawn from five standing categories (search across all of them each cycle, don't just default to the first one that turns up results):
+- a launch (new model, product, or feature ship)
+- a funding/IPO move
+- a new model/feature capability or benchmark claim
+- a notable industry shift (policy, major layoffs/hiring signal, lab restructuring)
+- **founder/exec drama or controversy at an AI company or AI product** — scandals, call-outs, PR blowups. Scope this one strictly to people/companies actually in AI (an AI startup founder, an AI product exec) — not general tech/startup gossip unrelated to AI; if the most interesting drama story of the week isn't AI-adjacent, skip it rather than stretch the angle.
+
+Not evergreen trend pieces — see the content-style note above. For each: a one-line title and a one-sentence why-it-matters-to-a-knowledge-worker angle.
 
 Write to `automation/nova-pipeline-state.json`:
 
