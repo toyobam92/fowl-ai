@@ -57,6 +57,22 @@
         "tiktok": false,
         "threads": true
       }
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-08-17",
+      "topic": "YC-backed AI startup offered job interviews for company tattoos, then apologized",
+      "script": "A YC-backed AI startup just offered job interviews in exchange for a permanent tattoo \u2014 and people actually did it.\n\nLemonLime, a Y Combinator-backed AI automation company, promised instant interviews to anyone who got its logo permanently tattooed on their body. Seven applicants took the deal. After the backlash hit, CEO Jordan Zietz apologized on X, calling it \u2018poorly exercised judgement\u2019 and offering to pay for tattoo removal for anyone who wants it gone.\n\nThis is what the AI-era hiring market actually looks like right now \u2014 desperate enough that a startup thought permanent ink was a reasonable interview filter.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "A YC-backed AI startup offered job interviews for a permanent company tattoo \u2014 seven people did it before the CEO apologized. #AIStartups #HiringMarket #AINews #FutureOfWork #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/ba2ae8ec775242b9a1b37be031acae32.mp4?Expires=1787583491&Signature=Kejw-RtrdNtZ8Xy51WZ-DZuJtHTVox0r6YNo9Ek4-5euHocSxD12IPKH-1o7mJpBpFFgNLmmHQRbGSCM2JQivDXrolMe~FESTe8WSigncETa8oG5ERIV5bvlaA9iM799geIaDOp2NUE5fmPboN4DHcdcEF1XWr0yGjdJAgW7z8lAEF4jpvTdh1qTND6YWmUnuDtf2e8QcqN50QlpEucUbYdbtTySgQjkOyfsD3w3Fyt27c7i0q4YCmRTs3NbyfuA1i42YLWyme8krS7H6~-I84cReQ3hztAzCQVHhiS8MqoTta4o0CrQw~CeCJi9FPXrTHNQDarPvdIiYPhQxDZtHQ__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "6df6bf1a920b4d17a48dda102ea85371",
+      "look_name": "Burgundy Sleeveless, Light Pants",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
