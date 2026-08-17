@@ -61,17 +61,26 @@ def main():
         emit_result("noop")
         return
 
-    status = heygen_get(f"/v1/video_status.get?video_id={video_id}", api_key)
-    data = status.get("data", {})
+    # v3 (migrated 2026-08-17, same day the legacy endpoints started
+    # 401ing for this key -- see render_nova_video.py). GET /v3/videos/{id}
+    # replaces v1's video_status.get. Auth errors emit RESULT:error rather
+    # than crashing so the workflow's failure notification actually fires.
+    try:
+        status = heygen_get(f"/v3/videos/{video_id}", api_key)
+    except RuntimeError as e:
+        print(str(e))
+        emit_result("error", str(e)[:200].replace("\n", " "))
+        sys.exit(1)
+    data = status.get("data") if isinstance(status.get("data"), dict) else status
     render_status = data.get("status")
 
-    if render_status in ("processing", "pending", "waiting"):
+    if render_status in ("processing", "pending", "waiting", "queued", "rendering"):
         print(f"video_id {video_id} still {render_status} -- checking again next run.")
         emit_result("noop")
         return
 
     if render_status == "failed":
-        error = data.get("error")
+        error = data.get("error") or data.get("failure_reason") or data.get("fail_reason")
         print(f"video_id {video_id} FAILED to render: {error}")
         # Reset to idle rather than looping on a dead render forever --
         # last_proposed stays as-is so the 2-day proposal guard still holds.
