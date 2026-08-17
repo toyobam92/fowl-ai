@@ -27,11 +27,13 @@ NOVA_GROUP_ID = "6eef573ef32844d8b881010bf917601f"
 SIGN_OFF = "I'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio."
 FALLBACK_VOICE_ID = "02X8sHnuxFpsq1caYWN0"
 
-# v2 is legacy (sunsets 2026-10-31, per HeyGen's own response headers) but is
-# what's confirmed working as of 2026-08-11 -- v3 needs a differently-shaped
-# character/voice payload that wasn't worked out yet. Migrate before the
-# sunset date.
-VIDEO_GENERATE_PATH = "/v2/video/generate"
+# Migrated to v3 2026-08-17: the legacy v2 endpoints (sunset 2026-10-31)
+# started returning 401 for this API key on 2026-08-17 despite working on
+# 2026-08-13, so the sunset date can't be trusted as a migration deadline.
+# v3 shape per developers.heygen.com: POST /v3/videos with a flat
+# {type, avatar_id, script, voice_id, aspect_ratio, resolution} body
+# replaces v2's nested video_inputs/dimension payload.
+VIDEO_GENERATE_PATH = "/v3/videos"
 
 
 def heygen_request(path, api_key, method="GET", payload=None):
@@ -53,9 +55,26 @@ def heygen_request(path, api_key, method="GET", payload=None):
 def find_voice_id(api_key, avatar_id):
     """Look up the look's own default_voice_id rather than assuming every
     look in the group shares one -- confirmed most do, but no reason to
-    hardcode past what the API actually reports for the specific look."""
-    result = heygen_request(f"/v2/avatar_group/{NOVA_GROUP_ID}/avatars", api_key)
-    for look in result.get("data", {}).get("avatar_list", []):
+    hardcode past what the API actually reports for the specific look.
+
+    Non-fatal on purpose: this lookup (not the render call) is what 401'd
+    on 2026-08-17 and killed the whole submission, and every look in the
+    Nova group reports the same default_voice_id as FALLBACK_VOICE_ID
+    (verified against the live group that day), so losing the lookup
+    should never cost us the render."""
+    try:
+        result = heygen_request(f"/v3/avatars/looks?group_id={NOVA_GROUP_ID}", api_key)
+    except RuntimeError as e:
+        print(f"Voice lookup failed, using fallback voice {FALLBACK_VOICE_ID}: {e}")
+        return FALLBACK_VOICE_ID
+    data = result.get("data")
+    looks = (
+        result.get("items")
+        or (data.get("items") if isinstance(data, dict) else None)
+        or (data if isinstance(data, list) else None)
+        or []
+    )
+    for look in looks:
         if look.get("id") == avatar_id:
             return look.get("default_voice_id") or FALLBACK_VOICE_ID
     return FALLBACK_VOICE_ID
@@ -90,20 +109,20 @@ def main():
     voice_id = find_voice_id(api_key, avatar_id)
 
     payload = {
-        "video_inputs": [
-            {
-                "character": {"type": "avatar", "avatar_id": avatar_id, "avatar_style": "normal"},
-                "voice": {"type": "text", "input_text": script, "voice_id": voice_id},
-            }
-        ],
-        "dimension": {"width": 1080, "height": 1920},
+        "type": "avatar",
+        "avatar_id": avatar_id,
+        "script": script,
+        "voice_id": voice_id,
+        "aspect_ratio": "9:16",
+        "resolution": "1080p",
         "title": f"FOWL AI - Nova - {state.get('publish_date')}",
     }
 
     result = heygen_request(VIDEO_GENERATE_PATH, api_key, method="POST", payload=payload)
-    video_id = result.get("data", {}).get("video_id")
+    data = result.get("data") if isinstance(result.get("data"), dict) else result
+    video_id = data.get("video_id") or data.get("id")
     if not video_id:
-        raise RuntimeError(f"HeyGen video/generate returned no video_id: {result}")
+        raise RuntimeError(f"HeyGen {VIDEO_GENERATE_PATH} returned no video_id: {result}")
 
     state["video_id"] = video_id
     state["status"] = "rendering"
