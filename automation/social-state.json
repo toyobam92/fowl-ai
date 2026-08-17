@@ -68,10 +68,10 @@
       "avatar_id": "6df6bf1a920b4d17a48dda102ea85371",
       "look_name": "Burgundy Sleeveless, Light Pants",
       "platforms_published": {
-        "facebook": false,
-        "instagram": false,
+        "facebook": true,
+        "instagram": true,
         "tiktok": false,
-        "threads": false
+        "threads": true
       }
     }
   ]
