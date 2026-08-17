@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_topic_pick",
+  "status": "pr_open",
   "last_proposed": "2026-08-16",
   "publish_date": "2026-08-17",
   "tone": "casual-professional",
@@ -18,13 +18,31 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
-  "script": null,
-  "caption": null,
-  "picked_look": null,
-  "look_alternates": [],
+  "picked_topic": {
+    "title": "YC-backed AI startup offered job interviews for company tattoos, then apologized",
+    "why": "A blunt reminder of how brutal the AI-era hiring market has gotten -- job seekers are now the headline, not just the tools."
+  },
+  "script": "A YC-backed AI startup just offered job interviews in exchange for a permanent tattoo \u2014 and people actually did it.\n\nLemonLime, a Y Combinator-backed AI automation company, promised instant interviews to anyone who got its logo permanently tattooed on their body. Seven applicants took the deal. After the backlash hit, CEO Jordan Zietz apologized on X, calling it \u2018poorly exercised judgement\u2019 and offering to pay for tattoo removal for anyone who wants it gone.\n\nThis is what the AI-era hiring market actually looks like right now \u2014 desperate enough that a startup thought permanent ink was a reasonable interview filter.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+  "caption": "A YC-backed AI startup offered job interviews for a permanent company tattoo \u2014 seven people did it before the CEO apologized. #AIStartups #HiringMarket #AINews #FutureOfWork #FOWLAI",
+  "picked_look": {
+    "avatar_id": "6df6bf1a920b4d17a48dda102ea85371",
+    "name": "Burgundy Sleeveless, Light Pants",
+    "image_url": "https://files2.heygen.ai/talking_photo/6df6bf1a920b4d17a48dda102ea85371/89000ca693cb4e0c8acba5193c8ec0e0.WEBP?Expires=1787538863&Signature=jwaRkFxAM617rtyRGQZUc1-3aw~AF42~INbbsSjGEtS6JjfwCQCPie9DwER6ekuDdGiFrovu3nnBuC86wCT9rlpPkzq0hopme2kkQTyg5pPJFyKnHPYUgH0CUT6gBUVWPCyEstCm2vxVpLeCT4DvOApA3Mb13NBbkSq3THZBGzqFhEXSe8DsF-exFDX5sczhkZ6E6AXXcCpQrnWEVX3qlk3Kge8Oz8qnmQLc3TLvwCMmYXrCjwPypg2qncz2Nk~XiUlmMbMCYZqjCxhsYf4LEEpVAkGrlUivnOoScg8o0749l38sJSKSsYcdoDnOJYnT5sMPXclW8lBKoMmRui~Cdw__&Key-Pair-Id=K38HBHX5LX3X2H"
+  },
+  "look_alternates": [
+    {
+      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
+      "name": "Too-Purple, Black-Bottomed",
+      "image_url": "https://files2.heygen.ai/talking_photo/1c940f18c71946c1a46bf1b48c6129c5/217baeed2ccc49f18656f6c1e7b90948.WEBP?Expires=1787538863&Signature=lLbp4tCknPs0VJrdLiZDPsXuKuhJiKkguvCyUjYqLwIk~ZiguVHcOqlcmeUXD7fwaulaeKrStC3rVF5v7T8Q7glNGzp~BWMTs4gCP1MZ4WikFoO9cHZXfmkZuhasz~Abz4SzNoCrSmtCxXLmJmIJOKX0D57QyxCLLCvAQ1yOBAdj8SeR8qakosMR6K23yb07DeiXuElPfWtkzS5UrTDCqVJJXh-R7ByA2XqVKdRpkAS76W7XoFq6KJDsk~bTCGPMYc5ryk9wyGCK5XrPKGAWvTosh0lXs4EfHF8mqgEeIU0wmEqxCf2dcD~seguJPo0OT~8i2onS-nRhXq-VFdJH8g__&Key-Pair-Id=K38HBHX5LX3X2H"
+    },
+    {
+      "avatar_id": "ce4ddc31e9844543af9129432ff350af",
+      "name": "Avatar in maroon sleeveless turtleneck",
+      "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP?Expires=1787538864&Signature=fsV4u6oCO1pJCJ7V0zD1VwMmkMGtB8fDVWbg1mgA00Pb8qJoYuk2JCBtfaCgZTZfajMmrFzuvP9Zqkr8jcIvi~Ucqc4E5a1nFkgF9zwYBQsrVmS5NQBcEZQVEUvBQ0A4kx12RAdYJSeo6MojfK~hmQ-pLXMcHvlh3WhDegJ91Z4sEfGqimXJ9b7rnXFh3FP0F4HMSQI091uIjmz7AvTTbzdltCHhuzJvbBJelx4SPw6Oa79ozvQT8IEDrMDIsD-JWH8mLcKBVInEVwQsOCLOCzd0ABtjBlG2J8X~dQDvDv-VMqJsVzjcqWc1s74HJB3iBDUUb5E76o4pAoHYSsqeXA__&Key-Pair-Id=K38HBHX5LX3X2H"
+    }
+  ],
   "pr_number": null,
-  "pr_branch": null,
+  "pr_branch": "update/nova-2026-08-17",
   "video_id": null,
-  "last_updated": "2026-08-16T00:00:00Z"
+  "last_updated": "2026-08-17T02:45:00Z"
 }
