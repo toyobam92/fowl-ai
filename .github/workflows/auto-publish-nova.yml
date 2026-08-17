@@ -10,7 +10,14 @@ name: auto-publish-nova
 
 on:
   schedule:
-    - cron: '0 12 * * *'
+    # 23:30 UTC = 7:30pm EDT / 6:30pm EST -- moved from 12:00 UTC (8am ET)
+    # on 2026-08-17 to target the evening leisure-scroll window instead of
+    # the morning commute; UTC-fixed, so it drifts an hour across DST but
+    # stays inside the 6-8pm ET evening band year-round. post_to_meta.py
+    # posts anything due on-or-after its publish_date, so a firing that
+    # slips past midnight UTC still posts (a day-late label, same ET
+    # evening). Reach before/after is being read in analytics/EXPERIMENTS.md.
+    - cron: '30 23 * * *'
   workflow_dispatch: {}
 
 permissions:

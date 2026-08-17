@@ -22,6 +22,7 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 | ["Start here" + related-issue links](#start-here--related-issue-links) | Pages / session | — | Planned |
 | [Sitewide event instrumentation](#sitewide-event-instrumentation) | % sessions with a tracked engagement event | 2026-07-16 | Reading |
 | [AI Glossary launch](#ai-glossary-launch) | Bounce rate / engagement on `/glossary/` | 2026-07-20 | Reading |
+| [Nova posting time: morning → evening](#nova-posting-time-morning--evening) | Per-post reach (platform insights) | 2026-08-17 | Reading |
 
 ---
 
@@ -98,3 +99,11 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Baseline:** Not available (new page).
 **Result:** Gate met (19 days since ship, 2 metrics-history rows since 2026-07-20–26). 1st read (2026-07-20–26): 8 views, 3 active users, 16.7% bounce rate, 39s avg. engagement time per active user, 17 events, 0 key events — lowest bounce of any page that week aside from Contact's 0%. 2nd read (2026-08-02–08): **0 views** — `/glossary/` didn't appear in the pages report at all this pull, down from 3 users the week before.
 **Decision:** Inconclusive — going from n=3 to n=0 users week-over-week says more about this page's traffic volume (no internal links point to it yet, so it depends entirely on incidental organic discovery) than about whether the content itself is "sticky." Can't evaluate the core hypothesis without traffic reaching the page in the first place; an internal link from a relevant issue or the homepage would be a reasonable next step before this is testable.
+
+## Nova posting time: morning → evening
+
+**Hypothesis:** Moving the Nova auto-publish slot from 8am ET (morning-commute scroll) to ~7:30pm ET (evening leisure scroll, the higher raw-consumption window for short vertical video) increases per-post reach and engagement on Facebook/Instagram/Threads.
+**Metric:** Per-post reach and engagement from each platform's own insights (FB Page / IG / Threads) — first entry in this log measured outside GA4, since posts live on-platform; GA4 social-referral sessions as a secondary signal.
+**Shipped:** 2026-08-17 — `auto-publish-nova.yml` cron moved `0 12 * * *` → `30 23 * * *` (7:30pm EDT / 6:30pm EST; UTC-fixed so it drifts an hour across DST but stays in the 6–8pm ET band).
+**Baseline:** All posts through 2026-08-17 went out at the morning slot (the 2026-08-17 post itself went out late, ~11:23am ET, due to the HeyGen v2-endpoint outage — treat it as neither slot). Small n: only a handful of morning-slot posts exist, so early reads are directional only, same caveat as everything else in this log at current audience size.
+**Status:** Reading — compare a few weeks of evening-slot posts against the morning-slot posts during the weekly review before calling it.
