@@ -93,9 +93,21 @@ Target 100-160 words total (roughly 40-60 seconds spoken) so the rendered video 
 
 ## 4. Pick the look
 
-Fetch the Nova avatar group's looks: `GET https://api.heygen.com/v2/avatar_group/6eef573ef32844d8b881010bf917601f/avatars` with header `X-Api-Key: $HEYGEN_API_KEY` (available in this routine's environment). Each entry has `id`, `name`, `image_url`, `default_voice_id`, `is_motion`.
+Fetch the Nova looks: `GET https://api.heygen.com/v3/avatars/looks?ownership=private&limit=50` with header `X-Api-Key: $HEYGEN_API_KEY`, paginating on `next_token`, then filter locally to `group_id == 6eef573ef32844d8b881010bf917601f`. (The old `/v2/avatar_group/<id>/avatars` endpoint started 401ing on 2026-08-17, well before its published 2026-10-31 sunset. On v3 the `group_id` query param silently returns zero items and `avatar_group_id` is rejected outright — both verified 2026-08-18 — so the local filter is the only one that works.) Entries carry `id`, `name`, `preview_image_url` (store it as `image_url` in state) — **but v3 dropped `is_motion` and `default_voice_id` entirely; neither can be fetched anymore.**
 
-**First, filter to `is_motion: true` looks only — this is not optional.** Of the group's ~87 looks, only a handful are true motion avatars (full animated expression/cadence); the rest are static "talking photo" avatars that just animate a still image's mouth over the audio, producing noticeably flatter, more mechanical delivery. This bit the pipeline's first fully-automated pick on 2026-08-14 ("Lavender Sweater," a static look, got selected purely because its name matched the tone) and Toyo flagged the result as visibly off — wrong cadence, teeth, energy. Discard every non-motion look before doing anything else below.
+This fetch's only remaining job is fresh signed `preview_image_url`s for the preview message. If `HEYGEN_API_KEY` is missing from this routine's environment (it was on 2026-08-18 and killed that run), don't let that stop the pick: fall back to the HeyGen MCP connector's `list_avatar_looks` (groupId filter) if connected, or reuse the newest `image_url`s already recorded in `nova-pipeline-state.json` / the latest `automation/nova-previews/*.md`. Only notify-and-stop if the *pick itself* is impossible, not because image URLs are stale.
+
+**First, filter to motion-capable looks only — this is not optional.** Of the group's ~87 looks, only a handful are true motion avatars (full animated expression/cadence); the rest are static "talking photo" avatars that just animate a still image's mouth over the audio, producing noticeably flatter, more mechanical delivery. This bit the pipeline's first fully-automated pick on 2026-08-14 ("Lavender Sweater," a static look, got selected purely because its name matched the tone) and Toyo flagged the result as visibly off — wrong cadence, teeth, energy.
+
+Because v3 no longer reports `is_motion`, motion-capability now comes from this **verified allowlist** (confirmed from v2 `is_motion` data and real rendered output before the field disappeared) — pick ONLY from it:
+
+- `06c45b55396142b4930282c658142c0f` — Avatar in a pink sweater
+- `6df6bf1a920b4d17a48dda102ea85371` — Burgundy Sleeveless, Light Pants
+- `ce4ddc31e9844543af9129432ff350af` — Avatar in maroon sleeveless turtleneck
+- `f355b07c213c4190a2207050c78d93b5` — The Studio-Lit Bookshelf Figure
+- `1c940f18c71946c1a46bf1b48c6129c5` — Too-Purple, Black-Bottomed
+
+Treat every other look in the group as static until it's been verified in the HeyGen app (motion badge on the look) and added here — extending this list is the only way to widen the rotation now.
 
 Within that motion-capable subset, pick one look whose `name` reads as fitting today's `tone`:
 - `casual-professional` → simple tops, sweaters, everyday pieces (avoid anything named "Blazer," "Collared," "Button-Up," "Vest" — those read more formal).
