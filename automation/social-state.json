@@ -73,6 +73,22 @@
         "tiktok": false,
         "threads": true
       }
+    },
+    {
+      "day": "Wednesday",
+      "publish_date": "2026-08-19",
+      "topic": "OpenAI's IPO filing could land within weeks",
+      "script": "OpenAI's public IPO filing could land within weeks \u2014 and it would set up the largest tech listing in history.\n\nThe company confidentially filed its S-1 with the SEC back in June, with Goldman Sachs and Morgan Stanley steering toward a fall debut. A listing could value OpenAI above one trillion dollars, up from its last private valuation of 852 billion. The revenue behind it: roughly two billion dollars every month \u2014 though OpenAI is still unprofitable, losing about a dollar twenty for every dollar it earns.\n\nOnce that filing goes public, it's the first real look inside ChatGPT's business \u2014 and public-market scrutiny will shape how every AI tool you rely on gets priced.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "OpenAI's IPO filing could go public within weeks \u2014 $2B a month in revenue, an $852B private valuation, and it still loses money on every dollar it earns. #OpenAI #IPO #AINews #FutureOfWork #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/5d3f6ddafeae4181abfe7b9bf46a502f.mp4?Expires=1787625202&Signature=dG0zOxYbGB7WFwn39tsZsL8tnlRSYz1jeI3kXnsoZBHzCk47QhH7oBpldmh6PHocOmUfqx9FCfh3thII~LaSfwup8J5iln9jIa6IOzGIwJ1nUWb4gJMVUb1aj-Q-vZ-CrKOCM9FeUsV9qnXOYFQ7ZJAzsWoV~2nqzqQ2bWeS5OFOYzwai1s0VRZ17x2q2fShcUULaii1b153fAGE74WjGqr9rzUgRbXi8XuSE68Fa8u5VDWFs2~DwjzPPWeNfx7HPe5PX3wYp98zdurs-j1iSnQpGRLOFXJspL2Mb0~7aRTSt9aiMth6YwrNiamDtiNErSJmmH49oc05hrv41KV78w__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "ce4ddc31e9844543af9129432ff350af",
+      "look_name": "Avatar in maroon sleeveless turtleneck",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }

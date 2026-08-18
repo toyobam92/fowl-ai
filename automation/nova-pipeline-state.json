@@ -1,45 +1,17 @@
 {
-  "status": "rendering",
+  "status": "idle",
   "last_proposed": "2026-08-18",
-  "publish_date": "2026-08-19",
-  "tone": "professional",
-  "topics": [
-    {
-      "title": "Google ships Gemini 3.7 Flash",
-      "why": "A faster, cheaper flagship-tier model changes what knowledge workers can run on tight budgets starting now."
-    },
-    {
-      "title": "OpenAI's IPO filing could land within weeks",
-      "why": "The S-1 will finally show whether ChatGPT's business is actually profitable, reshaping expectations for every AI subscription tool."
-    },
-    {
-      "title": "Jeff Dean exits Google to launch his own AI startup",
-      "why": "When the architect of Google's AI stack walks to found a rival, it signals where AI talent and the next wave of tools are headed."
-    }
-  ],
+  "publish_date": null,
+  "tone": null,
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": "OpenAI's IPO filing could land within weeks",
-  "script": "OpenAI's public IPO filing could land within weeks \u2014 and it would set up the largest tech listing in history.\n\nThe company confidentially filed its S-1 with the SEC back in June, with Goldman Sachs and Morgan Stanley steering toward a fall debut. A listing could value OpenAI above one trillion dollars, up from its last private valuation of 852 billion. The revenue behind it: roughly two billion dollars every month \u2014 though OpenAI is still unprofitable, losing about a dollar twenty for every dollar it earns.\n\nOnce that filing goes public, it's the first real look inside ChatGPT's business \u2014 and public-market scrutiny will shape how every AI tool you rely on gets priced.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
-  "caption": "OpenAI's IPO filing could go public within weeks \u2014 $2B a month in revenue, an $852B private valuation, and it still loses money on every dollar it earns. #OpenAI #IPO #AINews #FutureOfWork #FOWLAI",
-  "picked_look": {
-    "avatar_id": "ce4ddc31e9844543af9129432ff350af",
-    "name": "Avatar in maroon sleeveless turtleneck",
-    "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP?Expires=1787538864&Signature=fsV4u6oCO1pJCJ7V0zD1VwMmkMGtB8fDVWbg1mgA00Pb8qJoYuk2JCBtfaCgZTZfajMmrFzuvP9Zqkr8jcIvi~Ucqc4E5a1nFkgF9zwYBQsrVmS5NQBcEZQVEUvBQ0A4kx12RAdYJSeo6MojfK~hmQ-pLXMcHvlh3WhDegJ91Z4sEfGqimXJ9b7rnXFh3FP0F4HMSQI091uIjmz7AvTTbzdltCHhuzJvbBJelx4SPw6Oa79ozvQT8IEDrMDIsD-JWH8mLcKBVInEVwQsOCLOCzd0ABtjBlG2J8X~dQDvDv-VMqJsVzjcqWc1s74HJB3iBDUUb5E76o4pAoHYSsqeXA__&Key-Pair-Id=K38HBHX5LX3X2H"
-  },
-  "look_alternates": [
-    {
-      "avatar_id": "f355b07c213c4190a2207050c78d93b5",
-      "name": "The Studio-Lit Bookshelf Figure",
-      "image_url": "https://files2.heygen.ai/talking_photo/f355b07c213c4190a2207050c78d93b5/e607df35ab1742b1a6a9ebc78197ecc1.WEBP?Expires=1787538863&Signature=FcvmeVq2A7Qy7TQ-V8rnETHd4BH~mXhClcHbvgyGdlybUoOZflDY3tmdTtNd2LGi5l-U8SEni0Gz9GRUuuclRpNEn5z7sG7G8I7j1TYvc3wO1l2M1k0UcmRaRNbDwvr-VYhwpDA0~xb~f7k2kkqJFTDhjHc~QrMBaCfDCpVZCb7fg6OPry~E1Sni5vv2M4Bj6AzLsl4GIV3cDcurqIrEXPxesIk8DniKvkfAdAdxZM-sLU4HyHWPyw81t7QMJUycAw1OcRAoZUz7z6FswnSX9LHMkE36d3RMmbKBwTonRmazkFEPN9J6fuQyR2j3ePqigspE-nrDfQIXRQIUQHssJQ__&Key-Pair-Id=K38HBHX5LX3X2H"
-    },
-    {
-      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
-      "name": "Too-Purple, Black-Bottomed",
-      "image_url": "https://files2.heygen.ai/talking_photo/1c940f18c71946c1a46bf1b48c6129c5/217baeed2ccc49f18656f6c1e7b90948.WEBP?Expires=1787538863&Signature=lLbp4tCknPs0VJrdLiZDPsXuKuhJiKkguvCyUjYqLwIk~ZiguVHcOqlcmeUXD7fwaulaeKrStC3rVF5v7T8Q7glNGzp~BWMTs4gCP1MZ4WikFoO9cHZXfmkZuhasz~Abz4SzNoCrSmtCxXLmJmIJOKX0D57QyxCLLCvAQ1yOBAdj8SeR8qakosMR6K23yb07DeiXuElPfWtkzS5UrTDCqVJJXh-R7ByA2XqVKdRpkAS76W7XoFq6KJDsk~bTCGPMYc5ryk9wyGCK5XrPKGAWvTosh0lXs4EfHF8mqgEeIU0wmEqxCf2dcD~seguJPo0OT~8i2onS-nRhXq-VFdJH8g__&Key-Pair-Id=K38HBHX5LX3X2H"
-    }
-  ],
-  "pr_number": 26,
-  "pr_branch": "update/nova-2026-08-19",
-  "video_id": "5d3f6ddafeae4181abfe7b9bf46a502f",
+  "picked_topic": null,
+  "script": null,
+  "caption": null,
+  "picked_look": null,
+  "look_alternates": [],
+  "pr_number": null,
+  "pr_branch": null,
+  "video_id": null,
   "last_updated": "2026-08-18T02:15:00Z"
 }
