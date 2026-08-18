@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-08-16",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-08-18",
+  "publish_date": "2026-08-19",
+  "tone": "professional",
+  "topics": [
+    {
+      "title": "Google ships Gemini 3.7 Flash",
+      "why": "A faster, cheaper flagship-tier model changes what knowledge workers can run on tight budgets starting now."
+    },
+    {
+      "title": "OpenAI's IPO filing could land within weeks",
+      "why": "The S-1 will finally show whether ChatGPT's business is actually profitable, reshaping expectations for every AI subscription tool."
+    },
+    {
+      "title": "Jeff Dean exits Google to launch his own AI startup",
+      "why": "When the architect of Google's AI stack walks to found a rival, it signals where AI talent and the next wave of tools are headed."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-08-17T15:00:00Z"
+  "last_updated": "2026-08-18T00:20:00Z"
 }
