@@ -52,32 +52,11 @@ def heygen_request(path, api_key, method="GET", payload=None):
         raise RuntimeError(f"HeyGen {method} {path} failed ({e.code}): {body}") from e
 
 
-def find_voice_id(api_key, avatar_id):
-    """Look up the look's own default_voice_id rather than assuming every
-    look in the group shares one -- confirmed most do, but no reason to
-    hardcode past what the API actually reports for the specific look.
-
-    Non-fatal on purpose: this lookup (not the render call) is what 401'd
-    on 2026-08-17 and killed the whole submission, and every look in the
-    Nova group reports the same default_voice_id as FALLBACK_VOICE_ID
-    (verified against the live group that day), so losing the lookup
-    should never cost us the render."""
-    try:
-        result = heygen_request(f"/v3/avatars/looks?group_id={NOVA_GROUP_ID}", api_key)
-    except RuntimeError as e:
-        print(f"Voice lookup failed, using fallback voice {FALLBACK_VOICE_ID}: {e}")
-        return FALLBACK_VOICE_ID
-    data = result.get("data")
-    looks = (
-        result.get("items")
-        or (data.get("items") if isinstance(data, dict) else None)
-        or (data if isinstance(data, list) else None)
-        or []
-    )
-    for look in looks:
-        if look.get("id") == avatar_id:
-            return look.get("default_voice_id") or FALLBACK_VOICE_ID
-    return FALLBACK_VOICE_ID
+# No per-look voice lookup anymore: v2's avatar_group listing (which
+# carried default_voice_id) is dead, and v3's /v3/avatars/looks response
+# includes no voice field at all (verified 2026-08-18). Every look in the
+# Nova group shared the same default_voice_id when that data was last
+# visible (2026-08-17), and it's pinned here as FALLBACK_VOICE_ID.
 
 
 def main():
@@ -106,7 +85,7 @@ def main():
     if SIGN_OFF not in script:
         script = script.rstrip() + "\n\n" + SIGN_OFF
 
-    voice_id = find_voice_id(api_key, avatar_id)
+    voice_id = FALLBACK_VOICE_ID
 
     payload = {
         "type": "avatar",
