@@ -96,5 +96,8 @@ jobs:
           if ! git diff --cached --quiet; then
             git commit -m "Record Nova PR #${PR_NUMBER} for ${PUBLISH_DATE}"
             git pull --rebase origin main
-            git push
+            # Bare `git push` fails here with exit 128: this job checks out a
+            # freshly-created local main with no upstream configured. Broke
+            # the pr_number patch on both real runs (2026-08-17, 2026-08-18).
+            git push origin main
           fi
