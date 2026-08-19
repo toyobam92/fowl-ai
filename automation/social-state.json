@@ -84,10 +84,10 @@
       "avatar_id": "ce4ddc31e9844543af9129432ff350af",
       "look_name": "Avatar in maroon sleeveless turtleneck",
       "platforms_published": {
-        "facebook": false,
-        "instagram": false,
+        "facebook": true,
+        "instagram": true,
         "tiktok": false,
-        "threads": false
+        "threads": true
       }
     }
   ]
