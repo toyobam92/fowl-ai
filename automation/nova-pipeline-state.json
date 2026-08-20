@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-08-18",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-08-20",
+  "publish_date": "2026-08-21",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Anthropic's $2 Trillion IPO Push",
+      "why": "If Anthropic's October IPO lands anywhere near investors' $2 trillion target, it'd be the largest IPO in history -- a real signal of how much growth investors think is still ahead for AI."
+    },
+    {
+      "title": "Google Hands Its Agent Protocol to a Neutral Foundation",
+      "why": "Google just moved its Agent2Agent (A2A) protocol under the same open foundation as MCP, a step toward AI agents from different vendors actually being able to talk to each other instead of staying siloed in one company's tools."
+    },
+    {
+      "title": "A YC Startup's AI Worker-Surveillance Backlash",
+      "why": "Optifye.ai's demo of AI cameras tracking factory workers in real time went viral and drew fierce backlash this week -- a preview of the reckoning any company deploying AI monitoring tools should expect."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-08-18T02:15:00Z"
+  "last_updated": "2026-08-20T00:00:00Z"
 }
