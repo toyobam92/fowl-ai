@@ -23,6 +23,7 @@ on:
   push:
     branches:
       - 'update/nova-*'
+      - 'update/engage-*'
 
 permissions:
   contents: write
@@ -46,6 +47,20 @@ jobs:
           EXISTING=$(gh pr list --repo "$GITHUB_REPOSITORY" --head "$BRANCH" --json number --jq '.[0].number // empty')
           if [ -n "$EXISTING" ]; then
             echo "PR #$EXISTING already exists for $BRANCH -- nothing to do."
+            exit 0
+          fi
+
+          # update/engage-* branches (engagement-comments skill) reuse this
+          # workflow's PR-opener; they get a generic title and skip the
+          # nova-state pr_number patch below.
+          if [[ "$BRANCH" == update/engage-* ]]; then
+            BATCH_DATE="${BRANCH#update/engage-}"
+            PR_URL=$(gh pr create \
+              --repo "$GITHUB_REPOSITORY" \
+              --title "Engagement comments — ${BATCH_DATE}" \
+              --body "Proposed engagement comments for ${BATCH_DATE}. Preview in automation/engagement-previews/${BATCH_DATE}.md. Reply \"APPROVE <PR#>\" to merge and post." \
+              --head "$BRANCH" --base main)
+            echo "Opened PR ${PR_URL##*/} for $BRANCH"
             exit 0
           fi
 

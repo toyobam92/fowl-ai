@@ -1,0 +1,19 @@
+{
+  "_readme": "Target accounts for the engagement-comments skill (see .claude/skills/engagement-comments). Handles are best-effort as of 2026-08-18 -- the drafting routine verifies each handle/post via web search before proposing a comment, so a stale handle costs nothing. Edit freely; tier: 'brand' = official company accounts (comment when they ship something relevant to knowledge workers), 'creator' = AI educators/newsletter authors whose audience overlaps FOWL AI's.",
+  "targets": [
+    {"name": "OpenAI", "tier": "brand", "threads": "openai", "instagram": "openai", "why": "Highest-visibility launches; comment when a ship affects everyday work tools."},
+    {"name": "Anthropic", "tier": "brand", "threads": "anthropicai", "instagram": "anthropicai", "why": "Claude launches and research posts with strong professional audience."},
+    {"name": "Perplexity", "tier": "brand", "threads": "perplexity.ai", "instagram": "perplexity.ai", "why": "Search/answers product loved by knowledge workers."},
+    {"name": "HeyGen", "tier": "brand", "threads": "heygen_official", "instagram": "heygen_official", "why": "Our own video stack; natural affinity comments."},
+    {"name": "Canva", "tier": "brand", "threads": "canva", "instagram": "canva", "why": "Huge non-technical professional audience adopting AI features."},
+    {"name": "Notion", "tier": "brand", "threads": "notionhq", "instagram": "notionhq", "why": "AI-in-productivity posts land exactly on FOWL AI's beat."},
+    {"name": "Zapier", "tier": "brand", "threads": "zapier", "instagram": "zapier", "why": "Automation-for-work content; overlaps our audience directly."},
+    {"name": "Hugging Face", "tier": "brand", "threads": "huggingface", "instagram": "huggingface", "why": "Open-source AI news; more technical but high engagement."},
+    {"name": "Rowan Cheung (The Rundown AI)", "tier": "creator", "threads": "rowancheung", "instagram": "rowancheung", "why": "Largest dedicated AI newsletter (~2M subs); daily AI news posts."},
+    {"name": "Zain Kahn (Superhuman AI)", "tier": "creator", "threads": "heykahn", "instagram": "heykahn", "why": "1.5M-sub newsletter aimed at busy professionals -- closest audience overlap."},
+    {"name": "Matt Wolfe (Future Tools)", "tier": "creator", "threads": "mreflow", "instagram": "mreflow", "why": "AI tool discovery content; practical-tools angle matches ours."},
+    {"name": "Allie K. Miller", "tier": "creator", "threads": "alliekmiller", "instagram": "alliekmiller", "why": "AI-for-business-leadership voice; professional audience."},
+    {"name": "Greg Isenberg", "tier": "creator", "threads": "gregisenberg", "instagram": "gregisenberg", "why": "AI business models and startup ideas; high-engagement discussions."},
+    {"name": "Zack Kass", "tier": "creator", "threads": "zackkass", "instagram": "zackkass", "why": "Former OpenAI GTM; future-of-work keynote content."}
+  ]
+}

@@ -104,6 +104,7 @@ jobs:
               is_issue = head_ref.startswith("draft/issue-")
               is_social = head_ref.startswith("update/social-")
               is_nova = head_ref.startswith("update/nova-")
+              is_engage = head_ref.startswith("update/engage-")
 
               if is_nova:
                   # Unlike SCHEDULE/PUBLISH, this fires immediately on
@@ -138,6 +139,34 @@ jobs:
                       f"still need to post it to TikTok manually (no headless path "
                       f"exists for it)."
                   )
+                  raise SystemExit(0)
+
+              if is_engage:
+                  # Same merge-is-the-gate pattern as is_nova: the APPROVE that
+                  # merged the batch is the authorization to post it. Threads
+                  # replies go out via API; everything else comes back as a
+                  # manual checklist in the notification. See
+                  # .claude/skills/engagement-comments.
+                  subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+                  result = subprocess.run(
+                      ["python3", "automation/post_engagement_comments.py"],
+                      capture_output=True, text=True,
+                  )
+                  print(result.stdout)
+                  print(result.stderr)
+                  if result.returncode != 0:
+                      err = (result.stderr or result.stdout).strip()[:300]
+                      notify(f"✅ Merged PR #{pr}. ❌ But posting the comments failed: {err}")
+                      raise SystemExit(0)
+                  subprocess.run(["git", "config", "user.email", "actions@github.com"], check=True)
+                  subprocess.run(["git", "config", "user.name", "github-actions"], check=True)
+                  subprocess.run(["git", "add", "automation/engagement-state.json"], check=True)
+                  staged = subprocess.run(["git", "diff", "--cached", "--quiet"])
+                  if staged.returncode != 0:
+                      subprocess.run(["git", "commit", "-m", f"Engagement comments posted for PR #{pr}"], check=True)
+                      subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+                      subprocess.run(["git", "push"], check=True)
+                  notify(f"✅ Merged PR #{pr}.\n{result.stdout.strip()[:3300]}")
                   raise SystemExit(0)
 
               if is_issue:
