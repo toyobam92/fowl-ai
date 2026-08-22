@@ -103,11 +103,12 @@
       "avatar_id": "f355b07c213c4190a2207050c78d93b5",
       "look_name": "The Studio-Lit Bookshelf Figure",
       "platforms_published": {
-        "facebook": false,
-        "instagram": false,
+        "facebook": true,
+        "instagram": true,
         "tiktok": false,
-        "threads": false
-      }
+        "threads": true
+      },
+      "posted_at": "2026-08-22T23:48:48+00:00"
     }
   ]
 }
