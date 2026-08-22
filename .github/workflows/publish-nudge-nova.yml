@@ -1,0 +1,70 @@
+name: publish-nudge-nova
+
+# Two hours before the daily auto-publish window (23:30 UTC), check whether
+# today's Nova episode is actually ready to go out -- and say something if
+# it isn't.
+#
+# Why this exists: on 2026-08-21 the "APPROVE 29" reply landed ~3 hours
+# after the publish cron had already run. The video rendered fine, but its
+# window was gone, so it silently slipped to the next evening with nothing
+# anywhere announcing it. A nudge at 21:30 UTC turns that class of miss
+# into a two-hour heads-up while there's still time to approve.
+#
+# Quiet by design: only notifies when something needs attention. On off
+# days, and on days where the episode is already rendered and queued, this
+# posts nothing at all.
+
+on:
+  schedule:
+    - cron: '30 21 * * *'
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  nudge:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check whether today's episode is ready
+        id: check
+        run: |
+          set -euo pipefail
+          set +e
+          OUTPUT=$(python3 automation/check_publish_readiness.py)
+          echo "$OUTPUT"
+          set -e
+          RESULT_LINE=$(echo "$OUTPUT" | grep '^RESULT:' | tail -n1)
+          echo "kind=$(echo "$RESULT_LINE" | cut -d: -f2)" >> "$GITHUB_OUTPUT"
+          echo "detail=$(echo "$RESULT_LINE" | cut -d: -f3-)" >> "$GITHUB_OUTPUT"
+
+      - name: Nudge on Telegram if anything needs attention
+        if: steps.check.outputs.kind != 'ready' && steps.check.outputs.kind != 'none'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KIND: ${{ steps.check.outputs.kind }}
+          DETAIL: ${{ steps.check.outputs.detail }}
+        run: |
+          set -euo pipefail
+          case "$KIND" in
+            needs_approval)
+              MSG="⏳ Today's Nova video still needs your APPROVE — reply \"APPROVE ${DETAIL}\" within the next ~2 hours or it misses tonight's 7:30pm ET window and slips to tomorrow."
+              ;;
+            rendering)
+              MSG="⏳ Today's Nova video is approved but still rendering (video ${DETAIL}) with ~2 hours to the 7:30pm ET window. Renders normally finish in a few minutes, so this one may be stuck — worth a look."
+              ;;
+            needs_pick)
+              MSG="⏳ Today's Nova episode (${DETAIL}) still has no topic picked, so there's nothing to post tonight. Reply \"NOVA 1/2/3\" if you want it to go out."
+              ;;
+            overdue)
+              MSG="📌 Heads up: ${DETAIL} never posted on its own day and is still queued. It'll go out in tonight's 7:30pm ET window unless you say otherwise."
+              ;;
+            *)
+              MSG="⚠️ Nova publish readiness check returned an unexpected state (${KIND}: ${DETAIL})."
+              ;;
+          esac
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${MSG}" > /dev/null
