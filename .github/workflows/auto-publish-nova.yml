@@ -46,6 +46,7 @@ jobs:
           set -e
           RESULT_LINE=$(echo "$OUTPUT" | grep '^RESULT:' | tail -n1)
           echo "kind=$(echo "$RESULT_LINE" | cut -d: -f2)" >> "$GITHUB_OUTPUT"
+          echo "detail=$(echo "$RESULT_LINE" | cut -d: -f3-)" >> "$GITHUB_OUTPUT"
           exit 0
 
       - name: Commit any state changes
@@ -62,16 +63,27 @@ jobs:
           fi
 
       - name: Notify on post or failure
-        if: steps.publish.outputs.kind == 'posted' || steps.publish.outputs.kind == 'failed'
+        # 'stale' included: post_to_meta held something back as too old to
+        # ship on its own, which needs a human decision, not silence.
+        if: steps.publish.outputs.kind == 'posted' || steps.publish.outputs.kind == 'failed' || steps.publish.outputs.kind == 'stale'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           KIND: ${{ steps.publish.outputs.kind }}
+          DETAIL: ${{ steps.publish.outputs.detail }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
         run: |
           set -euo pipefail
           if [ "$KIND" = "posted" ]; then
-            MSG="✅ Nova's video for today auto-posted to Facebook + Threads + Instagram. Check ${RUN_URL} for detail."
+            # DETAIL is non-empty only when something posted after its
+            # scheduled date -- say so rather than implying it was on time.
+            if [ -n "$DETAIL" ]; then
+              MSG="✅ Nova's video auto-posted to Facebook + Threads + Instagram — but LATE: ${DETAIL}. Check ${RUN_URL} for detail."
+            else
+              MSG="✅ Nova's video for today auto-posted to Facebook + Threads + Instagram. Check ${RUN_URL} for detail."
+            fi
+          elif [ "$KIND" = "stale" ]; then
+            MSG="⏸️ Held back (too old to auto-post): ${DETAIL}. It won't post on its own — reply here if you want it posted anyway, or it can be dropped."
           else
             MSG="❌ Today's Nova auto-publish had a failure. Check ${RUN_URL} for detail -- nothing else was skipped, only the platform(s) that actually failed."
           fi

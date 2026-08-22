@@ -63,6 +63,10 @@ IG_POLL_INTERVAL_SECONDS = 5
 # explicit one here too is cheap insurance, not a fix for a confirmed issue.
 USER_AGENT = "fowlai-post-to-meta/1.0"
 
+# Post a missed slot if it's only a day late (AI news survives that);
+# anything staler is held for a human decision. See the days_late guard.
+MAX_DAYS_LATE = 1
+
 
 def load_state():
     with open(STATE_PATH, encoding="utf-8") as f:
@@ -248,8 +252,11 @@ def main():
     state = load_state()
     any_attempted = False
     any_failed = False
+    late_notes = []
+    stale_notes = []
 
-    today = datetime.date.today().isoformat()
+    today_date = datetime.date.today()
+    today = today_date.isoformat()
 
     for post in state.get("posts", []):
         # Label posts by whatever identifying fields they actually have --
@@ -286,6 +293,23 @@ def main():
         publish_date = post.get("publish_date")
         if publish_date and publish_date > today:
             print(f"{label}: scheduled for {publish_date}, not due yet -- skipping.")
+            continue
+
+        # How late is this? A slot can be missed entirely when the APPROVE
+        # (and therefore the render) lands after the publish window closes
+        # -- that happened for 2026-08-21, approved ~3h after the 7:30pm ET
+        # cron and posted the next evening with nothing saying so. One day
+        # late is still worth posting for AI news; staler than that gets
+        # held for a human call rather than quietly shipping old news.
+        days_late = 0
+        if publish_date:
+            try:
+                days_late = (today_date - datetime.date.fromisoformat(publish_date)).days
+            except ValueError:
+                days_late = 0
+        if days_late > MAX_DAYS_LATE:
+            stale_notes.append(f"{label} (scheduled {publish_date}, {days_late} days late)")
+            print(f"{label}: scheduled for {publish_date} -- {days_late} days late, holding for a decision instead of posting stale news.")
             continue
 
         if not post.get("video_path"):
@@ -325,6 +349,16 @@ def main():
                 any_failed = True
                 print(f"{label}: Instagram post FAILED -- {e}")
 
+        # Stamp when this actually went out. Without it social-state.json
+        # only carries the *scheduled* date, so a slipped post reads as if
+        # it went out on time -- which also silently pollutes the
+        # posting-time experiment in analytics/EXPERIMENTS.md.
+        if published.get("facebook") or published.get("threads") or published.get("instagram"):
+            post.setdefault("posted_at", datetime.datetime.now(datetime.timezone.utc).isoformat(timespec="seconds"))
+            if days_late > 0:
+                day_word = "day" if days_late == 1 else "days"
+                late_notes.append(f"{label} ({days_late} {day_word} late, scheduled {publish_date})")
+
     save_state(state)
 
     if not any_attempted:
@@ -333,10 +367,15 @@ def main():
     # Tagged summary line so callers (auto-publish-nova.yml) can decide
     # whether to notify without grepping prose output -- same pattern as
     # check_nova_render.py's RESULT: line.
+    detail = "; ".join(late_notes)
     if any_failed:
-        print("RESULT:failed:")
+        print(f"RESULT:failed:{detail}")
     elif any_attempted:
-        print("RESULT:posted:")
+        print(f"RESULT:posted:{detail}")
+    elif stale_notes:
+        # Nothing posted, but something is sitting there too stale to ship
+        # on its own -- that needs a human, not silence.
+        print(f"RESULT:stale:{'; '.join(stale_notes)}")
     else:
         print("RESULT:nothing:")
 
