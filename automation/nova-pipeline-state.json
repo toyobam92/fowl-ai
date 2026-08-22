@@ -1,47 +1,17 @@
 {
-  "status": "rendering",
+  "status": "idle",
   "last_proposed": "2026-08-20",
-  "publish_date": "2026-08-21",
-  "tone": "casual-professional",
-  "topics": [
-    {
-      "title": "OpenAI's Astra Solves 10 Decades-Old Math Problems for $2,000",
-      "why": "OpenAI's unreleased Astra model formally settled ten long-standing open problems in math and theoretical computer science, with full proof certificates, for about $2,000 in compute -- a preview of the reasoning power headed for every knowledge worker's toolkit."
-    },
-    {
-      "title": "AI Chipmaker Etched Doubles to $21B in a Month",
-      "why": "Etched's valuation doubled to $21 billion after quant trading firm Jane Street tested its inference chip, bought a rack, and led a $700M round -- a sign investors think the next AI bottleneck is hardware, not models."
-    },
-    {
-      "title": "YC AI Startup Offered Tattoos for Job Interviews",
-      "why": "LemonLime, a Y Combinator-backed AI startup, promised guaranteed interviews to anyone who got its logo tattooed on the spot -- seven people did before the backlash forced a public apology, a cautionary tale in how far AI-hype hiring stunts can go."
-    }
-  ],
-  "rejected_titles": [
-    "Anthropic's $2 Trillion IPO Push",
-    "Google Hands Its Agent Protocol to a Neutral Foundation",
-    "A YC Startup's AI Worker-Surveillance Backlash"
-  ],
-  "picked_topic": {
-    "title": "OpenAI's Astra Solves 10 Decades-Old Math Problems for $2,000",
-    "why": "OpenAI's unreleased Astra model formally settled ten long-standing open problems in math and theoretical computer science, with full proof certificates, for about $2,000 in compute -- a preview of the reasoning power headed for every knowledge worker's toolkit."
-  },
-  "script": "OpenAI's next model just did something wild -- solved ten math problems nobody's cracked in over a decade, and it cost about two thousand dollars.\n\nAstra, still unreleased, produced an explicit construction of a non-sofic group -- a question open since 1999 -- disproved Connes's rigidity conjecture on von Neumann algebras, and resolved three problems from Paul Erdos's famous list. OpenAI published a 249-page manuscript with machine-checked Lean 4 proof certificates on GitHub, and the verification count came back at zero errors. Total compute bill: roughly $2,000 at GPT-5.6 Sol API rates.\n\nIf reasoning this deep gets this cheap, every knowledge worker's toolkit is about to get a serious upgrade.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
-  "caption": "OpenAI's unreleased Astra model just solved 10 decades-old math problems for about $2,000 in compute -- a glimpse at where AI reasoning is headed next. #FOWLAI #AI #OpenAI #MathAI #AGI",
-  "picked_look": {
-    "avatar_id": "f355b07c213c4190a2207050c78d93b5",
-    "name": "The Studio-Lit Bookshelf Figure",
-    "image_url": "https://files2.heygen.ai/talking_photo/f355b07c213c4190a2207050c78d93b5/e607df35ab1742b1a6a9ebc78197ecc1.WEBP?Expires=1787538863&Signature=FcvmeVq2A7Qy7TQ-V8rnETHd4BH~mXhClcHbvgyGdlybUoOZflDY3tmdTtNd2LGi5l-U8SEni0Gz9GRUuuclRpNEn5z7sG7G8I7j1TYvc3wO1l2M1k0UcmRaRNbDwvr-VYhwpDA0~xb~f7k2kkqJFTDhjHc~QrMBaCfDCpVZCb7fg6OPry~E1Sni5vv2M4Bj6AzLsl4GIV3cDcurqIrEXPxesIk8DniKvkfAdAdxZM-sLU4HyHWPyw81t7QMJUycAw1OcRAoZUz7z6FswnSX9LHMkE36d3RMmbKBwTonRmazkFEPN9J6fuQyR2j3ePqigspE-nrDfQIXRQIUQHssJQ__&Key-Pair-Id=K38HBHX5LX3X2H"
-  },
-  "look_alternates": [
-    {
-      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
-      "name": "Too-Purple, Black-Bottomed",
-      "image_url": "https://files2.heygen.ai/talking_photo/1c940f18c71946c1a46bf1b48c6129c5/217baeed2ccc49f18656f6c1e7b90948.WEBP?Expires=1787538863&Signature=lLbp4tCknPs0VJrdLiZDPsXuKuhJiKkguvCyUjYqLwIk~ZiguVHcOqlcmeUXD7fwaulaeKrStC3rVF5v7T8Q7glNGzp~BWMTs4gCP1MZ4WikFoO9cHZXfmkZuhasz~Abz4SzNoCrSmtCxXLmJmIJOKX0D57QyxCLLCvAQ1yOBAdj8SeR8qakosMR6K23yb07DeiXuElPfWtkzS5UrTDCqVJJXh-R7ByA2XqVKdRpkAS76W7XoFq6KJDsk~bTCGPMYc5ryk9wyGCK5XrPKGAWvTosh0lXs4EfHF8mqgEeIU0wmEqxCf2dcD~seguJPo0OT~8i2onS-nRhXq-VFdJH8g__&Key-Pair-Id=K38HBHX5LX3X2H"
-    }
-  ],
-  "pr_number": 29,
-  "pr_branch": "update/nova-2026-08-21",
-  "video_id": "fddc9d3a439b4ba88de7cd2659dc5d11",
+  "publish_date": null,
+  "tone": null,
+  "topics": [],
+  "rejected_titles": [],
+  "picked_topic": null,
+  "script": null,
+  "caption": null,
+  "picked_look": null,
+  "look_alternates": [],
+  "pr_number": null,
+  "pr_branch": null,
+  "video_id": null,
   "last_updated": "2026-08-20T20:00:00Z"
 }

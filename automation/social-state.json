@@ -89,6 +89,25 @@
         "tiktok": false,
         "threads": true
       }
+    },
+    {
+      "day": "Friday",
+      "publish_date": "2026-08-21",
+      "topic": {
+        "title": "OpenAI's Astra Solves 10 Decades-Old Math Problems for $2,000",
+        "why": "OpenAI's unreleased Astra model formally settled ten long-standing open problems in math and theoretical computer science, with full proof certificates, for about $2,000 in compute -- a preview of the reasoning power headed for every knowledge worker's toolkit."
+      },
+      "script": "OpenAI's next model just did something wild -- solved ten math problems nobody's cracked in over a decade, and it cost about two thousand dollars.\n\nAstra, still unreleased, produced an explicit construction of a non-sofic group -- a question open since 1999 -- disproved Connes's rigidity conjecture on von Neumann algebras, and resolved three problems from Paul Erdos's famous list. OpenAI published a 249-page manuscript with machine-checked Lean 4 proof certificates on GitHub, and the verification count came back at zero errors. Total compute bill: roughly $2,000 at GPT-5.6 Sol API rates.\n\nIf reasoning this deep gets this cheap, every knowledge worker's toolkit is about to get a serious upgrade.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
+      "caption": "OpenAI's unreleased Astra model just solved 10 decades-old math problems for about $2,000 in compute -- a glimpse at where AI reasoning is headed next. #FOWLAI #AI #OpenAI #MathAI #AGI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/fddc9d3a439b4ba88de7cd2659dc5d11.mp4?Expires=1787971288&Signature=VcohcfLBWXB9L0DQa0oNhyN8leGm5ELkLnjanx0ssFwat1aa~L84yWA6J7GMUI9-BOtsXYS7TojwqTwIfwifv-q8SesLmHg-DVlGMPqhnhUqJ6NM1ChcPZ2XCajGiWjEIKKkkJChkSnEkuVJ83Kg3Uo6biwW-CraLGbI~epe0XNHBIRHzMl~4ZiZs~m6aTVXP-PAgC6zfSbTdL0x0f5T~ur8HMU~F0DAyY690RX0xOWXqgQuhr5tN7g0lnqeAtqy0~XfnROS6LIMs5TrSd27j0ZoksasuJMFhvL62SBxYaQHE2htNHLQbtselIr-8ekraXbN0-J8-OwYDeiRxNjszQ__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "f355b07c213c4190a2207050c78d93b5",
+      "look_name": "The Studio-Lit Bookshelf Figure",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
