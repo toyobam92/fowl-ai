@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 17 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 14: AI skills now pay a 62% wage premium. Here's what it's actually pricing.</title>
+      <link>https://www.fowl-ai.com/issues/2026-08-24/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-08-24/</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <description>PwC's 2026 Global AI Jobs Barometer puts the AI skills wage premium at 62%, up from 57% last year. Upwork's freelance data and Writer's enterprise survey show the same split underneath the number: it follows workflow ownership, not tool fluency — plus the emerging "AI Orchestrator" title and the domain-expert eval tier paying 6-10x the generalist rate.</description>
+    </item>
     <item>
       <title>Issue 13: Stanford just measured the AI gap for young workers at 19%. Here's who's hiring around it.</title>
       <link>https://www.fowl-ai.com/issues/2026-08-17/</link>
