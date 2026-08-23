@@ -5,7 +5,7 @@
   "tone": "casual-professional",
   "topics": [
     {
-      "title": "Z.AI ships GLM-5.2 Turbo — the 11th major model release in 20 days",
+      "title": "Z.AI ships GLM-5.2 Turbo \u2014 the 11th major model release in 20 days",
       "why": "The model race has turned into a pure speed war, so the tool that's best for your workflow keeps changing almost weekly."
     },
     {
@@ -19,11 +19,11 @@
   ],
   "rejected_titles": [],
   "picked_topic": {
-    "title": "Z.AI ships GLM-5.2 Turbo — the 11th major model release in 20 days",
+    "title": "Z.AI ships GLM-5.2 Turbo \u2014 the 11th major model release in 20 days",
     "why": "The model race has turned into a pure speed war, so the tool that's best for your workflow keeps changing almost weekly."
   },
-  "script": "Eleven major AI model releases in twenty days — and the latest one just dropped from a company most people haven't heard of.\n\nZ.AI shipped GLM-5.2 Turbo on August 17th, the speed-tuned version of its flagship GLM-5.2 model. The base model already outperforms GPT-5.5 on key coding benchmarks while costing roughly a sixth of the price, runs a 1-million-token context window, and Z.AI open-sources the weights under MIT license within a week of release. Turbo trades a slice of raw capability for lower latency — built for the high-volume, user-facing stuff.\n\nIf you picked a favorite AI tool last month, it's probably already behind. The frontier is moving weekly now, not quarterly.\n\nI'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
-  "caption": "Z.AI just shipped GLM-5.2 Turbo — the 11th major model release in 20 days — beating GPT-5.5 on coding benchmarks at a sixth of the price. #AI #ZAI #GLM #AINews #FOWLAI",
+  "script": "Eleven major AI model releases in twenty days \u2014 and the latest one just dropped from a company most people haven't heard of.\n\nZ.AI shipped GLM-5.2 Turbo on August 17th, the speed-tuned version of its flagship GLM-5.2 model. The base model already outperforms GPT-5.5 on key coding benchmarks while costing roughly a sixth of the price, runs a 1-million-token context window, and Z.AI open-sources the weights under MIT license within a week of release. Turbo trades a slice of raw capability for lower latency \u2014 built for the high-volume, user-facing stuff.\n\nIf you picked a favorite AI tool last month, it's probably already behind. The frontier is moving weekly now, not quarterly.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+  "caption": "Z.AI just shipped GLM-5.2 Turbo \u2014 the 11th major model release in 20 days \u2014 beating GPT-5.5 on coding benchmarks at a sixth of the price. #AI #ZAI #GLM #AINews #FOWLAI",
   "picked_look": {
     "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
     "name": "Too-Purple, Black-Bottomed",
@@ -41,7 +41,7 @@
       "image_url": "https://files2.heygen.ai/talking_photo/6df6bf1a920b4d17a48dda102ea85371/89000ca693cb4e0c8acba5193c8ec0e0.WEBP?Expires=1787538863&Signature=jwaRkFxAM617rtyRGQZUc1-3aw~AF42~INbbsSjGEtS6JjfwCQCPie9DwER6ekuDdGiFrovu3nnBuC86wCT9rlpPkzq0hopme2kkQTyg5pPJFyKnHPYUgH0CUT6gBUVWPCyEstCm2vxVpLeCT4DvOApA3Mb13NBbkSq3THZBGzqFhEXSe8DsF-exFDX5sczhkZ6E6AXXcCpQrnWEVX3qlk3Kge8Oz8qnmQLc3TLvwCMmYXrCjwPypg2qncz2Nk~XiUlmMbMCYZqjCxhsYf4LEEpVAkGrlUivnOoScg8o0749l38sJSKSsYcdoDnOJYnT5sMPXclW8lBKoMmRui~Cdw__&Key-Pair-Id=K38HBHX5LX3X2H"
     }
   ],
-  "pr_number": null,
+  "pr_number": 33,
   "pr_branch": "update/nova-2026-08-24",
   "video_id": null,
   "last_updated": "2026-08-23T00:00:00Z"
