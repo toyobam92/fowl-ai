@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-08-20",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-08-23",
+  "publish_date": "2026-08-24",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Z.AI ships GLM-5.2 Turbo — the 11th major model release in 20 days",
+      "why": "The model race has turned into a pure speed war, so the tool that's best for your workflow keeps changing almost weekly."
+    },
+    {
+      "title": "Anthropic's IPO could land as early as October at a $2T+ valuation",
+      "why": "An AI lab most knowledge workers already use daily is about to become a public-market fixture, not just a startup story."
+    },
+    {
+      "title": "OpenAI swaps its chief revenue officer amid a wave of exec departures",
+      "why": "Leadership churn at the company behind ChatGPT is worth watching if your workflow leans on its roadmap staying steady."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-08-20T20:00:00Z"
+  "last_updated": "2026-08-23T00:00:00Z"
 }
