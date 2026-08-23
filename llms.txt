@@ -19,11 +19,11 @@ FOWL AI publishes a new issue every Monday covering AI jobs, training platforms,
 
 ## Latest Issues
 
+- [Issue 14: AI skills now pay a 62% wage premium. Here's what it's actually pricing.](https://www.fowl-ai.com/issues/2026-08-24/): PwC's 2026 Global AI Jobs Barometer puts the AI skills wage premium at 62%, up from 57% last year. Upwork's freelance data and Writer's enterprise survey show the same split underneath the number: it follows workflow ownership, not tool fluency — plus the emerging "AI Orchestrator" title and the domain-expert eval tier paying 6-10x the generalist rate.
 - [Issue 13: Stanford just measured the AI gap for young workers at 19%. Here's who's hiring around it.](https://www.fowl-ai.com/issues/2026-08-17/): Stanford's Digital Economy Lab and ADP Research's new Canaries Dashboard shows the AI-exposed employment gap for 22-25-year-olds has widened to 19%. Reddit's AI-native hiring push, Handshake's university-credentialed AI Fellowship, DoorDash's new gig-to-AI-training pipeline, and the entry-level title actually growing right now.
 - [Issue 12: Four 2026 studies just measured the same AI divide. Here's what the winning 6–21% do differently.](https://www.fowl-ai.com/issues/2026-08-11/): PwC, ServiceNow, McKinsey, and NTT DATA independently surveyed nearly 20,000 executives this year and found the same split. What separates the winners, the domain-expert money still flowing on the training side, and one new role built to close the gap.
 - [Issue 11: Hinton says 2026 brings the job losses. Here's the actual math behind that headline.](https://www.fowl-ai.com/issues/2026-08-03/): The METR capability curve actually behind Hinton's viral 2026 warning, what real payroll data already shows, the economist who reversed himself mid-year, and the specific 12-month plan for knowledge workers.
 - [Issue 10: There are two doors into a frontier AI lab. Only one is open to you.](https://www.fowl-ai.com/issues/2026-07-27/): Real 2026 hiring data from Anthropic, OpenAI, and Perplexity — named hires, a program with a published 40%+ conversion rate, and the honest odds behind the "no traditional background" success stories.
-- [Issue 9: LLMs. Agents. MCP. RAG. What do these terms actually mean?](https://www.fowl-ai.com/issues/2026-07-20/): Plain-English breakdown of the 5 AI terms people keep hearing but nobody explains — LLM, Agent, MCP, RAG, and Context Window.
 
 ## Optional
 
