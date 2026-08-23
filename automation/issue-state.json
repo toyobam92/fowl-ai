@@ -1,6 +1,6 @@
 {
   "week_of": "2026-08-24",
-  "status": "awaiting_pick",
+  "status": "drafting",
   "last_proposed": "2026-08-23",
   "topics": [
     {
@@ -25,7 +25,7 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
+  "picked_topic": "The 56% AI skills premium, and what's actually driving it",
   "pr_number": null,
   "last_updated": "2026-08-23"
 }
