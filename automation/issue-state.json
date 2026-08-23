@@ -1,10 +1,31 @@
 {
-  "week_of": null,
-  "status": "idle",
-  "last_proposed": "2026-08-16",
-  "topics": [],
+  "week_of": "2026-08-24",
+  "status": "awaiting_pick",
+  "last_proposed": "2026-08-23",
+  "topics": [
+    {
+      "title": "The entry-level AI squeeze",
+      "why": "Goldman Sachs' newest labor-market data shows AI-exposed industries (call centers, software publishing, consulting, ad services) seeing job openings growth fall below historical trends -- and junior roles are absorbing most of the hit."
+    },
+    {
+      "title": "From assistant to agent: enterprise AI stops answering and starts doing",
+      "why": "OpenAI reports enterprise Codex usage up 108x in legal, 41x in sales and recruiting, and 26x in marketing since February -- the shift from AI-that-answers to AI-that-executes is now visible in the numbers, not just the pitch decks."
+    },
+    {
+      "title": "The AI trainer gig economy grows up",
+      "why": "Mercor's $350M raise at a ~$10B valuation and the shift toward credentialed domain experts ($90-250+/hr in law, medicine, finance) mark a real pivot away from flat-rate RLHF toward expert-gated, higher-stakes eval work."
+    },
+    {
+      "title": "The confidence gap: adoption is outrunning trust",
+      "why": "57% of enterprises now have AI embedded in core processes (up from 35% a year ago), but 79% say AI's speed is outpacing their workforce and governance models -- a split worth naming plainly for anyone building inside that gap."
+    },
+    {
+      "title": "The 56% AI skills premium, and what's actually driving it",
+      "why": "Workers with advanced AI skills now earn 56% more than peers in the same role, and AI-fluency demand is growing ~20x faster than the job market overall -- the premium is real, but the 'super-user' data suggests it's about workflow ownership, not tool fluency alone."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": "2026-08-16"
+  "last_updated": "2026-08-23"
 }
