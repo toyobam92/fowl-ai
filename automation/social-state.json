@@ -109,6 +109,25 @@
         "threads": true
       },
       "posted_at": "2026-08-22T23:48:48+00:00"
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-08-24",
+      "topic": {
+        "title": "Z.AI ships GLM-5.2 Turbo \u2014 the 11th major model release in 20 days",
+        "why": "The model race has turned into a pure speed war, so the tool that's best for your workflow keeps changing almost weekly."
+      },
+      "script": "Eleven major AI model releases in twenty days \u2014 and the latest one just dropped from a company most people haven't heard of.\n\nZ.AI shipped GLM-5.2 Turbo on August 17th, the speed-tuned version of its flagship GLM-5.2 model. The base model already outperforms GPT-5.5 on key coding benchmarks while costing roughly a sixth of the price, runs a 1-million-token context window, and Z.AI open-sources the weights under MIT license within a week of release. Turbo trades a slice of raw capability for lower latency \u2014 built for the high-volume, user-facing stuff.\n\nIf you picked a favorite AI tool last month, it's probably already behind. The frontier is moving weekly now, not quarterly.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "Z.AI just shipped GLM-5.2 Turbo \u2014 the 11th major model release in 20 days \u2014 beating GPT-5.5 on coding benchmarks at a sixth of the price. #AI #ZAI #GLM #AINews #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/3f62759d2a60419799a37bf62183d99e.mp4?Expires=1788213944&Signature=FWmKdHgzJOMVNPOlImoAFlXmcrvVqGFYDlPPCyKr67XJVCna6fFnGS9nQCTpJYLowBX-gzuyUOohqkxdrZi-aTGQOHdN9Ohk7eRCt-yved96IiMh3RJg-6YtylY5sunQJK3Ot2zPdoOhCbNtxpFudXktaqm7axEK2r2xvU2C7bWUzbaa19ols3y6ljQje3TXNIil6sY4OVyCEI2ZLxx20F0tv~OzZjUBYULEHy91sduZjE27~cLPfgsge~cbVkx-qaeqQ7i6i1Gm1ho3AHZju4yHBXFRc75qeGl7yI6J25ZmPS2dihGM9RpSsAnOA4-L0FPurPBLqPZZr2NUnAHNfA__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
+      "look_name": "Too-Purple, Black-Bottomed",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
