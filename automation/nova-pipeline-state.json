@@ -5,19 +5,23 @@
   "tone": "professional",
   "topics": [
     {
-      "title": "Anthropic eyes a $2 trillion IPO valuation for an October debut",
-      "why": "If it lands, it would be one of the largest tech IPOs ever and shows how fast enterprise AI spending is repricing the whole market knowledge workers operate in."
+      "title": "Nvidia is in talks to invest in Perplexity at a $30B+ valuation",
+      "why": "It'd be a 50%+ jump from Perplexity's ~$20B round a year ago, and shows chipmakers now betting directly on the AI apps built on top of their hardware."
     },
     {
-      "title": "Z.ai's open-weight GLM-5.3 just found 1,000+ real security bugs in production software",
-      "why": "An open coding model doing bug-hunting at that scale signals AI moving from writing code to auditing it -- worth tracking for anyone in engineering or security."
+      "title": "Anthropic starts watermarking all of Claude's output worldwide under new EU AI Act rules",
+      "why": "Every Claude text response and supported image now carries machine-readable provenance -- a preview of the disclosure standards knowledge workers using any AI tool will soon have to live with."
     },
     {
-      "title": "Anthropic's Dario Amodei pushes back on claims his AI-safety warnings are fueling the backlash",
-      "why": "The industry's fight over its own safety messaging is becoming as consequential as the technology itself, shaping the policy environment knowledge workers will operate under."
+      "title": "Google ships Gemini 3.7 Flash, halving the price while jumping 16 points on coding benchmarks",
+      "why": "A cheaper, sharper model landing just 23 days after its predecessor shows how fast the cost of AI-assisted coding is falling for teams shipping software."
     }
   ],
-  "rejected_titles": [],
+  "rejected_titles": [
+    "Anthropic eyes a $2 trillion IPO valuation for an October debut",
+    "Z.ai's open-weight GLM-5.3 just found 1,000+ real security bugs in production software",
+    "Anthropic's Dario Amodei pushes back on claims his AI-safety warnings are fueling the backlash"
+  ],
   "picked_topic": null,
   "script": null,
   "caption": null,
