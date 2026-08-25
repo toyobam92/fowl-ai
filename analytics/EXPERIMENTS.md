@@ -23,6 +23,7 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 | [Sitewide event instrumentation](#sitewide-event-instrumentation) | % sessions with a tracked engagement event | 2026-07-16 | Reading |
 | [AI Glossary launch](#ai-glossary-launch) | Bounce rate / engagement on `/glossary/` | 2026-07-20 | Reading |
 | [Nova posting time: morning → evening](#nova-posting-time-morning--evening) | Per-post reach (platform insights) | 2026-08-17 | Reading |
+| [Nova look: rainbow background vs interior](#nova-look-rainbow-background-vs-interior) | Per-post reach / views (IG Reels) | 2026-08-22 | Reading |
 
 ---
 
@@ -108,3 +109,17 @@ Data source: weekly GA4 exports dropped into `analytics/raw-exports/<date>/`, ro
 **Baseline:** All posts through 2026-08-17 went out at the morning slot (the 2026-08-17 post itself went out late, ~11:23am ET, due to the HeyGen v2-endpoint outage — treat it as neither slot). Small n: only a handful of morning-slot posts exist, so early reads are directional only, same caveat as everything else in this log at current audience size.
 **Status:** Reading — compare a few weeks of evening-slot posts against the morning-slot posts during the weekly review before calling it.
 **Data caveat (added 2026-08-22):** a post can miss its window and go out a day late (the 2026-08-21 episode did — approved ~3h after the cron, posted the following evening). `post_to_meta.py` now stamps a `posted_at` timestamp on every post in `automation/social-state.json`, so read reach against **`posted_at`, not `publish_date`** — otherwise a slipped post silently lands in the wrong bucket.
+
+## Nova look: rainbow background vs interior
+
+**Hypothesis:** Nova videos shot against the vivid multicolor backdrop ("Avatar in a pink sweater") stop the scroll better than the muted interior looks (living room, bookshelf, brick-wall cafe), producing meaningfully higher reach per post.
+**Metric:** Views/reach per post from Instagram Reels insights, attributed via `avatar_id` + `posted_at` in `automation/social-state.json`.
+**Shipped:** 2026-08-22 — `nova-daily-prep` step 4 pins `picked_look` to `06c45b55396142b4930282c658142c0f` and suspends the round-robin rotation for the next 3 episodes (first pinned post: 2026-08-24).
+**Baseline (observed 2026-08-22, IG Reels grid):** the two rainbow-background posts showed **165 and 146 views**; the four newer interior-look posts showed **17, 92, 17, and 24**.
+**Confounds — read the result with these in hand:**
+- *Age.* Instagram grids are newest-first, so the two rainbow posts sit at positions 5-6 (~2 weeks old) while the low-view posts are days old, and views accumulate. Most Reels views land in the first 48-72h, so a ~10x gap is larger than age alone should explain — but it is **not** an age-controlled comparison. The pinned run fixes this by comparing posts at matched ages.
+- *Posting time.* The [morning → evening](#nova-posting-time-morning--evening) experiment shipped 2026-08-17 and is still in its reading window, so the pinned posts change two variables at once. Accepted deliberately: the look effect looks far larger, and waiting would cost weeks at this posting volume.
+- *Topic and hook* vary per episode and are not controlled at all.
+- *Letterboxing.* This look is landscape (2752x1536) while the rest of the allowlist is portrait (768x1344), so its videos render with bars top and bottom — normally a disadvantage on Reels. If it still wins, the backdrop is beating a real handicap.
+**Status:** Reading — the skill's pin auto-expires after 3 posts carrying this `avatar_id` with `publish_date >= 2026-08-24` and pings Telegram to read the result.
+**Next step if it wins:** the win is reproducible beyond this one look — generate more motion-capable looks against vivid backdrops (portrait this time, dropping the letterbox handicap) and widen the allowlist, rather than pinning a single outfit forever.
