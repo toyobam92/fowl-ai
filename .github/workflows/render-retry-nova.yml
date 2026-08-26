@@ -1,0 +1,116 @@
+name: render-retry-nova
+
+# Manual recovery for an episode whose render failed. Flips
+# nova-pipeline-state.json back to "pr_open", clears the dead video_id,
+# and re-submits it through the normal render path -- the script, look,
+# caption and PR are all still in state, so nothing has to be re-approved.
+#
+# Why this exists: on 2026-08-26 the render for the 2026-08-26 episode
+# failed with MOVIO_PAYMENT_INSUFFICIENT_CREDIT (HeyGen account out of API
+# credits). The episode itself was fine and fully approved, but the only
+# way back was hand-editing state and hoping -- there was no retry path at
+# all. Renders now have two known external failure modes (credits, and
+# HeyGen's API changing underneath us), so recovery deserves one button.
+#
+# Safe to run when there's nothing to retry: it exits without touching
+# anything unless status is exactly "failed".
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  retry:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Re-submit the failed render
+        id: retry
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        run: |
+          set -euo pipefail
+          STATUS=$(python3 -c "
+          import json
+          with open('automation/nova-pipeline-state.json') as f:
+              print(json.load(f).get('status') or '')
+          ")
+          if [ "$STATUS" != "failed" ]; then
+            echo "nova-pipeline-state.json status is '$STATUS', not 'failed' -- nothing to retry."
+            echo "kind=noop" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          python3 -c "
+          import json
+          path = 'automation/nova-pipeline-state.json'
+          with open(path) as f:
+              state = json.load(f)
+          # render_nova_video.py only runs on 'pr_open', and refuses to
+          # submit twice for the same episode, so clearing the dead
+          # video_id is what makes this a genuine retry rather than a
+          # no-op against the already-failed render.
+          state['status'] = 'pr_open'
+          state['video_id'] = None
+          with open(path, 'w') as f:
+              json.dump(state, f, indent=2)
+              f.write('\n')
+          "
+
+          set +e
+          OUTPUT=$(python3 automation/render_nova_video.py 2>&1)
+          CODE=$?
+          set -e
+          echo "$OUTPUT"
+          if [ $CODE -ne 0 ]; then
+            # Put it back so a later retry (once credits are topped up)
+            # still finds the episode where it expects it.
+            python3 -c "
+          import json
+          path = 'automation/nova-pipeline-state.json'
+          with open(path) as f:
+              state = json.load(f)
+          state['status'] = 'failed'
+          with open(path, 'w') as f:
+              json.dump(state, f, indent=2)
+              f.write('\n')
+          "
+            echo "kind=failed" >> "$GITHUB_OUTPUT"
+            echo "detail=$(echo "$OUTPUT" | tail -n3 | tr '\n' ' ' | cut -c1-250)" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "kind=resubmitted" >> "$GITHUB_OUTPUT"
+          echo "detail=" >> "$GITHUB_OUTPUT"
+
+      - name: Commit state
+        if: steps.retry.outputs.kind == 'resubmitted'
+        run: |
+          set -euo pipefail
+          git config user.email "actions@github.com"
+          git config user.name "github-actions"
+          git add automation/nova-pipeline-state.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Nova render re-submitted after failure"
+            git pull --rebase origin main
+            git push origin main
+          fi
+
+      - name: Notify
+        if: steps.retry.outputs.kind != 'noop'
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          KIND: ${{ steps.retry.outputs.kind }}
+          DETAIL: ${{ steps.retry.outputs.detail }}
+        run: |
+          set -euo pipefail
+          if [ "$KIND" = "resubmitted" ]; then
+            MSG="🔁 Nova's failed render was re-submitted. render-check-nova will pick it up within 15 minutes and post it on its scheduled day."
+          else
+            MSG="❌ Nova render retry failed again: ${DETAIL}. State left as 'failed' so it can be retried once the cause is fixed."
+          fi
+          curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${MSG}" > /dev/null
