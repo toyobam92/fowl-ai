@@ -33,6 +33,14 @@ def heygen_get(path, api_key):
         raise RuntimeError(f"HeyGen GET {path} failed ({e.code}): {body}") from e
 
 
+def _topic_title(topic):
+    """picked_topic is written as either a string or a {title, why} dict --
+    always store the plain title downstream."""
+    if isinstance(topic, dict):
+        return topic.get("title")
+    return topic
+
+
 def emit_result(kind, detail=""):
     """Single tagged line on stdout that render-check-nova.yml greps for to
     decide whether/what to notify -- avoids the workflow having to infer
@@ -80,7 +88,23 @@ def main():
         return
 
     if render_status == "failed":
-        error = data.get("error") or data.get("failure_reason") or data.get("fail_reason")
+        # v3 reports failures as failure_code + failure_message; the older
+        # names were guesses and none of them exist, so every real failure
+        # notified as a bare "None" -- which is exactly what happened on
+        # 2026-08-26 (the actual cause, an out-of-credits error, was only
+        # findable by querying HeyGen by hand).
+        error = (
+            data.get("failure_message")
+            or data.get("failure_code")
+            or data.get("error")
+            or data.get("failure_reason")
+            or "no failure detail returned by HeyGen"
+        )
+        code = data.get("failure_code") or ""
+        if "CREDIT" in str(code).upper() or "credit" in str(error).lower():
+            # Distinct from a content/render fault: nothing about the video
+            # is wrong and retrying without topping up will fail the same way.
+            error = f"{error} (HeyGen account is out of API credits -- top up, then re-run render-retry-nova.yml)"
         print(f"video_id {video_id} FAILED to render: {error}")
         # Reset to idle rather than looping on a dead render forever --
         # last_proposed stays as-is so the 2-day proposal guard still holds.
@@ -113,14 +137,12 @@ def main():
         {
             "day": day_name,
             "publish_date": publish_date,
-            # picked_topic is a plain string (the topic title itself) in
-            # this schema, not an object -- nova-daily-prep's step 2 sets
-            # it directly to one of the proposed topics' titles. Fixed
-            # 2026-08-14: this line previously assumed a dict shape
-            # (`.get("title")`) and crashed with AttributeError on every
-            # real completed render, since no video had gone through this
-            # path before to expose it.
-            "topic": nova_state.get("picked_topic"),
+            # picked_topic has landed BOTH ways in practice: a plain title
+            # string (2026-08-17) and the whole {title, why} object
+            # (2026-08-26), depending on how the routine happened to write
+            # it. Assuming either shape has broken something once already,
+            # so normalise to the title string here and stop caring.
+            "topic": _topic_title(nova_state.get("picked_topic")),
             "script": nova_state.get("script"),
             "caption": nova_state.get("caption"),
             "video_path": video_url,
