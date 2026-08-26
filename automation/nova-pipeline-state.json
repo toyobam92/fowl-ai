@@ -1,52 +1,17 @@
 {
-  "status": "rendering",
+  "status": "idle",
   "last_proposed": "2026-08-25",
-  "publish_date": "2026-08-26",
-  "tone": "professional",
-  "topics": [
-    {
-      "title": "Nvidia is in talks to invest in Perplexity at a $30B+ valuation",
-      "why": "It'd be a 50%+ jump from Perplexity's ~$20B round a year ago, and shows chipmakers now betting directly on the AI apps built on top of their hardware."
-    },
-    {
-      "title": "Anthropic starts watermarking all of Claude's output worldwide under new EU AI Act rules",
-      "why": "Every Claude text response and supported image now carries machine-readable provenance -- a preview of the disclosure standards knowledge workers using any AI tool will soon have to live with."
-    },
-    {
-      "title": "Google ships Gemini 3.7 Flash, halving the price while jumping 16 points on coding benchmarks",
-      "why": "A cheaper, sharper model landing just 23 days after its predecessor shows how fast the cost of AI-assisted coding is falling for teams shipping software."
-    }
-  ],
-  "rejected_titles": [
-    "Anthropic eyes a $2 trillion IPO valuation for an October debut",
-    "Z.ai's open-weight GLM-5.3 just found 1,000+ real security bugs in production software",
-    "Anthropic's Dario Amodei pushes back on claims his AI-safety warnings are fueling the backlash"
-  ],
-  "picked_topic": {
-    "title": "Anthropic starts watermarking all of Claude's output worldwide under new EU AI Act rules",
-    "why": "Every Claude text response and supported image now carries machine-readable provenance -- a preview of the disclosure standards knowledge workers using any AI tool will soon have to live with."
-  },
-  "script": "Anthropic just started invisibly watermarking every piece of Claude's text and file output -- worldwide. It's compliance with the EU AI Act's Article 50, which took effect August 2nd and requires AI systems to mark synthetic content as machine-generated. The watermark is imperceptible to readers but detectable by tools built to spot it, and non-compliance can cost providers up to \u20ac15 million or 3% of global revenue. Anthropic joins roughly 190 signatories who backed the EU's Code of Practice on AI transparency this July. It's a preview of the disclosure standards every knowledge worker using AI tools will soon have to live with, whichever model they pick.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
-  "caption": "Anthropic is now invisibly watermarking every Claude output worldwide to comply with the EU AI Act's new transparency rules. #FOWLAI #AI #Anthropic #Claude #AIRegulation",
-  "picked_look": {
-    "avatar_id": "ce4ddc31e9844543af9129432ff350af",
-    "name": "Avatar in maroon sleeveless turtleneck",
-    "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP?Expires=1787538864&Signature=fsV4u6oCO1pJCJ7V0zD1VwMmkMGtB8fDVWbg1mgA00Pb8qJoYuk2JCBtfaCgZTZfajMmrFzuvP9Zqkr8jcIvi~Ucqc4E5a1nFkgF9zwYBQsrVmS5NQBcEZQVEUvBQ0A4kx12RAdYJSeo6MojfK~hmQ-pLXMcHvlh3WhDegJ91Z4sEfGqimXJ9b7rnXFh3FP0F4HMSQI091uIjmz7AvTTbzdltCHhuzJvbBJelx4SPw6Oa79ozvQT8IEDrMDIsD-JWH8mLcKBVInEVwQsOCLOCzd0ABtjBlG2J8X~dQDvDv-VMqJsVzjcqWc1s74HJB3iBDUUb5E76o4pAoHYSsqeXA__&Key-Pair-Id=K38HBHX5LX3X2H"
-  },
-  "look_alternates": [
-    {
-      "avatar_id": "f355b07c213c4190a2207050c78d93b5",
-      "name": "The Studio-Lit Bookshelf Figure",
-      "image_url": "https://files2.heygen.ai/talking_photo/f355b07c213c4190a2207050c78d93b5/e607df35ab1742b1a6a9ebc78197ecc1.WEBP?Expires=1787538863&Signature=FcvmeVq2A7Qy7TQ-V8rnETHd4BH~mXhClcHbvgyGdlybUoOZflDY3tmdTtNd2LGi5l-U8SEni0Gz9GRUuuclRpNEn5z7sG7G8I7j1TYvc3wO1l2M1k0UcmRaRNbDwvr-VYhwpDA0~xb~f7k2kkqJFTDhjHc~QrMBaCfDCpVZCb7fg6OPry~E1Sni5vv2M4Bj6AzLsl4GIV3cDcurqIrEXPxesIk8DniKvkfAdAdxZM-sLU4HyHWPyw81t7QMJUycAw1OcRAoZUz7z6FswnSX9LHMkE36d3RMmbKBwTonRmazkFEPN9J6fuQyR2j3ePqigspE-nrDfQIXRQIUQHssJQ__&Key-Pair-Id=K38HBHX5LX3X2H"
-    },
-    {
-      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
-      "name": "Too-Purple, Black-Bottomed",
-      "image_url": "https://files2.heygen.ai/talking_photo/1c940f18c71946c1a46bf1b48c6129c5/217baeed2ccc49f18656f6c1e7b90948.WEBP?Expires=1787538863&Signature=lLbp4tCknPs0VJrdLiZDPsXuKuhJiKkguvCyUjYqLwIk~ZiguVHcOqlcmeUXD7fwaulaeKrStC3rVF5v7T8Q7glNGzp~BWMTs4gCP1MZ4WikFoO9cHZXfmkZuhasz~Abz4SzNoCrSmtCxXLmJmIJOKX0D57QyxCLLCvAQ1yOBAdj8SeR8qakosMR6K23yb07DeiXuElPfWtkzS5UrTDCqVJJXh-R7ByA2XqVKdRpkAS76W7XoFq6KJDsk~bTCGPMYc5ryk9wyGCK5XrPKGAWvTosh0lXs4EfHF8mqgEeIU0wmEqxCf2dcD~seguJPo0OT~8i2onS-nRhXq-VFdJH8g__&Key-Pair-Id=K38HBHX5LX3X2H"
-    }
-  ],
-  "pr_number": 35,
-  "pr_branch": "update/nova-2026-08-26",
-  "video_id": "de538b43fe714ccd865e4b51d544aef1",
+  "publish_date": null,
+  "tone": null,
+  "topics": [],
+  "rejected_titles": [],
+  "picked_topic": null,
+  "script": null,
+  "caption": null,
+  "picked_look": null,
+  "look_alternates": [],
+  "pr_number": null,
+  "pr_branch": null,
+  "video_id": null,
   "last_updated": "2026-08-26T11:35:00Z"
 }
