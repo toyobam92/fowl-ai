@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <script src="/analytics-events.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Code Saturdays — FOWL AI</title>
+  <meta name="description" content="Vibe Code Saturdays is FOWL AI's free, in-person Atlanta session where you build an AI teammate that runs your brand — a website, a newsletter, and the automations to keep it going. No coding background required.">
+  <meta property="og:title" content="Vibe Code Saturdays — FOWL AI" />
+  <meta property="og:description" content="A free, in-person Atlanta session. Build an AI teammate that runs your brand — no coding background required." />
+  <meta property="og:url" content="https://www.fowl-ai.com/vibe-code-saturdays/" />
+  <link rel="canonical" href="https://www.fowl-ai.com/vibe-code-saturdays/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;text-decoration:none;}
+
+    /* Nav */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;white-space:nowrap;}
+    .nav-link:hover{color:#fff;}
+    .nav-link.current{color:#fff;}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0);}}
+    .sub-btn{display:inline-flex;align-items:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;animation:pulse-glow 2.2s ease-in-out infinite;white-space:nowrap;}
+    .sub-btn:hover{transform:scale(1.06);animation:none;}
+
+    /* Hero */
+    .hero{background:#0d3f31;padding:64px 24px 72px;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:16px;}
+    .hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(38px,6vw,64px);line-height:1.05;color:#fff;margin-bottom:20px;}
+    .hero h1 span{color:#f2a12b;}
+    .hero-lede{font-size:19px;color:#e2f2eb;max-width:620px;line-height:1.8;}
+    .hero-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
+    .meta-pill{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 16px;border-radius:999px;border:1.5px solid rgba(127,217,184,.3);color:#78ddb4;}
+
+    /* Content */
+    .content-section{padding:64px 24px;max-width:760px;margin:0 auto;}
+    .section-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#1a5f4a;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .section-label::after{content:'';flex:1;height:1px;background:#1a5f4a;opacity:.3;}
+    .section-title{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,36px);color:#13241e;line-height:1.2;margin-bottom:28px;}
+    .body-text{font-size:17px;line-height:1.85;color:#2a2a2a;margin-bottom:20px;}
+    .body-text:last-child{margin-bottom:0;}
+
+    .story-list{list-style:none;padding:0;margin:24px 0 28px;}
+    .story-list li{font-size:17px;line-height:1.8;color:#2a2a2a;padding:10px 0 10px 28px;border-bottom:1px solid #e8e4de;position:relative;}
+    .story-list li::before{content:'→';position:absolute;left:0;color:#f2a12b;font-weight:700;}
+    .story-list li:last-child{border-bottom:none;}
+
+    .divider{height:1px;background:linear-gradient(90deg,#e8e4de,transparent);margin:52px 0;}
+
+    /* Logistics grid */
+    .logistics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0 8px;}
+    .logistics-card{background:#fff;border-radius:10px;padding:22px 24px;border-top:4px solid #0d3f31;}
+    .logistics-card.amber{border-top-color:#f2a12b;}
+    .logistics-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#1a5f4a;margin-bottom:8px;}
+    .logistics-value{font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1.4;}
+    .logistics-note{font-size:13px;color:#665f56;margin-top:4px;}
+
+    /* Why box */
+    .why-box{background:#0d3f31;border-radius:14px;padding:36px 40px;margin:32px 0;}
+    .why-box-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:12px;}
+    .why-box-q{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:14px;}
+    .why-box-body{font-size:15.5px;color:#a9e8cf;line-height:1.8;}
+
+    /* Signup / CTA */
+    .rsvp-cta{background:#13241e;padding:56px 24px 60px;text-align:center;}
+    .rsvp-cta h2{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,36px);color:#fff;margin-bottom:12px;}
+    .rsvp-cta p{font-size:16px;color:#a9e8cf;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+    .signup-form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+    .signup-input{flex:1;min-width:220px;padding:14px 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.2);background:#fff;font-family:Inter,-apple-system,sans-serif;font-size:15px;color:#13241e;outline:none;}
+    .signup-input:focus{border-color:#78ddb4;}
+    .signup-submit{background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;border:none;padding:14px 22px;border-radius:999px;cursor:pointer;white-space:nowrap;}
+    .signup-submit:hover{opacity:.88;}
+    .signup-success{display:none;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:18px;color:#fff;}
+    .signup-success span{color:#78ddb4;}
+    .rsvp-note{font-size:12.5px;color:#7fd9b8;opacity:.8;margin-top:18px;}
+
+    /* Footer */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:26px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;border-top:1px solid rgba(255,255,255,.06);}
+    .footer a{color:#78ddb4;}
+
+    @media(max-width:680px){
+      .hero{padding:44px 20px 52px;}
+      .content-section{padding:44px 20px;}
+      .logistics-grid{grid-template-columns:1fr;}
+      .why-box{padding:26px 22px;}
+      .rsvp-cta{padding:40px 20px;}
+      .nav{gap:10px;}
+      .nav-links{gap:12px;flex-basis:100%;}
+      .nav-link{font-size:10px;letter-spacing:1px;}
+      .sub-btn{padding:9px 14px;font-size:11px;}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <div class="topbar">
+    <div class="wrap">
+      <nav class="nav">
+        <a class="brand" href="/">
+          <span class="brand-mark"></span>
+          <span class="brand-word">FOWL AI</span>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/issues/">Briefings</a>
+          <a class="nav-link" href="/jobs/">Jobs</a>
+          <a class="nav-link" href="/platforms/">Platforms</a>
+          <a class="nav-link" href="/glossary/">Glossary</a>
+          <a class="nav-link current" href="/vibe-code-saturdays/">Vibe Code Saturdays</a>
+          <a class="nav-link" href="/faq/">FAQ</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="eyebrow">FOWL AI · Atlanta · In Person</div>
+      <h1>Become <span>AI native.</span></h1>
+      <p class="hero-lede">Vibe Code Saturdays teaches you to build an AI teammate that actually runs your brand — not just a one-time website. Using Claude, you build a website, a newsletter, and the beginnings of the automations that keep it all going. No coding background required.</p>
+      <div class="hero-meta">
+        <span class="meta-pill">📍 Atlanta</span>
+        <span class="meta-pill">Free to attend</span>
+        <span class="meta-pill">Monthly (for now)</span>
+        <span class="meta-pill">Laptop required</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHAT IT IS -->
+  <div class="content-section">
+
+    <div class="section-label">What It Is</div>
+    <h2 class="section-title">The goal isn't a website. It's you, AI native.</h2>
+
+    <p class="body-text">Most "learn to code" sessions end with a page. Vibe Code Saturdays ends with a teammate — an AI you've trained to run your brand, so the work keeps compounding long after you leave the room.</p>
+
+    <p class="body-text">Building happens hands-on with a laptop, together, each session. Staying in touch with your AI teammate afterward — reviewing a draft, giving quick direction — works from your phone too.</p>
+
+    <p class="body-text">Here's what that looks like in practice:</p>
+
+    <ul class="story-list">
+      <li>A real website, live on the internet, built in your own voice.</li>
+      <li>A newsletter you actually draft and send — not just plan to someday.</li>
+      <li>The beginnings of automations that keep both running without you starting from scratch every time.</li>
+    </ul>
+
+    <div class="divider"></div>
+
+    <div class="section-label">Format &amp; Logistics</div>
+
+    <div class="logistics-grid">
+      <div class="logistics-card">
+        <div class="logistics-label">When</div>
+        <div class="logistics-value">Monthly, in person</div>
+        <div class="logistics-note">Could expand to weekly as the group grows.</div>
+      </div>
+      <div class="logistics-card amber">
+        <div class="logistics-label">Where</div>
+        <div class="logistics-value">Atlanta</div>
+        <div class="logistics-note">Specific venue announced soon.</div>
+      </div>
+      <div class="logistics-card">
+        <div class="logistics-label">Cost</div>
+        <div class="logistics-value">Free</div>
+        <div class="logistics-note">Bring a laptop, nothing else.</div>
+      </div>
+      <div class="logistics-card amber">
+        <div class="logistics-label">Who it's for</div>
+        <div class="logistics-value">No coding background needed</div>
+        <div class="logistics-note">Total beginners welcome.</div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="why-box">
+      <div class="why-box-label">First cohort</div>
+      <div class="why-box-q">This is the very first Vibe Code Saturdays — you'd be building it with us from session one.</div>
+      <div class="why-box-body">There's no past show-and-tell to point to yet, no photo wall of finished sites. What there is: a real curriculum, a real room, and a real teammate you'll walk out having actually built. The proof comes from being in the room, not from a highlight reel.</div>
+    </div>
+
+  </div>
+
+  <!-- RSVP -->
+  <div class="rsvp-cta">
+    <div class="wrap">
+      <h2>Want in?</h2>
+      <p>Venue and the first date are landing soon. Leave your email and we'll notify you the moment RSVP opens.</p>
+      <form id="fowlSignupForm" class="signup-form" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true; var b=this.querySelector('.signup-submit'); b.disabled=true; b.textContent='Submitting…'; setTimeout(function(){b.disabled=false;b.textContent='Notify me →';}, 8000);">
+        <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
+        <button class="signup-submit" type="submit">Notify me →</button>
+      </form>
+      <div id="fowlSignupSuccess" class="signup-success">You're in! <span>We'll email you as soon as RSVP opens.</span></div>
+      <iframe name="fowlHiddenFrame" title="signup" style="display:none;" onload="if(window.fowlFormSubmitted){document.getElementById('fowlSignupForm').style.display='none';document.getElementById('fowlSignupSuccess').style.display='block';window.fowlFormSubmitted=false;}"></iframe>
+      <div class="rsvp-note">This adds you to the FOWL AI list — we'll only email you when there's something real to share.</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/jobs/">Jobs</a> · <a href="/platforms/">Platforms</a> · <a href="/glossary/">Glossary</a> · <a href="/vibe-code-saturdays/">Vibe Code Saturdays</a> · <a href="/faq/">FAQ</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
+    <div style="margin-top:12px;font-size:10px;opacity:.6;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
+  </footer>
+
+</body>
+</html>
