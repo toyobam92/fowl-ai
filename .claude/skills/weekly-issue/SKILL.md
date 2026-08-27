@@ -105,6 +105,7 @@ Structure (same section order every issue):
 9. New AI Jobs
 10. Closing Reflection
 11. Reply CTA
+12. **Vibe Code Saturdays block (recurring — every issue, unchanged)** — see below
 
 ## 6. HTML
 
@@ -113,6 +114,22 @@ Use the most recently published issue's HTML (`issues/<latest-date>/index.html` 
 - Intro line's issue-number reference
 - All body sections per the structure above
 Preserve section order, keep it email-friendly (no scripts, no external images unless explicitly sourced), keep the masthead hook and "if you read nothing else" tight.
+
+**The Vibe Code Saturdays block is recurring furniture, not issue copy** — carry it forward verbatim from the previous issue, in the same place (immediately after the Reply CTA, immediately before Share). Do not rewrite it week to week; a standing promo works by repetition, and rewording it each issue makes it read like an ad instead of a fixture. It sits between them deliberately: right after the reply prompt, where a reader who's already engaged enough to consider replying is the one most likely to show up in a room.
+
+If the previous issue somehow lacks it, this is the block:
+
+```html
+<!-- ═══════════════════════════════════════ VIBE CODE SATURDAYS (recurring) -->
+<div style="background:#0d3f31;margin:8px 0;padding:30px 44px;">
+  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;">📍 Atlanta · Vibe Code Saturdays</div>
+  <div style="font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1.3;color:#ffffff;margin-bottom:12px;">Join us for Vibe Code Saturdays.</div>
+  <div style="font-size:15px;line-height:1.75;color:#a9e8cf;margin-bottom:18px;">A free, hands-on Saturday in Atlanta where you build something that belongs to you using AI — your website, your newsletter, your portfolio, your next idea. No coding background required. Bring a laptop.<br><br>We're scheduling the first session now, and we'll notify you the moment the date and venue are set.</div>
+  <a href="https://www.fowl-ai.com/vibe-code-saturdays/" style="display:inline-block;background:#f2a12b;color:#13241e;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:12px 24px;border-radius:999px;text-decoration:none;">Notify me about the first one →</a>
+</div>
+```
+
+**When the first session gets a date and venue, this block changes once** — swap the "we're scheduling the first session now" sentence for the actual date, venue and time, and the button for an RSVP. After that it goes back to being carried forward verbatim. Toyo will say when; don't invent a date.
 
 Write the result to a new `issues/<date>/index.html`.
 
