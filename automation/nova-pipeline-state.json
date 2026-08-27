@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-08-25",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-08-27",
+  "publish_date": "2026-08-28",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Alibaba just dropped Wan3.0, its next-gen AI video generator",
+      "why": "AI-made video just got another quality jump -- if you're using AI tools for content or marketing, the bar for what looks 'good enough' to ship keeps moving fast."
+    },
+    {
+      "title": "Anthropic's IPO could value it north of $2 trillion, maybe as soon as October",
+      "why": "A public listing that size means way more scrutiny on the company behind Claude -- and signals investors still think the AI boom has room to run."
+    },
+    {
+      "title": "AI-linked layoffs have already hit 205,000 workers in 2026 -- matching all of last year",
+      "why": "Customer service, data ops, entry-level software, and finance back-office roles are getting hit hardest -- worth knowing if your job touches any of those."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-08-26T11:35:00Z"
+  "last_updated": "2026-08-27T00:00:00Z"
 }
