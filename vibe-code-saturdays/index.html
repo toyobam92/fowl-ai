@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <script src="/analytics-events.js" defer></script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Code Saturdays by Brand Brain — Build Something You Own With AI</title>
+<meta name="description" content="A hands-on building experience where you learn to use AI by actually creating something. Bring your laptop, your idea, your business, or your skills. Build. Ship. Show.">
+<meta property="og:title" content="Vibe Code Saturdays by Brand Brain" />
+<meta property="og:description" content="You don't need to be a developer. Bring your idea, your business, or your skills — and learn to use AI to build, run, and grow what belongs to you." />
+<meta property="og:image" content="https://www.fowl-ai.com/og-image.png" />
+<meta property="og:url" content="https://www.fowl-ai.com/vibe-code-saturdays/" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://www.fowl-ai.com/vibe-code-saturdays/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+:root {
+  --forest:     #0d3f31;
+  --forest-2:   #0f4d3c;
+  --paper:      #f2ede3;
+  --surface:    #e8f4ee;
+  --ink:        #13241e;
+  --ink-soft:   #2a4a3a;
+  --paper-ink:  #f2ede3;
+  --moss:       #35bfa2;
+  --moss-deep:  #0d3f31;
+  --moss-fill:  #d4f0e8;
+  --clay:       #f47f18;
+  --line:       #c8e0d4;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { background: var(--paper); color: var(--ink); }
+body { font-family: 'Inter', sans-serif; background: var(--paper); overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+.font-display { font-family: 'Fraunces', serif; }
+.eyebrow { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--moss-deep); }
+.eyebrow-on-forest { color: #7fd9b8; }
+
+/* REVEAL */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+/* BUTTONS */
+.btn { font-weight: 600; border-radius: 10px; padding: 14px 24px; font-size: 15px; display: inline-flex; align-items: center; gap: 8px; transition: transform 0.25s ease, box-shadow 0.25s ease; cursor: pointer; border: 1px solid transparent; text-decoration: none; }
+.btn:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(91,112,82,0.45); }
+.btn-primary { background: var(--clay); color: #FCF9F1; }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(178,101,47,0.55); }
+.btn-ghost-forest { background: transparent; color: var(--paper-ink); border-color: rgba(244,241,231,0.35); }
+.btn-ghost-forest:hover { border-color: rgba(244,241,231,0.7); transform: translateY(-2px); }
+.btn-outline { background: transparent; color: var(--moss-deep); border-color: var(--moss); }
+.btn-outline:hover { background: var(--moss-fill); transform: translateY(-2px); }
+
+/* CARDS */
+.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; transition: transform 0.3s ease, border-color 0.3s ease; }
+.card:hover { transform: translateY(-3px); border-color: var(--moss); }
+
+/* UTILITIES */
+.contour { position: absolute; inset: 0; pointer-events: none; opacity: 0.5; }
+::selection { background: rgba(178,101,47,0.25); }
+.arrow-line { font-family: 'DM Mono', monospace; font-size: 14px; color: var(--moss-deep); }
+.persona-item { display: flex; gap: 10px; align-items: flex-start; font-size: 16px; line-height: 1.65; color: var(--ink-soft); }
+.persona-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--moss); flex-shrink: 0; margin-top: 9px; }
+
+/* HERO IMAGE */
+.hero-figure { max-width: 980px; margin: 0 auto; border-radius: 18px; overflow: hidden; border: 1px solid rgba(244,241,231,0.18); box-shadow: 0 32px 80px rgba(0,0,0,.28); }
+.hero-figure img { display: block; width: 100%; height: auto; }
+
+/* DELAY HELPERS */
+.d1{transition-delay:80ms;}.d2{transition-delay:160ms;}.d3{transition-delay:240ms;}.d4{transition-delay:320ms;}.d5{transition-delay:400ms;}.d6{transition-delay:480ms;}
+</style>
+</head>
+<body>
+
+<!-- ═══ 1. HERO ═══ -->
+<section class="relative px-6 pt-24 pb-24 md:pt-32 md:pb-28" style="background:radial-gradient(1200px 500px at 20% -10%, var(--forest-2), var(--forest));color:var(--paper-ink);">
+  <svg class="contour" viewBox="0 0 1200 700" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M-50,600 C 200,520 350,650 600,560 S 1000,480 1250,540" fill="none" stroke="#1a5f4a" stroke-width="1.5"/>
+    <path d="M-50,520 C 220,460 380,560 620,480 S 1020,400 1250,450" fill="none" stroke="#17543f" stroke-width="1.5"/>
+    <path d="M-50,440 C 240,400 400,470 640,410 S 1040,340 1250,370" fill="none" stroke="#134a37" stroke-width="1.5"/>
+  </svg>
+  <div class="max-w-3xl mx-auto text-center relative">
+    <div class="reveal">
+      <p class="eyebrow eyebrow-on-forest">Vibe Code Saturdays by Brand Brain</p>
+      <h1 class="font-display mt-4" style="font-size:clamp(2.2rem,5vw,3.4rem);line-height:1.18;font-weight:600;">Build something you own with AI.</h1>
+    </div>
+    <div class="reveal d1">
+      <p class="mt-6 max-w-xl mx-auto" style="font-size:17px;line-height:1.7;color:#e2f2eb;">You don't need to be a developer. You don't need a technical background. And you don't need to have everything figured out.</p>
+      <p class="mt-4 max-w-xl mx-auto" style="font-size:17px;line-height:1.7;color:#e2f2eb;">Bring your idea, your business, or your skills. We'll help you learn how to use AI to build, run, and grow what belongs to you.</p>
+    </div>
+    <div class="reveal d2 mt-8">
+      <p class="font-display" style="font-size:clamp(1.5rem,3vw,2rem);letter-spacing:0.02em;">Build. Ship. Show.</p>
+    </div>
+    <div class="reveal d3 mt-8">
+      <a href="/contact/" class="btn btn-primary">Join the Next Vibe Code Saturday
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2. AI IS YOUR TEAMMATE ═══ -->
+<section class="px-6 py-20 md:py-24">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center">
+      <h2 class="font-display" style="font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.25;font-weight:600;">AI is your teammate.<br>You're still in the driver's seat.</h2>
+    </div>
+    <div class="reveal d1 mt-8" style="font-size:17px;line-height:1.75;color:var(--ink-soft);">
+      <p>Vibe Code Saturdays by Brand Brain is a hands-on building experience where you learn to use AI by actually creating something.</p>
+      <p class="mt-4">Not another day of sitting through presentations about what AI <em>could</em> do.</p>
+      <p class="mt-4">Bring your laptop. Sit down with other builders. Learn the tools. Ask questions. Build something real.</p>
+      <p class="mt-4" style="color:var(--ink);font-weight:500;">Your website. Your newsletter. Your content system. A new feature for your business. Your portfolio. Your next idea.</p>
+      <p class="mt-4">And when you're done?</p>
+      <p class="mt-2 font-display" style="font-size:22px;color:var(--ink);">Ship it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3. WHAT KIND OF BUILDER ARE YOU ═══ -->
+<section class="px-6 py-20 md:py-24" style="background:var(--surface);">
+  <div class="max-w-5xl mx-auto">
+    <div class="reveal text-center max-w-2xl mx-auto">
+      <h2 class="font-display" style="font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.25;font-weight:600;">What kind of Builder are you?</h2>
+      <p class="mt-5" style="font-size:17px;line-height:1.7;color:var(--ink-soft);">There's no single type of Brand Brain Builder. Maybe you have an idea you've been sitting on. Maybe you're already running a business and doing everything yourself. Maybe you have years of skills and experience but haven't built something that belongs to you yet.</p>
+    </div>
+
+    <div class="mt-12 grid gap-6" style="grid-template-columns:repeat(auto-fit,minmax(290px,1fr));">
+
+      <!-- STARTER -->
+      <div class="reveal d1 card p-7 flex flex-col">
+        <p class="eyebrow">The Starter</p>
+        <p class="font-display mt-3" style="font-size:22px;">&ldquo;I have an idea.&rdquo;</p>
+        <p class="mt-4" style="font-size:15px;line-height:1.7;color:var(--ink-soft);">You've been thinking about starting something. Maybe it's a consulting practice, catering business, beauty brand, photography business, newsletter, personal brand, online store, or something completely different.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:var(--ink-soft);">You know what you want to do. You're just not sure how to put all the pieces together.</p>
+        <p class="arrow-line mt-5">I've been thinking about it<br>&rarr; I built it.</p>
+        <p class="mt-4" style="font-size:15px;line-height:1.7;color:var(--ink-soft);">Build your website. Create your brand. Establish your online presence. Add the features you need. Learn how AI can help you keep building.</p>
+        <div class="mt-6 pt-1 mt-auto">
+          <a href="/contact/" class="btn btn-outline">I'm a Starter</a>
+        </div>
+      </div>
+
+      <!-- OPERATOR -->
+      <div class="reveal d2 card p-7 flex flex-col">
+        <p class="eyebrow">The Operator</p>
+        <p class="font-display mt-3" style="font-size:22px;">&ldquo;I already have a business.&rdquo;</p>
+        <p class="mt-4" style="font-size:15px;line-height:1.7;color:var(--ink-soft);">Your business exists. The problem? You're doing everything.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:var(--ink-soft);">Updating the website. Creating content. Responding to customers. Managing social media. Sending emails. Figuring out scheduling. Trying to understand what's working.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:var(--ink-soft);">You don't necessarily need another person for every task. You need to understand how AI can become part of your team.</p>
+        <p class="arrow-line mt-5">I do everything myself<br>&rarr; I have AI teammates and systems helping me run it.</p>
+        <div class="mt-6 pt-1 mt-auto">
+          <a href="/contact/" class="btn btn-outline">I'm an Operator</a>
+        </div>
+      </div>
+
+      <!-- INDEPENDENT -->
+      <div class="reveal d3 card p-7 flex flex-col">
+        <p class="eyebrow">The Independent</p>
+        <p class="font-display mt-3" style="font-size:22px;">&ldquo;I have skills.&rdquo;</p>
+        <p class="mt-4" style="font-size:15px;line-height:1.7;color:var(--ink-soft);">You're a professional. A student. A freelancer. A creator. A subject-matter expert. You've developed skills, knowledge, and experience.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:var(--ink-soft);">Now it's time to build something that's yours. Create your portfolio. Launch your personal brand. Start your newsletter. Build a consulting presence. Turn an idea into a real project.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:var(--ink);font-weight:500;">Didn't get the internship this summer? Don't spend the summer waiting. Build something.</p>
+        <p class="arrow-line mt-5">Here's what I know<br>&rarr; Here's what I built.</p>
+        <div class="mt-6 pt-1 mt-auto">
+          <a href="/contact/" class="btn btn-outline">I'm an Independent</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4. YOU DON'T HAVE TO BE TECHNICAL ═══ -->
+<section class="px-6 py-20 md:py-24">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center">
+      <h2 class="font-display" style="font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.25;font-weight:600;">You don't have to be &ldquo;technical.&rdquo;</h2>
+    </div>
+    <div class="reveal d1 mt-10 grid gap-3" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr));">
+      <div class="persona-item"><span class="persona-dot"></span><span>You're a doctor with an idea for a health education platform.</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>You're a pet groomer who needs online scheduling.</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>You're a marketer who wants your own consulting brand.</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>You're a gamer who wants to build a community.</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>You're a baker who needs a website.</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>You're a student who wants a portfolio.</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>You're a photographer tired of manually answering the same customer questions.</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>You're a professional who's been thinking about starting something on the side.</span></div>
+    </div>
+    <div class="reveal d2 mt-10 text-center">
+      <p class="font-display" style="font-size:24px;">Perfect.</p>
+      <p class="mt-4" style="font-size:17px;line-height:1.75;color:var(--ink-soft);">Brand Brain isn't about turning you into a software engineer. It's about making you more capable of building and running what you already care about.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5. WHAT HAPPENS ═══ -->
+<section class="px-6 py-20 md:py-24" style="background:var(--forest);color:var(--paper-ink);">
+  <div class="max-w-4xl mx-auto">
+    <div class="reveal text-center">
+      <h2 class="font-display" style="font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.25;font-weight:600;">What happens at Vibe Code Saturdays?</h2>
+    </div>
+    <div class="mt-12 grid gap-6" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));">
+      <div class="reveal d1">
+        <p class="font-display" style="font-size:20px;color:#7fd9b8;">You learn.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:#d8ece3;">We'll introduce you to practical AI tools and show you how to work with them.</p>
+      </div>
+      <div class="reveal d2">
+        <p class="font-display" style="font-size:20px;color:#7fd9b8;">You build.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:#d8ece3;">Your laptop stays open. This isn't a lecture. You'll work on something that matters to you.</p>
+      </div>
+      <div class="reveal d3">
+        <p class="font-display" style="font-size:20px;color:#7fd9b8;">You meet other Builders.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:#d8ece3;">Sit beside entrepreneurs, professionals, creators, students, and business owners who are building too. Ask questions. Exchange ideas. Make connections.</p>
+      </div>
+      <div class="reveal d4">
+        <p class="font-display" style="font-size:20px;color:#7fd9b8;">You ship.</p>
+        <p class="mt-3" style="font-size:15px;line-height:1.7;color:#d8ece3;">The goal isn't to leave with 14 pages of notes. It's to leave saying: &ldquo;Look what I built.&rdquo;</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 6. NOT ONLY AN AI CLASS ═══ -->
+<section class="px-6 py-20 md:py-24">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center">
+      <h2 class="font-display" style="font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.25;font-weight:600;">You're not only paying for an AI class.</h2>
+      <p class="mt-5" style="font-size:17px;line-height:1.7;color:var(--ink-soft);">You can watch an AI tutorial online. Brand Brain is different.</p>
+    </div>
+    <div class="reveal d1 mt-10 space-y-5">
+      <p style="font-size:17px;line-height:1.7;color:var(--ink-soft);">You're coming for the <strong style="color:var(--ink);">skills</strong> — practical experience using AI.</p>
+      <p style="font-size:17px;line-height:1.7;color:var(--ink-soft);">You're coming for the <strong style="color:var(--ink);">environment</strong> — dedicated time and space to finally build.</p>
+      <p style="font-size:17px;line-height:1.7;color:var(--ink-soft);">You're coming for the <strong style="color:var(--ink);">community</strong> — people around you who are creating too.</p>
+      <p style="font-size:17px;line-height:1.7;color:var(--ink-soft);">You're coming for the <strong style="color:var(--ink);">network</strong> — entrepreneurs, professionals, creators, and other Builders you may never have met otherwise.</p>
+    </div>
+    <div class="reveal d2 mt-8 p-7 card">
+      <p style="font-size:17px;line-height:1.7;color:var(--ink-soft);">And most importantly, you're coming for the <strong style="color:var(--ink);">momentum</strong>.</p>
+      <p class="mt-3" style="font-size:17px;line-height:1.7;color:var(--ink-soft);">Because sometimes the difference between &ldquo;I've been meaning to build that&rdquo; and &ldquo;It's live&rdquo; is getting in the right room.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 7. SKILLS GROW WITH YOUR BRAND ═══ -->
+<section class="px-6 py-20 md:py-24" style="background:var(--surface);">
+  <div class="max-w-3xl mx-auto">
+    <div class="reveal text-center">
+      <h2 class="font-display" style="font-size:clamp(1.8rem,4vw,2.6rem);line-height:1.25;font-weight:600;">Your AI skills should grow with your brand.</h2>
+      <p class="mt-5" style="font-size:17px;line-height:1.7;color:var(--ink-soft);">Maybe your first Brand Brain session is <strong style="color:var(--ink);">Build Your Website</strong>. Then you come back because you want to:</p>
+    </div>
+    <div class="reveal d1 mt-9 grid gap-3" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr));">
+      <div class="persona-item"><span class="persona-dot"></span><span>Add scheduling to your website</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>Build your newsletter</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>Create a content system</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>Improve your social media workflow</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>Build an AI teammate</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>Automate repetitive work</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>Understand your analytics</span></div>
+      <div class="persona-item"><span class="persona-dot"></span><span>Create something we haven't even thought of yet</span></div>
+    </div>
+    <div class="reveal d2 mt-10 text-center">
+      <p style="font-size:17px;line-height:1.75;color:var(--ink-soft);">Brand Brain isn't about learning one tool once. It's about becoming the kind of person who can look at a problem and think:</p>
+      <p class="mt-4 font-display" style="font-size:24px;">&ldquo;I wonder if I can build that.&rdquo;</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 8. FINAL CTA ═══ -->
+<section class="relative px-6 py-24 md:py-28" style="background:radial-gradient(900px 400px at 50% 0%, var(--forest-2), var(--forest));color:var(--paper-ink);">
+  <div class="max-w-2xl mx-auto text-center relative">
+    <div class="reveal">
+      <h2 class="font-display" style="font-size:clamp(1.9rem,4.5vw,2.8rem);line-height:1.2;font-weight:600;">Your first build starts here.</h2>
+    </div>
+    <div class="reveal d1 mt-7 space-y-1" style="font-size:17px;line-height:1.8;color:#e2f2eb;">
+      <p>Bring your laptop.</p>
+      <p>Bring your idea.</p>
+      <p>Bring your business.</p>
+      <p>Bring your skills.</p>
+      <p style="color:#7fd9b8;font-weight:500;">We'll bring the room.</p>
+    </div>
+    <div class="reveal d2 mt-8">
+      <p class="font-display" style="font-size:clamp(1.5rem,3vw,2rem);letter-spacing:0.02em;">Build. Ship. Show.</p>
+    </div>
+    <div class="reveal d3 mt-8">
+      <a href="/contact/" class="btn btn-primary">Join the Next Vibe Code Saturday
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+    </div>
+    <div class="reveal d4 mt-8">
+      <p class="eyebrow eyebrow-on-forest">Vibe Code Saturdays by Brand Brain</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="px-6 py-12 text-center" style="border-top:1px solid var(--line);">
+  <p class="font-display" style="font-size:16px;margin-bottom:4px;">Turn what you know into something you own.</p>
+  <p class="eyebrow" style="letter-spacing:0.1em;">Your AI Building Partner</p>
+  <div class="mt-6 flex justify-center gap-6 flex-wrap" style="font-size:13px;color:var(--ink-soft);">
+    <a href="/" style="color:var(--ink-soft);">FOWL AI</a>
+    <a href="/issues/" style="color:var(--ink-soft);">Briefings</a>
+    <a href="/jobs/" style="color:var(--ink-soft);">Jobs</a>
+    <a href="/launchlab/" style="color:var(--ink-soft);">Brand Brain Workspace</a>
+    <a href="/contact/" style="color:var(--ink-soft);">Contact</a>
+    <a href="/privacy/" style="color:var(--ink-soft);">Privacy</a>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target);} });
+}, {threshold:0.12, rootMargin:'0px 0px -24px 0px'});
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
