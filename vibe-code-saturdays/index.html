@@ -12,10 +12,10 @@
   <script src="/analytics-events.js" defer></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vibe Code Saturdays — FOWL AI</title>
-  <meta name="description" content="Vibe Code Saturdays is FOWL AI's free, in-person Atlanta session where you build an AI teammate that runs your brand — a website, a newsletter, and the automations to keep it going. No coding background required.">
-  <meta property="og:title" content="Vibe Code Saturdays — FOWL AI" />
-  <meta property="og:description" content="A free, in-person Atlanta session. Build an AI teammate that runs your brand — no coding background required." />
+  <title>Vibe Code Saturdays by Brand Brain — Build Something You Own With AI</title>
+  <meta name="description" content="A hands-on building experience where you learn to use AI by actually creating something. Bring your idea, your business, or your skills. Build. Ship. Show. Free, in person, Atlanta.">
+  <meta property="og:title" content="Vibe Code Saturdays by Brand Brain" />
+  <meta property="og:description" content="You don't need to be a developer. Bring your idea, your business, or your skills — and learn to use AI to build, run, and grow what belongs to you." />
   <meta property="og:url" content="https://www.fowl-ai.com/vibe-code-saturdays/" />
   <link rel="canonical" href="https://www.fowl-ai.com/vibe-code-saturdays/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -110,17 +110,46 @@
       .nav-link{font-size:10px;letter-spacing:1px;}
       .sub-btn{padding:9px 14px;font-size:11px;}
     }
-  </style>
+  
+    /* Builder cards */
+    .builder-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:28px 0 8px;}
+    .builder-card{background:#fff;border-radius:12px;padding:26px 24px;border-top:4px solid #f2a12b;display:flex;flex-direction:column;}
+    .builder-kicker{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#1a5f4a;margin-bottom:10px;}
+    .builder-quote{font-family:Fraunces,Georgia,serif;font-size:20px;line-height:1.35;color:#13241e;margin-bottom:14px;}
+    .builder-body{font-size:15px;line-height:1.75;color:#4a4a4a;margin-bottom:12px;}
+    .builder-arrow{font-family:"DM Mono",monospace;font-size:13px;line-height:1.7;color:#1a5f4a;background:#f4f8f6;border-radius:8px;padding:12px 14px;margin-top:auto;}
+    .builder-arrow b{color:#f2631a;font-weight:500;}
+
+    /* Persona list */
+    .persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:8px 28px;margin:26px 0;}
+    .persona-line{font-size:16px;line-height:1.7;color:#2a2a2a;padding-left:20px;position:relative;}
+    .persona-line::before{content:'';position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:#78ddb4;}
+
+    /* What happens */
+    .happens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin:28px 0 4px;}
+    .happens-item h3{font-family:Fraunces,Georgia,serif;font-size:19px;color:#f2a12b;margin-bottom:8px;}
+    .happens-item p{font-size:15px;line-height:1.75;color:#a9e8cf;}
+
+    /* Reasons */
+    .reason-line{font-size:17px;line-height:1.85;color:#2a2a2a;margin-bottom:14px;}
+    .reason-line b{color:#13241e;}
+
+    /* Inline CTA button (matches signup submit) */
+    .cta-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;padding:15px 26px;border-radius:999px;white-space:nowrap;}
+    .cta-btn:hover{opacity:.9;}
+    .hero-stamp{font-family:Fraunces,Georgia,serif;font-size:clamp(22px,3.4vw,30px);color:#78ddb4;margin:26px 0 6px;letter-spacing:.5px;}
+    .mid-stamp{font-family:Fraunces,Georgia,serif;font-size:24px;color:#13241e;margin-top:6px;}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- Nav -->
   <div class="topbar">
     <div class="wrap">
-      <nav class="nav">
+      <div class="nav">
         <a class="brand" href="/">
-          <span class="brand-mark"></span>
-          <span class="brand-word">FOWL AI</span>
+          <div class="brand-mark"></div>
+          <div class="brand-word">FOWL AI</div>
         </a>
         <div class="nav-links">
           <a class="nav-link" href="/">Home</a>
@@ -132,74 +161,175 @@
           <a class="nav-link" href="/faq/">FAQ</a>
           <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
         </div>
-      </nav>
-    </div>
-  </div>
-
-  <!-- HERO -->
-  <div class="hero">
-    <div class="wrap">
-      <div class="eyebrow">FOWL AI · Atlanta · In Person</div>
-      <h1>Become <span>AI native.</span></h1>
-      <p class="hero-lede">Vibe Code Saturdays teaches you to build an AI teammate that actually runs your brand — not just a one-time website. Using Claude, you build a website, a newsletter, and the beginnings of the automations that keep it all going. No coding background required.</p>
-      <div class="hero-meta">
-        <span class="meta-pill">📍 Atlanta</span>
-        <span class="meta-pill">Free to attend</span>
-        <span class="meta-pill">Monthly (for now)</span>
-        <span class="meta-pill">Laptop required</span>
       </div>
     </div>
   </div>
 
-  <!-- WHAT IT IS -->
-  <div class="content-section">
-
-    <div class="section-label">What It Is</div>
-    <h2 class="section-title">The goal isn't a website. It's you, AI native.</h2>
-
-    <p class="body-text">Most "learn to code" sessions end with a page. Vibe Code Saturdays ends with a teammate — an AI you've trained to run your brand, so the work keeps compounding long after you leave the room.</p>
-
-    <p class="body-text">Building happens hands-on with a laptop, together, each session. Staying in touch with your AI teammate afterward — reviewing a draft, giving quick direction — works from your phone too.</p>
-
-    <p class="body-text">Here's what that looks like in practice:</p>
-
-    <ul class="story-list">
-      <li>A real website, live on the internet, built in your own voice.</li>
-      <li>A newsletter you actually draft and send — not just plan to someday.</li>
-      <li>The beginnings of automations that keep both running without you starting from scratch every time.</li>
-    </ul>
-
-    <div class="divider"></div>
-
-    <div class="section-label">The Room</div>
-    <h2 class="section-title">The room is part of the product.</h2>
-
-    <p class="body-text">Music on, coffee going, screens ready by 10. Fifteen people walk in with fifteen completely different ideas. A short opening huddle, then everyone starts building.</p>
-
-    <p class="body-text">You'll see someone lean over at the screen next to them — <em>"wait, you built that?"</em> — and start helping. Someone figures something out and passes it down the table. That's most of what happens in the room: people who've never met, making things side by side, then teaching each other what they just learned.</p>
-
-    <div class="pull-quote">
-      <p>"By 2pm, you haven't just built something — you've spent four hours in a room full of people who make things. That part, an online course can't replicate."</p>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="eyebrow">Vibe Code Saturdays by Brand Brain</div>
+      <h1>Build something<br>you own <span>with AI.</span></h1>
+      <p class="hero-lede">You don't need to be a developer. You don't need a technical background. And you don't need to have everything figured out.</p>
+      <p class="hero-lede" style="margin-top:16px;">Bring your idea, your business, or your skills. We'll help you learn how to use AI to build, run, and grow what belongs to you.</p>
+      <div class="hero-stamp">Build. Ship. Show.</div>
+      <div style="margin-top:22px;">
+        <a class="cta-btn" href="#want-in">Join the Next Vibe Code Saturday →</a>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-pill">📍 Atlanta</div>
+        <div class="meta-pill">Free to attend</div>
+        <div class="meta-pill">Monthly (for now)</div>
+        <div class="meta-pill">Laptop required</div>
+      </div>
     </div>
+  </section>
 
-    <p class="body-text">Lunch and snacks are covered. Bring a laptop and an idea — the room does the rest.</p>
+  <!-- AI is your teammate -->
+  <section class="content-section">
+    <div class="section-label">What It Is</div>
+    <h2 class="section-title">AI is your teammate. You're still in the driver's seat.</h2>
+    <p class="body-text">Vibe Code Saturdays by Brand Brain is a hands-on building experience where you learn to use AI by actually creating something.</p>
+    <p class="body-text">Not another day of sitting through presentations about what AI <em>could</em> do.</p>
+    <p class="body-text">Bring your laptop. Sit down with other builders. Learn the tools. Ask questions. Build something real.</p>
+    <ul class="story-list">
+      <li>Your website.</li>
+      <li>Your newsletter.</li>
+      <li>Your content system.</li>
+      <li>A new feature for your business.</li>
+      <li>Your portfolio. Your next idea.</li>
+    </ul>
+    <p class="body-text">And when you're done?</p>
+    <p class="mid-stamp">Ship it.</p>
+  </section>
 
-    <div class="divider"></div>
+  <!-- Builder types -->
+  <section class="content-section" style="max-width:980px;">
+    <div class="section-label">Who Comes</div>
+    <h2 class="section-title">What kind of Builder are you?</h2>
+    <p class="body-text">There's no single type of Brand Brain Builder. Maybe you have an idea you've been sitting on. Maybe you're already running a business and doing everything yourself. Maybe you have years of skills and experience but haven't built something that belongs to you yet.</p>
 
+    <div class="builder-grid">
+      <div class="builder-card">
+        <div class="builder-kicker">The Starter</div>
+        <div class="builder-quote">&ldquo;I have an idea.&rdquo;</div>
+        <p class="builder-body">You've been thinking about starting something — a consulting practice, catering business, beauty brand, photography business, newsletter, personal brand, online store, or something completely different.</p>
+        <p class="builder-body">You know what you want to do. You're just not sure how to put all the pieces together.</p>
+        <p class="builder-body">Build your website. Create your brand. Establish your online presence. Learn how AI can help you keep building.</p>
+        <div class="builder-arrow">I've been thinking about it<br><b>&rarr; I built it.</b></div>
+      </div>
+
+      <div class="builder-card">
+        <div class="builder-kicker">The Operator</div>
+        <div class="builder-quote">&ldquo;I already have a business.&rdquo;</div>
+        <p class="builder-body">Your business exists. The problem? You're doing everything — updating the website, creating content, responding to customers, managing social, sending emails, figuring out scheduling, trying to understand what's working.</p>
+        <p class="builder-body">You don't necessarily need another person for every task. You need to understand how AI can become part of your team.</p>
+        <div class="builder-arrow">I do everything myself<br><b>&rarr; I have AI teammates and systems helping me run it.</b></div>
+      </div>
+
+      <div class="builder-card">
+        <div class="builder-kicker">The Independent</div>
+        <div class="builder-quote">&ldquo;I have skills.&rdquo;</div>
+        <p class="builder-body">You're a professional. A student. A freelancer. A creator. A subject-matter expert. You've developed skills, knowledge, and experience.</p>
+        <p class="builder-body">Now it's time to build something that's yours. Create your portfolio. Launch your personal brand. Start your newsletter. Build a consulting presence. Turn an idea into a real project.</p>
+        <div class="builder-arrow">Here's what I know<br><b>&rarr; Here's what I built.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Not technical -->
+  <section class="content-section">
+    <div class="divider" style="margin-top:0;"></div>
+    <h2 class="section-title">You don't have to be &ldquo;technical.&rdquo;</h2>
+    <div class="persona-grid">
+      <div class="persona-line">You're a doctor with an idea for a health education platform.</div>
+      <div class="persona-line">You're a pet groomer who needs online scheduling.</div>
+      <div class="persona-line">You're a marketer who wants your own consulting brand.</div>
+      <div class="persona-line">You're a gamer who wants to build a community.</div>
+      <div class="persona-line">You're a baker who needs a website.</div>
+      <div class="persona-line">You're a student who wants a portfolio.</div>
+      <div class="persona-line">You're a photographer tired of manually answering the same customer questions.</div>
+      <div class="persona-line">You're a professional who's been thinking about starting something on the side.</div>
+    </div>
+    <p class="mid-stamp" style="margin-bottom:14px;">Perfect.</p>
+    <p class="body-text">Brand Brain isn't about turning you into a software engineer. It's about making you more capable of building and running what you already care about.</p>
+  </section>
+
+  <!-- What happens -->
+  <section style="background:#0d3f31;padding:60px 24px;">
+    <div class="wrap" style="max-width:820px;">
+      <div class="why-box-label">The Day</div>
+      <h2 style="font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,36px);color:#fff;line-height:1.2;margin-bottom:8px;">What happens at Vibe Code Saturdays?</h2>
+      <div class="happens-grid">
+        <div class="happens-item">
+          <h3>You learn.</h3>
+          <p>We'll introduce you to practical AI tools and show you how to work with them.</p>
+        </div>
+        <div class="happens-item">
+          <h3>You build.</h3>
+          <p>Your laptop stays open. This isn't a lecture. You'll work on something that matters to you.</p>
+        </div>
+        <div class="happens-item">
+          <h3>You meet other Builders.</h3>
+          <p>Sit beside entrepreneurs, professionals, creators, students, and business owners who are building too. Ask questions. Exchange ideas. Make connections.</p>
+        </div>
+        <div class="happens-item">
+          <h3>You ship.</h3>
+          <p>The goal isn't to leave with 14 pages of notes. It's to leave saying: &ldquo;Look what I built.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The room / why come -->
+  <section class="content-section">
+    <div class="section-label">The Room</div>
+    <h2 class="section-title">You're not only coming for an AI class.</h2>
+    <p class="body-text">You can watch an AI tutorial online. Brand Brain is different.</p>
+    <p class="reason-line">You're coming for the <b>skills</b> — practical experience using AI.</p>
+    <p class="reason-line">You're coming for the <b>environment</b> — dedicated time and space to finally build.</p>
+    <p class="reason-line">You're coming for the <b>community</b> — people around you who are creating too.</p>
+    <p class="reason-line">You're coming for the <b>network</b> — entrepreneurs, professionals, creators, and other Builders you may never have met otherwise.</p>
+    <div class="pull-quote">
+      <p>And most importantly, you're coming for the momentum. Because sometimes the difference between &ldquo;I've been meaning to build that&rdquo; and &ldquo;It's live&rdquo; is getting in the right room.</p>
+    </div>
+    <p class="body-text">Music on, coffee going, screens ready by 10. A short opening huddle, then everyone starts building. Lunch and snacks are covered. Bring a laptop and an idea — the room does the rest.</p>
+  </section>
+
+  <!-- Skills grow -->
+  <section class="content-section">
+    <div class="divider" style="margin-top:0;"></div>
+    <h2 class="section-title">Your AI skills should grow with your brand.</h2>
+    <p class="body-text">Maybe your first Brand Brain session is <strong>Build Your Website</strong>. Then you come back because you want to:</p>
+    <ul class="story-list">
+      <li>Add scheduling to your website</li>
+      <li>Build your newsletter</li>
+      <li>Create a content system</li>
+      <li>Improve your social media workflow</li>
+      <li>Build an AI teammate</li>
+      <li>Automate repetitive work</li>
+      <li>Understand your analytics</li>
+      <li>Create something we haven't even thought of yet</li>
+    </ul>
+    <p class="body-text">Brand Brain isn't about learning one tool once. It's about becoming the kind of person who can look at a problem and think:</p>
+    <p class="mid-stamp">&ldquo;I wonder if I can build that.&rdquo;</p>
+  </section>
+
+  <!-- Logistics -->
+  <section class="content-section">
     <div class="section-label">Format &amp; Logistics</div>
-
     <div class="logistics-grid">
       <div class="logistics-card">
         <div class="logistics-label">When</div>
         <div class="logistics-value">Monthly, in person</div>
         <div class="logistics-note">Could expand to weekly as the group grows.</div>
       </div>
-      <div class="logistics-card amber">
+      <div class="logistics-card">
         <div class="logistics-label">Where</div>
         <div class="logistics-value">Atlanta</div>
         <div class="logistics-note">Specific venue announced soon.</div>
       </div>
-      <div class="logistics-card">
+      <div class="logistics-card amber">
         <div class="logistics-label">Cost</div>
         <div class="logistics-value">Free</div>
         <div class="logistics-note">Bring a laptop, nothing else.</div>
@@ -211,36 +341,31 @@
       </div>
     </div>
 
-    <div class="divider"></div>
-
     <div class="why-box">
       <div class="why-box-label">First cohort</div>
       <div class="why-box-q">This is the very first Vibe Code Saturdays — you'd be building it with us from session one.</div>
-      <div class="why-box-body">There's no past show-and-tell to point to yet, no photo wall of finished sites. What there is: a real curriculum, a real room, and a real teammate you'll walk out having actually built. The proof comes from being in the room, not from a highlight reel.</div>
+      <p class="why-box-body">There's no past show-and-tell to point to yet, no photo wall of finished sites. What there is: a real curriculum, a real room, and something you'll walk out having actually built. The proof comes from being in the room, not from a highlight reel.</p>
     </div>
+  </section>
 
+  <!-- CTA -->
+  <section class="rsvp-cta" id="want-in">
+    <h2>Your first build starts here.</h2>
+    <p style="color:#e2f2eb;font-size:17px;line-height:1.8;">Bring your laptop. Bring your idea. Bring your business. Bring your skills.<br><span style="color:#78ddb4;">We'll bring the room.</span></p>
+    <p>Venue and the first date are landing soon. Leave your email and we'll notify you the moment RSVP opens.</p>
+    <form id="fowlSignupForm" class="signup-form" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true; var b=this.querySelector('.signup-submit'); b.disabled=true; b.textContent='Submitting…'; setTimeout(function(){b.disabled=false;b.textContent='Notify me →';}, 8000);">
+      <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
+      <button class="signup-submit" type="submit">Notify me →</button>
+    </form>
+    <div id="fowlSignupSuccess" class="signup-success">You're in! <span>We'll email you as soon as RSVP opens.</span></div>
+    <iframe name="fowlHiddenFrame" title="signup" style="display:none;" onload="if(window.fowlFormSubmitted){document.getElementById('fowlSignupForm').style.display='none';document.getElementById('fowlSignupSuccess').style.display='block';window.fowlFormSubmitted=false;}"></iframe>
+    <div class="rsvp-note">This adds you to the FOWL AI list — we'll only email you when there's something real to share.</div>
+  </section>
+
+  <div class="footer">
+    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/jobs/">Jobs</a> · <a href="/platforms/">Platforms</a> · <a href="/glossary/">Glossary</a> · <a href="/vibe-code-saturdays/">Vibe Code Saturdays</a> · <a href="/launchlab/">Brand Brain</a> · <a href="/faq/">FAQ</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
+    <div style="margin-top:10px;opacity:.7;text-transform:none;letter-spacing:0;font-family:Inter,sans-serif;font-size:12px;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
   </div>
-
-  <!-- RSVP -->
-  <div class="rsvp-cta">
-    <div class="wrap">
-      <h2>Want in?</h2>
-      <p>Venue and the first date are landing soon. Leave your email and we'll notify you the moment RSVP opens.</p>
-      <form id="fowlSignupForm" class="signup-form" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true; var b=this.querySelector('.signup-submit'); b.disabled=true; b.textContent='Submitting…'; setTimeout(function(){b.disabled=false;b.textContent='Notify me →';}, 8000);">
-        <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
-        <button class="signup-submit" type="submit">Notify me →</button>
-      </form>
-      <div id="fowlSignupSuccess" class="signup-success">You're in! <span>We'll email you as soon as RSVP opens.</span></div>
-      <iframe name="fowlHiddenFrame" title="signup" style="display:none;" onload="if(window.fowlFormSubmitted){document.getElementById('fowlSignupForm').style.display='none';document.getElementById('fowlSignupSuccess').style.display='block';window.fowlFormSubmitted=false;}"></iframe>
-      <div class="rsvp-note">This adds you to the FOWL AI list — we'll only email you when there's something real to share.</div>
-    </div>
-  </div>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/jobs/">Jobs</a> · <a href="/platforms/">Platforms</a> · <a href="/glossary/">Glossary</a> · <a href="/vibe-code-saturdays/">Vibe Code Saturdays</a> · <a href="/faq/">FAQ</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
-    <div style="margin-top:12px;font-size:10px;opacity:.6;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
-  </footer>
 
 </body>
 </html>
