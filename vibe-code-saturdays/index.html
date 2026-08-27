@@ -42,7 +42,7 @@
     .sub-btn:hover{transform:scale(1.06);animation:none;}
 
     /* Hero */
-    .hero{background:#0d3f31;padding:64px 24px 72px;border-top:1px solid rgba(255,255,255,.07);}
+    .hero{background:#0d3f31;border-top:1px solid rgba(255,255,255,.07);}
     .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:16px;}
     .hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(38px,6vw,64px);line-height:1.05;color:#fff;margin-bottom:20px;}
     .hero h1 span{color:#f2a12b;}
@@ -100,7 +100,6 @@
     .footer a{color:#78ddb4;}
 
     @media(max-width:680px){
-      .hero{padding:44px 20px 52px;}
       .content-section{padding:44px 20px;}
       .logistics-grid{grid-template-columns:1fr;}
       .why-box{padding:26px 22px;}
@@ -134,11 +133,17 @@
     .reason-line{font-size:17px;line-height:1.85;color:#2a2a2a;margin-bottom:14px;}
     .reason-line b{color:#13241e;}
 
-    /* Room photo band */
-    .room-band{background:#f2ede3;padding:0 24px;}
-    .room-figure{width:min(1120px,100%);margin:-52px auto 0;border-radius:16px;overflow:hidden;box-shadow:0 30px 70px rgba(13,63,49,.30);line-height:0;position:relative;}
-    .room-figure img{width:100%;height:auto;display:block;}
-    .room-caption{width:min(1120px,100%);margin:14px auto 0;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;color:#1a5f4a;opacity:.75;text-align:center;}
+    /* Hero split layout: image is the hero visual */
+    .hero{padding:0;display:grid;grid-template-columns:1fr;}
+    .hero-copy{padding:44px 20px 52px;}
+    @media(max-width:680px){.hero-copy{padding:36px 20px 44px;}}
+    .hero-visual{position:relative;order:-1;aspect-ratio:16/9;background:#0b3327;}
+    .hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;}
+    @media(min-width:900px){
+      .hero{grid-template-columns:minmax(0,1.02fr) minmax(0,0.98fr);align-items:stretch;}
+      .hero-copy{padding:76px 52px 80px 24px;max-width:660px;margin-left:auto;display:flex;flex-direction:column;justify-content:center;}
+      .hero-visual{order:0;aspect-ratio:auto;min-height:100%;}
+    }
 
     /* Inline CTA button (matches signup submit) */
     .cta-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;padding:15px 26px;border-radius:999px;white-space:nowrap;}
@@ -173,7 +178,15 @@
 
   <!-- Hero -->
   <section class="hero">
-    <div class="wrap">
+    <div class="hero-visual">
+      <img src="room-1600.webp"
+           srcset="room-900.webp 900w, room-1600.webp 1600w"
+           sizes="(max-width: 900px) 100vw, 50vw"
+           width="1600" height="900"
+           fetchpriority="high" decoding="async"
+           alt="Builders around a long shared table at a Vibe Code Saturdays session — laptops open, iced coffees and sticky notes on the table, someone standing and explaining while others lean in, laughing.">
+    </div>
+    <div class="hero-copy">
       <div class="eyebrow">Vibe Code Saturdays by Brand Brain</div>
       <h1>Build something<br>you own <span>with AI.</span></h1>
       <p class="hero-lede">You don't need to be a developer. You don't need a technical background. And you don't need to have everything figured out.</p>
@@ -190,19 +203,6 @@
       </div>
     </div>
   </section>
-
-  <!-- Room photo -->
-  <div class="room-band">
-    <figure class="room-figure">
-      <img src="room-1600.webp"
-           srcset="room-900.webp 900w, room-1600.webp 1600w"
-           sizes="(max-width: 1160px) 100vw, 1120px"
-           width="1600" height="900"
-           decoding="async"
-           alt="Builders around a long shared table at a Vibe Code Saturdays session — laptops open, iced coffees and sticky notes on the table, someone standing and explaining while others lean in, laughing.">
-    </figure>
-    <p class="room-caption">Fifteen people. Fifteen different ideas. One room.</p>
-  </div>
 
   <!-- AI is your teammate -->
   <section class="content-section">
