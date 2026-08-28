@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <script src="/analytics-events.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vibe Code Saturdays by Brand Brain — Build Something You Own With AI</title>
+  <meta name="description" content="A hands-on building experience where you learn to use AI by actually creating something. Bring your idea, your business, or your skills. Build. Ship. Show. Free, in person, Atlanta.">
+  <meta property="og:title" content="Vibe Code Saturdays by Brand Brain" />
+  <meta property="og:description" content="You don't need to be a developer. Bring your idea, your business, or your skills — and learn to use AI to build, run, and grow what belongs to you." />
+  <meta property="og:url" content="https://www.fowl-ai.com/vibe-code-saturdays/" />
+  <link rel="canonical" href="https://www.fowl-ai.com/vibe-code-saturdays/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="preload" as="image" href="room-1600.webp" imagesrcset="room-900.webp 900w, room-1600.webp 1600w" imagesizes="(max-width: 900px) 100vw, 50vw" fetchpriority="high">
+  <style>
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    a{color:inherit;text-decoration:none;}
+
+    /* Nav */
+    .topbar{background:#0d3f31;padding:18px 24px;}
+    .wrap{width:min(1120px,100%);margin:0 auto;}
+    .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
+    .brand{display:flex;align-items:center;gap:14px;}
+    .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
+    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-links{display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;white-space:nowrap;}
+    .nav-link:hover{color:#fff;}
+    .nav-link.current{color:#fff;}
+    @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0);}}
+    .sub-btn{display:inline-flex;align-items:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;animation:pulse-glow 2.2s ease-in-out infinite;white-space:nowrap;}
+    .sub-btn:hover{transform:scale(1.06);animation:none;}
+
+    /* Hero */
+    .hero{background:#0d3f31;border-top:1px solid rgba(255,255,255,.07);}
+    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:16px;}
+    .hero h1{font-family:Fraunces,Georgia,serif;font-size:clamp(38px,6vw,64px);line-height:1.05;color:#fff;margin-bottom:20px;}
+    .hero h1 span{color:#f2a12b;}
+    .hero-lede{font-size:19px;color:#e2f2eb;max-width:620px;line-height:1.8;}
+    .hero-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:28px;}
+    .meta-pill{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:9px 16px;border-radius:999px;border:1.5px solid rgba(127,217,184,.3);color:#78ddb4;}
+
+    /* Content */
+    .content-section{padding:64px 24px;max-width:760px;margin:0 auto;}
+    .section-label{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#1a5f4a;margin-bottom:20px;display:flex;align-items:center;gap:12px;}
+    .section-label::after{content:'';flex:1;height:1px;background:#1a5f4a;opacity:.3;}
+    .section-title{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,36px);color:#13241e;line-height:1.2;margin-bottom:28px;}
+    .body-text{font-size:17px;line-height:1.85;color:#2a2a2a;margin-bottom:20px;}
+    .body-text:last-child{margin-bottom:0;}
+
+    .story-list{list-style:none;padding:0;margin:24px 0 28px;}
+    .story-list li{font-size:17px;line-height:1.8;color:#2a2a2a;padding:10px 0 10px 28px;border-bottom:1px solid #e8e4de;position:relative;}
+    .story-list li::before{content:'→';position:absolute;left:0;color:#f2a12b;font-weight:700;}
+    .story-list li:last-child{border-bottom:none;}
+
+    .divider{height:1px;background:linear-gradient(90deg,#e8e4de,transparent);margin:52px 0;}
+
+    .pull-quote{border-left:4px solid #f2a12b;padding:20px 28px;background:#fffbf0;border-radius:0 10px 10px 0;margin:32px 0;}
+    .pull-quote p{font-family:Fraunces,Georgia,serif;font-size:21px;line-height:1.5;color:#13241e;font-style:italic;}
+
+    /* Logistics grid */
+    .logistics-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:24px 0 8px;}
+    .logistics-card{background:#fff;border-radius:10px;padding:22px 24px;border-top:4px solid #0d3f31;}
+    .logistics-card.amber{border-top-color:#f2a12b;}
+    .logistics-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#1a5f4a;margin-bottom:8px;}
+    .logistics-value{font-family:Fraunces,Georgia,serif;font-size:19px;line-height:1.4;}
+    .logistics-note{font-size:13px;color:#665f56;margin-top:4px;}
+
+    /* Why box */
+    .why-box{background:#0d3f31;border-radius:14px;padding:36px 40px;margin:32px 0;}
+    .why-box-label{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:12px;}
+    .why-box-q{font-family:Fraunces,Georgia,serif;font-size:24px;font-weight:700;color:#fff;line-height:1.3;margin-bottom:14px;}
+    .why-box-body{font-size:15.5px;color:#a9e8cf;line-height:1.8;}
+
+    /* Signup / CTA */
+    .rsvp-cta{background:#13241e;padding:56px 24px 60px;text-align:center;}
+    .rsvp-cta h2{font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,36px);color:#fff;margin-bottom:12px;}
+    .rsvp-cta p{font-size:16px;color:#a9e8cf;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
+    .signup-form{display:flex;gap:10px;max-width:440px;margin:0 auto;flex-wrap:wrap;justify-content:center;}
+    .signup-input{flex:1;min-width:220px;padding:14px 18px;border-radius:999px;border:1.5px solid rgba(255,255,255,.2);background:#fff;font-family:Inter,-apple-system,sans-serif;font-size:15px;color:#13241e;outline:none;}
+    .signup-input:focus{border-color:#78ddb4;}
+    .signup-submit{background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;border:none;padding:14px 22px;border-radius:999px;cursor:pointer;white-space:nowrap;}
+    .signup-submit:hover{opacity:.88;}
+    .signup-success{display:none;font-family:Fraunces,Georgia,serif;font-style:italic;font-size:18px;color:#fff;}
+    .signup-success span{color:#78ddb4;}
+    .rsvp-note{font-size:12.5px;color:#7fd9b8;opacity:.8;margin-top:18px;}
+
+    /* Footer */
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:26px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;border-top:1px solid rgba(255,255,255,.06);}
+    .footer a{color:#78ddb4;}
+
+    @media(max-width:680px){
+      .content-section{padding:44px 20px;}
+      .logistics-grid{grid-template-columns:1fr;}
+      .why-box{padding:26px 22px;}
+      .rsvp-cta{padding:40px 20px;}
+      .nav{gap:10px;}
+      .nav-links{gap:12px;flex-basis:100%;}
+      .nav-link{font-size:10px;letter-spacing:1px;}
+      .sub-btn{padding:9px 14px;font-size:11px;}
+    }
+  
+    /* Builder cards */
+    .builder-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px;margin:28px 0 8px;}
+    .builder-card{background:#fff;border-radius:12px;padding:26px 24px;border-top:4px solid #f2a12b;display:flex;flex-direction:column;}
+    .builder-kicker{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2.5px;text-transform:uppercase;color:#1a5f4a;margin-bottom:10px;}
+    .builder-quote{font-family:Fraunces,Georgia,serif;font-size:20px;line-height:1.35;color:#13241e;margin-bottom:14px;}
+    .builder-body{font-size:15px;line-height:1.75;color:#4a4a4a;margin-bottom:12px;}
+    .builder-arrow{font-family:"DM Mono",monospace;font-size:13px;line-height:1.7;color:#1a5f4a;background:#f4f8f6;border-radius:8px;padding:12px 14px;margin-top:auto;}
+    .builder-arrow b{color:#f2631a;font-weight:500;}
+
+    /* Persona list */
+    .persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:8px 28px;margin:26px 0;}
+    .persona-line{font-size:16px;line-height:1.7;color:#2a2a2a;padding-left:20px;position:relative;}
+    .persona-line::before{content:'';position:absolute;left:0;top:11px;width:7px;height:7px;border-radius:50%;background:#78ddb4;}
+
+    /* What happens */
+    .happens-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:22px;margin:28px 0 4px;}
+    .happens-item h3{font-family:Fraunces,Georgia,serif;font-size:19px;color:#f2a12b;margin-bottom:8px;}
+    .happens-item p{font-size:15px;line-height:1.75;color:#a9e8cf;}
+
+    /* Reasons */
+    .reason-line{font-size:17px;line-height:1.85;color:#2a2a2a;margin-bottom:14px;}
+    .reason-line b{color:#13241e;}
+
+    /* Hero split layout: image is the hero visual */
+    .hero{padding:0;display:grid;grid-template-columns:1fr;}
+    .hero-copy{padding:44px 20px 52px;}
+    @media(max-width:680px){.hero-copy{padding:36px 20px 44px;}}
+    .hero-visual{position:relative;order:-1;aspect-ratio:16/9;background:#0b3327;}
+    .hero-visual img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;transform:translateZ(0);backface-visibility:hidden;}
+    @media(min-width:900px){
+      .hero{grid-template-columns:minmax(0,1.02fr) minmax(0,0.98fr);align-items:stretch;}
+      .hero-copy{padding:76px 52px 80px 24px;max-width:660px;margin-left:auto;display:flex;flex-direction:column;justify-content:center;}
+      .hero-visual{order:0;aspect-ratio:auto;min-height:100%;}
+    }
+
+    /* Inline CTA button (matches signup submit) */
+    .cta-btn{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;padding:15px 26px;border-radius:999px;white-space:nowrap;}
+    .cta-btn:hover{opacity:.9;}
+    .hero-stamp{font-family:Fraunces,Georgia,serif;font-size:clamp(22px,3.4vw,30px);color:#78ddb4;margin:26px 0 6px;letter-spacing:.5px;}
+    .mid-stamp{font-family:Fraunces,Georgia,serif;font-size:24px;color:#13241e;margin-top:6px;}
+</style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="/">
+          <div class="brand-mark"></div>
+          <div class="brand-word">FOWL AI</div>
+        </a>
+        <div class="nav-links">
+          <a class="nav-link" href="/">Home</a>
+          <a class="nav-link" href="/issues/">Briefings</a>
+          <a class="nav-link" href="/jobs/">Jobs</a>
+          <a class="nav-link" href="/platforms/">Platforms</a>
+          <a class="nav-link" href="/glossary/">Glossary</a>
+          <a class="nav-link current" href="/vibe-code-saturdays/">Vibe Code Saturdays</a>
+          <a class="nav-link" href="/faq/">FAQ</a>
+          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-visual">
+      <img src="room-1600.webp"
+           srcset="room-900.webp 900w, room-1600.webp 1600w"
+           sizes="(max-width: 900px) 100vw, 50vw"
+           width="1600" height="900"
+           fetchpriority="high" decoding="async"
+           alt="Builders around a long shared table at a Vibe Code Saturdays session — laptops open, iced coffees and sticky notes on the table, someone standing and explaining while others lean in, laughing.">
+    </div>
+    <div class="hero-copy">
+      <div class="eyebrow">Vibe Code Saturdays by Brand Brain</div>
+      <h1>Build something<br>you own <span>with AI.</span></h1>
+      <p class="hero-lede">You don't need to be a developer. You don't need a technical background. And you don't need to have everything figured out.</p>
+      <p class="hero-lede" style="margin-top:16px;">Bring your idea, your business, or your skills. We'll help you learn how to use AI to build, run, and grow what belongs to you.</p>
+      <div class="hero-stamp">Build. Ship. Show.</div>
+      <div style="margin-top:22px;">
+        <a class="cta-btn" href="#want-in">Join the Next Vibe Code Saturday →</a>
+      </div>
+      <div class="hero-meta">
+        <div class="meta-pill">📍 Atlanta</div>
+        <div class="meta-pill">Free to attend</div>
+        <div class="meta-pill">Monthly (for now)</div>
+        <div class="meta-pill">Laptop required</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI is your teammate -->
+  <section class="content-section">
+    <div class="section-label">What It Is</div>
+    <h2 class="section-title">AI is your teammate. You're still in the driver's seat.</h2>
+    <p class="body-text">Vibe Code Saturdays by Brand Brain is a hands-on building experience where you learn to use AI by actually creating something.</p>
+    <p class="body-text">Not another day of sitting through presentations about what AI <em>could</em> do.</p>
+    <p class="body-text">Bring your laptop. Sit down with other builders. Learn the tools. Ask questions. Build something real.</p>
+    <ul class="story-list">
+      <li>Your website.</li>
+      <li>Your newsletter.</li>
+      <li>Your content system.</li>
+      <li>A new feature for your business.</li>
+      <li>Your portfolio. Your next idea.</li>
+    </ul>
+    <p class="body-text">And when you're done?</p>
+    <p class="mid-stamp">Ship it.</p>
+  </section>
+
+  <!-- Builder types -->
+  <section class="content-section" style="max-width:980px;">
+    <div class="section-label">Who Comes</div>
+    <h2 class="section-title">What kind of Builder are you?</h2>
+    <p class="body-text">There's no single type of Brand Brain Builder. Maybe you have an idea you've been sitting on. Maybe you're already running a business and doing everything yourself. Maybe you have years of skills and experience but haven't built something that belongs to you yet.</p>
+
+    <div class="builder-grid">
+      <div class="builder-card">
+        <div class="builder-kicker">The Starter</div>
+        <div class="builder-quote">&ldquo;I have an idea.&rdquo;</div>
+        <p class="builder-body">You've been thinking about starting something — a consulting practice, catering business, beauty brand, photography business, newsletter, personal brand, online store, or something completely different.</p>
+        <p class="builder-body">You know what you want to do. You're just not sure how to put all the pieces together.</p>
+        <p class="builder-body">Build your website. Create your brand. Establish your online presence. Learn how AI can help you keep building.</p>
+        <div class="builder-arrow">I've been thinking about it<br><b>&rarr; I built it.</b></div>
+      </div>
+
+      <div class="builder-card">
+        <div class="builder-kicker">The Operator</div>
+        <div class="builder-quote">&ldquo;I already have a business.&rdquo;</div>
+        <p class="builder-body">Your business exists. The problem? You're doing everything — updating the website, creating content, responding to customers, managing social, sending emails, figuring out scheduling, trying to understand what's working.</p>
+        <p class="builder-body">You don't necessarily need another person for every task. You need to understand how AI can become part of your team.</p>
+        <div class="builder-arrow">I do everything myself<br><b>&rarr; I have AI teammates and systems helping me run it.</b></div>
+      </div>
+
+      <div class="builder-card">
+        <div class="builder-kicker">The Independent</div>
+        <div class="builder-quote">&ldquo;I have skills.&rdquo;</div>
+        <p class="builder-body">You're a professional. A student. A freelancer. A creator. A subject-matter expert. You've developed skills, knowledge, and experience.</p>
+        <p class="builder-body">Now it's time to build something that's yours. Create your portfolio. Launch your personal brand. Start your newsletter. Build a consulting presence. Turn an idea into a real project.</p>
+        <p class="builder-body" style="color:#13241e;font-weight:600;">Didn't get an internship this summer? Didn't do anything this summer? You can still build something.</p>
+        <div class="builder-arrow">Here's what I know<br><b>&rarr; Here's what I built.</b></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Not technical -->
+  <section class="content-section">
+    <div class="divider" style="margin-top:0;"></div>
+    <h2 class="section-title">You don't have to be &ldquo;technical.&rdquo;</h2>
+    <div class="persona-grid">
+      <div class="persona-line">You're a doctor with an idea for a health education platform.</div>
+      <div class="persona-line">You're a pet groomer who needs online scheduling.</div>
+      <div class="persona-line">You're a marketer who wants your own consulting brand.</div>
+      <div class="persona-line">You're a gamer who wants to build a community.</div>
+      <div class="persona-line">You're a baker who needs a website.</div>
+      <div class="persona-line">You're a student who wants a portfolio.</div>
+      <div class="persona-line">You're a photographer tired of manually answering the same customer questions.</div>
+      <div class="persona-line">You're a professional who's been thinking about starting something on the side.</div>
+    </div>
+    <p class="mid-stamp" style="margin-bottom:14px;">Perfect.</p>
+    <p class="body-text">Brand Brain isn't about turning you into a software engineer. It's about making you more capable of building and running what you already care about.</p>
+  </section>
+
+  <!-- What happens -->
+  <section style="background:#0d3f31;padding:60px 24px;">
+    <div class="wrap" style="max-width:820px;">
+      <div class="why-box-label">The Day</div>
+      <h2 style="font-family:Fraunces,Georgia,serif;font-size:clamp(26px,4vw,36px);color:#fff;line-height:1.2;margin-bottom:8px;">What happens at Vibe Code Saturdays?</h2>
+      <div class="happens-grid">
+        <div class="happens-item">
+          <h3>You learn.</h3>
+          <p>We'll introduce you to practical AI tools and show you how to work with them.</p>
+        </div>
+        <div class="happens-item">
+          <h3>You build.</h3>
+          <p>Your laptop stays open. This isn't a lecture. You'll work on something that matters to you.</p>
+        </div>
+        <div class="happens-item">
+          <h3>You meet other Builders.</h3>
+          <p>Sit beside entrepreneurs, professionals, creators, students, and business owners who are building too. Ask questions. Exchange ideas. Make connections.</p>
+        </div>
+        <div class="happens-item">
+          <h3>You ship.</h3>
+          <p>The goal isn't to leave with 14 pages of notes. It's to leave saying: &ldquo;Look what I built.&rdquo;</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- The room / why come -->
+  <section class="content-section">
+    <div class="section-label">The Room</div>
+    <h2 class="section-title">You're not only coming for an AI class.</h2>
+    <p class="body-text">You can watch an AI tutorial online. Brand Brain is different.</p>
+    <p class="reason-line">You're coming for the <b>skills</b> — practical experience using AI.</p>
+    <p class="reason-line">You're coming for the <b>environment</b> — dedicated time and space to finally build.</p>
+    <p class="reason-line">You're coming for the <b>community</b> — people around you who are creating too.</p>
+    <p class="reason-line">You're coming for the <b>network</b> — entrepreneurs, professionals, creators, and other Builders you may never have met otherwise.</p>
+    <div class="pull-quote">
+      <p>And most importantly, you're coming for the momentum. Because sometimes the difference between &ldquo;I've been meaning to build that&rdquo; and &ldquo;It's live&rdquo; is getting in the right room.</p>
+    </div>
+    <p class="body-text">Music on, coffee going, screens ready by 10. A short opening huddle, then everyone starts building. Lunch and snacks are covered. Bring a laptop and an idea — the room does the rest.</p>
+  </section>
+
+  <!-- Skills grow -->
+  <section class="content-section">
+    <div class="divider" style="margin-top:0;"></div>
+    <h2 class="section-title">Your AI skills should grow with your brand.</h2>
+    <p class="body-text">Maybe your first Brand Brain session is <strong>Build Your Website</strong>. Then you come back because you want to:</p>
+    <ul class="story-list">
+      <li>Add scheduling to your website</li>
+      <li>Build your newsletter</li>
+      <li>Create a content system</li>
+      <li>Improve your social media workflow</li>
+      <li>Build an AI teammate</li>
+      <li>Automate repetitive work</li>
+      <li>Understand your analytics</li>
+      <li>Create something we haven't even thought of yet</li>
+    </ul>
+    <p class="body-text">Brand Brain isn't about learning one tool once. It's about becoming the kind of person who can look at a problem and think:</p>
+    <p class="mid-stamp">&ldquo;I wonder if I can build that.&rdquo;</p>
+  </section>
+
+  <!-- Logistics -->
+  <section class="content-section">
+    <div class="section-label">Format &amp; Logistics</div>
+    <div class="logistics-grid">
+      <div class="logistics-card">
+        <div class="logistics-label">When</div>
+        <div class="logistics-value">Monthly, in person</div>
+        <div class="logistics-note">Could expand to weekly as the group grows.</div>
+      </div>
+      <div class="logistics-card">
+        <div class="logistics-label">Where</div>
+        <div class="logistics-value">Atlanta</div>
+        <div class="logistics-note">Specific venue announced soon.</div>
+      </div>
+      <div class="logistics-card amber">
+        <div class="logistics-label">Cost</div>
+        <div class="logistics-value">Free</div>
+        <div class="logistics-note">Bring a laptop, nothing else.</div>
+      </div>
+      <div class="logistics-card amber">
+        <div class="logistics-label">Who it's for</div>
+        <div class="logistics-value">No coding background needed</div>
+        <div class="logistics-note">Total beginners welcome.</div>
+      </div>
+    </div>
+
+    <div class="why-box">
+      <div class="why-box-label">First cohort</div>
+      <div class="why-box-q">This is the very first Vibe Code Saturdays — you'd be building it with us from session one.</div>
+      <p class="why-box-body">There's no past show-and-tell to point to yet, no photo wall of finished sites. What there is: a real curriculum, a real room, and something you'll walk out having actually built. The proof comes from being in the room, not from a highlight reel.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="rsvp-cta" id="want-in">
+    <h2>Your first build starts here.</h2>
+    <p style="color:#e2f2eb;font-size:17px;line-height:1.8;">Bring your laptop. Bring your idea. Bring your business. Bring your skills.<br><span style="color:#78ddb4;">We'll bring the room.</span></p>
+    <p>Venue and the first date are landing soon. Leave your email and we'll notify you the moment RSVP opens.</p>
+    <form id="fowlSignupForm" class="signup-form" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" onsubmit="window.fowlFormSubmitted=true; var b=this.querySelector('.signup-submit'); b.disabled=true; b.textContent='Submitting…'; setTimeout(function(){b.disabled=false;b.textContent='Notify me →';}, 8000);">
+      <input class="signup-input" type="email" name="entry.433381883" placeholder="you@email.com" required aria-label="Email address">
+      <button class="signup-submit" type="submit">Notify me →</button>
+    </form>
+    <div id="fowlSignupSuccess" class="signup-success">You're in! <span>We'll email you as soon as RSVP opens.</span></div>
+    <iframe name="fowlHiddenFrame" title="signup" style="display:none;" onload="if(window.fowlFormSubmitted){document.getElementById('fowlSignupForm').style.display='none';document.getElementById('fowlSignupSuccess').style.display='block';window.fowlFormSubmitted=false;}"></iframe>
+    <div class="rsvp-note">This adds you to the FOWL AI list — we'll only email you when there's something real to share.</div>
+  </section>
+
+  <div class="footer">
+    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/jobs/">Jobs</a> · <a href="/platforms/">Platforms</a> · <a href="/glossary/">Glossary</a> · <a href="/vibe-code-saturdays/">Vibe Code Saturdays</a> · <a href="/launchlab/">Brand Brain</a> · <a href="/faq/">FAQ</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
+    <div style="margin-top:10px;opacity:.7;text-transform:none;letter-spacing:0;font-family:Inter,sans-serif;font-size:12px;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
+  </div>
+
+</body>
+</html>

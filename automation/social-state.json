@@ -109,6 +109,43 @@
         "threads": true
       },
       "posted_at": "2026-08-22T23:48:48+00:00"
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-08-24",
+      "topic": {
+        "title": "Z.AI ships GLM-5.2 Turbo \u2014 the 11th major model release in 20 days",
+        "why": "The model race has turned into a pure speed war, so the tool that's best for your workflow keeps changing almost weekly."
+      },
+      "script": "Eleven major AI model releases in twenty days \u2014 and the latest one just dropped from a company most people haven't heard of.\n\nZ.AI shipped GLM-5.2 Turbo on August 17th, the speed-tuned version of its flagship GLM-5.2 model. The base model already outperforms GPT-5.5 on key coding benchmarks while costing roughly a sixth of the price, runs a 1-million-token context window, and Z.AI open-sources the weights under MIT license within a week of release. Turbo trades a slice of raw capability for lower latency \u2014 built for the high-volume, user-facing stuff.\n\nIf you picked a favorite AI tool last month, it's probably already behind. The frontier is moving weekly now, not quarterly.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "Z.AI just shipped GLM-5.2 Turbo \u2014 the 11th major model release in 20 days \u2014 beating GPT-5.5 on coding benchmarks at a sixth of the price. #AI #ZAI #GLM #AINews #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/3f62759d2a60419799a37bf62183d99e.mp4?Expires=1788213944&Signature=FWmKdHgzJOMVNPOlImoAFlXmcrvVqGFYDlPPCyKr67XJVCna6fFnGS9nQCTpJYLowBX-gzuyUOohqkxdrZi-aTGQOHdN9Ohk7eRCt-yved96IiMh3RJg-6YtylY5sunQJK3Ot2zPdoOhCbNtxpFudXktaqm7axEK2r2xvU2C7bWUzbaa19ols3y6ljQje3TXNIil6sY4OVyCEI2ZLxx20F0tv~OzZjUBYULEHy91sduZjE27~cLPfgsge~cbVkx-qaeqQ7i6i1Gm1ho3AHZju4yHBXFRc75qeGl7yI6J25ZmPS2dihGM9RpSsAnOA4-L0FPurPBLqPZZr2NUnAHNfA__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
+      "look_name": "Too-Purple, Black-Bottomed",
+      "platforms_published": {
+        "facebook": true,
+        "instagram": true,
+        "tiktok": false,
+        "threads": true
+      },
+      "posted_at": "2026-08-24T23:49:51+00:00"
+    },
+    {
+      "day": "Wednesday",
+      "publish_date": "2026-08-26",
+      "topic": "Anthropic starts watermarking all of Claude's output worldwide under new EU AI Act rules",
+      "script": "Anthropic just started invisibly watermarking every piece of Claude's text and file output -- worldwide. It's compliance with the EU AI Act's Article 50, which took effect August 2nd and requires AI systems to mark synthetic content as machine-generated. The watermark is imperceptible to readers but detectable by tools built to spot it, and non-compliance can cost providers up to \u20ac15 million or 3% of global revenue. Anthropic joins roughly 190 signatories who backed the EU's Code of Practice on AI transparency this July. It's a preview of the disclosure standards every knowledge worker using AI tools will soon have to live with, whichever model they pick.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
+      "caption": "Anthropic is now invisibly watermarking every Claude output worldwide to comply with the EU AI Act's new transparency rules. #FOWLAI #AI #Anthropic #Claude #AIRegulation",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/de538b43fe714ccd865e4b51d544aef1.mp4?Expires=1788349965&Signature=pRhi0cINxKXgn3xuFQ6tIU4yDrb67j1vEiNsr7Cd80iu7dGkcjxDs9N-AwwbgrLUFSJNclNEHJppOwuJLkmtmelk--IALrYLgJbZAlRyvZj6P-Yh67UsZM-ZidDqBtPysXby~5Hgqgf1P7GeKXfbGmIwrLBc0c4aA15zqJdPLc1Hkfg4fZGPSHu5NuYkxT3fwbTKzb1i5iaxAW6fGPwyaepQGfQQOhDrMJw05~KL7fLkmNHw6K7u-lOvOJlZQeD6K2~SgPvBt1b3b8W1ZDbh~ebCRzUqP8KAA-RTpwwXi~-62ToUwVpwSuOdkp~JE5mCkm-QzEa5xNVv7kCq72goTw__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "ce4ddc31e9844543af9129432ff350af",
+      "look_name": "Avatar in maroon sleeveless turtleneck",
+      "platforms_published": {
+        "facebook": true,
+        "instagram": true,
+        "tiktok": false,
+        "threads": true
+      },
+      "posted_at": "2026-08-27T04:40:43+00:00"
     }
   ]
 }
