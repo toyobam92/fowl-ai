@@ -146,6 +146,22 @@
         "threads": true
       },
       "posted_at": "2026-08-27T04:40:43+00:00"
+    },
+    {
+      "day": "Friday",
+      "publish_date": "2026-08-28",
+      "topic": "Alibaba just dropped Wan3.0, its next-gen AI video generator",
+      "script": "Alibaba just dropped Wan3.0, and AI video just got a lot more usable.\n\nThe new model launched Monday through Alibaba Cloud, generating videos up to 30 seconds long -- twice its predecessor's length -- at resolutions up to 1080p, while holding character detail and motion consistent throughout. It also takes documents, spreadsheets, slides, and web pages as input, not just text prompts. API pricing starts at five cents a second at 480p, up to twenty cents at 1080p. The launch lands right after Alibaba raised $10.2 billion in Hong Kong's biggest follow-on share sale, with proceeds earmarked for AI infrastructure.\n\nIf you're making content or marketing videos with AI tools, the bar for \"good enough to ship\" just moved again.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
+      "caption": "Alibaba's Wan3.0 just doubled AI video length to 30 seconds at 1080p and can turn documents and slides straight into video -- the bar for AI content just moved again. #AI #AIVideo #Alibaba #AINews #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/9bcac33957fc4900b854441d0c724259.mp4?Expires=1788542944&Signature=LMm06PE3ihYiCaAJCSSDoa6B5QFX8MlPLCQucbUEADj3c5My3nbqADiRH47~KuaRWJgPiuC3FSWpkcd4egr8RoPsdUD2UVCZR~Bz91SIc-ZzoukPOtPfmsGxA4sCvFNtOCeimtPzqJKqdyL3-g8ALr5unlEHHcNAmJkRJMDKpwBfeNDjP1iME07hjp~iMJPM8Gla0AExEhD3dAZ3n4q7Zjie7hpUH-X~iDa2Kh1AxxRmxs2MRpuobjFTONBcfe9ChSu9-j9ShKSSRdcd17RrAsG5uwgz2gIDuGwZz~AtbIOQIBAXIOrLsM8evLTrMAt5W9Ghh75JbMfmWiLDSOl5EA__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "06c45b55396142b4930282c658142c0f",
+      "look_name": "Avatar in a pink sweater",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
