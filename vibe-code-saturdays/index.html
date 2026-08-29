@@ -151,6 +151,33 @@
     .cta-btn:hover{opacity:.9;}
     .hero-stamp{font-family:Fraunces,Georgia,serif;font-size:clamp(22px,3.4vw,30px);color:#78ddb4;margin:26px 0 6px;letter-spacing:.5px;}
     .mid-stamp{font-family:Fraunces,Georgia,serif;font-size:24px;color:#13241e;margin-top:6px;}
+
+    /* Workspace mockup (migrated from /launchlab/) */
+    .mockup-wrap{max-width:860px;margin:32px auto 0;border-radius:16px;overflow:hidden;box-shadow:0 32px 80px rgba(0,0,0,.18);border:1px solid #e8e4de;}
+    .mockup-bar{background:#2c2c2c;padding:12px 16px;display:flex;align-items:center;gap:8px;}
+    .mockup-dot{width:12px;height:12px;border-radius:50%;}
+    .mockup-title{font-family:"DM Mono",monospace;font-size:12px;color:rgba(255,255,255,.4);margin-left:8px;letter-spacing:.5px;}
+    .mockup-body{display:grid;grid-template-columns:220px 1fr;background:#1e1e1e;min-height:420px;}
+    .mockup-sidebar{background:#252526;border-right:1px solid #333;padding:12px 0;}
+    .mockup-sidebar-title{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);padding:0 14px 10px;}
+    .mockup-folder{font-family:"DM Mono",monospace;font-size:12px;color:rgba(255,255,255,.6);padding:4px 14px;display:flex;align-items:center;gap:6px;cursor:default;}
+    .mockup-folder.active{background:rgba(120,221,180,.08);color:#78ddb4;}
+    .mockup-file{font-family:"DM Mono",monospace;font-size:11px;color:rgba(255,255,255,.4);padding:3px 14px 3px 28px;display:flex;align-items:center;gap:5px;}
+    .mockup-file.active{color:rgba(255,255,255,.75);}
+    .mockup-terminal{padding:24px;display:flex;flex-direction:column;gap:0;overflow:hidden;}
+    .term-line{font-family:"DM Mono",monospace;font-size:13px;line-height:1.7;white-space:pre-wrap;}
+    .term-prompt{color:#78ddb4;}
+    .term-cmd{color:#f2ede3;}
+    .term-label{color:#f2a12b;font-weight:500;}
+    .term-out{color:rgba(255,255,255,.65);}
+    .term-menu{color:#a9e8cf;}
+    .term-cursor{display:inline-block;width:8px;height:14px;background:#78ddb4;vertical-align:middle;animation:term-blink 1s step-end infinite;}
+    @keyframes term-blink{0%,100%{opacity:1;}50%{opacity:0;}}
+    .mockup-caption{text-align:center;margin-top:18px;color:#1a5f4a;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;}
+    @media(max-width:680px){
+      .mockup-body{grid-template-columns:1fr;}
+      .mockup-sidebar{display:none;}
+    }
 </style>
 </head>
 <body>
@@ -221,6 +248,59 @@
     </ul>
     <p class="body-text">And when you're done?</p>
     <p class="mid-stamp">Ship it.</p>
+  </section>
+
+  <!-- Workspace mockup (migrated from /launchlab/) -->
+  <section class="content-section" style="max-width:980px;padding-top:0;">
+    <div class="section-label">What Building Looks Like</div>
+    <h2 class="section-title">This is your workspace on a Saturday.</h2>
+    <p class="body-text">No slides. No whiteboard theory. You open your laptop, start a conversation with your AI teammate, and build. Here's what that actually looks like:</p>
+    <div class="mockup-wrap">
+      <!-- Window chrome -->
+      <div class="mockup-bar">
+        <div class="mockup-dot" style="background:#ff5f57;"></div>
+        <div class="mockup-dot" style="background:#febc2e;"></div>
+        <div class="mockup-dot" style="background:#28c840;"></div>
+        <span class="mockup-title">BrandBrain-Workspace — VS Code + Claude Code</span>
+      </div>
+      <!-- Body -->
+      <div class="mockup-body">
+        <!-- Sidebar -->
+        <div class="mockup-sidebar">
+          <div class="mockup-sidebar-title">Brand Brain</div>
+          <div class="mockup-folder active"><span>📁</span> brand</div>
+          <div class="mockup-file active">📄 mission.md</div>
+          <div class="mockup-file">📄 audience.md</div>
+          <div class="mockup-file">📄 brand-voice.md</div>
+          <div class="mockup-file">📄 positioning.md</div>
+          <div class="mockup-folder"><span>📁</span> commands</div>
+          <div class="mockup-folder"><span>📁</span> extensions</div>
+          <div class="mockup-folder"><span>📁</span> outputs</div>
+          <div class="mockup-folder"><span>📁</span> templates</div>
+          <div class="mockup-folder"><span>📁</span> memory</div>
+          <div class="mockup-file" style="margin-top:10px;color:#f2a12b;">📄 CLAUDE.md</div>
+          <div class="mockup-file">📄 START-HERE.md</div>
+        </div>
+        <!-- Terminal -->
+        <div class="mockup-terminal" id="vcsTerminal">
+          <div class="term-line"><span class="term-prompt">$</span> <span class="term-cmd" data-type>claude</span></div>
+          <div class="term-line" style="color:rgba(255,255,255,.3);font-size:11px;margin-bottom:8px;">Claude Code — reading CLAUDE.md...</div>
+          <div class="term-line"><span class="term-label">Brand Brain</span></div>
+          <div class="term-line term-out" style="margin-bottom:12px;">Welcome to Vibe Code Saturdays. What are we building today?</div>
+          <div class="term-line term-menu">  1. Your website</div>
+          <div class="term-line term-menu">  2. Your newsletter</div>
+          <div class="term-line term-menu">  3. Your content system</div>
+          <div class="term-line term-menu">  4. Online scheduling</div>
+          <div class="term-line term-menu">  5. Your portfolio</div>
+          <div class="term-line term-menu">  6. Your next idea</div>
+          <div class="term-line" style="margin-top:16px;"><span class="term-prompt">You:</span> <span class="term-cmd" data-type>1</span></div>
+          <div class="term-line term-out" style="margin-top:6px;"><span class="term-label">Brand Brain</span></div>
+          <div class="term-line term-out">Let's build your website. Tell me about your idea</div>
+          <div class="term-line term-out">and who it's for — we'll take it from there.<span class="term-cursor" id="vcsCursor"></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="mockup-caption">Claude Code · VS Code · Your Brand Brain workspace</div>
   </section>
 
   <!-- Builder types -->
@@ -382,6 +462,67 @@
     FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/jobs/">Jobs</a> · <a href="/platforms/">Platforms</a> · <a href="/glossary/">Glossary</a> · <a href="/vibe-code-saturdays/">Vibe Code Saturdays</a> · <a href="/launchlab/">Brand Brain</a> · <a href="/faq/">FAQ</a> · <a href="/about/">About</a> · <a href="/privacy/">Privacy</a>
     <div style="margin-top:10px;opacity:.7;text-transform:none;letter-spacing:0;font-family:Inter,sans-serif;font-size:12px;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
   </div>
+
+  <script>
+  (function(){
+    var term = document.getElementById('vcsTerminal');
+    if(!term || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var lines = Array.prototype.slice.call(term.querySelectorAll('.term-line'));
+    var cursor = document.getElementById('vcsCursor');
+    var playing = false;
+
+    function play(){
+      if(playing) return;
+      playing = true;
+      // Snapshot typed spans' full text, then hide everything
+      lines.forEach(function(line){
+        line.style.visibility = 'hidden';
+        line.querySelectorAll('[data-type]').forEach(function(span){
+          if(span.dataset.full === undefined) span.dataset.full = span.textContent;
+        });
+      });
+      cursor.style.display = 'none';
+      var i = 0;
+
+      function nextLine(){
+        if(i >= lines.length){
+          cursor.style.display = 'inline-block';
+          playing = false;
+          setTimeout(play, 7000); // pause, then replay like a looping GIF
+          return;
+        }
+        var line = lines[i++];
+        var typed = line.querySelector('[data-type]');
+        line.style.visibility = 'visible';
+        if(typed){
+          var full = typed.dataset.full;
+          typed.textContent = '';
+          var c = 0;
+          (function typeChar(){
+            if(c < full.length){
+              typed.textContent += full.charAt(c++);
+              setTimeout(typeChar, 90);
+            } else {
+              setTimeout(nextLine, 350);
+            }
+          })();
+        } else {
+          var isMenu = line.classList.contains('term-menu');
+          setTimeout(nextLine, isMenu ? 110 : 300);
+        }
+      }
+      nextLine();
+    }
+
+    var obs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ play(); obs.unobserve(term); }
+      });
+    }, {threshold:0.35});
+    obs.observe(term);
+  })();
+  </script>
 
 </body>
 </html>
