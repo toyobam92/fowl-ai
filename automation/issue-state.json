@@ -1,31 +1,10 @@
 {
-  "week_of": "2026-08-31",
-  "status": "drafted",
+  "week_of": null,
+  "status": "idle",
   "last_proposed": "2026-08-30",
-  "topics": [
-    {
-      "title": "The AI job gap isn't coming — it's already 19% wide for workers under 25",
-      "why": "Stanford's Digital Economy Lab just quantified it: entry-level workers in AI-exposed jobs are falling behind similarly-aged peers by nearly a fifth, and the gap is widening, not stabilizing."
-    },
-    {
-      "title": "41% of employers say they're planning AI-driven layoffs — but not the ones you'd expect",
-      "why": "A new employer survey shows workforce cuts targeting automatable tasks rather than whole job categories, which changes what \"AI-proofing\" your role should actually mean."
-    },
-    {
-      "title": "Enterprise AI hit production this year. Nobody agrees it's working.",
-      "why": "97% of executives say they've deployed AI agents, but only 12% of CEOs report AI delivering measurable financial return — the disconnect is where the opportunity for AI-literate operators sits."
-    },
-    {
-      "title": "The AI trainer gig economy just split into two tiers",
-      "why": "Domain-expert evaluation work (lawyers, doctors, engineers) is paying $80-200/hr while generalist tasks flatten out — the ladder up is now specialization, not just signing up."
-    },
-    {
-      "title": "Agent security is becoming a full-time job before agents even ship",
-      "why": "Google Cloud and others are pushing \"secure-by-default\" agent frameworks as the new gating requirement for autonomous AI — an emerging specialty most job seekers haven't noticed yet."
-    }
-  ],
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": "The AI trainer gig economy just split into two tiers",
-  "pr_number": 45,
+  "picked_topic": null,
+  "pr_number": null,
   "last_updated": "2026-08-30"
 }
