@@ -1,6 +1,6 @@
 {
   "week_of": "2026-08-31",
-  "status": "awaiting_pick",
+  "status": "drafting",
   "last_proposed": "2026-08-30",
   "topics": [
     {
@@ -25,7 +25,7 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
+  "picked_topic": "The AI trainer gig economy just split into two tiers",
   "pr_number": null,
   "last_updated": "2026-08-30"
 }
