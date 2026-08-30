@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_topic_pick",
+  "status": "pr_open",
   "last_proposed": "2026-08-30",
   "publish_date": "2026-08-31",
   "tone": "casual-professional",
@@ -18,13 +18,31 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
-  "script": null,
-  "caption": null,
-  "picked_look": null,
-  "look_alternates": [],
+  "picked_topic": {
+    "title": "90% of execs say 3 years of AI hasn't moved headcount or output",
+    "why": "A useful reality check against AI panic -- good ammo if AI comes up in a headcount or productivity conversation at your job."
+  },
+  "script": "Three years into the AI boom, ninety percent of executives say it still hasn't moved their bottom line.\n\nA new NBER survey of nearly six thousand CEOs and CFOs across the US, UK, Germany, and Australia found about ninety percent see zero measurable impact from AI on productivity or employment over that span. Here's the twist: nearly seventy percent of those same executives use AI less than an hour a week themselves -- twenty-eight percent never touch it at all. Yet companies keep citing AI in layoffs anyway; Deutsche Bank analysts call it \"AI redundancy washing.\"\n\nSo if AI panic has you worried about your job, the data says most companies haven't even figured out how to use it themselves yet.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
+  "caption": "90% of executives say three years of AI hasn't moved productivity or headcount -- and most of them barely use it themselves. #AI #FutureOfWork #AINews #FOWLAI #Productivity",
+  "picked_look": {
+    "avatar_id": "06c45b55396142b4930282c658142c0f",
+    "name": "Avatar in a pink sweater",
+    "image_url": "https://files2.heygen.ai/talking_photo/06c45b55396142b4930282c658142c0f/e9431da6ae7f4e9ca2749a73ecc9cee4.WEBP?Expires=1787106617&Signature=kbqTNM~6uM4KH1hOeW6WTF0FJanODRHEqkOPec2~DT-F7Sqxug5JPSnB2o9V0DgQ9ctLIDjligqD77Oo43JzKRQ0fFaUVvkGtwd3q5delwUnuvNh9YaZGAdjSqtRDx283sDqUCgoHKPtB1Z64if7FQsa6yzlfT3Z8q1UwUEZK2WBc2Kj~JbBZiKY1IO0eK~IP5iJ0W6~CtaBv7e7KodpmclhTGYcppEXdMHXJp50ZJT9d7~fNDhd4MV8y9wVbbATpzwWG8MykxcPlFK3gB2KY2t37wOEDn7MXoNLPPuSwIk1zMCsEEKhhnVd-00B4N0fqQOHqWaqUFyrRhphMRA2Wg__&Key-Pair-Id=K38HBHX5LX3X2H"
+  },
+  "look_alternates": [
+    {
+      "avatar_id": "6df6bf1a920b4d17a48dda102ea85371",
+      "name": "Burgundy Sleeveless, Light Pants",
+      "image_url": "https://files2.heygen.ai/talking_photo/6df6bf1a920b4d17a48dda102ea85371/89000ca693cb4e0c8acba5193c8ec0e0.WEBP?Expires=1787538863&Signature=jwaRkFxAM617rtyRGQZUc1-3aw~AF42~INbbsSjGEtS6JjfwCQCPie9DwER6ekuDdGiFrovu3nnBuC86wCT9rlpPkzq0hopme2kkQTyg5pPJFyKnHPYUgH0CUT6gBUVWPCyEstCm2vxVpLeCT4DvOApA3Mb13NBbkSq3THZBGzqFhEXSe8DsF-exFDX5sczhkZ6E6AXXcCpQrnWEVX3qlk3Kge8Oz8qnmQLc3TLvwCMmYXrCjwPypg2qncz2Nk~XiUlmMbMCYZqjCxhsYf4LEEpVAkGrlUivnOoScg8o0749l38sJSKSsYcdoDnOJYnT5sMPXclW8lBKoMmRui~Cdw__&Key-Pair-Id=K38HBHX5LX3X2H"
+    },
+    {
+      "avatar_id": "ce4ddc31e9844543af9129432ff350af",
+      "name": "Avatar in maroon sleeveless turtleneck",
+      "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP?Expires=1787538864&Signature=fsV4u6oCO1pJCJ7V0zD1VwMmkMGtB8fDVWbg1mgA00Pb8qJoYuk2JCBtfaCgZTZfajMmrFzuvP9Zqkr8jcIvi~Ucqc4E5a1nFkgF9zwYBQsrVmS5NQBcEZQVEUvBQ0A4kx12RAdYJSeo6MojfK~hmQ-pLXMcHvlh3WhDegJ91Z4sEfGqimXJ9b7rnXFh3FP0F4HMSQI091uIjmz7AvTTbzdltCHhuzJvbBJelx4SPw6Oa79ozvQT8IEDrMDIsD-JWH8mLcKBVInEVwQsOCLOCzd0ABtjBlG2J8X~dQDvDv-VMqJsVzjcqWc1s74HJB3iBDUUb5E76o4pAoHYSsqeXA__&Key-Pair-Id=K38HBHX5LX3X2H"
+    }
+  ],
   "pr_number": null,
-  "pr_branch": null,
+  "pr_branch": "update/nova-2026-08-31",
   "video_id": null,
-  "last_updated": "2026-08-30T00:21:08Z"
+  "last_updated": "2026-08-30T01:22:51Z"
 }
