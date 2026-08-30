@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 24 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 15: The AI trainer gig economy just split into two tiers.</title>
+      <link>https://www.fowl-ai.com/issues/2026-08-31/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-08-31/</guid>
+      <pubDate>Mon, 31 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Mercor's annualized revenue passed $2 billion and Surge AI is reportedly in talks near a $25 billion valuation, while generalist AI-rating queues are going empty and rates are sliding batch to batch. The gap between the two tiers is now roughly 10x — plus the new "Reward Model Evaluator" title and where each tier is actually hiring.</description>
+    </item>
     <item>
       <title>Issue 14: AI skills now pay a 62% wage premium. Here's what it's actually pricing.</title>
       <link>https://www.fowl-ai.com/issues/2026-08-24/</link>
