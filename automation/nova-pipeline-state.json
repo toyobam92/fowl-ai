@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-08-27",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-08-30",
+  "publish_date": "2026-08-31",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Z.ai's GLM-5.3-Flash undercuts the big labs on price",
+      "why": "A free, MIT-licensed model that beats its predecessor at a tenth of the price shows how fast good AI is getting cheaper -- worth knowing before you renew any paid tool subscription."
+    },
+    {
+      "title": "Anthropic could IPO as soon as October at a $2 trillion valuation",
+      "why": "When a company built on API subscriptions is valued above most of the S&P 500, that's a real signal of how much enterprises are already betting AI tools stay core to how work gets done."
+    },
+    {
+      "title": "90% of execs say 3 years of AI hasn't moved headcount or output",
+      "why": "A useful reality check against AI panic -- good ammo if AI comes up in a headcount or productivity conversation at your job."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-08-27T01:22:05Z"
+  "last_updated": "2026-08-30T00:21:08Z"
 }
