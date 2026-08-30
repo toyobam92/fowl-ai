@@ -178,6 +178,25 @@
       .mockup-body{grid-template-columns:1fr;}
       .mockup-sidebar{display:none;}
     }
+
+    /* Phone mockup — run your systems from your phone */
+    .phone-wrap{max-width:360px;margin:36px auto 0;}
+    .phone{background:#111;border-radius:38px;padding:12px;border:1px solid #2e2e2e;box-shadow:0 32px 80px rgba(0,0,0,.28);}
+    .phone-screen{background:#101d17;border-radius:28px;overflow:hidden;display:flex;flex-direction:column;min-height:520px;}
+    .phone-status{display:flex;justify-content:space-between;align-items:center;padding:12px 20px 6px;font-family:"DM Mono",monospace;font-size:11px;color:rgba(255,255,255,.55);}
+    .chat-header{display:flex;align-items:center;gap:10px;padding:10px 16px 12px;border-bottom:1px solid rgba(255,255,255,.07);}
+    .chat-avatar{width:32px;height:32px;border-radius:50%;background:#78ddb4;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;}
+    .chat-name{font-family:"DM Mono",monospace;font-size:13px;color:#f2ede3;}
+    .chat-status{font-family:"DM Mono",monospace;font-size:10px;color:#78ddb4;}
+    .chat-body{display:flex;flex-direction:column;gap:10px;padding:16px 14px 20px;flex:1;}
+    .bubble{max-width:85%;padding:10px 14px;border-radius:16px;font-size:13.5px;line-height:1.55;}
+    .bubble.bot{background:#1e332a;color:#dff2e9;align-self:flex-start;border-bottom-left-radius:5px;}
+    .bubble.you{background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;align-self:flex-end;border-bottom-right-radius:5px;font-weight:600;}
+    .typing-dots{align-self:flex-start;background:#1e332a;border-radius:16px;border-bottom-left-radius:5px;padding:12px 16px;display:none;gap:4px;}
+    .typing-dots span{width:6px;height:6px;border-radius:50%;background:#78ddb4;opacity:.4;animation:dot-pulse 1s infinite;}
+    .typing-dots span:nth-child(2){animation-delay:.18s;}
+    .typing-dots span:nth-child(3){animation-delay:.36s;}
+    @keyframes dot-pulse{0%,100%{opacity:.35;transform:translateY(0);}50%{opacity:1;transform:translateY(-3px);}}
 </style>
 </head>
 <body>
@@ -449,6 +468,38 @@
     </div>
   </section>
 
+  <!-- Where this goes: run your systems from your phone -->
+  <section class="content-section">
+    <div class="section-label">Where This Goes</div>
+    <h2 class="section-title">Session one, you build at a laptop. Keep coming — and you'll run everything from your phone.</h2>
+    <p class="body-text">The builds don't stop when the room closes. As your systems grow, they start working while you don't — drafting your newsletter, refreshing your site, queueing your content — and they check in with you for a yes or a no. You don't babysit them. You approve from wherever you are.</p>
+    <div class="phone-wrap">
+      <div class="phone">
+        <div class="phone-screen">
+          <div class="phone-status"><span>9:41</span><span>●●●●</span></div>
+          <div class="chat-header">
+            <div class="chat-avatar">🧠</div>
+            <div>
+              <div class="chat-name">Brand Brain</div>
+              <div class="chat-status">● working for you</div>
+            </div>
+          </div>
+          <div class="chat-body" id="vcsChat">
+            <div class="bubble bot">Morning ☀️ This week's newsletter draft is ready, and your site update passed every check.</div>
+            <div class="bubble bot">Want me to schedule the send for Monday 7:45am?</div>
+            <div class="bubble you">Approve ✅</div>
+            <div class="bubble bot">Done. Also queued: Saturday's social posts and this week's jobs board refresh.</div>
+            <div class="bubble you">Ship it all</div>
+            <div class="bubble bot">🚀 Shipped. I'll ping you when the analytics roll in. Enjoy your Saturday.</div>
+            <div class="typing-dots" id="vcsTyping"><span></span><span></span><span></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mockup-caption">Your systems check in. You just say yes.</div>
+    <p class="body-text" style="margin-top:28px;">This isn't a someday demo — it's how FOWL AI runs today: the newsletter, the site, the social posts, all built and shipped by AI systems that ask permission from a phone. You'll learn to build toward the same thing, one Saturday at a time.</p>
+  </section>
+
   <!-- CTA -->
   <section class="rsvp-cta" id="want-in">
     <h2>Your first build starts here.</h2>
@@ -521,6 +572,51 @@
       });
     }, {threshold:0.35});
     obs.observe(term);
+  })();
+
+  (function(){
+    var chat = document.getElementById('vcsChat');
+    if(!chat || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var bubbles = Array.prototype.slice.call(chat.querySelectorAll('.bubble'));
+    var typing = document.getElementById('vcsTyping');
+    var playing = false;
+
+    function play(){
+      if(playing) return;
+      playing = true;
+      bubbles.forEach(function(b){ b.style.display = 'none'; });
+      var i = 0;
+
+      function next(){
+        if(i >= bubbles.length){
+          typing.style.display = 'none';
+          playing = false;
+          setTimeout(play, 8000); // pause, then replay like a looping GIF
+          return;
+        }
+        var b = bubbles[i++];
+        if(b.classList.contains('bot')){
+          typing.style.display = 'flex';
+          setTimeout(function(){
+            typing.style.display = 'none';
+            b.style.display = 'block';
+            setTimeout(next, 900);
+          }, 1100);
+        } else {
+          b.style.display = 'block';
+          setTimeout(next, 900);
+        }
+      }
+      next();
+    }
+
+    var obs2 = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if(e.isIntersecting){ play(); obs2.unobserve(chat); }
+      });
+    }, {threshold:0.35});
+    obs2.observe(chat);
   })();
   </script>
 
