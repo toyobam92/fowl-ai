@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-08-30",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-09-01",
+  "publish_date": "2026-09-02",
+  "tone": "professional",
+  "topics": [
+    {
+      "title": "Runway unveils Solaris, the first 'Interface World Model'",
+      "why": "It's an early signal that AI interfaces may soon generate and navigate whole interactive environments instead of static apps -- a preview of how knowledge workers could use software next."
+    },
+    {
+      "title": "DeepSeek nears $7.4B raise at a $74B valuation, eyes 2027 Shanghai IPO",
+      "why": "A serious, well-funded rival prepping to go public raises the competitive pressure across every AI tool knowledge workers already rely on."
+    },
+    {
+      "title": "YC-backed Optifye.ai sparks backlash over AI cameras tracking factory workers",
+      "why": "The viral demo is a preview of the surveillance scrutiny knowledge workers should expect as similar AI monitoring tools creep into office and remote-work settings."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-08-30T01:22:51Z"
+  "last_updated": "2026-09-01T17:22:04Z"
 }
