@@ -1,48 +1,17 @@
 {
-  "status": "rendering",
+  "status": "idle",
   "last_proposed": "2026-09-01",
-  "publish_date": "2026-09-02",
-  "tone": "professional",
-  "topics": [
-    {
-      "title": "Runway unveils Solaris, the first 'Interface World Model'",
-      "why": "It's an early signal that AI interfaces may soon generate and navigate whole interactive environments instead of static apps -- a preview of how knowledge workers could use software next."
-    },
-    {
-      "title": "DeepSeek nears $7.4B raise at a $74B valuation, eyes 2027 Shanghai IPO",
-      "why": "A serious, well-funded rival prepping to go public raises the competitive pressure across every AI tool knowledge workers already rely on."
-    },
-    {
-      "title": "YC-backed Optifye.ai sparks backlash over AI cameras tracking factory workers",
-      "why": "The viral demo is a preview of the surveillance scrutiny knowledge workers should expect as similar AI monitoring tools creep into office and remote-work settings."
-    }
-  ],
+  "publish_date": null,
+  "tone": null,
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": {
-    "title": "YC-backed Optifye.ai sparks backlash over AI cameras tracking factory workers",
-    "why": "The viral demo is a preview of the surveillance scrutiny knowledge workers should expect as similar AI monitoring tools creep into office and remote-work settings."
-  },
-  "script": "A YC-backed startup's product demo just showed exactly what AI workplace surveillance looks like \u2014 and the internet did not go easy.\n\nOptifye.ai, backed by Y Combinator, posted a video of co-founders Kushal Mohta and Vivaan Baid role-playing a factory manager call, dressing down a garment worker known only as \"Number 17\" for \"11.4% efficiency.\" Backlash was immediate \u2014 critics on X called it \"sweatshops-as-a-service,\" and Y Combinator quietly deleted its own celebratory posts about the demo.\n\nFor knowledge workers, it's an early look at how AI performance-tracking tools built for factory floors could migrate to office and remote-work monitoring next.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
-  "caption": "A YC-backed startup's factory-monitoring demo went viral for all the wrong reasons \u2014 a preview of where AI workplace surveillance could be headed next. #AI #Surveillance #FutureOfWork #YCombinator #FOWLAI",
-  "picked_look": {
-    "avatar_id": "06c45b55396142b4930282c658142c0f",
-    "name": "Avatar in a pink sweater",
-    "image_url": "https://files2.heygen.ai/talking_photo/06c45b55396142b4930282c658142c0f/e9431da6ae7f4e9ca2749a73ecc9cee4.WEBP?Expires=1787106617&Signature=kbqTNM~6uM4KH1hOeW6WTF0FJanODRHEqkOPec2~DT-F7Sqxug5JPSnB2o9V0DgQ9ctLIDjligqD77Oo43JzKRQ0fFaUVvkGtwd3q5delwUnuvNh9YaZGAdjSqtRDx283sDqUCgoHKPtB1Z64if7FQsa6yzlfT3Z8q1UwUEZK2WBc2Kj~JbBZiKY1IO0eK~IP5iJ0W6~CtaBv7e7KodpmclhTGYcppEXdMHXJp50ZJT9d7~fNDhd4MV8y9wVbbATpzwWG8MykxcPlFK3gB2KY2t37wOEDn7MXoNLPPuSwIk1zMCsEEKhhnVd-00B4N0fqQOHqWaqUFyrRhphMRA2Wg__&Key-Pair-Id=K38HBHX5LX3X2H"
-  },
-  "look_alternates": [
-    {
-      "avatar_id": "f355b07c213c4190a2207050c78d93b5",
-      "name": "The Studio-Lit Bookshelf Figure",
-      "image_url": "https://files2.heygen.ai/talking_photo/f355b07c213c4190a2207050c78d93b5/e607df35ab1742b1a6a9ebc78197ecc1.WEBP?Expires=1787538863&Signature=FcvmeVq2A7Qy7TQ-V8rnETHd4BH~mXhClcHbvgyGdlybUoOZflDY3tmdTtNd2LGi5l-U8SEni0Gz9GRUuuclRpNEn5z7sG7G8I7j1TYvc3wO1l2M1k0UcmRaRNbDwvr-VYhwpDA0~xb~f7k2kkqJFTDhjHc~QrMBaCfDCpVZCb7fg6OPry~E1Sni5vv2M4Bj6AzLsl4GIV3cDcurqIrEXPxesIk8DniKvkfAdAdxZM-sLU4HyHWPyw81t7QMJUycAw1OcRAoZUz7z6FswnSX9LHMkE36d3RMmbKBwTonRmazkFEPN9J6fuQyR2j3ePqigspE-nrDfQIXRQIUQHssJQ__&Key-Pair-Id=K38HBHX5LX3X2H"
-    },
-    {
-      "avatar_id": "ce4ddc31e9844543af9129432ff350af",
-      "name": "Avatar in maroon sleeveless turtleneck",
-      "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP?Expires=1787538864&Signature=fsV4u6oCO1pJCJ7V0zD1VwMmkMGtB8fDVWbg1mgA00Pb8qJoYuk2JCBtfaCgZTZfajMmrFzuvP9Zqkr8jcIvi~Ucqc4E5a1nFkgF9zwYBQsrVmS5NQBcEZQVEUvBQ0A4kx12RAdYJSeo6MojfK~hmQ-pLXMcHvlh3WhDegJ91Z4sEfGqimXJ9b7rnXFh3FP0F4HMSQI091uIjmz7AvTTbzdltCHhuzJvbBJelx4SPw6Oa79ozvQT8IEDrMDIsD-JWH8mLcKBVInEVwQsOCLOCzd0ABtjBlG2J8X~dQDvDv-VMqJsVzjcqWc1s74HJB3iBDUUb5E76o4pAoHYSsqeXA__&Key-Pair-Id=K38HBHX5LX3X2H"
-    }
-  ],
-  "pr_number": 50,
-  "pr_branch": "update/nova-2026-09-02",
-  "video_id": "262ec113ae0a13e0931e152a15ec23db",
+  "picked_topic": null,
+  "script": null,
+  "caption": null,
+  "picked_look": null,
+  "look_alternates": [],
+  "pr_number": null,
+  "pr_branch": null,
+  "video_id": null,
   "last_updated": "2026-09-02T21:53:40Z"
 }
