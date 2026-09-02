@@ -1,0 +1,30 @@
+name: check-meta-tokens
+
+# On-demand health check for the Meta Graph API credentials post_to_meta.py
+# posts with (Facebook page, Threads, Instagram). Read-only -- one GET /me
+# per credential, nothing is ever published -- so it's safe to run any time
+# the question is "are the posting tokens still good?" without waiting for
+# an evening publish run to fail. The long-lived Threads/Instagram tokens
+# expire (~60 days), and this is the cheap way to catch that early.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify each Graph API credential
+        env:
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          META_PAGE_ID: ${{ secrets.META_PAGE_ID }}
+          META_THREADS_ACCESS_TOKEN: ${{ secrets.META_THREADS_ACCESS_TOKEN }}
+          META_THREADS_USER_ID: ${{ secrets.META_THREADS_USER_ID }}
+          META_IG_ACCESS_TOKEN: ${{ secrets.META_IG_ACCESS_TOKEN }}
+          META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
+        run: python3 automation/check_meta_tokens.py
