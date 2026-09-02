@@ -35,3 +35,15 @@ jobs:
           META_IG_ACCESS_TOKEN: ${{ secrets.META_IG_ACCESS_TOKEN }}
           META_IG_USER_ID: ${{ secrets.META_IG_USER_ID }}
         run: python3 automation/check_meta_tokens.py
+
+      - name: Verify stored GitHub PAT (Telegram worker's token)
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+          PAT: ${{ secrets.PAT }}
+          PERSONAL_ACCESS_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          WORKER_GH_TOKEN: ${{ secrets.WORKER_GH_TOKEN }}
+          TELEGRAM_GH_TOKEN: ${{ secrets.TELEGRAM_GH_TOKEN }}
+        run: python3 automation/check_github_token.py
