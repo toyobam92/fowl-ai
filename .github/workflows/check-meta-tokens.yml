@@ -9,6 +9,13 @@ name: check-meta-tokens
 
 on:
   workflow_dispatch: {}
+  # Also fires on pushes to the branch that introduced this check, so the
+  # check can run before the workflow lands on main (workflow_dispatch is
+  # only routable for workflows GitHub has indexed from the default branch).
+  # Harmless to keep: the branch is deleted on merge.
+  push:
+    branches:
+      - claude/ghop-token-check-uip0sb
 
 permissions:
   contents: read
