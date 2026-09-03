@@ -185,17 +185,18 @@
       "day": "Wednesday",
       "publish_date": "2026-09-02",
       "topic": "YC-backed Optifye.ai sparks backlash over AI cameras tracking factory workers",
-      "script": "A YC-backed startup's product demo just showed exactly what AI workplace surveillance looks like — and the internet did not go easy.\n\nOptifye.ai, backed by Y Combinator, posted a video of co-founders Kushal Mohta and Vivaan Baid role-playing a factory manager call, dressing down a garment worker known only as \"Number 17\" for \"11.4% efficiency.\" Backlash was immediate — critics on X called it \"sweatshops-as-a-service,\" and Y Combinator quietly deleted its own celebratory posts about the demo.\n\nFor knowledge workers, it's an early look at how AI performance-tracking tools built for factory floors could migrate to office and remote-work monitoring next.\n\nI'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
-      "caption": "A YC-backed startup's factory-monitoring demo went viral for all the wrong reasons — a preview of where AI workplace surveillance could be headed next. #AI #Surveillance #FutureOfWork #YCombinator #FOWLAI",
+      "script": "A YC-backed startup's product demo just showed exactly what AI workplace surveillance looks like \u2014 and the internet did not go easy.\n\nOptifye.ai, backed by Y Combinator, posted a video of co-founders Kushal Mohta and Vivaan Baid role-playing a factory manager call, dressing down a garment worker known only as \"Number 17\" for \"11.4% efficiency.\" Backlash was immediate \u2014 critics on X called it \"sweatshops-as-a-service,\" and Y Combinator quietly deleted its own celebratory posts about the demo.\n\nFor knowledge workers, it's an early look at how AI performance-tracking tools built for factory floors could migrate to office and remote-work monitoring next.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "A YC-backed startup's factory-monitoring demo went viral for all the wrong reasons \u2014 a preview of where AI workplace surveillance could be headed next. #AI #Surveillance #FutureOfWork #YCombinator #FOWLAI",
       "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/262ec113ae0a13e0931e152a15ec23db.mp4?Expires=1788991694&Signature=SZxXGu8QGBW9my58bZf5eSro9HSJKzxt0AtFg4RvOv5Z2yoPU4fEI-5rFuXe3gQ8Go6GsrmdeuFV18QWRwDFdAX5xi3MJcJnSozElkHjiHA2ViNBPnJlNp9JKAQ3LAq6IYgDdGAqhmwhfX~ejL-lhlvX4bKsJFqi2OZP8fgKShMNTPi9RIzapjEvRZgvxP4wABqxFQcse2ZncrwDOTWCH8Y4H-ymHiMFaRPQcX-NR3rSa~ts04AkzHljKn5hLejn4VNiaobxR3gK8uMhv2k7f8NbG0WnPTNlN8Ulv0E7nQkyGU2nuTKyTBTef-Vqudtp5yXhmeyQ2OeO3LRiAyc8uA__&Key-Pair-Id=K38HBHX5LX3X2H",
       "avatar_id": "06c45b55396142b4930282c658142c0f",
       "look_name": "Avatar in a pink sweater",
       "platforms_published": {
-        "facebook": false,
-        "instagram": false,
+        "facebook": true,
+        "instagram": true,
         "tiktok": false,
-        "threads": false
-      }
+        "threads": true
+      },
+      "posted_at": "2026-09-03T01:21:48+00:00"
     }
   ]
 }
