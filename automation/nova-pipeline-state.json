@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-09-01",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-09-03",
+  "publish_date": "2026-09-04",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Nate's ex-CEO indicted for faking \"AI\" with human workers",
+      "why": "Federal prosecutors say Albert Saniger raised $40M pitching an AI shopping app that was secretly run by overseas human workers -- a sharp warning for anyone evaluating \"AI-powered\" tools at face value."
+    },
+    {
+      "title": "Z.ai ships GLM-5.3-Flash, its first fully multimodal model",
+      "why": "The 320B-parameter open-weight model claims a jump from 46.2 to 63.4 on the DeepSWE coding benchmark, more evidence open labs are closing the gap with frontier US models fast enough to matter for tool picks."
+    },
+    {
+      "title": "Oracle cuts 25K jobs while profit jumps 95% on AI spending",
+      "why": "Oracle's net income hit $6.13B this year even as it slashed a quarter of its workforce to fund AI infrastructure -- a preview of the tradeoff more knowledge workers should expect as employers redirect headcount budget into compute."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-09-02T21:53:40Z"
+  "last_updated": "2026-09-03T00:22:22Z"
 }
