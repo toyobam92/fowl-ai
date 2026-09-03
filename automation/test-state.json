@@ -1,11 +1,37 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-08-09",
-  "test_number": 2,
-  "matchups": [],
+  "status": "awaiting_pick",
+  "last_proposed": "2026-09-03",
+  "test_number": 3,
+  "matchups": [
+    {
+      "task": "Build a working monthly budget spreadsheet for a $4,200/month take-home income with formula-driven categories, totals, and a leftover/savings calculation",
+      "tools": ["ChatGPT", "Gemini", "Claude.ai", "Microsoft Copilot"],
+      "why": "Excel/Sheets-native AI assistants are now core to Copilot Cowork and Gemini's Workspace push this year, so a real formula-driven spreadsheet is a natural stress test"
+    },
+    {
+      "task": "Create a 6-slide investor pitch deck (.pptx) for a fictional eco-friendly meal-kit startup, given the same one-paragraph brief",
+      "tools": ["Gemini", "ChatGPT", "Claude", "Canva AI"],
+      "why": "Slide generation is now table stakes across assistants, but nobody's checked whether the actual .pptx files hold up outside the chat preview"
+    },
+    {
+      "task": "Write a Python script that sorts a messy folder of mixed files into subfolders by file type and modified date, then run it against a real sample folder",
+      "tools": ["Claude Code", "ChatGPT Codex", "Gemini CLI", "OpenCode"],
+      "why": "OpenCode has surged to 120k GitHub stars this year and is now a real contender against the incumbent coding agents on a task with a checkable, runnable output"
+    },
+    {
+      "task": "Draft a one-page freelance web-design service contract plus a matching one-page invoice (.docx) for a $3,000 project",
+      "tools": ["ChatGPT", "Claude", "Gemini", "Perplexity"],
+      "why": "Freelancers lean on AI for contracts constantly, but a contract is only useful if the actual document is complete and internally consistent, not just plausible-sounding chat text"
+    },
+    {
+      "task": "Write and produce a 60-second product-explainer voiceover (script plus a generated audio file) for a fictional app launch, from the same brief",
+      "tools": ["ChatGPT", "Gemini", "ElevenLabs", "Claude"],
+      "why": "Voice/audio generation is the newest frontier these assistants are racing on, and it's the first FOWL AI test where the deliverable isn't a document at all"
+    }
+  ],
   "rejected_matchups": [],
   "picked_matchup": null,
   "pr_number": null,
   "last_nudged": null,
-  "last_updated": "2026-08-09T13:50:00Z"
+  "last_updated": "2026-09-03T00:39:22Z"
 }
