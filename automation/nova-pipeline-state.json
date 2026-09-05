@@ -1,7 +1,7 @@
 {
-  "status": "awaiting_topic_pick",
+  "status": "pr_open",
   "last_proposed": "2026-09-03",
-  "publish_date": "2026-09-04",
+  "publish_date": "2026-09-07",
   "tone": "casual-professional",
   "topics": [
     {
@@ -18,13 +18,31 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
-  "script": null,
-  "caption": null,
-  "picked_look": null,
-  "look_alternates": [],
+  "picked_topic": {
+    "title": "Nate's ex-CEO indicted for faking \"AI\" with human workers",
+    "why": "Federal prosecutors say Albert Saniger raised $40M pitching an AI shopping app that was secretly run by overseas human workers -- a sharp warning for anyone evaluating \"AI-powered\" tools at face value."
+  },
+  "script": "Nate promised one-tap AI checkout. It turned out to be humans in a call center pretending to be a robot.\n\nFederal prosecutors say founder Albert Saniger raised over $40 million telling investors Nate's app used proprietary AI to autonomously complete online purchases -- when the real automation rate was, in the indictment's words, effectively zero percent. Instead, hundreds of human \"purchasing assistants\" in the Philippines processed the orders by hand. Saniger has pleaded not guilty and faces up to 20 years if convicted.\n\nFor anyone evaluating an \"AI-powered\" tool, the lesson is blunt: ask what's actually running under the hood.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
+  "caption": "Nate's \"AI-powered\" checkout app was secretly run by human workers in the Philippines -- now its founder faces up to 20 years for lying to investors about it. #AI #AIwashing #StartupFraud #TechNews #FOWLAI",
+  "picked_look": {
+    "avatar_id": "6df6bf1a920b4d17a48dda102ea85371",
+    "name": "Burgundy Sleeveless, Light Pants",
+    "image_url": "https://files2.heygen.ai/talking_photo/6df6bf1a920b4d17a48dda102ea85371/89000ca693cb4e0c8acba5193c8ec0e0.WEBP?Expires=1787538863&Signature=jwaRkFxAM617rtyRGQZUc1-3aw~AF42~INbbsSjGEtS6JjfwCQCPie9DwER6ekuDdGiFrovu3nnBuC86wCT9rlpPkzq0hopme2kkQTyg5pPJFyKnHPYUgH0CUT6gBUVWPCyEstCm2vxVpLeCT4DvOApA3Mb13NBbkSq3THZBGzqFhEXSe8DsF-exFDX5sczhkZ6E6AXXcCpQrnWEVX3qlk3Kge8Oz8qnmQLc3TLvwCMmYXrCjwPypg2qncz2Nk~XiUlmMbMCYZqjCxhsYf4LEEpVAkGrlUivnOoScg8o0749l38sJSKSsYcdoDnOJYnT5sMPXclW8lBKoMmRui~Cdw__&Key-Pair-Id=K38HBHX5LX3X2H"
+  },
+  "look_alternates": [
+    {
+      "avatar_id": "f355b07c213c4190a2207050c78d93b5",
+      "name": "The Studio-Lit Bookshelf Figure",
+      "image_url": "https://files2.heygen.ai/talking_photo/f355b07c213c4190a2207050c78d93b5/e607df35ab1742b1a6a9ebc78197ecc1.WEBP?Expires=1787538863&Signature=FcvmeVq2A7Qy7TQ-V8rnETHd4BH~mXhClcHbvgyGdlybUoOZflDY3tmdTtNd2LGi5l-U8SEni0Gz9GRUuuclRpNEn5z7sG7G8I7j1TYvc3wO1l2M1k0UcmRaRNbDwvr-VYhwpDA0~xb~f7k2kkqJFTDhjHc~QrMBaCfDCpVZCb7fg6OPry~E1Sni5vv2M4Bj6AzLsl4GIV3cDcurqIrEXPxesIk8DniKvkfAdAdxZM-sLU4HyHWPyw81t7QMJUycAw1OcRAoZUz7z6FswnSX9LHMkE36d3RMmbKBwTonRmazkFEPN9J6fuQyR2j3ePqigspE-nrDfQIXRQIUQHssJQ__&Key-Pair-Id=K38HBHX5LX3X2H"
+    },
+    {
+      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
+      "name": "Too-Purple, Black-Bottomed",
+      "image_url": "https://files2.heygen.ai/talking_photo/1c940f18c71946c1a46bf1b48c6129c5/217baeed2ccc49f18656f6c1e7b90948.WEBP?Expires=1787538863&Signature=lLbp4tCknPs0VJrdLiZDPsXuKuhJiKkguvCyUjYqLwIk~ZiguVHcOqlcmeUXD7fwaulaeKrStC3rVF5v7T8Q7glNGzp~BWMTs4gCP1MZ4WikFoO9cHZXfmkZuhasz~Abz4SzNoCrSmtCxXLmJmIJOKX0D57QyxCLLCvAQ1yOBAdj8SeR8qakosMR6K23yb07DeiXuElPfWtkzS5UrTDCqVJJXh-R7ByA2XqVKdRpkAS76W7XoFq6KJDsk~bTCGPMYc5ryk9wyGCK5XrPKGAWvTosh0lXs4EfHF8mqgEeIU0wmEqxCf2dcD~seguJPo0OT~8i2onS-nRhXq-VFdJH8g__&Key-Pair-Id=K38HBHX5LX3X2H"
+    }
+  ],
   "pr_number": null,
-  "pr_branch": null,
+  "pr_branch": "update/nova-2026-09-07",
   "video_id": null,
-  "last_updated": "2026-09-03T00:22:22Z"
+  "last_updated": "2026-09-05T08:56:52Z"
 }

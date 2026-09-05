@@ -93,17 +93,6 @@ Target 100-160 words total (roughly 40-60 seconds spoken) so the rendered video 
 
 ## 4. Pick the look
 
-> **ACTIVE EXPERIMENT — look pinned, rotation suspended (started 2026-08-22).**
-> Toyo noticed the two rainbow/colorful-background videos on Instagram pulled 165 and 146 views against 17-92 for the interior-room looks. Some of that gap is age (older posts accumulate views), but it's far larger than age alone explains, so it's being tested deliberately instead of left to incidental rotation.
->
-> **While this experiment runs, `picked_look` is always:**
-> `06c45b55396142b4930282c658142c0f` — Avatar in a pink sweater (the rainbow-background look).
-> Ignore the tone-matching and round-robin rules below for the *primary* pick — they resume when the pin ends. Still offer 1-2 tone-appropriate alternates from the allowlist in the preview message, and say in the preview that the look is pinned for an active test.
->
-> **When to stop:** count entries in `automation/social-state.json` where `avatar_id == "06c45b55396142b4930282c658142c0f"` **and** `publish_date >= "2026-08-24"`. If that count is **3 or more**, the test is done: delete this whole block from the skill, resume the normal rules below, commit that edit with the episode, and notify Toyo — `gh workflow run notify.yml -f text="Rainbow-look test is complete (3 posts). Compare their reach against the interior-look baseline and record the call in analytics/EXPERIMENTS.md."` — so the result actually gets read rather than the pin quietly living forever.
->
-> Note this look is landscape (2752x1536) while the rest of the allowlist is portrait, so it renders letterboxed with bars. That's part of what's being tested: whether the colorful background wins *despite* the bars. See "Nova look: rainbow background vs interior" in `analytics/EXPERIMENTS.md`.
-
 Do not call the HeyGen REST API directly from this routine — this routine's environment has no stored `HEYGEN_API_KEY` (it never has; the render pipeline's copy in GitHub Actions secrets is a separate, unrelated credential), and the old direct fetch here killed a run on 2026-08-18 when it hit that gap. `id` and `name` for every pickable look are already hardcoded in the verified allowlist below, so the pick itself never depends on any live HeyGen call.
 
 The only thing a live call could add is a fresher signed `preview_image_url` for the Telegram preview message thumbnail — purely cosmetic. Get it from the HeyGen MCP connector's `list_avatar_looks` tool (groupId `6eef573ef32844d8b881010bf917601f`) if connected; otherwise reuse the newest `image_url`s already recorded in `nova-pipeline-state.json` / the latest `automation/nova-previews/*.md`. Never let a stale or missing preview image stop the pick.
