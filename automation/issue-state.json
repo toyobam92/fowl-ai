@@ -1,31 +1,10 @@
 {
-  "week_of": "2026-09-07",
-  "status": "drafted",
+  "week_of": null,
+  "status": "idle",
   "last_proposed": "2026-09-06",
-  "topics": [
-    {
-      "title": "Inside the New AI Elite",
-      "why": "92% of C-suite leaders are now deliberately cultivating a class of AI power-users who are 5x more productive, and 77% of executives say non-adopters won't be considered for promotion -- the divide is no longer theoretical."
-    },
-    {
-      "title": "The Entry-Level AI Shock",
-      "why": "A new Stanford Digital Economy Lab paper finds 22-25 year olds in the most AI-exposed occupations saw roughly a 16% relative decline in employment -- the clearest hard data yet that early-career hiring is absorbing the disruption first."
-    },
-    {
-      "title": "The AI Training Gig Economy Splits in Two",
-      "why": "Generalist AI-training gigs are stuck at $12-25/hr while domain-expert evaluator roles on platforms like Mercor and Alignerr now pay $80-200/hr for credentialed professionals, and the gap is widening fast enough to change how people should position themselves."
-    },
-    {
-      "title": "What Microsoft's 6,000-Person AI Deployment Army Signals",
-      "why": "Microsoft is mobilizing roughly 6,000 employees purely to help enterprise customers adopt AI, a scale that reveals which 'AI adoption' skills and roles vendors are actually hiring for right now."
-    },
-    {
-      "title": "Beyond 'AI Engineer': The Domain-Specialist Titles Taking Over",
-      "why": "Titles like Clinical AI Specialist, Legal AI Analyst, and AI Compliance Manager are emerging as the least-competitive, highest-premium category in the AI job market -- a clearer path in than the oversaturated generalist 'AI Engineer' title."
-    }
-  ],
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": "What Microsoft's 6,000-Person AI Deployment Army Signals",
-  "pr_number": 52,
+  "picked_topic": null,
+  "pr_number": null,
   "last_updated": "2026-09-06"
 }
