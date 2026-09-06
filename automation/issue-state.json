@@ -1,6 +1,6 @@
 {
   "week_of": "2026-09-07",
-  "status": "awaiting_pick",
+  "status": "drafting",
   "last_proposed": "2026-09-06",
   "topics": [
     {
@@ -25,7 +25,7 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
+  "picked_topic": "What Microsoft's 6,000-Person AI Deployment Army Signals",
   "pr_number": null,
   "last_updated": "2026-09-06"
 }
