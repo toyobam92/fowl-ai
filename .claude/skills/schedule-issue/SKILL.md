@@ -78,3 +78,24 @@ Click **Schedule** (top right). A **"Just checking..."** confirmation modal appe
 ## 7. Confirm success
 
 The page should now read **"Your campaign is scheduled"** with a **"Cancel scheduled send"** button. Report the scheduled date/time and recipient count back to the user. Nothing further to do — `schedule-watchdog.yml` will stop nudging once it sees the campaign's status flip to `preparing`.
+
+## Fallback: Chrome extension not connected → use the Playwright MCP, headed
+
+Verified end-to-end scheduling Issue 16 on 2026-09-06. When `tabs_context_mcp` returns "Browser extension is not connected" and `list_connected_browsers` is `[]`, don't stall — the Playwright MCP (`mcp__playwright__*`) opens a real, visible Chromium window, and that's enough:
+
+1. `browser_navigate` to `https://dashboard.emailoctopus.com/campaigns`. Cloudflare's "Just a moment…" (HTTP 403) interstitial appears first; `browser_wait_for` ~6s and it clears on its own in a headed window. Never touch a CAPTCHA if one appears instead.
+2. It lands on the login page. **Stop and ask Toyo to sign in himself in that Chromium window** (email/password or Continue with Google) — never type credentials. Then re-navigate to `/campaigns`.
+3. Everything after that is the same flow as above. Selector notes from the real run:
+   - Row menu → `Duplicate` works via `browser_click` on the menuitem.
+   - Title: click the pencil button, the `#campaign_setup_name` textbox appears; fill + Enter.
+   - **Subject is a TipTap contenteditable** — fill `.tiptap.ProseMirror.inline-editor`, not the inner text div (that one errors "not an input"). Verify `#campaign_setup_subject` mirrored the value.
+   - Preview text is a plain textbox; fill works.
+   - Content: click the code editor text, then `browser_press_key` `ControlOrMeta+a` then `ControlOrMeta+v`. This is a real OS paste in a headed window, so `pbcopy` locally first — and **re-copy immediately before pasting**: Toyo browses in the same Playwright browser, and the clipboard got overwritten by an unrelated copy once mid-run, which pasted "citysignalatl" over the template. Verify with the `.body-html` check from step 5; expected `length` equals the source's UTF-16 unit count (`len(s) + astral-emoji count`).
+   - First Save & next on Content returns HTTP 422 with the preview-text banner; click Save & next again.
+   - "Send at a specific time": click the **label** (`f…193`-style wrapper), the radio itself is covered by its span and times out.
+   - Date: click the date input, then `.datepicker-cell.day:not(.prev):not(.next):text-is("7")` (substitute the day).
+   - Time: click `#campaign_review_delayedSendAt_time`; three segment textboxes appear — fill hour `07` and minute `45`. Pressing `a` on the AM/PM segment did **nothing**; clicking `.meridian > .prev` toggled PM→AM. Verify the hidden time input reads `07:45 AM`.
+   - Top-right button becomes "Schedule"; the "Just checking…" modal is found with `.modal:visible`; read its text before clicking its Schedule.
+4. Leave the Playwright browser open afterwards — Toyo may be using its other tabs.
+
+Also from that run: `gh pr merge` from inside Claude Code was blocked by the auto-mode permission classifier. Ask Toyo to run it (`! gh pr merge <N> --squash --delete-branch`) or reply `APPROVE <N>` in Telegram, then `git pull --ff-only` here. If he runs a `git -C fowlai-site-upload …` command while already inside `fowlai-site-upload`, it fails with "cannot change to" — give paths relative to wherever his prompt shows he is.
