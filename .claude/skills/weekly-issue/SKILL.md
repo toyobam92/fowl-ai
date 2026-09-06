@@ -93,19 +93,46 @@ Produce, internally, before drafting:
 
 Voice: calm, analytical, useful, high-trust. No hype, no doom, no generic AI commentary — every development needs a concrete "why it matters to a knowledge worker building career leverage" angle.
 
-Structure (same section order every issue):
-1. Masthead hook
-2. If you read nothing else
-3. Intro
-4. This Week — 5 Developments (title, body, why it matters, who benefits, the signal, from the inside)
-5. Signal & Chatter
-6. Reddit / Community Chatter
-7. Emerging Career Title
-8. AI Trainer Platforms / Opportunity Board
-9. New AI Jobs
-10. Closing Reflection
-11. Reply CTA
-12. **Vibe Code Saturdays block (recurring — every issue, unchanged)** — see below
+Structure (same section order every issue — this is the order the published HTML actually uses; match it):
+1. Masthead — hook (`mast-title`), subhead (`mast-sub`), brand strip (Sourced from / No hype / Why now)
+2. If you read nothing else (`tldr-text`)
+3. Nova's Signal — quote + "Nova's call"
+4. Intro (`intro-text`)
+5. This Week — 5 Developments (title, "One sentence:", body, why it matters, the signal / flag)
+6. Signal & Chatter
+7. Reddit / Community Chatter
+8. FOWL Prediction #N
+9. 3 Things to Do This Week
+10. From the Lab (Launch Lab promo — recurring, carry forward verbatim)
+11. Emerging Career Title
+12. AI Trainer Platforms / Opportunity Board
+13. New AI Jobs
+14. Closing Reflection
+15. Reply CTA
+16. **Vibe Code Saturdays block (recurring — every issue, unchanged)** — see below
+
+### Front of issue: one job per block, every number once
+
+The four blocks before story 01 (masthead, TL;DR, Nova, intro) are the part readers are most likely to actually read, and they have been drifting into the same thing said four times. Issues 13–16 spent 17%, 20%, 23% and 21% of their words before story 01, and the headline figures (a dollar amount, a headcount, a multiple) appeared in the subhead, the TL;DR, Nova's quote, the intro, *and* story 01's "One sentence" — five times in a row. That reads as padding, and it makes story 01 feel like a rerun. Toyo flagged this directly on 2026-09-06.
+
+Each block gets one distinct job and a hard word budget. Draft them in this order and check each against the previous ones before moving on:
+
+| Block | Job | Budget | Figures allowed |
+|---|---|---|---|
+| Hook (`mast-title`) | The claim, as a headline. | 2 sentences | At most one (the single headline number) |
+| Subhead (`mast-sub`) | What this issue will show the reader and why it matters to them. Not a summary of the news. | ≤ 45 words | None beyond what's already in the hook. No company roll-call. |
+| Brand strip | Sourced from / No hype / Why now | ≤ 12 words each | None |
+| TL;DR (`tldr-text`) | The thesis plus the reader's "so what," for someone who reads nothing else. | ≤ 90 words, 3–4 sentences | **This is the only front block that carries the key figures** — at most 3. No source attribution ("per Bloomberg…"); story 01 does that. |
+| Nova's quote | Nova's *take*: a lens or angle the TL;DR didn't state. It must not paraphrase the TL;DR. | ≤ 40 words | None |
+| Nova's call | The one-line instruction to the reader. | ≤ 25 words | None |
+| Intro (`intro-text`) | Continuity (one sentence tying to a previous issue) plus a roadmap of what stories 01–05 walk through. | ≤ 80 words, one paragraph | None. Do not narrate the story here — story 01 is the first place the full development gets told. |
+| Story 01 "One sentence" | The full, attributed statement of the headline development. | as today | All of them, with sources |
+
+The rules that fall out of that table:
+- **Every specific figure appears at most once before story 01.** If it's in the TL;DR it is not in the subhead, Nova, or intro. Story 01 is where it gets repeated with attribution.
+- **The front four blocks total ≤ 350 words.** (They were 700–860 in Issues 13–16.)
+- **No block before story 01 restates another block's sentence in different words.** If you can delete a block and the reader loses nothing, that block hasn't been given its job yet — rewrite it, don't cut it (the layout expects all four).
+- The intro's roadmap sentence should name what each story adds ("story 02 has the rival bets, 03 the pay data, 05 the catch"), so the reader knows the details are coming and the front doesn't have to carry them.
 
 ## 6. HTML
 
@@ -113,7 +140,7 @@ Use the most recently published issue's HTML (`issues/<latest-date>/index.html` 
 - Masthead issue number and date
 - Intro line's issue-number reference
 - All body sections per the structure above
-Preserve section order, keep it email-friendly (no scripts, no external images unless explicitly sourced), keep the masthead hook and "if you read nothing else" tight.
+Preserve section order, keep it email-friendly (no scripts, no external images unless explicitly sourced), and hold the front-of-issue blocks to the budgets in step 5 — the previous issue's HTML is the *layout* template, not a length or phrasing template for those blocks.
 
 **The Vibe Code Saturdays block is recurring furniture, not issue copy** — carry it forward verbatim from the previous issue, in the same place (immediately after the Reply CTA, immediately before Share). Do not rewrite it week to week; a standing promo works by repetition, and rewording it each issue makes it read like an ad instead of a fixture. It sits between them deliberately: right after the reply prompt, where a reader who's already engaged enough to consider replying is the one most likely to show up in a room.
 
@@ -151,6 +178,7 @@ Before opening the PR, verify:
 - The issue has one clear thesis and a concrete, non-generic hook.
 - No hype, no doom, no unsupported predictions.
 - HTML renders sensibly (spot-check the structure) and links resolve.
+- **Front-of-issue redundancy check** (step 5's table): strip the HTML of `mast-sub`, `tldr-text`, `nova-quote`, `nova-call` and `intro-text`, count words per block against the budgets, and list every figure (dollar amounts, percentages, headcounts, multiples like "42x") that appears in them. Any figure appearing twice before story 01, or a front total over 350 words, means go back and rewrite — this is the specific complaint that prompted the rule, not a nice-to-have.
 
 Anything you flagged in step 4.8 as unsourced goes into the PR description under "needs manual verification" — don't silently drop it or silently guess a source.
 
