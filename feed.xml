@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 31 Aug 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 07 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 16: Microsoft built a 6,000-person army to install AI inside your company.</title>
+      <link>https://www.fowl-ai.com/issues/2026-09-07/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-09-07/</guid>
+      <pubDate>Mon, 07 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Microsoft's $2.5 billion Frontier Company, AWS's $1 billion answer, and matching bets from Accenture and Salesforce all point at one job — forward deployed engineer — up roughly 42x in two years and paying $215K to $1.2M+ depending on level.</description>
+    </item>
     <item>
       <title>Issue 15: The AI trainer gig economy just split into two tiers.</title>
       <link>https://www.fowl-ai.com/issues/2026-08-31/</link>
