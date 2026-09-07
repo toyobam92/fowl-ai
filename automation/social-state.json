@@ -197,6 +197,22 @@
         "threads": true
       },
       "posted_at": "2026-09-03T01:21:48+00:00"
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-09-07",
+      "topic": "Nate's ex-CEO indicted for faking \"AI\" with human workers",
+      "script": "Nate promised one-tap AI checkout. It turned out to be humans in a call center pretending to be a robot.\n\nFederal prosecutors say founder Albert Saniger raised over $40 million telling investors Nate's app used proprietary AI to autonomously complete online purchases -- when the real automation rate was, in the indictment's words, effectively zero percent. Instead, hundreds of human \"purchasing assistants\" in the Philippines processed the orders by hand. Saniger has pleaded not guilty and faces up to 20 years if convicted.\n\nFor anyone evaluating an \"AI-powered\" tool, the lesson is blunt: ask what's actually running under the hood.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
+      "caption": "Nate's \"AI-powered\" checkout app was secretly run by human workers in the Philippines -- now its founder faces up to 20 years for lying to investors about it. #AI #AIwashing #StartupFraud #TechNews #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/f9a67c1bca43f779ad843bfe90f04381.mp4?Expires=1789353177&Signature=DIQLaOk8HQT7oeasVxTN0NA92YO4dqp5v7yQwEeOPTOzOc5j5FyrKeEBIXyc3cvb0b0R015hTiu0UucQ1Fgt3jbpZOsLhI-XEszewMMHyzmT~jWaB6XaYb1ZmTJz2CNBNI4Ud3RUbrpYujtmzskM6xg2-ZivNwngf4qn-mT9z6TfyqH~bCaaXecbrssinx~ntbNfcrwEkkR~jW-fufe6ENdmDh5B6vfUSuxfXCU~6AM3G2bvVIOoiNaP8tNlpCdsBqfpXwlVZlwv~AajmqitLL-LeXahCw3BvvIcmjhx4AIPurjIv0-QJD5Zcl4gFk4ewLVh1AkktQ~jgOju1g1gAw__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "6df6bf1a920b4d17a48dda102ea85371",
+      "look_name": "Burgundy Sleeveless, Light Pants",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
