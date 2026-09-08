@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-09-03",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-09-08",
+  "publish_date": "2026-09-09",
+  "tone": "professional",
+  "topics": [
+    {
+      "title": "OpenAI ships GPT-6 Astra",
+      "why": "It's OpenAI's newest flagship model, launched September 3rd in a wave of releases alongside Gemini 3.8 Flash and Claude Fable 5.1 — the AI tools knowledge workers rely on just got upgraded again."
+    },
+    {
+      "title": "OpenAI's IPO could hit $1 trillion",
+      "why": "OpenAI is reportedly prepping an IPO targeting a near-$1 trillion valuation in Q4 2026 — a sign the AI boom is about to hit public markets in a very big way."
+    },
+    {
+      "title": "AI is now the #1 reason companies cut jobs",
+      "why": "AI has topped the list of cited reasons for layoffs for four straight months, with Salesforce alone shrinking its support team from 9,000 to 5,000 using AI agents — worth knowing if your role touches support."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-09-05T08:56:52Z"
+  "last_updated": "2026-09-08T00:23:00Z"
 }
