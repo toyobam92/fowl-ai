@@ -103,7 +103,7 @@ Structure (same section order every issue — this is the order the published HT
 7. Reddit / Community Chatter
 8. FOWL Prediction #N
 9. 3 Things to Do This Week
-10. From the Lab (Launch Lab promo — recurring, carry forward verbatim)
+10. Promotional pause — omit the old From the Lab / Launch Lab / Brand Brain / Guides & Resources block until the user restores it.
 11. Emerging Career Title
 12. AI Trainer Platforms / Opportunity Board
 13. New AI Jobs
@@ -136,34 +136,21 @@ The rules that fall out of that table:
 
 ## 6. HTML
 
-Use the most recently published issue's HTML (`issues/<latest-date>/index.html` in this repo) as the structural template — it already carries the correct FOWL AI branding, colors, typography, and layout, and already has the `{{UnsubscribeURL}}`/`{{SenderInfoLine}}`/`{{RewardsURL}}` merge tags EmailOctopus requires in its footer. Replace only the issue-specific copy:
-- Masthead issue number and date
-- Intro line's issue-number reference
-- All body sections per the structure above
-Preserve section order, keep it email-friendly (no scripts, no external images unless explicitly sourced), and hold the front-of-issue blocks to the budgets in step 5 — the previous issue's HTML is the *layout* template, not a length or phrasing template for those blocks.
+Use `automation/templates/newsletter.html` as the canonical design and structure for all new issues. Read `automation/templates/README.md` before authoring. The September 2026 template matches the redesigned site: white and pale-mint backgrounds, forest-green accents, native sans-serif typography, a 640 px reading column, presentation tables, and inline styles. The most recent issue is a continuity reference, not the visual template.
 
-**The Vibe Code Saturdays block is recurring furniture, not issue copy** — carry it forward verbatim from the previous issue, in the same place (immediately after the Reply CTA, immediately before Share). Do not rewrite it week to week; a standing promo works by repetition, and rewording it each issue makes it read like an ad instead of a fixture. It sits between them deliberately: right after the reply prompt, where a reader who's already engaged enough to consider replying is the one most likely to show up in a room.
+Replace all `[UPPERCASE_PLACEHOLDER]` values with the new issue's researched content and absolute source URLs. Preserve the template's editorial class names and the step 5 word budgets. Preserve the five EmailOctopus tags exactly: `{{UnsubscribeURL}}`, `{{SenderInfoLine}}`, `{{RewardsURL}}`, `{{WebVersionURL}}`, and `{{ShareURL}}`. The unsubscribe tag stays a text hyperlink. Set reading time from the finished copy.
 
-If the previous issue somehow lacks it, this is the block:
+Write the filled email to `issues/<date>/email.html`, with no scripts, forms, JavaScript buttons, external fonts, or image-dependent content. Then create `issues/<date>/index.html` from that same content for the web, adding the SEO metadata in step 7 only to the web copy. Replace web-version/share tags with the canonical issue URL in the web copy; keep provider-only footer tags confined to the email. The matching plain-text skeleton is `automation/templates/newsletter.txt`.
 
-```html
-<!-- ═══════════════════════════════════════ VIBE CODE SATURDAYS (recurring) -->
-<div style="background:#0d3f31;margin:8px 0;padding:30px 44px;">
-  <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:12px;">📍 Atlanta · Vibe Code Saturdays</div>
-  <div style="font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1.3;color:#ffffff;margin-bottom:12px;">Join us for Vibe Code Saturdays.</div>
-  <div style="font-size:15px;line-height:1.75;color:#a9e8cf;margin-bottom:18px;">A free, hands-on Saturday in Atlanta where you build something that belongs to you using AI — your website, your newsletter, your portfolio, your next idea. No coding background required. Bring a laptop.<br><br>We're scheduling the first session now, and we'll notify you the moment the date and venue are set.</div>
-  <a href="https://www.fowl-ai.com/vibe-code-saturdays/" style="display:inline-block;background:#f2a12b;color:#13241e;font-family:'DM Mono',monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;padding:12px 24px;border-radius:999px;text-decoration:none;">Notify me about the first one →</a>
-</div>
-```
+Brand Brain, Launch Lab, and Guides & Resources promotions are paused at the user's request. Do not copy them from earlier issues.
 
-**When the first session gets a date and venue, this block changes once** — swap the "we're scheduling the first session now" sentence for the actual date, venue and time, and the button for an RSVP. After that it goes back to being carried forward verbatim. Toyo will say when; don't invent a date.
-
-Write the result to a new `issues/<date>/index.html`.
+**Vibe Code Saturdays remains a compact recurring block** after the Reply CTA and before Share. Use the block in the canonical template, including its new visual styling, rather than restoring the old orange/green promo. Keep its copy stable week to week. Its first date and venue are still unannounced. Only replace that sentence and the CTA once the user confirms the details.
 
 ## 7. Site plumbing
 
 Keep these in sync — they don't visually break if stale, so they're easy to forget (see the SEO checklist this mirrors):
-- `index.html` — add the new issue to the archive list and update the "latest issue" card.
+- `issues/index.html` — add the new issue to the archive list.
+- `index.html` — update the homepage announcement, newsletter preview card, and latest-briefing feature together, including the issue number, date, title, links, and reading time.
 - `sitemap.xml` — add a `<url>` entry for the new issue page.
 - `feed.xml` — add a new `<item>` at the top (RSS 2.0, RFC 822 `pubDate`).
 - `llms.txt` — update "Latest Issues" to show the 5 most recent, newest first.
@@ -177,7 +164,8 @@ Before opening the PR, verify:
 - Dates are current and specific; pay ranges are sourced or explicitly framed as estimated.
 - The issue has one clear thesis and a concrete, non-generic hook.
 - No hype, no doom, no unsupported predictions.
-- HTML renders sensibly (spot-check the structure) and links resolve.
+- Both `email.html` and `index.html` have the same issue content; the email has inline styling and no scripts, unresolved issue placeholders, or old promotional blocks.
+- HTML renders sensibly (spot-check the structure) and links resolve. Keep email below 95 KB where practical, and verify it in EmailOctopus before an authorized send.
 - **Front-of-issue redundancy check** (step 5's table): strip the HTML of `mast-sub`, `tldr-text`, `nova-quote`, `nova-call` and `intro-text`, count words per block against the budgets, and list every figure (dollar amounts, percentages, headcounts, multiples like "42x") that appears in them. Any figure appearing twice before story 01, or a front total over 350 words, means go back and rewrite — this is the specific complaint that prompted the rule, not a nice-to-have.
 
 Anything you flagged in step 4.8 as unsourced goes into the PR description under "needs manual verification" — don't silently drop it or silently guess a source.
@@ -199,7 +187,7 @@ Then trigger the review email:
 ```
 gh workflow run review-email.yml \
   -f ref=draft/issue-<N> \
-  -f issue_path=issues/<date>/index.html \
+  -f issue_path=issues/<date>/email.html \
   -f subject="Issue <N>: <short title>" \
   -f note="First draft — reply with any changes, or APPROVE <N> in Telegram when it looks good."
 ```
@@ -212,7 +200,7 @@ Stop here. Do not merge, do not push the issue content to `main`, and do not tou
 
 (Reached only from step 0 with a free-text inbox entry already removed, `status` was `drafted`.)
 
-Read the current draft (`issues/<date>/index.html` on the `draft/issue-<N>` branch — check it out or diff against it) and the feedback text. Apply the requested changes directly — don't ask clarifying questions back through this channel, since there's no synchronous way to get an answer; make a reasonable interpretation and let the next review email make the result visible. Re-run the relevant parts of steps 5-8 (draft/HTML/site-plumbing/self-check) as needed for just the changed sections.
+Read the current draft (`issues/<date>/email.html` and its web copy `issues/<date>/index.html` on the `draft/issue-<N>` branch — check it out or diff against it) and the feedback text. Apply the requested changes directly — don't ask clarifying questions back through this channel, since there's no synchronous way to get an answer; make a reasonable interpretation and let the next review email make the result visible. Re-run the relevant parts of steps 5-8 (draft/HTML/site-plumbing/self-check) as needed for just the changed sections.
 
 ```
 git checkout draft/issue-<N>
@@ -226,7 +214,7 @@ This updates the existing PR in place (same branch) — don't open a new one. Th
 ```
 gh workflow run review-email.yml \
   -f ref=draft/issue-<N> \
-  -f issue_path=issues/<date>/index.html \
+  -f issue_path=issues/<date>/email.html \
   -f subject="Issue <N>: <short title>" \
   -f note="Updated per your feedback: <one-line summary>. Reply again to keep iterating, or APPROVE <N> when it looks good."
 ```

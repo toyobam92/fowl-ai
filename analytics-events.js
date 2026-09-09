@@ -9,10 +9,9 @@
  *   - subscribe_click   fires specifically for links to the newsletter
  *                        signup platform (fowlai.eo.page) — most pages link
  *                        out to subscribe.
- *   - subscribe_submit  fires on an actual completed signup. Two sources,
- *                        distinguished by a "method" param:
- *                          - "embedded_form": the homepage hero form
- *                            (class "signup-form") posts to a Google Form.
+ *   - subscribe_attempt fires when an embedded Google Form is submitted.
+ *                        Its cross-origin response cannot confirm signup.
+ *   - subscribe_submit  fires on the EmailOctopus success redirect:
  *                          - "emailoctopus_redirect": fowlai.eo.page (the
  *                            EmailOctopus landing page every other page's
  *                            Subscribe button links to) is a page we don't
@@ -89,13 +88,13 @@
     true
   );
 
-  // --- subscribe_submit: source 1, embedded hero signup form ----------
+  // --- subscribe_attempt: embedded form (not a confirmed conversion) --
   document.addEventListener(
     "submit",
     function (e) {
       var form = e.target;
       if (!form || !form.classList || !form.classList.contains("signup-form")) return;
-      window.gtag("event", "subscribe_submit", {
+      window.gtag("event", "subscribe_attempt", {
         method: "embedded_form",
         form_id: form.id || "unspecified",
         page_location: window.location.href

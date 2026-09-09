@@ -19,10 +19,9 @@
   <meta property="og:url" content="https://www.fowl-ai.com/platform/" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:Inter,-apple-system,BlinkMacSystemFont,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    body{font-family:var(--fowl-font);background:#f2ede3;color:#13241e;line-height:1.55;}
     a{color:inherit;text-decoration:none;}
 
     /* Nav */
@@ -31,36 +30,36 @@
     .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;}
     .brand{display:flex;align-items:center;gap:14px;}
     .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
-    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .brand-word{font-family:var(--fowl-font);font-size:18px;letter-spacing:7px;color:#f47f18;}
     .nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
-    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;white-space:nowrap;}
+    .nav-link{font-family:var(--fowl-font);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;white-space:nowrap;}
     .nav-link:hover{color:#fff;}
     @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0);}}
     @keyframes wiggle{0%,80%,100%{transform:rotate(0deg) scale(1);}83%{transform:rotate(-2deg) scale(1.04);}86%{transform:rotate(2deg) scale(1.04);}89%{transform:rotate(-1deg) scale(1.02);}}
-    .sub-btn{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:12px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;white-space:nowrap;}
+    .sub-btn{display:inline-flex;align-items:center;padding:10px 20px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:12px;font-family:var(--fowl-font);letter-spacing:1px;text-transform:uppercase;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;white-space:nowrap;}
     .sub-btn:hover{transform:scale(1.06);animation:none;}
 
     /* Hero */
     .hero{background:#0d3f31;color:#fff;padding:52px 24px 0;border-top:1px solid rgba(255,255,255,.07);}
-    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+    .eyebrow{font-family:var(--fowl-font);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
     .live-dot{width:7px;height:7px;border-radius:50%;background:#78ddb4;display:inline-block;animation:pulse-dot 2s ease-in-out infinite;}
     @keyframes pulse-dot{0%,100%{opacity:1;}50%{opacity:.3;}}
-    .hero h1{font-family:"DM Mono",monospace;text-transform:uppercase;font-size:clamp(36px,6vw,64px);line-height:1.05;margin-bottom:16px;}
+    .hero h1{font-family:var(--fowl-font);text-transform:uppercase;font-size:clamp(36px,6vw,64px);line-height:1.05;margin-bottom:16px;}
     .hero h1 span{color:#f2a12b;}
     .hero-sub{font-size:18px;color:#e2f2eb;max-width:580px;line-height:1.75;margin-bottom:32px;}
 
     /* Search bar */
     .search-bar{background:#fff;border-radius:10px;display:flex;align-items:center;gap:0;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,.18);max-width:620px;margin-bottom:0;}
-    .search-input{flex:1;border:none;outline:none;padding:16px 20px;font-size:15px;font-family:Inter,sans-serif;color:#13241e;background:transparent;}
+    .search-input{flex:1;border:none;outline:none;padding:16px 20px;font-size:15px;font-family:var(--fowl-font);color:#13241e;background:transparent;}
     .search-input::placeholder{color:#9aada5;}
-    .search-btn{background:#0d3f31;color:#fff;border:none;padding:16px 24px;font-family:"DM Mono",monospace;font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;white-space:nowrap;font-weight:600;}
+    .search-btn{background:#0d3f31;color:#fff;border:none;padding:16px 24px;font-family:var(--fowl-font);font-size:12px;letter-spacing:1px;text-transform:uppercase;cursor:pointer;white-space:nowrap;font-weight:600;}
     .search-btn:hover{background:#1a5f4a;}
 
     /* Category tabs */
     .tabs-bar{background:#0a3028;border-top:1px solid rgba(255,255,255,.08);margin-top:28px;}
     .tabs-inner{display:flex;gap:0;overflow-x:auto;scrollbar-width:none;}
     .tabs-inner::-webkit-scrollbar{display:none;}
-    .tab-btn{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;padding:16px 22px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;flex-shrink:0;}
+    .tab-btn{font-family:var(--fowl-font);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;padding:16px 22px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;flex-shrink:0;}
     .tab-btn:hover{color:#fff;}
     .tab-btn.active{color:#f2a12b;border-bottom-color:#f2a12b;}
     .tab-count{font-size:9px;background:rgba(127,217,184,.2);color:#7fd9b8;padding:2px 6px;border-radius:999px;margin-left:6px;}
@@ -69,7 +68,7 @@
     /* Stats strip */
     .stats-strip{background:#13241e;padding:18px 24px;}
     .stats-inner{display:flex;gap:32px;align-items:center;flex-wrap:wrap;}
-    .stat{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;color:#7fd9b8;}
+    .stat{font-family:var(--fowl-font);font-size:11px;letter-spacing:1px;color:#7fd9b8;}
     .stat strong{color:#f2a12b;font-size:16px;display:block;margin-bottom:2px;}
 
     /* Panel */
@@ -78,7 +77,7 @@
 
     /* Section header */
     .section-intro{margin-bottom:24px;}
-    .section-intro h2{font-family:Fraunces,Georgia,serif;font-size:28px;margin-bottom:6px;}
+    .section-intro h2{font-family:var(--fowl-font);font-size:28px;margin-bottom:6px;}
     .section-intro p{font-size:14px;color:#665f56;max-width:560px;}
 
     /* Company cards grid */
@@ -88,12 +87,12 @@
     .company-card{background:#fff;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);border:1px solid #ece8e1;transition:box-shadow .18s,border-color .18s;}
     .company-card:hover{box-shadow:0 8px 36px rgba(0,0,0,.11);border-color:#d5cfc5;}
     .card-top{display:flex;align-items:flex-start;gap:14px;}
-    .company-logo{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:"DM Mono",monospace;font-size:14px;font-weight:500;color:#fff;}
+    .company-logo{width:44px;height:44px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:var(--fowl-font);font-size:14px;font-weight:500;color:#fff;}
     .company-info{flex:1;}
     .company-name{font-weight:800;font-size:16px;color:#13241e;margin-bottom:3px;}
-    .company-type{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;}
+    .company-type{font-family:var(--fowl-font);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:#9aada5;}
     .company-badges{display:flex;gap:5px;flex-wrap:wrap;}
-    .cbadge{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:999px;}
+    .cbadge{font-family:var(--fowl-font);font-size:9px;letter-spacing:.5px;text-transform:uppercase;padding:3px 8px;border-radius:999px;}
     .cbadge.hot{background:#fff0e0;color:#c07000;}
     .cbadge.new{background:#e8f9f2;color:#0d7a52;}
     .cbadge.remote{background:#f0f0ff;color:#4040a0;}
@@ -103,11 +102,11 @@
     .company-desc{font-size:13px;color:#46524c;line-height:1.7;}
 
     .fowl-take{background:#f7eedc;border-left:3px solid #f2a12b;padding:10px 14px;border-radius:0 6px 6px 0;}
-    .fowl-take-label{font-family:"DM Mono",monospace;font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:4px;}
+    .fowl-take-label{font-family:var(--fowl-font);font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:4px;}
     .fowl-take-text{font-size:13px;color:#4a3820;line-height:1.55;font-style:italic;}
 
     .card-meta{display:flex;gap:10px;flex-wrap:wrap;}
-    .meta-pill{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;color:#665f56;background:#f2ede3;padding:4px 10px;border-radius:999px;}
+    .meta-pill{font-family:var(--fowl-font);font-size:10px;letter-spacing:1px;color:#665f56;background:#f2ede3;padding:4px 10px;border-radius:999px;}
     .meta-pill.pay{color:#0f3d30;background:#e8f4ee;font-weight:500;}
 
     .card-cta{display:flex;gap:8px;align-items:center;margin-top:auto;}
@@ -123,26 +122,26 @@
     .role-list{display:flex;flex-direction:column;gap:6px;}
     .role-row{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#f9f6f0;border-radius:6px;padding:8px 12px;}
     .role-name{font-size:13px;font-weight:600;color:#13241e;}
-    .role-pay{font-family:"DM Mono",monospace;font-size:11px;color:#1a5f4a;font-weight:500;}
+    .role-pay{font-family:var(--fowl-font);font-size:11px;color:#1a5f4a;font-weight:500;}
 
     /* Feature banner */
     .feature-banner{background:#13241e;border-radius:12px;padding:24px 28px;margin-bottom:24px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
-    .feature-banner-text h3{font-family:Fraunces,Georgia,serif;font-size:20px;color:#fff;margin-bottom:6px;}
+    .feature-banner-text h3{font-family:var(--fowl-font);font-size:20px;color:#fff;margin-bottom:6px;}
     .feature-banner-text p{font-size:13px;color:#a9e8cf;line-height:1.6;}
     .feature-banner-cta{margin-left:auto;flex-shrink:0;}
 
     /* Empty state */
     .empty{text-align:center;padding:60px 24px;color:#9aada5;}
-    .empty h3{font-family:Fraunces,Georgia,serif;font-size:22px;margin-bottom:8px;color:#665f56;}
+    .empty h3{font-family:var(--fowl-font);font-size:22px;margin-bottom:8px;color:#665f56;}
     .empty p{font-size:14px;}
 
     /* Subscribe CTA */
     .sub-cta{background:#0d3f31;padding:52px 24px;text-align:center;}
-    .sub-cta h2{font-family:Fraunces,Georgia,serif;font-size:34px;color:#fff;margin-bottom:12px;}
+    .sub-cta h2{font-family:var(--fowl-font);font-size:34px;color:#fff;margin-bottom:12px;}
     .sub-cta p{font-size:16px;color:#a9e8cf;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto;}
 
     /* Footer */
-    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;border-top:1px solid rgba(255,255,255,.06);}
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:var(--fowl-font);font-size:11px;letter-spacing:1px;border-top:1px solid rgba(255,255,255,.06);}
     .footer a{color:#78ddb4;}
 
     @media(max-width:680px){
@@ -156,26 +155,26 @@
       .feature-banner-cta{margin-left:0;}
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <meta name="theme-color" content="#185b42">
 </head>
-<body>
+<body class="fowl-interior">
 
   <!-- NAV -->
-  <div class="topbar">
-    <div class="wrap">
-      <nav class="nav">
-        <a class="brand" href="/">
-          <span class="brand-mark"></span>
-          <span class="brand-word">FOWL AI</span>
-        </a>
-        <div class="nav-links">
-          <a class="nav-link" href="/">Home</a>
-          <a class="nav-link" href="/issues/">Briefings</a>
-          <a class="nav-link" href="/jobs/">Jobs</a>
-          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
-        </div>
-      </nav>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a>
+    <div class="site-nav-links" id="site-navigation">
+      <a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">Platforms</a><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="navigation">Vibe Code Saturdays</a>
+      <details class="site-more"><summary>Explore</summary><div class="site-more-menu"><a href="/tests/">AI tool tests</a><a href="/glossary/">AI glossary</a><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a></div></details>
     </div>
-  </div>
+    <a class="site-nav-cta" href="/#signup" data-conversion="newsletter" data-link-location="navigation-cta">Subscribe free <span aria-hidden="true">↗</span></a>
+    <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span></button>
+  </nav>
+</header>
+<main id="main-content">
 
   <!-- HERO -->
   <div class="hero">
@@ -1145,10 +1144,16 @@
   </div>
 
   <!-- FOOTER -->
-  <footer class="footer">
-    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/jobs/">Jobs</a> · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy Policy</a>
-    <div style="margin-top:10px;font-size:10px;opacity:.8;">FOWL AI is an independent media brand covering AI, careers, and the future of work. Not affiliated with any company listed.</div>
-  </footer>
+  </main>
+<footer class="site-footer"><div class="site-footer-inner">
+  <div class="site-footer-top">
+    <div class="site-footer-about"><a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a><p>A clearer view of AI.<br>A smarter next move.</p></div>
+    <div class="site-footer-column"><h2>Discover</h2><a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">AI platforms</a><a href="/tests/">AI tool tests</a></div>
+    <div class="site-footer-column"><h2>Go further</h2><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="footer">Vibe Code Saturdays</a><a href="/glossary/">AI glossary</a></div>
+    <div class="site-footer-column"><h2>Stay curious</h2><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a><a href="/contact/">Get in touch</a><a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+  </div>
+  <div class="site-footer-bottom"><span>© 2026 FOWL AI · Future of Work Lab</span><div><a href="/privacy/">Privacy</a><a href="/feed.xml">RSS</a><a href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer">Made by TYB ↗</a></div></div>
+</div></footer>
 
   <script>
     function switchPanel(name, btn) {

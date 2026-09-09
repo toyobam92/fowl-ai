@@ -16,10 +16,9 @@
   <meta name="description" content="Guides, templates and playbooks for knowledge workers building income with AI.">
   <link rel="canonical" href="https://www.fowl-ai.com/products/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:Inter,sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    body{font-family:var(--fowl-font);background:#f2ede3;color:#13241e;line-height:1.55;}
     a{color:inherit;text-decoration:none;}
 
     /* Nav */
@@ -28,9 +27,9 @@
     .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;}
     .brand{display:flex;align-items:center;gap:14px;}
     .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
-    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .brand-word{font-family:var(--fowl-font);font-size:18px;letter-spacing:7px;color:#f47f18;}
     .nav-links{display:flex;align-items:center;gap:20px;}
-    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;}
+    .nav-link{font-family:var(--fowl-font);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;}
     .nav-link:hover{color:#fff;}
     @keyframes nav-bounce{0%,70%,100%{transform:translateY(0);}74%{transform:translateY(-4px);}78%{transform:translateY(0);}82%{transform:translateY(-2px);}86%{transform:translateY(0);}}
     .nav-link.bounce{display:inline-block;animation:nav-bounce 4s ease-in-out infinite;}
@@ -38,20 +37,20 @@
 
     @keyframes pulse-glow{0%,100%{box-shadow:0 0 0 0 rgba(255,138,30,.65),0 4px 16px rgba(255,100,10,.3);}50%{box-shadow:0 0 0 10px rgba(255,138,30,0),0 4px 28px rgba(255,100,10,.6);}}
     @keyframes wiggle{0%,80%,100%{transform:rotate(0deg) scale(1);}83%{transform:rotate(-2deg) scale(1.04);}86%{transform:rotate(2deg) scale(1.04);}89%{transform:rotate(-1deg) scale(1.02);}92%{transform:rotate(1deg) scale(1.01);}}
-    .sub-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;}
+    .sub-btn{display:inline-flex;align-items:center;justify-content:center;padding:10px 22px;border-radius:999px;background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;font-weight:800;font-size:13px;font-family:var(--fowl-font);letter-spacing:1px;text-transform:uppercase;border:none;cursor:pointer;white-space:nowrap;animation:pulse-glow 2.2s ease-in-out infinite,wiggle 5s ease-in-out infinite;}
     .sub-btn:hover{transform:scale(1.06);box-shadow:0 8px 36px rgba(242,100,26,.7);animation:none;}
 
     /* Hero */
     .page-hero{background:#0d3f31;color:#fff;padding:52px 24px 60px;border-top:1px solid rgba(255,255,255,.07);}
-    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
-    .page-hero h1{font-family:"DM Mono",monospace;text-transform:uppercase;font-size:clamp(34px,5vw,54px);line-height:1.08;margin-bottom:14px;}
+    .eyebrow{font-family:var(--fowl-font);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
+    .page-hero h1{font-family:var(--fowl-font);text-transform:uppercase;font-size:clamp(34px,5vw,54px);line-height:1.08;margin-bottom:14px;}
     .page-hero h1 span{color:#f2a12b;}
     .page-hero p{font-size:17px;color:#e2f2eb;max-width:560px;line-height:1.75;}
 
     /* Bundle banner */
     .bundle-bar{background:#f2a12b;padding:18px 24px;text-align:center;}
     .bundle-bar p{font-size:15px;font-weight:700;color:#0d3f31;}
-    .bundle-bar span{font-family:"DM Mono",monospace;font-size:13px;font-weight:400;}
+    .bundle-bar span{font-family:var(--fowl-font);font-size:13px;font-weight:400;}
     .bundle-link{display:inline-block;margin-left:16px;background:#0d3f31;color:#f2a12b;font-weight:800;font-size:13px;padding:6px 18px;border-radius:999px;}
 
     /* Products grid */
@@ -61,30 +60,30 @@
     .product-card{background:#fff;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(0,0,0,.07);transition:box-shadow .2s;}
     .product-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.13);}
     .card-top{padding:28px 28px 20px;flex:1;}
-    .card-number{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#78ddb4;background:#0d3f31;display:inline-block;padding:4px 10px;border-radius:4px;margin-bottom:16px;}
-    .card-title{font-family:Fraunces,Georgia,serif;font-size:24px;line-height:1.2;margin-bottom:10px;}
+    .card-number{font-family:var(--fowl-font);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#78ddb4;background:#0d3f31;display:inline-block;padding:4px 10px;border-radius:4px;margin-bottom:16px;}
+    .card-title{font-family:var(--fowl-font);font-size:24px;line-height:1.2;margin-bottom:10px;}
     .card-desc{font-size:14px;color:#46524c;line-height:1.7;margin-bottom:16px;}
     .card-bullets{list-style:none;padding:0;margin-bottom:0;}
     .card-bullets li{font-size:13px;color:#3a4a43;padding-left:18px;position:relative;margin-bottom:7px;}
     .card-bullets li::before{content:'→';position:absolute;left:0;color:#1a5f4a;font-size:11px;top:1px;}
     .card-bottom{padding:20px 28px;border-top:1px solid #f0ede8;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-    .price{font-family:Fraunces,Georgia,serif;font-size:28px;font-weight:700;color:#13241e;}
-    .price-note{font-size:12px;color:#8a8278;font-family:"DM Mono",monospace;}
+    .price{font-family:var(--fowl-font);font-size:28px;font-weight:700;color:#13241e;}
+    .price-note{font-size:12px;color:#8a8278;font-family:var(--fowl-font);}
     .buy-btn{display:inline-flex;align-items:center;gap:6px;padding:12px 24px;border-radius:999px;background:#0d3f31;color:#fff;font-weight:800;font-size:14px;transition:background .15s;}
     .buy-btn:hover{background:#1a5f4a;}
-    .preview-link{font-size:12px;color:#8a8278;font-family:"DM Mono",monospace;text-decoration:underline;text-underline-offset:3px;}
+    .preview-link{font-size:12px;color:#8a8278;font-family:var(--fowl-font);text-decoration:underline;text-underline-offset:3px;}
     .preview-link:hover{color:#13241e;}
-    .card-authority{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1px;color:#1a5f4a;margin-bottom:12px;line-height:1.65;}
+    .card-authority{font-family:var(--fowl-font);font-size:10px;letter-spacing:1px;color:#1a5f4a;margin-bottom:12px;line-height:1.65;}
 
     /* Coming soon */
     .coming-soon{opacity:.7;pointer-events:none;}
-    .soon-badge{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;background:#0d3f31;color:#78ddb4;padding:6px 14px;border-radius:999px;display:inline-block;margin-bottom:16px;}
+    .soon-badge{font-family:var(--fowl-font);font-size:11px;letter-spacing:2px;text-transform:uppercase;background:#0d3f31;color:#78ddb4;padding:6px 14px;border-radius:999px;display:inline-block;margin-bottom:16px;}
     .buy-btn.soon{background:#9aada5;cursor:default;}
 
     /* Tabs */
     .tabs-wrap{padding:0 24px;background:#0d3f31;border-bottom:1px solid rgba(255,255,255,.1);}
     .tabs{display:flex;gap:0;width:min(1120px,100%);margin:0 auto;}
-    .tab-btn{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;padding:16px 24px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;}
+    .tab-btn{font-family:var(--fowl-font);font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#7fd9b8;padding:16px 24px;border:none;background:none;cursor:pointer;border-bottom:3px solid transparent;transition:color .15s,border-color .15s;white-space:nowrap;}
     .tab-btn:hover{color:#fff;}
     .tab-btn.active{color:#f2a12b;border-bottom-color:#f2a12b;}
     .tab-panel{display:none;}
@@ -94,22 +93,22 @@
     .report-card{background:#13241e;border-radius:12px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 4px 20px rgba(0,0,0,.18);border:1px solid rgba(127,217,184,.12);transition:box-shadow .2s,border-color .2s;}
     .report-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.3);border-color:rgba(127,217,184,.3);}
     .report-top{padding:28px 28px 20px;flex:1;}
-    .report-number{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;background:rgba(242,161,43,.12);border:1px solid rgba(242,161,43,.25);display:inline-block;padding:4px 10px;border-radius:4px;margin-bottom:16px;}
-    .report-title{font-family:Fraunces,Georgia,serif;font-size:22px;line-height:1.2;margin-bottom:10px;color:#fff;}
+    .report-number{font-family:var(--fowl-font);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;background:rgba(242,161,43,.12);border:1px solid rgba(242,161,43,.25);display:inline-block;padding:4px 10px;border-radius:4px;margin-bottom:16px;}
+    .report-title{font-family:var(--fowl-font);font-size:22px;line-height:1.2;margin-bottom:10px;color:#fff;}
     .report-desc{font-size:14px;color:#7fd9b8;line-height:1.7;margin-bottom:16px;}
     .report-bullets{list-style:none;padding:0;margin-bottom:0;}
     .report-bullets li{font-size:13px;color:#a9e8cf;padding-left:18px;position:relative;margin-bottom:7px;}
     .report-bullets li::before{content:'→';position:absolute;left:0;color:#f2a12b;font-size:11px;top:1px;}
     .report-bottom{padding:20px 28px;border-top:1px solid rgba(127,217,184,.12);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
-    .report-price{font-family:Fraunces,Georgia,serif;font-size:26px;font-weight:700;color:#fff;}
-    .report-note{font-size:11px;color:#7fd9b8;font-family:"DM Mono",monospace;margin-top:2px;}
-    .report-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:999px;background:rgba(127,217,184,.12);border:1px solid rgba(127,217,184,.3);color:#78ddb4;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;}
+    .report-price{font-family:var(--fowl-font);font-size:26px;font-weight:700;color:#fff;}
+    .report-note{font-size:11px;color:#7fd9b8;font-family:var(--fowl-font);margin-top:2px;}
+    .report-btn{display:inline-flex;align-items:center;gap:6px;padding:11px 22px;border-radius:999px;background:rgba(127,217,184,.12);border:1px solid rgba(127,217,184,.3);color:#78ddb4;font-weight:800;font-size:13px;font-family:var(--fowl-font);letter-spacing:1px;text-transform:uppercase;}
 
     /* Intel section intro */
     .intel-intro{background:#13241e;padding:32px 24px;border-bottom:1px solid rgba(127,217,184,.1);}
     .intel-intro-inner{width:min(1120px,100%);margin:0 auto;display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;}
-    .intel-tag{font-family:"DM Mono",monospace;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;}
-    .intel-heading{font-family:Fraunces,Georgia,serif;font-size:26px;color:#fff;line-height:1.2;margin-bottom:8px;}
+    .intel-tag{font-family:var(--fowl-font);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:#f2a12b;margin-bottom:8px;}
+    .intel-heading{font-family:var(--fowl-font);font-size:26px;color:#fff;line-height:1.2;margin-bottom:8px;}
     .intel-body{font-size:14px;color:#7fd9b8;line-height:1.7;max-width:560px;}
 
     @media(max-width:640px){
@@ -120,7 +119,7 @@
     }
 
     /* Footer */
-    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:var(--fowl-font);font-size:11px;letter-spacing:1px;}
     .footer a{color:#78ddb4;}
 
     @media(max-width:640px){
@@ -140,38 +139,32 @@
       .bundle-link{display:block;margin:8px 0 0;text-align:center;}
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <meta name="theme-color" content="#185b42">
 </head>
-<body>
+<body class="fowl-interior">
 
-  <div class="topbar">
-    <div class="wrap">
-      <nav class="nav">
-        <a class="brand" href="/">
-          <span class="brand-mark"></span>
-          <span class="brand-word">FOWL AI</span>
-        </a>
-        <div class="nav-links">
-          <a class="nav-link" href="/">Home</a>
-          <a class="nav-link bounce" href="/issues/">Briefings</a>
-          <a class="nav-link bounce" href="/platforms/">Platforms</a>
-          <a class="nav-link bounce" style="animation-delay:.6s" href="/jobs/">Jobs</a>
-          <a class="nav-link bounce" style="animation-delay:.9s" href="/products/">Products</a>
-          <a class="nav-link" href="/tests/">Tests</a>
-          <a class="nav-link" href="/glossary/">Glossary</a>
-          <a class="nav-link" href="/vibe-code-saturdays/">Vibe Code Saturdays</a>
-          <a class="nav-link" href="/faq/">FAQ</a>
-          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
-        </div>
-      </nav>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a>
+    <div class="site-nav-links" id="site-navigation">
+      <a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">Platforms</a><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="navigation">Vibe Code Saturdays</a>
+      <details class="site-more"><summary>Explore</summary><div class="site-more-menu"><a href="/tests/">AI tool tests</a><a href="/glossary/">AI glossary</a><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a></div></details>
     </div>
-  </div>
+    <a class="site-nav-cta" href="/#signup" data-conversion="newsletter" data-link-location="navigation-cta">Subscribe free <span aria-hidden="true">↗</span></a>
+    <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span></button>
+  </nav>
+</header>
+<main id="main-content">
 
   <div class="page-hero">
     <div class="wrap">
       <div class="eyebrow">FOWL AI · Products</div>
       <h1>Tools to help you <span>earn with AI.</span></h1>
       <p>Practical guides and templates built from real experience — not theory. Each product is designed to get you earning faster on AI platforms.</p>
-      <p style="font-size:12px;color:#a9e8cf;margin-top:10px;font-family:'DM Mono',monospace;letter-spacing:.3px;opacity:.8;">Income figures mentioned reflect outcomes achievable by well-positioned domain experts and are not typical. Individual results vary based on skill, domain, availability, and platform policies.</p>
+      <p style="font-size:12px;color:#a9e8cf;margin-top:10px;font-family:var(--fowl-font);letter-spacing:.3px;opacity:.8;">Income figures mentioned reflect outcomes achievable by well-positioned domain experts and are not typical. Individual results vary based on skill, domain, availability, and platform policies.</p>
     </div>
   </div>
 
@@ -280,9 +273,9 @@
           <div class="intel-body">Deep-dive reports tracking the signals that matter for knowledge workers — startups, agents, jobs, funding, and tools. Updated regularly. Built for people making career and income decisions in the AI era.</div>
         </div>
         <div style="background:rgba(242,161,43,.1);border:1px solid rgba(242,161,43,.25);border-radius:10px;padding:16px 22px;flex-shrink:0;">
-          <div style="font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:6px;">Early access</div>
-          <div style="font-family:Fraunces,Georgia,serif;font-size:18px;color:#fff;line-height:1.3;">Subscribe free to get<br>first access when live.</div>
-          <a href="https://fowlai.eo.page/vmk69" style="display:inline-block;margin-top:12px;background:#f2a12b;color:#0d3f31;font-family:'DM Mono',monospace;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;text-decoration:none;">Subscribe free →</a>
+          <div style="font-family:var(--fowl-font);font-size:10px;letter-spacing:2px;text-transform:uppercase;color:#f2a12b;margin-bottom:6px;">Early access</div>
+          <div style="font-family:var(--fowl-font);font-size:18px;color:#fff;line-height:1.3;">Subscribe free to get<br>first access when live.</div>
+          <a href="https://fowlai.eo.page/vmk69" style="display:inline-block;margin-top:12px;background:#f2a12b;color:#0d3f31;font-family:var(--fowl-font);font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:10px 20px;border-radius:999px;text-decoration:none;">Subscribe free →</a>
         </div>
       </div>
     </div>
@@ -413,17 +406,22 @@
 
   <div style="padding:24px;background:#f2ede3;border-top:1px solid #ddd8cc;">
     <div class="wrap">
-      <p style="font-size:11px;color:#9aada5;line-height:1.75;font-family:'DM Mono',monospace;max-width:760px;">
+      <p style="font-size:11px;color:#9aada5;line-height:1.75;font-family:var(--fowl-font);max-width:760px;">
         <strong style="color:#6a6258;">Disclaimer:</strong> All FOWL AI products are for informational and educational purposes only. Income figures, platform details, and strategies reflect real-world experience and general market observation — not guarantees of results. Individual outcomes vary based on skill, availability, and platform policies. FOWL AI is not affiliated with any platform mentioned. Nothing here constitutes financial, legal, or career advice.
       </p>
     </div>
   </div>
 
-  <footer class="footer">
-    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/platforms/">Platforms</a> · <a href="/jobs/">Jobs</a> · <a href="/tests/">Tests</a> · <a href="/glossary/">Glossary</a> · <a href="/vibe-code-saturdays/">Vibe Code Saturdays</a> · <a href="/faq/">FAQ</a> · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy Policy</a>
-    <div style="margin-top:10px;font-size:10px;opacity:.8;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
-    <div style="margin-top:6px;font-size:10px;opacity:.6;">Digital products are non-refundable. Income figures represent outcomes achievable by well-positioned domain experts and are not typical results. FOWL AI is not affiliated with any platform mentioned.</div>
-  </footer>
+  </main>
+<footer class="site-footer"><div class="site-footer-inner">
+  <div class="site-footer-top">
+    <div class="site-footer-about"><a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a><p>A clearer view of AI.<br>A smarter next move.</p></div>
+    <div class="site-footer-column"><h2>Discover</h2><a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">AI platforms</a><a href="/tests/">AI tool tests</a></div>
+    <div class="site-footer-column"><h2>Go further</h2><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="footer">Vibe Code Saturdays</a><a href="/glossary/">AI glossary</a></div>
+    <div class="site-footer-column"><h2>Stay curious</h2><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a><a href="/contact/">Get in touch</a><a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+  </div>
+  <div class="site-footer-bottom"><span>© 2026 FOWL AI · Future of Work Lab</span><div><a href="/privacy/">Privacy</a><a href="/feed.xml">RSS</a><a href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer">Made by TYB ↗</a></div></div>
+</div></footer>
 
   <script>
     function switchTab(name, btn) {

@@ -17,15 +17,17 @@ Check the issue is actually merged to `main` (it will be, if you can see its fol
 
 ## 1. Derive subject and preview text from the HTML
 
-Pull from the issue's own `<head>`:
+Pull from the issue’s web copy (`issues/<date>/index.html`) `<head>`:
 - `og:title` meta content is `FOWL AI · Issue N · <hook>` — the email subject is `Issue N: <hook>` (same "Issue N:" prefix pattern as every past campaign — check `list_posts`-equivalent, i.e. an existing sent campaign's subject line, if unsure of the exact separator).
 - `description`/`og:description` meta content is a good source for preview text — write one short sentence (under ~140 chars) that teases the piece; doesn't need to be a verbatim copy of the meta description.
 
 ## 2. Copy the HTML to the clipboard
 
 ```
-pbcopy < issues/<date>/index.html
+pbcopy < issues/<date>/email.html
 ```
+
+Use `email.html` for issues created with the September 2026 template. For older issues that lack this file, use their existing `index.html`. Confirm the selected email source has the required EmailOctopus tags and no executable scripts or JavaScript buttons before pasting. Do not overwrite the new email source with the web copy.
 
 Real OS clipboard, not a variable — the paste step later depends on this being the last thing copied.
 

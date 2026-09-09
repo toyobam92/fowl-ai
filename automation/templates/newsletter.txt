@@ -1,0 +1,203 @@
+[PREHEADER]
+
+[EDITION_LABEL]
+
+Read in browser ({{WebVersionURL}})
+
+ FOWLAI
+
+The weekly brief
+
+[HEADLINE]
+
+[SUBHEAD]
+
+[ISSUE_DATE]  ·  [READ_TIME] min read
+
+Sourced from
+
+[PROVENANCE]
+
+No hype
+
+[EDITORIAL_STANDARD]
+
+Why now
+
+[WHY_NOW]
+
+If you read nothing else
+
+[TAKEAWAY]
+
+Nova’s signal
+
+[NOVA_TAKE]
+
+Nova’s call. [NOVA_CALL]
+
+[INTRO]
+
+This week
+
+[DEVELOPMENTS_HEADING]
+
+01 / [STORY_1_CATEGORY]
+
+[STORY_1_TITLE]
+
+[STORY_1_BODY]
+
+Why it matters. [STORY_1_WHY]
+
+The signal. [STORY_1_SIGNAL]
+
+[STORY_1_SOURCE_LABEL] ([STORY_1_SOURCE_URL])
+
+02 / [STORY_2_CATEGORY]
+
+[STORY_2_TITLE]
+
+[STORY_2_BODY]
+
+Why it matters. [STORY_2_WHY]
+
+The signal. [STORY_2_SIGNAL]
+
+[STORY_2_SOURCE_LABEL] ([STORY_2_SOURCE_URL])
+
+03 / [STORY_3_CATEGORY]
+
+[STORY_3_TITLE]
+
+[STORY_3_BODY]
+
+Why it matters. [STORY_3_WHY]
+
+The signal. [STORY_3_SIGNAL]
+
+[STORY_3_SOURCE_LABEL] ([STORY_3_SOURCE_URL])
+
+04 / [STORY_4_CATEGORY]
+
+[STORY_4_TITLE]
+
+[STORY_4_BODY]
+
+Why it matters. [STORY_4_WHY]
+
+The signal. [STORY_4_SIGNAL]
+
+[STORY_4_SOURCE_LABEL] ([STORY_4_SOURCE_URL])
+
+05 / [STORY_5_CATEGORY]
+
+[STORY_5_TITLE]
+
+[STORY_5_BODY]
+
+Why it matters. [STORY_5_WHY]
+
+The signal. [STORY_5_SIGNAL]
+
+[STORY_5_SOURCE_LABEL] ([STORY_5_SOURCE_URL])
+
+Signal & chatter
+
+A few more things worth knowing.
+
+[SIGNAL_1_TITLE] [SIGNAL_1_BODY]
+
+Explore → ([SIGNAL_1_URL])
+
+[SIGNAL_2_TITLE] [SIGNAL_2_BODY]
+
+Explore → ([SIGNAL_2_URL])
+
+From the community
+
+[COMMUNITY_CONTEXT]
+
+[COMMUNITY_TAKEAWAY]
+
+[COMMUNITY_SOURCE_LABEL] ([COMMUNITY_URL])
+
+FOWL prediction [PREDICTION_NUMBER]
+
+[PREDICTION]
+
+[PREDICTION_REASONING]
+
+[PREDICTION_REVIEW_DATE]
+
+Put it to work
+
+3 things to do this week.
+
+01
+[ACTION_1]
+
+02
+[ACTION_2]
+
+03
+[ACTION_3]
+
+Career radar
+
+[CAREER_TITLE]
+
+[CAREER_DESCRIPTION]
+
+A place to start. [CAREER_NEXT_STEP]
+
+Explore AI careers → (https://www.fowl-ai.com/jobs/)
+
+The opportunity board
+
+Know where to look.
+
+[PLATFORM_CONTEXT]
+
+[PLATFORM_LABEL] ([PLATFORM_URL])
+
+[JOBS_CONTEXT]
+
+[JOBS_LABEL] ([JOBS_URL])
+
+[CLOSING_REFLECTION]
+
+Until next Monday,
+TYB
+Data scientist & founder, FOWL AI
+
+One question for you
+
+[REPLY_QUESTION]
+
+Hit reply. I read every response, and it helps shape what we cover next.
+
+Atlanta · Vibe Code Saturdays
+
+Read about the future.
+Then build it.
+
+A free, hands-on Saturday to build a website, newsletter, portfolio, or useful tool with AI. Beginners welcome. Bring your laptop.
+
+First date and venue coming soon. Apply and we’ll follow up with the details.
+
+Explore Vibe Code Saturdays → (https://www.fowl-ai.com/vibe-code-saturdays/)
+
+Know someone who’d find this useful?
+
+Share this briefing → ({{ShareURL}})
+
+Forwarded this email? Get the free weekly briefing (https://fowlai.eo.page/vmk69).
+
+FOWL AI  ·  Future of Work Lab
+
+A clearer view of AI. A smarter next move.
+
+{{SenderInfoLine}}
+
+Unsubscribe ({{UnsubscribeURL}})  ·  Privacy (https://www.fowl-ai.com/privacy/)  ·  Powered by EmailOctopus ({{RewardsURL}})

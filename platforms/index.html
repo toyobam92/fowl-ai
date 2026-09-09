@@ -21,10 +21,9 @@
   <link rel="canonical" href="https://www.fowl-ai.com/platforms/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:#f2ede3;color:#13241e;line-height:1.55;}
+    body{font-family:var(--fowl-font);background:#f2ede3;color:#13241e;line-height:1.55;}
     a{color:inherit;}
 
     /* ── Nav ── */
@@ -33,9 +32,9 @@
     .nav{display:flex;align-items:center;justify-content:space-between;gap:20px;}
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
     .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;box-shadow:0 8px 24px rgba(0,0,0,.18);}
-    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .brand-word{font-family:var(--fowl-font);font-size:18px;letter-spacing:7px;color:#f47f18;}
     .nav-links{display:flex;align-items:center;gap:20px;}
-    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;text-decoration:none;}
+    .nav-link{font-family:var(--fowl-font);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;text-decoration:none;}
     .nav-link:hover{color:#fff;}
     @keyframes nav-bounce{0%,70%,100%{transform:translateY(0);}74%{transform:translateY(-4px);}78%{transform:translateY(0);}82%{transform:translateY(-2px);}86%{transform:translateY(0);}}
     .nav-link.bounce{display:inline-block;animation:nav-bounce 4s ease-in-out infinite;}
@@ -58,7 +57,7 @@
       padding:10px 22px;border-radius:999px;
       background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);
       color:#fff;font-weight:800;font-size:13px;text-decoration:none;
-      font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;
+      font-family:var(--fowl-font);letter-spacing:1px;text-transform:uppercase;
       border:none;cursor:pointer;white-space:nowrap;
       animation:pulse-glow 2.2s ease-in-out infinite, wiggle 5s ease-in-out infinite;
     }
@@ -66,8 +65,8 @@
 
     /* ── Page header ── */
     .page-hero{background:#0d3f31;color:#fff;padding:48px 24px 56px;border-top:1px solid rgba(255,255,255,.07);}
-    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
-    .page-hero h1{font-family:"DM Mono",monospace;text-transform:uppercase;font-size:clamp(34px,5vw,56px);line-height:1.08;margin-bottom:16px;}
+    .eyebrow{font-family:var(--fowl-font);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
+    .page-hero h1{font-family:var(--fowl-font);text-transform:uppercase;font-size:clamp(34px,5vw,56px);line-height:1.08;margin-bottom:16px;}
     .page-hero h1 span{color:#35bfa2;}
     .page-hero p{font-size:17px;color:#e2f2eb;max-width:600px;line-height:1.75;}
 
@@ -75,7 +74,7 @@
     .filters{padding:28px 24px 0;}
     .filter-row{display:flex;gap:8px;flex-wrap:wrap;}
     .filter-btn{
-      font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
+      font-family:var(--fowl-font);font-size:11px;letter-spacing:1.5px;text-transform:uppercase;
       padding:7px 14px;border-radius:999px;border:1.5px solid #c8c0b4;
       background:transparent;color:#665f56;cursor:pointer;
     }
@@ -98,7 +97,7 @@
     .card-name{font-weight:800;font-size:20px;}
     .badge-row{display:flex;gap:6px;flex-wrap:wrap;}
     .badge{
-      font-family:"DM Mono",monospace;font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
+      font-family:var(--fowl-font);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;
       padding:4px 10px;border-radius:999px;
     }
     .badge.referral{background:#fff3de;color:#c07000;}
@@ -120,7 +119,7 @@
     .card-cta:hover{opacity:.88;}
 
     /* ── Footer ── */
-    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:var(--fowl-font);font-size:11px;letter-spacing:1px;}
     .footer a{color:#78ddb4;}
 
     @media(max-width:640px){
@@ -141,30 +140,25 @@
       .filter-btn{font-size:10px;padding:6px 12px;}
     }
   </style>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <meta name="theme-color" content="#185b42">
 </head>
-<body>
+<body class="fowl-interior">
 
-  <div class="topbar">
-    <div class="wrap">
-      <nav class="nav">
-        <a class="brand" href="/" aria-label="FOWL AI home">
-          <span class="brand-mark"></span>
-          <span class="brand-word">FOWL AI</span>
-        </a>
-        <div class="nav-links">
-          <a class="nav-link" href="/">Home</a>
-          <a class="nav-link bounce" href="/issues/">Briefings</a>
-          <a class="nav-link bounce" href="/platforms/">Platforms</a>
-          <a class="nav-link bounce" style="animation-delay:.4s" href="/jobs/">Jobs</a>
-          <a class="nav-link" href="/tests/">Tests</a>
-          <a class="nav-link" href="/glossary/">Glossary</a>
-          <a class="nav-link" href="/vibe-code-saturdays/">Vibe Code Saturdays</a>
-          <a class="nav-link" href="/faq/">FAQ</a>
-          <a class="sub-btn" href="https://fowlai.eo.page/vmk69">Subscribe</a>
-        </div>
-      </nav>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a>
+    <div class="site-nav-links" id="site-navigation">
+      <a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">Platforms</a><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="navigation">Vibe Code Saturdays</a>
+      <details class="site-more"><summary>Explore</summary><div class="site-more-menu"><a href="/tests/">AI tool tests</a><a href="/glossary/">AI glossary</a><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a></div></details>
     </div>
-  </div>
+    <a class="site-nav-cta" href="/#signup" data-conversion="newsletter" data-link-location="navigation-cta">Subscribe free <span aria-hidden="true">↗</span></a>
+    <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span></button>
+  </nav>
+</header>
+<main id="main-content">
 
   <div class="page-hero">
     <div class="wrap">
@@ -356,11 +350,16 @@
     </div>
   </section>
 
-  <footer class="footer">
-    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/platforms/">Platforms</a> · <a href="/jobs/">Jobs</a> · <a href="/tests/">Tests</a> · <a href="/glossary/">Glossary</a> · <a href="/vibe-code-saturdays/">Vibe Code Saturdays</a> · <a href="/faq/">FAQ</a> · <a href="https://fowlai.eo.page/vmk69">Subscribe</a> · <a href="/contact/">Contact</a> · <a href="/privacy/">Privacy Policy</a>
-    <div style="margin-top:10px;font-size:10px;opacity:.8;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
-    <div style="margin-top:6px;font-size:10px;opacity:.6;">Platform information is for reference only. FOWL AI is not affiliated with any platform listed.</div>
-  </footer>
+  </main>
+<footer class="site-footer"><div class="site-footer-inner">
+  <div class="site-footer-top">
+    <div class="site-footer-about"><a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a><p>A clearer view of AI.<br>A smarter next move.</p></div>
+    <div class="site-footer-column"><h2>Discover</h2><a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">AI platforms</a><a href="/tests/">AI tool tests</a></div>
+    <div class="site-footer-column"><h2>Go further</h2><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="footer">Vibe Code Saturdays</a><a href="/glossary/">AI glossary</a></div>
+    <div class="site-footer-column"><h2>Stay curious</h2><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a><a href="/contact/">Get in touch</a><a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+  </div>
+  <div class="site-footer-bottom"><span>© 2026 FOWL AI · Future of Work Lab</span><div><a href="/privacy/">Privacy</a><a href="/feed.xml">RSS</a><a href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer">Made by TYB ↗</a></div></div>
+</div></footer>
 
   <script>
     function filterCards(cat, btn) {

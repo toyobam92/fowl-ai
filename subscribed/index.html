@@ -16,55 +16,54 @@
   <meta name="robots" content="noindex, nofollow">
   <link rel="canonical" href="https://www.fowl-ai.com/subscribed/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Fraunces:opsz,wght@9..144,700&family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     *{box-sizing:border-box;margin:0;padding:0;}
-    body{font-family:Inter,sans-serif;background:#f2ede3;color:#13241e;line-height:1.7;}
+    body{font-family:var(--fowl-font);background:#f2ede3;color:#13241e;line-height:1.7;}
     a{color:#0d3f31;}
     .topbar{background:#0d3f31;padding:18px 24px;}
     .nav-wrap{width:min(1120px,100%);margin:0 auto;}
     .nav{display:flex;align-items:center;justify-content:space-between;}
     .brand{display:flex;align-items:center;gap:14px;text-decoration:none;}
     .brand-mark{width:34px;height:34px;border-radius:50%;background:#78ddb4;}
-    .brand-word{font-family:"DM Mono",monospace;font-size:18px;letter-spacing:7px;color:#f47f18;}
-    .nav-link{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;text-decoration:none;}
+    .brand-word{font-family:var(--fowl-font);font-size:18px;letter-spacing:7px;color:#f47f18;}
+    .nav-link{font-family:var(--fowl-font);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:#a9e8cf;text-decoration:none;}
     .nav-link:hover{color:#fff;}
 
     .hero{background:#0d3f31;color:#fff;padding:80px 24px 96px;text-align:center;border-top:1px solid rgba(255,255,255,.07);}
     .wrap{width:min(640px,100%);margin:0 auto;}
     .checkmark{width:56px;height:56px;border-radius:50%;background:#78ddb4;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
-    .eyebrow{font-family:"DM Mono",monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
-    .hero h1{font-family:"DM Mono",monospace;text-transform:uppercase;font-size:38px;line-height:1.15;margin-bottom:16px;}
+    .eyebrow{font-family:var(--fowl-font);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#7fd9b8;margin-bottom:14px;}
+    .hero h1{font-family:var(--fowl-font);text-transform:uppercase;font-size:38px;line-height:1.15;margin-bottom:16px;}
     .hero p{font-size:16px;color:#a9e8cf;margin-bottom:8px;}
 
     .content{padding:52px 24px 80px;text-align:center;}
     .links{width:min(640px,100%);margin:0 auto;display:flex;gap:16px;justify-content:center;flex-wrap:wrap;}
-    .btn{display:inline-flex;align-items:center;padding:12px 26px;border-radius:999px;font-weight:800;font-size:13px;font-family:"DM Mono",monospace;letter-spacing:1px;text-transform:uppercase;text-decoration:none;}
+    .btn{display:inline-flex;align-items:center;padding:12px 26px;border-radius:999px;font-weight:800;font-size:13px;font-family:var(--fowl-font);letter-spacing:1px;text-transform:uppercase;text-decoration:none;}
     .btn-primary{background:linear-gradient(135deg,#ffbe30 0%,#f2631a 100%);color:#fff;}
     .btn-ghost{border:1px solid #0d3f31;color:#0d3f31;}
 
-    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:"DM Mono",monospace;font-size:11px;letter-spacing:1px;}
+    .footer{background:#13241e;color:#7fd9b8;text-align:center;padding:28px 24px;font-family:var(--fowl-font);font-size:11px;letter-spacing:1px;}
     .footer a{color:#78ddb4;}
   </style>
+  <link rel="stylesheet" href="/assets/site.css">
+  <script src="/assets/site.js" defer></script>
+  <meta name="theme-color" content="#185b42">
 </head>
-<body>
+<body class="fowl-interior">
 
-  <div class="topbar">
-    <div class="nav-wrap">
-      <nav class="nav">
-        <a class="brand" href="/">
-          <span class="brand-mark"></span>
-          <span class="brand-word">FOWL AI</span>
-        </a>
-        <div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;">
-          <a class="nav-link" href="/">Home</a>
-          <a class="nav-link" href="/issues/">Briefings</a>
-          <a class="nav-link" href="/platforms/">Platforms</a>
-          <a class="nav-link" href="/jobs/">Jobs</a>
-        </div>
-      </nav>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a>
+    <div class="site-nav-links" id="site-navigation">
+      <a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">Platforms</a><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="navigation">Vibe Code Saturdays</a>
+      <details class="site-more"><summary>Explore</summary><div class="site-more-menu"><a href="/tests/">AI tool tests</a><a href="/glossary/">AI glossary</a><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a></div></details>
     </div>
-  </div>
+    <a class="site-nav-cta" href="/#signup" data-conversion="newsletter" data-link-location="navigation-cta">Subscribe free <span aria-hidden="true">↗</span></a>
+    <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span></button>
+  </nav>
+</header>
+<main id="main-content">
 
   <div class="hero">
     <div class="wrap">
@@ -85,10 +84,16 @@
     </div>
   </div>
 
-  <footer class="footer">
-    FOWL AI · <a href="/">Home</a> · <a href="/issues/">Briefings</a> · <a href="/platforms/">Platforms</a> · <a href="/jobs/">Jobs</a> · <a href="/contact/">Contact</a>
-    <div style="margin-top:10px;font-size:10px;opacity:.8;">FOWL AI is an independent media brand covering AI, careers, and the future of work.</div>
-  </footer>
+  </main>
+<footer class="site-footer"><div class="site-footer-inner">
+  <div class="site-footer-top">
+    <div class="site-footer-about"><a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a><p>A clearer view of AI.<br>A smarter next move.</p></div>
+    <div class="site-footer-column"><h2>Discover</h2><a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">AI platforms</a><a href="/tests/">AI tool tests</a></div>
+    <div class="site-footer-column"><h2>Go further</h2><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="footer">Vibe Code Saturdays</a><a href="/glossary/">AI glossary</a></div>
+    <div class="site-footer-column"><h2>Stay curious</h2><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a><a href="/contact/">Get in touch</a><a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+  </div>
+  <div class="site-footer-bottom"><span>© 2026 FOWL AI · Future of Work Lab</span><div><a href="/privacy/">Privacy</a><a href="/feed.xml">RSS</a><a href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer">Made by TYB ↗</a></div></div>
+</div></footer>
 
 </body>
 </html>
