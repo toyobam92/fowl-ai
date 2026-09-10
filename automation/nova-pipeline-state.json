@@ -1,20 +1,20 @@
 {
   "status": "awaiting_topic_pick",
-  "last_proposed": "2026-09-08",
-  "publish_date": "2026-09-09",
-  "tone": "professional",
+  "last_proposed": "2026-09-10",
+  "publish_date": "2026-09-11",
+  "tone": "casual-professional",
   "topics": [
     {
-      "title": "OpenAI ships GPT-6 Astra",
-      "why": "It's OpenAI's newest flagship model, launched September 3rd in a wave of releases alongside Gemini 3.8 Flash and Claude Fable 5.1 — the AI tools knowledge workers rely on just got upgraded again."
+      "title": "The New Yorker calls Sam Altman a \"pathological liar\" in a bombshell investigation",
+      "why": "A sweeping New Yorker report on OpenAI's CEO cites former colleagues describing a pattern of deliberate misrepresentation and power concentration — a credibility hit for the company steering the tools knowledge workers use every day."
     },
     {
-      "title": "OpenAI's IPO could hit $1 trillion",
-      "why": "OpenAI is reportedly prepping an IPO targeting a near-$1 trillion valuation in Q4 2026 — a sign the AI boom is about to hit public markets in a very big way."
+      "title": "DeepSeek in talks to raise $1.5B at a $71B valuation ahead of an IPO",
+      "why": "The Chinese AI lab that rattled markets last year is now reportedly lining up a pre-IPO raise targeting 2026 or 2027 — a sign the AI funding boom isn't slowing down."
     },
     {
-      "title": "AI is now the #1 reason companies cut jobs",
-      "why": "AI has topped the list of cited reasons for layoffs for four straight months, with Salesforce alone shrinking its support team from 9,000 to 5,000 using AI agents — worth knowing if your role touches support."
+      "title": "Inception's Mercury 2.5 hits 1,100+ tokens/sec on standard GPUs",
+      "why": "The new diffusion model matches Gemini 3.5 Flash and GPT 5.6 Luna Low on performance while running dramatically faster and cheaper — a preview of how fast \"good enough\" AI is about to get even more affordable."
     }
   ],
   "rejected_titles": [],
@@ -26,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-09-08T00:23:00Z"
+  "last_updated": "2026-09-10T00:00:00Z"
 }
