@@ -1,6 +1,6 @@
 {
   "week_of": "2026-09-14",
-  "status": "drafting",
+  "status": "drafted",
   "last_proposed": "2026-09-13",
   "topics": [
     {
@@ -29,6 +29,6 @@
     "title": "AI didn't shrink the job market — it rerouted it into concrete and copper",
     "why": "The Economist's ~1M AI-driven jobs figure is mostly electricians, HVAC, and data-center construction crews, not tech roles — a sharper story than the usual 'AI creates jobs' headline."
   },
-  "pr_number": null,
-  "last_updated": "2026-09-13T00:50:00Z"
+  "pr_number": 55,
+  "last_updated": "2026-09-13T01:10:00Z"
 }
