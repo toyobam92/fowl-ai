@@ -1,34 +1,10 @@
 {
-  "week_of": "2026-09-14",
-  "status": "drafted",
+  "week_of": null,
+  "status": "idle",
   "last_proposed": "2026-09-13",
-  "topics": [
-    {
-      "title": "AI didn't shrink the job market — it rerouted it into concrete and copper",
-      "why": "The Economist's ~1M AI-driven jobs figure is mostly electricians, HVAC, and data-center construction crews, not tech roles — a sharper story than the usual 'AI creates jobs' headline."
-    },
-    {
-      "title": "The layoff blame game: AI-cited cuts are up 199% this month, but most were coming anyway",
-      "why": "Researchers are now openly calling out companies using AI as convenient cover for layoffs they'd have made regardless — worth teaching readers how to read a layoff headline."
-    },
-    {
-      "title": "Half of enterprises now call their AI rollout a disappointment",
-      "why": "New survey data: 48% call gen-AI adoption a letdown (up from 34%), with only 29% seeing real ROI — a look at where that gap sends budgets, and jobs, next."
-    },
-    {
-      "title": "AI-skills jobs are growing 8x faster than the market — here's exactly which skills",
-      "why": "69% growth vs 9% overall isn't one skill, it's a specific cluster — a practical breakdown for a knowledge worker deciding what to learn next."
-    },
-    {
-      "title": "The C-suite's new two-tier company: 92% grooming an 'AI elite' while 60% plan to cut everyone else",
-      "why": "A stark internal bifurcation story — what it actually looks like to be on either side of that split inside a company right now."
-    }
-  ],
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": {
-    "title": "AI didn't shrink the job market — it rerouted it into concrete and copper",
-    "why": "The Economist's ~1M AI-driven jobs figure is mostly electricians, HVAC, and data-center construction crews, not tech roles — a sharper story than the usual 'AI creates jobs' headline."
-  },
-  "pr_number": 55,
-  "last_updated": "2026-09-13T01:10:00Z"
+  "picked_topic": null,
+  "pr_number": null,
+  "last_updated": "2026-09-13T15:15:00Z"
 }
