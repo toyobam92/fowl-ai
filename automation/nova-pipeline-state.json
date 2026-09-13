@@ -6,23 +6,23 @@
   "topics": [
     {
       "title": "The New Yorker calls Sam Altman a \"pathological liar\" in a bombshell investigation",
-      "why": "A sweeping New Yorker report on OpenAI's CEO cites former colleagues describing a pattern of deliberate misrepresentation and power concentration — a credibility hit for the company steering the tools knowledge workers use every day."
+      "why": "A sweeping New Yorker report on OpenAI's CEO cites former colleagues describing a pattern of deliberate misrepresentation and power concentration \u2014 a credibility hit for the company steering the tools knowledge workers use every day."
     },
     {
       "title": "DeepSeek in talks to raise $1.5B at a $71B valuation ahead of an IPO",
-      "why": "The Chinese AI lab that rattled markets last year is now reportedly lining up a pre-IPO raise targeting 2026 or 2027 — a sign the AI funding boom isn't slowing down."
+      "why": "The Chinese AI lab that rattled markets last year is now reportedly lining up a pre-IPO raise targeting 2026 or 2027 \u2014 a sign the AI funding boom isn't slowing down."
     },
     {
       "title": "Inception's Mercury 2.5 hits 1,100+ tokens/sec on standard GPUs",
-      "why": "The new diffusion model matches Gemini 3.5 Flash and GPT 5.6 Luna Low on performance while running dramatically faster and cheaper — a preview of how fast \"good enough\" AI is about to get even more affordable."
+      "why": "The new diffusion model matches Gemini 3.5 Flash and GPT 5.6 Luna Low on performance while running dramatically faster and cheaper \u2014 a preview of how fast \"good enough\" AI is about to get even more affordable."
     }
   ],
   "rejected_titles": [],
   "picked_topic": {
     "title": "The New Yorker calls Sam Altman a \"pathological liar\" in a bombshell investigation",
-    "why": "A sweeping New Yorker report on OpenAI's CEO cites former colleagues describing a pattern of deliberate misrepresentation and power concentration — a credibility hit for the company steering the tools knowledge workers use every day."
+    "why": "A sweeping New Yorker report on OpenAI's CEO cites former colleagues describing a pattern of deliberate misrepresentation and power concentration \u2014 a credibility hit for the company steering the tools knowledge workers use every day."
   },
-  "script": "OpenAI's CEO just got called a pathological liar — in The New Yorker.\n\nReporters Ronan Farrow and Andrew Marantz spent eighteen months digging into Sam Altman, talking to hundreds of sources backed by internal documents. At the center: the \"Ilya Memos\" — about seventy pages of Slack messages and HR records OpenAI co-founder Ilya Sutskever compiled in 2023, alleging Altman misrepresented facts to executives and the board about safety. A former board member says he combines a need to be liked with what she calls an almost sociopathic lack of concern for who gets misled.\n\nFor anyone trusting OpenAI's tools with real work, that's not just gossip — it's a credibility problem at the top.\n\nI'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
+  "script": "OpenAI's CEO just got called a pathological liar \u2014 in The New Yorker.\n\nReporters Ronan Farrow and Andrew Marantz spent eighteen months digging into Sam Altman, talking to hundreds of sources backed by internal documents. At the center: the \"Ilya Memos\" \u2014 about seventy pages of Slack messages and HR records OpenAI co-founder Ilya Sutskever compiled in 2023, alleging Altman misrepresented facts to executives and the board about safety. A former board member says he combines a need to be liked with what she calls an almost sociopathic lack of concern for who gets misled.\n\nFor anyone trusting OpenAI's tools with real work, that's not just gossip \u2014 it's a credibility problem at the top.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
   "caption": "A New Yorker investigation is calling OpenAI CEO Sam Altman a \"pathological liar,\" citing internal memos and hundreds of interviews about how he's handled safety and the board. #AI #OpenAI #SamAltman #TechNews #FOWLAI",
   "picked_look": {
     "avatar_id": "f355b07c213c4190a2207050c78d93b5",
@@ -41,7 +41,7 @@
       "image_url": "https://files2.heygen.ai/talking_photo/1c940f18c71946c1a46bf1b48c6129c5/217baeed2ccc49f18656f6c1e7b90948.WEBP?Expires=1787538863&Signature=lLbp4tCknPs0VJrdLiZDPsXuKuhJiKkguvCyUjYqLwIk~ZiguVHcOqlcmeUXD7fwaulaeKrStC3rVF5v7T8Q7glNGzp~BWMTs4gCP1MZ4WikFoO9cHZXfmkZuhasz~Abz4SzNoCrSmtCxXLmJmIJOKX0D57QyxCLLCvAQ1yOBAdj8SeR8qakosMR6K23yb07DeiXuElPfWtkzS5UrTDCqVJJXh-R7ByA2XqVKdRpkAS76W7XoFq6KJDsk~bTCGPMYc5ryk9wyGCK5XrPKGAWvTosh0lXs4EfHF8mqgEeIU0wmEqxCf2dcD~seguJPo0OT~8i2onS-nRhXq-VFdJH8g__&Key-Pair-Id=K38HBHX5LX3X2H"
     }
   ],
-  "pr_number": null,
+  "pr_number": 54,
   "pr_branch": "update/nova-2026-09-14",
   "video_id": null,
   "last_updated": "2026-09-13T00:40:00Z"
