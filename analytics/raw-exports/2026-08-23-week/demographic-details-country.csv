@@ -1,0 +1,34 @@
+# ----------------------------------------
+# Demographic details: Country
+# Account: fowl AI (396215392)
+# Property: fowl AI (539490882)
+# NOTE: pulled directly from the GA4 UI (Reports > User attributes > Demographic details)
+# via Claude in Chrome for the weekly-analytics-review scheduled task, not a manual CSV
+# export.
+# NOTE: reporting period is the 7 days ending today (2026-08-23), so the final day is
+# partial — treat 2026-08-23 counts as incomplete.
+# NOTE: this window overlaps the prior period (2026-08-15 to 2026-08-21) by 5 of 7 days.
+# Week-over-week deltas against that row are NOT independent samples.
+# Showing top 10 of 18 country rows (the remaining 8 each had 1 active user).
+# ----------------------------------------
+#
+# All Users
+# Start date: 20260817
+# End date: 20260823
+Country,Active users,New users,Engaged sessions,Engagement rate,Engaged sessions per active user,Average engagement time per active user,Event count,Key events,User key event rate,Total revenue
+India,58,56,36,0.5902,0.62,8,345,37,0.5517,0
+United States,13,11,9,0.50,0.69,50,143,0,0,0
+Bangladesh,8,8,3,0.375,0.38,1,32,1,0.125,0
+Thailand,6,6,0,0,0.00,2,25,0,0,0
+United Kingdom,3,2,4,0.6667,1.33,68,42,0,0,0
+Vietnam,3,3,1,0.3333,0.33,16,21,0,0,0
+China,2,2,0,0,0.00,0,7,0,0,0
+Japan,2,2,0,0,0.00,1,7,0,0,0
+Nigeria,2,2,2,1.00,1.00,17,14,0,0,0
+Australia,1,1,0,0,0.00,5,4,0,0,0
+# Summary totals (All Users): Active users 105, New users 100, Engaged sessions 59,
+# Engagement rate 50.00%, Avg engagement time 15s, Event count 692, Key events 38,
+# User key event rate 31.43%.
+# NOTE: 37 of 38 key events came from India; Bangladesh contributed the other 1. This is
+# the first period on record where a country other than India logged a key event.
+# The US again contributed 0 key events despite the highest avg engagement time (50s).

@@ -1,0 +1,150 @@
+# ----------------------------------------
+# Reports snapshot
+# Account: fowl AI (396215392)
+# Property: fowl AI (539490882)
+# NOTE: pulled directly from the GA4 UI (Reports > Snapshot, Reports > Pages and screens,
+# and User attributes > Demographic details) via Claude in Chrome for the
+# weekly-analytics-review scheduled task, not a manual CSV export.
+# NOTE: the browser opened GA4 on a different property in the same account (CitySignal,
+# p552446221). Switched to fowl AI (p539490882) before reading anything — none of the
+# numbers below come from that first view.
+# NOTE: reporting period is the 7 days ending today (2026-09-13), so the final day is
+# partial — treat 2026-09-13 counts as incomplete.
+# NOTE: this is the first NON-overlapping window since 2026-08-08. The prior
+# metrics-history row ends 2026-08-23, so there is a 14-day gap (2026-08-24 to 2026-09-06)
+# with no export — the 2026-09-06 review could not pull GA4 (no browser connected).
+# NOTE: two site-wide redesigns landed inside/just before this window — 3f29184 "Signal"
+# (2026-08-28) and 8e02395 "unified visual identity" (2026-09-09, mid-window). The
+# homepage page_title changed from "FOWL AI | AI Jobs, Platforms & Opportunities" to
+# "FOWL AI | The future of work. Your next advantage." at the 09-09 commit, so the
+# homepage appears as TWO rows in the page-title table this period.
+# ----------------------------------------
+#
+# Start date: 20260907
+# End date: 20260913
+Active users,New users,Average engagement time per active user,Event count
+259,248,15,1961
+
+#
+# Start date: 20260907
+# End date: 20260913
+Page title and screen class,Views,Active users,Event count,Bounce rate
+FOWL AI | The future of work. Your next advantage.,223,172,1100,0.781
+Vibe Code Saturdays — Bring an Idea. Leave with a Build.,84,33,332,0.483
+"FOWL AI | AI Jobs, Platforms & Opportunities",46,40,189,0.651
+AI Jobs Board | Remote AI Opportunities & Roles | FOWL AI,14,10,42,0.417
+AI Platforms Directory — FOWL AI,14,10,34,0.273
+Contact — FOWL AI,13,13,64,0.077
+Vibe Code Saturdays by Brand Brain — Build Something You Own With AI,12,8,49,0.182
+
+# NOTE: the two homepage title rows sum to 269 views (223 + 46), matching path / (268) +
+# /index.html (1). Views-weighted combined homepage bounce = 0.759.
+# NOTE: the two Vibe Code Saturdays title rows sum to 96 views (84 + 12), matching path
+# /vibe-code-saturdays/ (96). Views-weighted combined bounce = 0.445.
+# NOTE: event count for the top row is shown as "1.1K" in the GA4 UI card; recorded as
+# 1100 (rounded as displayed). All other event counts are exact.
+
+#
+# Start date: 20260907
+# End date: 20260913
+# Pages and screens: Page path and screen class (all 25 rows retrieved at 50 rows/page).
+# Totals: 456 views, 259 active users, 1,961 events, 13 key events.
+Page path and screen class,Views,Active users,Views per active user,Average engagement time per active user,Event count,Key events
+/,268,211,1.27,12,1295,0
+/vibe-code-saturdays/,96,39,2.46,25,381,0
+/jobs/,14,10,1.40,9,42,0
+/platforms/,14,10,1.40,6,36,0
+/contact/,13,13,1.00,3,65,13
+/issues/,8,6,1.33,2,19,0
+/tests/,8,7,1.14,3,19,0
+/issues/2026-09-07/,6,6,1.00,1,14,0
+/faq/,4,4,1.00,21,17,0
+/issues/2026-07-13/,3,3,1.00,37,16,0
+/issues/2026-09-14/,3,1,3.00,0,6,0
+/privacy/,3,2,1.50,3,6,0
+/about/,2,2,1.00,24,8,0
+/glossary/,2,2,1.00,2,6,0
+/products/,2,1,2.00,18,5,0
+/index.html,1,1,1.00,0,1,0
+/issues/2026-06-15/,1,1,1.00,0,1,0
+/issues/2026-06-29/,1,1,1.00,0,8,0
+/issues/2026-08-11/,1,1,1.00,0,1,0
+/issues/2026-08-17/,1,1,1.00,0,1,0
+/issues/2026-08-24/,1,1,1.00,0,1,0
+/issues/2026-08-31/,1,1,1.00,0,1,0
+/launchlab/,1,1,1.00,1,3,0
+/tests/best-ai-landing-page-builder/,1,1,1.00,12,4,0
+/tests/best-ai-resume-generator/,1,1,1.00,11,5,0
+
+# NOTE: /vibe-code-saturdays/ is the #2 page on the site this period (96 views, 21.05% of
+# all views, 39 users, 2.46 views/user, 25s avg engagement — the highest views-per-user of
+# any page with meaningful volume). It did not exist in any prior export window.
+# NOTE: /glossary/ has COLLAPSED as a reading — 2 views, 2 users, 2s avg engagement, vs
+# 95s in each of the two August windows. It was rewritten by the 2026-09-09 redesign
+# (glossary/index.html, 74 lines changed). Flag: the site's stickiest page just lost its
+# stickiness, on n=2, in the same week its markup changed.
+# NOTE: /index.html has nearly vanished as a distinct path (1 view, was 3) — the canonical
+# split flagged in the 2026-08-23 pull is now negligible but not fixed.
+# NOTE: /issues/2026-09-14/ shows 3 views before its nominal date — a pre-publish/preview
+# path being crawled or previewed. Not a reader signal.
+# NOTE: /tests/ up to 8 views / 7 users (from a flat 3 views / 1 user across three prior
+# windows), plus 1 view each on both individual test pages. First movement this page has
+# ever shown.
+
+#
+# Start date: 20260907
+# End date: 20260913
+First user source / medium,Active users
+google / organic,154
+(direct) / (none),46
+(data not available),28
+bing / organic,4
+l.instagram.com / referral,3
+l.threads.com / referral,3
+chatgpt.com / ai-assistant,2
+
+# NOTE: "(data not available)" at 28 users (10.8% of all users) is new and material — GA4
+# could not attribute first-user source for these. Shares of the total below are computed
+# against 259 active users, so they do not sum to 1.
+
+#
+# Start date: 20260907
+# End date: 20260913
+Session source / medium,Sessions
+google / organic,168
+(direct) / (none),50
+(data not available),26
+fowl-ai-design-preview.toyosibamidele.chatgpt.site / referral,15
+l.instagram.com / referral,11
+ig / social,5
+bing / organic,4
+
+# NOTE: 15 sessions came from fowl-ai-design-preview.toyosibamidele.chatgpt.site — a
+# design-preview host, i.e. almost certainly Toyo's own redesign review traffic, not
+# readers. Not excluded from any total below (no filter was applied), but it inflates
+# this window's session and possibly user counts by a small amount.
+# NOTE: chatgpt.com / ai-assistant fell to 2 users (was 4) and does not appear in the
+# session source list at all this period.
+
+#
+# Start date: 20260907
+# End date: 20260913
+# NOTE: Nth-day new/returning cohort breakdown was not retrievable from the GA4 UI
+# snapshot/pages/demographic views used for this pull (would require the Retention
+# report). Left blank — see metrics-history.csv. Consistent with prior cycles.
+Nth day,new,returning
+
+# How does activity on your platforms compare?
+# Start date: 20260907
+# End date: 20260913
+# Key events by Platform: WEB 100.0%.
+# NOTE: key-event total is 13, DOWN from 38 in the prior window, on 2.5x the traffic. All
+# 13 land on /contact/ and all are generate_lead. subscribe_click / subscribe_submit are
+# STILL not marked as Key Events in GA4 Admin (manual step outstanding for Toyo, now 6th
+# consecutive cycle).
+
+#
+# Start date: 20260907
+# End date: 20260913
+# Active users by City (top 7): Atlanta 27, Patna 19, Lucknow 13, Flower Mound 9,
+# Bengaluru 7, Agra 5, Dhaka 5.
