@@ -1,0 +1,45 @@
+# ----------------------------------------
+# Demographic details: Country
+# Account: fowl AI (396215392)
+# Property: fowl AI (539490882)
+# NOTE: pulled directly from the GA4 UI (Reports > User attributes > Demographic details)
+# via Claude in Chrome for the weekly-analytics-review scheduled task, not a manual CSV
+# export.
+# NOTE: reporting period is the 7 days ending today (2026-09-13), so the final day is
+# partial — treat 2026-09-13 counts as incomplete.
+# NOTE: this window does NOT overlap the prior metrics-history row (2026-08-17 to
+# 2026-08-23). There is a 14-day unmeasured gap between them (2026-08-24 to 2026-09-06).
+# The week-over-week delta is therefore an independent sample for the first time since
+# 2026-08-08 — but it is a 3-week jump, not a week-over-week one.
+# Showing top 10 of 26 country rows.
+# ----------------------------------------
+#
+# All Users
+# Start date: 20260907
+# End date: 20260913
+Country,Active users,New users,Engaged sessions,Engagement rate,Engaged sessions per active user,Average engagement time per active user,Event count,Key events,User key event rate,Total revenue
+India,133,129,32,0.2302,0.24,9,807,6,0.0451,0
+United States,60,53,42,0.4330,0.70,27,703,2,0.0333,0
+Bangladesh,14,15,3,0.1875,0.21,19,107,0,0,0
+Pakistan,10,9,2,0.2000,0.20,25,98,0,0,0
+China,9,9,1,0.1111,0.11,0,28,1,0.1111,0
+Thailand,5,5,1,0.2000,0.20,0,18,0,0,0
+Myanmar (Burma),4,4,2,0.5000,0.50,97,57,0,0,0
+France,3,3,1,0.3333,0.33,0,12,0,0,0
+Vietnam,3,3,0,0,0.00,2,10,0,0,0
+Nigeria,2,1,0,0,0.00,14,14,0,0,0
+# Summary totals (All Users): Active users 259, New users 248, Engaged sessions 92,
+# Engagement rate 29.87%, Avg engagement time 15s, Event count 1,961, Key events 13,
+# User key event rate 4.63%.
+#
+# NOTE: sitewide engagement rate is 29.87%, the LOWEST on record (prior window: 50.00%).
+# Active users 2.5x'd (105 -> 259) while engaged sessions went 59 -> 92 (1.6x) and key
+# events went 38 -> 13 (0.34x). More people arrived and fewer of them did anything.
+# NOTE: user key event rate collapsed 31.43% -> 4.63%. This is the headline number of the
+# period and it is not a small-sample artifact: 13 conversions on 259 users vs 38 on 105.
+# NOTE: the United States is now 23.2% of users (was 12.4%) with 27s avg engagement and a
+# 43.3% engagement rate — by far the best-quality traffic on the site, and for the first
+# time the US logged key events (2). India remains the volume leader (51.4%) but its
+# engagement rate is 23.0%, half the US figure.
+# NOTE: China logged 1 key event on 9 users with 0s avg engagement — treat as suspect.
+# NOTE: Myanmar (Burma) shows 1m 37s avg engagement on n=4. Directional only.
