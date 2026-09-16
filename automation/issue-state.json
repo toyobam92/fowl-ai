@@ -1,10 +1,31 @@
 {
-  "week_of": null,
-  "status": "idle",
-  "last_proposed": "2026-09-13",
-  "topics": [],
+  "week_of": "2026-09-21",
+  "status": "awaiting_pick",
+  "last_proposed": "2026-09-16",
+  "topics": [
+    {
+      "title": "The layoffs say 'AI.' The hiring data says something else.",
+      "why": "Cuts jumped 199% in September alone (Oracle's 30,000-person round leading the way), while the same week's hiring feed logged zero announced hires — worth separating the AI-blame headline from what's actually driving the freeze."
+    },
+    {
+      "title": "88% of companies use AI. 79% say it's not working.",
+      "why": "New enterprise data shows adoption cresting near-universal while most organizations still can't get measurable ROI out of it — a gap that determines whether your employer's AI push helps or hurts your job."
+    },
+    {
+      "title": "Reddit's CEO wants to hire only 'AI-native' new grads. What does that actually mean for you?",
+      "why": "As IBM triples entry-level AI hiring even while automating HR roles away, 'AI-native' is turning into the resume line that decides who gets the interview — worth defining before it becomes a filter you can't see."
+    },
+    {
+      "title": "AI eval work just split into two tiers — and only one pays $80/hr.",
+      "why": "The AI training/eval gig market is bifurcating fast: general annotation still sits around $20/hr while domain-expert evaluation is pulling $80+/hr, a concrete near-term option for readers with real subject expertise."
+    },
+    {
+      "title": "1 billion workers need reskilling. 4% are doing anything about it.",
+      "why": "WEF's number is huge but the real story is the action gap it hides — most workers feel the anxiety but haven't taken a single concrete step, which is exactly the gap this newsletter's readers are trying to close."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": "2026-09-13T15:15:00Z"
+  "last_updated": "2026-09-16T00:00:00Z"
 }
