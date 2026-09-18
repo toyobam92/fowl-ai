@@ -214,6 +214,22 @@
         "threads": true
       },
       "posted_at": "2026-09-08T01:21:28+00:00"
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-09-14",
+      "topic": "The New Yorker calls Sam Altman a \"pathological liar\" in a bombshell investigation",
+      "script": "OpenAI's CEO just got called a pathological liar \u2014 in The New Yorker.\n\nReporters Ronan Farrow and Andrew Marantz spent eighteen months digging into Sam Altman, talking to hundreds of sources backed by internal documents. At the center: the \"Ilya Memos\" \u2014 about seventy pages of Slack messages and HR records OpenAI co-founder Ilya Sutskever compiled in 2023, alleging Altman misrepresented facts to executives and the board about safety. A former board member says he combines a need to be liked with what she calls an almost sociopathic lack of concern for who gets misled.\n\nFor anyone trusting OpenAI's tools with real work, that's not just gossip \u2014 it's a credibility problem at the top.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "A New Yorker investigation is calling OpenAI CEO Sam Altman a \"pathological liar,\" citing internal memos and hundreds of interviews about how he's handled safety and the board. #AI #OpenAI #SamAltman #TechNews #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/ff2df9ca38998e12fd32cfcf0d3dc008.mp4?Expires=1790288772&Signature=D85~mOe5OULAAB2OFuvO5IsucB0SFJL2LeJcF-W1rzOuBGyWNXQ1cAg~vtOCQMttUsGPMSzgrg9YWpNWRLjU3uzgHgNlpfJpvKw3NrD0BZDVALawiHU2XPBfQ1vyV~9DJjXN-ok8QoDTNjpQRP3lgNLlw9O~v1PpzK5VMtXFbZLL-P3-2MNbMNmxPdU1alkDszKTR7bwFEpsb46N-G9n4gTWOnUSfDEXvX0f6xgxz6vjANLrKUPuIvxKUpdJ6OGrTgLqt0SDLvjOaZr2kx4NBmCYGrFWLC2b4ZZXklUFG9KRvBcedSSj6Phcgorcoe5o9UbkJqhsMRGDQA0n8PSqhQ__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "f355b07c213c4190a2207050c78d93b5",
+      "look_name": "The Studio-Lit Bookshelf Figure",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
