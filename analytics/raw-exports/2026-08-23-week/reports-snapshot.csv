@@ -1,0 +1,109 @@
+# ----------------------------------------
+# Reports snapshot
+# Account: fowl AI (396215392)
+# Property: fowl AI (539490882)
+# NOTE: pulled directly from the GA4 UI (Reports > Snapshot, Reports > Pages and screens,
+# and User attributes > Demographic details for the key-event total) via Claude in Chrome
+# for the weekly-analytics-review scheduled task, not a manual CSV export.
+# NOTE: reporting period is the 7 days ending today (2026-08-23), so the final day is
+# partial — treat 2026-08-23 counts as incomplete.
+# NOTE: this window overlaps the prior period (2026-08-15 to 2026-08-21) by 5 of 7 days.
+# ----------------------------------------
+#
+# Start date: 20260817
+# End date: 20260823
+Active users,New users,Average engagement time per active user,Event count
+105,100,15,692
+
+#
+# Start date: 20260817
+# End date: 20260823
+Page title and screen class,Views,Active users,Event count,Bounce rate
+"FOWL AI | AI Jobs, Platforms & Opportunities",70,52,274,0.643
+Contact — FOWL AI,36,33,186,0.057
+AI Platforms Directory — FOWL AI,20,15,70,0.588
+AI Jobs Board | Remote AI Opportunities & Roles | FOWL AI,12,9,48,0.200
+All Issues — FOWL AI,8,5,24,0.500
+"AI Glossary — LLM, Agent, MCP, Skills & Claude CLI Explained | FOWL AI",6,3,23,0.250
+About TYB — FOWL AI,5,4,21,0.000
+
+#
+# Start date: 20260817
+# End date: 20260823
+# Pages and screens: Page path and screen class (top 10 of 14 rows; rows 11-14 each had
+# 1-2 views). Totals: 170 views, 105 active users, 692 events, 38 key events.
+Page path and screen class,Views,Active users,Views per active user,Average engagement time per active user,Event count,Key events
+/,67,52,1.29,9,269,0
+/contact/,36,33,1.09,3,186,38
+/platforms/,20,15,1.33,7,70,0
+/jobs/,12,9,1.33,32,48,0
+/issues/,8,5,1.60,8,24,0
+/glossary/,6,3,2.00,95,23,0
+/about/,5,4,1.25,6,22,0
+/issues/2026-07-13/,5,2,2.50,0,13,0
+/index.html,3,2,1.50,55,9,0
+/tests/,3,1,3.00,29,7,0
+
+# NOTE: /index.html appears as a distinct path from / this period (3 views / 2 users,
+# 55s avg engagement). Same page, two paths — worth a canonical/redirect check, since it
+# splits homepage numbers across two rows in every report.
+# NOTE: /glossary/ again carries by far the highest engagement time on the site (1m 35s
+# vs. a 15s site average) on a 3-user sample — directional only, and identical to last
+# period because 5 of 7 days overlap.
+# NOTE: /tests/ flat at 3 views / 1 user. Bounce rate not available (page did not appear
+# in the top-7 Page-title table).
+
+#
+# Start date: 20260817
+# End date: 20260823
+First user source / medium,Active users
+google / organic,83
+(direct) / (none),11
+chatgpt.com / ai-assistant,4
+search.brave.com / referral,3
+bing / organic,1
+coccoc.com / referral,1
+copilot.com / (not set),1
+
+#
+# Start date: 20260817
+# End date: 20260823
+Session source / medium,Sessions
+google / organic,90
+(direct) / (none),9
+chatgpt.com / ai-assistant,8
+search.brave.com / referral,3
+ig / social,2
+bing / organic,1
+coccoc.com / referral,1
+
+#
+# Start date: 20260817
+# End date: 20260823
+# NOTE: Nth-day new/returning cohort breakdown was not retrievable from the GA4 UI
+# snapshot/demographic views used for this pull (would require the Retention report,
+# which this session did not navigate to, consistent with prior cycles). Left blank —
+# see metrics-history.csv.
+Nth day,new,returning
+
+# How does activity on your platforms compare?
+# Start date: 20260817
+# End date: 20260823
+# Key events by Platform: WEB 100.0%.
+# NOTE: key-event total (38) taken from the Demographic details: Country report summary
+# row and confirmed against Pages and screens, where all 38 land on /contact/.
+# Only "generate_lead" is a marked GA4 Key Event; subscribe_click / subscribe_submit are
+# still NOT marked as Key Events in GA4 Admin (manual step outstanding for Toyo).
+
+#
+# Start date: 20260817
+# End date: 20260823
+# Active users by City (top 7 shown in the snapshot card)
+City,Active users
+Lucknow,6
+Patna,5
+Bengaluru,3
+Delhi,3
+Des Moines,3
+Jaipur,3
+Mumbai,3

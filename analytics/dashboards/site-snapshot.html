@@ -335,30 +335,30 @@
   <header>
     <p class="eyebrow">FOWL AI · fowl-ai.com</p>
     <h1>Site snapshot</h1>
-    <p class="subtitle">Google Analytics · Aug 2–8, 2026 (7-day window)</p>
-    <p class="subtitle" style="margin-top:4px;">Gap since last read: the prior window was Jul 20–26 (no export pulled for Jul 27–Aug 1). Bounce rates reversed course this week — up on homepage, Jobs Board, Platforms Directory and About after falling last cycle — while All Issues and Contact held near their lows. At 20–84 views per page this is well within normal week-to-week noise for a still-small site; treat as one data point, not a trend break. See the callout below each metric.</p>
+    <p class="subtitle">Google Analytics · Sep 7–13, 2026 (7-day window)</p>
+    <p class="subtitle" style="margin-top:4px;"><strong>Biggest traffic week on record — and the worst conversion week.</strong> Active users 2.5×'d to 259 while key events fell 38 → 13, taking the user key-event rate from 31.4% to 4.6% and sitewide engagement rate from 50.0% to 29.9%. Deltas marked <em>“vs prior”</em> compare against Aug 17–23; unlike every comparison since Aug 8 that pair does <strong>not</strong> overlap — but there is a 14-day unmeasured gap between them (Aug 24 – Sep 6, no GA4 pull), so this is a three-week jump, not a week-over-week move. Two redesigns landed in or just before the window: “Signal” (Aug 28) and the unified visual identity (Sep 9, <em>mid-window</em>), so the post-redesign homepage read is split across two page titles and two designs. <strong>Read everything here as a first, confounded post-redesign look.</strong></p>
   </header>
 
   <div class="stat-row">
     <div class="stat-tile">
       <p class="stat-label">Active users</p>
-      <div class="stat-value">124</div>
-      <p class="stat-sub">▲ vs 94 last read</p>
+      <div class="stat-value">259</div>
+      <p class="stat-sub">▲ 147% vs 105 on Aug 17–23 · all-time high</p>
     </div>
     <div class="stat-tile">
       <p class="stat-label">New users</p>
-      <div class="stat-value">121</div>
-      <p class="stat-sub">98% of active users</p>
+      <div class="stat-value">248</div>
+      <p class="stat-sub">96% of active users · ▲ vs 100 prior</p>
     </div>
     <div class="stat-tile">
       <p class="stat-label">Avg. engagement / user</p>
-      <div class="stat-value">11s</div>
-      <p class="stat-sub">▼ vs 19s last read</p>
+      <div class="stat-value">15s</div>
+      <p class="stat-sub">▬ flat vs 15s prior · engagement rate ▼ 50% → 30%</p>
     </div>
     <div class="stat-tile">
-      <p class="stat-label">Events</p>
-      <div class="stat-value">776</div>
-      <p class="stat-sub">▲ vs 677 last read</p>
+      <p class="stat-label">Key events</p>
+      <div class="stat-value">13</div>
+      <p class="stat-sub">▼ 66% vs 38 prior · 1,961 events total</p>
     </div>
   </div>
 
@@ -380,67 +380,72 @@
       <p class="card-title">Top cities</p>
       <p class="card-caption">Active users by city (top 7 captured this pull)</p>
       <div class="bar-list" data-chart="cities"></div>
-      <p class="bar-note">Only the top-7 city card was pulled this cycle (the full city report, as used for prior weeks' 12+ city lists, wasn't visited this pull).</p>
+      <p class="bar-note">Atlanta back on top at 27 users (was absent from the Aug 17–23 top 7 entirely), with Patna and Lucknow next. Flower Mound, TX appears for the first time at 9. Only the top-7 city card was captured in this pull.</p>
     </div>
     <div class="card">
       <p class="card-title">Countries</p>
       <p class="card-caption">Active users by country</p>
       <div class="bar-list" data-chart="countries"></div>
-      <p class="bar-note">28 of 35 sitewide key events (80%) came from users in India; 2 from the US, 2 from Switzerland, 1 from Pakistan, 2 from Bangladesh. All 35 are generate_lead (Contact form) — subscribe_click/subscribe_submit still aren't marked as GA4 Key Events (see EXPERIMENTS.md).</p>
+      <p class="bar-note">The US is now 23% of users (was 12%) with a 43.3% engagement rate and 27s/user — the best-quality traffic on the site, and for the first time it logged key events (2). India remains the volume leader at 51% but converts at 4.5% with a 23.0% engagement rate, half the US figure. All 13 key events are still generate_lead from the Contact form — subscribe_click/subscribe_submit are <strong>still</strong> not marked as GA4 Key Events (manual Admin step, 6th consecutive cycle; see EXPERIMENTS.md).</p>
     </div>
   </div>
 
   <div class="callout-row">
     <div class="callout">
-      <div class="callout-value">67%</div>
-      <div class="callout-label">of users arrived via google / organic</div>
+      <div class="callout-value">4.6%</div>
+      <div class="callout-label">user key-event rate — down from 31.4%. 13 conversions on 259 users, vs 38 on 105. The headline number of this period.</div>
     </div>
     <div class="callout">
-      <div class="callout-value">3 users</div>
-      <div class="callout-label">arrived via chatgpt.com / ai-assistant</div>
+      <div class="callout-value">96 views</div>
+      <div class="callout-label">on /vibe-code-saturdays/ — the #2 page on the site, 21% of all views, and the highest views-per-user (2.46) anywhere. Didn't exist in any prior window.</div>
     </div>
     <div class="callout">
-      <div class="callout-value">n/a</div>
-      <div class="callout-label">day-0/day-1 retention not captured this pull (see footnote)</div>
+      <div class="callout-value">28 users</div>
+      <div class="callout-label">with source “(data not available)” (11% of traffic) — plus 15 sessions from a design-preview host, i.e. Toyo's own review traffic is in these totals</div>
     </div>
   </div>
 
   <div class="card" style="margin-bottom:12px;">
     <p class="card-title">Bounce rate — what to fix, by page</p>
-    <p class="card-caption">GA4 bounce = no 10s+ engagement, no conversion event, no 2nd pageview. 124-user sample, still small — read directionally.</p>
+    <p class="card-caption">GA4 bounce = no 10s+ engagement, no conversion event, no 2nd pageview. 259-user sample — the largest yet, so page-level numbers are firmer than usual, but the window straddles the Sep 9 redesign. “Prior” = Aug 17–23 (non-overlapping, but 14 unmeasured days apart).</p>
     <div class="insight-list">
       <div class="insight-row">
         <div class="insight-page">Homepage</div>
-        <div><span class="badge critical"><span class="dot"></span>72%</span></div>
-        <div class="insight-text">Up from 58% last read. Main entry point from Google organic. Add an above-the-fold CTA (subscribe / read latest issue) and internal links to the Jobs Board and Platforms Directory so there's an obvious next click (TICKET-1, still not shipped).</div>
+        <div><span class="badge critical"><span class="dot"></span>76%</span></div>
+        <div class="insight-text">Views-weighted across the two title rows the redesign split it into: <strong>78.1% on the new title</strong> (“The future of work. Your next advantage.”, 223 views) and 65.1% on the old one (46 views). Up from 64% prior and at the top of the page's all-time 58–78% band. 269 views / 211 users — the highest volume this page has ever had, and the worst bounce. First post-redesign read; the redesign is the only change that shipped, so this is the honest first data point against the “Signal” hypothesis. One read, mid-window design change — don't call it yet.</div>
+      </div>
+      <div class="insight-row">
+        <div class="insight-page">Vibe Code Saturdays</div>
+        <div><span class="badge good"><span class="dot"></span>45%</span></div>
+        <div class="insight-text"><strong>New this window and already the #2 page.</strong> 96 views / 39 users / 25s avg engagement / 2.46 views per user — the deepest browsing on the site. Weighted across its two title rows (48.3% on 84 views, 18.2% on 12). This page is doing what the homepage isn't: getting people to a second view.</div>
       </div>
       <div class="insight-row">
         <div class="insight-page">Contact</div>
-        <div><span class="badge good"><span class="dot"></span>3%</span></div>
-        <div class="insight-text">Still by far the best-performing page — submitting the form fires generate_lead, the only event currently marked as a GA4 Key Event. All 35 of this week's key events came from here.</div>
-      </div>
-      <div class="insight-row">
-        <div class="insight-page">All Issues</div>
-        <div><span class="badge critical"><span class="dot"></span>20%</span></div>
-        <div class="insight-text">Down from 29% last read — the one page that kept improving. Still worth shipping the "start here" / related-issue links (TICKET-4, not yet shipped).</div>
+        <div><span class="badge good"><span class="dot"></span>8%</span></div>
+        <div class="insight-text">Still the best-converting page and still the sole source of every key event on the site. But views collapsed to 13 (from 36) and key events to 13 (from 38), while sitewide traffic 2.5×'d — the redesign appears to have moved people away from this page, not toward it. This is the single biggest negative signal in the window.</div>
       </div>
       <div class="insight-row">
         <div class="insight-page">AI Jobs Board</div>
-        <div><span class="badge critical"><span class="dot"></span>68%</span></div>
-        <div class="insight-text">Up from 45% last read. Filters/search/save buttons (TICKET-2, not yet shipped) would give visitors something to interact with beyond scroll depth.</div>
+        <div><span class="badge good"><span class="dot"></span>42%</span></div>
+        <div class="insight-text">Up from 20% prior, on 14 views / 10 users. Series so far: 100% → 53% → 45% → 68% → 72% → 44% → 20% → 42%. Still no fix shipped; still noise. TICKET-2 (filters/search/save) unchanged as the unblocker.</div>
       </div>
       <div class="insight-row">
         <div class="insight-page">AI Platforms Directory</div>
-        <div><span class="badge critical"><span class="dot"></span>64%</span></div>
-        <div class="insight-text">Up from 41% last read. Same fix as the Jobs Board: add filters/search, or track outbound clicks on platform links as engagement events (TICKET-3, not yet shipped).</div>
+        <div><span class="badge good"><span class="dot"></span>27%</span></div>
+        <div class="insight-text">Best reading this page has ever had, down from 59% prior, on 14 views / 10 users. No fix shipped — the redesign touched the page's markup, which is the only candidate explanation, and at 14 views one engaged visitor moves this ~7 points. TICKET-3 (outbound-click tracking) still the cheaper, more informative half.</div>
       </div>
       <div class="insight-row">
-        <div class="insight-page">About TYB</div>
-        <div><span class="badge critical"><span class="dot"></span>50%</span></div>
-        <div class="insight-text">Up from 0% last read, but on only 6 views (was 2 views last read) — too small a sample either week to call a trend.</div>
+        <div class="insight-page">AI Glossary</div>
+        <div><span class="badge critical"><span class="dot"></span>2 views</span></div>
+        <div class="insight-text"><strong>The stickiest page on the site just went flat.</strong> 2 views / 2 users / <strong>2s avg engagement</strong>, against 95s in each of the two August windows. Bounce wasn't captured (page fell out of the top-7 title card). The Sep 9 redesign rewrote <code>glossary/index.html</code>. On n=2 this proves nothing, but it is the one page where a real regression is plausible and worth a deliberate look.</div>
+      </div>
+      <div class="insight-row">
+        <div class="insight-page">All Issues</div>
+        <div><span class="badge critical"><span class="dot"></span>8 views</span></div>
+        <div class="insight-text">Flat at 8 views / 6 users; bounce not captured (out of the top-7 card). Meanwhile individual issue pages pulled 17 views between them — the archive index is still the weaker entry point, which is the argument for the second half of TICKET-4 (next-issue links on issue pages).</div>
       </div>
     </div>
-    <p class="bar-note">Sitewide avg. engagement time fell to 11s this week (from 19s last read) while bounce rose on every page except All Issues and Contact. There's no shipped change this cycle that would explain the reversal (see EXPERIMENTS.md and roadmap.md — nothing new shipped since the last review), so the likeliest read is sample noise at this traffic level rather than a real regression — worth watching next cycle before reacting.</p>
+    <p class="bar-note"><strong>What this window actually says:</strong> the site got 2.5× the traffic and converted a third as often. Engagement rate fell 50% → 30%, key events 38 → 13, Contact views 36 → 13, while homepage views nearly quadrupled to 269 at a 76% bounce. The most likely read is that the redesign plus the Vibe Code Saturdays push brought in a lot of shallow top-of-funnel traffic and simultaneously made the path to Contact less obvious — but two redesigns, a new high-traffic page, 15 sessions of the owner's own preview traffic, and a 14-day measurement gap all land in the same window, so no single cause is isolable. The standing rule from EXPERIMENTS.md still applies, now inverted: the sample is finally big enough that the <em>conversion</em> drop is hard to dismiss as noise, even though the page-level bounce moves still are.</p>
   </div>
 
   <details class="table-toggle">
@@ -477,7 +482,7 @@
     </table>
   </details>
 
-  <footer>Source: reports-snapshot.csv &amp; demographic-details-country.csv — pulled directly from the GA4 UI (Reports &gt; Snapshot / Pages and screens / Demographic details, Admin &gt; Events) via Claude in Chrome, account &amp; property "fowl AI", 2026-08-02 to 2026-08-08. Nth-day new/returning retention wasn't captured in this pull (needs the Retention report, not visited this cycle) — that stat tile and table are blank until next time. Full city breakdown (beyond the top 7) also wasn't pulled this cycle.</footer>
+  <footer>Source: <code>analytics/raw-exports/2026-09-13/</code> (reports-snapshot.csv &amp; demographic-details-country.csv), pulled live from the GA4 UI via Claude in Chrome, account &amp; property "fowl AI" (539490882), 2026-09-07 to 2026-09-13. Rendered by the 2026-09-13 weekly review. Sep 13 is a partial day. All 25 page-path rows were captured; the bounce-rate column exists only for the top-7 page-<em>title</em> card, so pages outside it (Glossary, All Issues, About, Tests, FAQ) have no bounce reading this window. Nth-day new/returning retention still isn't captured (needs the GA4 Retention report). Top-7 city card and top-10 of 26 country rows captured. Note: GA4 opened on a different property in the same account (CitySignal) and was switched to fowl AI before any number here was read.</footer>
 </div>
 
 <div id="tooltip" role="tooltip"></div>
@@ -486,37 +491,40 @@
 (function () {
   var DATA = {
     pages: [
-      { label: "FOWL AI | AI Jobs, Platforms & Opportunities", value: 84, sub: "60 users · 341 events · bounce 72.2%" },
-      { label: "Contact — FOWL AI", value: 35, sub: "33 users · 180 events · bounce 3.0%" },
-      { label: "AI Platforms Directory — FOWL AI", value: 32, sub: "27 users · 112 events · bounce 64.3%" },
-      { label: "AI Jobs Board | Remote AI Opportunities & Roles", value: 20, sub: "10 users · 61 events · bounce 68.4%" },
-      { label: "About TYB — FOWL AI", value: 6, sub: "6 users · 24 events · bounce 50.0%" },
-      { label: "All Issues — FOWL AI", value: 5, sub: "5 users · 11 events · bounce 20.0%" },
-      { label: "Issue 11 — Hinton's 2026 job-loss warning", value: 5, sub: "4 users · 14 events · bounce 40.0%" }
+      { label: "Homepage /  (both titles)", value: 269, sub: "211 users · 1,295 events · weighted bounce 75.9% · 12s" },
+      { label: "/vibe-code-saturdays/  (both titles)", value: 96, sub: "39 users · 381 events · weighted bounce 44.5% · 25s · 2.46 views/user" },
+      { label: "AI Jobs Board | Remote AI Opportunities & Roles", value: 14, sub: "10 users · 42 events · bounce 41.7%" },
+      { label: "AI Platforms Directory — FOWL AI", value: 14, sub: "10 users · 36 events · bounce 27.3%" },
+      { label: "Contact — FOWL AI", value: 13, sub: "13 users · 65 events · bounce 7.7% · all 13 key events" },
+      { label: "All Issues — FOWL AI", value: 8, sub: "6 users · 19 events · bounce not captured" },
+      { label: "FOWL AI Tests", value: 8, sub: "7 users · 19 events · first movement since launch" }
     ],
     sources: [
-      { label: "google / organic", value: 83, sub: "67% of active users" },
-      { label: "(direct) / (none)", value: 23, sub: "19% of active users" },
-      { label: "(data not available)", value: 7, sub: "6% of active users" },
-      { label: "chatgpt.com / ai-assistant", value: 3, sub: "2% of active users" },
-      { label: "tiktok.com / referral", value: 3, sub: "2% of active users" }
+      { label: "google / organic", value: 154, sub: "59% of active users" },
+      { label: "(direct) / (none)", value: 46, sub: "18% of active users" },
+      { label: "(data not available)", value: 28, sub: "11% of active users · unattributed by GA4" },
+      { label: "bing / organic", value: 4, sub: "2% of active users" },
+      { label: "l.instagram.com / referral", value: 3, sub: "1% of active users · 11 sessions" },
+      { label: "l.threads.com / referral", value: 3, sub: "1% of active users" },
+      { label: "chatgpt.com / ai-assistant", value: 2, sub: "1% of active users · down from 4" }
     ],
     cities: [
-      { label: "Atlanta", value: 10 },
-      { label: "Ahmedabad", value: 6 },
-      { label: "Lucknow", value: 6 },
-      { label: "Patna", value: 6 },
-      { label: "Lahore", value: 4 },
-      { label: "Bengaluru", value: 3 },
-      { label: "Delhi", value: 3 }
+      { label: "Atlanta", value: 27 },
+      { label: "Patna", value: 19 },
+      { label: "Lucknow", value: 13 },
+      { label: "Flower Mound", value: 9 },
+      { label: "Bengaluru", value: 7 },
+      { label: "Agra", value: 5 },
+      { label: "Dhaka", value: 5 }
     ],
     countries: [
-      { label: "India", value: 65, sub: "68 new · eng. rate 50.75% · 28 key events" },
-      { label: "United States", value: 20, sub: "17 new · eng. rate 34.38% · 2 key events" },
-      { label: "Pakistan", value: 9, sub: "8 new · eng. rate 11.11% · 1 key event" },
-      { label: "Thailand", value: 7, sub: "6 new · eng. rate 14.29% · 0 key events" },
-      { label: "Bangladesh", value: 4, sub: "4 new · eng. rate 40% · 2 key events" },
-      { label: "China", value: 3, sub: "3 new · eng. rate 0% · 0 key events" }
+      { label: "India", value: 133, sub: "129 new · eng. rate 23.02% · 9s/user · 6 key events" },
+      { label: "United States", value: 60, sub: "53 new · eng. rate 43.30% · 27s/user · 2 key events" },
+      { label: "Bangladesh", value: 14, sub: "15 new · eng. rate 18.75% · 19s/user · 0 key events" },
+      { label: "Pakistan", value: 10, sub: "9 new · eng. rate 20.00% · 25s/user · 0 key events" },
+      { label: "China", value: 9, sub: "9 new · eng. rate 11.11% · 0s/user · 1 key event (suspect)" },
+      { label: "Thailand", value: 5, sub: "5 new · eng. rate 20.00% · 0 key events" },
+      { label: "Myanmar (Burma)", value: 4, sub: "4 new · eng. rate 50.00% · 97s/user · 0 key events" }
     ]
   };
 
@@ -607,37 +615,40 @@
   }
 
   fillTable("tbl-pages", [
-    { label: "FOWL AI | AI Jobs, Platforms & Opportunities", views: 84, users: 60, events: 341, bounce: "72.2%" },
-    { label: "Contact — FOWL AI", views: 35, users: 33, events: 180, bounce: "3.0%" },
-    { label: "AI Platforms Directory — FOWL AI", views: 32, users: 27, events: 112, bounce: "64.3%" },
-    { label: "AI Jobs Board | Remote AI Opportunities & Roles — FOWL AI", views: 20, users: 10, events: 61, bounce: "68.4%" },
-    { label: "About TYB — FOWL AI", views: 6, users: 6, events: 24, bounce: "50.0%" },
-    { label: "All Issues — FOWL AI", views: 5, users: 5, events: 11, bounce: "20.0%" },
-    { label: "FOWL AI · Issue 11 · Hinton's 2026 job-loss warning", views: 5, users: 4, events: 14, bounce: "40.0%" },
-    { label: "/issues/2026-07-13/", views: 4, users: 4, events: 20, bounce: "n/a — not in top-7 title card" },
-    { label: "/index.html", views: 2, users: 2, events: 7, bounce: "n/a — not in top-7 title card" },
-    { label: "/faq/", views: 1, users: 1, events: 4, bounce: "n/a — not in top-7 title card" },
-    { label: "/products/ (new page path this pull)", views: 1, users: 1, events: 2, bounce: "n/a — not in top-7 title card" }
+    { label: "/  — “FOWL AI | The future of work. Your next advantage.” (new title, post Sep 9)", views: 223, users: 172, events: 1100, bounce: "78.1%" },
+    { label: "/vibe-code-saturdays/ — “Bring an Idea. Leave with a Build.”", views: 84, users: 33, events: 332, bounce: "48.3%" },
+    { label: "/  — “FOWL AI | AI Jobs, Platforms & Opportunities” (old title, pre Sep 9)", views: 46, users: 40, events: 189, bounce: "65.1%" },
+    { label: "AI Jobs Board | Remote AI Opportunities & Roles — FOWL AI", views: 14, users: 10, events: 42, bounce: "41.7%" },
+    { label: "AI Platforms Directory — FOWL AI", views: 14, users: 10, events: 34, bounce: "27.3%" },
+    { label: "Contact — FOWL AI", views: 13, users: 13, events: 64, bounce: "7.7%" },
+    { label: "Vibe Code Saturdays by Brand Brain — Build Something You Own With AI", views: 12, users: 8, events: 49, bounce: "18.2%" },
+    { label: "/issues/  (path)", views: 8, users: 6, events: 19, bounce: "n/a — not in top-7 title card" },
+    { label: "/tests/  (path)", views: 8, users: 7, events: 19, bounce: "n/a — not in top-7 title card" },
+    { label: "/issues/2026-09-07/  (path)", views: 6, users: 6, events: 14, bounce: "n/a — not in top-7 title card" },
+    { label: "/faq/  (path)", views: 4, users: 4, events: 17, bounce: "n/a — 21s avg engagement" },
+    { label: "/about/  (path)", views: 2, users: 2, events: 8, bounce: "n/a — 24s avg engagement" },
+    { label: "/glossary/  (path)", views: 2, users: 2, events: 6, bounce: "n/a — 2s avg engagement, was 95s" },
+    { label: "13 further paths", views: "1–3 each", users: "1–2 each", events: "1–8 each", bounce: "n/a" }
   ], ["label", "views", "users", "events", "bounce"]);
 
   fillTable("tbl-sources", [
-    { label: "google / organic", users: 83 },
-    { label: "(direct) / (none)", users: 23 },
-    { label: "(data not available)", users: 7 },
-    { label: "chatgpt.com / ai-assistant", users: 3 },
-    { label: "tiktok.com / referral", users: 3 },
-    { label: "bing / organic", users: 1 },
-    { label: "duckduckgo / organic", users: 1 }
+    { label: "google / organic", users: 154 },
+    { label: "(direct) / (none)", users: 46 },
+    { label: "(data not available)", users: 28 },
+    { label: "bing / organic", users: 4 },
+    { label: "l.instagram.com / referral", users: 3 },
+    { label: "l.threads.com / referral", users: 3 },
+    { label: "chatgpt.com / ai-assistant", users: 2 }
   ], ["label", "users"]);
 
   fillTable("tbl-sessions", [
-    { label: "google / organic", sessions: 88 },
-    { label: "(direct) / (none)", sessions: 32 },
-    { label: "chatgpt.com / ai-assistant", sessions: 11 },
-    { label: "(data not available)", sessions: 7 },
-    { label: "tiktok.com / referral", sessions: 3 },
-    { label: "bing / organic", sessions: 2 },
-    { label: "search.brave.com / referral", sessions: 2 }
+    { label: "google / organic", sessions: 168 },
+    { label: "(direct) / (none)", sessions: 50 },
+    { label: "(data not available)", sessions: 26 },
+    { label: "fowl-ai-design-preview.toyosibamidele.chatgpt.site / referral  (owner's own preview traffic)", sessions: 15 },
+    { label: "l.instagram.com / referral", sessions: 11 },
+    { label: "ig / social", sessions: 5 },
+    { label: "bing / organic", sessions: 4 }
   ], ["label", "sessions"]);
 
   fillTable("tbl-nth", [
@@ -647,26 +658,17 @@
   fillTable("tbl-cities", ALL_CITIES.map(function (c) { return { label: c.label, users: c.value }; }), ["label", "users"]);
 
   fillTable("tbl-countries", [
-    { label: "India", users: 65, nu: 68, engaged: 34, rate: "50.75%", time: "8s", events: 393, key: 28 },
-    { label: "United States", users: 20, nu: 17, engaged: 11, rate: "34.38%", time: "11s", events: 137, key: 2 },
-    { label: "Pakistan", users: 9, nu: 8, engaged: 1, rate: "11.11%", time: "0s", events: 34, key: 1 },
-    { label: "Thailand", users: 7, nu: 6, engaged: 1, rate: "14.29%", time: "8s", events: 31, key: 0 },
-    { label: "Bangladesh", users: 4, nu: 4, engaged: 2, rate: "40%", time: "7s", events: 34, key: 2 },
-    { label: "China", users: 3, nu: 3, engaged: 0, rate: "0%", time: "1s", events: 12, key: 0 },
-    { label: "Nepal", users: 2, nu: 2, engaged: 0, rate: "0%", time: "6s", events: 15, key: 0 },
-    { label: "Vietnam", users: 2, nu: 2, engaged: 0, rate: "0%", time: "20s", events: 19, key: 0 },
-    { label: "Algeria", users: 1, nu: 1, engaged: 0, rate: "0%", time: "0s", events: 3, key: 0 },
-    { label: "Argentina", users: 1, nu: 1, engaged: 1, rate: "100%", time: "6m 37s", events: 9, key: 0 },
-    { label: "Australia", users: 1, nu: 1, engaged: 1, rate: "100%", time: "27s", events: 12, key: 0 },
-    { label: "France", users: 1, nu: 1, engaged: 1, rate: "100%", time: "11s", events: 6, key: 0 },
-    { label: "Germany", users: 1, nu: 1, engaged: 1, rate: "100%", time: "9s", events: 10, key: 0 },
-    { label: "Netherlands", users: 1, nu: 1, engaged: 0, rate: "0%", time: "2s", events: 4, key: 0 },
-    { label: "Nigeria", users: 1, nu: 1, engaged: 1, rate: "100%", time: "17s", events: 4, key: 0 },
-    { label: "Palestine", users: 1, nu: 1, engaged: 1, rate: "50%", time: "14s", events: 8, key: 0 },
-    { label: "Switzerland", users: 1, nu: 1, engaged: 1, rate: "100%", time: "2s", events: 8, key: 2 },
-    { label: "Ukraine", users: 1, nu: 0, engaged: 1, rate: "14.29%", time: "0s", events: 15, key: 0 },
-    { label: "United Arab Emirates", users: 1, nu: 1, engaged: 1, rate: "100%", time: "34s", events: 16, key: 0 },
-    { label: "United Kingdom", users: 1, nu: 1, engaged: 0, rate: "0%", time: "5s", events: 6, key: 0 }
+    { label: "India", users: 133, nu: 129, engaged: 32, rate: "23.02%", time: "9s", events: 807, key: 6 },
+    { label: "United States", users: 60, nu: 53, engaged: 42, rate: "43.30%", time: "27s", events: 703, key: 2 },
+    { label: "Bangladesh", users: 14, nu: 15, engaged: 3, rate: "18.75%", time: "19s", events: 107, key: 0 },
+    { label: "Pakistan", users: 10, nu: 9, engaged: 2, rate: "20.00%", time: "25s", events: 98, key: 0 },
+    { label: "China", users: 9, nu: 9, engaged: 1, rate: "11.11%", time: "0s", events: 28, key: 1 },
+    { label: "Thailand", users: 5, nu: 5, engaged: 1, rate: "20.00%", time: "0s", events: 18, key: 0 },
+    { label: "Myanmar (Burma)", users: 4, nu: 4, engaged: 2, rate: "50.00%", time: "1m 37s", events: 57, key: 0 },
+    { label: "France", users: 3, nu: 3, engaged: 1, rate: "33.33%", time: "0s", events: 12, key: 0 },
+    { label: "Vietnam", users: 3, nu: 3, engaged: 0, rate: "0%", time: "2s", events: 10, key: 0 },
+    { label: "Nigeria", users: 2, nu: 1, engaged: 0, rate: "0%", time: "14s", events: 14, key: 0 },
+    { label: "16 further countries", users: "≤2 each", nu: "—", engaged: "—", rate: "—", time: "—", events: "—", key: "4 unaccounted" }
   ], ["label", "users", "nu", "engaged", "rate", "time", "events", "key"]);
 })();
 </script>
