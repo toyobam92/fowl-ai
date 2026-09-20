@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-09-10",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-09-20",
+  "publish_date": "2026-09-21",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Sakana AI ships Fugu Max & Fugu Ultra v2 — orchestration beats frontier models on price",
+      "why": "Instead of building one bigger model, Sakana built an orchestrator that routes your request across a pool of models — and Fugu Ultra v2 beat Anthropic's Opus 5 and Fable 5 on a visual-reasoning benchmark while undercutting frontier output pricing by 40-60%, a signal that routing, not raw scale, may be the next competitive edge."
+    },
+    {
+      "title": "Temporal raises $550M at a $12.55B valuation as 'boring' AI infrastructure gets hot",
+      "why": "A company that just keeps AI agent workflows from breaking when things fail more than doubled its valuation since February, with revenue up 200%+ and customers like OpenAI and NVIDIA — a sign investors think the real bottleneck in agentic AI isn't smarter models, it's reliability plumbing."
+    },
+    {
+      "title": "Anthropic researcher's public resignation over AI extinction risk keeps dominating headlines",
+      "why": "Jacob Coxon quit Anthropic warning labs are 'gambling with our lives' racing to self-improving AI, his post hit 100M+ views, and a week later it's still reshaping the safety debate — worth knowing since it's now shaping how policymakers and employers talk about AI risk."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-09-13T00:40:00Z"
+  "last_updated": "2026-09-20T00:00:00Z"
 }
