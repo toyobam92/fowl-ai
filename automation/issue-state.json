@@ -1,6 +1,6 @@
 {
   "week_of": "2026-09-21",
-  "status": "awaiting_pick",
+  "status": "drafting",
   "last_proposed": "2026-09-16",
   "topics": [
     {
@@ -31,7 +31,10 @@
     "AI eval work just split into two tiers — and only one pays $80/hr.",
     "1 billion workers need reskilling. 4% are doing anything about it."
   ],
-  "picked_topic": null,
+  "picked_topic": {
+    "title": "California is about to make it illegal for an algorithm to fire you alone.",
+    "why": "SB 947 (the 'No Robo Bosses Act') and AB 1883 (bans emotion-inference and neural-data surveillance at work) sit on Newsom's desk with a Sep 30 deadline; Connecticut's version is already law. First issue on what the rules actually give a worker, not on job counts."
+  },
   "pr_number": null,
-  "last_updated": "2026-09-21T23:18:30Z"
+  "last_updated": "2026-09-21T23:27:48Z"
 }
