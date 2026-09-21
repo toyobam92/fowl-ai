@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 14 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 21 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 18: California is about to make it illegal for an algorithm to fire you alone.</title>
+      <link>https://www.fowl-ai.com/issues/2026-09-21/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-09-21/</guid>
+      <pubDate>Mon, 21 Sep 2026 00:00:00 GMT</pubDate>
+      <description>California’s No Robo Bosses Act would ban firing or disciplining workers solely by automated system, with a named human reviewer, written notice, and a right to your own data. Newsom decides by September 30. Plus: Connecticut and Illinois already moved, 6 in 10 managers already use AI on personnel calls, and the emotion-surveillance ban on the same desk.</description>
+    </item>
     <item>
       <title>Issue 17: AI didn't shrink the job market — it rerouted it into hard hats.</title>
       <link>https://www.fowl-ai.com/issues/2026-09-14/</link>
