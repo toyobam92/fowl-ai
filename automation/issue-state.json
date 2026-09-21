@@ -4,28 +4,34 @@
   "last_proposed": "2026-09-16",
   "topics": [
     {
-      "title": "The layoffs say 'AI.' The hiring data says something else.",
-      "why": "Cuts jumped 199% in September alone (Oracle's 30,000-person round leading the way), while the same week's hiring feed logged zero announced hires — worth separating the AI-blame headline from what's actually driving the freeze."
+      "title": "California is about to make it illegal for an algorithm to fire you alone.",
+      "why": "SB 947 (the 'No Robo Bosses Act') and AB 1883 (bans emotion-inference and neural-data surveillance at work) sit on Newsom's desk with a Sep 30 deadline; Connecticut's version is already law. First issue on what the rules actually give a worker, not on job counts."
     },
     {
-      "title": "88% of companies use AI. 79% say it's not working.",
-      "why": "New enterprise data shows adoption cresting near-universal while most organizations still can't get measurable ROI out of it — a gap that determines whether your employer's AI push helps or hurts your job."
+      "title": "Half your coworkers are pasting company data into AI. Security teams can now see every paste.",
+      "why": "Verizon's 2026 DBIR: regular AI use on corporate devices jumped from 15% to 45% in a year, two-thirds of it through accounts the company doesn't control, and the median org logs ~50 attempted leaks to AI tools a day. A practical 'how not to become an incident' issue."
     },
     {
-      "title": "Reddit's CEO wants to hire only 'AI-native' new grads. What does that actually mean for you?",
-      "why": "As IBM triples entry-level AI hiring even while automating HR roles away, 'AI-native' is turning into the resume line that decides who gets the interview — worth defining before it becomes a filter you can't see."
+      "title": "The AI agent just got its own login. Here's what changes when it has your permissions.",
+      "why": "OpenAI's Data agent in ChatGPT Work (Sep 9), Meta's Muse for Mac, Salesforce agents inside Slack: September's shift is from chat tools to agents acting across your systems. What to grant, what to refuse, and what your job looks like as the reviewer."
     },
     {
-      "title": "AI eval work just split into two tiers — and only one pays $80/hr.",
-      "why": "The AI training/eval gig market is bifurcating fast: general annotation still sits around $20/hr while domain-expert evaluation is pulling $80+/hr, a concrete near-term option for readers with real subject expertise."
+      "title": "Anthropic just paid $1.5 billion for training data. About $3,000 a book. Here's what your work is worth.",
+      "why": "The Bartz settlement is one of the largest copyright payouts in U.S. history, with 25+ similar cases pending against OpenAI, Meta and GitHub. An issue on what it means for anyone whose writing, code or designs are already training data."
     },
     {
-      "title": "1 billion workers need reskilling. 4% are doing anything about it.",
-      "why": "WEF's number is huge but the real story is the action gap it hides — most workers feel the anxiety but haven't taken a single concrete step, which is exactly the gap this newsletter's readers are trying to close."
+      "title": "13 new models shipped this month. Here's the 4 that actually change how you work.",
+      "why": "Claude Fable 5.1, Gemini 3.8 Flash and a dozen others landed in September, and daily AI use among U.S. adults more than doubled between March and August. A hands-on tools issue instead of a labor-market one: what to switch, what to ignore, what it costs."
     }
   ],
-  "rejected_titles": [],
+  "rejected_titles": [
+    "The layoffs say 'AI.' The hiring data says something else.",
+    "88% of companies use AI. 79% say it's not working.",
+    "Reddit's CEO wants to hire only 'AI-native' new grads. What does that actually mean for you?",
+    "AI eval work just split into two tiers — and only one pays $80/hr.",
+    "1 billion workers need reskilling. 4% are doing anything about it."
+  ],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": "2026-09-16T00:00:00Z"
+  "last_updated": "2026-09-21T23:18:30Z"
 }
