@@ -1,0 +1,25 @@
+name: telegram-diag
+
+# On-demand diagnostic for the Telegram -> Cloudflare Worker -> GitHub relay.
+# Prints the bot identity and getWebhookInfo (webhook URL, pending update
+# count, last error) with the token redacted. Added 2026-09-22 after replies
+# silently stopped reaching the repo. Never sends anything to subscribers.
+
+on:
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  diag:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Telegram webhook status (token redacted)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          set -euo pipefail
+          red() { sed "s/${TELEGRAM_BOT_TOKEN}/<token>/g"; }
+          echo "getMe:"; curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getMe" | red; echo
+          echo "getWebhookInfo:"; curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getWebhookInfo" | red; echo
