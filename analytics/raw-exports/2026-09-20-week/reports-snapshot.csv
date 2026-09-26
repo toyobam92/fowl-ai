@@ -1,0 +1,115 @@
+# ----------------------------------------
+# Reports snapshot
+# Account: fowl AI
+# Property: fowl AI (539490882)
+# NOTE: pulled directly from the GA4 UI (Reports > Snapshot and Reports > Engagement >
+# Pages and screens) via Claude in Chrome for the weekly-analytics-review scheduled task,
+# not a manual CSV export.
+# NOTE: the GA4 account defaulted to a different property ("city signal", 552446221) when
+# this session opened it — had to switch to the "fowl AI" property (539490882) before
+# pulling. If a future pull shows a ~99% drop across every metric, check the property
+# picker first.
+# NOTE: this is the first review since 2026-08-08 — a ~6-week gap, not a 1-week step.
+# Comparisons against the prior metrics-history row span 5 missed weeks.
+# ----------------------------------------
+#
+# Start date: 20260914
+# End date: 20260920
+Active users,New users,Average engagement time per active user,Event count
+335,310,17,2308
+
+#
+# Start date: 20260914
+# End date: 20260920
+# Top pages by "Page title and screen class" (Reports snapshot card, carries bounce rate).
+Page title and screen class,Views,Active users,Event count,Bounce rate
+FOWL AI | The future of work. Your next advantage.,321,250,1565,0.638
+Contact — FOWL AI,96,88,489,0.121
+AI Jobs Board | Remote AI Opportunities & Roles | FOWL AI,42,33,128,0.308
+Vibe Code Saturdays — Bring an Idea. Leave with a Build.,12,9,31,0.333
+AI Platforms Directory — FOWL AI,9,8,23,0.125
+FOWL AI · Issue 17 · AI didn't shrink the job market. It rerouted it into hard hats.,6,6,14,0.167
+FOWL AI Tests — We Test AI Tools Head to Head, Monthly,5,4,17,0.200
+
+# NOTE: the homepage title changed this period ("FOWL AI | AI Jobs, Platforms &
+# Opportunities" -> "FOWL AI | The future of work. Your next advantage.") as part of the
+# 2026-08-28 "Signal" redesign and the 2026-09-09 unified-identity pass. Same page path (/).
+
+#
+# Start date: 20260914
+# End date: 20260920
+# Path-level report (Pages and screens: Page path and screen class). Bounce rate is not
+# on this card, so lower-traffic pages below have views/users/events only.
+Page path and screen class,Views,Active users,Avg engagement time per active user,Event count,Key events
+/,321,251,12,1565,0.00
+/contact/,96,88,4,490,104.00
+/jobs/,42,33,34,129,0.00
+/vibe-code-saturdays/,12,9,18,32,0.00
+/platforms/,9,8,5,23,0.00
+/issues/2026-09-14/,6,6,25,16,0.00
+/tests/,5,4,6,17,0.00
+/issues/,3,3,4,5,0.00
+/issues/2026-09-07/,3,2,2,7,0.00
+/glossary/,1,1,498,6,0.00
+
+# NOTE: report totals 504 views across 16 rows; the 10 rows above account for 498 views.
+# The remaining 6 rows (6 views total) were not captured — the Chrome extension
+# disconnected before page 2 of the table could be read. /about/ did not appear in either
+# the top-7 title card or the top-10 path rows this period.
+# NOTE: /glossary/ avg engagement time per active user reads 8m 18s (498s) on a single
+# user — treat as a single-session artifact, not a page-level engagement signal.
+
+#
+# Start date: 20260914
+# End date: 20260920
+First user source / medium,Active users
+google / organic,276
+(direct) / (none),26
+(data not available),7
+bing / organic,7
+yahoo / organic,3
+chatgpt.com / ai-assistant,2
+krain / marketplace,2
+
+#
+# Start date: 20260914
+# End date: 20260920
+Session source / medium,Sessions
+google / organic,297
+(direct) / (none),31
+bing / organic,10
+(data not available),7
+yahoo / organic,3
+chatgpt.com / ai-assistant,2
+fowl-ai-design-preview.toyosibamidele.chatgpt.site / referral,2
+
+#
+# Start date: 20260914
+# End date: 20260920
+# NOTE: Nth-day new/returning cohort breakdown not retrieved (Retention report not
+# navigated to), consistent with prior cycles. Left blank in metrics-history.csv.
+Nth day,new,returning
+
+# How does activity on your platforms compare?
+# Start date: 20260914
+# End date: 20260920
+# NOTE: key-event total (104) taken from the Pages and screens report's Key events column
+# (/contact/ = 104.00, every other page = 0.00). Key events by Platform card showed
+# web = 100.0%. Admin > Events was NOT re-checked this cycle (browser disconnected), but
+# the 100%-from-Contact distribution is consistent with only "generate_lead" still being
+# marked as a Key Event — i.e. the subscribe_click / subscribe_submit manual step in GA4
+# Admin appears to still be pending. See EXPERIMENTS.md "Sitewide event instrumentation".
+Platform,Key events
+web,104
+
+#
+# Start date: 20260914
+# End date: 20260920
+City,Active users
+Patna,24
+Hyderabad,20
+Lucknow,13
+Ahmedabad,12
+Bengaluru,11
+Guwahati,8
+Indore,8
