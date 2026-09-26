@@ -1,0 +1,111 @@
+name: refresh-tokens
+
+# Keeps every expiring credential alive with no human in the loop, and
+# checks the ones that don't expire. Telegram only hears about it on failure.
+#
+# - META_IG_ACCESS_TOKEN / META_THREADS_ACCESS_TOKEN are 60-day long-lived
+#   tokens. Each run swaps them for fresh 60-day ones and writes them back
+#   into repo secrets. Weekly means ~8 retries before anything could lapse.
+# - Writing repo secrets needs more than GITHUB_TOKEN can do, so this mints
+#   a short-lived token from the fowlai-automation GitHub App (secrets
+#   FOWLAI_APP_ID / FOWLAI_APP_PRIVATE_KEY; app has Secrets + Actions write
+#   on this repo only). The same app authenticates the Telegram relay
+#   worker, replacing the PAT that expired and silently dropped Telegram
+#   replies Sep 14-22 2026.
+# - Facebook Page token (never-expiring) and the Telegram relay's webhook
+#   health are checked, not refreshed.
+#
+# Tokens are never printed: each new value is masked before use and piped to
+# `gh secret set` on stdin.
+
+on:
+  schedule:
+    - cron: '23 13 * * 1' # Mondays ~9:23am ET
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mint GitHub App token
+        id: app
+        uses: actions/create-github-app-token@v2
+        with:
+          app-id: ${{ secrets.FOWLAI_APP_ID }}
+          private-key: ${{ secrets.FOWLAI_APP_PRIVATE_KEY }}
+
+      - name: Refresh Instagram + Threads tokens, check the rest
+        id: run
+        env:
+          GH_TOKEN: ${{ steps.app.outputs.token }}
+          REPO: ${{ github.repository }}
+          META_IG_ACCESS_TOKEN: ${{ secrets.META_IG_ACCESS_TOKEN }}
+          META_THREADS_ACCESS_TOKEN: ${{ secrets.META_THREADS_ACCESS_TOKEN }}
+          META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          set -uo pipefail
+          FAILS=""
+
+          # $1 = secret name, $2 = refresh URL (token appended by caller)
+          refresh() {
+            local name="$1" url="$2" body new days
+            body=$(curl -s --max-time 30 "$url") || body=""
+            new=$(printf '%s' "$body" | jq -r '.access_token // empty')
+            if [ -z "$new" ]; then
+              echo "$name: refresh FAILED: $(printf '%s' "$body" | jq -c '.error // .' | cut -c1-200)"
+              FAILS="${FAILS}${name} refresh failed. "
+              return
+            fi
+            echo "::add-mask::$new"
+            days=$(( $(printf '%s' "$body" | jq -r '.expires_in // 0') / 86400 ))
+            if printf '%s' "$new" | gh secret set "$name" --repo "$REPO"; then
+              echo "$name: refreshed, valid ~${days} more days"
+            else
+              echo "$name: got a new token but could not save it"
+              FAILS="${FAILS}${name} save failed. "
+            fi
+          }
+
+          refresh META_IG_ACCESS_TOKEN \
+            "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${META_IG_ACCESS_TOKEN}"
+          refresh META_THREADS_ACCESS_TOKEN \
+            "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=${META_THREADS_ACCESS_TOKEN}"
+
+          # Facebook Page token: never expires, but can be revoked.
+          if curl -s --max-time 30 "https://graph.facebook.com/v21.0/me?fields=id&access_token=${META_PAGE_ACCESS_TOKEN}" | jq -e '.id' >/dev/null; then
+            echo "META_PAGE_ACCESS_TOKEN: ok"
+          else
+            echo "META_PAGE_ACCESS_TOKEN: FAILED"
+            FAILS="${FAILS}Facebook Page token rejected. "
+          fi
+
+          # Telegram relay: an error in the last week or a backlog means the
+          # worker can't dispatch to GitHub (see telegram-diag.yml).
+          info=$(curl -s --max-time 30 "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/getWebhookInfo")
+          pending=$(printf '%s' "$info" | jq -r '.result.pending_update_count // 0')
+          err_at=$(printf '%s' "$info" | jq -r '.result.last_error_date // 0')
+          if [ "$pending" -gt 0 ] || [ $(( $(date +%s) - err_at )) -lt 604800 ]; then
+            echo "Telegram relay: pending=$pending last_error=$(printf '%s' "$info" | jq -r '.result.last_error_message // "none"')"
+            FAILS="${FAILS}Telegram relay unhealthy (pending=${pending}). "
+          else
+            echo "Telegram relay: ok"
+          fi
+
+          echo "fails=$FAILS" >> "$GITHUB_OUTPUT"
+          [ -z "$FAILS" ]
+
+      - name: Alert on Telegram
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          FAILS: ${{ steps.run.outputs.fails }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          TEXT="🔑 Token refresh needs attention: ${FAILS:-the job failed before checking anything (GitHub App credentials?).} It retries every Monday; open Claude Code and ask to fix tokens. ${RUN_URL}"
+          curl -s -o /dev/null -w "telegram %{http_code}\n" -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${TEXT}"
