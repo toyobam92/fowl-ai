@@ -38,9 +38,27 @@ jobs:
       - name: Open the PR if one doesn't already exist
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: |
           set -euo pipefail
           BRANCH="${GITHUB_REF#refs/heads/}"
+
+          # pr-notify.yml never fires usefully for PRs opened here: GitHub
+          # fails pull_request runs for PRs created by GITHUB_TOKEN ("workflow
+          # file issue"), so every Nova/engagement PR since 2026-08-27 opened
+          # without a Telegram ping. Send it from here instead.
+          # $1 = PR url, $2 = title, $3 = preview file (optional)
+          notify_pr() {
+            local num="${1##*/}" preview=""
+            if [ -n "${3:-}" ] && [ -f "$3" ]; then
+              preview="$(head -c 2500 "$3")"$'\n\n'
+            fi
+            local msg
+            msg=$(printf '🐔 New PR #%s: %s\n%s\n\n%sReply "APPROVE %s" here to merge.' "$num" "$2" "$1" "$preview" "$num")
+            curl -s -o /dev/null -w "telegram %{http_code}\n" "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+              --data-urlencode "chat_id=${TELEGRAM_CHAT_ID}" --data-urlencode "text=${msg}" || echo "telegram notify failed (PR still opened)"
+          }
 
           # Idempotent -- a re-run (retry, re-push) should never open a
           # second PR for the same branch.
@@ -61,6 +79,7 @@ jobs:
               --body "Proposed engagement comments for ${BATCH_DATE}. Preview in automation/engagement-previews/${BATCH_DATE}.md. Reply \"APPROVE <PR#>\" to merge and post." \
               --head "$BRANCH" --base main)
             echo "Opened PR ${PR_URL##*/} for $BRANCH"
+            notify_pr "$PR_URL" "Engagement comments — ${BATCH_DATE}" "automation/engagement-previews/${BATCH_DATE}.md"
             exit 0
           fi
 
@@ -93,6 +112,7 @@ jobs:
             --head "$BRANCH" --base main)
           PR_NUMBER="${PR_URL##*/}"
           echo "Opened PR #$PR_NUMBER for $BRANCH"
+          notify_pr "$PR_URL" "$TITLE" "automation/nova-previews/${PUBLISH_DATE}.md"
 
           git config user.email "actions@github.com"
           git config user.name "github-actions"

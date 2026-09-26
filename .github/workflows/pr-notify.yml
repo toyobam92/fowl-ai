@@ -19,6 +19,8 @@ permissions:
 
 jobs:
   notify:
+    # Bot-opened PRs (Nova, engagement) are announced by open-nova-pr.yml.
+    if: github.event.pull_request.user.login != 'github-actions[bot]'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -36,7 +38,11 @@ jobs:
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
           set -euo pipefail
-          STAT=$(git diff --stat "$BASE_SHA" "$HEAD_SHA" | tail -n 25)
+          # The head branch may already be merged + deleted by the time this
+          # runs (PR #63, 2026-09-26: exit 128). Fetch the PR ref, and never
+          # let a missing diff stop the notification.
+          git fetch -q origin "pull/${PR_NUMBER}/head" 2>/dev/null || true
+          STAT=$(git diff --stat "$BASE_SHA" "$HEAD_SHA" 2>/dev/null | tail -n 25) || STAT="(diff unavailable)"
           MSG=$(printf '🐔 New PR #%s: %s\n%s\n\nFiles changed:\n%s\n\nReply "APPROVE %s" here to merge & deploy.' \
             "$PR_NUMBER" "$PR_TITLE" "$PR_URL" "$STAT" "$PR_NUMBER")
           curl -s "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
