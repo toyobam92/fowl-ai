@@ -41,6 +41,28 @@ def _topic_title(topic):
     return topic
 
 
+PUBLISH_WEEKDAYS = (0, 2, 4)  # Mon/Wed/Fri, auto-publish-nova.yml's slots
+
+
+def _open_slot(publish_date, posts, today=None):
+    """Keep publish_date if it's still today or later. If the pick/APPROVE
+    landed late and the render finished after its slot, roll forward to the
+    next Mon/Wed/Fri no other queued post holds -- otherwise post_to_meta's
+    MAX_DAYS_LATE guard holds it as stale forever (Sep 14 2026 episode)."""
+    today = today or datetime.date.today()
+    if not publish_date or datetime.date.fromisoformat(publish_date) >= today:
+        return publish_date
+    taken = {
+        p.get("publish_date")
+        for p in posts
+        if not p.get("dropped") and not (p.get("platforms_published") or {}).get("facebook")
+    }
+    day = today
+    while day.weekday() not in PUBLISH_WEEKDAYS or day.isoformat() in taken:
+        day += datetime.timedelta(days=1)
+    return day.isoformat()
+
+
 def emit_result(kind, detail=""):
     """Single tagged line on stdout that render-check-nova.yml greps for to
     decide whether/what to notify -- avoids the workflow having to infer
@@ -126,13 +148,17 @@ def main():
         emit_result("error", "completed with no video_url")
         sys.exit(1)
 
-    publish_date = nova_state.get("publish_date")
+    with open(SOCIAL_STATE_PATH, encoding="utf-8") as f:
+        social_state = json.load(f)
+
+    scheduled_date = nova_state.get("publish_date")
+    publish_date = _open_slot(scheduled_date, social_state.get("posts", []))
+    if publish_date != scheduled_date:
+        print(f"Render finished after its {scheduled_date} slot -- moved to {publish_date}.")
     day_name = (
         datetime.date.fromisoformat(publish_date).strftime("%A") if publish_date else "Unknown"
     )
 
-    with open(SOCIAL_STATE_PATH, encoding="utf-8") as f:
-        social_state = json.load(f)
     social_state.setdefault("posts", []).append(
         {
             "day": day_name,

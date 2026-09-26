@@ -269,7 +269,13 @@ def main():
         elif post.get("topic"):
             label += f" ({post['topic']})"
 
-        published = post.setdefault("platforms_published", {"facebook": False, "instagram": False, "tiktok": False})
+        # A human decided this one shouldn't ship (e.g. held as stale and
+        # its HeyGen URL expired) -- skip it without re-nagging every night.
+        if post.get("dropped"):
+            print(f"{label}: dropped ({post['dropped']}), skipping.")
+            continue
+
+        published =post.setdefault("platforms_published", {"facebook": False, "instagram": False, "tiktok": False})
         # Existing entries committed before Threads support won't have this
         # key at all -- setdefault on the dict itself only helps brand-new
         # posts, so backfill it explicitly for posts that already exist.
