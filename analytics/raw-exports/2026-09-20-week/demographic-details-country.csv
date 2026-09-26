@@ -1,0 +1,23 @@
+# ----------------------------------------
+# Demographic details: Country
+# Account: fowl AI
+# Property: fowl AI (539490882)
+# NOTE: NOT CAPTURED THIS CYCLE. The Claude in Chrome extension disconnected after the
+# Reports snapshot and Pages-and-screens pulls and before the Demographic details report
+# could be opened, so there is no country breakdown for 2026-09-14..2026-09-20.
+#
+# Nothing below is estimated or carried forward from a prior week. The only country-shaped
+# evidence available from this pull is the City card in reports-snapshot.csv, where all
+# seven top cities (Patna, Hyderabad, Lucknow, Ahmedabad, Bengaluru, Guwahati, Indore) are
+# in India — so India is almost certainly still the top country, but the per-country user
+# and key-event counts the metrics-history schema expects are genuinely unknown and are
+# left blank in that row rather than guessed.
+#
+# To backfill: GA4 > Reports > User > User attributes > Demographic details, date range
+# 2026-09-14 to 2026-09-20.
+# ----------------------------------------
+#
+# All Users
+# Start date: 20260914
+# End date: 20260920
+Country,Active users,New users,Engaged sessions,Engagement rate,Engaged sessions per active user,Average engagement time per active user,Event count,Key events,User key event rate,Total revenue
