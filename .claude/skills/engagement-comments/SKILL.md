@@ -50,7 +50,7 @@ git commit -m "Engagement batch for <today>: <n> comments"
 git push -u origin update/engage-<today>
 ```
 
-**Do not call `gh pr create`** — `open-nova-pr.yml` opens the PR automatically on any `update/engage-*` push (same silent-failure history as the Nova branches; see that workflow's header). Stop right after the push. `pr-notify.yml` pings Telegram; on `APPROVE <PR#>`, `telegram-approve.yml` merges, runs `automation/post_engagement_comments.py` (posts the Threads replies, marks the rest manual), commits the state, and sends the results + manual checklist to Telegram.
+**Do not call `gh pr create`** — `open-nova-pr.yml` opens the PR automatically on any `update/engage-*` push (same silent-failure history as the Nova branches; see that workflow's header). Stop right after the push. `open-nova-pr.yml` also sends the Telegram "New PR" ping with the preview (`pr-notify.yml` can't fire for bot-opened PRs); on `APPROVE <PR#>`, `telegram-approve.yml` merges, runs `automation/post_engagement_comments.py` (posts the Threads replies, marks the rest manual), commits the state, and sends the results + manual checklist to Telegram.
 
 ## 4. Report back
 
