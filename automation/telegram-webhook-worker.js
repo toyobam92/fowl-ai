@@ -48,6 +48,9 @@ async function githubToken(env) {
         Accept: 'application/vnd.github+json',
         'User-Agent': 'fowlai-telegram-webhook',
       },
+      // Narrowest token that can dispatch: one repo, Actions only, even if
+      // the app installation itself covers more.
+      body: JSON.stringify({ repositories: ['fowl-ai'], permissions: { actions: 'write' } }),
     }
   );
   if (!resp.ok) {

@@ -9,7 +9,7 @@ name: refresh-tokens
 # - Writing repo secrets needs more than GITHUB_TOKEN can do, so this mints
 #   a short-lived token from the fowlai-automation GitHub App (secrets
 #   FOWLAI_APP_ID / FOWLAI_APP_PRIVATE_KEY; app has Secrets + Actions write
-#   on this repo only). The same app authenticates the Telegram relay
+#   on this repo; create-github-app-token scopes each token to this repo). The same app authenticates the Telegram relay
 #   worker, replacing the PAT that expired and silently dropped Telegram
 #   replies Sep 14-22 2026.
 # - Facebook Page token (never-expiring) and the Telegram relay's webhook
