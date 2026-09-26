@@ -70,7 +70,13 @@ jobs:
           try:
               with open('automation/nova-pipeline-state.json') as f:
                   state = json.load(f)
-              print(state.get('picked_topic') or '')
+              # picked_topic lands as either a plain title or a {title, why}
+              # dict (same as check_nova_render.py) -- a raw dict leaked
+              # into PR #59's title on 2026-09-24.
+              topic = state.get('picked_topic') or ''
+              if isinstance(topic, dict):
+                  topic = topic.get('title') or ''
+              print(topic)
           except FileNotFoundError:
               print('')
           ")
