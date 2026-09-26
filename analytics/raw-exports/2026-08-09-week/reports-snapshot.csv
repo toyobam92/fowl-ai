@@ -1,0 +1,87 @@
+# ----------------------------------------
+# Reports snapshot
+# Account: fowl AI
+# Property: fowl AI
+# NOTE: pulled directly from the GA4 UI (Reports > Snapshot / Pages and screens, and
+# User attributes > Demographic details for the key-event total) via Claude in Chrome for
+# the weekly-analytics-review scheduled task, not a manual CSV export.
+# ----------------------------------------
+#
+# Start date: 20260803
+# End date: 20260809
+Active users,New users,Average engagement time per active user,Event count
+102,93,14,642
+
+#
+# Start date: 20260803
+# End date: 20260809
+Page title and screen class,Views,Active users,Event count,Bounce rate
+FOWL AI | AI Jobs, Platforms & Opportunities,72,54,285,0.754
+AI Platforms Directory — FOWL AI,27,23,87,0.667
+Contact — FOWL AI,24,23,116,0.087
+AI Jobs Board | Remote AI Opportunities & Roles | FOWL AI,19,11,57,0.722
+About TYB — FOWL AI,7,7,29,0.571
+All Issues — FOWL AI,6,5,12,0.500
+FOWL AI Tests — We Test AI Tools Head to Head, Monthly,4,2,9,1.000
+
+# NOTE: "FOWL AI Tests" (4 views, 2 users, 9 events, 100% bounce) is a NEW page path seen
+# for the first time in this report — flagged in the weekly review as a likely just-shipped
+# roadmap/experiment page (the head-to-head AI tool tests page). Its 100% bounce is a
+# 2-user sample and is directional only.
+
+#
+# Start date: 20260803
+# End date: 20260809
+First user source / medium,Active users
+google / organic,64
+(direct) / (none),19
+chatgpt.com / ai-assistant,5
+tiktok.com / referral,3
+(data not available),1
+bing / organic,1
+duckduckgo / organic,1
+
+#
+# Start date: 20260803
+# End date: 20260809
+Session source / medium,Sessions
+google / organic,69
+(direct) / (none),27
+chatgpt.com / ai-assistant,11
+tiktok.com / referral,3
+bing / organic,2
+search.brave.com / referral,2
+chatgpt.com / (none),1
+
+#
+# Start date: 20260803
+# End date: 20260809
+# NOTE: Nth-day new/returning cohort breakdown was not retrievable from the GA4 UI
+# snapshot/demographic views used for this pull (would require the Retention report,
+# which this session did not navigate to, consistent with prior cycles). Left blank —
+# see metrics-history.csv.
+Nth day,new,returning
+
+# How does activity on your platforms compare?
+# Start date: 20260803
+# End date: 20260809
+# NOTE: key-event total (23) taken from the Demographic details: Country report summary
+# row (All Users total Key events = 23.00). By country: India 17, United States 2,
+# Bangladesh 1, remaining 3 spread across the smaller-country rows. Only "generate_lead"
+# is currently marked as a GA4 Key Event; subscribe_click/subscribe_submit still fire but
+# remain unmarked — same pending manual step noted in EXPERIMENTS.md "Sitewide event
+# instrumentation" (TICKET-6).
+Platform,Key events
+web,23
+
+#
+# Start date: 20260803
+# End date: 20260809
+City,Active users
+Atlanta,11
+Lucknow,6
+Patna,5
+Ahmedabad,3
+Jaipur,3
+Hanoi,2
+Hyderabad,2
