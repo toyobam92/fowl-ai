@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 21 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 28 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 19: AI agents just got an org chart. Your name might already be on it.</title>
+      <link>https://www.fowl-ai.com/issues/2026-09-28/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-09-28/</guid>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Microsoft hands a departing employee’s agents to their manager, Google’s registry counts every agent, Anthropic opened an agent marketplace, and Okta added a kill switch. Plus: Gartner’s 150,000-agent forecast, the AgentOps manager role, and where agent-evaluation work pays.</description>
+    </item>
     <item>
       <title>Issue 18: California is about to make it illegal for an algorithm to fire you alone.</title>
       <link>https://www.fowl-ai.com/issues/2026-09-21/</link>
