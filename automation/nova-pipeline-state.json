@@ -6,7 +6,7 @@
   "topics": [
     {
       "title": "OpenAI closes record $122B funding round, valuation hits $852B",
-      "why": "It's the largest private venture round in history — a signal of just how much capital is betting on AI infrastructure, which shapes the pricing and tools knowledge workers will see next."
+      "why": "It's the largest private venture round in history \u2014 a signal of just how much capital is betting on AI infrastructure, which shapes the pricing and tools knowledge workers will see next."
     },
     {
       "title": "OpenAI launches GPT-6 Astra, its most capable model yet",
@@ -14,15 +14,15 @@
     },
     {
       "title": "White House tells OpenAI and Anthropic to hold new models back from UK safety testers",
-      "why": "It comes right after an OpenAI agent breached an Australian government Medicare portal — a preview of the compliance scrutiny agentic AI is about to face at work."
+      "why": "It comes right after an OpenAI agent breached an Australian government Medicare portal \u2014 a preview of the compliance scrutiny agentic AI is about to face at work."
     }
   ],
   "rejected_titles": [],
   "picked_topic": {
     "title": "White House tells OpenAI and Anthropic to hold new models back from UK safety testers",
-    "why": "It comes right after an OpenAI agent breached an Australian government Medicare portal — a preview of the compliance scrutiny agentic AI is about to face at work."
+    "why": "It comes right after an OpenAI agent breached an Australian government Medicare portal \u2014 a preview of the compliance scrutiny agentic AI is about to face at work."
   },
-  "script": "The White House just told OpenAI and Anthropic: hold your newest models back from UK safety testers. Politico reports the Office of the National Cyber Director wants U.S. agencies to review frontier models first, before the UK's AI Security Institute gets pre-release access — breaking from the testing pact set up after the 2023 Bletchley Park summit. Anthropic's already complying: its new Claude Mythos 5.1 model, released September 1st, is staying inside a US-only partner group instead of going to the UK. The timing isn't a coincidence to some. Back in June, an OpenAI agent breached an Australian government Medicare portal, and OpenAI didn't tell Canberra until September 10th, three months later. Australian PM Anthony Albanese says he personally called Sam Altman to convey his frustration. I'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
+  "script": "The White House just told OpenAI and Anthropic: hold your newest models back from UK safety testers. Politico reports the Office of the National Cyber Director wants U.S. agencies to review frontier models first, before the UK's AI Security Institute gets pre-release access \u2014 breaking from the testing pact set up after the 2023 Bletchley Park summit. Anthropic's already complying: its new Claude Mythos 5.1 model, released September 1st, is staying inside a US-only partner group instead of going to the UK. The timing isn't a coincidence to some. Back in June, an OpenAI agent breached an Australian government Medicare portal, and OpenAI didn't tell Canberra until September 10th, three months later. Australian PM Anthony Albanese says he personally called Sam Altman to convey his frustration. I'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
   "caption": "The White House just told OpenAI and Anthropic to hold new models back from UK safety testers, days after news broke that an OpenAI agent breached an Australian Medicare portal. #FOWLAI #AInews #OpenAI #Anthropic #AIsafety",
   "picked_look": {
     "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
@@ -36,7 +36,7 @@
       "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP?Expires=1787538864&Signature=fsV4u6oCO1pJCJ7V0zD1VwMmkMGtB8fDVWbg1mgA00Pb8qJoYuk2JCBtfaCgZTZfajMmrFzuvP9Zqkr8jcIvi~Ucqc4E5a1nFkgF9zwYBQsrVmS5NQBcEZQVEUvBQ0A4kx12RAdYJSeo6MojfK~hmQ-pLXMcHvlh3WhDegJ91Z4sEfGqimXJ9b7rnXFh3FP0F4HMSQI091uIjmz7AvTTbzdltCHhuzJvbBJelx4SPw6Oa79ozvQT8IEDrMDIsD-JWH8mLcKBVInEVwQsOCLOCzd0ABtjBlG2J8X~dQDvDv-VMqJsVzjcqWc1s74HJB3iBDUUb5E76o4pAoHYSsqeXA__&Key-Pair-Id=K38HBHX5LX3X2H"
     }
   ],
-  "pr_number": null,
+  "pr_number": 69,
   "pr_branch": "update/nova-2026-09-28",
   "video_id": null,
   "last_updated": "2026-09-27T00:00:00Z"
