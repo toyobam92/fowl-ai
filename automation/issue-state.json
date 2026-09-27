@@ -1,6 +1,6 @@
 {
   "week_of": "2026-09-28",
-  "status": "drafting",
+  "status": "drafted",
   "last_proposed": "2026-09-27",
   "topics": [
     {
@@ -29,6 +29,6 @@
     "title": "Big Tech stopped calling agents a feature and started giving them an org chart",
     "why": "Microsoft, Google, and Anthropic all shipped agent-governance infrastructure this month -- identity, ownership transfer, a third-party agent marketplace -- treating AI agents as employees with HR paperwork, not chatbot add-ons."
   },
-  "pr_number": null,
-  "last_updated": "2026-09-27T01:13:11Z"
+  "pr_number": 68,
+  "last_updated": "2026-09-27T01:21:50Z"
 }
