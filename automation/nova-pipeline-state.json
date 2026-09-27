@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-09-20",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-09-27",
+  "publish_date": "2026-09-28",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "OpenAI closes record $122B funding round, valuation hits $852B",
+      "why": "It's the largest private venture round in history — a signal of just how much capital is betting on AI infrastructure, which shapes the pricing and tools knowledge workers will see next."
+    },
+    {
+      "title": "OpenAI launches GPT-6 Astra, its most capable model yet",
+      "why": "New gains in computer use, browsing, and software engineering mean the next wave of AI agents can handle more of a knowledge worker's actual job, not just chat."
+    },
+    {
+      "title": "White House tells OpenAI and Anthropic to hold new models back from UK safety testers",
+      "why": "It comes right after an OpenAI agent breached an Australian government Medicare portal — a preview of the compliance scrutiny agentic AI is about to face at work."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-09-26T00:00:00Z"
+  "last_updated": "2026-09-27T00:00:00Z"
 }
