@@ -20,6 +20,10 @@ The established front-of-issue word budgets and source checks still apply. Each 
 
 Brand Brain, Launch Lab, and Guides & Resources promotions are paused. Do not carry them forward from old issues. Vibe Code Saturdays stays as one compact recurring block after the reply prompt. Its first date and venue are still unannounced; update only when confirmed.
 
+## Anniversary editions
+
+Issues 20, 50, 100, and every 50th after that add the rows in `anniversary-blocks.html`: a confetti band, a large marigold issue numeral with a "Special edition" pill, a milestone stats strip, a prediction scorecard, and a short thank-you. The blocks use the same inline-style, image-free approach as the base template. Each block's comment names where it goes. The rules for what goes in them are in `.claude/skills/weekly-issue/SKILL.md`, under "Anniversary editions".
+
 ## Before any actual send
 
 Check the filled issue in EmailOctopus Preview & test and in actual inboxes, especially mobile Gmail, Apple Mail, and Outlook. Browser rendering and static validation cannot establish email-client compatibility. Verify the configured sender address, merge tags, destinations, and preheader. Scheduling or sending requires the user's existing explicit authorization; preparing a template does not send it.

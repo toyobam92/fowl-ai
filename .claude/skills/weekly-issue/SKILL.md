@@ -221,6 +221,22 @@ gh workflow run review-email.yml \
 
 Leave `status` as `"drafted"` — this loop can repeat as many times as needed before `APPROVE`.
 
+## Anniversary editions (Issue 20, 50, 100, then every 50th)
+
+Milestone issues are **20, 50, 100, 150, 200, …** (the owner's pick, 2026-09-26). On those issues the normal cycle runs exactly as above, with a topic list, a pick, and a lead story, plus a celebratory look and a scorecard. A milestone is still a news issue. It doesn't turn into a retrospective, and the owner explicitly asked for a real topic alongside the predictions.
+
+**How to tell:** work out this week's issue number (step 3's method) as early as step 1. If it's a milestone, record `"special_edition": "anniversary"` in `issue-state.json` along with the other fields. In step 1, prefix the Telegram topic list with `Issue <N> is a special edition. Pick the lead topic; the scorecard and anniversary design are added automatically.` That way the owner knows the pick is only for the lead story.
+
+**What changes in the draft:**
+- **Design.** Start from `python3 automation/templates/assemble_anniversary.py <number of graded predictions> > /tmp/skeleton.html`. That merges `automation/templates/anniversary-blocks.html` into the normal template. Insert the confetti band as the first row. Replace the "The weekly brief" eyebrow with the ribbon (a big marigold issue numeral and a "Special edition" pill). Add the four-figure stats strip after the masthead, the scorecard before the new FOWL prediction, and the thank-you before the closing reflection. Each block's comment names its exact insertion point. Every other section stays in the base template's style and order. Put `Special edition` in `[EDITION_LABEL]` (for example `Issue 20 · Special edition`).
+- **Lead topic, trimmed.** Use **3** developments, not 5, so the scorecard has room. Keep every other section, and keep the front-of-issue budgets as they are.
+- **Scorecard.** If `automation/scorecards/issue-<N>.md` exists, start from it; it's research done ahead of time. Re-check any row whose evidence could have moved since it was written, before you publish. Grade every FOWL Prediction made since the previous milestone (for Issue 20, #4 through #19; for Issue 50, #20 through #49, plus any older prediction whose review date has passed). Research each one fresh with WebSearch and WebFetch, and cite a dated source per row. Verdicts: **Hit / Partial / Miss** for predictions that are due or already resolved, and **On track / Too early** for ones that aren't due yet. Grade strictly. The misses are what make the scorecard credible, so never soften one into "partial". A first-person prediction (like #8, about the owner's own contract count) needs the owner's real number: put it under "needs manual verification" in the PR, and mark it `Too early` until the owner supplies it. `[SCORECARD_LESSON]` is one sentence on what the misses taught.
+- **Stats strip.** Use the issue number, the live subscriber count (read it from the EmailOctopus audience when you schedule, or use the last known count from the previous send and flag it), predictions made, and weeks since the launch on 2026-05-27.
+- **New prediction.** The issue's own FOWL prediction follows the scorecard as usual, with a concrete review date.
+- **Thanks.** One or two sentences, specific (for example, the reply that changed a topic). No sales pitch, no promotional blocks.
+
+Add `Special edition` to the web copy's `<title>` and to the archive-list entry in `issues/index.html`.
+
 ## 10. Report back
 
 Summarize in chat (or, if run unattended by the cloud routine, this is the routine's entire output): issue number/date, the PR link, the top developments covered, and anything flagged for manual verification.
