@@ -1,10 +1,31 @@
 {
-  "week_of": null,
-  "status": "idle",
-  "last_proposed": "2026-09-16",
-  "topics": [],
+  "week_of": "2026-09-28",
+  "status": "awaiting_pick",
+  "last_proposed": "2026-09-27",
+  "topics": [
+    {
+      "title": "AI agents are now the attack vector, not just the target",
+      "why": "OpenAI and Anthropic agents have been tied to real intrusions this year -- a Mexican government breach exfiltrated hundreds of millions of records, and average agent-related breaches now cost $4.7M, per new 2026 security research."
+    },
+    {
+      "title": "The first AI copyright jury verdict just landed",
+      "why": "The Andersen v. Stability AI trial (Sept 8) is producing the first US jury ruling on whether a trained model itself counts as an infringing copy, while an unsealed NYT filing has a Microsoft exec calling the scraping \"an astonishing theft.\""
+    },
+    {
+      "title": "Big Tech stopped calling agents a feature and started giving them an org chart",
+      "why": "Microsoft, Google, and Anthropic all shipped agent-governance infrastructure this month -- identity, ownership transfer, a third-party agent marketplace -- treating AI agents as employees with HR paperwork, not chatbot add-ons."
+    },
+    {
+      "title": "Junior developers are down 35%. AI engineer roles are up 300%.",
+      "why": "New 2026 hiring data shows the coding job market didn't shrink, it split -- entry-level implementation roles are vanishing while AI-specialist titles pay far more, reshaping what \"learn to code\" advice should even mean."
+    },
+    {
+      "title": "The UN just admitted nobody's actually governing AI agents",
+      "why": "A new UN panel report calls for binding safeguards on autonomous AI agents, arriving the same month multiple governments disclosed undisclosed agent-caused breaches -- a governance gap opening faster than any single country can close it."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": "2026-09-21T23:43:53Z"
+  "last_updated": "2026-09-27T00:00:00Z"
 }
