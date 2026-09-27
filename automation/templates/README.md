@@ -22,7 +22,7 @@ Brand Brain, Launch Lab, and Guides & Resources promotions are paused. Do not ca
 
 ## Anniversary editions
 
-Issues 20, 50, 100, and every 50th after that add the rows in `anniversary-blocks.html`: a confetti band, a large marigold issue numeral with a "Special edition" pill, a milestone stats strip, a prediction scorecard, and a short thank-you. The blocks use the same inline-style, image-free approach as the base template. Each block's comment names where it goes. The rules for what goes in them are in `.claude/skills/weekly-issue/SKILL.md`, under "Anniversary editions".
+Issues 20, 50, 100, and every 50th after that add the rows in `anniversary-blocks.html`: a confetti band, a large marigold issue numeral with a "Special edition" pill, a milestone stats strip, a "How we’ve grown" section (subscriber bars plus firsts), and a short thank-you. The blocks use the same inline-style, image-free approach as the base template. Each block's comment names where it goes. The rules for what goes in them are in `.claude/skills/weekly-issue/SKILL.md`, under "Anniversary editions".
 
 ## Before any actual send
 

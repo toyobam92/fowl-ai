@@ -6,7 +6,7 @@
   only: no images, so the celebration survives image blocking.
 
   Palette additions (everything else is the base template's):
-    marigold #f2a12b   cream #fff6e6   ink-on-marigold #3d2a06   miss red #b4432f
+    marigold #f2a12b   cream #fff6e6   ink-on-marigold #3d2a06
 -->
 
 <!-- BLOCK confetti: insert as the FIRST row inside the 640px table, above the
@@ -50,39 +50,31 @@
 </tr></table>
 </td></tr>
 
-<!-- BLOCK scorecard: insert immediately BEFORE the dark "FOWL prediction" row,
-     so the issue grades the old calls and then makes the new one. Repeat the
-     SCORE_ROW once per graded prediction (newest-due first). Verdict chip styles:
-       Hit        background:#185b42; color:#ffffff
-       Partial    background:#f2a12b; color:#3d2a06
-       Miss       background:#b4432f; color:#ffffff
-       On track   background:#dcf0e3; color:#185b42
-       Too early  background:#eceee9; color:#61705b
-     Only Hit / Partial / Miss go in the tally; the others are "still open". -->
-<tr><td class="email-gutter" bgcolor="#fff6e6" style="padding:34px 40px 26px;background:#fff6e6;border-top:4px solid #f2a12b;">
-<p style="margin:0 0 13px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.5;color:#185b42;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;">The scorecard</p>
-<h2 style="margin:0 0 12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:30px;font-weight:600;line-height:1.16;letter-spacing:-0.8px;color:#18251f;">[SCORECARD_HEADING]</h2>
-<p style="margin:0 0 20px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#61705b;">[SCORECARD_INTRO]</p>
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:20px;"><tr>
-<td width="25%" bgcolor="#185b42" style="background:#185b42;border-radius:10px 0 0 10px;padding:12px 8px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.3;color:#ffffff;"><strong style="font-size:22px;">[TALLY_HIT]</strong><br>hit</td>
-<td width="25%" bgcolor="#f2a12b" style="background:#f2a12b;padding:12px 8px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.3;color:#3d2a06;"><strong style="font-size:22px;">[TALLY_PARTIAL]</strong><br>partial</td>
-<td width="25%" bgcolor="#b4432f" style="background:#b4432f;padding:12px 8px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.3;color:#ffffff;"><strong style="font-size:22px;">[TALLY_MISS]</strong><br>miss</td>
-<td width="25%" bgcolor="#ffffff" style="background:#ffffff;border-radius:0 10px 10px 0;padding:12px 8px;text-align:center;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.3;color:#61705b;"><strong style="font-size:22px;color:#18251f;">[TALLY_OPEN]</strong><br>still open</td>
+<!-- BLOCK growth: insert immediately BEFORE the closing-reflection row (the
+     thank-you goes between this and the closing). "How we've grown": a bar per
+     subscriber checkpoint, then a few firsts. Repeat GROWTH_ROW once per checkpoint,
+     oldest first. [BAR_PCT] = that count / the latest count * 100, rounded (the latest
+     row is 100). Use real, recorded counts only; no projections. -->
+<tr><td class="email-gutter" bgcolor="#fff6e6" style="padding:34px 40px 28px;background:#fff6e6;border-top:4px solid #f2a12b;">
+<p style="margin:0 0 13px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.5;color:#185b42;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;">How we’ve grown</p>
+<h2 style="margin:0 0 12px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:30px;font-weight:600;line-height:1.16;letter-spacing:-0.8px;color:#18251f;">[GROWTH_HEADING]</h2>
+<p style="margin:0 0 22px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.7;color:#61705b;">[GROWTH_INTRO]</p>
+<!-- GROWTH_ROW (repeat) -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:8px;"><tr>
+<td width="72" valign="middle" style="width:72px;padding-right:10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.3;color:#61705b;">[GROWTH_DATE]</td>
+<td valign="middle"><table role="presentation" width="[BAR_PCT]%" cellspacing="0" cellpadding="0" border="0"><tr><td bgcolor="#185b42" style="background:#185b42;border-radius:6px;padding:6px 10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.2;font-weight:700;color:#ffffff;white-space:nowrap;">[GROWTH_VALUE]</td></tr></table></td>
 </tr></table>
-<!-- SCORE_ROW (repeat) -->
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:10px;"><tr><td bgcolor="#ffffff" style="background:#ffffff;border-radius:12px;padding:16px 18px;">
-<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr>
-<td valign="top" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:11px;line-height:1.5;color:#61705b;">#[PRED_NUMBER] · [PRED_DATE]</td>
-<td valign="top" align="right"><span style="display:inline-block;[VERDICT_CHIP_STYLE]border-radius:999px;padding:3px 9px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;line-height:14px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">[VERDICT]</span></td>
+<!-- /GROWTH_ROW -->
+<p style="margin:22px 0 10px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:10px;line-height:1.5;color:#185b42;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;">Firsts along the way</p>
+<!-- FIRST_ROW (repeat, 3–5 times) -->
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="margin-bottom:8px;"><tr>
+<td width="18" valign="top" style="width:18px;padding-top:7px;"><table role="presentation" cellspacing="0" cellpadding="0" border="0"><tr><td width="8" height="8" bgcolor="#f2a12b" style="width:8px;height:8px;background:#f2a12b;border-radius:4px;font-size:0;line-height:0;">&nbsp;</td></tr></table></td>
+<td valign="top" style="font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;color:#18251f;"><strong>[FIRST_LABEL]</strong> <span style="color:#61705b;">[FIRST_DETAIL]</span></td>
 </tr></table>
-<p style="margin:6px 0 6px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:15px;line-height:1.45;font-weight:600;color:#18251f;">[PRED_SHORT]</p>
-<p style="margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.6;color:#61705b;">[PRED_EVIDENCE] <a href="[PRED_SOURCE_URL]" style="color:#185b42;text-decoration:underline;text-underline-offset:3px;">[PRED_SOURCE_LABEL]</a></p>
-</td></tr></table>
-<!-- /SCORE_ROW -->
-<p style="margin:14px 0 0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif;font-size:13px;line-height:1.6;color:#61705b;">[SCORECARD_LESSON]</p>
+<!-- /FIRST_ROW -->
 </td></tr>
 
-<!-- BLOCK thanks: insert immediately BEFORE the closing-reflection row. One
+<!-- BLOCK thanks: insert immediately BEFORE the closing-reflection row, after growth. One
      short, specific thank-you. Keep it to one or two sentences. -->
 <tr><td class="email-gutter" bgcolor="#ffffff" style="padding:30px 40px 0;background:#ffffff;">
 <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0"><tr><td bgcolor="#fff6e6" style="background:#fff6e6;border:1px solid #f5d9a6;border-radius:12px;padding:18px 20px;">
