@@ -1,11 +1,37 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-09-03",
-  "test_number": 3,
-  "matchups": [],
+  "status": "awaiting_pick",
+  "last_proposed": "2026-09-28",
+  "test_number": 4,
+  "matchups": [
+    {
+      "task": "Build a one-page freelancer budget spreadsheet (Q4 income/expenses, with working formulas and a running balance) from a one-paragraph brief",
+      "tools": ["ChatGPT (GPT-6 Astra)", "Gemini", "Claude.ai", "Microsoft Copilot"],
+      "why": "Spreadsheet agents are the new proving ground now that GPT-6 Astra's broader agent tooling just rolled out"
+    },
+    {
+      "task": "Draft a one-page security-deposit demand letter for a real (fictional but detailed) landlord dispute",
+      "tools": ["Claude.ai", "ChatGPT", "Perplexity", "Gemini"],
+      "why": "Letter-writing for real-life disputes is one of the most common everyday AI use cases, and easy to fact-check for invented claims"
+    },
+    {
+      "task": "Write and actually run a nightly backup cron/bash script for a home NAS directory, verified end-to-end",
+      "tools": ["Claude Code", "ChatGPT Codex", "Gemini", "GitHub Copilot"],
+      "why": "Agentic coding tools are the fastest-growing category this month, per the wave of new agent-management and browser-automation launches"
+    },
+    {
+      "task": "Turn a 3-bullet startup idea into a one-page investor teaser deck (PPTX)",
+      "tools": ["Gamma", "ChatGPT", "Claude.ai", "Gemini"],
+      "why": "Pitch-deck generation is a top founder ask and the output is highly visual, making sloppy work easy to spot"
+    },
+    {
+      "task": "Produce a printable 4-week beginner strength-training plan (PDF) from a short fitness brief",
+      "tools": ["ChatGPT", "Claude.ai", "Gemini", "Perplexity"],
+      "why": "Personal-plan generation is a top consumer AI use case where fabricated or unsafe advice is a real, checkable risk"
+    }
+  ],
   "rejected_matchups": [],
   "picked_matchup": null,
   "pr_number": null,
   "last_nudged": null,
-  "last_updated": "2026-09-26T18:37:45Z"
+  "last_updated": "2026-09-28T00:39:08Z"
 }
