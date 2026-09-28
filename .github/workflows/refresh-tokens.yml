@@ -12,6 +12,12 @@ name: refresh-tokens
 #   on this repo; create-github-app-token scopes each token to this repo). The same app authenticates the Telegram relay
 #   worker, replacing the PAT that expired and silently dropped Telegram
 #   replies Sep 14-22 2026.
+# - The *_BRANDBRAINHQ / *_CITYSIGNAL tokens are the same kind of 60-day
+#   tokens for @brandbrainhq and @citysignalatl. Their working copies live in
+#   the owner's Mac Keychain, refreshed by a Monday launchd job there; these
+#   are an off-laptop copy so the accounts stay connected if that Mac dies.
+#   A refresh mints a NEW token and the old one keeps working until its own
+#   expiry, so the two copies are independent chains and never clash.
 # - Facebook Page token (never-expiring) and the Telegram relay's webhook
 #   health are checked, not refreshed.
 #
@@ -44,6 +50,10 @@ jobs:
           REPO: ${{ github.repository }}
           META_IG_ACCESS_TOKEN: ${{ secrets.META_IG_ACCESS_TOKEN }}
           META_THREADS_ACCESS_TOKEN: ${{ secrets.META_THREADS_ACCESS_TOKEN }}
+          META_IG_ACCESS_TOKEN_BRANDBRAINHQ: ${{ secrets.META_IG_ACCESS_TOKEN_BRANDBRAINHQ }}
+          META_IG_ACCESS_TOKEN_CITYSIGNAL: ${{ secrets.META_IG_ACCESS_TOKEN_CITYSIGNAL }}
+          META_THREADS_ACCESS_TOKEN_BRANDBRAINHQ: ${{ secrets.META_THREADS_ACCESS_TOKEN_BRANDBRAINHQ }}
+          META_THREADS_ACCESS_TOKEN_CITYSIGNAL: ${{ secrets.META_THREADS_ACCESS_TOKEN_CITYSIGNAL }}
           META_PAGE_ACCESS_TOKEN: ${{ secrets.META_PAGE_ACCESS_TOKEN }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         run: |
@@ -74,6 +84,15 @@ jobs:
             "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${META_IG_ACCESS_TOKEN}"
           refresh META_THREADS_ACCESS_TOKEN \
             "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=${META_THREADS_ACCESS_TOKEN}"
+
+          # @brandbrainhq and @citysignalatl (off-laptop backup copies)
+          for brand in BRANDBRAINHQ CITYSIGNAL; do
+            ig="META_IG_ACCESS_TOKEN_${brand}"; th="META_THREADS_ACCESS_TOKEN_${brand}"
+            refresh "$ig" \
+              "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${!ig}"
+            refresh "$th" \
+              "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=${!th}"
+          done
 
           # Facebook Page token: never expires, but can be revoked.
           if curl -s --max-time 30 "https://graph.facebook.com/v21.0/me?fields=id&access_token=${META_PAGE_ACCESS_TOKEN}" | jq -e '.id' >/dev/null; then
