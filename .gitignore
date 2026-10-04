@@ -4,3 +4,4 @@
 *.key
 *secret*
 .claude/worktrees/
+.impeccable/
