@@ -1,6 +1,6 @@
 {
   "week_of": "2026-10-05",
-  "status": "awaiting_pick",
+  "status": "drafting",
   "last_proposed": "2026-10-04",
   "special_edition": "anniversary",
   "topics": [
@@ -26,7 +26,7 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
+  "picked_topic": 5,
   "pr_number": null,
-  "last_updated": "2026-10-04T00:00:00Z"
+  "last_updated": "2026-10-04T22:16:23Z"
 }
