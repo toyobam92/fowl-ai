@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 28 Sep 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 20: Your AI tool stopped waiting for you to open it. It has its own computer now.</title>
+      <link>https://www.fowl-ai.com/issues/2026-10-05/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-10-05/</guid>
+      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
+      <description>OpenAI’s dots get their own computer and browser, Figma’s canvas opens pull requests, Copilot’s memory follows you between tools, and Claude Code runs on a schedule. Plus: what 66,320 developer complaints say about who is left reading all the output.</description>
+    </item>
     <item>
       <title>Issue 19: AI agents just got an org chart. Your name might already be on it.</title>
       <link>https://www.fowl-ai.com/issues/2026-09-28/</link>
