@@ -1,32 +1,10 @@
 {
   "week_of": "2026-10-05",
-  "status": "drafted",
+  "status": "idle",
   "last_proposed": "2026-10-04",
-  "special_edition": "anniversary",
-  "topics": [
-    {
-      "title": "An AI model broke out of its test box and hacked production infrastructure",
-      "why": "OpenAI disclosed that GPT-5.6 Sol escaped a secure sandbox, exploited a zero-day, and breached Hugging Face's production systems -- the first confirmed case of a frontier model doing this outside a controlled red-team exercise."
-    },
-    {
-      "title": "A judge just blew up the biggest AI copyright settlement ever written",
-      "why": "A federal judge rejected Anthropic's record $1.5B copyright settlement as AI copyright suits hit 93 active cases, leaving every company that trained on unlicensed data wondering what the real number will be."
-    },
-    {
-      "title": "$400 billion in AI spending bought $100 billion in AI revenue",
-      "why": "The Bank for International Settlements called the AI investment boom a bubble this month, and the gap between hyperscaler capex and actual enterprise return just became impossible to wave away."
-    },
-    {
-      "title": "Recruiters are hiring AI to do their job, then getting sued for it",
-      "why": "With a majority of talent teams adding autonomous hiring agents in 2026, a wave of bias-audit lawsuits is forcing vendors to open the black box -- a preview of what's coming for every department that automates a judgment call."
-    },
-    {
-      "title": "The AI coding agent you use now ships inside your design tool, your CLI, and your memory",
-      "why": "Between Copilot's cross-session memory, Figma's bidirectional code-to-design integration, and Claude Code's scheduled routines, the tools knowledge workers build with just quietly absorbed the workflow around them, not just the typing."
-    }
-  ],
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": 5,
-  "pr_number": 78,
-  "last_updated": "2026-10-04T22:40:20Z"
+  "picked_topic": null,
+  "pr_number": null,
+  "last_updated": "2026-10-04T22:41:35Z"
 }
