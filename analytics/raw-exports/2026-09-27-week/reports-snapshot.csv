@@ -1,0 +1,114 @@
+# ----------------------------------------
+# Reports snapshot
+# Account: fowl AI (396215392)
+# Property: fowl AI (539490882)
+# NOTE: pulled directly from the GA4 UI (Reports > Snapshot and Reports > Engagement >
+# Pages and screens) via Claude in Chrome for the weekly-analytics-review scheduled task
+# on 2026-09-27, not a manual CSV export. Numbers transcribed from the rendered report
+# tables; nothing estimated or carried forward.
+# NOTE: reporting period is the 7 days ending today (2026-09-27), so the final day is
+# partial. This window does NOT overlap the prior row (2026-09-14..2026-09-20) — an
+# independent, contiguous week.
+# NOTE: Snapshot card shows Event count as "3.9K"; the exact total (3,855) is from the
+# Pages and screens report totals row.
+# ----------------------------------------
+#
+# Start date: 20260921
+# End date: 20260927
+Active users,New users,Average engagement time per active user,Event count,Engagement rate
+609,602,7,3855,0.63
+# Engagement rate (63%) taken from the Demographic details: Country totals row.
+
+#
+# Start date: 20260921
+# End date: 20260927
+# Top pages by "Page title and screen class" (Reports snapshot card, carries bounce rate).
+Page title and screen class,Views,Active users,Event count,Bounce rate
+FOWL AI | The future of work. Your next advantage.,373,279,1700,0.594
+Contact — FOWL AI,343,301,1600,0.013
+AI Jobs Board | Remote AI Opportunities & Roles | FOWL AI,102,81,286,0.551
+AI Platforms Directory — FOWL AI,18,15,51,0.133
+All Issues — FOWL AI,18,16,54,0.438
+Vibe Code Saturdays — Bring an Idea. Leave with a Build.,18,12,52,0.333
+FOWL AI Tests — We Test AI Tools Head to Head, Monthly,8,7,33,0.000
+# NOTE: event counts on this card are rounded by GA4 ("1.7K", "1.6K"); exact per-path
+# counts are in the path-level table below.
+
+#
+# Start date: 20260921
+# End date: 20260927
+# Path-level report (Pages and screens: Page path and screen class). All 17 rows captured.
+Page path and screen class,Views,Active users,Avg engagement time per active user,Event count,Key events
+/,373,279,11,1696,0.00
+/contact/,343,301,2,1634,344.00
+/jobs/,102,81,3,286,0.00
+/issues/,18,16,2,55,0.00
+/platforms/,18,15,5,51,0.00
+/vibe-code-saturdays/,18,12,7,52,0.00
+/tests/,8,7,6,33,0.00
+/issues/2026-09-21/,5,5,11,10,0.00
+/issues/2026-07-13/,4,3,36,14,0.00
+/tests/best-ai-voiceover-generator/,3,2,16,7,0.00
+/about/,2,2,6,5,0.00
+/issues/2026-09-14/,2,2,4,3,0.00
+/issues/2026-06-01/,1,1,43,5,0.00
+/issues/2026-06-22/,1,1,0,1,0.00
+/issues/2026-08-31/,1,1,0,1,0.00
+/issues/2026-09-07/,1,1,0,1,0.00
+/tests/best-ai-landing-page-builder/,1,1,0,1,0.00
+# Totals: 901 views, 609 active users, 1.48 views/user, 7s avg engagement, 3,855 events, 344 key events.
+# NOTE: /glossary/ recorded 0 views this period (absent from the report).
+
+#
+# Start date: 20260921
+# End date: 20260927
+First user source / medium,Active users
+google / organic,537
+(direct) / (none),41
+(data not available),14
+bing / organic,3
+chatgpt.com / ai-assistant,2
+coccoc.com / referral,2
+in.search.yahoo.com / referral,2
+
+#
+# Start date: 20260921
+# End date: 20260927
+Session source / medium,Sessions
+google / organic,563
+(direct) / (none),47
+(data not available),13
+bing / organic,7
+chatgpt.com / ai-assistant,2
+coccoc.com / referral,2
+in.search.yahoo.com / referral,2
+
+#
+# Start date: 20260921
+# End date: 20260927
+# NOTE: New vs Returning card is a chart only (no table text exposed); Nth-day cohort
+# numbers not retrieved, consistent with prior cycles. Left blank in metrics-history.csv.
+Nth day,new,returning
+
+# How does activity on your platforms compare?
+# Start date: 20260921
+# End date: 20260927
+# NOTE: Key events by Platform card = web 100.0%. All 344 key events are on /contact/.
+# There is no <form> and no generate_lead call anywhere in the site code (contact/index.html
+# only loads the base gtag config), and every archived week shows key events ≈ Contact
+# views (35/35, 23/24, 26/24, 38/36, 13/13, 104/96, 344/343). This strongly suggests the
+# key event is a GA4-side rule firing on Contact page_view, not a submitted lead.
+Platform,Key events
+web,344
+
+#
+# Start date: 20260921
+# End date: 20260927
+City,Active users
+Lucknow,40
+Patna,28
+Delhi,23
+Ahmedabad,20
+Jaipur,20
+Bengaluru,16
+Dhaka,15
