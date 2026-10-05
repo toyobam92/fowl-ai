@@ -242,11 +242,12 @@
       "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
       "look_name": "Too-Purple, Black-Bottomed",
       "platforms_published": {
-        "facebook": false,
-        "instagram": false,
+        "facebook": true,
+        "instagram": true,
         "tiktok": false,
-        "threads": false
-      }
+        "threads": true
+      },
+      "posted_at": "2026-10-05T02:18:31+00:00"
     }
   ]
 }
