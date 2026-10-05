@@ -231,6 +231,22 @@
         "threads": false
       },
       "dropped": "2026-09-26: 12 days stale, HeyGen URL expired Sep 24"
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-10-05",
+      "topic": "Trump says the US government may take equity stakes in OpenAI or Anthropic",
+      "script": "The U.S. government might become a shareholder in OpenAI. Sam Altman has reportedly pitched Trump officials \u2014 including Commerce Secretary Howard Lutnick and Treasury Secretary Scott Bessent \u2014 on handing Washington a 5% equity stake, worth roughly $42.6 billion off OpenAI's $852 billion valuation. The model floated: something like the Alaska Permanent Fund, where corporate equity feeds a sovereign wealth fund \u2014 echoing the government's 10% stake in Intel earlier this year. Anthropic says it hasn't had those talks, but if this moves forward, Washington could end up a part-owner of the AI tools knowledge workers use every day.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "OpenAI has reportedly offered Washington a $42.6 billion, 5% equity stake modeled on the government's Intel deal \u2014 here's what a government-owned slice of AI could mean for your tools. #AI #OpenAI #TechNews #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/5a6d324bb087dc8614957dec73b42d6c.mp4?download_id=008c8d10-6d57-440a-b410-35a090f711ef&Expires=1791764980&Signature=UysaX7926qzxO1FznLxQJzib4D28~F8asRBRl8OAEZiUVEPCLxwsxU-E86crk33hT8afSwR5cSAShG5ON-7x9MjY1DDrFolliVDVzoLIqbCP1iRu3V2UKNfwP1P6T7F9TD6H83lTPeOXiUR2Ik7eh6VZ~8Zv0gb6TJpVmWqHvUU-kRQVBQ2kUsm8t-XGVHjgVQloPBqxAbt1hDq8MLgP7XNt9WmKslKsqHRfFVfVee9IIwgSR0v848z4NYx70z5pZxz83zD6FX1AMGQdBtSxc~aSbHDJPZ6zrh9d2XaDu0FMPaU73GZd1ubeh~vSD2Uj9AEhLE6MOlHykPX6tS-7vg__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
+      "look_name": "Too-Purple, Black-Bottomed",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
