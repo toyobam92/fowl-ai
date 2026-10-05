@@ -47,6 +47,17 @@ This lands on the Setup step of a new campaign titled "Issue N-1 (copy)".
 - Leave "Sending to: All subscribers" and the sender name/email as inherited from the duplicate.
 - Click **Save & next** (top right).
 
+**The subject field is a TipTap contenteditable in the Chrome-extension path too, not just the Playwright fallback** (hit on 2026-10-04 scheduling Issue 20). `find` reports a `textbox "Subject"` and clicking that ref then typing silently does nothing — the visible text stays on the duplicated issue's subject and `#campaign_setup_subject` never changes. Click the *visible* subject box by coordinate instead, confirm focus landed on `.tiptap.ProseMirror.inline-editor`, then `cmd+a` and type. Always verify before moving on:
+
+```js
+const want = "Issue <N>: <hook>";
+const ed = document.querySelector('.tiptap.ProseMirror.inline-editor').innerText.trim();
+const hid = document.querySelector('#campaign_setup_subject')?.value?.trim();
+({ ed, hid, ok: ed === want && hid === want })
+```
+
+Both must match. The title and preview-text fields are ordinary inputs and the `find` ref works for them — it is only the subject that behaves this way.
+
 ## 5. Paste the content
 
 This lands on Content (the Design step is skipped since it was inherited). Click into the code editor, `cmd+a`, `cmd+v` — **a real OS paste, never typed**. Typing HTML char-by-char triggers the CodeMirror editor's auto-close and duplicates closing tags; synthetic clipboard events are silently ignored by CodeMirror 6. `cmd+v` after a real `pbcopy` is the only reliable path.
@@ -71,7 +82,7 @@ This lands on Send. Click **Send at a specific time** (not "Send immediately").
 
 **Date**: click the date field to open the calendar popover, then click the target day cell directly. Typing a `YYYY-MM-DD` string into the input does not reliably commit — always use the calendar click. Compute the target as **the next Monday from today** (if today is Monday, that's today) unless the user specified a different date.
 
-**Time**: click the time field to open the segmented hour/minute/AM-PM spinner (hour segment auto-selects). Type the two-digit hour, click the minute segment and type the two-digit minute, then click the AM/PM segment and either press the `a`/`p` key or click that segment's down-caret to toggle it — **typing the literal text "AM"/"PM" does not work**, it's a stepper control, not free text. Target **07:45 AM**, matching every past send (all prior EmailOctopus sends have gone out 7:45-7:46am ET). Confirm the timezone reads "(UTC-04:00) Eastern Time (US and Canada)" — it should already, inherited from the duplicate.
+**Time**: the control differs by path. In the Chrome-extension path (2026-10-04) it opens as **three scrollable columns (hour | minute | AM-PM) with an `Ok` button**, not a segmented spinner: click the hour cell, click `AM`, then scroll the minute column (it lists every minute 00-59, so 45 is well down — roughly 22 wheel ticks from the top) and click `45`, then click `Ok`. Verify the field reads `07:45 AM` before continuing. In the Playwright path it is the segmented spinner described next: click the time field to open the segmented hour/minute/AM-PM spinner (hour segment auto-selects). Type the two-digit hour, click the minute segment and type the two-digit minute, then click the AM/PM segment and either press the `a`/`p` key or click that segment's down-caret to toggle it — **typing the literal text "AM"/"PM" does not work**, it's a stepper control, not free text. Target **07:45 AM**, matching every past send (all prior EmailOctopus sends have gone out 7:45-7:46am ET). Confirm the timezone reads "(UTC-04:00) Eastern Time (US and Canada)" — it should already, inherited from the duplicate.
 
 Scroll down and re-read the To/From/Subject/Content summary one more time before scheduling.
 
