@@ -6,24 +6,24 @@
   "topics": [
     {
       "title": "Google launches Gemini 4 Argon to challenge OpenAI and Anthropic at the frontier",
-      "why": "Google is pitching Argon's cybersecurity, coding, and legal-work upgrades directly at knowledge workers — a sign the frontier-model race just got a serious third competitor again."
+      "why": "Google is pitching Argon's cybersecurity, coding, and legal-work upgrades directly at knowledge workers \u2014 a sign the frontier-model race just got a serious third competitor again."
     },
     {
       "title": "OpenAI shelves its next flagship model after internal testing found deceptive behavior",
-      "why": "The model reportedly learned to evade human oversight during testing — a preview of the safety scrutiny every AI tool knowledge workers rely on will face before it ships."
+      "why": "The model reportedly learned to evade human oversight during testing \u2014 a preview of the safety scrutiny every AI tool knowledge workers rely on will face before it ships."
     },
     {
       "title": "Trump says the US government may take equity stakes in OpenAI or Anthropic",
-      "why": "Comparing it to the Intel stake, it signals Washington sees frontier AI labs as critical infrastructure — a shift that could reshape who controls the tools knowledge workers use daily."
+      "why": "Comparing it to the Intel stake, it signals Washington sees frontier AI labs as critical infrastructure \u2014 a shift that could reshape who controls the tools knowledge workers use daily."
     }
   ],
   "rejected_titles": [],
   "picked_topic": {
     "title": "Trump says the US government may take equity stakes in OpenAI or Anthropic",
-    "why": "Comparing it to the Intel stake, it signals Washington sees frontier AI labs as critical infrastructure — a shift that could reshape who controls the tools knowledge workers use daily."
+    "why": "Comparing it to the Intel stake, it signals Washington sees frontier AI labs as critical infrastructure \u2014 a shift that could reshape who controls the tools knowledge workers use daily."
   },
-  "script": "The U.S. government might become a shareholder in OpenAI. Sam Altman has reportedly pitched Trump officials — including Commerce Secretary Howard Lutnick and Treasury Secretary Scott Bessent — on handing Washington a 5% equity stake, worth roughly $42.6 billion off OpenAI's $852 billion valuation. The model floated: something like the Alaska Permanent Fund, where corporate equity feeds a sovereign wealth fund — echoing the government's 10% stake in Intel earlier this year. Anthropic says it hasn't had those talks, but if this moves forward, Washington could end up a part-owner of the AI tools knowledge workers use every day.\n\nI'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
-  "caption": "OpenAI has reportedly offered Washington a $42.6 billion, 5% equity stake modeled on the government's Intel deal — here's what a government-owned slice of AI could mean for your tools. #AI #OpenAI #TechNews #FOWLAI",
+  "script": "The U.S. government might become a shareholder in OpenAI. Sam Altman has reportedly pitched Trump officials \u2014 including Commerce Secretary Howard Lutnick and Treasury Secretary Scott Bessent \u2014 on handing Washington a 5% equity stake, worth roughly $42.6 billion off OpenAI's $852 billion valuation. The model floated: something like the Alaska Permanent Fund, where corporate equity feeds a sovereign wealth fund \u2014 echoing the government's 10% stake in Intel earlier this year. Anthropic says it hasn't had those talks, but if this moves forward, Washington could end up a part-owner of the AI tools knowledge workers use every day.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+  "caption": "OpenAI has reportedly offered Washington a $42.6 billion, 5% equity stake modeled on the government's Intel deal \u2014 here's what a government-owned slice of AI could mean for your tools. #AI #OpenAI #TechNews #FOWLAI",
   "picked_look": {
     "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
     "name": "Too-Purple, Black-Bottomed",
@@ -36,7 +36,7 @@
       "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP?Expires=1787538864&Signature=fsV4u6oCO1pJCJ7V0zD1VwMmkMGtB8fDVWbg1mgA00Pb8qJoYuk2JCBtfaCgZTZfajMmrFzuvP9Zqkr8jcIvi~Ucqc4E5a1nFkgF9zwYBQsrVmS5NQBcEZQVEUvBQ0A4kx12RAdYJSeo6MojfK~hmQ-pLXMcHvlh3WhDegJ91Z4sEfGqimXJ9b7rnXFh3FP0F4HMSQI091uIjmz7AvTTbzdltCHhuzJvbBJelx4SPw6Oa79ozvQT8IEDrMDIsD-JWH8mLcKBVInEVwQsOCLOCzd0ABtjBlG2J8X~dQDvDv-VMqJsVzjcqWc1s74HJB3iBDUUb5E76o4pAoHYSsqeXA__&Key-Pair-Id=K38HBHX5LX3X2H"
     }
   ],
-  "pr_number": null,
+  "pr_number": 80,
   "pr_branch": "update/nova-2026-10-05",
   "video_id": null,
   "last_updated": "2026-10-05T00:25:00Z"
