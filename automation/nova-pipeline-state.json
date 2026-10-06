@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-10-04",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-10-06",
+  "publish_date": "2026-10-07",
+  "tone": "professional",
+  "topics": [
+    {
+      "title": "Anthropic files for a ~$2 trillion IPO",
+      "why": "AI lab valuations are now rivaling the biggest public companies, which will shape how enterprises justify their own AI tool budgets."
+    },
+    {
+      "title": "Factory accuses a board adviser of spying for rival Cognition",
+      "why": "The AI coding-agent market is cutthroat enough that advisers get poached mid-dispute — worth watching before betting on either tool."
+    },
+    {
+      "title": "OpenAI ships GPT-6.1 Sol at 1/5 the price, shelves GPT-6.1 Astra over safety concerns",
+      "why": "Knowledge workers get a much cheaper near-frontier model today, while the shelved flagship shows labs starting to actually enforce safety brakes."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-10-05T00:25:00Z"
+  "last_updated": "2026-10-06T00:00:00Z"
 }
