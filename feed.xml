@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 05 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 21: A calendar invite was enough to turn an AI browser against its own user.</title>
+      <link>https://www.fowl-ai.com/issues/2026-10-12/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-10-12/</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Zenity Labs shows a calendar invite can hijack Perplexity’s Comet browser and read local files and a connected password vault. The same exploit class, demonstrated at Black Hat, reaches Claude in Chrome, Gemini in Chrome, ChatGPT Atlas, and Copilot Edge. Plus: Google’s own Gemini calendar bug, the enterprise visibility gap behind it, and the AI red-teaming jobs it’s creating.</description>
+    </item>
     <item>
       <title>Issue 20: Your AI tool stopped waiting for you to open it. It has its own computer now.</title>
       <link>https://www.fowl-ai.com/issues/2026-10-05/</link>
