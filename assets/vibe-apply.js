@@ -25,7 +25,7 @@ function render(focus = false) {
  document.querySelector('#step-percent').textContent = `${Math.round((step + 1) / 3 * 100)}%`;
  document.querySelector('#progress-fill').style.width = `${(step + 1) / 3 * 100}%`;
  button.disabled = false;
- button.innerHTML = step === 2 ? 'Apply for the first session <span aria-hidden="true">↗</span>' : 'Continue <span aria-hidden="true">→</span>';
+ button.innerHTML = step === 2 ? 'Save my seat <span aria-hidden="true">↗</span>' : 'Continue <span aria-hidden="true">→</span>';
  status.textContent = step === 2 ? 'Free to attend. No coding background required.' : 'Free to attend. No coding background required.';
  if (focus) { const heading = sections[step].querySelector('h3'); heading.tabIndex = -1; heading.focus(); }
 }
@@ -43,7 +43,7 @@ function showSuccess() {
  document.querySelector('.form-progress').hidden = true;
  const panel = document.createElement('div');
  panel.className = 'success-panel';
- panel.innerHTML = '<div class="success-mark" aria-hidden="true">✓</div><p class="eyebrow">YOU’RE ON THE LIST</p><h3>We’ll see you in the room.</h3><p>Your application is in. We’ll email you when the first date, venue, and setup details are ready.</p><a href="/vibe-code-saturdays/">Back to Vibe Code Saturdays <span aria-hidden="true">↗</span></a>';
+ panel.innerHTML = '<div class="success-mark" aria-hidden="true">✓</div><p class="eyebrow">YOU’RE ON THE LIST</p><h3>See you on Zoom.</h3><p>You’re in for Saturday, October 24, 11am to 2pm ET. Watch your inbox for your Zoom link and setup videos.</p><a href="/vibe-code-saturdays/">Back to Vibe Code Saturdays <span aria-hidden="true">↗</span></a>';
  form.parentNode.insertBefore(panel, form);
 }
 submissionFrame.addEventListener('load', showSuccess);
