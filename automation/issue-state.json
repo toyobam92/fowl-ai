@@ -1,31 +1,4 @@
 {
-  "week_of": "2026-10-12",
-  "status": "drafted",
-  "last_proposed": "2026-10-11",
-  "topics": [
-    {
-      "title": "Anthropic's $1.5B book settlement just started paying out — and it's rewriting the rules for every AI lab's training data",
-      "why": "A federal judge gave final approval in July to the $1.5B Anthropic author settlement (~$3,000/book across 482,000 books); payouts and the fair-use line it draws are now the template every other AI copyright suit (128 and counting) measures itself against."
-    },
-    {
-      "title": "Shadow AI is now in 43% of breaches, and it's costing companies $5.39M a pop",
-      "why": "IBM's 2026 Cost of a Data Breach report ties unapproved employee AI tool use to a sharp rise in breach costs — the same month reports surfaced of a coding agent uploading developers' API keys and passwords to a public cloud bucket."
-    },
-    {
-      "title": "Your AI browser can read a calendar invite. That might be all it takes to read your files too",
-      "why": "A disclosed flaw let a malicious calendar invite trick an AI browser into exposing local files — a preview of the security tradeoffs nobody priced in when 'agentic' became the default pitch for everyday tools."
-    },
-    {
-      "title": "Companies didn't stop hiring for AI jobs — they just renamed them",
-      "why": "LinkedIn says 'AI Engineer' is the fastest-growing U.S. job title for a second straight year, and Forrester projects half of this year's AI-attributed layoffs quietly become rehires for the same work under new titles like 'decision designer.'"
-    },
-    {
-      "title": "The real shadow-AI story isn't the breach — it's what workers are quietly trading away to use the tools IT won't approve",
-      "why": "Community threads full of people routing around corporate AI bans reveal the actual cost-benefit calculation knowledge workers are making alone, without their employer's guardrails or its liability."
-    }
-  ],
-  "rejected_titles": [],
-  "picked_topic": "Your AI browser can read a calendar invite. That might be all it takes to read your files too",
-  "pr_number": 82,
-  "last_updated": "2026-10-11T00:00:00Z"
+  "status": "idle",
+  "last_proposed": "2026-10-11"
 }
