@@ -1,6 +1,6 @@
 {
   "week_of": "2026-10-12",
-  "status": "drafting",
+  "status": "drafted",
   "last_proposed": "2026-10-11",
   "topics": [
     {
@@ -26,6 +26,6 @@
   ],
   "rejected_titles": [],
   "picked_topic": "Your AI browser can read a calendar invite. That might be all it takes to read your files too",
-  "pr_number": null,
+  "pr_number": 82,
   "last_updated": "2026-10-11T00:00:00Z"
 }
