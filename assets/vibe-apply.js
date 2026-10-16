@@ -6,14 +6,9 @@ const previous = form.querySelector('.previous-button');
 const status = document.querySelector('#submit-status');
 const privacy = form.querySelector('.privacy-note');
 const labels = ['About you', 'Your starting point', 'Your Saturday'];
-let step = 0, recovery;
-const submissionFrame = document.createElement('iframe');
-submissionFrame.name = 'submission-frame';
-submissionFrame.title = 'Form submission';
-submissionFrame.hidden = true;
-document.body.appendChild(submissionFrame);
-form.target = 'submission-frame';
-let submitted = false;
+let step = 0;
+// Show the actual Google Forms response; an iframe load cannot prove acceptance.
+form.target = '_self';
 form.noValidate = true;
 document.body.classList.add('enhanced');
 document.querySelector('.form-progress').hidden = false;
@@ -25,8 +20,8 @@ function render(focus = false) {
  document.querySelector('#step-percent').textContent = `${Math.round((step + 1) / 3 * 100)}%`;
  document.querySelector('#progress-fill').style.width = `${(step + 1) / 3 * 100}%`;
  button.disabled = false;
- button.innerHTML = step === 2 ? 'Save my seat <span aria-hidden="true">↗</span>' : 'Continue <span aria-hidden="true">→</span>';
- status.textContent = step === 2 ? 'Free to attend. No coding background required.' : 'Free to attend. No coding background required.';
+ button.innerHTML = step === 2 ? 'Send application <span aria-hidden="true">↗</span>' : 'Continue <span aria-hidden="true">→</span>';
+ status.textContent = step === 2 ? 'Google Forms will show whether your application was received.' : 'Free to attend. No coding background required.';
  if (focus) { const heading = sections[step].querySelector('h3'); heading.tabIndex = -1; heading.focus(); }
 }
 function valid(section) {
@@ -35,18 +30,6 @@ function valid(section) {
  }
  return true;
 }
-function showSuccess() {
- if (!submitted) return;
- submitted = false;
- clearTimeout(recovery);
- form.hidden = true;
- document.querySelector('.form-progress').hidden = true;
- const panel = document.createElement('div');
- panel.className = 'success-panel';
- panel.innerHTML = '<div class="success-mark" aria-hidden="true">✓</div><p class="eyebrow">YOU’RE ON THE LIST</p><h3>See you on Zoom.</h3><p>You’re in for Saturday, October 24, 11am to 2pm ET. Watch your inbox for your Zoom link and setup videos.</p><a href="/vibe-code-saturdays/">Back to Vibe Code Saturdays <span aria-hidden="true">↗</span></a>';
- form.parentNode.insertBefore(panel, form);
-}
-submissionFrame.addEventListener('load', showSuccess);
 previous.addEventListener('click', () => { step--; render(true); });
 form.addEventListener('submit', event => {
  if (!valid(sections[step])) { event.preventDefault(); return; }
@@ -57,12 +40,8 @@ form.addEventListener('submit', event => {
  }
  button.disabled = true;
  previous.disabled = true;
- submitted = true;
  button.textContent = 'Sending your application…';
  status.textContent = 'Opening your confirmation. Please keep this page open.';
- recovery = setTimeout(() => {
-  showSuccess();
- }, 4000);
 });
-window.addEventListener('pageshow', () => { clearTimeout(recovery); previous.disabled = false; render(); });
+window.addEventListener('pageshow', () => { previous.disabled = false; render(); });
 render();
