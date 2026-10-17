@@ -13,6 +13,13 @@ name: publish-nudge-nova
 # Quiet by design: only notifies when something needs attention. On off
 # days, and on days where the episode is already rendered and queued, this
 # posts nothing at all.
+#
+# It also speaks up when the pipeline is parked on a slot that already
+# passed (RESULT:stale). From 2026-10-06 the 2026-10-07 topic list sat
+# unpicked in nova-pipeline-state.json; nova-daily-prep exits quietly in
+# that state, so no new topics were proposed and no episode shipped after
+# 2026-10-05 -- and this check said nothing, because the slot wasn't
+# "today". Same invisible-freeze class as PR #69 in September.
 
 on:
   schedule:
@@ -60,7 +67,14 @@ jobs:
               MSG="⏳ Today's Nova episode (${DETAIL}) still has no topic picked, so there's nothing to post tonight. Reply \"NOVA 1/2/3\" if you want it to go out."
               ;;
             overdue)
+              # Only emitted for posts post_to_meta will actually ship
+              # tonight (not dropped, within MAX_DAYS_LATE) -- anything it
+              # holds back gets auto-publish-nova.yml's own "⏸️ Held back"
+              # notice instead, so this never claims a post that won't go.
               MSG="📌 Heads up: ${DETAIL} never posted on its own day and is still queued. It'll go out in tonight's 7:30pm ET window unless you say otherwise."
+              ;;
+            stale)
+              MSG="⚠️ Nova's pipeline is parked and nothing newer will be proposed until it clears: ${DETAIL}."
               ;;
             *)
               MSG="⚠️ Nova publish readiness check returned an unexpected state (${KIND}: ${DETAIL})."
