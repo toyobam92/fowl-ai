@@ -1,9 +1,26 @@
 {
-  "status": "idle",
-  "last_proposed": null,
-  "batch_date": null,
-  "comments": [],
+  "status": "pr_open",
+  "last_proposed": "2026-10-17",
+  "batch_date": "2026-10-17",
+  "pr_branch": "update/engage-2026-10-17",
   "pr_number": null,
-  "pr_branch": null,
-  "last_updated": null
+  "comments": [
+    {
+      "platform": "threads",
+      "target": "Anthropic",
+      "post_url": "https://www.anthropic.com/news/an-update-on-independent-evaluators",
+      "reply_to_id": null,
+      "text": "The redaction categories are the real test here — customer data and architecture are broad enough to cover a lot. Will you publish what METR asked to redact and what you refused, or just the final report?",
+      "status": "proposed"
+    },
+    {
+      "platform": "threads",
+      "target": "HeyGen",
+      "post_url": "https://www.orcarouter.ai/blog/heygen-voice-tops-controlled-voice-arena",
+      "reply_to_id": null,
+      "text": "1,202 Elo on Controlled Voice is a strong debut, but worth flagging: HeyGen Voice isn't listed on the Provider Voices board yet, where Eleven v4 Turbo leads at 1,328. That's the comparison buyers evaluating native voices will actually want to see.",
+      "status": "proposed"
+    }
+  ],
+  "last_updated": "2026-10-17"
 }
