@@ -1,6 +1,6 @@
 {
   "week_of": "2026-10-19",
-  "status": "drafting",
+  "status": "drafted",
   "last_proposed": "2026-10-18",
   "topics": [
     {
@@ -26,6 +26,6 @@
   ],
   "rejected_titles": [],
   "picked_topic": "2026 was supposed to be the year enterprise AI 'just worked.' It isn't, yet.",
-  "pr_number": null,
-  "last_updated": "2026-10-18T00:05:00Z"
+  "pr_number": 87,
+  "last_updated": "2026-10-18T00:10:00Z"
 }
