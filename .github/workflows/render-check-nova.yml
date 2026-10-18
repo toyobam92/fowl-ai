@@ -7,9 +7,16 @@ name: render-check-nova
 # instead. A no-op almost every run: automation/check_nova_render.py exits
 # immediately unless nova-pipeline-state.json status is exactly "rendering".
 
+# Reality check (2026-10-18): GitHub throttles frequent schedules hard --
+# this fired 3-7 times a day across Oct 8-18, not 96 -- so it is a safety
+# net, not the primary handoff. telegram-approve.yml now polls HeyGen
+# inline for ~10 min right after submitting the render, and
+# auto-publish-nova.yml re-runs this same check before posting, so a
+# finished video is handed off even when this cron never fires. The odd
+# minutes below avoid the :00/:15/:30/:45 pile-up that gets dropped most.
 on:
   schedule:
-    - cron: '*/15 * * * *'
+    - cron: '4,19,34,49 * * * *'
   workflow_dispatch: {}
 
 permissions:
