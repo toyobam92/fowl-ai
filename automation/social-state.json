@@ -248,6 +248,22 @@
         "threads": true
       },
       "posted_at": "2026-10-05T02:18:31+00:00"
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-10-19",
+      "topic": "xAI launches Grok Voice 3.0",
+      "script": "xAI just quietly became the voice behind two of Elon Musk's biggest companies. Grok Voice 3.0 launched October 14th, topping Artificial Analysis's speech benchmark with a score of 86.9 -- the highest of any voice model tested. It's already live: Starlink's support line runs on it, fielding around 20,000 calls a day with roughly 70% resolved without a human ever picking up. Tesla's using it too, powering in-car voice assistance across millions of conversations daily, all at sub-second response time and the same 8-cents-a-minute price as the last version. Voice agents aren't a demo anymore -- they're already handling real customer calls at scale.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
+      "caption": "xAI's Grok Voice 3.0 is already answering Starlink's and Tesla's phones -- #1 on the speech benchmark, sub-second latency, still just 8 cents a minute. #FOWLAI #AI #xAI #VoiceAI #TechNews",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/1511747cfedfa6d2c9ac687ed959d50c.mp4?download_id=b9bb3ce9-c535-4b23-8f84-c2a3c60c0c7e&Expires=1792932867&Signature=oxcjchu3d9nXeUo7I9PY1oEjz2logYGK288ZxCETZf0RJh5gZkDmcWfWv1~TEbDduB1Oo3OrXgwwGUNVhGu307OxAQKJdGNukaLhUK~5T1U2Ez0ocaVIbnOQdVF-JXKfhyWDRvTSiP6Ql-yTiU4fSMTTcEsbWfuttfZWPwlDfokfv9ukZJE9PIJzIVFet8VIhesWmX-HPIBZBPv2pBaZhSn3mNbRUq1n4vKgV8QvwN9DZsD3ANELygXIH6DnRtewhXzfZo6cSEl1yrxX4j6JBf6zFaR6xoGz0vbKvdhJcFaPOVfNPRAJ5oKOOkIX5kMXnoVr2iVEHLKhTCkCkbKv5Q__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "ce4ddc31e9844543af9129432ff350af",
+      "look_name": "Avatar in maroon sleeveless turtleneck",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }

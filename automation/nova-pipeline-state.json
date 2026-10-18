@@ -1,37 +1,17 @@
 {
-  "status": "rendering",
+  "status": "idle",
   "last_proposed": "2026-10-18",
-  "publish_date": "2026-10-19",
-  "tone": "casual-professional",
-  "topics": [
-    {
-      "title": "xAI launches Grok Voice 3.0",
-      "why": "It just topped the speech-AI leaderboard and is already running Tesla's in-car voice and Starlink's support line, proof voice agents are now real customer-facing infrastructure, not demos."
-    },
-    {
-      "title": "NVIDIA drops Nemotron 3.5 Super VL, a free 120B agent model",
-      "why": "It's open-weight and claims 5x the speed of similarly sized rivals, which pushes powerful multimodal agents within reach of teams who can't afford frontier-lab API bills."
-    },
-    {
-      "title": "Manus's parent company raises $500M+ after its Meta deal fell apart",
-      "why": "Butterfly Effect just went independent again after Meta's reported $2B+ acquisition unwound, a reminder of how fast AI M&A can reverse and how much capital is still chasing agent startups."
-    }
-  ],
+  "publish_date": null,
+  "tone": null,
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": {
-    "title": "xAI launches Grok Voice 3.0",
-    "why": "It just topped the speech-AI leaderboard and is already running Tesla's in-car voice and Starlink's support line, proof voice agents are now real customer-facing infrastructure, not demos."
-  },
-  "script": "xAI just quietly became the voice behind two of Elon Musk's biggest companies. Grok Voice 3.0 launched October 14th, topping Artificial Analysis's speech benchmark with a score of 86.9 -- the highest of any voice model tested. It's already live: Starlink's support line runs on it, fielding around 20,000 calls a day with roughly 70% resolved without a human ever picking up. Tesla's using it too, powering in-car voice assistance across millions of conversations daily, all at sub-second response time and the same 8-cents-a-minute price as the last version. Voice agents aren't a demo anymore -- they're already handling real customer calls at scale.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
-  "caption": "xAI's Grok Voice 3.0 is already answering Starlink's and Tesla's phones -- #1 on the speech benchmark, sub-second latency, still just 8 cents a minute. #FOWLAI #AI #xAI #VoiceAI #TechNews",
-  "picked_look": {
-    "avatar_id": "ce4ddc31e9844543af9129432ff350af",
-    "name": "Avatar in maroon sleeveless turtleneck",
-    "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP"
-  },
+  "picked_topic": null,
+  "script": null,
+  "caption": null,
+  "picked_look": null,
   "look_alternates": [],
-  "pr_number": 88,
-  "pr_branch": "update/nova-2026-10-19",
-  "video_id": "1511747cfedfa6d2c9ac687ed959d50c",
+  "pr_number": null,
+  "pr_branch": null,
+  "video_id": null,
   "last_updated": "2026-10-18T00:00:00Z"
 }
