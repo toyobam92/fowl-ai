@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-10-06",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-10-18",
+  "publish_date": "2026-10-19",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "xAI launches Grok Voice 3.0",
+      "why": "It just topped the speech-AI leaderboard and is already running Tesla's in-car voice and Starlink's support line, proof voice agents are now real customer-facing infrastructure, not demos."
+    },
+    {
+      "title": "NVIDIA drops Nemotron 3.5 Super VL, a free 120B agent model",
+      "why": "It's open-weight and claims 5x the speed of similarly sized rivals, which pushes powerful multimodal agents within reach of teams who can't afford frontier-lab API bills."
+    },
+    {
+      "title": "Manus's parent company raises $500M+ after its Meta deal fell apart",
+      "why": "Butterfly Effect just went independent again after Meta's reported $2B+ acquisition unwound, a reminder of how fast AI M&A can reverse and how much capital is still chasing agent startups."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-10-18T00:00:00Z"
+  "last_updated": "2026-10-18T11:30:00Z"
 }
