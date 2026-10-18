@@ -29,6 +29,26 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Hand off a finished render the 15-min cron may have missed
+        # render-check-nova.yml's "*/15" schedule only actually fires a few
+        # times a day (GitHub throttles frequent crons -- 3-7 runs/day across
+        # 2026-10-08..18), so a video that finished rendering hours ago can
+        # still be sitting in nova-pipeline-state.json as "rendering" when
+        # the publish window arrives, and post_to_meta.py would find nothing
+        # to post. Run the same check here first. No-op unless the status is
+        # exactly "rendering".
+        id: render
+        env:
+          HEYGEN_API_KEY: ${{ secrets.HEYGEN_API_KEY }}
+        run: |
+          set -euo pipefail
+          set +e
+          OUTPUT=$(python3 automation/check_nova_render.py)
+          echo "$OUTPUT"
+          set -e
+          RESULT_LINE=$(echo "$OUTPUT" | grep '^RESULT:' | tail -n1)
+          echo "kind=$(echo "$RESULT_LINE" | cut -d: -f2)" >> "$GITHUB_OUTPUT"
+
       - name: Post anything due today
         id: publish
         env:
@@ -50,12 +70,12 @@ jobs:
           exit 0
 
       - name: Commit any state changes
-        if: steps.publish.outputs.kind == 'posted' || steps.publish.outputs.kind == 'failed'
+        if: steps.publish.outputs.kind == 'posted' || steps.publish.outputs.kind == 'failed' || steps.render.outputs.kind == 'completed' || steps.render.outputs.kind == 'failed'
         run: |
           set -euo pipefail
           git config user.email "actions@github.com"
           git config user.name "github-actions"
-          git add automation/social-state.json
+          git add automation/social-state.json automation/nova-pipeline-state.json
           if ! git diff --cached --quiet; then
             git commit -m "Auto-publish Nova: ${{ steps.publish.outputs.kind }}"
             git pull --rebase origin main

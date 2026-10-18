@@ -132,12 +132,56 @@ jobs:
                       subprocess.run(["git", "commit", "-m", f"Nova render submitted for PR #{pr}"], check=True)
                       subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
                       subprocess.run(["git", "push"], check=True)
+                  # Don't rely on render-check-nova.yml's "*/15" cron to
+                  # notice the finished render: GitHub throttles frequent
+                  # schedules hard (that workflow actually fired 3-7 times a
+                  # day across 2026-10-08..18, not 96), so a render that
+                  # finishes in ~4 minutes could sit unnoticed for hours and
+                  # miss its 23:30 UTC publish window. Poll HeyGen right here
+                  # for up to ~10 min while this run is already up; the cron
+                  # (and auto-publish-nova.yml's own pre-check) stay as the
+                  # fallback for anything slower than that.
+                  import time
+                  handoff = None
+                  for _ in range(20):
+                      time.sleep(30)
+                      chk = subprocess.run(
+                          ["python3", "automation/check_nova_render.py"],
+                          capture_output=True, text=True,
+                      )
+                      print(chk.stdout)
+                      print(chk.stderr)
+                      tagged = [l for l in chk.stdout.splitlines() if l.startswith("RESULT:")]
+                      kind, _, detail = (tagged[-1].split(":", 2) + ["", ""])[:3] if tagged else ("noop", "", "")
+                      if kind in ("completed", "failed"):
+                          handoff = (kind, detail)
+                          break
+                  if handoff:
+                      kind, detail = handoff
+                      subprocess.run(["git", "add", "automation/nova-pipeline-state.json", "automation/social-state.json"], check=True)
+                      if subprocess.run(["git", "diff", "--cached", "--quiet"]).returncode != 0:
+                          subprocess.run(["git", "commit", "-m", f"Nova render check: {kind}"], check=True)
+                          subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+                          subprocess.run(["git", "push"], check=True)
+                      if kind == "completed":
+                          notify(
+                              f"✅ Merged PR #{pr} — 🎬 Nova's video finished rendering and is "
+                              f"queued to auto-publish to Facebook + Threads + Instagram on "
+                              f"{detail} (7:30pm ET). TikTok is still manual."
+                          )
+                      else:
+                          notify(
+                              f"✅ Merged PR #{pr}. ❌ But Nova's video failed to render: {detail}. "
+                              f"Check the telegram-approve Action log -- needs manual attention "
+                              f"(automation/nova-pipeline-state.json status is 'failed')."
+                          )
+                      raise SystemExit(0)
                   notify(
-                      f"✅ Merged PR #{pr} — Nova's video is rendering now. "
-                      f"It'll auto-publish to Facebook + Threads + Instagram on its "
-                      f"scheduled day once it's done (checked every 15 min); you'll "
-                      f"still need to post it to TikTok manually (no headless path "
-                      f"exists for it)."
+                      f"✅ Merged PR #{pr} — Nova's video is still rendering after 10 min "
+                      f"(unusual; renders normally take ~4). render-check-nova.yml and "
+                      f"tonight's auto-publish pre-check will pick it up when it's done, "
+                      f"and it'll auto-publish to Facebook + Threads + Instagram on its "
+                      f"scheduled day; TikTok is still manual."
                   )
                   raise SystemExit(0)
 
