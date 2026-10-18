@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 12 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 22: OpenAI called 2026 the year AI adoption gets practical. For a lot of enterprises, “practical” has meant pulling the agent back offline.</title>
+      <link>https://www.fowl-ai.com/issues/2026-10-19/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-10-19/</guid>
+      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Sinch finds 74% of enterprises that deployed an AI customer agent have rolled it back. Gartner expects 40%+ of agentic AI projects canceled by 2027, and S&amp;P Global says AI-initiative abandonment nearly doubled in a year. Plus: Amazon’s own AGI lab on why the holdup is reliability, not capability, and the AgentOps and evals jobs it’s creating.</description>
+    </item>
     <item>
       <title>Issue 21: A calendar invite was enough to turn an AI browser against its own user.</title>
       <link>https://www.fowl-ai.com/issues/2026-10-12/</link>
