@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_topic_pick",
+  "status": "pr_open",
   "last_proposed": "2026-10-18",
   "publish_date": "2026-10-19",
   "tone": "casual-professional",
@@ -18,13 +18,20 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
-  "script": null,
-  "caption": null,
-  "picked_look": null,
+  "picked_topic": {
+    "title": "xAI launches Grok Voice 3.0",
+    "why": "It just topped the speech-AI leaderboard and is already running Tesla's in-car voice and Starlink's support line, proof voice agents are now real customer-facing infrastructure, not demos."
+  },
+  "script": "xAI just quietly became the voice behind two of Elon Musk's biggest companies. Grok Voice 3.0 launched October 14th, topping Artificial Analysis's speech benchmark with a score of 86.9 -- the highest of any voice model tested. It's already live: Starlink's support line runs on it, fielding around 20,000 calls a day with roughly 70% resolved without a human ever picking up. Tesla's using it too, powering in-car voice assistance across millions of conversations daily, all at sub-second response time and the same 8-cents-a-minute price as the last version. Voice agents aren't a demo anymore -- they're already handling real customer calls at scale.\n\nI'm Nova. Stay ahead -- for more AI news, subscribe to the link in the bio.",
+  "caption": "xAI's Grok Voice 3.0 is already answering Starlink's and Tesla's phones -- #1 on the speech benchmark, sub-second latency, still just 8 cents a minute. #FOWLAI #AI #xAI #VoiceAI #TechNews",
+  "picked_look": {
+    "avatar_id": "ce4ddc31e9844543af9129432ff350af",
+    "name": "Avatar in maroon sleeveless turtleneck",
+    "image_url": "https://files2.heygen.ai/talking_photo/ce4ddc31e9844543af9129432ff350af/3f307b424d87451cae49ed6a944b965d.WEBP"
+  },
   "look_alternates": [],
   "pr_number": null,
-  "pr_branch": null,
+  "pr_branch": "update/nova-2026-10-19",
   "video_id": null,
-  "last_updated": "2026-10-18T11:30:00Z"
+  "last_updated": "2026-10-18T00:00:00Z"
 }
