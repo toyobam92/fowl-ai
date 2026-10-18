@@ -1,4 +1,31 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-10-11"
+  "week_of": "2026-10-19",
+  "status": "awaiting_pick",
+  "last_proposed": "2026-10-18",
+  "topics": [
+    {
+      "title": "The $1.5B author settlement just got thrown out — and a new judge inherits the mess",
+      "why": "A judge rejected Anthropic's record copyright settlement over fairness concerns and a new judge just took the case, so the ruling that will decide whether AI vendors can legally train on copyrighted work is back in play."
+    },
+    {
+      "title": "Congress wants veto power over your next GPU order",
+      "why": "A House committee voted 42-2 to advance a bill banning Blackwell-class chip sales to China and giving Congress a say over AI chip export licenses, which is already rippling into cloud GPU pricing."
+    },
+    {
+      "title": "The hidden gig economy training your chatbot has a name, and it's hiring",
+      "why": "Platforms like Outlier, DataAnnotation, and Mercor — plus Uber's new in-house data-labeling division — are quietly running a real side-income lane most knowledge workers have never heard of."
+    },
+    {
+      "title": "2026 was supposed to be the year enterprise AI 'just worked.' It isn't, yet.",
+      "why": "OpenAI's own CFO called 2026 the year of practical adoption, but fresh reliability and hallucination audits are the real reason some rollouts are stalling — a useful reality check for anyone buying or deploying these tools."
+    },
+    {
+      "title": "Humanoid robots just got a real hiring pipeline",
+      "why": "BMW, Hyundai, and Siemens are now running humanoid robots on actual factory floors at meaningful scale, and the skills gap it's creating (robot supervision, physical-AI integration) is a distinct career lane from the software-agent story."
+    }
+  ],
+  "rejected_titles": [],
+  "picked_topic": null,
+  "pr_number": null,
+  "last_updated": "2026-10-18T00:00:00Z"
 }
