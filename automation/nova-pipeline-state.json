@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-10-18",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-10-20",
+  "publish_date": "2026-10-21",
+  "tone": "professional",
+  "topics": [
+    {
+      "title": "xAI ships Grok Voice 3.0, a sub-second speech-to-speech model",
+      "why": "It's already fielding ~70% of Starlink support calls without a human, a live preview of how fast voice AI is closing in on real customer-facing work."
+    },
+    {
+      "title": "Anthropic's IPO could value it near $2 trillion",
+      "why": "Reports now point to a roadshow starting the week of November 9, after the midterms — a signal of how fast AI company valuations are outrunning the private market."
+    },
+    {
+      "title": "Mistral releases Large 4, pitched squarely at office work",
+      "why": "It claims real gains in coding, legal, finance, and agentic workflows — the exact daily tasks knowledge workers are watching AI vendors fight over."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-10-18T00:00:00Z"
+  "last_updated": "2026-10-20T00:00:00Z"
 }
