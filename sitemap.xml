@@ -40,4 +40,7 @@
   <url><loc>https://www.fowl-ai.com/about/</loc><priority>0.7</priority><changefreq>monthly</changefreq></url>
   <url><loc>https://www.fowl-ai.com/contact/</loc><priority>0.5</priority><changefreq>yearly</changefreq></url>
   <url><loc>https://www.fowl-ai.com/privacy/</loc><priority>0.3</priority><changefreq>yearly</changefreq></url>
+  <url><loc>https://www.fowl-ai.com/tools/</loc></url>
+  <url><loc>https://www.fowl-ai.com/tools/job-agent/</loc></url>
+  <url><loc>https://www.fowl-ai.com/tools/developers/</loc></url>
 </urlset>
