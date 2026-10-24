@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <script src="/analytics-events.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Developers: FOWL AI MCP Tools | FOWL AI</title>
+  <meta name="description" content="Endpoints, authentication and the full tool reference for FOWL AI&#x27;s MCP tools, starting with the Job Agent.">
+  <meta property="og:title" content="Developers: FOWL AI MCP Tools | FOWL AI" />
+  <meta property="og:description" content="Endpoints, authentication and the full tool reference for FOWL AI&#x27;s MCP tools, starting with the Job Agent." />
+  <meta property="og:url" content="https://www.fowl-ai.com/tools/developers/" />
+  <meta property="og:image" content="https://www.fowl-ai.com/og-image.png" />
+  <link rel="canonical" href="https://www.fowl-ai.com/tools/developers/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=DM+Mono:wght@500&display=swap">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <script src="/assets/site.js" defer></script>
+  <meta name="theme-color" content="#185b42">
+</head>
+<body class="fowl-interior">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a>
+    <div class="site-nav-links" id="site-navigation">
+      <a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">Platforms</a><a href="/tools/" aria-current="page">Tools</a><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="navigation">Vibe Code Saturdays</a>
+      <details class="site-more"><summary>Explore</summary><div class="site-more-menu"><a href="/tests/">AI tool tests</a><a href="/glossary/">AI glossary</a><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a></div></details>
+    </div>
+    <a class="site-nav-cta" href="/#signup" data-conversion="newsletter" data-link-location="navigation-cta">Subscribe free <span aria-hidden="true">↗</span></a>
+    <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span></button>
+  </nav>
+</header>
+<main id="main-content">
+
+  <section class="tl-hero"><div class="tl-wrap">
+    <p class="tl-kicker">FOWL AI Tools · Developers</p>
+    <h1>One standard. <em>Any assistant.</em></h1>
+    <p>Every FOWL AI tool is a remote MCP server over streamable HTTP. Each tool lives at its own path on <code style="background:rgba(255,255,255,.12);color:#f2ede3">tools.fowl-ai.com</code>, carries its own instructions, and uses the same sign-in.</p>
+  </div></section>
+
+  <section class="tl-section"><div class="tl-wrap">
+    <h2>Connecting</h2>
+    <p class="tl-lede">Two ways to authenticate, so it works with clients that support headers and ones that only take a URL.</p>
+    <div class="tl-grid">
+      <div class="tl-card"><h3>Endpoint plus key</h3><p>For clients that can send headers.</p><div class="tl-code">POST https://tools.fowl-ai.com/job-agent/mcp
+Authorization: Bearer ja_xxxxxxxx
+# or  x-api-key: ja_xxxxxxxx</div></div>
+      <div class="tl-card"><h3>Private link</h3><p>For clients that only take a URL. Treat it like a password.</p><div class="tl-code">https://tools.fowl-ai.com/job-agent/u/&lt;your key&gt;/mcp</div></div>
+    </div>
+    <p class="tl-note">Keys are issued per person during early access and stored only as a hash. Tool results that point to files (tailored resumes, screenshots, the tracker) return private download links.</p>
+  </div></section>
+
+  <section class="tl-section alt"><div class="tl-wrap">
+    <h2>Client setup</h2>
+    <div class="tl-scroll"><table class="tl-table"><thead><tr><th>Client</th><th>How</th></tr></thead><tbody>
+      <tr><td><b>Claude (claude.ai, Desktop, mobile)</b></td><td>Settings → Connectors → Add custom connector. Paste the private link.</td></tr><tr><td><b>Claude Code</b></td><td>claude mcp add --transport http job-agent &lt;private link&gt;</td></tr><tr><td><b>ChatGPT</b></td><td>Settings → Apps &amp; Connectors → Advanced → Developer mode → Create. Paste the private link, authentication None.</td></tr><tr><td><b>Grok</b></td><td>Add a remote MCP server: <code>https://tools.fowl-ai.com/job-agent/mcp</code> with header <code>Authorization: Bearer &lt;key&gt;</code>, or the private link.</td></tr><tr><td><b>Meta Muse</b></td><td>Add an MCP connector: <code>https://tools.fowl-ai.com/job-agent/mcp</code> with the key as API key, or the private link.</td></tr><tr><td><b>Anything else</b></td><td>Any client that speaks MCP over streamable HTTP. Use the private link, or the endpoint plus a Bearer header.</td></tr>
+    </tbody></table></div>
+    <p class="tl-note">Menu names change often. Look for connectors, MCP, tools or integrations.</p>
+  </div></section>
+
+  <section class="tl-section"><div class="tl-wrap">
+    <h2>Job Agent: tool reference</h2>
+    <p class="tl-lede">22 tools. Call <code>start_here</code> first: it returns the step-by-step playbook, so assistants that ignore server instructions still follow the flow. Parameters marked ? are optional.</p>
+    <div class="tl-scroll"><table class="tl-table"><thead><tr><th>Tool</th><th>Parameters</th><th>What it does</th></tr></thead><tbody><tr><td><code>start_here</code></td><td><span style="color:var(--fowl-muted)">none</span></td><td>Call this first, every conversation. Returns the step-by-step playbook for running the user&#x27;s job search, what&#x27;s already set up, and the next step to do.</td></tr><tr><td><code>setup_from_resume</code></td><td><code>resume_text</code><span style="color:var(--fowl-muted)">?</span>, <code>file_base64</code><span style="color:var(--fowl-muted)">?</span>, <code>filename</code><span style="color:var(--fowl-muted)">?</span>, <code>resume_path</code><span style="color:var(--fowl-muted)">?</span></td><td>Step 1. Save the user&#x27;s resume. Give ONE of: resume_text: the full resume as text (paste it, or the text of a file they uploaded); file_base64 + filename: an uploaded PDF or .docx file, base64-encoded; resume_path: a file path (only when this server runs on the user&#x27;s own computer). Returns the resume text. Then pull out name, email, phone, city, LinkedIn, current company and title, every past employer, degree and school, and save them with save_profile.</td></tr><tr><td><code>get_setup_questions</code></td><td><span style="color:var(--fowl-muted)">none</span></td><td>Step 2. The one-time questions, grouped. Ask only what the resume didn&#x27;t answer, a few at a time, and save answers with save_profile using these keys.</td></tr><tr><td><code>save_profile</code></td><td><code>updates</code></td><td>Save profile answers as an object of key -&gt; value (or the same as a JSON string). Partial updates are merged; nested groups (consent, writing, eeo) merge too. Example: {&quot;titles&quot;: [&quot;Product Manager&quot;], &quot;work_modes&quot;: [&quot;Remote&quot;], &quot;consent&quot;: {&quot;arbitration&quot;: &quot;ask&quot;}}</td></tr><tr><td><code>get_profile</code></td><td><span style="color:var(--fowl-muted)">none</span></td><td>The saved profile (without the full resume text).</td></tr><tr><td><code>teach_answer</code></td><td><code>question</code>, <code>answer</code></td><td>Save the user&#x27;s answer to a question the setup didn&#x27;t cover. Used on every future form.</td></tr><tr><td><code>find_jobs</code></td><td><code>titles</code><span style="color:var(--fowl-muted)">?</span>, <code>companies</code><span style="color:var(--fowl-muted)">?</span>, <code>limit</code><span style="color:var(--fowl-muted)">?</span></td><td>Step 4. Openings on Greenhouse, Lever and Ashby that fit the profile&#x27;s titles and work setup. Skips blocked companies and jobs already in the tracker.</td></tr><tr><td><code>match_job</code></td><td><code>url</code></td><td>Step 5. Read one posting: description, every application question, and which ones the profile answers. Returns the base resume and the rules for tailoring it to this job.</td></tr><tr><td><code>save_tailored_resume</code></td><td><code>url</code>, <code>resume_markdown</code>, <code>match_score</code>, <code>industry</code>, <code>cover_letter</code><span style="color:var(--fowl-muted)">?</span>, <code>written_answers</code><span style="color:var(--fowl-muted)">?</span></td><td>Step 6. Save the resume tailored for this job as Markdown and PDF in a new folder named with today&#x27;s date and time, plus the cover letter and written answers (question label -&gt; text). Records the match score and industry in the tracker.</td></tr><tr><td><code>fill_application</code></td><td><code>url</code>, <code>practice</code><span style="color:var(--fowl-muted)">?</span></td><td>Step 7. Fill the application and return a screenshot. Never submits. practice=true fills a local copy of this exact form (same questions), safe for demos. practice=false fills the real form with all outgoing data blocked.</td></tr><tr><td><code>send_for_approval</code></td><td><code>url</code></td><td>Step 8 (approval mode). Send this job to the user&#x27;s Telegram with Apply / Skip buttons.</td></tr><tr><td><code>submit_application</code></td><td><code>url</code>, <code>user_approved</code></td><td>Submit for real. Only call when the user approved this exact job, or mode is autonomous. Refuses if any required question is unanswered or the daily cap is reached.</td></tr><tr><td><code>telegram_setup</code></td><td><span style="color:var(--fowl-muted)">none</span></td><td>Step 3. The exact steps to connect Telegram. Show them to the user as written.</td></tr><tr><td><code>connect_telegram</code></td><td><code>token</code></td><td>Telegram step 7: save the BotFather token and get the link the user taps to finish.</td></tr><tr><td><code>finish_telegram</code></td><td><span style="color:var(--fowl-muted)">none</span></td><td>Telegram step 9: confirm the user pressed Start and send a test message.</td></tr><tr><td><code>update_stage</code></td><td><code>url</code>, <code>stage</code>, <code>notes</code><span style="color:var(--fowl-muted)">?</span></td><td>Move a job to a new stage after applying: heard_back, interviewing, offer, rejected (or skipped). Notes are optional (recruiter name, interview date).</td></tr><tr><td><code>check_email_for_updates</code></td><td><span style="color:var(--fowl-muted)">none</span></td><td>Optional. If the user has a Gmail connector, use it with these searches to find replies from companies they applied to, then call update_stage for each one you find. Read the email before deciding: interview invite -&gt; interviewing, rejection -&gt; rejected, other reply -&gt; heard_back.</td></tr><tr><td><code>tracker</code></td><td><code>status</code><span style="color:var(--fowl-muted)">?</span></td><td>Step 9. Every job: date, company, role, industry, match score, stage, follow-up date and resume folder. Saved as a spreadsheet (tracker.csv) and a color-coded page (tracker.html).</td></tr><tr><td><code>save_claude_key</code></td><td><code>api_key</code></td><td>Optional. Save a Claude API key so the daily run can tailor a resume for every match while no chat is open. Without it, the daily run still sends matches to Telegram.</td></tr><tr><td><code>schedule_daily</code></td><td><code>at</code><span style="color:var(--fowl-muted)">?</span>, <code>timezone</code><span style="color:var(--fowl-muted)">?</span></td><td>Run the job search every day at this time (24-hour, e.g. &quot;07:30&quot;) in the user&#x27;s timezone (e.g. &quot;America/New_York&quot;, &quot;Europe/London&quot;). Apply / Skip taps on Telegram are checked every 2 minutes.</td></tr><tr><td><code>stop_daily</code></td><td><span style="color:var(--fowl-muted)">none</span></td><td>Turn off the daily run and the Telegram tap checking.</td></tr><tr><td><code>run_daily_now</code></td><td><code>limit</code><span style="color:var(--fowl-muted)">?</span></td><td>Run today&#x27;s job search right now (same as the scheduled run), for up to `limit` jobs.</td></tr></tbody></table></div>
+  </div></section>
+
+  <section class="tl-section alt"><div class="tl-wrap">
+    <h2>Behavior you can rely on</h2>
+    <div class="tl-grid">
+      <div class="tl-card"><h3>No model on the server</h3><p>The connected assistant writes tailored resumes and answers. The server stores, searches, fills and tracks. The optional daily run uses the Claude API.</p></div>
+      <div class="tl-card"><h3>Safe previews</h3><p><code>fill_application</code> never submits. Practice runs use a local copy of the exact form; previews block every outgoing request.</p></div>
+      <div class="tl-card"><h3>Explicit approval</h3><p><code>submit_application</code> refuses without <code>user_approved</code> unless the user chose autonomous mode, and stops at the daily cap.</p></div>
+      <div class="tl-card"><h3>Plain errors</h3><p>Errors come back as tool results with a plain reason the assistant can relay, like a missing key or an unanswered question.</p></div>
+    </div>
+    <p class="tl-note">Want to build on FOWL AI tools or suggest one? <a href="/contact/?topic=developers" style="color:var(--fowl-green)">Get in touch</a>.</p>
+  </div></section>
+</main>
+<footer class="site-footer"><div class="site-footer-inner">
+  <div class="site-footer-top">
+    <div class="site-footer-about"><a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a><p>A clearer view of AI.<br>A smarter next move.</p></div>
+    <div class="site-footer-column"><h2>Discover</h2><a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">AI platforms</a><a href="/tests/">AI tool tests</a></div>
+    <div class="site-footer-column"><h2>Go further</h2><a href="/tools/">Tools</a><a href="/tools/developers/">For developers</a><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="footer">Vibe Code Saturdays</a><a href="/glossary/">AI glossary</a></div>
+    <div class="site-footer-column"><h2>Stay curious</h2><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a><a href="/contact/">Get in touch</a><a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+  </div>
+  <div class="site-footer-bottom"><span>© 2026 FOWL AI · Future of Work Lab</span><div><a href="/privacy/">Privacy</a><a href="/feed.xml">RSS</a><a href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer">Made by TYB ↗</a></div></div>
+</div></footer>
+</body>
+</html>
