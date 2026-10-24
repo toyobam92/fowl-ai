@@ -51,20 +51,23 @@
 
   <section class="tl-section"><div class="tl-wrap">
     <h2>Connecting</h2>
-    <p class="tl-lede">Two ways to authenticate, so it works with clients that support headers and ones that only take a URL.</p>
+    <p class="tl-lede">One FOWL AI Tools account works for every tool. Clients that support MCP sign-in use it; others use a personal key.</p>
     <div class="tl-grid">
+      <div class="tl-card"><h3>Sign in (recommended)</h3><p>Standard MCP authorization: OAuth 2.1 with PKCE and dynamic client registration. The user signs in with an emailed code. Tokens last 30 days and refresh.</p><div class="tl-code">https://tools.fowl-ai.com/job-agent/mcp
+# 401 -> /.well-known/oauth-protected-resource/job-agent/mcp
+# issuer: https://tools.fowl-ai.com</div></div>
       <div class="tl-card"><h3>Endpoint plus key</h3><p>For clients that can send headers.</p><div class="tl-code">POST https://tools.fowl-ai.com/job-agent/mcp
 Authorization: Bearer ja_xxxxxxxx
 # or  x-api-key: ja_xxxxxxxx</div></div>
       <div class="tl-card"><h3>Private link</h3><p>For clients that only take a URL. Treat it like a password.</p><div class="tl-code">https://tools.fowl-ai.com/job-agent/u/&lt;your key&gt;/mcp</div></div>
     </div>
-    <p class="tl-note">Keys are issued per person during early access and stored only as a hash. Tool results that point to files (tailored resumes, screenshots, the tracker) return private download links.</p>
+    <p class="tl-note">Keys come from <a href="https://tools.fowl-ai.com/start" style="color:var(--fowl-green)">tools.fowl-ai.com/start</a> by email and are stored only as a hash. Requesting again issues a new key and turns the old one off. Tool results that point to files (tailored resumes, screenshots, the tracker) return private download links.</p>
   </div></section>
 
   <section class="tl-section alt"><div class="tl-wrap">
     <h2>Client setup</h2>
     <div class="tl-scroll"><table class="tl-table"><thead><tr><th>Client</th><th>How</th></tr></thead><tbody>
-      <tr><td><b>Claude (claude.ai, Desktop, mobile)</b></td><td>Settings → Connectors → Add custom connector. Paste the private link.</td></tr><tr><td><b>Claude Code</b></td><td>claude mcp add --transport http job-agent &lt;private link&gt;</td></tr><tr><td><b>ChatGPT</b></td><td>Settings → Apps &amp; Connectors → Advanced → Developer mode → Create. Paste the private link, authentication None.</td></tr><tr><td><b>Grok</b></td><td>Add a remote MCP server: <code>https://tools.fowl-ai.com/job-agent/mcp</code> with header <code>Authorization: Bearer &lt;key&gt;</code>, or the private link.</td></tr><tr><td><b>Meta Muse</b></td><td>Add an MCP connector: <code>https://tools.fowl-ai.com/job-agent/mcp</code> with the key as API key, or the private link.</td></tr><tr><td><b>Anything else</b></td><td>Any client that speaks MCP over streamable HTTP. Use the private link, or the endpoint plus a Bearer header.</td></tr>
+      <tr><td><b>Claude (claude.ai, Desktop, mobile)</b></td><td>Settings → Connectors → Add custom connector. Paste <code>https://tools.fowl-ai.com/job-agent/mcp</code>, press Connect, sign in.</td></tr><tr><td><b>Claude Code</b></td><td>claude mcp add --transport http job-agent https://tools.fowl-ai.com/job-agent/mcp then /mcp to sign in.</td></tr><tr><td><b>ChatGPT</b></td><td>Settings → Apps &amp; Connectors → Advanced → Developer mode → Create. Paste <code>https://tools.fowl-ai.com/job-agent/mcp</code>, authentication OAuth.</td></tr><tr><td><b>Grok</b></td><td>Add a remote MCP server: <code>https://tools.fowl-ai.com/job-agent/mcp</code> with header <code>Authorization: Bearer &lt;key&gt;</code>, or the private link.</td></tr><tr><td><b>Meta Muse</b></td><td>Add an MCP connector: <code>https://tools.fowl-ai.com/job-agent/mcp</code> with the key as API key, or the private link.</td></tr><tr><td><b>Anything else</b></td><td>Any client that speaks MCP over streamable HTTP. Use the private link, or the endpoint plus a Bearer header.</td></tr>
     </tbody></table></div>
     <p class="tl-note">Menu names change often. Look for connectors, MCP, tools or integrations.</p>
   </div></section>
