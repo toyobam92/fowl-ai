@@ -1,9 +1,26 @@
 {
-  "status": "idle",
-  "last_proposed": null,
-  "batch_date": null,
-  "comments": [],
+  "status": "pr_open",
+  "last_proposed": "2026-10-22",
+  "batch_date": "2026-10-22",
+  "pr_branch": "update/engage-2026-10-22",
   "pr_number": null,
-  "pr_branch": null,
-  "last_updated": null
+  "comments": [
+    {
+      "platform": "threads",
+      "target": "Anthropic (Claude Duet launch)",
+      "post_url": "https://www.threads.com/@claudeai/post/DexIVFjm5Mv/claude-duet-is-an-early-research-preview-available-through-a-waitlist-on-pro/",
+      "reply_to_id": null,
+      "text": "The 'misjudge what's urgent' caveat is the real story, not the waitlist. Muse, Dots, and now Duet all ship with the same disclaimer — triage judgment, not task execution, is agentic work's actual unsolved problem. How's Duet's escalation threshold different from Dots'?",
+      "status": "proposed"
+    },
+    {
+      "platform": "threads",
+      "target": "Anthropic (Claude Duet launch)",
+      "post_url": "https://www.threads.com/@claudeai/post/DexIUFOm41n/we-designed-claude-duet-around-claude-opus-which-gives-it-the-judgment-to/",
+      "reply_to_id": null,
+      "text": "Carrying over memory, skills, and connected apps instead of a fresh onboarding flow is the detail knowledge workers will actually feel — most agent launches still make you re-teach context every session. Does that carry across devices, or just within one session?",
+      "status": "proposed"
+    }
+  ],
+  "last_updated": "2026-10-22"
 }
