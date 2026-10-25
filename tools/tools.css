@@ -5,7 +5,8 @@
 .tl-hero h1{font-family:var(--fowl-font);font-weight:650;font-size:clamp(38px,6vw,68px);line-height:1.03;letter-spacing:-.055em;margin:0 0 18px;max-width:16ch;text-wrap:balance;color:var(--fowl-ink)}
 .tl-hero h1 em{font-style:normal;color:var(--fowl-green)}
 .tl-hero p{font-size:19px;line-height:1.6;color:var(--fowl-muted);max-width:58ch;margin:0}
-.tl-hero .tl-actions{margin-top:28px;display:flex;flex-wrap:wrap;gap:12px}
+.tl-actions{display:flex;flex-wrap:wrap;gap:12px}
+.tl-hero .tl-actions{margin-top:28px}
 .tl-btn{box-sizing:border-box;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:13px 24px;border-radius:999px;font:600 16px var(--fowl-font);text-decoration:none;border:1px solid transparent;-webkit-tap-highlight-color:transparent;transition:transform .15s ease,background-color .15s ease}
 .tl-btn:active{transform:scale(.97)}
 .tl-btn.gold{background:var(--fowl-green);color:#fff}
