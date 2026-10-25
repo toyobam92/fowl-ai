@@ -21,8 +21,6 @@
   <link rel="canonical" href="https://www.fowl-ai.com/tools/job-agent/session/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=DM+Mono:wght@500&display=swap">
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/tools/tools.css">
   <script src="/assets/site.js" defer></script>
@@ -43,25 +41,25 @@
 </header>
 <main id="main-content">
 <style>
-.ss-hero{background:radial-gradient(900px 380px at 88% -10%,rgba(120,221,180,.22),transparent 60%),#0d3f31;color:#f2ede3;padding:64px 24px 72px}
+.ss-hero{background:linear-gradient(#fff 55%,var(--fowl-paper));color:var(--fowl-ink);padding:64px 24px 72px;border-bottom:1px solid var(--fowl-line)}
 .ss-hero .tl-wrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,.75fr);gap:40px;align-items:center}
 @media(max-width:860px){.ss-hero .tl-wrap{grid-template-columns:1fr}}
 .ss-badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
-.ss-badges span{font:500 11px "DM Mono",Menlo,monospace;letter-spacing:1.6px;text-transform:uppercase;padding:6px 12px;border-radius:999px;border:1px solid rgba(242,237,227,.28);color:#dcf0e3}
-.ss-badges span.free{background:#f2a12b;color:#0d3f31;border-color:#f2a12b}
-.ss-hero h1{font-family:"Fraunces",Georgia,serif!important;font-weight:600;font-size:clamp(36px,5.6vw,62px);line-height:1.02;margin:0 0 18px;letter-spacing:-.01em;color:#f2ede3}
-.ss-hero h1 em{font-style:italic;color:#f2a12b}
-.ss-hero p.lede{font-size:19px;line-height:1.6;color:#c9dcd2;max-width:56ch;margin:0}
-.ss-ticket{background:#f2ede3;color:#13241e;border-radius:20px;padding:24px;box-shadow:0 30px 70px rgba(0,0,0,.25);position:relative}
-.ss-ticket:before,.ss-ticket:after{content:"";position:absolute;left:-12px;top:52%;width:24px;height:24px;border-radius:50%;background:#0d3f31}
+.ss-badges span{font:550 12px var(--fowl-font);letter-spacing:.2px;padding:7px 12px;border-radius:999px;border:1px solid #e1e8dc;background:#f7faf4;color:#4d674e}
+.ss-badges span.free{background:var(--fowl-green);color:#fff;border-color:var(--fowl-green)}
+.ss-hero h1{font-family:var(--fowl-font)!important;font-weight:650;font-size:clamp(40px,6vw,68px);line-height:1.03;margin:0 0 18px;letter-spacing:-.055em;color:var(--fowl-ink);text-wrap:balance}
+.ss-hero h1 em{font-style:normal;color:var(--fowl-green);display:block}
+.ss-hero p.lede{font-size:19px;line-height:1.6;color:var(--fowl-muted);max-width:56ch;margin:0}
+.ss-ticket{background:#fff;color:var(--fowl-ink);border:1px solid var(--fowl-line);border-radius:20px;padding:24px;box-shadow:0 24px 60px rgba(13,63,49,.10);position:relative}
+.ss-ticket:before,.ss-ticket:after{content:"";position:absolute;left:-12px;top:52%;width:24px;height:24px;border-radius:50%;background:var(--fowl-paper);border:1px solid var(--fowl-line)}
 .ss-ticket:after{left:auto;right:-12px}
-.ss-ticket .k{font:500 11px "DM Mono",Menlo,monospace;letter-spacing:1.6px;text-transform:uppercase;color:#1a5f4a}
-.ss-ticket b.t{display:block;font-family:"Fraunces",Georgia,serif;font-size:24px;line-height:1.15;margin:6px 0 14px}
-.ss-ticket dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0;font-size:15px;border-top:1px dashed #c9c1b1;padding-top:14px}
+.ss-ticket .k{font:650 11px var(--fowl-font);letter-spacing:1.5px;text-transform:uppercase;color:#638058}
+.ss-ticket b.t{display:block;font:650 24px/1.15 var(--fowl-font);letter-spacing:-.035em;margin:8px 0 14px}
+.ss-ticket dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0;font-size:15px;border-top:1px dashed #cfd9d1;padding-top:14px}
 .ss-ticket dt{color:#647169} .ss-ticket dd{margin:0;font-weight:600}
 .ss-out{counter-reset:o;list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:14px}
 .ss-out li{counter-increment:o;background:#fff;border:1px solid var(--fowl-line);border-radius:16px;padding:18px}
-.ss-out li:before{content:counter(o,decimal-leading-zero);display:block;font:500 12px "DM Mono",Menlo,monospace;color:#1a5f4a;margin-bottom:8px}
+.ss-out li:before{content:counter(o,decimal-leading-zero);display:block;font:650 12px var(--fowl-font);letter-spacing:1px;color:#638058;margin-bottom:8px}
 .ss-out b{display:block;font-size:16px;margin-bottom:4px}
 .ss-out span{color:var(--fowl-muted);font-size:14.5px}
 .ss-form *{box-sizing:border-box}
@@ -70,16 +68,16 @@
 .ss-form input[type=text],.ss-form input[type=email],.ss-form select{width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid #c9d2cb;border-radius:12px;background:#fff}
 .ss-days{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
 @media(max-width:520px){.ss-days{grid-template-columns:1fr}}
-.ss-days label{border:1px solid #c9d2cb;border-radius:12px;padding:12px;cursor:pointer;display:flex;gap:8px;align-items:center;font-size:15px}
+.ss-days label{border:1px solid #c9d2cb;border-radius:12px;padding:12px;min-height:48px;cursor:pointer;display:flex;gap:8px;align-items:center;font-size:15px}
 .ss-days input{accent-color:#185b42}
 .ss-days label:has(input:checked){border-color:#185b42;background:#eef6f0;font-weight:600}
-.ss-submit{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;margin-top:22px;border:0;border-radius:999px;background:#f2a12b;color:#0d3f31;font:700 16px var(--fowl-font);cursor:pointer}
-.ss-submit:hover{background:#e8931a}
+.ss-submit{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;margin-top:22px;border:0;border-radius:999px;background:var(--fowl-green);color:#fff;font:650 17px var(--fowl-font);cursor:pointer}
+.ss-submit:hover{background:#124a35}.ss-submit:active{transform:scale(.98)}
 .ss-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .ss-err{background:#fdecec;color:#8a1c1c;border-radius:12px;padding:12px 14px;font-size:14px}
 .ss-faq details{border-bottom:1px solid var(--fowl-line);padding:14px 0} .ss-faq summary{cursor:pointer;font-weight:650;font-size:16px}
 .ss-faq p{color:var(--fowl-muted);margin:8px 0 0}
-input:focus-visible,select:focus-visible,.ss-submit:focus-visible,summary:focus-visible{outline:3px solid #78ddb4;outline-offset:2px}
+input:focus-visible,select:focus-visible,.ss-submit:focus-visible,summary:focus-visible{outline:3px solid #8fc9a8;outline-offset:2px}
 </style>
   <section class="ss-hero"><div class="tl-wrap">
     <div>
