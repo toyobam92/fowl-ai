@@ -1,6 +1,6 @@
 {
   "week_of": "2026-10-26",
-  "status": "awaiting_pick",
+  "status": "drafting",
   "last_proposed": "2026-10-25",
   "topics": [
     {
@@ -25,8 +25,8 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
+  "picked_topic": "2",
   "pr_number": null,
-  "last_updated": "2026-10-25T00:00:00Z",
+  "last_updated": "2026-10-25T11:09:11Z",
   "nudged_at": null
 }
