@@ -1,10 +1,32 @@
 {
-  "week_of": "2026-10-19",
-  "status": "idle",
-  "last_proposed": "2026-10-18",
-  "topics": [],
+  "week_of": "2026-10-26",
+  "status": "awaiting_pick",
+  "last_proposed": "2026-10-25",
+  "topics": [
+    {
+      "title": "The AI copyright reckoning everyone keeps postponing just got a date.",
+      "why": "Andersen v. Stability AI has a summary-judgment hearing set for Nov. 4 and the OpenAI MDL's reply briefs are due Nov. 6 — the cases that decide whether training on copyrighted work is fair use are finally close enough to matter."
+    },
+    {
+      "title": "The FDA just finished asking the public how to regulate AI doctors — and almost nobody noticed.",
+      "why": "The agency's comment period on agentic, generative-AI medical devices closed Oct. 19, right after a record 2025 of 295 AI/ML device clearances — the rulebook for AI in your doctor's office is being written in public right now."
+    },
+    {
+      "title": "Doctors and lawyers in China are moonlighting as $15-an-hour AI trainers — the same jobs are opening up everywhere else.",
+      "why": "Data-annotation demand on Upwork is up 154% year over year and LinkedIn ranks it a top-4 fastest-growing U.S. job — the hidden gig economy behind every model release is now a real income stream for skilled professionals, not just click-workers."
+    },
+    {
+      "title": "Twenty new AI models shipped this month and almost no one read a single release note.",
+      "why": "October alone has brought a confirmed 20 releases from 16 providers — Grok Voice 3.0, Nemotron 3.5, Jais 3, LFM2.5 — and the sheer volume is itself the story: picking tools by name recognition stopped working a while ago."
+    },
+    {
+      "title": "Courts are now making lawyers swear, in writing, that they checked the AI.",
+      "why": "October rulings are piling up Rule 11 certification requirements and sanctions for fake AI-generated citations — the legal system's patience for 'the model made it up' is visibly running out this month."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": "2026-10-18T12:09:30Z"
+  "last_updated": "2026-10-25T00:00:00Z",
+  "nudged_at": null
 }
