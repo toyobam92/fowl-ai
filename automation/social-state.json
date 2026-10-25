@@ -265,6 +265,22 @@
         "threads": true
       },
       "posted_at": "2026-10-19T01:34:03+00:00"
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-10-26",
+      "topic": "Moonshot AI launches Kimi K3.1 Pro",
+      "script": "Moonshot AI just dropped Kimi K3.1 Pro \u2014 and the AI race with China just got faster again.\n\nReleased this week across Kimi.ai, its mobile apps, Kimi Code, and the API, the model scored 55 on the Artificial Analysis Intelligence Index \u2014 an 11-point jump over its predecessor. It's especially strong at coding and 3D work, reportedly able to build full games in Unreal and Unity and handle parametric modeling in Blender and CAD. Open weights are set to land November 4th.\n\nBut the rollout isn't clean: reports allege Moonshot paid influencers to hype the model without disclosing the relationship. Either way, frontier-grade AI from Chinese labs is now shipping on a weekly cadence \u2014 not quarterly.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "Moonshot AI's new Kimi K3.1 Pro just jumped 11 points on the Artificial Analysis Intelligence Index \u2014 but its launch is already tangled in an undisclosed-influencer controversy. #AI #KimiK31Pro #MoonshotAI #AINews #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/950570a475ebb4c01976842d297fa6a4.mp4?download_id=7bd541a6-27d1-407a-a57b-e263d4100e9c&Expires=1793535665&Signature=ppMpbVa-XhTP0CYITrkgmk-iyU3OIYpPhNO4YZJTXU85XeepiHI0Dd4abIFQgJBbOTwLQTiTxLbPGPurx-E3oBlQOU8kGchDNDbX6vPT0wUECKYkeODn-83WtlnQHWKyRTMyVaxK5V-OWjb7Um6friUo3espdTJLmksqf~jpmwoJcwAjwHL~KuIe4h1XR4ZcMFJ9oGtdD92Hx~kLiqT-4pTxIynFBEKLBP003MHkiFcK4mNKcDIvLBMTFog4yTaw-UMQ50TxBRFrlqrMhCRtd5T2HmCJPbfEMQExGhF84OJ~VfEGUu0TO0TmpGSbPKaMoXHXcHIX-Y3aB6cxiVRN~w__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "06c45b55396142b4930282c658142c0f",
+      "look_name": "Avatar in a pink sweater",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
