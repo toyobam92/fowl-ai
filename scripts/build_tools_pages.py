@@ -138,6 +138,18 @@ ja = head("Job Agent: Your AI Applies to Jobs for You | FOWL AI",
     <ol class="tl-steps">{''.join(f'<li><span><b>{e(t)}</b>{e(d)}</span></li>' for t, d in steps)}</ol>
   </div></section>
 
+  <section class="tl-section" id="watch" style="border-top:1px solid var(--fowl-line)"><div class="tl-wrap">
+    <h2>See it work</h2>
+    <p class="tl-lede">A sample applicant, Maya, on real job forms. Nothing was sent. Tap a video to play it with sound.</p>
+    <div class="tl-vids">
+      <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/06-shortlist.jpg" aria-label="Real matches, you choose"><source src="https://tools.fowl-ai.com/media/job-agent/06-shortlist.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/06-shortlist.vtt" srclang="en" label="English"></video><figcaption><b>Real matches, you choose</b>It searches, scores every job against your resume, and you Pursue or Pass.</figcaption></figure>
+      <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/07-resume.jpg" aria-label="A resume for each job"><source src="https://tools.fowl-ai.com/media/job-agent/07-resume.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/07-resume.vtt" srclang="en" label="English"></video><figcaption><b>A resume for each job</b>Built from your real experience, with a note on what changed.</figcaption></figure>
+      <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/08-fill.jpg" aria-label="One click fills it, you press Submit"><source src="https://tools.fowl-ai.com/media/job-agent/08-fill.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/08-fill.vtt" srclang="en" label="English"></video><figcaption><b>One click fills it, you press Submit</b>Review every answer first, and keep a copy of what you sent.</figcaption></figure>
+      <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/09-tracker.jpg" aria-label="Your whole job search on one page"><source src="https://tools.fowl-ai.com/media/job-agent/09-tracker.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/09-tracker.vtt" srclang="en" label="English"></video><figcaption><b>Your whole job search on one page</b>Every job, its stage, dates and the resume made for it.</figcaption></figure>
+      <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/10-telegram-mode.jpg" aria-label="Telegram mode"><source src="https://tools.fowl-ai.com/media/job-agent/10-telegram-mode.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/10-telegram-mode.vtt" srclang="en" label="English"></video><figcaption><b>Telegram mode</b>Approve on your phone, finish at your computer.</figcaption></figure>
+    </div>
+  </div></section>
+
   <section class="tl-section alt"><div class="tl-wrap">
     <h2>Two ways to run it</h2>
     <p class="tl-lede">Start guided. Switch to Autonomous once you trust its picks.</p>
