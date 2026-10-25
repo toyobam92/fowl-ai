@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-10-20",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-10-25",
+  "publish_date": "2026-10-26",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Moonshot AI launches Kimi K3.1 Pro",
+      "why": "Chinese labs are now shipping frontier-grade models at a blistering pace, squeezing the pricing and differentiation US AI subscriptions lean on."
+    },
+    {
+      "title": "Oracle AI World 2026 kicks off in Las Vegas",
+      "why": "Enterprise vendors are racing to lock in AI infrastructure deals this week, a signal of which cloud/AI stack most companies will standardize on next."
+    },
+    {
+      "title": "Claude Opus 4.7 reportedly programmed a robot dog ~20x faster than a human engineering team",
+      "why": "A concrete data point on how much faster agentic coding now moves than skilled teams, raising the bar on what 'fast' means at work."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-10-24T00:00:00Z"
+  "last_updated": "2026-10-25T00:00:00Z"
 }
