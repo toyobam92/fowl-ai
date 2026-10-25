@@ -1,0 +1,355 @@
+[
+ {
+  "name": "start_here",
+  "desc": "Call this first in every conversation. Returns a short overview and the first step. Then use next_task for each following step (its description explains how).",
+  "params": []
+ },
+ {
+  "name": "next_task",
+  "desc": "The job search, one step at a time. Returns the next step (\"task\") with what it's about, the tools for it, and the data it needs. Handle the step, then call next_task again, until the task is \"done\". How to handle each task: - get_resume: ask the user to paste or attach their resume; save it with setup_from_resume. - read_resume: get_resume, then save missing_fields with one save_profile call (no need to ask). - ask_setup_question: show it with ask_question (pass the \"ask\" fields, including setup_key).   The card saves taps itself and moves to the next question. If the user answers in the chat   instead, save it with save_profile using \"saves\". - confirm_defaults / connect_telegram / done: show the \"ask\" choice with ask_question.   For Telegram, show the steps as written; finish_telegram when they say done. - found_jobs: tell the user in one line, then go straight to the next step. - shortlist: score each job (match_job for the posting), then show_shortlist so the user taps   Pursue or Pass. Wait for their picks before tailoring; next_task continues with the pursued ones. - tailor_resume: get_resume, write a tailored resume following tailor_rules (true facts only) and answers   to write_answers_for, then save_tailored_resume. No need to ask the user. - fill_application: call fill_application(url, practice=true). - write_answers: write short true answers, then save_answers. - review_with_user: call show_ready_jobs, ask the questions only they can answer, and give the   apply_from_computer link (send_queue_link also puts it on Telegram). They submit there themselves. - send_to_telegram: send_for_approval for each job, then tell the user they're on their phone. - submit: the user chose Autonomous mode; submit_application for each, then summarize. - done: a short wrap-up with send_queue_link (their one link to apply from the computer), and offer schedule_daily. The user can run this any time of day (\"run my job agent\", \"check my job agent\"): it picks up new postings if the last look was 2+ hours ago, and shows what's waiting. Whenever the user has to choose, use ask_question with options instead of asking them to type. Never invent experience or answers; ask the user when something isn't covered.",
+  "params": []
+ },
+ {
+  "name": "save_answers",
+  "desc": "Save answers you wrote for one job's open questions ({question: answer}). They're used when the form is filled.",
+  "params": [
+   {
+    "name": "url",
+    "required": true
+   },
+   {
+    "name": "answers",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "setup_from_resume",
+  "desc": "Step 1. Save the user's resume. Give ONE of: resume_text: the full resume as text (paste it, or the text of a file they uploaded); file_base64 + filename: an uploaded PDF or .docx file, base64-encoded; resume_path: a file path (only when this server runs on the user's own computer). Returns the resume text. Then pull out name, email, phone, city, LinkedIn, current company and title, every past employer, degree and school, and save them with save_profile.",
+  "params": [
+   {
+    "name": "resume_text",
+    "required": false
+   },
+   {
+    "name": "file_base64",
+    "required": false
+   },
+   {
+    "name": "filename",
+    "required": false
+   },
+   {
+    "name": "resume_path",
+    "required": false
+   }
+  ]
+ },
+ {
+  "name": "get_setup_questions",
+  "desc": "Step 2. The one-time questions, grouped. Ask only what the resume didn't answer, a few at a time, and save answers with save_profile using these keys.",
+  "params": []
+ },
+ {
+  "name": "save_profile",
+  "desc": "Save profile answers as an object of key -> value (or the same as a JSON string). Partial updates are merged; nested groups (consent, writing, eeo) merge too. Example: {\"titles\": [\"Product Manager\"], \"work_modes\": [\"Remote\"], \"consent\": {\"arbitration\": \"ask\"}}",
+  "params": [
+   {
+    "name": "updates",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "get_resume",
+  "desc": "The user's saved base resume as plain text, for tailoring it to a job or reading details from it. Only the user's own document.",
+  "params": []
+ },
+ {
+  "name": "get_profile",
+  "desc": "The saved profile (without the full resume text).",
+  "params": []
+ },
+ {
+  "name": "teach_answer",
+  "desc": "Save the user's answer to a question the setup didn't cover. Used on every future form.",
+  "params": [
+   {
+    "name": "question",
+    "required": true
+   },
+   {
+    "name": "answer",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "find_jobs",
+  "desc": "Search for openings now (Greenhouse, Lever and Ashby boards) that fit the profile. Optional titles or companies narrow it. Use when the user asks to browse; next_task already searches on its own.",
+  "params": [
+   {
+    "name": "titles",
+    "required": false
+   },
+   {
+    "name": "companies",
+    "required": false
+   },
+   {
+    "name": "limit",
+    "required": false
+   }
+  ]
+ },
+ {
+  "name": "match_job",
+  "desc": "Step 5. Read one posting: description, every application question, and which ones the profile answers. Returns the base resume and the rules for tailoring it to this job.",
+  "params": [
+   {
+    "name": "url",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "save_tailored_resume",
+  "desc": "Step 6. Save the resume tailored for this job as Markdown and PDF in a new folder named with today's date and time, plus the cover letter and written answers (question label -> text). what_changed: one or two plain sentences for the user on how this version differs from their base resume (\"Led with your experimentation work; used their term growth analytics\"). Records the match score and industry in the tracker.",
+  "params": [
+   {
+    "name": "url",
+    "required": true
+   },
+   {
+    "name": "resume_markdown",
+    "required": true
+   },
+   {
+    "name": "match_score",
+    "required": true
+   },
+   {
+    "name": "industry",
+    "required": true
+   },
+   {
+    "name": "cover_letter",
+    "required": false
+   },
+   {
+    "name": "written_answers",
+    "required": false
+   },
+   {
+    "name": "what_changed",
+    "required": false
+   }
+  ]
+ },
+ {
+  "name": "fill_application",
+  "desc": "Step 7. Fill the application and return a screenshot. Never submits. practice=true fills a local copy of this exact form (same questions), safe for demos. practice=false fills the real form with all outgoing data blocked.",
+  "params": [
+   {
+    "name": "url",
+    "required": true
+   },
+   {
+    "name": "practice",
+    "required": false
+   }
+  ]
+ },
+ {
+  "name": "send_for_approval",
+  "desc": "Telegram mode. Send this job to the user's Telegram with Apply / Skip buttons.",
+  "params": [
+   {
+    "name": "url",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "send_queue_link",
+  "desc": "After a run, call once: Telegram gets one message with the link to today's applications, which the user opens on their computer (one click fills each form, they press Submit). Without Telegram, give the user the link in the chat.",
+  "params": []
+ },
+ {
+  "name": "submit_application",
+  "desc": "Submit for real. Only call when the user approved this exact job, or mode is autonomous. Refuses if any required question is unanswered or the daily cap is reached. If the job site asks for a person at Submit (an emailed code), nothing is sent and the result has open_application: the user finishes it in their own browser in one click.",
+  "params": [
+   {
+    "name": "url",
+    "required": true
+   },
+   {
+    "name": "user_approved",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "share_code",
+  "desc": "When a job site emails the user a security code to finish an application, find it in their email (with their Gmail connector) and pass it here. Only for assistants that can read the user's email; without one, the user copies the code and taps Paste my code on the form. The Fill with Job Agent panel on the form then shows \"Fill my code\": the user taps it and presses Submit. Codes expire after 15 minutes. Never type the code into the form yourself.",
+  "params": [
+   {
+    "name": "code",
+    "required": true
+   },
+   {
+    "name": "site",
+    "required": false
+   }
+  ]
+ },
+ {
+  "name": "open_application",
+  "desc": "Finish an application in the user's own browser: returns the form link, the one-time setup link for the Fill with Job Agent button, and the steps. Use when a job site needs a person at Submit (an emailed code or CAPTCHA), or when the user wants to submit it themselves. An assistant that controls the user's browser (Claude in Chrome, ChatGPT agent, Playwright) can open the form and run fill_script on the page, then leave Submit to the user.",
+  "params": [
+   {
+    "name": "url",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "telegram_setup",
+  "desc": "Step 3. The exact steps to connect Telegram. Show them to the user as written.",
+  "params": []
+ },
+ {
+  "name": "connect_telegram",
+  "desc": "Telegram step 7: save the BotFather token and get the link the user taps to finish.",
+  "params": [
+   {
+    "name": "token",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "finish_telegram",
+  "desc": "Telegram step 9: confirm the user pressed Start and send a test message.",
+  "params": []
+ },
+ {
+  "name": "update_stage",
+  "desc": "Move a job to a new stage: on the shortlist, pursue (tailor it) or pass; after applying, heard_back, interviewing, offer, rejected. Notes are optional (recruiter name, interview date).",
+  "params": [
+   {
+    "name": "url",
+    "required": true
+   },
+   {
+    "name": "stage",
+    "required": true
+   },
+   {
+    "name": "notes",
+    "required": false
+   }
+  ]
+ },
+ {
+  "name": "check_email_for_updates",
+  "desc": "Optional. If the user has a Gmail connector, use it with these searches to find replies from companies they applied to, then call update_stage for each one you find. Read the email before deciding: interview invite -> interviewing, rejection -> rejected, other reply -> heard_back.",
+  "params": []
+ },
+ {
+  "name": "tracker",
+  "desc": "Step 9. Every job: date, company, role, industry, match score, stage, follow-up date and resume folder. Saved as a spreadsheet (tracker.csv) and a color-coded page (tracker.html).",
+  "params": [
+   {
+    "name": "status",
+    "required": false
+   }
+  ]
+ },
+ {
+  "name": "schedule_daily",
+  "desc": "Every day at this time (24-hour, e.g. \"07:30\", in the user's timezone such as \"America/New_York\"), line up new jobs and nudge the user on Telegram to open their assistant. Apply / Skip taps on Telegram are handled within 2 minutes.",
+  "params": [
+   {
+    "name": "at",
+    "required": false
+   },
+   {
+    "name": "timezone",
+    "required": false
+   }
+  ]
+ },
+ {
+  "name": "stop_daily",
+  "desc": "Turn off the daily run and the Telegram tap checking.",
+  "params": []
+ },
+ {
+  "name": "show_progress",
+  "desc": "Show the user's setup progress as a card (a checklist with the next step). Use at the start of a conversation and whenever a setup step is finished.",
+  "params": []
+ },
+ {
+  "name": "show_ready_jobs",
+  "desc": "Show the jobs that are ready to send as a card with Apply, Skip and Telegram buttons. Call this when next_task returns review_with_user, instead of listing the jobs in text. A button click arrives as the user's own message (e.g. \"Apply to X at Y\"): act on it.",
+  "params": []
+ },
+ {
+  "name": "show_shortlist",
+  "desc": "Show today's shortlist as a card with Pursue and Pass on each job. jobs: [{url, score, why, gap}] from your read of each posting (score 0-100, one line each). Scores are saved to the tracker.",
+  "params": [
+   {
+    "name": "jobs",
+    "required": true
+   }
+  ]
+ },
+ {
+  "name": "show_tracker",
+  "desc": "Show the tracker as a card: every job with its stage, color-coded, and follow-ups due.",
+  "params": []
+ },
+ {
+  "name": "ask_question",
+  "desc": "Ask the user something as a card with tappable choices, instead of making them type. For setup steps, pass setup_key from next_task's \"ask\": the card then saves the answer itself and shows the next question, so the user doesn't need to send a message. options: a list of labels, or {label, description} items. multi_select lets them pick several. allow_other adds a box for their own answer. Their pick arrives as their next message. Apps without cards get a numbered list they can reply to. Use this for every choice.",
+  "params": [
+   {
+    "name": "question",
+    "required": true
+   },
+   {
+    "name": "options",
+    "required": false
+   },
+   {
+    "name": "multi_select",
+    "required": false
+   },
+   {
+    "name": "allow_other",
+    "required": false
+   },
+   {
+    "name": "header",
+    "required": false
+   },
+   {
+    "name": "step",
+    "required": false
+   },
+   {
+    "name": "note",
+    "required": false
+   },
+   {
+    "name": "other_placeholder",
+    "required": false
+   },
+   {
+    "name": "setup_key",
+    "required": false
+   }
+  ]
+ }
+]
