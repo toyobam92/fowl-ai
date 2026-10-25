@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 19 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 23: The FDA just finished asking the public how to regulate AI doctors. The deadline passed almost unnoticed.</title>
+      <link>https://www.fowl-ai.com/issues/2026-10-26/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-10-26/</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+      <description>The FDA’s comment window on regulating generative and agentic AI medical devices closed October 19. ARPA-H is funding a two-year race to build the first FDA-authorized AI agent for heart-failure care. The AMA finds 81% of doctors now use AI at work — while only 7.8% of patients would trust an AI-first diagnosis over a physician’s own judgment.</description>
+    </item>
     <item>
       <title>Issue 22: OpenAI called 2026 the year AI adoption gets practical. For a lot of enterprises, “practical” has meant pulling the agent back offline.</title>
       <link>https://www.fowl-ai.com/issues/2026-10-19/</link>
