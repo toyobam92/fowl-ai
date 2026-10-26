@@ -45,4 +45,5 @@
   <url><loc>https://www.fowl-ai.com/tools/job-agent/</loc></url>
   <url><loc>https://www.fowl-ai.com/tools/developers/</loc></url>
   <url><loc>https://www.fowl-ai.com/tools/job-agent/session/</loc></url>
+  <url><loc>https://www.fowl-ai.com/join/</loc><priority>0.8</priority><changefreq>monthly</changefreq></url>
 </urlset>
