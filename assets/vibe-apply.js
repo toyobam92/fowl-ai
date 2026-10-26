@@ -38,10 +38,21 @@ form.addEventListener('submit', event => {
   const invalid = [...sections[i].querySelectorAll('input,textarea')].find(input => !input.checkValidity());
   if (invalid) { event.preventDefault(); step = i; render(); invalid.reportValidity(); return; }
  }
+ copyToDashboard();
  button.disabled = true;
  previous.disabled = true;
  button.textContent = 'Sending your application…';
  status.textContent = 'Opening your confirmation. Please keep this page open.';
 });
+// The Google Form stays the main record. A copy also goes to the FOWL AI outreach dashboard (tools.fowl-ai.com).
+function copyToDashboard() {
+ const field = name => (form.querySelector(`[name="${name}"]:checked`) || form.querySelector(`[name="${name}"]:not([type=radio])`) || {}).value || '';
+ const data = new URLSearchParams({
+  name: field('entry.2041948317'), email: field('entry.1886223741'), link: field('entry.1366720631'),
+  journey: field('entry.1703014300'), idea: field('entry.2039152267'), why: field('entry.844914439'),
+  attend: field('entry.2098592694'), notes: field('entry.156077931'), session: 'Sat Nov 14',
+ });
+ try { navigator.sendBeacon('https://tools.fowl-ai.com/vcs/signup', new Blob([data.toString()], { type: 'application/x-www-form-urlencoded' })); } catch (e) {}
+}
 window.addEventListener('pageshow', () => { previous.disabled = false; render(); });
 render();
