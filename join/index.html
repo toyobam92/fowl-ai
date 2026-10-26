@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1K9HKRJ6ZV');</script>
+<title>Join FOWL AI | Free sessions, tools and the briefing</title>
+<meta name="description" content="One form for everything FOWL AI: free Vibe Code Saturdays, the Job Agent, Brand Brain and the weekly briefing. Pick what you want and we'll only send you that.">
+<meta property="og:title" content="Join FOWL AI"><meta property="og:description" content="Free live AI sessions, tools and the weekly briefing. Pick what you want."><meta property="og:url" content="https://www.fowl-ai.com/join/"><meta property="og:image" content="https://www.fowl-ai.com/og-image.png">
+<meta name="theme-color" content="#185b42"><link rel="icon" href="/favicon.svg"><link rel="canonical" href="https://www.fowl-ai.com/join/">
+<link rel="stylesheet" href="/assets/site.css"><link rel="stylesheet" href="/assets/vibe-apply.css">
+<style>
+.choices.two{grid-template-columns:repeat(2,minmax(0,1fr))}
+@media(max-width:560px){.choices.two{grid-template-columns:1fr}}
+.choice input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin:0;padding:0;accent-color:var(--fowl-green);display:inline-block}
+.choice span small{display:block;color:#647169;font-size:12px;font-weight:400}
+.join select{width:100%;display:block;border:1px solid #dce3dc;border-radius:11px;padding:13px 14px;font:inherit;font-size:16px;background:#fcfdfb;color:var(--fowl-ink)}
+.join select:focus{outline:0;border-color:var(--fowl-green);box-shadow:0 0 0 3px #185b4212;background:#fff}
+.join .row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+@media(max-width:560px){.join .row2{grid-template-columns:1fr}}
+.join .trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.join .err{background:#fdecec;color:#8a1c1c;border-radius:12px;padding:12px 14px;font-size:14px;margin:0 0 14px}
+</style></head>
+<body class="apply-page"><a class="skip-link" href="#join">Skip to the form</a>
+<header class="apply-header"><a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a><a class="back-link" href="/">← <span>FOWL AI home</span></a></header>
+<main class="apply-layout"><aside class="invitation"><p class="eyebrow">JOIN FOWL AI</p><h1>One list.<br><span>Only what you want.</span></h1><p class="intro">Free live sessions, AI tools that do real work, and a weekly briefing on the future of work. Tell us what you're into and we'll only send you that.</p><p class="beginner-note">Beginners welcome. Free to join.</p><div class="tags"><span>Vibe Code Saturdays</span><span>Job Agent</span><span>Brand Brain</span><span>The briefing</span></div>
+<div class="invite-card"><div class="card-top"><span>NEXT FREE SESSION</span><span aria-hidden="true">↗</span></div><h2>Vibe Code Saturdays.<br>Sat, Nov 14.</h2><p>Bring an idea, leave with a build. Live on Zoom, 11am to 2pm ET, with people building alongside you.</p><div class="card-rule"></div><div class="card-bottom"><span>YOUR IDEA + AI + COMMUNITY</span><span aria-hidden="true">✳</span></div></div>
+<div class="next"><p class="eyebrow">WHAT HAPPENS NEXT</p><p>You'll get a short welcome email, then only the things you picked. Unsubscribe any time.</p></div></aside>
+<section class="application join" id="join" aria-labelledby="join-title"><div class="form-heading"><span class="eyebrow">LET'S MEET YOU</span><span class="time">About 1 minute</span></div><h2 id="join-title">What should we send you?</h2>
+<p class="err" id="join-error" hidden role="alert">Please add your name and a valid email, then send again.</p>
+<p class="required-note"><span class="required">*</span> Required fields</p>
+<form method="post" action="https://tools.fowl-ai.com/join" accept-charset="UTF-8">
+<section class="form-section" aria-labelledby="s1"><h3 id="s1"><span>01</span> About you</h3>
+<div class="field"><label for="name">Full name <span class="required" aria-label="required">*</span></label><input id="name" name="name" required type="text" autocomplete="name" maxlength="80" placeholder="Your full name"></div>
+<div class="field"><label for="email">Email <span class="required" aria-label="required">*</span></label><input id="email" name="email" required type="email" autocomplete="email" maxlength="120" placeholder="you@example.com"></div>
+<div class="row2"><div class="field"><label for="region">Where are you?</label><select id="region" name="region"><option value="">Choose one</option><option value="atlanta">Atlanta area</option><option value="us">Elsewhere in the US</option><option value="intl">Outside the US</option></select></div>
+<div class="field"><label for="city">City <span class="optional">Optional</span></label><input id="city" name="city" type="text" autocomplete="address-level2" maxlength="60" placeholder="e.g. Decatur"></div></div></section>
+<section class="form-section" aria-labelledby="s2"><h3 id="s2"><span>02</span> What you want</h3>
+<fieldset class="field"><legend>Pick everything that interests you</legend><div class="choices two">
+<label class="choice"><input type="checkbox" name="interest" value="vcs" checked><span>Vibe Code Saturdays<small>Free live build sessions</small></span></label>
+<label class="choice"><input type="checkbox" name="interest" value="job-agent"><span>Job Agent<small>AI that applies to jobs with you</small></span></label>
+<label class="choice"><input type="checkbox" name="interest" value="brand-brain"><span>Brand Brain<small>Your brand, inside any AI app</small></span></label>
+<label class="choice"><input type="checkbox" name="interest" value="ai-business"><span>AI for my business<small>Tips and builds for small teams</small></span></label>
+<label class="choice"><input type="checkbox" name="interest" value="newsletter"><span>The FOWL AI briefing<small>Weekly, on the future of work</small></span></label>
+</div></fieldset>
+<fieldset class="field"><legend>Where are you in your journey?</legend><div class="choices">
+<label class="choice"><input type="radio" name="stage" value="beginner"><span>Just curious / total beginner</span></label>
+<label class="choice"><input type="radio" name="stage" value="idea"><span>Have an idea, no brand yet</span></label>
+<label class="choice"><input type="radio" name="stage" value="building"><span>Already building a brand or business</span></label>
+<label class="choice"><input type="radio" name="stage" value="technical"><span>Technical background, exploring AI tools</span></label>
+</div></fieldset></section>
+<section class="form-section" aria-labelledby="s3"><h3 id="s3"><span>03</span> One last thing</h3>
+<div class="field"><label for="heard">How did you hear about us?</label><select id="heard" name="heard"><option value="">Choose one</option><option>Instagram</option><option>Threads</option><option>LinkedIn</option><option>AiD Slack</option><option>A friend</option><option>Vibe Code Saturdays</option><option>Google</option><option>Other</option></select></div>
+<div class="field"><label for="notes">Anything you'd like us to know? <span class="optional">Optional</span></label><textarea id="notes" name="notes" rows="3" maxlength="600" placeholder="What you're building, what you'd love help with"></textarea></div>
+<input type="hidden" name="ref" id="ref"><input type="hidden" name="utm_source" id="utm_source">
+<div class="trap" aria-hidden="true"><label>Leave this empty<input name="leave_empty_hp" tabindex="-1" autocomplete="off"></label></div></section>
+<div class="form-end"><p class="privacy-note">We'll use your email only for the things you picked. <a href="/privacy/">Privacy policy</a></p><div class="form-actions"><button class="apply-button" type="submit">Join FOWL AI <span aria-hidden="true">↗</span></button></div></div>
+</form></section></main>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  document.getElementById('ref').value = (q.get('ref') || '').slice(0, 60);
+  document.getElementById('utm_source').value = (q.get('utm_source') || '').slice(0, 40);
+  if (q.get('error')) document.getElementById('join-error').hidden = false;
+  var pick = q.get('interest');
+  if (pick) document.querySelectorAll('input[name=interest]').forEach(function (b) { b.checked = b.value === pick; });
+  if (q.get('ref')) document.getElementById('heard').value = 'A friend';
+  document.querySelector('form').addEventListener('submit', function () {
+    var b = document.querySelector('.apply-button'); b.disabled = true; b.textContent = 'Joining…';
+    if (window.gtag) gtag('event', 'join_fowl', { interests: Array.from(document.querySelectorAll('input[name=interest]:checked')).map(function (x) { return x.value; }).join(',') });
+  });
+  window.addEventListener('pageshow', function () { var b = document.querySelector('.apply-button'); b.disabled = false; b.innerHTML = 'Join FOWL AI <span aria-hidden="true">↗</span>'; });
+})();
+</script>
+</body></html>
