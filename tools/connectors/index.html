@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1K9HKRJ6ZV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1K9HKRJ6ZV');
+  </script>
+  <script src="/analytics-events.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Build Your Own Claude Connector: Free Class Dec 17 | FOWL AI</title>
+  <meta name="description" content="The next App Store might be Claude. See two connectors already in Claude's directory, get the step-by-step and a starter prompt, and join a free 1-hour class on Thu Dec 17.">
+  <meta property="og:title" content="Build Your Own Claude Connector: Free Class Dec 17 | FOWL AI" />
+  <meta property="og:description" content="The next App Store might be Claude. See two connectors already in Claude's directory, get the step-by-step and a starter prompt, and join a free 1-hour class on Thu Dec 17." />
+  <meta property="og:url" content="https://www.fowl-ai.com/tools/connectors/" />
+  <meta property="og:image" content="https://www.fowl-ai.com/assets/video/connector-class-poster.jpg" />
+  <link rel="canonical" href="https://www.fowl-ai.com/tools/connectors/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="stylesheet" href="/tools/tools.css">
+  <script src="/assets/site.js" defer></script>
+  <meta name="theme-color" content="#185b42">
+</head>
+<body class="fowl-interior">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+<header class="site-header">
+  <nav class="site-nav" aria-label="Main navigation">
+    <a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a>
+    <div class="site-nav-links" id="site-navigation">
+      <a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">Platforms</a><a href="/tools/" aria-current="page">Tools</a><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="navigation">Vibe Code Saturdays</a>
+      <details class="site-more"><summary>Explore</summary><div class="site-more-menu"><a href="/tests/">AI tool tests</a><a href="/glossary/">AI glossary</a><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a></div></details>
+    </div>
+    <a class="site-nav-cta" href="/#signup" data-conversion="newsletter" data-link-location="navigation-cta">Subscribe free <span aria-hidden="true">↗</span></a>
+    <button class="site-menu-toggle" type="button" aria-label="Open navigation" aria-controls="site-navigation" aria-expanded="false"><span></span><span></span></button>
+  </nav>
+</header>
+<main id="main-content">
+<style>
+.cx-hero{background:linear-gradient(#fff 55%,var(--fowl-paper));color:var(--fowl-ink);padding:56px 24px 64px;border-bottom:1px solid var(--fowl-line)}
+.cx-hero .tl-wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:44px;align-items:center}
+@media(max-width:900px){.cx-hero .tl-wrap{grid-template-columns:1fr}}
+.cx-badges{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}
+.cx-badges span{font:600 12px var(--fowl-font);letter-spacing:.2px;padding:7px 12px;border-radius:999px;border:1px solid #e1e8dc;background:#f7faf4;color:#4d674e}
+.cx-badges span.gold{background:#f2a12b;color:#0d3f31;border-color:#f2a12b;font-weight:800;letter-spacing:1px;text-transform:uppercase}
+.cx-hero h1{font-family:var(--fowl-font)!important;font-weight:700;font-size:clamp(40px,6vw,66px);line-height:1.02;margin:0 0 18px;letter-spacing:-.055em;color:var(--fowl-ink);text-wrap:balance}
+.cx-hero h1 em{font-style:normal;color:var(--fowl-green);display:block}
+.cx-hero p.lede{font-size:19px;line-height:1.6;color:var(--fowl-muted);max-width:52ch;margin:0}
+.cx-video{position:relative;border-radius:22px;overflow:hidden;background:#0d3f31;box-shadow:0 24px 60px rgba(0,0,0,.14);aspect-ratio:16/9;max-width:100%}
+.cx-video video{display:block;width:100%;height:100%;object-fit:cover}
+.cx-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.cx-ex{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
+.cx-card{background:#fff;border:1px solid var(--fowl-line);border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.cx-card .k{font:700 11px var(--fowl-font);letter-spacing:1.5px;text-transform:uppercase;color:#638058}
+.cx-card h3{margin:0;font:700 24px/1.15 var(--fowl-font);letter-spacing:-.03em}
+.cx-card p{margin:0;color:var(--fowl-muted);font-size:15.5px;line-height:1.55}
+.cx-card .ask{background:var(--fowl-paper);border-radius:12px;padding:12px 14px;font-size:14.5px;color:var(--fowl-ink)}
+.cx-card a.go{margin-top:auto;color:var(--fowl-green);font-weight:700;text-decoration:none}
+.cx-steps{counter-reset:s;list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.cx-steps li{counter-increment:s;display:grid;grid-template-columns:44px minmax(0,1fr);gap:14px;background:#fff;border:1px solid var(--fowl-line);border-radius:18px;padding:18px 20px}
+.cx-steps li:before{content:counter(s);width:36px;height:36px;border-radius:10px;background:var(--fowl-green);color:#fff;font:800 16px var(--fowl-font);display:flex;align-items:center;justify-content:center;transform:rotate(-9deg)}
+.cx-steps b{display:block;font-size:17px;margin-bottom:4px}
+.cx-steps span{color:var(--fowl-muted);font-size:15.5px;line-height:1.55}
+.cx-steps code{font:500 14px ui-monospace,"SF Mono",Menlo,monospace;background:var(--fowl-paper);padding:2px 6px;border-radius:6px;color:var(--fowl-ink)}
+.cx-prompt{position:relative;background:#0f1a16;color:#dcf0e3;border-radius:18px;padding:68px 22px 22px;font:500 14.5px/1.6 ui-monospace,"SF Mono",Menlo,monospace;white-space:pre-wrap;overflow-wrap:anywhere;margin:0}
+.cx-copy{position:absolute;top:12px;right:12px;min-height:44px;padding:0 16px;border:0;border-radius:999px;background:#a9e8cf;color:#0d3f31;font:700 14px var(--fowl-font);cursor:pointer}
+.cx-look{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;list-style:none;padding:0;margin:0}
+.cx-look li{background:#fff;border:1px solid var(--fowl-line);border-radius:16px;padding:16px 18px;font-size:15px;line-height:1.5;color:var(--fowl-muted)}
+.cx-look li b{display:block;color:var(--fowl-ink);font-size:16px;margin-bottom:2px}
+.cx-class{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:28px;align-items:start}
+@media(max-width:860px){.cx-class{grid-template-columns:1fr}}
+.cx-ticket{background:#185b42;color:#fff;border-radius:22px;padding:26px}
+.cx-ticket .k{font:800 11px var(--fowl-font);letter-spacing:1.6px;text-transform:uppercase;color:#f2a12b}
+.cx-ticket b.t{display:block;font:700 28px/1.12 var(--fowl-font);letter-spacing:-.035em;margin:8px 0 16px}
+.cx-ticket dl{display:grid;grid-template-columns:auto 1fr;gap:8px 14px;margin:0;font-size:15.5px;border-top:1px dashed rgba(255,255,255,.3);padding-top:14px}
+.cx-ticket dt{color:#a9e8cf} .cx-ticket dd{margin:0;font-weight:600}
+.cx-ticket ul{margin:16px 0 0;padding-left:18px;color:#dcf0e3;font-size:15px;line-height:1.6}
+.cx-form{background:#fff;border:1px solid var(--fowl-line);border-radius:22px;padding:26px;box-shadow:0 20px 50px rgba(0,0,0,.06)}
+.cx-form label.f{display:block;font-weight:600;font-size:14px;margin:16px 0 6px}
+.cx-form label.f:first-of-type{margin-top:0}
+.cx-form input[type=text],.cx-form input[type=email],.cx-form textarea{width:100%;font:inherit;font-size:16px;padding:13px 14px;border:1px solid #c9d2cb;border-radius:12px;background:#fff;box-sizing:border-box}
+.cx-form textarea{min-height:90px;resize:vertical}
+.cx-submit{display:flex;align-items:center;justify-content:center;width:100%;min-height:54px;margin-top:20px;border:0;border-radius:999px;background:var(--fowl-green);color:#fff;font:700 17px var(--fowl-font);cursor:pointer}
+.cx-submit:hover{background:#124a35}
+.cx-trap{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.cx-note{font-size:13px;color:var(--fowl-muted);margin:12px 0 0;text-align:center}
+.cx-err{background:#fdecec;color:#8a1c1c;border-radius:12px;padding:12px 14px;font-size:14px;margin:0 0 14px}
+input:focus-visible,textarea:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #8fc9a8;outline-offset:2px}
+</style>
+
+  <section class="cx-hero"><div class="tl-wrap">
+    <div>
+      <div class="cx-badges"><span class="gold">Free class · Dec 17</span><span>Claude connectors</span><span>Beginner friendly</span></div>
+      <h1>Forget the App Store. <em>Get your tool into Claude.</em></h1>
+      <p class="lede">The future of software, and of APIs, might not be the App Store or Google Play. It might be inside the AI tools people already use. A connector lets Claude use your app or your data for someone, so instead of copying and pasting, they just ask.</p>
+      <div class="cx-actions"><a class="tl-btn gold" href="#signup" data-link-location="connectors-hero">Save my free seat</a><a class="tl-btn ghost" href="#how">How to build one</a></div>
+    </div>
+    <div class="cx-video" id="video">
+      <video controls playsinline preload="metadata" poster="/assets/video/connector-class-poster.jpg" aria-label="The next App Store might be Claude, 35 seconds">
+        <source src="/assets/video/connector-class-wide-16x9.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div></section>
+
+  <section class="tl-section"><div class="tl-wrap">
+    <h2>Two connectors already in Claude</h2>
+    <p class="tl-lede">Both are listed in Claude's connector directory today, with real API data behind every answer. Add either one from its listing and try the questions below.</p>
+    <div class="cx-ex">
+      <div class="cx-card">
+        <span class="k">Community connector · 13 cities</span>
+        <h3>CitySignal</h3>
+        <p>Road, transit, weather, power and water signals in one live picture of your city, with a week of history and picture cards from road cameras.</p>
+        <div class="ask">"What's happening on the roads in San Francisco right now?"</div>
+        <a class="go" href="https://claude.ai/directory/citysignal" target="_blank" rel="noopener">See it in Claude's directory ↗</a>
+      </div>
+      <div class="cx-card">
+        <span class="k">Community connector · Atlanta region</span>
+        <h3>Clarity Atlas</h3>
+        <p>1,000 Census and HUD indicators for every county, city, ZIP and tract in metro Atlanta, each with its source, margin of error and a map link.</p>
+        <div class="ask">"Which Atlanta counties have the highest median rent, and how do they compare with HUD's Fair Market Rent?"</div>
+        <a class="go" href="https://claude.ai/directory/clarity-atlas" target="_blank" rel="noopener">See it in Claude's directory ↗</a>
+      </div>
+      <div class="cx-card" style="border-style:dashed;background:transparent">
+        <span class="k">Yours next</span>
+        <h3>Your app. Your service.</h3>
+        <p>It doesn't have to be a big app. Your booking system, your price list, your client portal or a public dataset you know well can become a connector your clients use inside their own AI.</p>
+        <a class="go" href="#signup">Build it with me on Dec 17 →</a>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="tl-section alt" id="how"><div class="tl-wrap">
+    <h2>How to build your own</h2>
+    <p class="tl-lede">You can do this on your own with Claude Code, or build it with me in the class. Either way, these are the steps.</p>
+    <ol class="cx-steps">
+      <li><div><b>Pick one thing to plug in</b><span>An API you own, a service you offer, or one public dataset. Start with questions people already ask you.</span></div></li>
+      <li><div><b>Paste the starter prompt into Claude Code</b><span>Claude interviews you first, then writes the connector (an MCP server), with read-only tools, an "about" tool, a developers page and a privacy page.</span></div></li>
+      <li><div><b>Put it online</b><span>Claude Code deploys it for you, for example to a free Cloudflare account. You get one web address, like <code>https://yourtool.com/mcp</code>.</span></div></li>
+      <li><div><b>Add it to your own Claude</b><span>In Claude, open Settings, then Connectors, then <b style="display:inline">Add custom connector</b>, and paste the address. Ask it a real question.</span></div></li>
+      <li><div><b>Submit it to Claude's directory</b><span>At <code>claude.ai/directory/manage</code> (needs a paid Claude plan): listing text, icon, docs and privacy links, and two test prompts for the reviewer. Approval isn't promised, but the steps below make it much more likely.</span></div></li>
+    </ol>
+
+    <h3 style="margin:34px 0 12px">The starter prompt</h3>
+    <div style="position:relative">
+<pre class="cx-prompt" id="prompt">I want to build a Claude connector (an MCP server) for my own app, service or data, and get it ready for Claude's connector directory.
+
+Before writing any code, interview me one question at a time:
+1. What do I want people to be able to ask about? Give me 3 example questions.
+2. Where does the data come from (my API, a spreadsheet, a public dataset)? Is any of it private?
+3. Who runs it (my name or company), and how current is the data?
+
+Then build it:
+- A remote MCP server (Streamable HTTP) with a few focused tools. Make them read-only unless I ask otherwise, and label each one (readOnlyHint, destructiveHint).
+- An "about" tool that says who operates it, what the data covers and how current it is.
+- Server instructions in one plain paragraph that say what it is and which tool to call first. No promotion and no steering toward other tools.
+- A /developers page (endpoint, tools, example prompts) and a /privacy page (what is logged, nothing sold), plus a 512x512 PNG icon.
+- Deploy it (Cloudflare Workers is fine), then test every tool with my 3 example questions and show me the results.
+
+Finally, write the directory listing for me: name, one-line description, long description, 3 to 5 use cases, and 2 test prompts with expected answers for the reviewer.</pre>
+      <button class="cx-copy" type="button" id="copy">Copy prompt</button>
+    </div>
+
+    <h3 style="margin:34px 0 12px">What the accepted ones have in common</h3>
+    <ul class="cx-look">
+      <li><b>A clear job</b>A few focused tools that answer real questions, not a whole product.</li>
+      <li><b>Honest labels</b>Tools marked read-only where they only read, and plain instructions that say who runs it.</li>
+      <li><b>Real data, with sources</b>Answers come from the data, never made up, with the source and date.</li>
+      <li><b>The paperwork done</b>Developers page, privacy page, PNG icon and test prompts the reviewer can run.</li>
+    </ul>
+  </div></section>
+
+  <section class="tl-section" id="signup"><div class="tl-wrap">
+    <h2>Build one with me, free</h2>
+    <p class="tl-lede">One hour on Zoom. I'll build a connector from scratch with you, add it to Claude, and walk through what got mine accepted.</p>
+    <div class="cx-class">
+      <aside class="cx-ticket" aria-label="Class details">
+        <span class="k">FOWL AI · Free class</span>
+        <b class="t">Get your tool into Claude</b>
+        <dl><dt>When</dt><dd>Thursday, Dec 17 · 7 to 8pm ET</dd><dt>Where</dt><dd>Online, on Zoom</dd><dt>Cost</dt><dd>Free</dd><dt>With</dt><dd>Toyosi, founder of FOWL AI</dd></dl>
+        <ul><li>Bring a laptop and one app, service or public dataset</li><li>Claude Code installed helps (I'll send setup steps)</li><li>A paid Claude plan only if you want to submit to the directory</li></ul>
+      </aside>
+      <form class="cx-form" method="post" action="https://tools.fowl-ai.com/join" accept-charset="UTF-8">
+        <p class="cx-err" id="cx-err" hidden role="alert">Please add your name and a valid email, then send again.</p>
+        <label class="f" for="cx-name">Your name</label><input type="text" id="cx-name" name="name" required autocomplete="name" maxlength="80" placeholder="Jordan Lee">
+        <label class="f" for="cx-email">Email</label><input type="email" id="cx-email" name="email" required autocomplete="email" maxlength="120" placeholder="you@email.com">
+        <label class="f" for="cx-notes">What would you turn into a connector? <span style="font-weight:400;color:var(--fowl-muted)">Optional</span></label><textarea id="cx-notes" name="notes" maxlength="600" placeholder="My booking system, my price list, a dataset I work with..."></textarea>
+        <input type="hidden" name="interest" value="connector-class">
+        <input type="hidden" name="ref" id="cx-ref"><input type="hidden" name="utm_source" id="cx-utm">
+        <div class="cx-trap" aria-hidden="true"><label>Leave this empty<input name="leave_empty_hp" tabindex="-1" autocomplete="off"></label></div>
+        <button class="cx-submit" type="submit">Save my free seat</button>
+        <p class="cx-note">You'll get the Zoom link by email right away. We'll only email you about this class unless you ask for more.</p>
+      </form>
+    </div>
+  </div></section>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  document.getElementById('cx-ref').value = (q.get('ref') || '').slice(0, 60);
+  document.getElementById('cx-utm').value = (q.get('utm_source') || '').slice(0, 40);
+  if (q.get('error')) { var e = document.getElementById('cx-err'); e.hidden = false; }
+  var b = document.getElementById('copy');
+  b.addEventListener('click', function () {
+    var t = document.getElementById('prompt').innerText;
+    (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { b.textContent = 'Copied'; setTimeout(function () { b.textContent = 'Copy prompt'; }, 1800); }, function () {
+      var r = document.createRange(); r.selectNodeContents(document.getElementById('prompt')); var s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Press Cmd+C';
+    });
+  });
+  document.querySelector('.cx-form').addEventListener('submit', function () { if (window.gtag) gtag('event', 'connector_class_signup'); });
+})();
+</script>
+</main>
+
+<footer class="site-footer"><div class="site-footer-inner">
+  <div class="site-footer-top">
+    <div class="site-footer-about"><a class="site-brand" href="/" aria-label="FOWL AI home"><span class="site-brand-mark" aria-hidden="true"></span>FOWL<span class="ai">AI</span></a><p>A clearer view of AI.<br>A smarter next move.</p></div>
+    <div class="site-footer-column"><h2>Discover</h2><a href="/issues/">The briefing</a><a href="/jobs/">AI jobs</a><a href="/platforms/">AI platforms</a><a href="/tests/">AI tool tests</a></div>
+    <div class="site-footer-column"><h2>Go further</h2><a href="/tools/">Tools</a><a href="/tools/developers/">For developers</a><a href="/vibe-code-saturdays/" data-conversion="vibe-code" data-link-location="footer">Vibe Code Saturdays</a><a href="/glossary/">AI glossary</a></div>
+    <div class="site-footer-column"><h2>Stay curious</h2><a href="/about/">About FOWL AI</a><a href="/faq/">FAQs</a><a href="/contact/">Get in touch</a><a href="https://www.instagram.com/fowlai/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+  </div>
+  <div class="site-footer-bottom"><span>© 2026 FOWL AI · Future of Work Lab</span><div><a href="/privacy/">Privacy</a><a href="/feed.xml">RSS</a><a href="https://toyosibamidele.com" target="_blank" rel="noopener noreferrer">Made by TYB ↗</a></div></div>
+</div></footer>
+</body>
+</html>
