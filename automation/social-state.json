@@ -276,11 +276,12 @@
       "avatar_id": "06c45b55396142b4930282c658142c0f",
       "look_name": "Avatar in a pink sweater",
       "platforms_published": {
-        "facebook": false,
-        "instagram": false,
+        "facebook": true,
+        "instagram": true,
         "tiktok": false,
-        "threads": false
-      }
+        "threads": true
+      },
+      "posted_at": "2026-10-26T01:33:04+00:00"
     }
   ]
 }
