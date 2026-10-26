@@ -89,7 +89,7 @@ input:focus-visible,select:focus-visible,.ss-submit:focus-visible,summary:focus-
     <aside class="ss-ticket" aria-label="Session details">
       <span class="k">FOWL AI · Live session</span>
       <b class="t">Set up your AI job search agent in one hour</b>
-      <dl><dt>When</dt><dd>Thursday or Friday evening, date coming soon</dd><dt>Where</dt><dd>Online, on Zoom</dd>
+      <dl><dt>When</dt><dd>Thursday, Nov 5 · 7 to 8pm ET</dd><dt>Where</dt><dd>Online, on Zoom</dd>
       <dt>Cost</dt><dd>Free, and the tools are free too</dd><dt>Bring</dt><dd>Your laptop and your resume</dd></dl>
     </aside>
   </div></section>
@@ -118,17 +118,12 @@ input:focus-visible,select:focus-visible,.ss-submit:focus-visible,summary:focus-
 
   <section class="tl-section" id="signup"><div class="tl-wrap">
     <h2>Save your free seat</h2>
-    <p class="tl-lede">We're picking between a Thursday and a Friday evening. Tell us what works and we'll email you the date and Zoom link.</p>
+    <p class="tl-lede">Thursday, November 5, 7 to 8pm ET, live on Zoom. Save your seat and we'll email you the Zoom link right away, plus a reminder on the day.</p>
     <form class="ss-form" method="post" action="https://tools.fowl-ai.com/sessions/signup">
       <p class="ss-err" id="ss-err" hidden>Please add your name and a valid email.</p>
       <label class="f" for="ss-name">Your name</label><input type="text" id="ss-name" name="name" required autocomplete="name" placeholder="Jordan Lee">
       <label class="f" for="ss-email">Email</label><input type="email" id="ss-email" name="email" required autocomplete="email" placeholder="you@email.com">
-      <span class="f" style="display:block;font-weight:600;font-size:14px;margin:16px 0 6px">Which evening works?</span>
-      <div class="ss-days" role="radiogroup" aria-label="Which evening works">
-        <label><input type="radio" name="day" value="thursday"> Thursday</label>
-        <label><input type="radio" name="day" value="friday"> Friday</label>
-        <label><input type="radio" name="day" value="either" checked> Either works</label>
-      </div>
+      <input type="hidden" name="day" value="thursday">
       <label class="f" for="ss-ai">Which AI do you use?</label>
       <select id="ss-ai" name="assistant"><option>Claude</option><option>ChatGPT</option><option>Grok</option><option>Meta Muse</option><option>More than one</option><option value="None yet">None yet (we'll help)</option></select>
       <label class="f" for="ss-sit">Where are you in your search?</label>
