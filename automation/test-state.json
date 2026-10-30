@@ -1,5 +1,5 @@
 {
-  "status": "needs_run",
+  "status": "drafted",
   "last_proposed": "2026-09-28",
   "test_number": 4,
   "matchups": [
@@ -65,7 +65,7 @@
     ],
     "why": "Spreadsheet agents are the new proving ground now that GPT-6 Astra's broader agent tooling just rolled out"
   },
-  "pr_number": null,
+  "pr_number": 119,
   "last_nudged": null,
-  "last_updated": "2026-10-30T23:45:35Z"
+  "last_updated": "2026-10-30T23:57:59Z"
 }
