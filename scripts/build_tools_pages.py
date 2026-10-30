@@ -117,7 +117,7 @@ steps = [("Give it your resume", "Paste it or attach the file. It fills in your 
          ("Answer a few questions once", "Jobs you want, where you'll work, pay, work authorization. Each one is a tap."),
          ("Connect Telegram (optional)", "Say \"Connect Telegram\", tap your own link and press Start. Steps below."),
          ("It finds jobs that fit", "New openings on company job boards, at your level, without duplicates. Run it any time."),
-         ("You pick from a short list", "Up to 10 jobs, each with a match score, why you fit and the honest gap. Pursue or Pass."),
+         ("You pick from a short list", "Up to 10 jobs, each with a match score, why you fit and the honest gap. Tick the ones worth your time and tap once."),
          ("It writes a resume for each one", "Tailored from your real experience, saved per job with a note on what changed. It never invents."),
          ("One click fills the form, you press Submit", "Open today's applications on your computer, click Fill with Job Agent, check it, submit."),
          ("You keep a copy of what you sent", "Every job, its stage, dates and the exact answers you sent, on your job search page.")]
@@ -142,7 +142,7 @@ ja = head("Job Agent: Your AI Applies to Jobs for You | FOWL AI",
     <h2>See it work</h2>
     <p class="tl-lede">A sample applicant, Maya, on real job forms. Nothing was sent. Tap a video to play it with sound.</p>
     <div class="tl-vids">
-      <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/06-shortlist.jpg" aria-label="Real matches, you choose"><source src="https://tools.fowl-ai.com/media/job-agent/06-shortlist.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/06-shortlist.vtt" srclang="en" label="English"></video><figcaption><b>Real matches, you choose</b>It searches, scores every job against your resume, and you Pursue or Pass.</figcaption></figure>
+      <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/06-shortlist.jpg" aria-label="Real matches, you choose"><source src="https://tools.fowl-ai.com/media/job-agent/06-shortlist.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/06-shortlist.vtt" srclang="en" label="English"></video><figcaption><b>Real matches, you choose</b>It searches, scores every job against your resume, and you tick the ones you want.</figcaption></figure>
       <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/07-resume.jpg" aria-label="A resume for each job"><source src="https://tools.fowl-ai.com/media/job-agent/07-resume.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/07-resume.vtt" srclang="en" label="English"></video><figcaption><b>A resume for each job</b>Built from your real experience, with a note on what changed.</figcaption></figure>
       <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/08-fill.jpg" aria-label="One click fills it, you press Submit"><source src="https://tools.fowl-ai.com/media/job-agent/08-fill.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/08-fill.vtt" srclang="en" label="English"></video><figcaption><b>One click fills it, you press Submit</b>Review every answer first, and keep a copy of what you sent.</figcaption></figure>
       <figure class="tl-vid"><video controls playsinline preload="none" crossorigin="anonymous" poster="https://tools.fowl-ai.com/media/job-agent/09-tracker.jpg" aria-label="Your whole job search on one page"><source src="https://tools.fowl-ai.com/media/job-agent/09-tracker.mp4" type="video/mp4"><track kind="captions" src="https://tools.fowl-ai.com/media/job-agent/09-tracker.vtt" srclang="en" label="English"></video><figcaption><b>Your whole job search on one page</b>Every job, its stage, dates and the resume made for it.</figcaption></figure>
@@ -180,7 +180,7 @@ ja = head("Job Agent: Your AI Applies to Jobs for You | FOWL AI",
       <li><span><b>Tap the link, then tap Start</b>Telegram opens the FOWL Job Agent bot. It replies that you're connected.</span></li>
       <li><span><b>Back in chat, say "done"</b>You get a test message on Telegram. That's it.</span></li>
     </ol>
-    <p class="tl-note">What you'll get there: your shortlist to Pursue or Pass, a morning nudge when new jobs are in, an "Open &amp; fill" button when an application needs you, and follow-up reminders. We never message anyone else for you.</p>
+    <p class="tl-note">What you'll get there: your shortlist, a morning nudge when new jobs are in, an "Open &amp; fill" button when an application needs you, and follow-up reminders. We never message anyone else for you.</p>
   </div></section>
 
   <section class="tl-section alt"><div class="tl-wrap">
@@ -201,7 +201,7 @@ ja = head("Job Agent: Your AI Applies to Jobs for You | FOWL AI",
 
   <section class="tl-section alt"><div class="tl-wrap">
     <h2>Set up your AI job search agent in an hour</h2>
-    <p class="tl-lede">A free live session, online, on a Thursday or Friday evening. Bring your resume and laptop. Leave with an agent applying for you.</p>
+    <p class="tl-lede">It works in any AI you already use: Claude, ChatGPT, Grok or Meta Muse. Two ways to start. Set it up on your own with the step-by-step guide, or join the free live session on Zoom, Thursday, Nov 5 at 7pm ET, and leave with your first applications ready to send.</p>
     <div class="tl-actions" style="display:flex;gap:12px;flex-wrap:wrap"><a class="tl-btn green" href="/tools/job-agent/session/" data-link-location="job-agent-session">Save my free seat</a><a class="tl-btn" style="border-color:var(--fowl-line);color:var(--fowl-ink)" href="https://tools.fowl-ai.com/start" data-link-location="job-agent-session-start">Set it up now</a></div>
     <p class="tl-note">Developers: the connector and every tool are documented on the <a href="/tools/developers/" style="color:var(--fowl-green)">developers page</a>.</p>
   </div></section>
@@ -329,7 +329,7 @@ session = head("Free Live Session: Set Up Your AI Job Search Agent in One Hour |
     <aside class="ss-ticket" aria-label="Session details">
       <span class="k">FOWL AI · Live session</span>
       <b class="t">Set up your AI job search agent in one hour</b>
-      <dl><dt>When</dt><dd>Thursday or Friday evening, date coming soon</dd><dt>Where</dt><dd>Online, on Zoom</dd>
+      <dl><dt>When</dt><dd>Thursday, Nov 5 · 7 to 8pm ET</dd><dt>Where</dt><dd>Online, on Zoom</dd>
       <dt>Cost</dt><dd>Free, and the tools are free too</dd><dt>Bring</dt><dd>Your laptop and your resume</dd></dl>
     </aside>
   </div></section>
@@ -358,17 +358,12 @@ session = head("Free Live Session: Set Up Your AI Job Search Agent in One Hour |
 
   <section class="tl-section" id="signup"><div class="tl-wrap">
     <h2>Save your free seat</h2>
-    <p class="tl-lede">We're picking between a Thursday and a Friday evening. Tell us what works and we'll email you the date and Zoom link.</p>
+    <p class="tl-lede">Thursday, November 5, 7 to 8pm ET, live on Zoom. Save your seat and we'll email you the Zoom link right away, plus a reminder on the day.</p>
     <form class="ss-form" method="post" action="https://tools.fowl-ai.com/sessions/signup">
       <p class="ss-err" id="ss-err" hidden>Please add your name and a valid email.</p>
       <label class="f" for="ss-name">Your name</label><input type="text" id="ss-name" name="name" required autocomplete="name" placeholder="Jordan Lee">
       <label class="f" for="ss-email">Email</label><input type="email" id="ss-email" name="email" required autocomplete="email" placeholder="you@email.com">
-      <span class="f" style="display:block;font-weight:600;font-size:14px;margin:16px 0 6px">Which evening works?</span>
-      <div class="ss-days" role="radiogroup" aria-label="Which evening works">
-        <label><input type="radio" name="day" value="thursday"> Thursday</label>
-        <label><input type="radio" name="day" value="friday"> Friday</label>
-        <label><input type="radio" name="day" value="either" checked> Either works</label>
-      </div>
+      <input type="hidden" name="day" value="thursday">
       <label class="f" for="ss-ai">Which AI do you use?</label>
       <select id="ss-ai" name="assistant"><option>Claude</option><option>ChatGPT</option><option>Grok</option><option>Meta Muse</option><option>More than one</option><option value="None yet">None yet (we'll help)</option></select>
       <label class="f" for="ss-sit">Where are you in your search?</label>
@@ -397,7 +392,7 @@ thanks = head("You're On the List | FOWL AI", "You're signed up for the free liv
   <section class="ss-hero"><div class="tl-wrap" style="grid-template-columns:1fr">
     <div><div class="ss-badges"><span class="free">You're in</span><span>Free</span><span>Live online</span></div>
     <h1>You're on the list. <em>See you there.</em></h1>
-    <p class="lede">We'll email you the date, time and Zoom link as soon as it's set. Check your inbox for a confirmation now.</p></div>
+    <p class="lede">We've emailed you the Zoom link for Thursday, Nov 5 at 7pm ET. Check your inbox for a confirmation now.</p></div>
   </div></section>
   <section class="tl-section"><div class="tl-wrap">
     <h2>Get ready in two minutes</h2>
@@ -428,7 +423,7 @@ links = head("FOWL AI links", "Free job agent session, Vibe Code Saturdays and F
     <div class="tl-grid">
       <a class="tl-card" href="/tools/job-agent/session/" data-link-location="links-job-agent-session" style="text-decoration:none;color:inherit;border:2px solid var(--fowl-green)">
         <span class="tl-tag">New · Free</span><h3>Set up your AI job search agent in one hour</h3>
-        <p>A free live session, Thursday or Friday evening. Leave with your job agent running.</p><p style="color:var(--fowl-green);font-weight:700">Save my free seat →</p></a>
+        <p>A free live session, Thursday, Nov 5 at 7pm ET. Leave with your first applications ready to send.</p><p style="color:var(--fowl-green);font-weight:700">Save my free seat →</p></a>
       <a class="tl-card" href="/tools/job-agent/" data-link-location="links-job-agent" style="text-decoration:none;color:inherit">
         <span class="tl-tag">Free tool</span><h3>Job Agent</h3>
         <p>Works in Claude, ChatGPT, Grok or Meta Muse. It finds jobs, tailors your resume and fills in the form. You press Submit.</p><p style="color:var(--fowl-green);font-weight:700">See how it works →</p></a>
