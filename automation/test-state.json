@@ -1,11 +1,37 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-09-28",
-  "test_number": 4,
-  "matchups": [],
+  "status": "awaiting_pick",
+  "last_proposed": "2026-10-31",
+  "test_number": 5,
+  "matchups": [
+    {
+      "task": "Write a resignation letter plus a one-page two-week transition/handoff plan for a fictional mid-level marketing manager",
+      "tools": ["Claude", "ChatGPT", "Gemini", "Copilot (Word)"],
+      "why": "Everyone eventually has to write one of these, and it's a great test of tone control (professional, no burned bridges) plus real document formatting."
+    },
+    {
+      "task": "Turn a sample CSV of a month's personal expenses into a one-page budget report PDF with a chart and 3 actionable takeaways",
+      "tools": ["ChatGPT (Data Analysis)", "Claude", "Gemini", "Perplexity"],
+      "why": "Budget season is coming up and this checks whether a tool can actually produce a real chart-bearing PDF, not just chat about the numbers."
+    },
+    {
+      "task": "Generate a 5-slide investor pitch deck file for a fictional small coffee-roasting business",
+      "tools": ["Gamma", "ChatGPT", "Claude", "Canva Magic Design"],
+      "why": "Pitch decks are one of the most common 'I need a real file by tomorrow' asks, and slide tools vary wildly in actual exportability."
+    },
+    {
+      "task": "Write a Python cron script that backs up a local folder to cloud storage and emails a daily summary, with no stubbed-out TODOs",
+      "tools": ["Claude Code", "GitHub Copilot", "Cursor", "ChatGPT (Codex)"],
+      "why": "A dev-focused matchup is overdue, and 'does it actually run' is the sharpest honesty test we can apply."
+    },
+    {
+      "task": "Design a logo plus a mini brand style guide (color palette and font pairing) for a fictional neighborhood coffee shop",
+      "tools": ["Midjourney", "ChatGPT (Images)", "Gemini", "Ideogram", "Canva Magic Design"],
+      "why": "First image-generation matchup for the series, and logo work is the single most-requested 'make me a real asset' task."
+    }
+  ],
   "rejected_matchups": [],
   "picked_matchup": null,
   "pr_number": null,
   "last_nudged": null,
-  "last_updated": "2026-10-30T23:59:50Z"
+  "last_updated": "2026-10-31T00:38:30Z"
 }
