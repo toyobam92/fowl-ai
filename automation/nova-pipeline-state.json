@@ -1,22 +1,9 @@
 {
-  "status": "awaiting_topic_pick",
+  "status": "idle",
   "last_proposed": "2026-10-27",
-  "publish_date": "2026-10-28",
-  "tone": "professional",
-  "topics": [
-    {
-      "title": "Anthropic files for a Nasdaq IPO targeting up to a $2 trillion valuation",
-      "why": "It would be one of the biggest tech IPOs ever and resets how every AI company gets valued from here."
-    },
-    {
-      "title": "Anthropic launches Claude Duet, a proactive AI agent that checks in on you first",
-      "why": "It's an early look at AI acting like a coworker that messages you, not just one you have to prompt."
-    },
-    {
-      "title": "DHS orders DeepSeek banned from U.S. federal agency systems",
-      "why": "It's the clearest sign yet that Chinese AI tools are getting locked out of government tech, with ripple effects for enterprise buyers."
-    }
-  ],
+  "publish_date": null,
+  "tone": null,
+  "topics": [],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -26,5 +13,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-10-27T00:25:00Z"
+  "last_updated": "2026-10-31T00:00:00Z"
 }
