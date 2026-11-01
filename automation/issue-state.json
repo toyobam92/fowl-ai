@@ -1,10 +1,32 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-10-25",
-  "topics": [],
+  "status": "awaiting_pick",
+  "last_proposed": "2026-11-01",
+  "week_of": "2026-11-02",
+  "topics": [
+    {
+      "title": "Reddit's lawsuit against Anthropic just cleared its first legal hurdle",
+      "why": "A UK court sided with an AI firm over a photo agency while a California judge let most of Reddit's scraping claims against Anthropic survive demurrer this fall, and a $3.1B music-publisher suit and the Authors Guild case are still pending -- training-data copyright exposure is turning from a theoretical risk into a real line item."
+    },
+    {
+      "title": "The November jobs report is the first real test of the AI-layoffs story",
+      "why": "Challenger's next monthly layoff count lands in early November right as AI-attributed cuts have been climbing all year, even though a widely-cited NBER survey found 90% of executives see zero employment impact from AI at their own companies -- the gap between the headline and the internal data is the story."
+    },
+    {
+      "title": "The $61k-to-$136k job nobody puts on a resume: training the models",
+      "why": "Outlier, Mercor, Scale AI, and DataAnnotation are quietly absorbing a wave of contract hiring as foundation labs chase evaluation data, and the reported pay spread between 'labeler' and 'reviewer' work is wide enough to plan an actual pivot around."
+    },
+    {
+      "title": "Companies say they'd rather see your AI skills than your diploma",
+      "why": "A fresh round of 2026 hiring commentary and UK wage data point the same direction: demonstrated AI proficiency is outweighing degrees in screening and carrying a real wage premium, a shift worth acting on before it's priced into every job posting."
+    },
+    {
+      "title": "AI didn't just automate gig work -- it started deciding who gets it",
+      "why": "As AI-driven matching spreads from ride-hailing into freelance and knowledge work, workers describe opaque ranking systems acting like an invisible manager -- the same platforms carry both the opportunity and the risk, which is the more honest framing than either hype or doom."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": "2026-10-25T11:20:30Z",
+  "last_updated": "2026-11-01T00:00:00Z",
   "nudged_at": null
 }
