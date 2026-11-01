@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 26 Oct 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 02 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 24: Employers say they’d rather see your AI skills than your diploma. In the UK, that preference is already worth a 34% pay bump.</title>
+      <link>https://www.fowl-ai.com/issues/2026-11-02/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-11-02/</guid>
+      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
+      <description>More than half of employers say they’ve dropped degree requirements, and UK AI-skills wage premiums tripled to 34% in a year. But a Harvard Business School and Burning Glass Institute study of 316 million job postings finds that policy change barely moves who actually gets hired.</description>
+    </item>
     <item>
       <title>Issue 23: The FDA just finished asking the public how to regulate AI doctors. The deadline passed almost unnoticed.</title>
       <link>https://www.fowl-ai.com/issues/2026-10-26/</link>
