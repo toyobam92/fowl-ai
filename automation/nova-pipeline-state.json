@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-10-27",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-11-01",
+  "publish_date": "2026-11-02",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Anthropic just filed to go public",
+      "why": "Anthropic filed its S-1 with the SEC on Oct 26, aiming to list on Nasdaq under ticker \"ANT\" in what could be one of the largest tech IPOs ever — a sign the AI boom is about to face public-market scrutiny."
+    },
+    {
+      "title": "AI-driven layoffs just crossed 196,000 for the year",
+      "why": "Trackers now count over 196,000 tech jobs cut in 2026, with more than half tied to AI-driven restructuring at companies like Oracle, Amazon, and Meta — hard numbers behind the \"AI is already reshaping headcount\" conversation."
+    },
+    {
+      "title": "xAI's Grok Voice 3.0 just got dramatically faster",
+      "why": "xAI shipped Grok Voice 3.0, a speech-to-speech model claiming sub-1-second latency and the top score on a major voice benchmark, and switched its entire API over to it overnight — voice agents just got cheaper and faster to build."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-10-31T00:00:00Z"
+  "last_updated": "2026-11-01T00:22:06Z"
 }
