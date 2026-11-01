@@ -6,24 +6,24 @@
   "topics": [
     {
       "title": "Anthropic just filed to go public",
-      "why": "Anthropic filed its S-1 with the SEC on Oct 26, aiming to list on Nasdaq under ticker \"ANT\" in what could be one of the largest tech IPOs ever — a sign the AI boom is about to face public-market scrutiny."
+      "why": "Anthropic filed its S-1 with the SEC on Oct 26, aiming to list on Nasdaq under ticker \"ANT\" in what could be one of the largest tech IPOs ever \u2014 a sign the AI boom is about to face public-market scrutiny."
     },
     {
       "title": "AI-driven layoffs just crossed 196,000 for the year",
-      "why": "Trackers now count over 196,000 tech jobs cut in 2026, with more than half tied to AI-driven restructuring at companies like Oracle, Amazon, and Meta — hard numbers behind the \"AI is already reshaping headcount\" conversation."
+      "why": "Trackers now count over 196,000 tech jobs cut in 2026, with more than half tied to AI-driven restructuring at companies like Oracle, Amazon, and Meta \u2014 hard numbers behind the \"AI is already reshaping headcount\" conversation."
     },
     {
       "title": "xAI's Grok Voice 3.0 just got dramatically faster",
-      "why": "xAI shipped Grok Voice 3.0, a speech-to-speech model claiming sub-1-second latency and the top score on a major voice benchmark, and switched its entire API over to it overnight — voice agents just got cheaper and faster to build."
+      "why": "xAI shipped Grok Voice 3.0, a speech-to-speech model claiming sub-1-second latency and the top score on a major voice benchmark, and switched its entire API over to it overnight \u2014 voice agents just got cheaper and faster to build."
     }
   ],
   "rejected_titles": [],
   "picked_topic": {
     "title": "AI-driven layoffs just crossed 196,000 for the year",
-    "why": "Trackers now count over 196,000 tech jobs cut in 2026, with more than half tied to AI-driven restructuring at companies like Oracle, Amazon, and Meta — hard numbers behind the \"AI is already reshaping headcount\" conversation."
+    "why": "Trackers now count over 196,000 tech jobs cut in 2026, with more than half tied to AI-driven restructuring at companies like Oracle, Amazon, and Meta \u2014 hard numbers behind the \"AI is already reshaping headcount\" conversation."
   },
-  "script": "Tech layoffs just crossed 196,000 for 2026 — and AI is the reason why.\n\nTrackers now put this year's tech job cuts near 196,000 workers, with Oracle, Amazon, and Meta leading the wave as companies restructure around AI. More than half of those cuts are tied directly to AI-driven workforce changes — companies cutting roles while pouring billions into AI infrastructure and hiring for AI-specific positions instead.\n\nIt's not just engineers losing jobs either — recruiting, support, and middle-management roles are getting hit hardest as AI tools absorb that work.\n\nIf you're in tech, the message is clear: the skills that get you hired in 2027 look different from the ones that got you hired in 2022.\n\nI'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
-  "caption": "2026's tech layoffs just topped 196,000 — and AI restructuring is driving more than half of them. #AI #TechLayoffs #FutureOfWork #FOWLAI",
+  "script": "Tech layoffs just crossed 196,000 for 2026 \u2014 and AI is the reason why.\n\nTrackers now put this year's tech job cuts near 196,000 workers, with Oracle, Amazon, and Meta leading the wave as companies restructure around AI. More than half of those cuts are tied directly to AI-driven workforce changes \u2014 companies cutting roles while pouring billions into AI infrastructure and hiring for AI-specific positions instead.\n\nIt's not just engineers losing jobs either \u2014 recruiting, support, and middle-management roles are getting hit hardest as AI tools absorb that work.\n\nIf you're in tech, the message is clear: the skills that get you hired in 2027 look different from the ones that got you hired in 2022.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+  "caption": "2026's tech layoffs just topped 196,000 \u2014 and AI restructuring is driving more than half of them. #AI #TechLayoffs #FutureOfWork #FOWLAI",
   "picked_look": {
     "avatar_id": "6df6bf1a920b4d17a48dda102ea85371",
     "name": "Burgundy Sleeveless, Light Pants",
@@ -41,7 +41,7 @@
       "image_url": "https://files2.heygen.ai/talking_photo/1c940f18c71946c1a46bf1b48c6129c5/217baeed2ccc49f18656f6c1e7b90948.WEBP?Expires=1787538863&Signature=lLbp4tCknPs0VJrdLiZDPsXuKuhJiKkguvCyUjYqLwIk~ZiguVHcOqlcmeUXD7fwaulaeKrStC3rVF5v7T8Q7glNGzp~BWMTs4gCP1MZ4WikFoO9cHZXfmkZuhasz~Abz4SzNoCrSmtCxXLmJmIJOKX0D57QyxCLLCvAQ1yOBAdj8SeR8qakosMR6K23yb07DeiXuElPfWtkzS5UrTDCqVJJXh-R7ByA2XqVKdRpkAS76W7XoFq6KJDsk~bTCGPMYc5ryk9wyGCK5XrPKGAWvTosh0lXs4EfHF8mqgEeIU0wmEqxCf2dcD~seguJPo0OT~8i2onS-nRhXq-VFdJH8g__&Key-Pair-Id=K38HBHX5LX3X2H"
     }
   ],
-  "pr_number": null,
+  "pr_number": 121,
   "pr_branch": "update/nova-2026-11-02",
   "video_id": null,
   "last_updated": "2026-11-01T00:30:00Z"
