@@ -1,5 +1,5 @@
 {
-  "status": "pr_open",
+  "status": "rendering",
   "last_proposed": "2026-11-01",
   "publish_date": "2026-11-02",
   "tone": "casual-professional",
@@ -43,6 +43,6 @@
   ],
   "pr_number": 121,
   "pr_branch": "update/nova-2026-11-02",
-  "video_id": null,
+  "video_id": "7debf3ed3017b111b77a0f2a67120da9",
   "last_updated": "2026-11-01T00:30:00Z"
 }
