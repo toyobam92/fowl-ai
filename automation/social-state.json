@@ -299,6 +299,22 @@
         "threads": true
       },
       "posted_at": "2026-11-02T02:42:39+00:00"
+    },
+    {
+      "day": "Wednesday",
+      "publish_date": "2026-11-04",
+      "topic": "Google's new Gemini 4 Carbon model jumps to the top of the AI leaderboards",
+      "script": "Google just dropped Gemini 4 Carbon, and it's already rewriting the leaderboards. Announced October 28th, Carbon claimed the top spot on the Artificial Analysis Intelligence Index, outranking dozens of rival models, and posted 88.2% on SEC-bench Pro, a cybersecurity benchmark. Google built it for long-horizon tasks and network defense, but here's the catch: it is not generally available. Access is currently limited to verified defense partners through Google's Fairwind Program. So before you switch your stack chasing the best model, remember: rankings move fast, and today's leader can be locked behind a waitlist tomorrow.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "Google's new Gemini 4 Carbon just topped the AI leaderboards \u2014 but you can't actually use it yet. #AI #GoogleAI #Gemini #TechNews #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/d35b207d00523dbd6abe99b41e6ec4ea.mp4?download_id=3566ba3a-75fc-43db-ac22-e1ff4ab5eb93&Expires=1794276103&Signature=mxq83Pcr5E-u5Pe8nFTWQCl9~jlNvH1zJd7Y7WHZ020XnDP7uFhPdJ8A8v8uaOxV~Lx5gNkeLTSyy5xi2H-QhenTAwkLe3300vkXImtQtIwDNk9rqoqszusBDG-voNbxufQ96lonn8qxHJeJYBL9AI~SIG3XJ77GBWkDKlg5pLrbsmKqx6BMCZYnHSt8NjZJzxx0fX0vctzMGr2AIgmBHtX3FnpxVNxkmbWtgc0GrJhxix~Hg2AKNWXfYNrUmQQzNHrT7e6ubqRnT9vyKxSb9Fnv5OUG1zEXSmGx5LphE~PzDVsyqVa6XvLAIQiuQewK2auEMaxVmZD7BN1bCoTUNg__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "f355b07c213c4190a2207050c78d93b5",
+      "look_name": "The Studio-Lit Bookshelf Figure",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }
