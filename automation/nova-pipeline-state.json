@@ -6,7 +6,7 @@
   "topics": [
     {
       "title": "New GDPx benchmark shows top AI models still fail 88% of real economic tasks",
-      "why": "SemiAnalysis just launched GDPx, a 206-task agentic benchmark grounded in real paid work, and even the leader (Claude Opus 5.5) clears only about 12% — a reality check for knowledge workers being told AI can already do their job."
+      "why": "SemiAnalysis just launched GDPx, a 206-task agentic benchmark grounded in real paid work, and even the leader (Claude Opus 5.5) clears only about 12% \u2014 a reality check for knowledge workers being told AI can already do their job."
     },
     {
       "title": "Google's new Gemini 4 Carbon model jumps to the top of the AI leaderboards",
@@ -14,7 +14,7 @@
     },
     {
       "title": "Anthropic confidentially files for a US IPO near a trillion-dollar valuation",
-      "why": "The ChatGPT rival behind Claude quietly started the paperwork to go public, a signal that the AI boom is about to get its biggest public-market test yet — worth watching for anyone whose stack depends on these vendors staying well-funded."
+      "why": "The ChatGPT rival behind Claude quietly started the paperwork to go public, a signal that the AI boom is about to get its biggest public-market test yet \u2014 worth watching for anyone whose stack depends on these vendors staying well-funded."
     }
   ],
   "rejected_titles": [],
@@ -22,15 +22,15 @@
     "title": "Google's new Gemini 4 Carbon model jumps to the top of the AI leaderboards",
     "why": "Google's newest flagship, released October 28, just overtook OpenAI and Anthropic's latest on independent rankings, a reminder that 'best model' is a moving target knowledge workers should keep re-checking before locking into one tool."
   },
-  "script": "Google just dropped Gemini 4 Carbon, and it's already rewriting the leaderboards. Announced October 28th, Carbon claimed the top spot on the Artificial Analysis Intelligence Index, outranking dozens of rival models, and posted 88.2% on SEC-bench Pro, a cybersecurity benchmark. Google built it for long-horizon tasks and network defense, but here's the catch: it is not generally available. Access is currently limited to verified defense partners through Google's Fairwind Program. So before you switch your stack chasing the best model, remember: rankings move fast, and today's leader can be locked behind a waitlist tomorrow.\n\nI'm Nova. Stay ahead — for more AI news, subscribe to the link in the bio.",
-  "caption": "Google's new Gemini 4 Carbon just topped the AI leaderboards — but you can't actually use it yet. #AI #GoogleAI #Gemini #TechNews #FOWLAI",
+  "script": "Google just dropped Gemini 4 Carbon, and it's already rewriting the leaderboards. Announced October 28th, Carbon claimed the top spot on the Artificial Analysis Intelligence Index, outranking dozens of rival models, and posted 88.2% on SEC-bench Pro, a cybersecurity benchmark. Google built it for long-horizon tasks and network defense, but here's the catch: it is not generally available. Access is currently limited to verified defense partners through Google's Fairwind Program. So before you switch your stack chasing the best model, remember: rankings move fast, and today's leader can be locked behind a waitlist tomorrow.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+  "caption": "Google's new Gemini 4 Carbon just topped the AI leaderboards \u2014 but you can't actually use it yet. #AI #GoogleAI #Gemini #TechNews #FOWLAI",
   "picked_look": {
     "avatar_id": "f355b07c213c4190a2207050c78d93b5",
     "name": "The Studio-Lit Bookshelf Figure",
     "image_url": "https://files2.heygen.ai/talking_photo/f355b07c213c4190a2207050c78d93b5/e607df35ab1742b1a6a9ebc78197ecc1.WEBP?Expires=1787538863&Signature=FcvmeVq2A7Qy7TQ-V8rnETHd4BH~mXhClcHbvgyGdlybUoOZflDY3tmdTtNd2LGi5l-U8SEni0Gz9GRUuuclRpNEn5z7sG7G8I7j1TYvc3wO1l2M1k0UcmRaRNbDwvr-VYhwpDA0~xb~f7k2kkqJFTDhjHc~QrMBaCfDCpVZCb7fg6OPry~E1Sni5vv2M4Bj6AzLsl4GIV3cDcurqIrEXPxesIk8DniKvkfAdAdxZM-sLU4HyHWPyw81t7QMJUycAw1OcRAoZUz7z6FswnSX9LHMkE36d3RMmbKBwTonRmazkFEPN9J6fuQyR2j3ePqigspE-nrDfQIXRQIUQHssJQ__&Key-Pair-Id=K38HBHX5LX3X2H"
   },
   "look_alternates": [],
-  "pr_number": null,
+  "pr_number": 122,
   "pr_branch": "update/nova-2026-11-04",
   "video_id": null,
   "last_updated": "2026-11-03T00:40:00Z"
