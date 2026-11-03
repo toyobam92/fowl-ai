@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-11-01",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-11-03",
+  "publish_date": "2026-11-04",
+  "tone": "professional",
+  "topics": [
+    {
+      "title": "New GDPx benchmark shows top AI models still fail 88% of real economic tasks",
+      "why": "SemiAnalysis just launched GDPx, a 206-task agentic benchmark grounded in real paid work, and even the leader (Claude Opus 5.5) clears only about 12% — a reality check for knowledge workers being told AI can already do their job."
+    },
+    {
+      "title": "Google's new Gemini 4 Carbon model jumps to the top of the AI leaderboards",
+      "why": "Google's newest flagship, released October 28, just overtook OpenAI and Anthropic's latest on independent rankings, a reminder that 'best model' is a moving target knowledge workers should keep re-checking before locking into one tool."
+    },
+    {
+      "title": "Anthropic confidentially files for a US IPO near a trillion-dollar valuation",
+      "why": "The ChatGPT rival behind Claude quietly started the paperwork to go public, a signal that the AI boom is about to get its biggest public-market test yet — worth watching for anyone whose stack depends on these vendors staying well-funded."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-11-01T00:30:00Z"
+  "last_updated": "2026-11-03T00:25:00Z"
 }
