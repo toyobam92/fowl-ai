@@ -1,9 +1,18 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-11-03",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-11-05",
+  "publish_date": "2026-11-06",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "Anthropic files to go public — IPO roadshow could start next week",
+      "why": "If Claude's parent company lists at a reported $2T valuation, it's a referendum on whether the AI tools knowledge workers use every day are actually worth what's being poured into them."
+    },
+    {
+      "title": "Microsoft launches \"Copilot Cowork,\" an AI built to do work, not just chat",
+      "why": "It's the clearest sign yet that workplace AI is shifting from answering questions to handling entire tasks end-to-end — and it reportedly has Claude reviewing GPT's drafts inside the same tool."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +22,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-11-03T00:40:00Z"
+  "last_updated": "2026-11-05T00:00:00Z"
 }
