@@ -316,6 +316,22 @@
         "threads": true
       },
       "posted_at": "2026-11-04T03:08:27+00:00"
+    },
+    {
+      "day": "Monday",
+      "publish_date": "2026-11-09",
+      "topic": "Microsoft launches \"Copilot Cowork,\" an AI built to do work, not just chat",
+      "script": "Microsoft just turned Copilot into a coworker \u2014 literally. Copilot Cowork is now live worldwide for every Microsoft 365 Copilot user, built on Anthropic's Opus 4.8 and Sonnet 4.6, with GPT-5.5 available through Frontier. Tell it what you need \u2014 say, a market research memo \u2014 and it plans the work itself: pulling data, writing the summary, and building the spreadsheet across Outlook, Teams, and Excel, with no back-and-forth chat required. Microsoft's charging usage-based, by model calls and runtime, and a cheaper in-house model called Cowork 1 is reportedly coming soon. This is the clearest sign yet that workplace AI is moving from answering questions to just finishing the job.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
+      "caption": "Microsoft's Copilot can now finish entire multi-step work tasks on its own \u2014 and it's partly powered by Claude. #AI #Microsoft #CopilotCowork #FutureOfWork #FOWLAI",
+      "video_path": "https://files2.heygen.ai/aws_pacific/avatar_tmp/da937d7cc0644f95bab03a614327f813/2f4ab9805403f66f3d4c1eab350a74f7.mp4?download_id=bd1c926c-2a63-4d06-b033-a35278a5d6e1&Expires=1794708985&Signature=l~EhOdsAZspSbpuY4yC4zZgjab1R7YuY15DcoCstLvkMAVNQlqfFnQeDOe5yyKTRhZCL7aeaKf9nn2bTHxZPi4acNqgRSd-MILLgZbbayQ~53~l24VgtLbfUcBEeVwOrRP86SyAd~KhCsqWJr9aeFeqFpjfQ1X0qVYGfPzZXCR0HEfXKI~iBgfDlJdnfgDVZwPLE5qNu1TrIWREM8bCtMpTBjInx61vqb0RVxpvniaFbjAkyigKA6cIoJTEclNqTjnPZam6TAgVMzmlBYX6TDoosAV651Pw5pHywB0588v4gG5Cb1U4mmsgbgaxWYJHFDVufGINPSY5rEphFTElCZg__&Key-Pair-Id=K38HBHX5LX3X2H",
+      "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
+      "look_name": "Too-Purple, Black-Bottomed",
+      "platforms_published": {
+        "facebook": false,
+        "instagram": false,
+        "tiktok": false,
+        "threads": false
+      }
     }
   ]
 }

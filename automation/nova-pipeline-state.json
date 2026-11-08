@@ -1,33 +1,17 @@
 {
-  "status": "rendering",
+  "status": "idle",
   "last_proposed": "2026-11-05",
-  "publish_date": "2026-11-06",
-  "tone": "casual-professional",
-  "topics": [
-    {
-      "title": "Anthropic files to go public \u2014 IPO roadshow could start next week",
-      "why": "If Claude's parent company lists at a reported $2T valuation, it's a referendum on whether the AI tools knowledge workers use every day are actually worth what's being poured into them."
-    },
-    {
-      "title": "Microsoft launches \"Copilot Cowork,\" an AI built to do work, not just chat",
-      "why": "It's the clearest sign yet that workplace AI is shifting from answering questions to handling entire tasks end-to-end \u2014 and it reportedly has Claude reviewing GPT's drafts inside the same tool."
-    }
-  ],
+  "publish_date": null,
+  "tone": null,
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": {
-    "title": "Microsoft launches \"Copilot Cowork,\" an AI built to do work, not just chat",
-    "why": "It's the clearest sign yet that workplace AI is shifting from answering questions to handling entire tasks end-to-end \u2014 and it reportedly has Claude reviewing GPT's drafts inside the same tool."
-  },
-  "script": "Microsoft just turned Copilot into a coworker \u2014 literally. Copilot Cowork is now live worldwide for every Microsoft 365 Copilot user, built on Anthropic's Opus 4.8 and Sonnet 4.6, with GPT-5.5 available through Frontier. Tell it what you need \u2014 say, a market research memo \u2014 and it plans the work itself: pulling data, writing the summary, and building the spreadsheet across Outlook, Teams, and Excel, with no back-and-forth chat required. Microsoft's charging usage-based, by model calls and runtime, and a cheaper in-house model called Cowork 1 is reportedly coming soon. This is the clearest sign yet that workplace AI is moving from answering questions to just finishing the job.\n\nI'm Nova. Stay ahead \u2014 for more AI news, subscribe to the link in the bio.",
-  "caption": "Microsoft's Copilot can now finish entire multi-step work tasks on its own \u2014 and it's partly powered by Claude. #AI #Microsoft #CopilotCowork #FutureOfWork #FOWLAI",
-  "picked_look": {
-    "avatar_id": "1c940f18c71946c1a46bf1b48c6129c5",
-    "name": "Too-Purple, Black-Bottomed",
-    "image_url": "https://files2.heygen.ai/talking_photo/1c940f18c71946c1a46bf1b48c6129c5/217baeed2ccc49f18656f6c1e7b90948.WEBP?Expires=1787538863&Signature=lLbp4tCknPs0VJrdLiZDPsXuKuhJiKkguvCyUjYqLwIk~ZiguVHcOqlcmeUXD7fwaulaeKrStC3rVF5v7T8Q7glNGzp~BWMTs4gCP1MZ4WikFoO9cHZXfmkZuhasz~Abz4SzNoCrSmtCxXLmJmIJOKX0D57QyxCLLCvAQ1yOBAdj8SeR8qakosMR6K23yb07DeiXuElPfWtkzS5UrTDCqVJJXh-R7ByA2XqVKdRpkAS76W7XoFq6KJDsk~bTCGPMYc5ryk9wyGCK5XrPKGAWvTosh0lXs4EfHF8mqgEeIU0wmEqxCf2dcD~seguJPo0OT~8i2onS-nRhXq-VFdJH8g__&Key-Pair-Id=K38HBHX5LX3X2H"
-  },
+  "picked_topic": null,
+  "script": null,
+  "caption": null,
+  "picked_look": null,
   "look_alternates": [],
-  "pr_number": 126,
-  "pr_branch": "update/nova-2026-11-06",
-  "video_id": "2f4ab9805403f66f3d4c1eab350a74f7",
+  "pr_number": null,
+  "pr_branch": null,
+  "video_id": null,
   "last_updated": "2026-11-05T00:00:00Z"
 }
