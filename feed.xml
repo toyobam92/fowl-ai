@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 02 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 25: A federal appeals court just ruled that training AI on copyrighted text isn’t automatically fair use. The industry’s biggest copyright case closed this year without ever getting the chance to argue otherwise.</title>
+      <link>https://www.fowl-ai.com/issues/2026-11-09/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-11-09/</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <description>The Third Circuit became the first federal appeals court to rule on AI training and fair use, and sided against the AI company because its tool competed directly with the work it trained on. Anthropic’s $1.5 billion settlement, finalized in July, never tested that question — and four courts have now reached four different answers.</description>
+    </item>
     <item>
       <title>Issue 24: Employers say they’d rather see your AI skills than your diploma. In the UK, that preference is already worth a 34% pay bump.</title>
       <link>https://www.fowl-ai.com/issues/2026-11-02/</link>
