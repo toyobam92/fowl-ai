@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-11-05",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-11-08",
+  "publish_date": "2026-11-09",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "OpenAI launches Images 2.6 with AI-made GIFs",
+      "why": "Turning a prompt or photo into an animated GIF is now one click in ChatGPT and Codex, with image generation 50% faster — a real jump for anyone leaning on AI for content work."
+    },
+    {
+      "title": "Anthropic's IPO valuation just got cut to $1.5T",
+      "why": "Reuters reports investors at Anthropic's roadshow this week are pricing the company at $1.5T, down from the $2T previously floated — a reality check for anyone betting on the AI boom's momentum."
+    },
+    {
+      "title": "Goldman Sachs just pulled Claude Code from traders and bankers",
+      "why": "Bloomberg reports Goldman now locks Claude Code and GitHub Copilot to engineers only — a sign that even Wall Street's biggest AI adopters are getting nervous about who gets to use it."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-11-05T00:00:00Z"
+  "last_updated": "2026-11-08T02:30:00Z"
 }
