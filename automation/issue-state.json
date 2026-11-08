@@ -1,32 +1,11 @@
 {
-  "status": "drafted",
+  "status": "idle",
   "last_proposed": "2026-11-08",
-  "week_of": "2026-11-09",
-  "topics": [
-    {
-      "title": "AI agents are getting disturbingly good at hacking things",
-      "why": "Black Hat USA 2026 and new benchmarks like ExploitGym show agents turning disclosed CVEs into working exploits within hours, not days -- a shift from AI as attack target to AI as attacker."
-    },
-    {
-      "title": "Washington wants one AI rulebook. States won't hand over the pen.",
-      "why": "A federal push to preempt state AI laws for a decade is colliding with New York's RAISE Act and California's SB 53, setting up the regulatory turf fight that decides whose rules actually bind AI companies."
-    },
-    {
-      "title": "The court rulings that will decide if training AI on copyrighted work is even legal",
-      "why": "Bartz v. Anthropic, Kadrey v. Meta, Ziff Davis v. OpenAI, and a UK Getty v. Stability ruling are splitting on fair use -- the outcome reshapes what's legally safe to train on going forward."
-    },
-    {
-      "title": "Companies are hiring fewer junior developers, not fewer developers",
-      "why": "Entry-level coding hires are reportedly down sharply since 2022 even as overall developer employment holds, with AI tools shifting senior roles toward 'architect' work -- a structural hiring shift, not a headline pay stat."
-    },
-    {
-      "title": "The hidden gig economy of people paid to argue with AI models",
-      "why": "AI trainer and eval platforms are quietly becoming a real income stream for non-engineers, and the going rates and work differ sharply from how the gig is usually described."
-    }
-  ],
+  "week_of": null,
+  "topics": [],
   "rejected_titles": [],
-  "picked_topic": "3",
-  "pr_number": 128,
-  "last_updated": "2026-11-08T00:00:00Z",
+  "picked_topic": null,
+  "pr_number": null,
+  "last_updated": "2026-11-08T23:22:00Z",
   "nudged_at": null
 }
