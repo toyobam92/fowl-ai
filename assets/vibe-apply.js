@@ -44,6 +44,8 @@ form.addEventListener('submit', event => {
  button.textContent = 'Sending your application…';
  status.textContent = 'Opening your confirmation. Please keep this page open.';
 });
+// When the page loaded; sent with the copy so tools.fowl-ai.com can tell a person from a script.
+const loadedAt = String(Date.now());
 // The Google Form stays the main record. A copy also goes to the FOWL AI outreach dashboard (tools.fowl-ai.com).
 function copyToDashboard() {
  const field = name => (form.querySelector(`[name="${name}"]:checked`) || form.querySelector(`[name="${name}"]:not([type=radio])`) || {}).value || '';
@@ -51,6 +53,7 @@ function copyToDashboard() {
   name: field('entry.2041948317'), email: field('entry.1886223741'), link: field('entry.1366720631'),
   journey: field('entry.1703014300'), idea: field('entry.2039152267'), why: field('entry.844914439'),
   attend: field('entry.2098592694'), notes: field('entry.156077931'), session: 'Sat Nov 14',
+  fg_t: loadedAt, fg_s: String(Date.now()),
  });
  try { navigator.sendBeacon('https://tools.fowl-ai.com/vcs/signup', new Blob([data.toString()], { type: 'application/x-www-form-urlencoded' })); } catch (e) {}
 }
