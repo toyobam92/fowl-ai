@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-11-08",
-  "publish_date": null,
-  "tone": null,
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-11-12",
+  "publish_date": "2026-11-13",
+  "tone": "casual-professional",
+  "topics": [
+    {
+      "title": "OpenAI ships GPT-6 Cyber, a dedicated hacking/defense AI",
+      "why": "It changes how fast security teams (and attackers) can find and patch software flaws, with OpenAI saying it's already helped surface vulnerabilities in Linux and Firefox."
+    },
+    {
+      "title": "Tencent drops Hy4, a free 770B-parameter open-weights model with 1M-token context",
+      "why": "It's a sign the free, open-weight frontier is closing the gap with paid giants, which matters to anyone building on AI without a huge budget."
+    },
+    {
+      "title": "OpenAI reportedly raises $11B more, pushing its valuation to $1.25 trillion",
+      "why": "It shows investors are still betting enormous sums on OpenAI despite ongoing doubts about AI profitability -- a number worth knowing if you're watching this boom."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-11-12T00:00:00Z"
+  "last_updated": "2026-11-12T01:28:00Z"
 }
