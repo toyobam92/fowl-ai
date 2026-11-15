@@ -22,7 +22,7 @@ The old Launch Lab and Guides & Resources promotions stay paused. Do not carry t
 
 **From the house** is a recurring block after Vibe Code Saturdays and before the share prompt. Keep its three parts every issue, in this order, and do not rewrite them to fit the week's topic:
 
-1. CitySignal — Toyosi's iPhone app for city and local signals, live in 49 cities with more in preview. Instagram is [@citysignalai](https://www.instagram.com/citysignalai/). `[CITYSIGNAL_APP_URL]` is a TODO. No App Store or multi-city website URL is in this repo. Do not substitute `https://citysignalatl.com/` (Atlanta-only) or `https://claude.ai/directory/citysignal` (Claude connector, not the iPhone app), and do not invent a URL.
+1. CitySignal — "The agent that knows your places. Live in 49 cities, with more in preview." Instagram is [@citysignalai](https://www.instagram.com/citysignalai/). The app link is https://apps.apple.com/us/app/citysignal-route-intelligence/id6808350085 and the site is https://citysignalai.com. Keep those exact links. Do not swap in `https://citysignalatl.com/` or `https://claude.ai/directory/citysignal`.
 2. Brand Brain — FOWL AI's brand-memory product, at https://brain.fowl-ai.com.
 3. Advertise with FOWL AI — readers interested in sponsoring or advertising reply to the email or write hello@fowl-ai.com.
 

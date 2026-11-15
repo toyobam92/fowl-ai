@@ -139,13 +139,13 @@ The rules that fall out of that table:
 
 Every issue includes the **From the house** block already in `automation/templates/newsletter.html` and `automation/templates/newsletter.txt`. Keep the copy stable week to week. Do not rewrite it to match the week's topic, and do not drop it on a short week or an anniversary edition.
 
+House ads are written in the first person, because Toyosi writes the newsletter. Never say "Toyosi" or "Toyosi's" in that block.
+
 It has three parts, in this order:
 
-1. **CitySignal** — Toyosi's iPhone app for city and local signals, live in 49 cities with more in preview, Instagram [@citysignalai](https://www.instagram.com/citysignalai/).
+1. **CitySignal** — "The agent that knows your places. Live in 49 cities, with more in preview." Instagram [@citysignalai](https://www.instagram.com/citysignalai/). App Store: https://apps.apple.com/us/app/citysignal-route-intelligence/id6808350085. Site: https://citysignalai.com. Keep those exact links. Do not swap in https://citysignalatl.com/ or https://claude.ai/directory/citysignal.
 2. **Brand Brain** — FOWL AI's brand-memory product, linked to https://brain.fowl-ai.com.
-3. **Advertise with FOWL AI** — readers who want to sponsor or advertise reply to the email or write hello@fowl-ai.com (the contact already on `/contact/`). Toyosi reads both.
-
-`[CITYSIGNAL_APP_URL]` is an unresolved placeholder. No App Store or multi-city CitySignal website URL is in this repo. The only CitySignal URLs on the site are https://citysignalatl.com/ (the Atlanta site) and https://claude.ai/directory/citysignal (the Claude connector, not the iPhone app). Do not substitute either, and do not invent a URL. Leave the token in the draft and list it under "needs manual verification" until Toyosi supplies the real link. When a real URL is in hand, replace the token with a normal underlined link and delete the TODO comment.
+3. **Advertise with FOWL AI** — readers who want to sponsor or advertise reply to the email or write hello@fowl-ai.com (the contact already on `/contact/`). "I read both."
 
 ### One-time pending intro
 
@@ -159,7 +159,7 @@ Before drafting, read `automation/pending-intro.md` if it exists.
 
 Use `automation/templates/newsletter.html` as the canonical design and structure for all new issues. Read `automation/templates/README.md` before authoring. The September 2026 template matches the redesigned site: white and pale-mint backgrounds, forest-green accents, native sans-serif typography, a 640 px reading column, presentation tables, and inline styles. The most recent issue is a continuity reference, not the visual template.
 
-Replace all `[UPPERCASE_PLACEHOLDER]` values with the new issue's researched content and absolute source URLs. Two exceptions: `[PENDING_INTRO]` follows "One-time pending intro" above, and `[CITYSIGNAL_APP_URL]` stays as written until Toyosi supplies a real App Store or website URL. Do not fill that token with a guessed link. Preserve the template's editorial class names and the step 5 word budgets. Preserve the five EmailOctopus tags exactly: `{{UnsubscribeURL}}`, `{{SenderInfoLine}}`, `{{RewardsURL}}`, `{{WebVersionURL}}`, and `{{ShareURL}}`. The unsubscribe tag stays a text hyperlink. Set reading time from the finished copy.
+Replace all `[UPPERCASE_PLACEHOLDER]` values with the new issue's researched content and absolute source URLs. One exception: `[PENDING_INTRO]` follows "One-time pending intro" above. Preserve the template's editorial class names and the step 5 word budgets. Preserve the five EmailOctopus tags exactly: `{{UnsubscribeURL}}`, `{{SenderInfoLine}}`, `{{RewardsURL}}`, `{{WebVersionURL}}`, and `{{ShareURL}}`. The unsubscribe tag stays a text hyperlink. Set reading time from the finished copy.
 
 Write the filled email to `issues/<date>/email.html`, with no scripts, forms, JavaScript buttons, external fonts, or image-dependent content. Then create `issues/<date>/index.html` from that same content for the web, adding the SEO metadata in step 7 only to the web copy. Replace web-version/share tags with the canonical issue URL in the web copy; keep provider-only footer tags confined to the email. The matching plain-text skeleton is `automation/templates/newsletter.txt`.
 
@@ -185,9 +185,9 @@ Before opening the PR, verify:
 - Dates are current and specific; pay ranges are sourced or explicitly framed as estimated.
 - The issue has one clear thesis and a concrete, non-generic hook.
 - No hype, no doom, no unsupported predictions.
-- Both `email.html` and `index.html` have the same issue content; the email has inline styling and no scripts, unresolved issue placeholders, or the old Launch Lab / Guides & Resources promo. The From the house block is present (CitySignal, Brand Brain, Advertise with FOWL AI), its EmailOctopus tags are untouched, and `[CITYSIGNAL_APP_URL]` is either a real link Toyosi supplied or still the literal token, flagged below.
+- Both `email.html` and `index.html` have the same issue content; the email has inline styling and no scripts, unresolved issue placeholders, or the old Launch Lab / Guides & Resources promo. The From the house block is present (CitySignal, Brand Brain, Advertise with FOWL AI), its EmailOctopus tags are untouched, and CitySignal links to the App Store URL and https://citysignalai.com. No `[CITYSIGNAL_APP_URL]` token remains.
 - `[PENDING_INTRO]` and the `PENDING_INTRO` comment are gone. The Issue 27 note appears only in Issue 27, and `automation/pending-intro.md` is deleted in that draft's commit. Later issues do not carry the note.
-- HTML renders sensibly (spot-check the structure) and links resolve, other than a still-unresolved `[CITYSIGNAL_APP_URL]` token. Keep email below 95 KB where practical, and verify it in EmailOctopus before an authorized send.
+- HTML renders sensibly (spot-check the structure) and links resolve. Keep email below 95 KB where practical, and verify it in EmailOctopus before an authorized send.
 - **Front-of-issue redundancy check** (step 5's table): strip the HTML of `mast-sub`, `tldr-text`, `nova-quote`, `nova-call` and `intro-text`, count words per block against the budgets, and list every figure (dollar amounts, percentages, headcounts, multiples like "42x") that appears in them. Any figure appearing twice before story 01, or a front total over 350 words, means go back and rewrite — this is the specific complaint that prompted the rule, not a nice-to-have.
 
 Anything you flagged in step 4.8 as unsourced goes into the PR description under "needs manual verification" — don't silently drop it or silently guess a source.
