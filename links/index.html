@@ -88,7 +88,7 @@
 
       <a class="link" id="vcs-link" href="https://www.fowl-ai.com/vibe-code-saturdays/apply/?utm_source=links" data-conversion="vibe-code" data-link-location="links-vcs">
         <span class="icon" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg></span>
-        <span class="text"><span class="title">Vibe Code Saturdays</span><span class="meta" id="vcs-meta">Next: Sat Nov 14, 11am to 2pm ET. Free on Zoom.</span></span>
+        <span class="text"><span class="title">Vibe Code Saturdays</span><span class="meta" id="vcs-meta">Next: Sat Nov 21, 11am to 2pm ET. Free on Zoom.</span></span>
         <svg class="arrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg>
       </a>
 
@@ -122,10 +122,30 @@
     </footer>
   </main>
   <script>
-    // After the Nov 14 session ends, stop advertising a past date.
-    if (Date.now() > Date.parse("2026-11-14T19:00:00Z")) {
-      document.getElementById("vcs-meta").textContent = "Free hands-on sessions. Apply for the next one.";
-    }
+    // Next Saturday session, 11am–2pm ET. After 2pm ET on a Saturday, roll to the following Saturday.
+    (function () {
+      var meta = document.getElementById("vcs-meta");
+      if (!meta || typeof Intl === "undefined") return;
+      var fmt = new Intl.DateTimeFormat("en-US", {
+        timeZone: "America/New_York",
+        weekday: "short",
+        year: "numeric",
+        month: "numeric",
+        day: "numeric",
+        hour: "numeric",
+        hourCycle: "h23"
+      });
+      var parts = {};
+      fmt.formatToParts(new Date()).forEach(function (p) { parts[p.type] = p.value; });
+      var weekdays = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      var idx = weekdays.indexOf(parts.weekday);
+      if (idx < 0) return;
+      var days = (6 - idx) % 7;
+      if (parts.weekday === "Sat" && Number(parts.hour) >= 14) days = 7;
+      var date = new Date(Date.UTC(Number(parts.year), Number(parts.month) - 1, Number(parts.day) + days));
+      var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+      meta.textContent = "Next: Sat " + months[date.getUTCMonth()] + " " + date.getUTCDate() + ", 11am to 2pm ET. Free on Zoom.";
+    })();
     // Pass on where the visitor came from. Bio links carry it
     // (/links/?utm_source=instagram or threads); every tagged link then reports
     // that source instead of plain "links", so sign-ups show the real platform.
