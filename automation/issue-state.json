@@ -1,11 +1,32 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-11-08",
-  "week_of": null,
-  "topics": [],
+  "status": "awaiting_pick",
+  "last_proposed": "2026-11-15",
+  "week_of": "2026-11-16",
+  "topics": [
+    {
+      "title": "Anthropic and OpenAI are each cutting their own chip deals to escape Nvidia's queue",
+      "why": "Anthropic is reportedly in talks with Samsung on a custom AI chip and OpenAI has detailed Jalapeno, its Broadcom-built inference ASIC -- the frontier labs are starting to build around the hardware bottleneck instead of just paying for more of it."
+    },
+    {
+      "title": "ChatGPT Search just hit a fifth of Google's volume, and publishers want paying for it",
+      "why": "OpenAI says ChatGPT Search has reached one-fifth of Google's search volume, and publishers are now arguing AI answers that replace articles outright should come with compensation -- the search/media fight is no longer hypothetical."
+    },
+    {
+      "title": "A dozen governments just signed a Paris pact on AI safety -- while the US sat it out",
+      "why": "The French Presidency's Paris Call for AI Safety and Security landed November 9, a fresh attempt at international coordination right as the US keeps betting on a lighter-touch, compute-first strategy."
+    },
+    {
+      "title": "China is targeting 80% domestic chips for its next AI buildout -- and Meta just picked a side",
+      "why": "A draft plan reportedly pushes China toward chip self-sufficiency for a $295B data-center push, while Meta's return to open-weight models is explicitly framed as out-competing China on openness -- the AI race is splitting into two supply chains."
+    },
+    {
+      "title": "A new benchmark just showed how shaky 'agentic' claims really are",
+      "why": "SemiAnalysis's new GDPx benchmark tests frontier models on real agentic tasks rather than static Q&A -- a timely check on the gap between vendor demos and what AI agents can actually finish unsupervised, right as eval and red-teaming work becomes its own career lane."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "pr_number": null,
-  "last_updated": "2026-11-08T23:22:00Z",
+  "last_updated": "2026-11-15T00:00:00Z",
   "nudged_at": null
 }
