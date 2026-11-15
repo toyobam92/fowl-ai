@@ -103,13 +103,14 @@ Structure (same section order every issue — this is the order the published HT
 7. Reddit / Community Chatter
 8. FOWL Prediction #N
 9. 3 Things to Do This Week
-10. Promotional pause — omit the old From the Lab / Launch Lab / Brand Brain / Guides & Resources block until the user restores it.
+10. Promotional pause — the old From the Lab / Launch Lab / Guides & Resources block stays omitted. Do not copy it from earlier issues. The CitySignal and Brand Brain lines in "From the house" are a separate, required block. They are not that old promo.
 11. Emerging Career Title
 12. AI Trainer Platforms / Opportunity Board
 13. New AI Jobs
 14. Closing Reflection
 15. Reply CTA
 16. **Vibe Code Saturdays block (recurring — every issue, unchanged)** — see below
+17. **From the house (recurring — every issue)** — CitySignal, Brand Brain, and Advertise with FOWL AI. Copy lives in the template. See "House ads" below.
 
 ### Front of issue: one job per block, every number once
 
@@ -129,22 +130,42 @@ Each block gets one distinct job and a hard word budget. Draft them in this orde
 | Story 01 "One sentence" | The full, attributed statement of the headline development. | as today | All of them, with sources |
 
 The rules that fall out of that table:
-- **Every specific figure appears at most once before story 01.** If it's in the TL;DR it is not in the subhead, Nova, or intro. Story 01 is where it gets repeated with attribution.
+- **Every specific figure appears at most once before story 01.** If it's in the TL;DR it is not in the subhead, Nova, or intro. Story 01 is where it gets repeated with attribution. The one-time pending intro, when present, sits above these blocks and is exempt. Do not repeat its reader-count figure inside them.
 - **The front four blocks total ≤ 350 words.** (They were 700–860 in Issues 13–16.)
 - **No block before story 01 restates another block's sentence in different words.** If you can delete a block and the reader loses nothing, that block hasn't been given its job yet — rewrite it, don't cut it (the layout expects all four).
 - The intro's roadmap sentence should name what each story adds ("story 02 has the rival bets, 03 the pay data, 05 the catch"), so the reader knows the details are coming and the front doesn't have to carry them.
+
+### House ads
+
+Every issue includes the **From the house** block already in `automation/templates/newsletter.html` and `automation/templates/newsletter.txt`. Keep the copy stable week to week. Do not rewrite it to match the week's topic, and do not drop it on a short week or an anniversary edition.
+
+It has three parts, in this order:
+
+1. **CitySignal** — Toyosi's iPhone app for city and local signals, live in 49 cities with more in preview, Instagram [@citysignalai](https://www.instagram.com/citysignalai/).
+2. **Brand Brain** — FOWL AI's brand-memory product, linked to https://brain.fowl-ai.com.
+3. **Advertise with FOWL AI** — readers who want to sponsor or advertise reply to the email or write hello@fowl-ai.com (the contact already on `/contact/`). Toyosi reads both.
+
+`[CITYSIGNAL_APP_URL]` is an unresolved placeholder. No App Store or multi-city CitySignal website URL is in this repo. The only CitySignal URLs on the site are https://citysignalatl.com/ (the Atlanta site) and https://claude.ai/directory/citysignal (the Claude connector, not the iPhone app). Do not substitute either, and do not invent a URL. Leave the token in the draft and list it under "needs manual verification" until Toyosi supplies the real link. When a real URL is in hand, replace the token with a normal underlined link and delete the TODO comment.
+
+### One-time pending intro
+
+Before drafting, read `automation/pending-intro.md` if it exists.
+
+- If its `issue:` line matches the issue number from step 3, paste that file's HTML note over the `<!-- PENDING_INTRO ... -->` comment in the email (and the same note into the web copy), and paste its plain text over `[PENDING_INTRO]` in the text version. The note sits at the top, after the wordmark and before "The weekly brief". It is a one-time editor's note: it does not count toward the front-of-issue word budget, and its reader-count figure must not be repeated in the hook, subhead, TL;DR, Nova, or intro. Delete `automation/pending-intro.md` in the same commit. If the note is already in the draft, do not paste it a second time.
+- If the file names a different issue, leave the file alone and delete the marker so the issue has no note.
+- If the file does not exist, delete the marker and add nothing. This is not a permanent block.
 
 ## 6. HTML
 
 Use `automation/templates/newsletter.html` as the canonical design and structure for all new issues. Read `automation/templates/README.md` before authoring. The September 2026 template matches the redesigned site: white and pale-mint backgrounds, forest-green accents, native sans-serif typography, a 640 px reading column, presentation tables, and inline styles. The most recent issue is a continuity reference, not the visual template.
 
-Replace all `[UPPERCASE_PLACEHOLDER]` values with the new issue's researched content and absolute source URLs. Preserve the template's editorial class names and the step 5 word budgets. Preserve the five EmailOctopus tags exactly: `{{UnsubscribeURL}}`, `{{SenderInfoLine}}`, `{{RewardsURL}}`, `{{WebVersionURL}}`, and `{{ShareURL}}`. The unsubscribe tag stays a text hyperlink. Set reading time from the finished copy.
+Replace all `[UPPERCASE_PLACEHOLDER]` values with the new issue's researched content and absolute source URLs. Two exceptions: `[PENDING_INTRO]` follows "One-time pending intro" above, and `[CITYSIGNAL_APP_URL]` stays as written until Toyosi supplies a real App Store or website URL. Do not fill that token with a guessed link. Preserve the template's editorial class names and the step 5 word budgets. Preserve the five EmailOctopus tags exactly: `{{UnsubscribeURL}}`, `{{SenderInfoLine}}`, `{{RewardsURL}}`, `{{WebVersionURL}}`, and `{{ShareURL}}`. The unsubscribe tag stays a text hyperlink. Set reading time from the finished copy.
 
 Write the filled email to `issues/<date>/email.html`, with no scripts, forms, JavaScript buttons, external fonts, or image-dependent content. Then create `issues/<date>/index.html` from that same content for the web, adding the SEO metadata in step 7 only to the web copy. Replace web-version/share tags with the canonical issue URL in the web copy; keep provider-only footer tags confined to the email. The matching plain-text skeleton is `automation/templates/newsletter.txt`.
 
-Brand Brain, Launch Lab, and Guides & Resources promotions are paused at the user's request. Do not copy them from earlier issues.
+The old Launch Lab and Guides & Resources promotions stay paused. Do not copy them from earlier issues. Do copy the template's **From the house** block (CitySignal, Brand Brain, Advertise with FOWL AI) into every new email and its web twin. See "House ads" in step 5. On the web copy, keep the same house-ad copy and links. `{{ShareURL}}` and `{{WebVersionURL}}` are still replaced with the canonical issue URL. The house-ad links are real URLs, not provider tags, so leave them as written.
 
-**Vibe Code Saturdays remains a compact recurring block** after the Reply CTA and before Share. Use the block in the canonical template, including its new visual styling, rather than restoring the old orange/green promo. Keep its copy stable week to week. Its first date and venue are still unannounced. Only replace that sentence and the CTA once the user confirms the details.
+**Vibe Code Saturdays remains a compact recurring block** after the Reply CTA and before From the house. Use the block in the canonical template, including its new visual styling, rather than restoring the old orange/green promo. Keep its copy stable week to week. Its first date and venue are still unannounced. Only replace that sentence and the CTA once the user confirms the details.
 
 ## 7. Site plumbing
 
@@ -164,8 +185,9 @@ Before opening the PR, verify:
 - Dates are current and specific; pay ranges are sourced or explicitly framed as estimated.
 - The issue has one clear thesis and a concrete, non-generic hook.
 - No hype, no doom, no unsupported predictions.
-- Both `email.html` and `index.html` have the same issue content; the email has inline styling and no scripts, unresolved issue placeholders, or old promotional blocks.
-- HTML renders sensibly (spot-check the structure) and links resolve. Keep email below 95 KB where practical, and verify it in EmailOctopus before an authorized send.
+- Both `email.html` and `index.html` have the same issue content; the email has inline styling and no scripts, unresolved issue placeholders, or the old Launch Lab / Guides & Resources promo. The From the house block is present (CitySignal, Brand Brain, Advertise with FOWL AI), its EmailOctopus tags are untouched, and `[CITYSIGNAL_APP_URL]` is either a real link Toyosi supplied or still the literal token, flagged below.
+- `[PENDING_INTRO]` and the `PENDING_INTRO` comment are gone. The Issue 27 note appears only in Issue 27, and `automation/pending-intro.md` is deleted in that draft's commit. Later issues do not carry the note.
+- HTML renders sensibly (spot-check the structure) and links resolve, other than a still-unresolved `[CITYSIGNAL_APP_URL]` token. Keep email below 95 KB where practical, and verify it in EmailOctopus before an authorized send.
 - **Front-of-issue redundancy check** (step 5's table): strip the HTML of `mast-sub`, `tldr-text`, `nova-quote`, `nova-call` and `intro-text`, count words per block against the budgets, and list every figure (dollar amounts, percentages, headcounts, multiples like "42x") that appears in them. Any figure appearing twice before story 01, or a front total over 350 words, means go back and rewrite — this is the specific complaint that prompted the rule, not a nice-to-have.
 
 Anything you flagged in step 4.8 as unsourced goes into the PR description under "needs manual verification" — don't silently drop it or silently guess a source.
@@ -230,8 +252,8 @@ Milestone issues are **20, 50, 100, 150, 200, …** (the owner's pick, 2026-09-2
 **What changes in the draft:**
 - **Design.** Start from `python3 automation/templates/assemble_anniversary.py > /tmp/skeleton.html`, which merges `automation/templates/anniversary-blocks.html` into the normal template. It adds the confetti band, the ribbon (a big marigold issue numeral with a "Special edition" pill), the four-figure stats strip after the masthead, and "How we’ve grown" plus the thank-you before the closing reflection. Put `Special edition` in `[EDITION_LABEL]` (for example `Issue 20 · Special edition`).
 - **Stats strip.** Use milestone facts only: the issue number, the live subscriber count (read it from the EmailOctopus audience, or use the last send's count and flag it in the PR), weeks since the launch on 2026-05-27, and one more real count (such as jobs or platforms listed to date). Don't repeat these figures in the TL;DR, Nova, or intro.
-- **How we’ve grown.** Use `[GROWTH_*]` bars for real recorded subscriber counts, oldest first. Take them from the project's subscriber-milestone history and the EmailOctopus campaign sent counts. For Issue 20 those are ~150 (early, before Jul 2026), 170 (Jul 11), 190 (Jul 27), 206 (Aug 23), 250 (Sep 13), 287 (Sep 22 send), then the live count. Follow them with 3–5 "firsts" (for example: first issue May 27 2026, Nova's daily videos, the site redesign, Vibe Code Saturdays). Use only facts you can verify in the repo or git history, and keep it warm, specific, and short. `[GROWTH_HEADING]` is one plain line (for example "From 150 readers to [N]").
-- **Thanks.** One or two sentences, specific (for example, the reply that changed a topic). No sales pitch, no promotional blocks.
+- **How we’ve grown.** Use `[GROWTH_*]` bars for real recorded subscriber counts, oldest first. Take them from the project's subscriber-milestone history and the EmailOctopus campaign sent counts. For Issue 20 those are ~150 (early, before Jul 2026), 170 (Jul 11), 190 (Jul 27), 206 (Aug 23), 250 (Sep 13), 287 (Sep 22 send), then the live count. Later recorded checkpoints: 423 (early November 2026, around Issue 25) and 850 (November 15, 2026; verified sign-ups, mostly November 10–15, after Issue 25). Use the live EmailOctopus count when you draft. Follow them with 3–5 "firsts" (for example: first issue May 27 2026, Nova's daily videos, the site redesign, Vibe Code Saturdays). Use only facts you can verify in the repo or git history, and keep it warm, specific, and short. `[GROWTH_HEADING]` is one plain line (for example "From 150 readers to [N]").
+- **Thanks.** One or two sentences, specific (for example, the reply that changed a topic). No sales pitch inside the thank-you. The recurring From the house block still runs, the same as any other issue.
 
 Add `Special edition` to the web copy's `<title>` and to the archive-list entry in `issues/index.html`.
 

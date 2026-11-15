@@ -14,11 +14,19 @@ The website and email now share a light canvas, forest-green accents, native san
 
 ## Editorial structure
 
-Masthead and provenance → main takeaway → Nova's perspective and short intro → five sourced developments → signals → community context → prediction → three actions → career radar → platform opportunities and jobs → closing and reply → Vibe Code Saturdays → share and footer.
+Masthead and provenance → main takeaway → Nova's perspective and short intro → five sourced developments → signals → community context → prediction → three actions → career radar → platform opportunities and jobs → closing and reply → Vibe Code Saturdays → From the house → share and footer.
 
 The established front-of-issue word budgets and source checks still apply. Each opening block has a separate purpose. Source links belong with the relevant claims. A community report must be identified as reported experience. Keep forecasts explicit and give them a review date.
 
-Brand Brain, Launch Lab, and Guides & Resources promotions are paused. Do not carry them forward from old issues. Vibe Code Saturdays stays as one compact recurring block after the reply prompt. Its first date and venue are still unannounced; update only when confirmed.
+The old Launch Lab and Guides & Resources promotions stay paused. Do not carry them forward from old issues. Vibe Code Saturdays stays as one compact recurring block after the reply prompt. Its first date and venue are still unannounced; update only when confirmed.
+
+**From the house** is a recurring block after Vibe Code Saturdays and before the share prompt. Keep its three parts every issue, in this order, and do not rewrite them to fit the week's topic:
+
+1. CitySignal — Toyosi's iPhone app for city and local signals, live in 49 cities with more in preview. Instagram is [@citysignalai](https://www.instagram.com/citysignalai/). `[CITYSIGNAL_APP_URL]` is a TODO. No App Store or multi-city website URL is in this repo. Do not substitute `https://citysignalatl.com/` (Atlanta-only) or `https://claude.ai/directory/citysignal` (Claude connector, not the iPhone app), and do not invent a URL.
+2. Brand Brain — FOWL AI's brand-memory product, at https://brain.fowl-ai.com.
+3. Advertise with FOWL AI — readers interested in sponsoring or advertising reply to the email or write hello@fowl-ai.com.
+
+`[PENDING_INTRO]` (and the matching HTML comment) is not a section. If `automation/pending-intro.md` names this issue, paste that note there and delete the file. Otherwise delete the marker. The rules are in `.claude/skills/weekly-issue/SKILL.md`.
 
 ## Anniversary editions
 

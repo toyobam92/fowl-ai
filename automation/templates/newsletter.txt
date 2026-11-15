@@ -6,6 +6,8 @@ Read in browser ({{WebVersionURL}})
 
  FOWLAI
 
+[PENDING_INTRO]
+
 The weekly brief
 
 [HEADLINE]
@@ -187,6 +189,20 @@ A free, hands-on Saturday to build a website, newsletter, portfolio, or useful t
 First date and venue coming soon. Apply and we’ll follow up with the details.
 
 Explore Vibe Code Saturdays → (https://www.fowl-ai.com/vibe-code-saturdays/apply/)
+
+From the house
+
+CitySignal
+Toyosi's iPhone app for city and local signals. Live in 49 cities, with more in preview.
+Instagram @citysignalai (https://www.instagram.com/citysignalai/)
+Get the app: [CITYSIGNAL_APP_URL]
+
+Brand Brain
+An AI brand-memory product by FOWL AI. It keeps a brand's voice, colors, audience, and offers in one place, so the work sounds like you.
+Open Brand Brain → (https://brain.fowl-ai.com)
+
+Advertise with FOWL AI
+Interested in sponsoring an issue or advertising to these readers? Reply to this email, or write hello@fowl-ai.com. Toyosi reads both.
 
 Know someone who’d find this useful?
 
