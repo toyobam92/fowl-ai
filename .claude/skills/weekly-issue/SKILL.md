@@ -139,11 +139,13 @@ The rules that fall out of that table:
 
 Every issue includes the **From the house** block already in `automation/templates/newsletter.html` and `automation/templates/newsletter.txt`. Keep the copy stable week to week. Do not rewrite it to match the week's topic, and do not drop it on a short week or an anniversary edition.
 
+House ads are written in the first person, because Toyosi writes the newsletter. Never say "Toyosi" or "Toyosi's" in that block.
+
 It has three parts, in this order:
 
-1. **CitySignal** — Toyosi's iPhone app for city and local signals, live in 49 cities with more in preview. Instagram [@citysignalai](https://www.instagram.com/citysignalai/). App Store: https://apps.apple.com/us/app/citysignal-route-intelligence/id6808350085. Site: https://citysignalai.com. Keep those exact links. Do not swap in https://citysignalatl.com/ or https://claude.ai/directory/citysignal.
+1. **CitySignal** — "The agent that knows your places. Live in 49 cities, with more in preview." Instagram [@citysignalai](https://www.instagram.com/citysignalai/). App Store: https://apps.apple.com/us/app/citysignal-route-intelligence/id6808350085. Site: https://citysignalai.com. Keep those exact links. Do not swap in https://citysignalatl.com/ or https://claude.ai/directory/citysignal.
 2. **Brand Brain** — FOWL AI's brand-memory product, linked to https://brain.fowl-ai.com.
-3. **Advertise with FOWL AI** — readers who want to sponsor or advertise reply to the email or write hello@fowl-ai.com (the contact already on `/contact/`). Toyosi reads both.
+3. **Advertise with FOWL AI** — readers who want to sponsor or advertise reply to the email or write hello@fowl-ai.com (the contact already on `/contact/`). "I read both."
 
 ### One-time pending intro
 
