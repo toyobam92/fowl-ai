@@ -52,7 +52,7 @@ function copyToDashboard() {
  const data = new URLSearchParams({
   name: field('entry.2041948317'), email: field('entry.1886223741'), link: field('entry.1366720631'),
   journey: field('entry.1703014300'), idea: field('entry.2039152267'), why: field('entry.844914439'),
-  attend: field('entry.2098592694'), notes: field('entry.156077931'), session: 'Sat Nov 14',
+  attend: field('entry.2098592694'), notes: field('entry.156077931'), session: 'Sat Nov 21',
   fg_t: loadedAt, fg_s: String(Date.now()),
  });
  try { navigator.sendBeacon('https://tools.fowl-ai.com/vcs/signup', new Blob([data.toString()], { type: 'application/x-www-form-urlencoded' })); } catch (e) {}
