@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 09 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 16 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 26: SemiAnalysis just built a benchmark hard enough to test real agentic work. The best AI model in the world passed 12% of it.</title>
+      <link>https://www.fowl-ai.com/issues/2026-11-16/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-11-16/</guid>
+      <pubDate>Mon, 16 Nov 2026 00:00:00 GMT</pubDate>
+      <description>SemiAnalysis's new GDPx benchmark gave frontier AI agents a 12% passing score on real professional work. Here's how that lines up with Berkeley's Agents' Last Exam, Gartner's pilot-cancellation forecast, and the new jobs built to close the gap.</description>
+    </item>
     <item>
       <title>Issue 25: A federal appeals court just ruled that training AI on copyrighted text isn’t automatically fair use. The industry’s biggest copyright case closed this year without ever getting the chance to argue otherwise.</title>
       <link>https://www.fowl-ai.com/issues/2026-11-09/</link>
