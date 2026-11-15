@@ -1,5 +1,5 @@
 {
-  "status": "drafting",
+  "status": "drafted",
   "last_proposed": "2026-11-15",
   "week_of": "2026-11-16",
   "topics": [
@@ -26,7 +26,7 @@
   ],
   "rejected_titles": [],
   "picked_topic": "A new benchmark just showed how shaky 'agentic' claims really are",
-  "pr_number": null,
-  "last_updated": "2026-11-15T01:12:00Z",
+  "pr_number": 130,
+  "last_updated": "2026-11-15T01:30:00Z",
   "nudged_at": null
 }
