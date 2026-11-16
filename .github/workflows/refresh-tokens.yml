@@ -90,6 +90,13 @@ jobs:
             ig="META_IG_ACCESS_TOKEN_${brand}"; th="META_THREADS_ACCESS_TOKEN_${brand}"
             refresh "$ig" \
               "https://graph.instagram.com/refresh_access_token?grant_type=ig_refresh_token&access_token=${!ig}"
+            # @brandbrainhq Threads is paused (owner, Nov 16 2026): Meta holds the
+            # account at a checkpoint that texts a phone number she no longer
+            # has, so every refresh fails. Remove this skip once it is reconnected.
+            if [ "$brand" = "BRANDBRAINHQ" ]; then
+              echo "$th: paused, skipped"
+              continue
+            fi
             refresh "$th" \
               "https://graph.threads.net/refresh_access_token?grant_type=th_refresh_token&access_token=${!th}"
           done
