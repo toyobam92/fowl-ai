@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-11-12",
-  "publish_date": null,
-  "tone": "casual-professional",
-  "topics": [],
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-11-17",
+  "publish_date": "2026-11-18",
+  "tone": "professional",
+  "topics": [
+    {
+      "title": "OpenAI's funding round hits $11B first close at a $1.25 trillion valuation",
+      "why": "SoftBank and MGX are leading a round that size even amid bubble talk — a clear signal of how much capital is still betting on AI's trajectory."
+    },
+    {
+      "title": "DOJ opens an AI task force the same week it charges a deepfake CEO-impersonation fraud ring",
+      "why": "The DOJ's new Super Intelligence Task Force and the fraud charges are a direct warning for anyone who handles wire transfers or vendor calls: AI voice/video impersonation is now being actively prosecuted, not hypothetical."
+    },
+    {
+      "title": "Another AI-linked layoff wave: Meta cuts 8,000, Intuit cuts about 3,000",
+      "why": "More companies are explicitly tying headcount cuts to AI reinvestment — a budget signal knowledge workers should be tracking, not just a tech-industry story."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-11-16T00:00:00Z"
+  "last_updated": "2026-11-17T00:00:00Z"
 }
