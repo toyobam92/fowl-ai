@@ -9,8 +9,12 @@ name: sync-signups
 # service account with read-only access to just this one sheet (granted via
 # Sheet-level sharing, no project-wide IAM role) closes the gap headlessly.
 #
-# The Sheet has known rapid-duplicate submissions from a handful of
-# addresses (looks like bot traffic). Uses POST (create-only, confirmed 409
+# Nov 18 2026: the homepage boxes no longer post to the public Google Form
+# (a script fed it about 1,700 rows of other people's addresses from Nov 10).
+# They post to tools.fowl-ai.com/newsletter, which holds likely bots and
+# writes the rest to a new, unpublished-address form whose responses land in
+# the 'Form Responses 2' tab of this same sheet. This job reads only that tab;
+# 'Form Responses 1' (the old form) is never read again. Uses POST (create-only, confirmed 409
 # on an existing email) rather than PUT (create-or-update): PUT would
 # silently flip a contact's status back to "subscribed" even if they'd since
 # unsubscribed for real, since it always sets what's in the request body.
@@ -27,7 +31,7 @@ permissions:
 
 env:
   SHEET_ID: '1ig0Q53uu5Ax0D4d8C9QBNgThBPRg47SjGAzVG6v3TWE'
-  SHEET_TAB: 'Form Responses 1'
+  SHEET_TAB: 'Form Responses 2'
   EMAILOCTOPUS_LIST_ID: '2db3799e-5a00-11f1-af98-ebe52727da5b' # "Audience" list
 
 jobs:

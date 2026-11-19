@@ -54,59 +54,28 @@
     });
   });
 
+  // The newsletter boxes post to tools.fowl-ai.com/newsletter (Nov 18 2026). The server checks the sign-up
+  // came from this page and wasn't sent instantly (fg.js stamps the times), then writes it to the owner's
+  // Google Form. Until then the boxes posted to a public Google Form, and a script fed it about 1,700 rows
+  // of other people's addresses in nine days. The server sends people on to /subscribed/.
+  var badSignup = new URLSearchParams(window.location.search).get('signup') === 'error';
   document.querySelectorAll('.newsletter-form').forEach(function (form) {
     var button = form.querySelector('button');
     var input = form.querySelector('input[type=email]');
     var response = document.getElementById(form.dataset.response);
-    var frame = document.querySelector('iframe[name="' + form.target + '"]');
-    var label = button.innerHTML;
-    var pending = false;
-    var timeout;
     var started = false;
     input.addEventListener('input', function () {
       if (started) return;
       started = true;
       track('subscribe_start', { form_id: form.id });
     });
-    function showMessage(text) {
-      response.replaceChildren(document.createTextNode(text + ' '));
-      var link = document.createElement('a');
-      link.href = 'https://fowlai.eo.page/vmk69';
-      link.textContent = 'Open the signup page';
-      response.appendChild(link);
-      response.hidden = false;
-    }
-    function reset() {
-      pending = false;
-      window.clearTimeout(timeout);
-      button.disabled = false;
-      button.innerHTML = label;
-      form.removeAttribute('aria-busy');
-    }
-    form.addEventListener('submit', function (event) {
-      if (pending) { event.preventDefault(); return; }
-      pending = true;
-      response.hidden = true;
+    form.addEventListener('submit', function () {
       button.disabled = true;
       button.textContent = 'Sending…';
-      form.setAttribute('aria-busy', 'true');
-      timeout = window.setTimeout(function () {
-        reset();
-        showMessage('We could not confirm your request. You can finish subscribing on our signup page.');
-      }, 18000);
     });
-    // The existing Google Forms integration has no cross-origin confirmation API.
-    // A frame load is a returned request, never proof of a completed subscription.
-    frame.addEventListener('load', function () {
-      if (!pending) return;
-      reset();
-      showMessage('Thanks for your interest. Look out for FOWL AI in your inbox. If nothing arrives, finish subscribing here.');
-      track('subscribe_request_returned', { form_id: form.id, method: 'embedded_form' });
-    });
-    frame.addEventListener('error', function () {
-      if (!pending) return;
-      reset();
-      showMessage('Something interrupted your request. Please use our signup page to finish subscribing.');
-    });
+    if (badSignup && form.id === 'fowlSignupForm' && response) {
+      response.textContent = 'That email address did not look right. Please check it and try again.';
+      response.hidden = false;
+    }
   });
 })();
