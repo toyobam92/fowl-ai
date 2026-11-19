@@ -9,8 +9,9 @@
  *   - subscribe_click   fires specifically for links to the newsletter
  *                        signup platform (fowlai.eo.page) — most pages link
  *                        out to subscribe.
- *   - subscribe_attempt fires when an embedded Google Form is submitted.
- *                        Its cross-origin response cannot confirm signup.
+ *   - subscribe_attempt fires when a homepage newsletter box is submitted
+ *                        (it posts to tools.fowl-ai.com/newsletter, which
+ *                        holds likely bots, so this is not a confirmed signup).
  *   - subscribe_submit  fires on the EmailOctopus success redirect:
  *                          - "emailoctopus_redirect": fowlai.eo.page (the
  *                            EmailOctopus landing page every other page's

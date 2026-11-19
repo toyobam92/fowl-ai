@@ -39,6 +39,7 @@
   <link rel="stylesheet" href="/assets/site.css">
   <link rel="stylesheet" href="/assets/home.css">
   <script src="/assets/site.js" defer></script>
+  <script src="/assets/fg.js" defer></script>
   <meta name="theme-color" content="#185b42">
 </head>
 <body class="fowl-home">
@@ -62,15 +63,14 @@
     <h1 id="home-title">The future of work.<br><span>Your next advantage.</span></h1>
     <p class="hero-description">Find your place in the AI economy. The jobs, platforms, and ideas worth your attention, in one five-minute read.</p>
     <div class="hero-signup" id="signup">
-      <form id="fowlSignupForm" class="signup-form newsletter-form" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlHiddenFrame" data-response="fowlSignupResponse">
+      <form id="fowlSignupForm" class="signup-form newsletter-form" action="https://tools.fowl-ai.com/newsletter" method="POST" data-response="fowlSignupResponse">
         <label class="sr-only" for="hero-email">Your email address</label>
-        <input id="hero-email" type="email" name="entry.433381883" placeholder="Email address" autocomplete="email" inputmode="email" required maxlength="254" aria-describedby="hero-signup-note">
+        <input type="text" name="leave_empty_hp" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only">
+        <input id="hero-email" type="email" name="email" placeholder="Email address" autocomplete="email" inputmode="email" required maxlength="254" aria-describedby="hero-signup-note">
         <button class="fowl-button" type="submit">Get the free briefing <span aria-hidden="true">↗</span></button>
       </form>
       <p id="hero-signup-note" class="signup-note">Every Monday. Always free. Unsubscribe anytime.</p>
       <div id="fowlSignupResponse" class="signup-response" role="status" aria-live="polite" hidden></div>
-      <iframe name="fowlHiddenFrame" title="Newsletter signup response" hidden></iframe>
-      <noscript><p class="signup-note">For a confirmed signup, <a href="https://fowlai.eo.page/vmk69">use our newsletter signup page</a>.</p></noscript>
     </div>
     <div class="hero-proof"><span class="proof-symbol" aria-hidden="true">✓</span><span>Join <strong>850+ readers</strong> staying one step ahead.</span></div>
 
@@ -154,12 +154,11 @@
 
   <section class="closing-section" aria-labelledby="closing-title"><p class="section-eyebrow">Your Monday, upgraded.</p><h2 id="closing-title">A little perspective.<br>A world of possibility.</h2><p>Get the AI opportunities worth knowing about.<br>One thoughtful briefing. Straight to your inbox.</p>
     <div class="hero-signup">
-      <form id="fowlFooterSignupForm" class="signup-form newsletter-form" action="https://docs.google.com/forms/d/e/1FAIpQLScSX_Mx1qWhzU8CbW8CdobXBT0GultC40cqCGPOGVJMzzj3lw/formResponse" method="POST" target="fowlFooterFrame" data-response="fowlFooterSignupResponse">
-        <label class="sr-only" for="footer-email">Your email address</label><input id="footer-email" type="email" name="entry.433381883" placeholder="Email address" autocomplete="email" inputmode="email" required maxlength="254" aria-describedby="footer-signup-note"><button class="fowl-button" type="submit">Get the free briefing <span aria-hidden="true">↗</span></button>
+      <form id="fowlFooterSignupForm" class="signup-form newsletter-form" action="https://tools.fowl-ai.com/newsletter" method="POST" data-response="fowlFooterSignupResponse">
+        <label class="sr-only" for="footer-email">Your email address</label><input type="text" name="leave_empty_hp" tabindex="-1" autocomplete="off" aria-hidden="true" class="sr-only"><input id="footer-email" type="email" name="email" placeholder="Email address" autocomplete="email" inputmode="email" required maxlength="254" aria-describedby="footer-signup-note"><button class="fowl-button" type="submit">Get the free briefing <span aria-hidden="true">↗</span></button>
       </form>
       <p id="footer-signup-note" class="signup-note">Free every Monday. Unsubscribe anytime. <a href="/privacy/">Privacy</a></p>
-      <div id="fowlFooterSignupResponse" class="signup-response" role="status" aria-live="polite" hidden></div><iframe name="fowlFooterFrame" title="Newsletter signup response" hidden></iframe>
-      <noscript><p class="signup-note"><a href="https://fowlai.eo.page/vmk69">Subscribe on our signup page</a>.</p></noscript>
+      <div id="fowlFooterSignupResponse" class="signup-response" role="status" aria-live="polite" hidden></div>
     </div>
   </section>
 </main>
