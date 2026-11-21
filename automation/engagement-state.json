@@ -1,9 +1,28 @@
 {
-  "status": "idle",
-  "last_proposed": null,
-  "batch_date": null,
-  "comments": [],
+  "status": "pr_open",
+  "last_proposed": "2026-11-21",
+  "batch_date": "2026-11-21",
+  "comments": [
+    {
+      "platform": "threads",
+      "target": "HeyGen",
+      "post_url": "https://www.threads.net/@heygen_official",
+      "reply_to_id": null,
+      "text": "84.4% indistinguishable is a strong number, but New Measure's arena tested short clips only, and HeyGen ran slower than Runway in that same test. For teams replacing talking-head Zoom updates with Avatar 6, the real trade is realism vs. render time, not score.",
+      "status": "proposed",
+      "note": "Reacting to HeyGen's Avatar 6 launch (Nov 17-18, 2026 press release/technical report). Could not confirm the literal Threads post URL -- threads.net is blocked by this session's network proxy and isn't web-search indexed. post_url is the account profile; find the Avatar 6 launch post there (should be the most recent from ~Nov 17-18) before pasting."
+    },
+    {
+      "platform": "threads",
+      "target": "OpenAI",
+      "post_url": "https://www.threads.net/@openai",
+      "reply_to_id": null,
+      "text": "Epoch's early read has Astra/Sol trailing Claude on real-world tasks despite the benchmark wins, and Shumer's redo-via-Claude story is the detail worth tracking. For teams picking tools, a premature done signal costs more trust than a lower score ever will.",
+      "status": "proposed",
+      "note": "Reacting to the GPT-6.2 Astra/Sol launch (openai.com announcement + coverage, Nov 18-19, 2026). Could not confirm the literal Threads post URL -- same proxy/indexing limitation as above. post_url is the account profile; find the Astra/Sol launch post there before pasting."
+    }
+  ],
   "pr_number": null,
-  "pr_branch": null,
-  "last_updated": null
+  "pr_branch": "update/engage-2026-11-21",
+  "last_updated": "2026-11-21"
 }
