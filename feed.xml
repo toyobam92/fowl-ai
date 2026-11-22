@@ -6,7 +6,14 @@
     <description>Career signals for the AI economy — AI jobs, vetted training platforms, and plain-English breakdowns of what's actually happening in AI. Free, every Monday.</description>
     <language>en-us</language>
     <atom:link href="https://www.fowl-ai.com/feed.xml" rel="self" type="application/rss+xml" />
-    <lastBuildDate>Mon, 16 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 23 Nov 2026 00:00:00 GMT</lastBuildDate>
+    <item>
+      <title>Issue 27: OpenAI's new models aren't built to win a leaderboard. They're priced for the job you do on a Tuesday.</title>
+      <link>https://www.fowl-ai.com/issues/2026-11-23/</link>
+      <guid isPermaLink="true">https://www.fowl-ai.com/issues/2026-11-23/</guid>
+      <pubDate>Mon, 23 Nov 2026 00:00:00 GMT</pubDate>
+      <description>OpenAI's new GPT-6.2 Astra and Sol are priced for everyday work, not benchmark bragging rights. Here's the backlash, the cost-per-task shift reshaping enterprise AI budgets, and the new jobs built to manage it.</description>
+    </item>
     <item>
       <title>Issue 26: SemiAnalysis just built a benchmark hard enough to test real agentic work. The best AI model in the world passed 12% of it.</title>
       <link>https://www.fowl-ai.com/issues/2026-11-16/</link>
