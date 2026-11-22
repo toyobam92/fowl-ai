@@ -1,32 +1,4 @@
 {
-  "status": "drafted",
-  "week_of": "2026-11-23",
-  "last_proposed": "2026-11-22",
-  "topics": [
-    {
-      "title": "AI agent observability just became its own security market",
-      "why": "CrowdStrike is buying Fiddler to bolt agent observability onto Falcon — enterprises now have to watch their agents the way they watch their network."
-    },
-    {
-      "title": "The midterms just put AI and data-center buildout back on the table",
-      "why": "A Nov 16 policy brief says the 2026 midterm results could reshape federal AI and data-center rules right as power and permitting fights are heating up."
-    },
-    {
-      "title": "AI-fluent grads still can't find a first job",
-      "why": "The New York Fed put recent-grad unemployment at 5.2% in Q3 even as employers keep saying they'd rather see AI skills than a diploma."
-    },
-    {
-      "title": "OpenAI's new models are built for your job, not a benchmark",
-      "why": "GPT-6.2 Astra and Sol reportedly target everyday professional work at lower compute cost — the opposite pitch from the usual frontier-capability race."
-    },
-    {
-      "title": "79% of companies have AI agents. 15% can prove they're worth it.",
-      "why": "A new Genpact report puts the clearest number yet on the gap between deploying agents and actually measuring what they return."
-    }
-  ],
-  "rejected_titles": [],
-  "picked_topic": "OpenAI's new models are built for your job, not a benchmark",
-  "pr_number": 140,
-  "last_updated": "2026-11-22T00:00:00Z",
-  "nudged_at": null
+  "status": "idle",
+  "last_proposed": "2026-11-22"
 }
