@@ -1,5 +1,5 @@
 {
-  "status": "awaiting_pick",
+  "status": "drafting",
   "week_of": "2026-11-23",
   "last_proposed": "2026-11-22",
   "topics": [
@@ -25,7 +25,7 @@
     }
   ],
   "rejected_titles": [],
-  "picked_topic": null,
+  "picked_topic": "OpenAI's new models are built for your job, not a benchmark",
   "pr_number": null,
   "last_updated": "2026-11-22T00:00:00Z",
   "nudged_at": null
