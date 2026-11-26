@@ -1,22 +1,9 @@
 {
-  "status": "awaiting_topic_pick",
+  "status": "idle",
   "last_proposed": "2026-11-22",
-  "publish_date": "2026-11-23",
+  "publish_date": null,
   "tone": "casual-professional",
-  "topics": [
-    {
-      "title": "Nvidia's Jensen Huang resigns amid affair scandal",
-      "why": "The board ousting the founder-CEO of the world's most valuable chipmaker, over an affair involving an alleged Chinese spy, is a reminder that even AI's most dominant leaders aren't untouchable."
-    },
-    {
-      "title": "OpenAI ships GPT-6.2 Astra and Sol",
-      "why": "A new frontier model plus a cheaper everyday model at the same API price means better AI tools for anyone already building on ChatGPT or the API, with no price hike."
-    },
-    {
-      "title": "OpenAI raises $15B at a $1.25T valuation",
-      "why": "That's only half the $30B OpenAI was reportedly seeking and below the $1.4T it pitched investors — a sign even AI's biggest name is facing pickier money."
-    }
-  ],
+  "topics": [],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -26,5 +13,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-11-22T00:00:00Z"
+  "last_updated": "2026-11-26T00:00:00Z"
 }
