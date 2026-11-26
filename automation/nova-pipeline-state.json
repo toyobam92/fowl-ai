@@ -1,9 +1,22 @@
 {
-  "status": "idle",
-  "last_proposed": "2026-11-22",
-  "publish_date": null,
+  "status": "awaiting_topic_pick",
+  "last_proposed": "2026-11-26",
+  "publish_date": "2026-11-27",
   "tone": "casual-professional",
-  "topics": [],
+  "topics": [
+    {
+      "title": "OpenAI ships GPT-6.2 Astra and Sol",
+      "why": "The new flagship (Astra) is the first OpenAI model to trip its own \"high-risk cyber capability\" safety threshold, while the cheaper everyday model (Sol) just became the default assistant for millions of knowledge workers overnight."
+    },
+    {
+      "title": "Nvidia's ousted CEO agrees to face the Senate",
+      "why": "Jensen Huang resigned after an affair scandal involving an alleged Chinese spy, and has now agreed to testify before the Senate Banking Committee — a reminder that AI's biggest hardware company just lost its founder-CEO to personal scandal, not strategy."
+    },
+    {
+      "title": "Thinking Machines Lab's $5B round comes with a co-founder firing",
+      "why": "Mira Murati's year-old, product-less startup closed the largest AI seed round of the year, then fired co-founder/CTO Barret Zoph days later — a sign of how fast leadership can fracture inside even the best-funded AI labs."
+    }
+  ],
   "rejected_titles": [],
   "picked_topic": null,
   "script": null,
@@ -13,5 +26,5 @@
   "pr_number": null,
   "pr_branch": null,
   "video_id": null,
-  "last_updated": "2026-11-26T00:00:00Z"
+  "last_updated": "2026-11-26T01:40:00Z"
 }
